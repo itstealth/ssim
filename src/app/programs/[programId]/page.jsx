@@ -1,0 +1,886 @@
+"use client";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronRight,
+  ChevronDown,
+  Menu,
+  Clock,
+  BookOpen,
+  MapPin,
+  GraduationCap,
+  Briefcase,
+  FlaskRoundIcon as Flask,
+  Users,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+  DrawerClose,
+} from "@/components/ui/drawer";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import { CheckCircle, ArrowRight, CalendarRange } from "lucide-react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { programData } from "@/data/programData";
+
+export const programs = [
+  { id: "fpm/efpm", name: "FPM/EFPM", link: "/programs/fpm-efpm" },
+  { id: "pgdm-ba", name: "PGDM BA", link: "/programs/pgdm-ba" },
+  { id: "pgdm-bifs", name: "PGDM BIFS", link: "/programs/pgdm-bifs" },
+  {
+    id: "pgdm-triple-specialisation",
+    name: "PGDM Triple Specialisation",
+    link: "/programs/pgdm-triple-specialisation",
+  },
+];
+
+const sections = [
+  { id: "about", name: "About", icon: ChevronRight },
+  {
+    id: "electives",
+    name: "Specializations",
+    icon: ChevronRight,
+    hidden: ["fpm/efpm"],
+  },
+  // { id: "specializations", name: "Specializations", icon: ChevronRight },
+  {
+    id: "managerialCompetency",
+    name: "Managerial Competency Development Modules",
+    icon: ChevronRight,
+  },
+  { id: "differentiators", name: "Differentiators", icon: ChevronRight },
+  {
+    id: "curriculum",
+    name: "Program Structure",
+    icon: ChevronRight,
+    hidden: ["fpm/efpm"],
+  },
+  { id: "eligibility", name: "Eligibility & Admission", icon: ChevronRight },
+];
+
+const useMediaQuery = (query) => {
+  const [matches, setMatches] = React.useState(false);
+
+  React.useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [matches, query]);
+
+  return matches;
+};
+
+const ProgramStats = ({ programId }) => {
+  const program = programData[programId];
+
+  const data = [
+    { name: "Applicants", value: program.stats.applicants },
+    { name: "Enrolled", value: program.stats.enrolled },
+    { name: "Graduates", value: program.stats.graduates },
+    { name: "Avg. Salary", value: program.stats.avgSalary / 1000 },
+  ];
+
+  return (
+    <div className="p-4">
+      <h2 className="text-2xl font-bold mb-4">{program.name} Statistics</h2>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={data}>
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Bar dataKey="value" fill="#8884d8" />
+        </BarChart>
+      </ResponsiveContainer>
+      <div className="mt-4">
+        <p>Employment Rate: {program.stats.employmentRate}%</p>
+        <p>Average Time to Graduate: {program.stats.avgTimeToGraduate} years</p>
+      </div>
+    </div>
+  );
+};
+
+const ProgramComparison = ({ programs }) => {
+  const comparisonData = [
+    { feature: "Duration", key: "duration" },
+    { feature: "Credits", key: "credits" },
+    { feature: "Sanctioned Intake", key: "Sanctioned Intake" },
+    { feature: "Location", key: "location" },
+    { feature: "Degree", key: "degree" },
+    { feature: "Applicants", key: "applicants" },
+    { feature: "Enrolled", key: "enrolled" },
+    { feature: "Graduates", key: "graduates" },
+    { feature: "Employment Rate", key: "employmentRate" },
+    { feature: "Avg. Salary", key: "avgSalary" },
+    { feature: "Avg. Time to Graduate", key: "avgTimeToGraduate" },
+  ];
+
+  return (
+    <div>
+      <h2 className="text-3xl font-bold mb-6 text-mainBlue">
+        Program Comparison
+      </h2>
+      <Table>
+        <TableHeader className="bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
+          <TableRow>
+            <TableHead className="text-[#293794]">Feature</TableHead>
+            {programs.map((program) => (
+              <TableHead className="text-[#293794]" key={program.id}>
+                {program.name}
+              </TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {comparisonData.map(({ feature, key }) => (
+            <TableRow key={key}>
+              <TableCell className="font-medium text-base">{feature}</TableCell>
+              {programs.map((program) => (
+                <TableCell className="text-base" key={program.id}>
+                  {key in programData[program.id].keyInfo
+                    ? programData[program.id].keyInfo[key]
+                    : key in programData[program.id].stats
+                    ? key === "avgSalary"
+                      ? `$${programData[program.id].stats[
+                          key
+                        ].toLocaleString()}`
+                      : key === "employmentRate" || key === "avgTimeToGraduate"
+                      ? `${programData[program.id].stats[key]}%`
+                      : programData[program.id].stats[key].toLocaleString()
+                    : "N/A"}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
+};
+
+const KeyInformation = ({ info }) => {
+  const iconMap = {
+    duration: Clock,
+    credits: BookOpen,
+    "Sanctioned Intake": CalendarRange,
+    location: MapPin,
+    degree: GraduationCap,
+  };
+
+  return (
+    <div>
+      <h3 className="text-2xl font-semibold mb-4 text-red-600">
+        Key Information
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {Object.entries(info).map(([key, value]) => {
+          const Icon = iconMap[key];
+          return (
+            <Card
+              key={key}
+              className={`overflow-hidden ${
+                key === "degree" ? "md:col-span-2" : ""
+              }`}
+            >
+              <CardContent className="p-6 flex items-start space-x-4">
+                <div className="bg-mainBlue rounded-full p-3 flex-shrink-0">
+                  <Icon className="h-6 w-6 text-primary-foreground" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-medium text-base text-gray-800 capitalize">
+                    {key}
+                  </h4>
+                  <p className="text-lg font-semibold text-red-600 break-words">
+                    {value}
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const Specializations = ({ specializations }) => {
+  return (
+    <div>
+      <h3 className="text-2xl font-semibold mb-4 text-red-600">
+        Specializations
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {specializations?.map((spec, index) => (
+          <Card
+            key={index}
+            className="overflow-hidden flex flex-row items-center gap-4 p-2"
+          >
+            {spec.icon.startsWith("http") ? (
+              <img src={spec?.icon} alt={spec?.title} className="w-20 h-20" />
+            ) : (
+              <div className="min-w-20 h-20 flex items-center justify-center text-4xl bg-gray-50 rounded-lg">
+                {spec?.icon}
+              </div>
+            )}
+            <CardTitle className="text-xl text-red-600">
+              {spec?.title}
+            </CardTitle>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
+const ManagerialCompetency = ({ managerialCompetency }) => {
+  return (
+    <div>
+      <h3 className="text-2xl font-semibold mb-4 text-red-600">
+        Managerial Competency Development Modules
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {managerialCompetency.map((spec, index) => (
+          <Card
+            key={index}
+            className="overflow-hidden flex flex-col gap-3 p-5 sm:p-3"
+          >
+            <div className="flex flex-row items-center gap-4">
+              <img src={spec?.icon} alt={spec?.title} className="w-16 h-16" />
+              <CardTitle className="text-xl text-red-600">
+                {spec?.title}
+              </CardTitle>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="relative">
+                <CardDescription className="sm:line-clamp-2 line-clamp-1">
+                  {spec?.description}
+                </CardDescription>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="link"
+                      className="text-mainBlue bg-white p-0 h-auto absolute right-0 bottom-0 bg-gradient-to-l from-white via-white to-transparent pl-4"
+                    >
+                      Read More
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>{spec?.title}</DialogTitle>
+                    </DialogHeader>
+                    <div className="mt-4">
+                      <p>{spec?.description}</p>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Differentiators = ({ differentiators }) => {
+  const iconMap = {
+    0: Briefcase,
+    1: Flask,
+    2: Users,
+  };
+
+  return (
+    <div>
+      <h3 className="text-2xl font-semibold mb-4 text-red-600">
+        Program Differentiators
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {differentiators.map((diff, index) => {
+          const Icon = iconMap[index] || Users;
+          return (
+            <Card key={index} className="overflow-hidden">
+              <CardHeader className="flex flex-row items-center space-x-4 pb-2">
+                <div className="bg-mainBlue rounded-full p-2">
+                  <Icon className="h-6 w-6 text-primary-foreground" />
+                </div>
+                <CardTitle className="text-red-600">{diff.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>{diff.description}</p>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const Curriculum = ({ curriculum }) => {
+  // Find the detailed curriculum object, which contains module1, module2, etc.
+  const detailedCurriculumData = curriculum?.find((item) => item.module1);
+  // Filter for image-based curriculum items.
+  const imageCurriculum = curriculum?.filter((item) => item.link);
+
+  return (
+    <>
+      {curriculum && (
+        <div>
+          <h3 className="text-2xl font-semibold mb-4 text-red-600">
+            Program Structure
+          </h3>
+
+          {/* Renders the tab-based detailed curriculum view if data for it exists */}
+          {detailedCurriculumData && (
+            <section className={`py-5`}>
+              <div className="mx-auto relative z-10">
+                <Tabs defaultValue="module1" className="max-w-4xl mx-auto">
+                  <TabsList className="grid grid-cols-6 mb-12 p-1 bg-slate-100 rounded-full">
+                    {/* Static tabs for now */}
+                    <TabsTrigger
+                      value="module1"
+                      className="rounded-full data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm transition-all duration-300"
+                    >
+                      Term 1
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="module2"
+                      className="rounded-full data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm transition-all duration-300"
+                    >
+                      Term 2
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="module3"
+                      className="rounded-full data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm transition-all duration-300"
+                    >
+                      Term 3
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="module4"
+                      className="rounded-full data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm transition-all duration-300"
+                    >
+                      Term 4
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="module5"
+                      className="rounded-full data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm transition-all duration-300"
+                    >
+                      Term 5
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="module6"
+                      className="rounded-full data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm transition-all duration-300"
+                    >
+                      Term 6
+                    </TabsTrigger>
+                  </TabsList>
+
+                  {Object.keys(detailedCurriculumData).map(
+                    (moduleKey, moduleIndex) => {
+                      const data = detailedCurriculumData[moduleKey];
+                      return (
+                        <TabsContent
+                          key={moduleIndex}
+                          value={moduleKey}
+                          className="transition-all duration-500 ease-in-out"
+                        >
+                          <div className="grid md:grid-cols-1 sm:gap-8">
+                            {/* <div className="md:col-span-1 h-min bg-white p-8 rounded-2xl shadow-lg border border-slate-100"> */}
+                            <h3 className="sm:text-3xl text-xl sm:ml-7 mb-5 flex items-center text-gray-700 font-bold ">
+                              <BookOpen className="h-8 w-8 text-primary mr-3 mt-2" />{" "}
+                              {data.title}
+                            </h3>
+                            {/* <div className="flex items-center gap-2 mb-4">
+                                <Badge variant="outline" className="text-sm">
+                                  <CalendarIcon className="h-3 w-3 mr-1" />
+                                  {data.duration}
+                                </Badge>
+                              </div> */}
+                            {/* <p className="text-muted-foreground mb-6">
+                                {data.description}
+                              </p>
+                              <div className="mt-auto pt-4 border-t">
+                                <Button
+                                  variant="outline"
+                                  className="w-full gap-2"
+                                >
+                                  Download Syllabus{" "}
+                                  <Download className="h-4 w-4" />
+                                </Button>
+                              </div> */}
+                            {/* </div> */}
+                            <div className="md:col-span-2">
+                              <div className="w-full">
+                                {data.topics.map((topic, index) => (
+                                  <div
+                                    key={index}
+                                    className="bg-white mb-4 rounded-xl border border-slate-100 overflow-hidden group transition-all duration-300 px-6 py-4"
+                                  >
+                                    <div className="flex items-center gap-4">
+                                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                        <span className="font-bold text-primary text-lg">
+                                          {index + 1}
+                                        </span>
+                                      </div>
+                                      <span className="text-base sm:text-lg text-left font-medium">
+                                        {topic.title}
+                                      </span>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </TabsContent>
+                      );
+                    }
+                  )}
+                </Tabs>
+              </div>
+            </section>
+          )}
+
+          {/* Renders image-based curriculum items */}
+          <div className="space-y-8">
+            {imageCurriculum?.map((item, index) => (
+              <div key={index}>
+                <img src={item.link} alt={item.name} className="w-full" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+const EligibilityAdmission = ({ eligibility, admission }) => {
+  return (
+    <div className="space-y-8">
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-red-600">
+          Eligibility Criteria
+        </h3>
+        <Card>
+          <CardContent className="p-6">
+            <ul className="space-y-2">
+              {eligibility.map((criteria, index) => (
+                <li key={index} className="flex items-center space-x-2">
+                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                  <span>{criteria}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-red-600">
+          Admission Procedure
+        </h3>
+        <Card>
+          <CardContent className="p-6">
+            <ol className="space-y-4">
+              {admission.map((step, index) => (
+                <li key={index} className="flex items-center space-x-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <span>{step}</span>
+                  {index < admission.length - 1 && (
+                    <ArrowRight className="h-5 w-5 text-muted-foreground" />
+                  )}
+                </li>
+              ))}
+            </ol>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+const CourseElectives = ({ electives, programId }) => {
+  console.log(programId, electives?.major?.title);
+  if (!electives) {
+    return <div>No electives offered for this program.</div>;
+  }
+
+  return (
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
+      {/* <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Electives Offered
+        </h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Choose from our comprehensive range of specialized courses across
+          major, minor, and sectoral electives
+        </p>
+      </div> */}
+
+      <div className="space-y-16">
+        {Object.entries(electives).map(([key, category]) => (
+          <section key={key} className="relative">
+            <div className="flex items-center mb-8">
+              <div
+                className={`${category.headerColor} text-white px-6 py-3 rounded-lg shadow-lg`}
+              >
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  {category?.title}
+                </h2>
+              </div>
+              <div className="flex-1 h-px bg-gray-300 ml-6"></div>
+            </div>
+
+            <div
+              className={`grid grid-cols-1 md:grid-cols-2 ${
+                programId === "pgdm-ba" ? "lg:grid-cols-2" : "lg:grid-cols-3"
+              } gap-6`}
+            >
+              {category?.specializations.map((specialization, index) => (
+                <Card
+                  key={index}
+                  className={`${category.color} hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+                >
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg font-semibold text-gray-800 flex items-center justify-between">
+                      {specialization?.name}
+                      {/* <Badge variant="secondary" className="ml-2 text-xs">
+                        {specialization.courses.length} courses
+                      </Badge> */}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {specialization?.courses?.map((course, courseIndex) => (
+                        <li
+                          key={courseIndex}
+                          className="text-sm text-gray-700 leading-relaxed hover:text-gray-900 transition-colors duration-200 cursor-pointer"
+                        >
+                          <span className="inline-block w-2 h-2 bg-gray-400 rounded-full mr-2 flex-shrink-0 mt-1.5"></span>
+                          {course}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const ProgramSection = ({ programId, activeSection }) => {
+  const program = programData[programId];
+  if (!program) return <div>Program not found</div>;
+
+  const seoTitle = `${program.name} | SSIM`;
+  const seoDescription = `Learn about the ${program.name} program at Siva Sivani Institute of Management. Explore the curriculum, specializations, and career opportunities.`;
+  const seoKeywords = `SSIM ${program.name}, ${program.name} program, ${program.name} curriculum, ${program.name} admissions`;
+  const canonicalUrl = `https://www.ssim.ac.in/programs/${programId}`;
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case "about":
+        return <KeyInformation info={program.keyInfo} />;
+      case "electives":
+        return (
+          <CourseElectives
+            electives={program.electives}
+            programId={programId}
+          />
+        );
+      case "specializations":
+        return <Specializations specializations={program.specializations} />;
+      case "managerialCompetency":
+        return (
+          <ManagerialCompetency
+            managerialCompetency={program.managerialCompetency}
+          />
+        );
+      case "differentiators":
+        return <Differentiators differentiators={program.differentiators} />;
+      case "curriculum":
+        return <Curriculum curriculum={program.curriculum} />;
+      case "eligibility":
+        return (
+          <EligibilityAdmission
+            eligibility={program.eligibility}
+            admission={program.admission}
+          />
+        );
+      default:
+        return <div>Select a section</div>;
+    }
+  };
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={activeSection}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3 }}
+      >
+        {renderContent()}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const ProgramsOverview = ({ params }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { programId } = params;
+
+  // Map URL segments to program IDs
+  const urlToProgramId = {
+    "fpm-efpm": "fpm/efpm",
+    "pgdm-ba": "pgdm-ba",
+    "pgdm-bifs": "pgdm-bifs",
+    "pgdm-triple-specialisation": "pgdm-triple-specialisation",
+  };
+
+  const [activeProgram, setActiveProgram] = useState(
+    () => urlToProgramId[programId] || programs[0].id
+  );
+  const [activeSection, setActiveSection] = useState(
+    () => searchParams.get("section") || "about"
+  );
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showComparison, setShowComparison] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  React.useEffect(() => {
+    const currentProgramId = urlToProgramId[programId];
+    if (currentProgramId && currentProgramId !== activeProgram) {
+      setActiveProgram(currentProgramId);
+    }
+    const section = searchParams.get("section") || "about";
+    if (section !== activeSection) {
+      setActiveSection(section);
+    }
+  }, [programId, searchParams, activeProgram, activeSection]);
+
+  const handleProgramChange = (programId) => {
+    const program = programs.find((p) => p.id === programId);
+    if (program) {
+      router.push(`${program.link}?section=about`);
+    }
+  };
+
+  const handleSectionChange = (sectionId) => {
+    // If the section is "eligibility", redirect to the appropriate admission page
+    if (sectionId === "eligibility") {
+      // Map program IDs to their admission routes
+      const admissionRoutes = {
+        "fpm/efpm": "/admissions/fpm-efpm",
+        "pgdm-ba": "/admissions/pgdm-ba",
+        "pgdm-bifs": "/admissions/pgdm-bifs",
+        "pgdm-triple-specialisation": "/admissions/pgdm-triple-specialisation",
+      };
+
+      const admissionRoute = admissionRoutes[activeProgram];
+      if (admissionRoute) {
+        router.push(admissionRoute);
+        return;
+      }
+    }
+
+    // For other sections, proceed with normal behavior
+    setActiveSection(sectionId);
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("section", sectionId);
+    router.push(`${pathname}?${newParams.toString()}`);
+  };
+
+  const filteredSections = sections.filter((section) => {
+    const program = programData[activeProgram];
+    if (section.id === "electives" && !program.electives) {
+      return false;
+    }
+    const matchesSearch = section.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const isHidden = section.hidden?.includes(activeProgram);
+    return matchesSearch && !isHidden;
+  });
+
+  const Overlay = isDesktop ? Dialog : Drawer;
+  const OverlayContent = isDesktop ? DialogContent : DrawerContent;
+
+  const SidebarContent = () => (
+    <>
+      {/* <div className="mb-4 relative">
+        <Input
+          type="text"
+          placeholder="Search sections..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="pl-10"
+        />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+      </div> */}
+      {/* <ScrollArea className="h-[calc(100vh-200px)] lg:h-auto"> */}
+      <ul className="space-y-2">
+        {filteredSections.map((section) => (
+          <li key={section.id}>
+            <button
+              onClick={() => {
+                handleSectionChange(section.id);
+                if (!isDesktop) setSidebarOpen(false);
+              }}
+              className={`w-full text-left px-4 py-2 rounded-sm transition-colors ${
+                activeSection === section.id
+                  ? "bg-gradient-to-r from-red-600 via-red-400 to-red-600 text-primary-foreground"
+                  : "hover:bg-secondary"
+              }`}
+            >
+              <span className="flex items-center">
+                {section.name}
+                {activeSection === section.id ? (
+                  <ChevronDown className="ml-auto min-w-6" />
+                ) : (
+                  <ChevronRight className="ml-auto min-w-6" />
+                )}
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      {/* </ScrollArea> */}
+      <div className="flex flex-col sm:flex-row gap-2 mt-4">
+        {/* <Button
+          onClick={() => {
+            setShowComparison(!showComparison);
+            if (!isDesktop) setSidebarOpen(false);
+          }}
+          className="w-full sm:flex-1 bg-gradient-to-r from-mainBlue via-[#2f65ca] to-mainBlue text-white hover:bg-mainBlue/80"
+        >
+          {showComparison ? "Hide Comparison" : "Compare Programs"}
+        </Button> */}
+        <Overlay>
+          <OverlayContent className="">
+            <ProgramStats programId={activeProgram} />
+          </OverlayContent>
+        </Overlay>
+      </div>
+    </>
+  );
+
+  return (
+    <div className="container max-w-7xl mx-auto px-2 sm:px-4 py-14 sm:py-20">
+      <h1 className="text-4xl font-bold mb-16 text-center text-primary">
+        Graduate Programs
+      </h1>
+      <Tabs
+        value={activeProgram}
+        onValueChange={handleProgramChange}
+        className="mb-8"
+      >
+        <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+          {programs.map((program) => (
+            <TabsTrigger
+              key={program.id}
+              value={program.id}
+              className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground"
+            >
+              {program.name}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
+      <div className="flex flex-col lg:flex-row gap-8">
+        {isDesktop ? (
+          <nav className="lg:w-1/4">
+            <SidebarContent />
+          </nav>
+        ) : (
+          <Drawer open={sidebarOpen} onOpenChange={setSidebarOpen}>
+            <DrawerTrigger asChild>
+              <Button
+                variant="outline"
+                className="lg:hidden mb-4 w-full justify-between"
+              >
+                <span className="flex items-center">
+                  <Menu className="mr-2 h-4 w-4" />
+                  Menu
+                </span>
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <div className="p-4">
+                <SidebarContent />
+              </div>
+              <DrawerClose asChild>
+                <Button className="mt-4">Close</Button>
+              </DrawerClose>
+            </DrawerContent>
+          </Drawer>
+        )}
+        <main className="lg:w-3/4 overflow-hidden">
+          <AnimatePresence mode="wait">
+            {!showComparison ? (
+              <motion.div
+                key={`${activeProgram}-${activeSection}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProgramSection
+                  programId={activeProgram}
+                  activeSection={activeSection}
+                />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="comparison"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProgramComparison programs={programs} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default ProgramsOverview;
