@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Standalone bundles a minimal Node server + required node_modules
-  output: "standalone", // SSR/ISR/API routes remain dynamic; not a static export [web:211],
+  // Use platform default runtime (no standalone) so next start loads deps from root node_modules.
+  // output: "standalone", // remove this line
 
-  // Ensure dependencies that tracing sometimes misses are included
   outputFileTracingIncludes: {
     "/*": [
       "node_modules/@next/env/**",
@@ -14,25 +13,10 @@ const nextConfig = {
 
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "img.youtube.com",
-        port: "",
-        pathname: "/vi/**",
-      },
-      { protocol: "https", hostname: "i.ytimg.com", port: "", pathname: "/**" },
-      {
-        protocol: "https",
-        hostname: "yt3.ggpht.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "img.youtube.com",
-        port: "",
-        pathname: "/**",
-      },
+      { protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" },
+      { protocol: "https", hostname: "i.ytimg.com", pathname: "/**" },
+      { protocol: "https", hostname: "yt3.ggpht.com", pathname: "/**" },
+      { protocol: "https", hostname: "img.youtube.com", pathname: "/**" },
     ],
     minimumCacheTTL: 60,
     formats: ["image/webp", "image/avif"],
