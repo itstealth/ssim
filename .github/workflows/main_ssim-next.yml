@@ -37,7 +37,7 @@ jobs:
         run: |
           rm -f deploy.zip
           # Include your source dir: replace "app" with "pages" if applicable
-          zip -r deploy.zip app public package.json pnpm-lock.yaml next.config.* -q
+          zip -r deploy.zip .next node_modules public package.json pnpm-lock.yaml next.config.* -q
 
       - name: Delay to avoid SCM restart conflict
         run: sleep 30
