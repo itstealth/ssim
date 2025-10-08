@@ -49,10 +49,9 @@ export const dbPool = mysql.createPool({
   queueLimit: 0,
   multipleStatements: true,
   ssl: getSSLOptions(),
-  // Add connection timeout and retry options
-  acquireTimeout: 60000,
+  // Connection timeout options (these are for the pool, not individual connections)
+  acquireTimeoutMillis: 60000,
   timeout: 60000,
-  reconnect: true,
 });
 
 async function initializeDatabaseSchema() {
