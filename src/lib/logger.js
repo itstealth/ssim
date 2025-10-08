@@ -53,8 +53,19 @@ class Logger {
     if (process.env.NODE_ENV === 'development') {
       console.log(`${colors[level]}[${formattedMessage.timestamp}] ${level}:${resetColor}`, formattedMessage);
     } else {
-      // In production, use structured JSON logging
+      // In production, use structured JSON logging for Azure logs
       console.log(JSON.stringify(formattedMessage));
+    }
+
+    // Also write to file logger if in production
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        const { fileLogger } = require('./file-logger');
+        fileLogger.log(level, message, meta);
+      } catch (error) {
+        // Fallback to console if file logger fails
+        console.error('File logger error:', error.message);
+      }
     }
   }
 

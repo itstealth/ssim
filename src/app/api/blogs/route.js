@@ -4,6 +4,7 @@ import slugify from "@/utils/slugify";
 import sanitizeHtml from "sanitize-html";
 import { uploadImageToAzure } from "@/lib/azure-blob-storage";
 import { logger, logDatabaseOperation } from "@/lib/api-debug";
+import { fileLogger } from "@/lib/file-logger";
 
 export async function POST(request) {
   let connection;
@@ -247,15 +248,37 @@ export async function POST(request) {
       );
     }
 
+    // Create detailed error dump for debugging
+    const errorId = fileLogger.createErrorDump(error, {
+      req: {
+        url: request.url,
+        method: request.method,
+        headers: Object.fromEntries(request.headers.entries()),
+        body: body, // The parsed form data
+      },
+      duration: `${duration}ms`,
+      blogData: {
+        title,
+        slug,
+        authorName,
+        publishDate,
+        hasImage: !!imageFile,
+        imageName: imageFile?.name,
+        imageSize: imageFile?.size,
+      },
+    });
+
     // Log the error and return generic response
     logger.error('Unexpected error creating blog post', error, {
       duration: `${duration}ms`,
+      errorId,
       stack: error.stack
     });
 
     return NextResponse.json(
       {
         message: "Internal Server Error",
+        errorId, // Include error ID for reference
         details: process.env.NODE_ENV === 'development' ? error.message : undefined,
         duration: `${duration}ms`
       },
