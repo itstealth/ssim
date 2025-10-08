@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { logger } from './logger.js';
 import { validateEnvironmentVariables } from './env-check.js';
+import { productionDebugger } from './production-debug.js';
 
 // --- MySQL Connection Pool ---
 
@@ -39,21 +40,46 @@ function getSSLOptions() {
   }
 }
 
-export const dbPool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  multipleStatements: true,
-  ssl: getSSLOptions(),
-  // Add connection timeout and retry options
-  acquireTimeout: 60000,
-  timeout: 60000,
-  reconnect: true,
-});
+// Wrap database operations with production debugging
+const originalCreatePool = mysql.createPool;
+
+export const dbPool = (() => {
+  try {
+    const pool = originalCreatePool({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      waitForConnections: true,
+      connectionLimit: 10,
+      queueLimit: 0,
+      multipleStatements: true,
+      ssl: getSSLOptions(),
+      // Add connection timeout and retry options
+      acquireTimeout: 60000,
+      timeout: 60000,
+      reconnect: true,
+    });
+
+    // Wrap getConnection with debugging
+    const originalGetConnection = pool.getConnection.bind(pool);
+    pool.getConnection = productionDebugger.wrapFunction(originalGetConnection, 'dbPool.getConnection');
+
+    // Wrap query with debugging
+    const originalQuery = pool.query.bind(pool);
+    pool.query = productionDebugger.wrapFunction(originalQuery, 'dbPool.query');
+
+    return pool;
+  } catch (error) {
+    productionDebugger.logError(error, {
+      operation: 'createPool',
+      host: process.env.DB_HOST,
+      database: process.env.DB_DATABASE,
+      user: process.env.DB_USER,
+    });
+    throw error;
+  }
+})();
 
 async function initializeDatabaseSchema() {
   let connection;

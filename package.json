@@ -10,7 +10,11 @@
     "logs": "node scripts/inspect-logs.js",
     "logs:overview": "node scripts/inspect-logs.js overview",
     "logs:errors": "node scripts/inspect-logs.js errors",
-    "logs:clear": "node scripts/inspect-logs.js clear"
+    "logs:clear": "node scripts/inspect-logs.js clear",
+    "debug": "node scripts/inspect-debug.js",
+    "debug:overview": "node scripts/inspect-debug.js overview",
+    "debug:latest": "node scripts/inspect-debug.js latest",
+    "debug:clear": "node scripts/inspect-debug.js clear"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.28.0",

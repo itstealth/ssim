@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileLogger } from '@/lib/file-logger';
 import { logger } from '@/lib/logger';
+import { productionDebugger } from '@/lib/production-debug';
 
 // Simple authentication - in production, you should use proper auth
 const DEBUG_PASSWORD = process.env.DEBUG_PASSWORD || 'debug123';
@@ -53,6 +54,10 @@ export async function GET(request) {
         return await clearLogs(request);
       case 'health':
         return await getHealth();
+      case 'debug-files':
+        return await getDebugFiles(request);
+      case 'debug-file':
+        return await getDebugFile(request);
       default:
         return await getOverview();
     }
@@ -366,4 +371,40 @@ async function checkAzure() {
   } catch {
     return 'unhealthy';
   }
+}
+
+async function getDebugFiles(request) {
+  const { searchParams } = new URL(request.url);
+  const limit = parseInt(searchParams.get('limit')) || 20;
+
+  const debugFiles = productionDebugger.getAllDebugFiles();
+
+  return NextResponse.json({
+    total: debugFiles.length,
+    limit,
+    debugFiles: debugFiles.slice(0, limit),
+  });
+}
+
+async function getDebugFile(request) {
+  const { searchParams } = new URL(request.url);
+  const fileName = searchParams.get('file');
+
+  if (!fileName) {
+    return NextResponse.json(
+      { error: 'File name is required' },
+      { status: 400 }
+    );
+  }
+
+  const debugFile = productionDebugger.getDebugFile(fileName);
+
+  if (!debugFile) {
+    return NextResponse.json(
+      { error: 'Debug file not found' },
+      { status: 404 }
+    );
+  }
+
+  return NextResponse.json(debugFile);
 }

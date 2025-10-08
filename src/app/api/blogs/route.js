@@ -5,10 +5,12 @@ import sanitizeHtml from "sanitize-html";
 import { uploadImageToAzure } from "@/lib/azure-blob-storage";
 import { logger, logDatabaseOperation } from "@/lib/api-debug";
 import { fileLogger } from "@/lib/file-logger";
+import { productionDebugger } from "@/lib/production-debug";
 
 export async function POST(request) {
   let connection;
   const startTime = Date.now();
+  let debugId = null;
 
   try {
     logger.info('Starting blog post creation', {
@@ -16,196 +18,213 @@ export async function POST(request) {
       url: request.url,
     });
 
-    const formData = await request.formData();
-    const body = Object.fromEntries(formData.entries());
-    const imageFile = formData.get("imageUrl");
+    // Wrap the entire function with production debugging
+    const debugWrapper = productionDebugger.wrapFunction(async () => {
+      const formData = await request.formData();
+      const body = Object.fromEntries(formData.entries());
+      const imageFile = formData.get("imageUrl");
 
-    logger.debug('Received form data', {
-      fieldCount: Object.keys(body).length,
-      hasImage: !!imageFile,
-      imageName: imageFile?.name,
-      imageSize: imageFile?.size,
-    });
-
-    const {
-      title,
-      content,
-      imageAlt,
-      authorName,
-      publishDate,
-      metaTitle,
-      metaDescription,
-      keywords,
-      tags,
-      categories,
-      canonicalUrl,
-      jsonLdSchema,
-      ogTitle,
-      ogDescription,
-      ogImageUrl,
-      slug: manualSlug,
-    } = body;
-
-    // Validate required fields with detailed error messages
-    const missingFields = [];
-    if (!title?.trim()) missingFields.push('title');
-    if (!content?.trim()) missingFields.push('content');
-    if (!imageFile) missingFields.push('imageUrl');
-    if (!imageAlt?.trim()) missingFields.push('imageAlt');
-    if (!publishDate?.trim()) missingFields.push('publishDate');
-
-    if (missingFields.length > 0) {
-      logger.warn('Missing required fields', { missingFields });
-      return NextResponse.json(
-        {
-          message: `Missing required fields: ${missingFields.join(', ')}`,
-          missingFields
-        },
-        { status: 400 }
-      );
-    }
-
-    // Generate and validate slug
-    const slug = manualSlug?.trim() ? slugify(manualSlug) : slugify(title);
-
-    if (!slug) {
-      logger.error('Failed to generate slug', { title, manualSlug });
-      return NextResponse.json(
-        { message: "Failed to generate valid slug from title" },
-        { status: 400 }
-      );
-    }
-
-    logger.debug('Generated slug', { slug, title });
-
-    // Sanitize HTML content to prevent XSS attacks
-    let sanitizedContent;
-    try {
-      sanitizedContent = sanitizeHtml(content, {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat([
-          'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-          'table', 'thead', 'tbody', 'tr', 'th', 'td'
-        ]),
-        allowedAttributes: {
-          ...sanitizeHtml.defaults.allowedAttributes,
-          '*': [ 'class', 'style' ],
-          'a': [ 'href', 'name', 'target' ],
-          'img': [ 'src', 'srcset', 'alt', 'title', 'width', 'height', 'loading' ]
-        }
+      logger.debug('Received form data', {
+        fieldCount: Object.keys(body).length,
+        hasImage: !!imageFile,
+        imageName: imageFile?.name,
+        imageSize: imageFile?.size,
       });
 
-      if (sanitizedContent.length < 10) {
-        logger.warn('Content too short after sanitization', {
-          originalLength: content.length,
-          sanitizedLength: sanitizedContent.length
-        });
+      const {
+        title,
+        content,
+        imageAlt,
+        authorName,
+        publishDate,
+        metaTitle,
+        metaDescription,
+        keywords,
+        tags,
+        categories,
+        canonicalUrl,
+        jsonLdSchema,
+        ogTitle,
+        ogDescription,
+        ogImageUrl,
+        slug: manualSlug,
+      } = body;
+
+      // Validate required fields with detailed error messages
+      const missingFields = [];
+      if (!title?.trim()) missingFields.push('title');
+      if (!content?.trim()) missingFields.push('content');
+      if (!imageFile) missingFields.push('imageUrl');
+      if (!imageAlt?.trim()) missingFields.push('imageAlt');
+      if (!publishDate?.trim()) missingFields.push('publishDate');
+
+      if (missingFields.length > 0) {
+        logger.warn('Missing required fields', { missingFields });
         return NextResponse.json(
-          { message: "Content too short after sanitization" },
+          {
+            message: `Missing required fields: ${missingFields.join(', ')}`,
+            missingFields
+          },
           { status: 400 }
         );
       }
-    } catch (error) {
-      logger.error('HTML sanitization failed', error);
-      return NextResponse.json(
-        { message: "Failed to process content" },
-        { status: 400 }
+
+      // Generate and validate slug
+      const slug = manualSlug?.trim() ? slugify(manualSlug) : slugify(title);
+
+      if (!slug) {
+        logger.error('Failed to generate slug', { title, manualSlug });
+        return NextResponse.json(
+          { message: "Failed to generate valid slug from title" },
+          { status: 400 }
+        );
+      }
+
+      logger.debug('Generated slug', { slug, title });
+
+      // Sanitize HTML content to prevent XSS attacks
+      let sanitizedContent;
+      try {
+        sanitizedContent = sanitizeHtml(content, {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+            'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+            'table', 'thead', 'tbody', 'tr', 'th', 'td'
+          ]),
+          allowedAttributes: {
+            ...sanitizeHtml.defaults.allowedAttributes,
+            '*': [ 'class', 'style' ],
+            'a': [ 'href', 'name', 'target' ],
+            'img': [ 'src', 'srcset', 'alt', 'title', 'width', 'height', 'loading' ]
+          }
+        });
+
+        if (sanitizedContent.length < 10) {
+          logger.warn('Content too short after sanitization', {
+            originalLength: content.length,
+            sanitizedLength: sanitizedContent.length
+          });
+          return NextResponse.json(
+            { message: "Content too short after sanitization" },
+            { status: 400 }
+          );
+        }
+      } catch (error) {
+        logger.error('HTML sanitization failed', error);
+        return NextResponse.json(
+          { message: "Failed to process content" },
+          { status: 400 }
+        );
+      }
+
+      // Get database connection with logging
+      connection = await logDatabaseOperation(
+        'GET_CONNECTION',
+        'blogs',
+        () => dbPool.getConnection(),
+        { operation: 'getConnection' }
       );
-    }
 
-    // Get database connection with logging
-    connection = await logDatabaseOperation(
-      'GET_CONNECTION',
-      'blogs',
-      () => dbPool.getConnection(),
-      { operation: 'getConnection' }
-    );
+      await connection.beginTransaction();
+      logger.debug('Database transaction started');
 
-    await connection.beginTransaction();
-    logger.debug('Database transaction started');
+      // Step 1: Insert blog post with a placeholder image URL
+      const initialSql = `
+        INSERT INTO blogs (
+          title, slug, content, imageUrl, imageAlt, authorName, publishDate,
+          metaTitle, metaDescription, keywords, tags, categories, canonicalUrl,
+          jsonLdSchema, ogTitle, ogDescription, ogImageUrl
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `;
 
-    // Step 1: Insert blog post with a placeholder image URL
-    const initialSql = `
-      INSERT INTO blogs (
-        title, slug, content, imageUrl, imageAlt, authorName, publishDate,
+      const placeholderImageUrl = "placeholder";
+      const initialValues = [
+        title, slug, sanitizedContent, placeholderImageUrl, imageAlt, authorName, publishDate,
         metaTitle, metaDescription, keywords, tags, categories, canonicalUrl,
-        jsonLdSchema, ogTitle, ogDescription, ogImageUrl
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `;
+        jsonLdSchema, ogTitle, ogDescription, ogImageUrl,
+      ];
 
-    const placeholderImageUrl = "placeholder";
-    const initialValues = [
-      title, slug, sanitizedContent, placeholderImageUrl, imageAlt, authorName, publishDate,
-      metaTitle, metaDescription, keywords, tags, categories, canonicalUrl,
-      jsonLdSchema, ogTitle, ogDescription, ogImageUrl,
-    ];
-
-    logger.debug('Inserting blog post', {
-      title,
-      slug,
-      authorName,
-      publishDate,
-    });
-
-    const [result] = await logDatabaseOperation(
-      'INSERT',
-      'blogs',
-      () => connection.query(initialSql, initialValues),
-      { operation: 'insertBlog' }
-    );
-
-    const blogId = result.insertId;
-    logger.info('Blog post inserted', { blogId });
-
-    // Step 2: Upload image to Azure with the new blog ID
-    let imageBuffer;
-    try {
-      imageBuffer = Buffer.from(await imageFile.arrayBuffer());
-      logger.debug('Image buffer created', {
-        size: imageBuffer.length,
-        name: imageFile.name
-      });
-    } catch (error) {
-      logger.error('Failed to create image buffer', error);
-      throw new Error('Failed to process uploaded image');
-    }
-
-    let imageUrl;
-    try {
-      imageUrl = await uploadImageToAzure(imageBuffer, imageFile.name, blogId);
-      logger.info('Image uploaded to Azure', { imageUrl, blogId });
-    } catch (error) {
-      logger.error('Azure upload failed', error, { blogId });
-      throw error;
-    }
-
-    // Step 3: Update the blog post with the actual image URL
-    const updateSql = "UPDATE blogs SET imageUrl = ? WHERE id = ?";
-
-    await logDatabaseOperation(
-      'UPDATE',
-      'blogs',
-      () => connection.query(updateSql, [imageUrl, blogId]),
-      { operation: 'updateImageUrl', blogId }
-    );
-
-    await connection.commit();
-    logger.info('Blog post creation completed successfully', {
-      blogId,
-      duration: `${Date.now() - startTime}ms`
-    });
-
-    return NextResponse.json(
-      {
-        message: "Blog post created successfully",
-        blogId,
+      logger.debug('Inserting blog post', {
+        title,
         slug,
-        imageUrl
-      },
-      { status: 201 }
-    );
+        authorName,
+        publishDate,
+      });
+
+      const [result] = await logDatabaseOperation(
+        'INSERT',
+        'blogs',
+        () => connection.query(initialSql, initialValues),
+        { operation: 'insertBlog' }
+      );
+
+      const blogId = result.insertId;
+      logger.info('Blog post inserted', { blogId });
+
+      // Step 2: Upload image to Azure with the new blog ID
+      let imageBuffer;
+      try {
+        imageBuffer = Buffer.from(await imageFile.arrayBuffer());
+        logger.debug('Image buffer created', {
+          size: imageBuffer.length,
+          name: imageFile.name
+        });
+      } catch (error) {
+        logger.error('Failed to create image buffer', error);
+        throw new Error('Failed to process uploaded image');
+      }
+
+      let imageUrl;
+      try {
+        imageUrl = await uploadImageToAzure(imageBuffer, imageFile.name, blogId);
+        logger.info('Image uploaded to Azure', { imageUrl, blogId });
+      } catch (error) {
+        logger.error('Azure upload failed', error, { blogId });
+        throw error;
+      }
+
+      // Step 3: Update the blog post with the actual image URL
+      const updateSql = "UPDATE blogs SET imageUrl = ? WHERE id = ?";
+
+      await logDatabaseOperation(
+        'UPDATE',
+        'blogs',
+        () => connection.query(updateSql, [imageUrl, blogId]),
+        { operation: 'updateImageUrl', blogId }
+      );
+
+      await connection.commit();
+      logger.info('Blog post creation completed successfully', {
+        blogId,
+        duration: `${Date.now() - startTime}ms`
+      });
+
+      return NextResponse.json(
+        {
+          message: "Blog post created successfully",
+          blogId,
+          slug,
+          imageUrl
+        },
+        { status: 201 }
+      );
+    }, 'blogPostCreation');
+
+    return await debugWrapper();
 
   } catch (error) {
     const duration = Date.now() - startTime;
+
+    // Log the error with production debugger
+    const debugId = productionDebugger.logError(error, {
+      request: {
+        url: request.url,
+        method: request.method,
+        headers: Object.fromEntries(request.headers.entries()),
+      },
+      duration: `${duration}ms`,
+      timestamp: new Date().toISOString(),
+      connectionStatus: connection ? 'connected' : 'not_connected'
+    });
 
     if (connection) {
       try {
@@ -231,7 +250,8 @@ export async function POST(request) {
       return NextResponse.json(
         {
           message: "Failed to upload image",
-          details: process.env.NODE_ENV === 'development' ? error.message : undefined
+          debugId,
+          details: error.message
         },
         { status: 500 }
       );
@@ -242,44 +262,25 @@ export async function POST(request) {
       return NextResponse.json(
         {
           message: "Database operation failed",
-          details: process.env.NODE_ENV === 'development' ? error.message : undefined
+          debugId,
+          details: error.message
         },
         { status: 500 }
       );
     }
 
-    // Create detailed error dump for debugging
-    const errorId = fileLogger.createErrorDump(error, {
-      req: {
-        url: request.url,
-        method: request.method,
-        headers: Object.fromEntries(request.headers.entries()),
-        body: body, // The parsed form data
-      },
-      duration: `${duration}ms`,
-      blogData: {
-        title,
-        slug,
-        authorName,
-        publishDate,
-        hasImage: !!imageFile,
-        imageName: imageFile?.name,
-        imageSize: imageFile?.size,
-      },
-    });
-
-    // Log the error and return generic response
-    logger.error('Unexpected error creating blog post', error, {
-      duration: `${duration}ms`,
-      errorId,
-      stack: error.stack
-    });
-
+    // Return detailed error information for debugging
     return NextResponse.json(
       {
         message: "Internal Server Error",
-        errorId, // Include error ID for reference
-        details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+        debugId,
+        error: {
+          name: error.name,
+          message: error.message,
+          stack: error.stack,
+          code: error.code,
+        },
+        details: error.message,
         duration: `${duration}ms`
       },
       { status: 500 }

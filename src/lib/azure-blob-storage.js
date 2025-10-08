@@ -1,6 +1,7 @@
 import { BlobServiceClient } from "@azure/storage-blob";
 import mime from "mime-types";
 import { logger } from './logger.js';
+import { productionDebugger } from './production-debug.js';
 
 const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
 const containerName = process.env.AZURE_CONTAINER_NAME || "blog-images";
@@ -50,7 +51,8 @@ function initializeAzureClients() {
 export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
   const requestId = Math.random().toString(36).substring(2, 15);
 
-  try {
+  // Wrap the entire function with production debugging
+  const debugWrapper = productionDebugger.wrapFunction(async () => {
     logger.info('Starting Azure Blob Storage upload', {
       requestId,
       originalFilename,
@@ -113,6 +115,10 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
     });
 
     return blobUrl;
+  }, 'uploadImageToAzure');
+
+  try {
+    return await debugWrapper();
   } catch (error) {
     logger.error('Azure Blob Storage upload failed', error, {
       requestId,
