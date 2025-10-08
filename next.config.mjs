@@ -12,8 +12,6 @@ const nextConfig = {
   },
 
   images: {
-    // Disable image optimization in production to prevent cache directory issues
-    unoptimized: process.env.NODE_ENV === 'production',
     remotePatterns: [
       { protocol: "https", hostname: "img.youtube.com", pathname: "/vi/**" },
       { protocol: "https", hostname: "i.ytimg.com", pathname: "/**" },
