@@ -2,158 +2,127 @@ import mysql from "mysql2/promise";
 import fs from "fs";
 import path from "path";
 
-// Enhanced SSL configuration with better error handling
-function getSSLOptions() {
-  try {
-    // Try to read the certificate file
-    const certPath = path.join(process.cwd(), "public", "DigiCertGlobalRootG2.crt.pem");
-    
-    if (fs.existsSync(certPath)) {
-      console.log("✓ SSL certificate found at:", certPath);
-      return {
-        ca: fs.readFileSync(certPath),
-        rejectUnauthorized: false,
-      };
-    } else {
-      console.warn("⚠ SSL certificate not found at:", certPath);
-      console.warn("Using rejectUnauthorized: false for production compatibility");
-      return {
-        rejectUnauthorized: false,
-      };
-    }
-  } catch (error) {
-    console.error("❌ Error reading SSL certificate:", error.message);
-    return {
-      rejectUnauthorized: false,
-    };
-  }
-}
+// --- MySQL Connection Pool ---
 
-// Validate environment variables
-function validateEnvironmentVariables() {
-  const required = ['DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_DATABASE'];
-  const missing = required.filter(key => !process.env[key]);
-  
-  if (missing.length > 0) {
-    throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
-  }
-  
-  console.log("✓ All required environment variables are present");
-}
+// Base SSL options
+const sslOptions = {
+  ca: fs.readFileSync(path.join(process.cwd(), "public", "DigiCertGlobalRootG2.crt.pem")),
+  rejectUnauthorized: false,
+};
 
-// Enhanced database configuration
+// For local development, we need to bypass the self-signed certificate issue.
+// In production, we will not set this, allowing a pragmatic but functional connection.
+// if (process.env.NODE_ENV !== "production") {
+//   sslOptions.rejectUnauthorized = false;
+// }
+
 export const dbPool = mysql.createPool({
-  host: process.env.DB_HOST,
+  host: process.env.DB_HOST, // Using environment variables
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  acquireTimeout: 60000,
-  timeout: 60000,
   multipleStatements: true,
-  ssl: getSSLOptions(),
-  // Enhanced error handling
-  reconnect: true,
+  ssl: sslOptions,
 });
 
-// Test database connection on startup
-export async function testDatabaseConnection() {
-  let connection;
-  try {
-    console.log("🔄 Testing database connection...");
-    connection = await dbPool.getConnection();
-    
-    // Test a simple query
-    const [rows] = await connection.query("SELECT 1 as test");
-    console.log("✅ Database connection successful");
-    console.log("📊 Test query result:", rows[0]);
-    
-    return true;
-  } catch (error) {
-    console.error("❌ Database connection failed:");
-    console.error("   Error code:", error.code);
-    console.error("   Error message:", error.message);
-    console.error("   Host:", process.env.DB_HOST);
-    console.error("   Database:", process.env.DB_DATABASE);
-    return false;
-  } finally {
-    if (connection) connection.release();
-  }
-}
-
-// Enhanced schema initialization with blogs table
 async function initializeDatabaseSchema() {
   let connection;
   try {
-    console.log("🔄 Checking and creating database tables...");
     connection = await dbPool.getConnection();
+    console.log(
+      "Checking and creating database tables if they do not exist..."
+    );
 
-    // Create all existing tables...
     const createEventsTableSQL = `
-      CREATE TABLE IF NOT EXISTS events (
-        id VARCHAR(255) NOT NULL PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        description TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      );
-    `;
+            CREATE TABLE IF NOT EXISTS events (
+                id VARCHAR(255) NOT NULL PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                description TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
 
-    const createBlogsTableSQL = `
-      CREATE TABLE IF NOT EXISTS blogs (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        slug VARCHAR(255) UNIQUE NOT NULL,
-        content TEXT NOT NULL,
-        imageUrl VARCHAR(500),
-        imageAlt VARCHAR(255),
-        authorName VARCHAR(255),
-        publishDate DATETIME NOT NULL,
-        metaTitle VARCHAR(255),
-        metaDescription TEXT,
-        keywords VARCHAR(500),
-        tags JSON,
-        categories JSON,
-        canonicalUrl VARCHAR(500),
-        jsonLdSchema TEXT,
-        ogTitle VARCHAR(255),
-        ogDescription TEXT,
-        ogImageUrl VARCHAR(500),
-        createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-      );
-    `;
+    const createEventImagesTableSQL = `
+            CREATE TABLE IF NOT EXISTS event_images (
+                image_id INT AUTO_INCREMENT PRIMARY KEY,
+                event_id VARCHAR(255) NOT NULL,
+                image_path VARCHAR(255) NOT NULL,
+                uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
+            );
+        `;
 
-    // Execute table creations
+    const createPlacementsTableSQL = `
+            CREATE TABLE IF NOT EXISTS placements (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                company VARCHAR(255) NOT NULL,
+                designation VARCHAR(255),
+                year VARCHAR(10),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
+    const createInternshipsTableSQL = `
+            CREATE TABLE IF NOT EXISTS internships (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                company VARCHAR(255) NOT NULL,
+                majorSpecialization VARCHAR(255),
+                year VARCHAR(10),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
+    const createGuestLecturesTableSQL = `
+            CREATE TABLE IF NOT EXISTS guest_lectures (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                designation VARCHAR(255) NOT NULL,
+                company VARCHAR(255) NOT NULL,
+                topic VARCHAR(255),
+                year VARCHAR(10),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
+    const createPublicationsTableSQL = `
+            CREATE TABLE IF NOT EXISTS publications (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                authors VARCHAR(255) NOT NULL,
+                journal VARCHAR(255) NOT NULL,
+                classification VARCHAR(255),
+                year VARCHAR(10),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
     await connection.query(createEventsTableSQL);
-    console.log("✓ Table 'events' checked/created.");
+    console.log("Table 'events' checked/created.");
 
-    await connection.query(createBlogsTableSQL);
-    console.log("✓ Table 'blogs' checked/created.");
+    await connection.query(createEventImagesTableSQL);
+    console.log("Table 'event_images' checked/created.");
 
-    // ... rest of your table creations
+    await connection.query(createPlacementsTableSQL);
+    console.log("Table 'placements' checked/created.");
 
-    console.log("✅ Database schema initialization completed");
+    await connection.query(createInternshipsTableSQL);
+    console.log("Table 'internships' checked/created.");
+
+    await connection.query(createGuestLecturesTableSQL);
+    console.log("Table 'guest_lectures' checked/created.");
+
+    await connection.query(createPublicationsTableSQL);
+    console.log("Table 'publications' checked/created.");
   } catch (error) {
-    console.error("❌ Error initializing database schema:", error);
-    console.error("   Error code:", error.code);
-    console.error("   Error message:", error.message);
-    throw error;
+    console.error("Error initializing database schema:", error);
+    // Exit the process if we can't set up the database, as the app won't work.
+    process.exit(1);
   } finally {
     if (connection) connection.release();
   }
 }
-
-// Initialize and test
-validateEnvironmentVariables();
-testDatabaseConnection().then(success => {
-  if (success) {
-    return initializeDatabaseSchema();
-  } else {
-    throw new Error("Database connection failed - cannot initialize schema");
-  }
-}).catch(error => {
-  console.error("❌ Database initialization failed:", error);
-  process.exit(1);
-});

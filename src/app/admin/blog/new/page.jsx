@@ -69,7 +69,6 @@ const blogFormSchema = z.object({
 
 export default function AddNewBlogPostPage() {
   const [isSlugEditable, setIsSlugEditable] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(blogFormSchema),
@@ -117,65 +116,50 @@ export default function AddNewBlogPostPage() {
     form.setValue("slug", generatedSlug);
   };
 
-  // Enhanced error handling in onSubmit
   async function onSubmit(values) {
     try {
-      console.log("🚀 Starting blog submission...");
-      
-      // Show loading state
-      setIsSubmitting(true);
-
+      // Create FormData to send multipart/form-data
       const formData = new FormData();
 
       // Add all form fields to FormData
       for (const key in values) {
         if (key === "imageUrl" && values[key] instanceof File) {
+          // Add the File object directly
           formData.append(key, values[key]);
         } else if (key === "tags" || key === "categories") {
+          // Convert comma-separated strings to JSON arrays
           const items = values[key]
             ? values[key].split(",").map((item) => item.trim())
             : [];
           formData.append(key, JSON.stringify(items));
         } else if (key === "publishDate") {
+          // Convert date to MySQL format
           const mysqlDate = new Date(values[key])
             .toISOString()
             .slice(0, 19)
             .replace("T", " ");
           formData.append(key, mysqlDate);
         } else if (values[key] !== undefined && values[key] !== null) {
+          // Add all other non-null fields
           formData.append(key, values[key]);
         }
       }
 
-      console.log("📤 Sending request to API...");
-      
       const response = await fetch("/api/blogs", {
         method: "POST",
-        body: formData,
+        body: formData, // Send as multipart/form-data
       });
 
-      const result = await response.json();
-
       if (!response.ok) {
-        console.error("❌ API Error:", result);
-        throw new Error(result.message || `HTTP ${response.status}: ${response.statusText}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Something went wrong");
       }
 
-      console.log("✅ Blog created successfully:", result);
       toast.success("Your blog post has been created successfully.");
-      
-      // Reset form
       form.reset();
       form.setValue("publishDate", new Date().toISOString().split("T")[0]);
-
     } catch (error) {
-      console.error("❌ Blog submission failed:", error);
-      
-      // Show detailed error message
-      const errorMessage = error.message || "An unexpected error occurred";
-      toast.error(`Failed to create blog post: ${errorMessage}`);
-    } finally {
-      setIsSubmitting(false);
+      toast.error(error.message);
     }
   }
 
@@ -500,9 +484,7 @@ export default function AddNewBlogPostPage() {
             </div>
           </div>
 
-          <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Creating..." : "Create Blog Post"}
-          </Button>
+          <Button type="submit">Create Blog Post</Button>
         </form>
       </Form>
     </div>
