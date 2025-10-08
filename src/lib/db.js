@@ -101,6 +101,31 @@ async function initializeDatabaseSchema() {
             );
         `;
 
+    const createBlogsTableSQL = `
+            CREATE TABLE IF NOT EXISTS blogs (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                slug VARCHAR(255) UNIQUE NOT NULL,
+                content TEXT NOT NULL,
+                imageUrl VARCHAR(500),
+                imageAlt VARCHAR(255),
+                authorName VARCHAR(255),
+                publishDate DATETIME NOT NULL,
+                metaTitle VARCHAR(255),
+                metaDescription TEXT,
+                keywords VARCHAR(500),
+                tags JSON,
+                categories JSON,
+                canonicalUrl VARCHAR(500),
+                jsonLdSchema TEXT,
+                ogTitle VARCHAR(255),
+                ogDescription TEXT,
+                ogImageUrl VARCHAR(500),
+                createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            );
+        `;
+
     await connection.query(createEventsTableSQL);
     console.log("Table 'events' checked/created.");
 
@@ -118,6 +143,9 @@ async function initializeDatabaseSchema() {
 
     await connection.query(createPublicationsTableSQL);
     console.log("Table 'publications' checked/created.");
+
+    await connection.query(createBlogsTableSQL);
+    console.log("Table 'blogs' checked/created.");
   } catch (error) {
     console.error("Error initializing database schema:", error);
     // Exit the process if we can't set up the database, as the app won't work.
