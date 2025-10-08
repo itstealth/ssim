@@ -3,131 +3,142 @@ import { dbPool } from "@/lib/db";
 import slugify from "@/utils/slugify";
 import sanitizeHtml from "sanitize-html";
 import { uploadImageToAzure } from "@/lib/azure-blob-storage";
-import { logger, logDatabaseOperation } from "@/lib/api-debug";
-import { fileLogger } from "@/lib/file-logger";
-import { productionDebugger } from "@/lib/production-debug";
 
 export async function POST(request) {
   let connection;
   const startTime = Date.now();
-  let debugId = null;
 
   try {
-    logger.info('Starting blog post creation', {
-      method: request.method,
-      url: request.url,
+    console.log('=== BLOG POST CREATION START ===');
+    console.log('Request URL:', request.url);
+    console.log('Request Method:', request.method);
+
+    const formData = await request.formData();
+    const body = Object.fromEntries(formData.entries());
+    const imageFile = formData.get("imageUrl");
+
+    console.log('Form data received:', {
+      fieldCount: Object.keys(body).length,
+      hasImage: !!imageFile,
+      imageName: imageFile?.name,
+      imageSize: imageFile?.size,
     });
 
-    // Wrap the entire function with production debugging
-    const debugWrapper = productionDebugger.wrapFunction(async () => {
-      const formData = await request.formData();
-      const body = Object.fromEntries(formData.entries());
-      const imageFile = formData.get("imageUrl");
+    const {
+      title,
+      content,
+      imageAlt,
+      authorName,
+      publishDate,
+      metaTitle,
+      metaDescription,
+      keywords,
+      tags,
+      categories,
+      canonicalUrl,
+      jsonLdSchema,
+      ogTitle,
+      ogDescription,
+      ogImageUrl,
+      slug: manualSlug,
+    } = body;
 
-      logger.debug('Received form data', {
-        fieldCount: Object.keys(body).length,
-        hasImage: !!imageFile,
-        imageName: imageFile?.name,
-        imageSize: imageFile?.size,
-      });
+    console.log('Extracted fields:', {
+      title: title?.substring(0, 50) + '...',
+      hasContent: !!content,
+      hasImageAlt: !!imageAlt,
+      hasAuthor: !!authorName,
+      hasPublishDate: !!publishDate,
+    });
 
-      const {
-        title,
-        content,
-        imageAlt,
-        authorName,
-        publishDate,
-        metaTitle,
-        metaDescription,
-        keywords,
-        tags,
-        categories,
-        canonicalUrl,
-        jsonLdSchema,
-        ogTitle,
-        ogDescription,
-        ogImageUrl,
-        slug: manualSlug,
-      } = body;
+    // Validate required fields
+    const missingFields = [];
+    if (!title?.trim()) missingFields.push('title');
+    if (!content?.trim()) missingFields.push('content');
+    if (!imageFile) missingFields.push('imageUrl');
+    if (!imageAlt?.trim()) missingFields.push('imageAlt');
+    if (!publishDate?.trim()) missingFields.push('publishDate');
 
-      // Validate required fields with detailed error messages
-      const missingFields = [];
-      if (!title?.trim()) missingFields.push('title');
-      if (!content?.trim()) missingFields.push('content');
-      if (!imageFile) missingFields.push('imageUrl');
-      if (!imageAlt?.trim()) missingFields.push('imageAlt');
-      if (!publishDate?.trim()) missingFields.push('publishDate');
-
-      if (missingFields.length > 0) {
-        logger.warn('Missing required fields', { missingFields });
-        return NextResponse.json(
-          {
-            message: `Missing required fields: ${missingFields.join(', ')}`,
-            missingFields
-          },
-          { status: 400 }
-        );
-      }
-
-      // Generate and validate slug
-      const slug = manualSlug?.trim() ? slugify(manualSlug) : slugify(title);
-
-      if (!slug) {
-        logger.error('Failed to generate slug', { title, manualSlug });
-        return NextResponse.json(
-          { message: "Failed to generate valid slug from title" },
-          { status: 400 }
-        );
-      }
-
-      logger.debug('Generated slug', { slug, title });
-
-      // Sanitize HTML content to prevent XSS attacks
-      let sanitizedContent;
-      try {
-        sanitizedContent = sanitizeHtml(content, {
-          allowedTags: sanitizeHtml.defaults.allowedTags.concat([
-            'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-            'table', 'thead', 'tbody', 'tr', 'th', 'td'
-          ]),
-          allowedAttributes: {
-            ...sanitizeHtml.defaults.allowedAttributes,
-            '*': [ 'class', 'style' ],
-            'a': [ 'href', 'name', 'target' ],
-            'img': [ 'src', 'srcset', 'alt', 'title', 'width', 'height', 'loading' ]
-          }
-        });
-
-        if (sanitizedContent.length < 10) {
-          logger.warn('Content too short after sanitization', {
-            originalLength: content.length,
-            sanitizedLength: sanitizedContent.length
-          });
-          return NextResponse.json(
-            { message: "Content too short after sanitization" },
-            { status: 400 }
-          );
-        }
-      } catch (error) {
-        logger.error('HTML sanitization failed', error);
-        return NextResponse.json(
-          { message: "Failed to process content" },
-          { status: 400 }
-        );
-      }
-
-      // Get database connection with logging
-      connection = await logDatabaseOperation(
-        'GET_CONNECTION',
-        'blogs',
-        () => dbPool.getConnection(),
-        { operation: 'getConnection' }
+    if (missingFields.length > 0) {
+      console.log('Missing fields:', missingFields);
+      return NextResponse.json(
+        {
+          message: `Missing required fields: ${missingFields.join(', ')}`,
+          missingFields
+        },
+        { status: 400 }
       );
+    }
 
+    console.log('=== STEP 1: SLUG GENERATION ===');
+    // Generate slug
+    const slug = manualSlug?.trim() ? slugify(manualSlug) : slugify(title);
+    console.log('Generated slug:', slug);
+
+    if (!slug) {
+      console.log('ERROR: Failed to generate slug');
+      return NextResponse.json(
+        { message: "Failed to generate valid slug from title" },
+        { status: 400 }
+      );
+    }
+
+    console.log('=== STEP 2: CONTENT SANITIZATION ===');
+    // Sanitize HTML content
+    let sanitizedContent;
+    try {
+      sanitizedContent = sanitizeHtml(content, {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+          'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+          'table', 'thead', 'tbody', 'tr', 'th', 'td'
+        ]),
+        allowedAttributes: {
+          ...sanitizeHtml.defaults.allowedAttributes,
+          '*': [ 'class', 'style' ],
+          'a': [ 'href', 'name', 'target' ],
+          'img': [ 'src', 'srcset', 'alt', 'title', 'width', 'height', 'loading' ]
+        }
+      });
+      console.log('Content sanitized successfully');
+    } catch (error) {
+      console.log('ERROR: HTML sanitization failed:', error.message);
+      return NextResponse.json(
+        { message: "Failed to process content" },
+        { status: 400 }
+      );
+    }
+
+    console.log('=== STEP 3: DATABASE CONNECTION ===');
+    // Get database connection
+    try {
+      connection = await dbPool.getConnection();
+      console.log('Database connection established');
+    } catch (error) {
+      console.log('ERROR: Database connection failed:', error.message);
+      console.log('Error details:', {
+        name: error.name,
+        code: error.code,
+        errno: error.errno,
+        sqlState: error.sqlState,
+        sqlMessage: error.sqlMessage,
+        stack: error.stack
+      });
+      return NextResponse.json(
+        {
+          message: "Database connection failed",
+          error: error.message,
+          details: error.code
+        },
+        { status: 500 }
+      );
+    }
+
+    console.log('=== STEP 4: DATABASE TRANSACTION ===');
+    try {
       await connection.beginTransaction();
-      logger.debug('Database transaction started');
+      console.log('Transaction started');
 
-      // Step 1: Insert blog post with a placeholder image URL
+      // Insert blog post
       const initialSql = `
         INSERT INTO blogs (
           title, slug, content, imageUrl, imageAlt, authorName, publishDate,
@@ -143,60 +154,50 @@ export async function POST(request) {
         jsonLdSchema, ogTitle, ogDescription, ogImageUrl,
       ];
 
-      logger.debug('Inserting blog post', {
-        title,
-        slug,
-        authorName,
-        publishDate,
-      });
-
-      const [result] = await logDatabaseOperation(
-        'INSERT',
-        'blogs',
-        () => connection.query(initialSql, initialValues),
-        { operation: 'insertBlog' }
-      );
-
+      console.log('Executing INSERT query...');
+      const [result] = await connection.query(initialSql, initialValues);
       const blogId = result.insertId;
-      logger.info('Blog post inserted', { blogId });
+      console.log('Blog post inserted with ID:', blogId);
 
-      // Step 2: Upload image to Azure with the new blog ID
+      console.log('=== STEP 5: IMAGE PROCESSING ===');
+      // Process image
       let imageBuffer;
       try {
         imageBuffer = Buffer.from(await imageFile.arrayBuffer());
-        logger.debug('Image buffer created', {
-          size: imageBuffer.length,
-          name: imageFile.name
-        });
+        console.log('Image buffer created, size:', imageBuffer.length);
       } catch (error) {
-        logger.error('Failed to create image buffer', error);
+        console.log('ERROR: Failed to create image buffer:', error.message);
         throw new Error('Failed to process uploaded image');
       }
 
+      console.log('=== STEP 6: AZURE UPLOAD ===');
       let imageUrl;
       try {
         imageUrl = await uploadImageToAzure(imageBuffer, imageFile.name, blogId);
-        logger.info('Image uploaded to Azure', { imageUrl, blogId });
+        console.log('Image uploaded to Azure:', imageUrl);
       } catch (error) {
-        logger.error('Azure upload failed', error, { blogId });
+        console.log('ERROR: Azure upload failed:', error.message);
+        console.log('Azure error details:', {
+          name: error.name,
+          code: error.code,
+          statusCode: error.statusCode,
+          stack: error.stack
+        });
         throw error;
       }
 
-      // Step 3: Update the blog post with the actual image URL
+      console.log('=== STEP 7: UPDATE BLOG WITH IMAGE URL ===');
+      // Update blog with image URL
       const updateSql = "UPDATE blogs SET imageUrl = ? WHERE id = ?";
-
-      await logDatabaseOperation(
-        'UPDATE',
-        'blogs',
-        () => connection.query(updateSql, [imageUrl, blogId]),
-        { operation: 'updateImageUrl', blogId }
-      );
+      await connection.query(updateSql, [imageUrl, blogId]);
+      console.log('Blog updated with image URL');
 
       await connection.commit();
-      logger.info('Blog post creation completed successfully', {
-        blogId,
-        duration: `${Date.now() - startTime}ms`
-      });
+      console.log('Transaction committed successfully');
+
+      const duration = Date.now() - startTime;
+      console.log('=== BLOG POST CREATION SUCCESS ===');
+      console.log('Duration:', duration + 'ms');
 
       return NextResponse.json(
         {
@@ -207,80 +208,103 @@ export async function POST(request) {
         },
         { status: 201 }
       );
-    }, 'blogPostCreation');
 
-    return await debugWrapper();
+    } catch (error) {
+      console.log('ERROR: Database operation failed:', error.message);
+      console.log('Error details:', {
+        name: error.name,
+        code: error.code,
+        errno: error.errno,
+        sqlState: error.sqlState,
+        sqlMessage: error.sqlMessage,
+        stack: error.stack
+      });
+
+      if (connection) {
+        try {
+          await connection.rollback();
+          console.log('Transaction rolled back');
+        } catch (rollbackError) {
+          console.log('ERROR: Failed to rollback:', rollbackError.message);
+        }
+      }
+
+      return NextResponse.json(
+        {
+          message: "Database operation failed",
+          error: error.message,
+          code: error.code,
+          details: error.sqlMessage || error.message
+        },
+        { status: 500 }
+      );
+    }
 
   } catch (error) {
     const duration = Date.now() - startTime;
 
-    // Log the error with production debugger
-    const debugId = productionDebugger.logError(error, {
-      request: {
-        url: request.url,
-        method: request.method,
-        headers: Object.fromEntries(request.headers.entries()),
-      },
-      duration: `${duration}ms`,
-      timestamp: new Date().toISOString(),
-      connectionStatus: connection ? 'connected' : 'not_connected'
-    });
+    console.log('=== FATAL ERROR ===');
+    console.log('Error name:', error.name);
+    console.log('Error message:', error.message);
+    console.log('Error code:', error.code);
+    console.log('Error stack:', error.stack);
+    console.log('Duration:', duration + 'ms');
 
     if (connection) {
       try {
         await connection.rollback();
-        logger.warn('Transaction rolled back due to error');
+        console.log('Transaction rolled back');
       } catch (rollbackError) {
-        logger.error('Failed to rollback transaction', rollbackError);
+        console.log('ERROR: Failed to rollback:', rollbackError.message);
       }
     }
 
     // Handle specific database errors
     if (error.code === "ER_DUP_ENTRY") {
-      logger.warn('Duplicate entry error', { error: error.message });
+      console.log('Duplicate entry error detected');
       return NextResponse.json(
         { message: "A blog post with this title or slug already exists." },
         { status: 409 }
       );
     }
 
-    // Handle other specific errors
+    // Handle Azure errors
     if (error.message.includes('Azure')) {
-      logger.error('Azure storage error', error);
+      console.log('Azure storage error detected');
       return NextResponse.json(
         {
           message: "Failed to upload image",
-          debugId,
-          details: error.message
+          error: error.message,
+          details: error.code
         },
         { status: 500 }
       );
     }
 
+    // Handle database errors
     if (error.message.includes('database') || error.message.includes('SQL')) {
-      logger.error('Database error', error);
+      console.log('Database error detected');
       return NextResponse.json(
         {
           message: "Database operation failed",
-          debugId,
-          details: error.message
+          error: error.message,
+          code: error.code,
+          details: error.sqlMessage || error.message
         },
         { status: 500 }
       );
     }
 
-    // Return detailed error information for debugging
+    // Return detailed error information
     return NextResponse.json(
       {
         message: "Internal Server Error",
-        debugId,
         error: {
           name: error.name,
           message: error.message,
-          stack: error.stack,
           code: error.code,
+          stack: error.stack
         },
-        details: error.message,
         duration: `${duration}ms`
       },
       { status: 500 }
@@ -289,9 +313,9 @@ export async function POST(request) {
     if (connection) {
       try {
         connection.release();
-        logger.debug('Database connection released');
+        console.log('Database connection released');
       } catch (error) {
-        logger.error('Error releasing database connection', error);
+        console.log('ERROR: Failed to release connection:', error.message);
       }
     }
   }
@@ -302,47 +326,40 @@ export async function GET(request) {
   const startTime = Date.now();
 
   try {
-    logger.info('Fetching blog posts', {
-      method: request.method,
-      url: request.url,
-    });
+    console.log('=== FETCHING BLOG POSTS ===');
+    console.log('Request URL:', request.url);
 
-    connection = await logDatabaseOperation(
-      'GET_CONNECTION',
-      'blogs',
-      () => dbPool.getConnection(),
-      { operation: 'getConnection' }
-    );
+    connection = await dbPool.getConnection();
+    console.log('Database connection established');
 
-    const sql =
-      "SELECT id, title, slug, authorName, publishDate, createdAt FROM blogs ORDER BY publishDate DESC";
+    const sql = "SELECT id, title, slug, authorName, publishDate, createdAt FROM blogs ORDER BY publishDate DESC";
 
-    const [rows] = await logDatabaseOperation(
-      'SELECT',
-      'blogs',
-      () => connection.query(sql),
-      { operation: 'fetchBlogs' }
-    );
+    console.log('Executing SELECT query...');
+    const [rows] = await connection.query(sql);
+    console.log('Blog posts fetched:', rows.length);
 
-    logger.info('Blog posts fetched successfully', {
-      count: rows.length,
-      duration: `${Date.now() - startTime}ms`
-    });
+    const duration = Date.now() - startTime;
+    console.log('=== BLOG POSTS FETCHED SUCCESSFULLY ===');
+    console.log('Duration:', duration + 'ms');
 
     return NextResponse.json(rows);
   } catch (error) {
     const duration = Date.now() - startTime;
 
-    logger.error('Error fetching blog posts', error, {
-      duration: `${duration}ms`,
-      stack: error.stack
-    });
+    console.log('=== ERROR FETCHING BLOG POSTS ===');
+    console.log('Error name:', error.name);
+    console.log('Error message:', error.message);
+    console.log('Error code:', error.code);
+    console.log('Error stack:', error.stack);
+    console.log('Duration:', duration + 'ms');
 
     if (error.message.includes('database') || error.message.includes('SQL')) {
       return NextResponse.json(
         {
           message: "Database operation failed",
-          details: process.env.NODE_ENV === 'development' ? error.message : undefined
+          error: error.message,
+          code: error.code,
+          details: error.sqlMessage || error.message
         },
         { status: 500 }
       );
@@ -351,7 +368,9 @@ export async function GET(request) {
     return NextResponse.json(
       {
         message: "Internal Server Error",
-        details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+        error: error.message,
+        code: error.code,
+        stack: error.stack,
         duration: `${duration}ms`
       },
       { status: 500 }
@@ -360,9 +379,9 @@ export async function GET(request) {
     if (connection) {
       try {
         connection.release();
-        logger.debug('Database connection released');
+        console.log('Database connection released');
       } catch (error) {
-        logger.error('Error releasing database connection', error);
+        console.log('ERROR: Failed to release connection:', error.message);
       }
     }
   }
