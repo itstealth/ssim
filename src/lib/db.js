@@ -1,23 +1,46 @@
 import mysql from "mysql2/promise";
 import fs from "fs";
 import path from "path";
+import { logger } from './logger.js';
+import { validateEnvironmentVariables } from './env-check.js';
 
 // --- MySQL Connection Pool ---
 
-// Base SSL options
-const sslOptions = {
-  ca: fs.readFileSync(path.join(process.cwd(), "public", "DigiCertGlobalRootG2.crt.pem")),
-  rejectUnauthorized: false,
-};
+// SSL configuration with better error handling
+function getSSLOptions() {
+  try {
+    // Try to read SSL certificate file
+    const certPath = path.join(process.cwd(), "public", "DigiCertGlobalRootG2.crt.pem");
 
-// For local development, we need to bypass the self-signed certificate issue.
-// In production, we will not set this, allowing a pragmatic but functional connection.
-// if (process.env.NODE_ENV !== "production") {
-//   sslOptions.rejectUnauthorized = false;
-// }
+    if (fs.existsSync(certPath)) {
+      logger.info('SSL certificate found', { certPath });
+
+      return {
+        ca: fs.readFileSync(certPath),
+        rejectUnauthorized: process.env.NODE_ENV === "production",
+      };
+    } else {
+      logger.warn('SSL certificate file not found, using system certificates', { certPath });
+
+      // Use system certificates when file is not available
+      return {
+        rejectUnauthorized: process.env.NODE_ENV === "production",
+      };
+    }
+  } catch (error) {
+    logger.error('Error loading SSL certificate', error, {
+      certPath: path.join(process.cwd(), "public", "DigiCertGlobalRootG2.crt.pem")
+    });
+
+    // Fallback to system certificates
+    return {
+      rejectUnauthorized: false,
+    };
+  }
+}
 
 export const dbPool = mysql.createPool({
-  host: process.env.DB_HOST, // Using environment variables
+  host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
@@ -25,16 +48,21 @@ export const dbPool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   multipleStatements: true,
-  ssl: sslOptions,
+  ssl: getSSLOptions(),
+  // Add connection timeout and retry options
+  acquireTimeout: 60000,
+  timeout: 60000,
+  reconnect: true,
 });
 
 async function initializeDatabaseSchema() {
   let connection;
   try {
+    // Validate environment variables first
+    validateEnvironmentVariables();
+
     connection = await dbPool.getConnection();
-    console.log(
-      "Checking and creating database tables if they do not exist..."
-    );
+    logger.info("Checking and creating database tables if they do not exist...");
 
     const createEventsTableSQL = `
             CREATE TABLE IF NOT EXISTS events (
@@ -127,27 +155,27 @@ async function initializeDatabaseSchema() {
         `;
 
     await connection.query(createEventsTableSQL);
-    console.log("Table 'events' checked/created.");
+    logger.info("Table 'events' checked/created.");
 
     await connection.query(createEventImagesTableSQL);
-    console.log("Table 'event_images' checked/created.");
+    logger.info("Table 'event_images' checked/created.");
 
     await connection.query(createPlacementsTableSQL);
-    console.log("Table 'placements' checked/created.");
+    logger.info("Table 'placements' checked/created.");
 
     await connection.query(createInternshipsTableSQL);
-    console.log("Table 'internships' checked/created.");
+    logger.info("Table 'internships' checked/created.");
 
     await connection.query(createGuestLecturesTableSQL);
-    console.log("Table 'guest_lectures' checked/created.");
+    logger.info("Table 'guest_lectures' checked/created.");
 
     await connection.query(createPublicationsTableSQL);
-    console.log("Table 'publications' checked/created.");
+    logger.info("Table 'publications' checked/created.");
 
     await connection.query(createBlogsTableSQL);
-    console.log("Table 'blogs' checked/created.");
+    logger.info("Table 'blogs' checked/created.");
   } catch (error) {
-    console.error("Error initializing database schema:", error);
+    logger.error("Error initializing database schema", error);
     // Exit the process if we can't set up the database, as the app won't work.
     process.exit(1);
   } finally {
