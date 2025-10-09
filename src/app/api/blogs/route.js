@@ -37,14 +37,14 @@ const blogFormSchema = z.object({
   tags: z.string().optional(),
   categories: z.string().optional(),
 
-  metaTitle: z.string().max(70).optional(),
-  metaDescription: z.string().max(160).optional(),
+  metaTitle: z.string().max(80, { message: "Meta Title cannot be longer than 80 characters." }).optional(),
+  metaDescription: z.string().max(160, { message: "Meta Description cannot be longer than 160 characters." }).optional(),
   keywords: z.string().optional(),
-  canonicalUrl: z.string().url().optional().or(z.literal("")),
+  canonicalUrl: z.string().url({ message: "Please enter a valid canonical URL." }).optional().or(z.literal("")),
   
-  ogTitle: z.string().max(70).optional(),
+  ogTitle: z.string().max(80).optional(),
   ogDescription: z.string().max(160).optional(),
-  ogImageUrl: z.string().url().optional().or(z.literal("")),
+  ogImageUrl: z.string().url({ message: "Please enter a valid URL for the Open Graph image." }).optional().or(z.literal("")),
 
   jsonLdSchema: z.string().optional(),
 });
@@ -72,7 +72,7 @@ export async function POST(request) {
     });
 
     if (!validatedData.success) {
-      console.log("Validation errors:", validatedData.error.errors);
+      console.log("Validation errors:", validatedData.error.flatten().fieldErrors);
       return NextResponse.json(
         {
           message: "Invalid form data.",
@@ -101,6 +101,11 @@ export async function POST(request) {
       ogImageUrl,
       slug: manualSlug,
     } = validatedData.data;
+    
+    // SEO Fallbacks: Use meta fields if OG fields are empty
+    const finalOgTitle = ogTitle || metaTitle;
+    const finalOgDescription = ogDescription || metaDescription;
+    const finalOgImageUrl = ogImageUrl; // Keep separate, might have specific logic later
 
     console.log('Form data received:', {
       fieldCount: Object.keys(body).length,
@@ -230,9 +235,9 @@ export async function POST(request) {
         categories, // Now sending the raw string
         canonicalUrl,
         jsonLdSchema,
-        ogTitle,
-        ogDescription,
-        ogImageUrl,
+        finalOgTitle,
+        finalOgDescription,
+        finalOgImageUrl,
       ];
 
       console.log('Executing INSERT query...');
