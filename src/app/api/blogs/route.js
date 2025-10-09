@@ -3,6 +3,8 @@ import { dbPool } from "@/lib/db";
 import slugify from "@/utils/slugify";
 import sanitizeHtml from "sanitize-html";
 import { uploadImageToAzure } from "@/lib/azure-blob-storage";
+import { blogFormSchema } from "@/lib/validators/blog";
+import * as z from "zod";
 
 export async function POST(request) {
   let connection;
@@ -14,16 +16,30 @@ export async function POST(request) {
     console.log('Request Method:', request.method);
 
     const formData = await request.formData();
-    const body = Object.fromEntries(formData.entries());
     const imageFile = formData.get("imageUrl");
 
-    console.log('Form data received:', {
-      fieldCount: Object.keys(body).length,
-      hasImage: !!imageFile,
-      imageName: imageFile?.name,
-      imageSize: imageFile?.size,
+    // Convert FormData to a plain object
+    const body = Object.fromEntries(formData.entries());
+
+    // Validate the form data using Zod schema
+    const validatedData = blogFormSchema.safeParse({
+      ...body,
+      imageUrl: imageFile,
+      publishDate: body.publishDate ? new Date(body.publishDate) : undefined,
     });
 
+    if (!validatedData.success) {
+      console.log("Validation errors:", validatedData.error.errors);
+      return NextResponse.json(
+        {
+          message: "Invalid form data.",
+          errors: validatedData.error.flatten().fieldErrors,
+        },
+        { status: 400 }
+      );
+    }
+    
+    // Use the validated data from now on
     const {
       title,
       content,
@@ -41,7 +57,14 @@ export async function POST(request) {
       ogDescription,
       ogImageUrl,
       slug: manualSlug,
-    } = body;
+    } = validatedData.data;
+
+    console.log('Form data received:', {
+      fieldCount: Object.keys(body).length,
+      hasImage: !!imageFile,
+      imageName: imageFile?.name,
+      imageSize: imageFile?.size,
+    });
 
     console.log('Extracted fields:', {
       title: title?.substring(0, 50) + '...',
@@ -51,24 +74,24 @@ export async function POST(request) {
       hasPublishDate: !!publishDate,
     });
 
-    // Validate required fields
-    const missingFields = [];
-    if (!title?.trim()) missingFields.push('title');
-    if (!content?.trim()) missingFields.push('content');
-    if (!imageFile) missingFields.push('imageUrl');
-    if (!imageAlt?.trim()) missingFields.push('imageAlt');
-    if (!publishDate?.trim()) missingFields.push('publishDate');
+    // Manual validation is no longer needed
+    // const missingFields = [];
+    // if (!title?.trim()) missingFields.push('title');
+    // if (!content?.trim()) missingFields.push('content');
+    // if (!imageFile) missingFields.push('imageUrl');
+    // if (!imageAlt?.trim()) missingFields.push('imageAlt');
+    // if (!publishDate?.trim()) missingFields.push('publishDate');
 
-    if (missingFields.length > 0) {
-      console.log('Missing fields:', missingFields);
-      return NextResponse.json(
-        {
-          message: `Missing required fields: ${missingFields.join(', ')}`,
-          missingFields
-        },
-        { status: 400 }
-      );
-    }
+    // if (missingFields.length > 0) {
+    //   console.log('Missing fields:', missingFields);
+    //   return NextResponse.json(
+    //     {
+    //       message: `Missing required fields: ${missingFields.join(', ')}`,
+    //       missingFields
+    //     },
+    //     { status: 400 }
+    //   );
+    // }
 
     console.log('=== STEP 1: SLUG GENERATION ===');
     // Generate slug
@@ -148,10 +171,29 @@ export async function POST(request) {
       `;
 
       const placeholderImageUrl = "placeholder";
+      
+      // Convert tags and categories from comma-separated strings to JSON arrays
+      const tagsJson = JSON.stringify(tags ? tags.split(",").map((item) => item.trim()) : []);
+      const categoriesJson = JSON.stringify(categories ? categories.split(",").map((item) => item.trim()) : []);
+
       const initialValues = [
-        title, slug, sanitizedContent, placeholderImageUrl, imageAlt, authorName, publishDate,
-        metaTitle, metaDescription, keywords, tags, categories, canonicalUrl,
-        jsonLdSchema, ogTitle, ogDescription, ogImageUrl,
+        title,
+        slug,
+        sanitizedContent,
+        placeholderImageUrl,
+        imageAlt,
+        authorName,
+        publishDate, // Already a Date object from Zod
+        metaTitle,
+        metaDescription,
+        keywords,
+        tagsJson,
+        categoriesJson,
+        canonicalUrl,
+        jsonLdSchema,
+        ogTitle,
+        ogDescription,
+        ogImageUrl,
       ];
 
       console.log('Executing INSERT query...');
