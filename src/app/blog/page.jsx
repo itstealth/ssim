@@ -62,8 +62,8 @@ const fetchBlogPosts = async () => {
         month: 'short',
         day: 'numeric'
       }),
-      // Use estimatedWordCount from API if available, otherwise calculate from contentPreview
-      readTime: `${Math.ceil((post.estimatedWordCount || (post.contentPreview || '').split(' ').length) / 200)} min read`,
+      // Use estimatedWordCount from API (based on metaDescription length)
+      readTime: `${Math.ceil((post.estimatedWordCount || 200) / 200)} min read`,
       category: Array.isArray(categories) && categories.length > 0 ? categories[0] : 'Uncategorized',
     };
   });
