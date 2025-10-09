@@ -3,8 +3,52 @@ import { dbPool } from "@/lib/db";
 import slugify from "@/utils/slugify";
 import sanitizeHtml from "sanitize-html";
 import { uploadImageToAzure } from "@/lib/azure-blob-storage";
-import { blogFormSchema } from "@/lib/validators/blog";
 import * as z from "zod";
+
+// Zod schema for validation, now directly in the API route
+const blogFormSchema = z.object({
+  title: z
+    .string()
+    .min(5, { message: "Title must be at least 5 characters long." })
+    .max(255, { message: "Title cannot be longer than 255 characters." }),
+  slug: z
+    .string()
+    .min(1, { message: "Slug is required." })
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+      message: "Slug can only contain lowercase letters, numbers, and hyphens.",
+    }),
+  content: z
+    .string()
+    .min(10, { message: "Content must be at least 10 characters long." }),
+  
+  imageUrl: z.any().refine((file) => file instanceof File, "Image is required."),
+
+  imageAlt: z
+    .string()
+    .min(5, { message: "Image alt text must be at least 5 characters long." })
+    .max(125, { message: "Image alt text cannot be longer than 125 characters." }),
+  
+  publishDate: z.string().refine((val) => !isNaN(Date.parse(val)), {
+    message: "Please enter a valid date.",
+  }),
+
+  authorName: z.string().max(100).optional(),
+  
+  tags: z.string().optional(),
+  categories: z.string().optional(),
+
+  metaTitle: z.string().max(70).optional(),
+  metaDescription: z.string().max(160).optional(),
+  keywords: z.string().optional(),
+  canonicalUrl: z.string().url().optional().or(z.literal("")),
+  
+  ogTitle: z.string().max(70).optional(),
+  ogDescription: z.string().max(160).optional(),
+  ogImageUrl: z.string().url().optional().or(z.literal("")),
+
+  jsonLdSchema: z.string().optional(),
+});
+
 
 export async function POST(request) {
   let connection;
@@ -21,11 +65,10 @@ export async function POST(request) {
     // Convert FormData to a plain object
     const body = Object.fromEntries(formData.entries());
 
-    // Validate the form data using Zod schema
+    // Validate the form data using the Zod schema
     const validatedData = blogFormSchema.safeParse({
       ...body,
       imageUrl: imageFile,
-      publishDate: body.publishDate ? new Date(body.publishDate) : undefined,
     });
 
     if (!validatedData.success) {
@@ -172,10 +215,6 @@ export async function POST(request) {
 
       const placeholderImageUrl = "placeholder";
       
-      // Convert tags and categories from comma-separated strings to JSON arrays
-      const tagsJson = JSON.stringify(tags ? tags.split(",").map((item) => item.trim()) : []);
-      const categoriesJson = JSON.stringify(categories ? categories.split(",").map((item) => item.trim()) : []);
-
       const initialValues = [
         title,
         slug,
@@ -183,12 +222,12 @@ export async function POST(request) {
         placeholderImageUrl,
         imageAlt,
         authorName,
-        publishDate, // Already a Date object from Zod
+        publishDate,
         metaTitle,
         metaDescription,
         keywords,
-        tagsJson,
-        categoriesJson,
+        tags, // Now sending the raw string, to be parsed on the frontend
+        categories, // Now sending the raw string
         canonicalUrl,
         jsonLdSchema,
         ogTitle,
