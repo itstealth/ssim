@@ -5,10 +5,14 @@
 
 import fs from 'fs';
 import path from 'path';
-import { logger } from './logger.js';
 
 class FileLogger {
   constructor() {
+    // Skip initialization during build
+    if (!process.env.DB_HOST) {
+      return;
+    }
+
     this.logDir = path.join(process.cwd(), 'logs');
     this.errorDumpDir = path.join(this.logDir, 'error-dumps');
     this.maxLogFiles = 10;
@@ -19,16 +23,20 @@ class FileLogger {
   }
 
   ensureDirectories() {
-    // Create logs directory
-    if (!fs.existsSync(this.logDir)) {
-      fs.mkdirSync(this.logDir, { recursive: true });
-      logger.info('Created logs directory', { path: this.logDir });
-    }
+    try {
+      // Create logs directory
+      if (!fs.existsSync(this.logDir)) {
+        fs.mkdirSync(this.logDir, { recursive: true });
+        console.log('[FileLogger] Created logs directory:', this.logDir);
+      }
 
-    // Create error dumps directory
-    if (!fs.existsSync(this.errorDumpDir)) {
-      fs.mkdirSync(this.errorDumpDir, { recursive: true });
-      logger.info('Created error dumps directory', { path: this.errorDumpDir });
+      // Create error dumps directory
+      if (!fs.existsSync(this.errorDumpDir)) {
+        fs.mkdirSync(this.errorDumpDir, { recursive: true });
+        console.log('[FileLogger] Created error dumps directory:', this.errorDumpDir);
+      }
+    } catch (error) {
+      console.error('[FileLogger] Failed to create directories:', error.message);
     }
   }
 
@@ -55,9 +63,9 @@ class FileLogger {
       filesToDelete.forEach(file => {
         try {
           fs.unlinkSync(file);
-          logger.debug('Rotated log file', { file });
+          console.log('[FileLogger] Rotated log file:', file);
         } catch (error) {
-          logger.error('Failed to rotate log file', error, { file });
+          console.error('[FileLogger] Failed to rotate log file:', error.message);
         }
       });
     }
@@ -85,7 +93,7 @@ class FileLogger {
       this.cleanupOldErrorDumps();
 
     } catch (error) {
-      logger.error('Failed to write to log file', error, { filePath });
+      console.error('[FileLogger] Failed to write to log file:', error.message);
       // Fallback to console if file writing fails
       console.error('LOG FILE ERROR:', error.message);
       console.log(content);
@@ -111,14 +119,14 @@ class FileLogger {
         filesToDelete.forEach(file => {
           try {
             fs.unlinkSync(file.path);
-            logger.debug('Cleaned up old error dump', { file: file.name });
+            console.log('[FileLogger] Cleaned up old error dump:', file.name);
           } catch (error) {
-            logger.error('Failed to cleanup error dump', error, { file: file.name });
+            console.error('[FileLogger] Failed to cleanup error dump:', error.message);
           }
         });
       }
     } catch (error) {
-      logger.error('Failed to cleanup error dumps', error);
+      console.error('[FileLogger] Failed to cleanup error dumps:', error.message);
     }
   }
 
@@ -137,7 +145,7 @@ class FileLogger {
     };
 
     // Write to console (for Azure logs)
-    logger.log(level, message, meta);
+    console.log(`[FileLogger] ${level}:`, message, meta);
 
     // Write to file (for local inspection)
     if (process.env.NODE_ENV === 'production') {
@@ -211,11 +219,11 @@ class FileLogger {
     const filePath = path.join(this.errorDumpDir, `${errorId}.json`);
     try {
       fs.writeFileSync(filePath, JSON.stringify(errorDump, null, 2));
-      logger.info('Error dump created', { errorId, filePath });
+      console.log('[FileLogger] Error dump created:', errorId, filePath);
 
       return errorId;
     } catch (error) {
-      logger.error('Failed to create error dump', error, { errorId });
+      console.error('[FileLogger] Failed to create error dump:', error.message, errorId);
       return null;
     }
   }
@@ -282,7 +290,7 @@ class FileLogger {
         })
         .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     } catch (error) {
-      logger.error('Failed to read error dumps', error);
+      console.error('[FileLogger] Failed to read error dumps:', error.message);
       return [];
     }
   }
@@ -297,7 +305,7 @@ class FileLogger {
       const content = fs.readFileSync(filePath, 'utf8');
       return JSON.parse(content);
     } catch (error) {
-      logger.error('Failed to read error dump', error, { errorId });
+      console.error('[FileLogger] Failed to read error dump:', error.message, errorId);
       return null;
     }
   }

@@ -4,9 +4,12 @@ import mime from "mime-types";
 const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
 const containerName = process.env.AZURE_CONTAINER_NAME || "blog-images";
 
-console.log('[AZURE] Azure Storage Configuration:');
-console.log('[AZURE] Container Name:', containerName);
-console.log('[AZURE] Connection String Length:', connectionString?.length || 0);
+// Only log during runtime, not during build
+if (process.env.NODE_ENV === 'production' && connectionString) {
+  console.log('[AZURE] Azure Storage Configuration:');
+  console.log('[AZURE] Container Name:', containerName);
+  console.log('[AZURE] Connection String Length:', connectionString?.length || 0);
+}
 
 // Validate required environment variables
 function validateEnvironment() {

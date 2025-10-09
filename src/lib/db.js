@@ -35,30 +35,42 @@ function getSSLOptions() {
   }
 }
 
-console.log('[DB] Creating database pool...');
-console.log('[DB] DB_HOST:', process.env.DB_HOST);
-console.log('[DB] DB_DATABASE:', process.env.DB_DATABASE);
-console.log('[DB] DB_USER:', process.env.DB_USER);
+// Only log and create pool if we have database credentials
+let dbPool = null;
 
-export const dbPool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  multipleStatements: true,
-  ssl: getSSLOptions(),
-  // Add connection timeout and retry options
-  acquireTimeout: 60000,
-  timeout: 60000,
-  reconnect: true,
-});
+if (process.env.DB_HOST && process.env.DB_USER && process.env.DB_DATABASE) {
+  console.log('[DB] Creating database pool...');
+  console.log('[DB] DB_HOST:', process.env.DB_HOST);
+  console.log('[DB] DB_DATABASE:', process.env.DB_DATABASE);
+  console.log('[DB] DB_USER:', process.env.DB_USER);
 
-console.log('[DB] Database pool created successfully');
+  dbPool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    multipleStatements: true,
+    ssl: getSSLOptions(),
+    connectTimeout: 60000, // Changed from 'timeout'
+  });
+
+  console.log('[DB] Database pool created successfully');
+} else {
+  console.log('[DB] Skipping database pool creation - no credentials provided (build time)');
+}
+
+export { dbPool };
 
 async function initializeDatabaseSchema() {
+  // Skip initialization during build or if no database credentials
+  if (!dbPool || !process.env.DB_HOST) {
+    console.log('[DB] Skipping database schema initialization (build time or no credentials)');
+    return;
+  }
+
   let connection;
   try {
     console.log('[DB] Initializing database schema...');
@@ -186,7 +198,12 @@ async function initializeDatabaseSchema() {
   }
 }
 
-// Initialize database schema on startup
-initializeDatabaseSchema().catch(error => {
-  console.error('[DB] Failed to initialize database schema:', error);
-});
+// Initialize database schema on startup (only in production/runtime, not during build)
+if (process.env.NODE_ENV !== 'production' || process.env.DB_HOST) {
+  // Only run if we're not in build mode
+  if (typeof window === 'undefined' && dbPool) {
+    initializeDatabaseSchema().catch(error => {
+      console.error('[DB] Failed to initialize database schema:', error);
+    });
+  }
+}
