@@ -15,34 +15,57 @@ const fetchBlogPosts = async () => {
   const response = await fetch('/api/blogs');
   
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    const errorData = await response.json().catch(() => ({}));
+    const errorMessage = errorData.message || errorData.error || `Failed to fetch blogs (Status: ${response.status})`;
+    console.error('Blog fetch error:', errorMessage, errorData);
+    throw new Error(errorMessage);
   }
 
   const posts = await response.json();
 
-  console.log(posts);
+  console.log('Fetched posts:', posts.length);
+
+  // Ensure posts is an array
+  if (!Array.isArray(posts)) {
+    console.error('API did not return an array:', posts);
+    throw new Error('Invalid response format from API');
+  }
 
   // The new API returns a flat array of posts, so we transform it
   // and handle pagination on the client-side.
-  return posts.map(post => ({
-    id: post.slug,
-    title: post.title,
-    description: post.metaDescription || '', // Use metaDescription for the excerpt
-    image: post.imageUrl || '/placeholder.svg',
-    imageAlt: post.imageAlt || post.title,
-    author: {
-      name: post.authorName || 'Anonymous',
-      avatar: '/placeholder.svg', // Placeholder avatar
-      initials: (post.authorName || 'A').split(' ').map(n => n[0]).join(''),
-    },
-    date: new Date(post.publishDate).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    }),
-    readTime: `${Math.ceil((post.content || '').split(' ').length / 200)} min read`,
-    category: post.categories ? JSON.parse(post.categories)[0] : 'Uncategorized',
-  }));
+  return posts.map(post => {
+    // Safely parse categories
+    let categories = [];
+    try {
+      if (post.categories) {
+        categories = typeof post.categories === 'string' 
+          ? JSON.parse(post.categories) 
+          : post.categories;
+      }
+    } catch (e) {
+      console.warn('Failed to parse categories for post:', post.slug, e);
+    }
+
+    return {
+      id: post.slug,
+      title: post.title,
+      description: post.metaDescription || '', // Use metaDescription for the excerpt
+      image: post.imageUrl || '/placeholder.svg',
+      imageAlt: post.imageAlt || post.title,
+      author: {
+        name: post.authorName || 'Anonymous',
+        avatar: '/placeholder.svg', // Placeholder avatar
+        initials: (post.authorName || 'A').split(' ').map(n => n[0]).join(''),
+      },
+      date: new Date(post.publishDate).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      }),
+      readTime: `${Math.ceil((post.content || '').split(' ').length / 200)} min read`,
+      category: Array.isArray(categories) && categories.length > 0 ? categories[0] : 'Uncategorized',
+    };
+  });
 };
 
 export default function BlogSection() {

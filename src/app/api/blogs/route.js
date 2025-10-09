@@ -416,11 +416,11 @@ export async function GET(request) {
     console.log('Request URL:', request.url);
 
     connection = await dbPool.getConnection();
-    console.log('Database connection established');
+    console.log('Database connection established for fetching all blogs.');
 
-    const sql = "SELECT id, title, slug,imageUrl, imageAlt, metaDescription, authorName, publishDate, createdAt FROM blogs ORDER BY publishDate DESC";
+    const sql = "SELECT slug, title, metaDescription, imageUrl, imageAlt, authorName, publishDate, content, categories FROM blogs ORDER BY publishDate DESC";
 
-    console.log('Executing SELECT query...');
+    console.log('Executing SELECT query for all blogs...');
     const [rows] = await connection.query(sql);
     console.log('Blog posts fetched:', rows.length);
 
