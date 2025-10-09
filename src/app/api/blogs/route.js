@@ -418,7 +418,7 @@ export async function GET(request) {
     connection = await dbPool.getConnection();
     console.log('Database connection established');
 
-    const sql = "SELECT id, title, slug, authorName, publishDate, createdAt FROM blogs ORDER BY publishDate DESC";
+    const sql = "SELECT id, title, slug,imageUrl, imageAlt, metaDescription, authorName, publishDate, createdAt FROM blogs ORDER BY publishDate DESC";
 
     console.log('Executing SELECT query...');
     const [rows] = await connection.query(sql);
