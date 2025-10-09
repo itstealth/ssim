@@ -1,10 +1,12 @@
 import { BlobServiceClient } from "@azure/storage-blob";
 import mime from "mime-types";
-import { logger } from './logger.js';
-import { productionDebugger } from './production-debug.js';
 
 const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
 const containerName = process.env.AZURE_CONTAINER_NAME || "blog-images";
+
+console.log('[AZURE] Azure Storage Configuration:');
+console.log('[AZURE] Container Name:', containerName);
+console.log('[AZURE] Connection String Length:', connectionString?.length || 0);
 
 // Validate required environment variables
 function validateEnvironment() {
@@ -30,17 +32,15 @@ function initializeAzureClients() {
 
   if (!blobServiceClient) {
     try {
-      logger.info('Initializing Azure Blob Storage client', {
-        containerName,
-        connectionStringLength: connectionString.length
-      });
+      console.log('[AZURE] Initializing Azure Blob Storage client...');
 
       blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
       containerClient = blobServiceClient.getContainerClient(containerName);
 
-      logger.info('Azure Blob Storage client initialized successfully');
+      console.log('[AZURE] Azure Blob Storage client initialized successfully');
     } catch (error) {
-      logger.error('Failed to initialize Azure Blob Storage client', error);
+      console.error('[AZURE] Failed to initialize Azure Blob Storage client:', error.message);
+      console.error('[AZURE] Error details:', error);
       throw new Error(`Failed to initialize Azure Blob Storage: ${error.message}`);
     }
   }
@@ -51,9 +51,8 @@ function initializeAzureClients() {
 export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
   const requestId = Math.random().toString(36).substring(2, 15);
 
-  // Wrap the entire function with production debugging
-  const debugWrapper = productionDebugger.wrapFunction(async () => {
-    logger.info('Starting Azure Blob Storage upload', {
+  try {
+    console.log('[AZURE] Starting Azure Blob Storage upload', {
       requestId,
       originalFilename,
       blogId,
@@ -74,13 +73,14 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
     }
 
     // Only initialize Azure clients when actually uploading
+    console.log('[AZURE] Initializing Azure clients...');
     const container = initializeAzureClients();
 
     const fileExtension = originalFilename.split(".").pop();
     const newFilename = `${blogId}.${fileExtension}`;
     const contentType = mime.lookup(newFilename) || "application/octet-stream";
 
-    logger.debug('Uploading file to Azure', {
+    console.log('[AZURE] Uploading file to Azure:', {
       requestId,
       newFilename,
       contentType,
@@ -92,12 +92,10 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
     // Check if blob already exists
     const exists = await blockBlobClient.exists();
     if (exists) {
-      logger.warn('Blob already exists, overwriting', {
-        requestId,
-        blobName: newFilename
-      });
+      console.log('[AZURE] Blob already exists, overwriting:', newFilename);
     }
 
+    console.log('[AZURE] Uploading data to blob...');
     await blockBlobClient.uploadData(fileBuffer, {
       blobHTTPHeaders: { blobContentType: contentType },
       metadata: {
@@ -108,23 +106,16 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
     });
 
     const blobUrl = blockBlobClient.url;
-    logger.info('Azure Blob Storage upload completed', {
-      requestId,
-      blobUrl,
-      blobName: newFilename,
-    });
+    console.log('[AZURE] Azure Blob Storage upload completed:', blobUrl);
 
     return blobUrl;
-  }, 'uploadImageToAzure');
-
-  try {
-    return await debugWrapper();
   } catch (error) {
-    logger.error('Azure Blob Storage upload failed', error, {
-      requestId,
-      originalFilename,
-      blogId,
-      fileSize: fileBuffer?.length,
+    console.error('[AZURE] Azure Blob Storage upload failed:', error.message);
+    console.error('[AZURE] Error details:', {
+      name: error.name,
+      code: error.code,
+      statusCode: error.statusCode,
+      stack: error.stack
     });
 
     // Provide more specific error messages
@@ -143,18 +134,17 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
 // Health check function for Azure Blob Storage
 export async function checkAzureStorageHealth() {
   try {
+    console.log('[AZURE] Running health check...');
     const container = initializeAzureClients();
 
     // Try to list blobs to verify connection
-    const blobCount = 0;
-    for await (const _ of container.listBlobsFlat({ maxresults: 1 })) {
+    let blobCount = 0;
+    for await (const _ of container.listBlobsFlat({ maxPageSize: 1 })) {
       blobCount++;
+      break;
     }
 
-    logger.info('Azure Blob Storage health check passed', {
-      containerName,
-      connectionStatus: 'healthy',
-    });
+    console.log('[AZURE] Health check passed');
 
     return {
       status: 'healthy',
@@ -162,7 +152,7 @@ export async function checkAzureStorageHealth() {
       connectionStringConfigured: !!connectionString,
     };
   } catch (error) {
-    logger.error('Azure Blob Storage health check failed', error);
+    console.error('[AZURE] Health check failed:', error.message);
 
     return {
       status: 'unhealthy',

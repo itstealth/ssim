@@ -1,9 +1,6 @@
 import mysql from "mysql2/promise";
 import fs from "fs";
 import path from "path";
-import { logger } from './logger.js';
-import { validateEnvironmentVariables } from './env-check.js';
-import { productionDebugger } from './production-debug.js';
 
 // --- MySQL Connection Pool ---
 
@@ -14,14 +11,14 @@ function getSSLOptions() {
     const certPath = path.join(process.cwd(), "public", "DigiCertGlobalRootG2.crt.pem");
 
     if (fs.existsSync(certPath)) {
-      logger.info('SSL certificate found', { certPath });
+      console.log('[DB] SSL certificate found:', certPath);
 
       return {
         ca: fs.readFileSync(certPath),
         rejectUnauthorized: process.env.NODE_ENV === "production",
       };
     } else {
-      logger.warn('SSL certificate file not found, using system certificates', { certPath });
+      console.log('[DB] SSL certificate file not found, using system certificates');
 
       // Use system certificates when file is not available
       return {
@@ -29,9 +26,7 @@ function getSSLOptions() {
       };
     }
   } catch (error) {
-    logger.error('Error loading SSL certificate', error, {
-      certPath: path.join(process.cwd(), "public", "DigiCertGlobalRootG2.crt.pem")
-    });
+    console.log('[DB] Error loading SSL certificate:', error.message);
 
     // Fallback to system certificates
     return {
@@ -40,55 +35,36 @@ function getSSLOptions() {
   }
 }
 
-// Wrap database operations with production debugging
-const originalCreatePool = mysql.createPool;
+console.log('[DB] Creating database pool...');
+console.log('[DB] DB_HOST:', process.env.DB_HOST);
+console.log('[DB] DB_DATABASE:', process.env.DB_DATABASE);
+console.log('[DB] DB_USER:', process.env.DB_USER);
 
-export const dbPool = (() => {
-  try {
-    const pool = originalCreatePool({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
-      waitForConnections: true,
-      connectionLimit: 10,
-      queueLimit: 0,
-      multipleStatements: true,
-      ssl: getSSLOptions(),
-      // Add connection timeout and retry options
-      acquireTimeout: 60000,
-      timeout: 60000,
-      reconnect: true,
-    });
+export const dbPool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  multipleStatements: true,
+  ssl: getSSLOptions(),
+  // Add connection timeout and retry options
+  acquireTimeout: 60000,
+  timeout: 60000,
+  reconnect: true,
+});
 
-    // Wrap getConnection with debugging
-    const originalGetConnection = pool.getConnection.bind(pool);
-    pool.getConnection = productionDebugger.wrapFunction(originalGetConnection, 'dbPool.getConnection');
-
-    // Wrap query with debugging
-    const originalQuery = pool.query.bind(pool);
-    pool.query = productionDebugger.wrapFunction(originalQuery, 'dbPool.query');
-
-    return pool;
-  } catch (error) {
-    productionDebugger.logError(error, {
-      operation: 'createPool',
-      host: process.env.DB_HOST,
-      database: process.env.DB_DATABASE,
-      user: process.env.DB_USER,
-    });
-    throw error;
-  }
-})();
+console.log('[DB] Database pool created successfully');
 
 async function initializeDatabaseSchema() {
   let connection;
   try {
-    // Validate environment variables first
-    validateEnvironmentVariables();
+    console.log('[DB] Initializing database schema...');
 
     connection = await dbPool.getConnection();
-    logger.info("Checking and creating database tables if they do not exist...");
+    console.log('[DB] Checking and creating database tables if they do not exist...');
 
     const createEventsTableSQL = `
             CREATE TABLE IF NOT EXISTS events (
@@ -181,30 +157,36 @@ async function initializeDatabaseSchema() {
         `;
 
     await connection.query(createEventsTableSQL);
-    logger.info("Table 'events' checked/created.");
+    console.log('[DB] Table "events" checked/created.');
 
     await connection.query(createEventImagesTableSQL);
-    logger.info("Table 'event_images' checked/created.");
+    console.log('[DB] Table "event_images" checked/created.');
 
     await connection.query(createPlacementsTableSQL);
-    logger.info("Table 'placements' checked/created.");
+    console.log('[DB] Table "placements" checked/created.');
 
     await connection.query(createInternshipsTableSQL);
-    logger.info("Table 'internships' checked/created.");
+    console.log('[DB] Table "internships" checked/created.');
 
     await connection.query(createGuestLecturesTableSQL);
-    logger.info("Table 'guest_lectures' checked/created.");
+    console.log('[DB] Table "guest_lectures" checked/created.');
 
     await connection.query(createPublicationsTableSQL);
-    logger.info("Table 'publications' checked/created.");
+    console.log('[DB] Table "publications" checked/created.');
 
     await connection.query(createBlogsTableSQL);
-    logger.info("Table 'blogs' checked/created.");
+    console.log('[DB] Table "blogs" checked/created.');
   } catch (error) {
-    logger.error("Error initializing database schema", error);
+    console.error('[DB] Error initializing database schema:', error.message);
+    console.error('[DB] Error details:', error);
     // Exit the process if we can't set up the database, as the app won't work.
     process.exit(1);
   } finally {
     if (connection) connection.release();
   }
 }
+
+// Initialize database schema on startup
+initializeDatabaseSchema().catch(error => {
+  console.error('[DB] Failed to initialize database schema:', error);
+});
