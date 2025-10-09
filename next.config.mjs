@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  // Use platform default runtime (no standalone) so next start loads deps from root node_modules.
+  // output: "standalone", // remove this line
+
+  outputFileTracingIncludes: {
+    "/*": [
+      "node_modules/@next/env/**",
+      "node_modules/@swc/helpers/**",
+      "node_modules/styled-jsx/**",
+    ],
+  },
 
   images: {
     remotePatterns: [
@@ -11,7 +20,6 @@ const nextConfig = {
     ],
     minimumCacheTTL: 60,
     formats: ["image/webp", "image/avif"],
-    unoptimized: true,
   },
 
   async rewrites() {
