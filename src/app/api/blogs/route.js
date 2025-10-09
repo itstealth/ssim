@@ -418,17 +418,42 @@ export async function GET(request) {
     connection = await dbPool.getConnection();
     console.log('Database connection established for fetching all blogs.');
 
-    const sql = "SELECT slug, title, metaDescription, imageUrl, imageAlt, authorName, publishDate, content, categories FROM blogs ORDER BY publishDate DESC";
+    // Only fetch necessary fields for listing page (excluding full content for performance)
+    // We'll use SUBSTRING to get first 500 chars of content for read time calculation
+    const sql = `
+      SELECT 
+        slug, 
+        title, 
+        metaDescription, 
+        imageUrl, 
+        imageAlt, 
+        authorName, 
+        publishDate, 
+        SUBSTRING(content, 1, 500) as contentPreview,
+        LENGTH(content) as contentLength,
+        categories 
+      FROM blogs 
+      ORDER BY publishDate DESC
+    `;
 
     console.log('Executing SELECT query for all blogs...');
     const [rows] = await connection.query(sql);
     console.log('Blog posts fetched:', rows.length);
+    
+    // Calculate approximate word count from contentLength
+    const processedRows = rows.map(row => ({
+      ...row,
+      // Estimate word count: average 5 characters per word
+      estimatedWordCount: Math.ceil((row.contentLength || 0) / 5)
+    }));
+    
+    console.log('Blog posts processed successfully');
 
     const duration = Date.now() - startTime;
     console.log('=== BLOG POSTS FETCHED SUCCESSFULLY ===');
     console.log('Duration:', duration + 'ms');
 
-    return NextResponse.json(rows);
+    return NextResponse.json(processedRows);
   } catch (error) {
     const duration = Date.now() - startTime;
 
