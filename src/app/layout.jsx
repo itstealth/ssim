@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
           <Footer />
           <DockButtons />
           <Toaster />
-          {/* Fixed WhatsApp button */}
+          {/* Fixed WhatsApp button SSIM */}
           <div className="fixed hidden sm:block bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
             <a
               href="https://wa.me/919391114948"
