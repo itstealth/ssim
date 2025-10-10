@@ -12,7 +12,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 // Separate API function for fetching posts from the new Next.js API
 const fetchBlogPosts = async () => {
   // We fetch from our own API route now
-  const response = await fetch('/api/blogs');
+  const response = await fetch('/api/blogs/all');
   
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
