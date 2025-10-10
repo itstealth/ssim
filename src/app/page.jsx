@@ -87,7 +87,7 @@ export default function HomePage() {
           src="https://wg.univariety.com/widget/9f39eae8-443b-49a2-a528-588148a356e8"
           title="Guiding Alumni"
           width="100%"
-          height={isMobile ? "710px" : "567px"}
+          height={isMobile ? "651px" : "567px"}
           loading="lazy"
           description="Siva Sivani Institute of Management Notable Alumni"
           style={{ border: "none", verticalAlign: "top" }}

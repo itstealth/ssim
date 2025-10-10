@@ -35,7 +35,7 @@ const Banner = () => {
             <h1 className="text-4xl md:text-5xl font-bold md:!leading-[1.575] md:w-min">
               Creating Student Successes, Always!
             </h1>
-            <button className="mt-8 rounded-full bg-yellow-500 px-6 py-3 text-white font-semibold flex items-center mx-auto md:mx-0">
+            <a href="https://www.youtube.com/watch?v=X-pMOa8jBYk" target="_blank" rel="noopener noreferrer" className="mt-8 rounded-full max-w-fit bg-yellow-500 px-6 py-3 text-white font-semibold flex items-center mx-auto md:mx-0">
               <svg
                 className="mr-2 h-6 w-6"
                 fill="none"
@@ -57,7 +57,7 @@ const Banner = () => {
                 ></path>
               </svg>
               WATCH INTRO
-            </button>
+            </a>
           </div>
           <div className="relative">
             <img

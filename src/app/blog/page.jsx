@@ -235,7 +235,7 @@ export default function BlogSection() {
                             </div>
                           </div>
 
-                          <div className="flex items-center justify-between mb-6">
+                          {/* <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-3">
                               <Avatar className="h-10 w-10 border-2 border-indigo-100 dark:border-gray-700">
                                 <AvatarImage
@@ -248,7 +248,7 @@ export default function BlogSection() {
                               </Avatar>
                               <span className="font-medium">{post.author.name}</span>
                             </div>
-                          </div>
+                          </div> */}
 
                           <Link
                             href={`/blog/${post.id}`}

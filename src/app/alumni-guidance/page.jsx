@@ -23,7 +23,12 @@ const Page = () => {
           <p className="mt-4 text-lg">
             Exclusive & Thriving Student-Alumni Community
           </p>
-          <button className="mt-8 rounded-full bg-yellow-500 px-6 py-3 text-white">
+          <a
+            href="https://www.youtube.com/watch?v=X-pMOa8jBYk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-block rounded-full bg-yellow-500 px-6 py-3 text-white"
+          >
             <span className="flex items-center">
               <svg
                 className="mr-2 h-6 w-6"
@@ -47,7 +52,7 @@ const Page = () => {
               </svg>
               WATCH INTRO
             </span>
-          </button>
+          </a>
         </div>
 
         {/* Alumni Images */}
@@ -236,7 +241,10 @@ const AddingValues = () => {
                   </li>
                 ))}
               </ul>
-              <a href="https://ags.univariety.com/user/SSIM/login" className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 inline-block transition-colors">
+              <a
+                href="https://ags.univariety.com/user/SSIM/login"
+                className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 inline-block transition-colors"
+              >
                 Sign Up
               </a>
             </div>
@@ -300,7 +308,10 @@ const GivingBack = () => {
             >
               <h3 className="text-2xl font-bold text-gray-800">{item.title}</h3>
               <p className="mt-4 text-gray-600">{item.description}</p>
-              <a href="https://ags.univariety.com/user/SSIM/login" className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-500 inline-block transition-colors">
+              <a
+                href="https://ags.univariety.com/user/SSIM/login"
+                className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-500 inline-block transition-colors"
+              >
                 I am Interested
               </a>
             </div>
@@ -310,6 +321,3 @@ const GivingBack = () => {
     </div>
   );
 };
-
-
-
