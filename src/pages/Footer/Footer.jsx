@@ -139,14 +139,14 @@ export default function Footer() {
                   },
                 ].map((social, index) => (
                   <a
+                    key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Button
-                      key={index}
                       size="icon"
-                      className={`rounded-full transition-all hover:scale-110 text-white ${social.bgColor} hover:bg-${social.bgColor}/80`}
+                      className={`rounded-full transition-all hover:scale-110 text-white ${social.bgColor} hover:opacity-90`}
                       aria-label={social.label}
                     >
                       <social.icon className="h-5 w-5" />

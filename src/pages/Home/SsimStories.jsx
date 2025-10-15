@@ -121,52 +121,50 @@ function SsimStories() {
         >
           <CarouselContent className="-ml-2 sm:-ml-4">
             {slides.map((slide, index) => (
-              <>
-                <CarouselItem
-                  key={index}
-                  className="pl-2 sm:pl-4 md:basis-4/5 lg:basis-3/4"
+              <CarouselItem
+                key={index}
+                className="pl-2 sm:pl-4 md:basis-4/5 lg:basis-3/4"
+              >
+                <div
+                  className={`relative transition-all duration-500 ease-in-out ${
+                    current === index
+                      ? "scale-100 z-20"
+                      : `scale-90 opacity-40 z-10 ${
+                          index === hoveredIndex ? "opacity-60" : ""
+                        }`
+                  }`}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
+                  <div className="aspect-video overflow-hidden rounded-lg shadow-xl">
+                    <Image
+                      alt={slide.alt}
+                      src={slide.thumbnail}
+                      unoptimized={true}
+                      fill
+                      className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-lg"></div>
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white">
+                    <h2 className="text-xl sm:text-2xl font-bold truncate">
+                      {slide.alt}
+                    </h2>
+                  </div>
                   <div
-                    className={`relative transition-all duration-500 ease-in-out ${
-                      current === index
-                        ? "scale-100 z-20"
-                        : `scale-90 opacity-40 z-10 ${
-                            index === hoveredIndex ? "opacity-60" : ""
-                          }`
-                    }`}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
+                    className="absolute cursor-pointer inset-0 w-full h-full flex items-center justify-center"
+                    onClick={() => handleVideoClick(slide.videoId)}
                   >
-                    <div className="aspect-video overflow-hidden rounded-lg shadow-xl">
-                      <Image
-                        alt={slide.alt}
-                        src={slide.thumbnail}
-                        unoptimized={true}
-                        fill
-                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-lg"></div>
-                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white">
-                      <h2 className="text-xl sm:text-2xl font-bold truncate">
-                        {slide.alt}
-                      </h2>
-                    </div>
-                    <div
-                      className="absolute cursor-pointer inset-0 w-full h-full flex items-center justify-center"
-                      onClick={() => handleVideoClick(slide.videoId)}
-                    >
-                      <div className="relative">
-                        <div className="w-16 h-16 bg-[#C62B28] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#B52522] transition-colors">
-                          <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
-                        </div>
-                        <div className="absolute -inset-4 bg-[#C62B28]/20 rounded-full animate-ping" />
-                        <div className="absolute -inset-8 bg-[#C62B28]/10 rounded-full" />
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-[#C62B28] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#B52522] transition-colors">
+                        <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
                       </div>
+                      <div className="absolute -inset-4 bg-[#C62B28]/20 rounded-full animate-ping" />
+                      <div className="absolute -inset-8 bg-[#C62B28]/10 rounded-full" />
                     </div>
                   </div>
-                </CarouselItem>
-              </>
+                </div>
+              </CarouselItem>
             ))}
           </CarouselContent>
           <CarouselPrevious className="hidden w-8 h-8 bg-red-600 border-none hover:bg-red-500 hover:text-white/90 text-white sm:flex items-center justify-center -left-4 sm:-left-12" />
