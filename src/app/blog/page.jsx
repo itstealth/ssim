@@ -9,42 +9,64 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
-// Separate API function for fetching posts
-const fetchBlogPosts = async ({ pageParam = 1, postsPerPage = 6 }) => {
-  const response = await fetch(
-    `https://ssim.ac.in/wp-json/wp/v2/posts?_embed&per_page=${postsPerPage}&page=${pageParam}`
-  );
+// Separate API function for fetching posts from the new Next.js API
+const fetchBlogPosts = async () => {
+  // We fetch from our own API route now
+  const response = await fetch('/api/blogs/all');
   
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    const errorData = await response.json().catch(() => ({}));
+    const errorMessage = errorData.message || errorData.error || `Failed to fetch blogs (Status: ${response.status})`;
+    console.error('Blog fetch error:', errorMessage, errorData);
+    throw new Error(errorMessage);
   }
 
   const posts = await response.json();
-  const totalPosts = response.headers.get('X-WP-Total');
-  const totalPages = Math.ceil(totalPosts / postsPerPage);
 
-  return {
-    posts: posts.map(post => ({
+  console.log('Fetched posts:', posts.length);
+
+  // Ensure posts is an array
+  if (!Array.isArray(posts)) {
+    console.error('API did not return an array:', posts);
+    throw new Error('Invalid response format from API');
+  }
+
+  // The new API returns a flat array of posts, so we transform it
+  // and handle pagination on the client-side.
+  return posts.map(post => {
+    // Safely parse categories
+    let categories = [];
+    try {
+      if (post.categories) {
+        categories = typeof post.categories === 'string' 
+          ? JSON.parse(post.categories) 
+          : post.categories;
+      }
+    } catch (e) {
+      console.warn('Failed to parse categories for post:', post.slug, e);
+    }
+
+    return {
       id: post.slug,
-      title: post.title.rendered,
-      description: post.excerpt.rendered.replace(/<[^>]+>/g, ''),
-      image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.svg',
-      imageAlt: post._embedded?.['wp:featuredmedia']?.[0]?.alt_text || post.title.rendered,
+      title: post.title,
+      description: post.metaDescription || '', // Use metaDescription for the excerpt
+      image: post.imageUrl || '/placeholder.svg',
+      imageAlt: post.imageAlt || post.title,
       author: {
-        name: post._embedded?.author?.[0]?.name || 'Anonymous',
-        avatar: post._embedded?.author?.[0]?.avatar_urls?.['96'] || '/placeholder.svg',
-        initials: post._embedded?.author?.[0]?.name?.split(' ').map(n => n[0]).join('') || 'A',
+        name: post.authorName || 'Anonymous',
+        avatar: '/placeholder.svg', // Placeholder avatar
+        initials: (post.authorName || 'A').split(' ').map(n => n[0]).join(''),
       },
-      date: new Date(post.date).toLocaleDateString('en-US', {
+      date: new Date(post.publishDate).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
       }),
-      readTime: `${Math.ceil(post.content.rendered.split(' ').length / 200)} min read`,
-      category: post._embedded?.['wp:term']?.[0]?.[0]?.name || 'Uncategorized',
-    })),
-    totalPages,
-  };
+      // Use estimatedWordCount from API (based on metaDescription length)
+      readTime: `${Math.ceil((post.estimatedWordCount || 200) / 200)} min read`,
+      category: Array.isArray(categories) && categories.length > 0 ? categories[0] : 'Uncategorized',
+    };
+  });
 };
 
 export default function BlogSection() {
@@ -52,101 +74,30 @@ export default function BlogSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
-  // Modified React Query implementation with prefetching
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  // We fetch all posts at once and handle pagination on the client
   const {
-    data,
+    data: allPosts,
     isLoading,
     isError,
     error,
-    isFetching,
-    isPreviousData,
   } = useQuery({
-    queryKey: ['posts', currentPage, postsPerPage],
-    queryFn: () => fetchBlogPosts({ pageParam: currentPage, postsPerPage }),
-    keepPreviousData: true,
+    queryKey: ['posts'],
+    queryFn: fetchBlogPosts,
     staleTime: 5 * 60 * 1000,
     cacheTime: 30 * 60 * 1000,
   });
 
-  // Add prefetching for next page
-  const queryClient = useQueryClient();
-
-  useEffect(() => {
-    if (data?.totalPages > currentPage) {
-      // Prefetch the next page
-      queryClient.prefetchQuery({
-        queryKey: ['posts', currentPage + 1, postsPerPage],
-        queryFn: () => fetchBlogPosts({ 
-          pageParam: currentPage + 1, 
-          postsPerPage 
-        }),
-        staleTime: 5 * 60 * 1000,
-      });
-    }
-  }, [currentPage, data?.totalPages, queryClient, postsPerPage]);
-
-  // Prefetch previous page as well when not on first page
-  useEffect(() => {
-    if (currentPage > 1) {
-      queryClient.prefetchQuery({
-        queryKey: ['posts', currentPage - 1, postsPerPage],
-        queryFn: () => fetchBlogPosts({ 
-          pageParam: currentPage - 1, 
-          postsPerPage 
-        }),
-        staleTime: 5 * 60 * 1000,
-      });
-    }
-  }, [currentPage, queryClient, postsPerPage]);
-
-  // Add hover-based prefetching for pagination buttons
-  const prefetchPage = (page) => {
-    queryClient.prefetchQuery({
-      queryKey: ['posts', page, postsPerPage],
-      queryFn: () => fetchBlogPosts({ pageParam: page, postsPerPage }),
-      staleTime: 5 * 60 * 1000,
-    });
-  };
-
-  // Modified pagination buttons to include hover-based prefetching
-  const PaginationButton = ({ page, isCurrentPage }) => {
-    if (page === '...') {
-      return <span className="px-2 py-1 text-muted-foreground">...</span>;
-    }
-
-    return (
-      <Button
-        onClick={() => handlePageClick(page)}
-        onMouseEnter={() => prefetchPage(page)}
-        variant={isCurrentPage ? "default" : "outline"}
-        className={`h-8 w-8 sm:h-10 sm:w-10 ${
-          isCurrentPage
-            ? "bg-mainBlue text-white"
-            : "hover:bg-mainBlue/80"
-        }`}
-      >
-        {page}
-      </Button>
-    );
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const elementPosition =
-        document.getElementById("blog-section")?.offsetTop || 0;
-
-      if (scrollPosition > elementPosition) {
-        setIsVisible(true);
-      }
-    };
-
-    // Set visible immediately if at top of page
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Client-side pagination logic
+  const totalPosts = allPosts?.length || 0;
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
+  const currentPosts = allPosts?.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
 
   const handlePrevPage = () => {
     setCurrentPage(old => Math.max(old - 1, 1));
@@ -154,7 +105,7 @@ export default function BlogSection() {
   };
 
   const handleNextPage = () => {
-    if (!isPreviousData && data?.totalPages > currentPage) {
+    if (currentPage < totalPages) {
       setCurrentPage(old => old + 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -169,7 +120,7 @@ export default function BlogSection() {
     const delta = 1;
     let pages = [];
 
-    for (let i = Math.max(1, currentPage - delta); i <= Math.min(data?.totalPages, currentPage + delta); i++) {
+    for (let i = Math.max(1, currentPage - delta); i <= Math.min(totalPages, currentPage + delta); i++) {
       pages.push(i);
     }
 
@@ -178,9 +129,9 @@ export default function BlogSection() {
       pages.unshift(1);
     }
 
-    if (pages[pages.length - 1] < data?.totalPages) {
-      if (pages[pages.length - 1] < data?.totalPages - 1) pages.push('...');
-      pages.push(data?.totalPages);
+    if (pages[pages.length - 1] < totalPages) {
+      if (pages[pages.length - 1] < totalPages - 1) pages.push('...');
+      pages.push(totalPages);
     }
 
     return pages;
@@ -236,7 +187,7 @@ export default function BlogSection() {
           ) : (
             <>
               <div className="grid gap-12">
-                {data?.posts.map((post, index) => (
+                {currentPosts?.map((post, index) => (
                   <motion.div
                     key={post.id}
                     initial="hidden"
@@ -284,7 +235,7 @@ export default function BlogSection() {
                             </div>
                           </div>
 
-                          <div className="flex items-center justify-between mb-6">
+                          {/* <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-3">
                               <Avatar className="h-10 w-10 border-2 border-indigo-100 dark:border-gray-700">
                                 <AvatarImage
@@ -297,7 +248,7 @@ export default function BlogSection() {
                               </Avatar>
                               <span className="font-medium">{post.author.name}</span>
                             </div>
-                          </div>
+                          </div> */}
 
                           <Link
                             href={`/blog/${post.id}`}
@@ -323,19 +274,14 @@ export default function BlogSection() {
               </div>
 
               {/* Show loading overlay when fetching next page */}
-              {isFetching && !isLoading && (
-                <div className="fixed inset-0 bg-black/20 dark:bg-black/40 flex items-center justify-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-mainBlue"></div>
-                </div>
-              )}
+              {/* isFetching and isLoading are removed as they are no longer relevant */}
 
-              {data?.totalPages > 1 && (
+              {totalPages > 1 && (
                 <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
                   <div className="flex items-center gap-2">
                     <Button
                       onClick={handlePrevPage}
-                      onMouseEnter={() => currentPage > 1 && prefetchPage(currentPage - 1)}
-                      disabled={currentPage === 1 || isFetching}
+                      disabled={currentPage === 1}
                       variant="outline"
                       className="h-8 w-8 p-0 sm:h-10 sm:w-10"
                       aria-label="Previous page"
@@ -346,25 +292,24 @@ export default function BlogSection() {
                     <div className="flex flex-wrap justify-center gap-2">
                       {getPageNumbers().map((page, index) => (
                         <div key={index}>
-                          <PaginationButton 
-                            page={page} 
-                            isCurrentPage={currentPage === page}
-                          />
+                          <Button
+                            onClick={() => handlePageClick(page)}
+                            variant={currentPage === page ? "default" : "outline"}
+                            className={`h-8 w-8 sm:h-10 sm:w-10 ${
+                              currentPage === page
+                                ? "bg-mainBlue text-white"
+                                : "hover:bg-mainBlue/80"
+                            }`}
+                          >
+                            {page}
+                          </Button>
                         </div>
                       ))}
                     </div>
 
                     <Button
                       onClick={handleNextPage}
-                      onMouseEnter={() => 
-                        currentPage < data?.totalPages && 
-                        prefetchPage(currentPage + 1)
-                      }
-                      disabled={
-                        isPreviousData || 
-                        currentPage === data?.totalPages ||
-                        isFetching
-                      }
+                      disabled={currentPage === totalPages}
                       variant="outline"
                       className="h-8 w-8 p-0 sm:h-10 sm:w-10"
                       aria-label="Next page"
@@ -374,7 +319,7 @@ export default function BlogSection() {
                   </div>
 
                   <div className="text-sm text-muted-foreground sm:hidden">
-                    Page {currentPage} of {data?.totalPages}
+                    Page {currentPage} of {totalPages}
                   </div>
                 </div>
               )}

@@ -2,9 +2,10 @@ export async function generateMetadata({ params }) {
   const { blogId } = params;
 
   try {
-    // Fetch blog post data
+    // Fetch blog post data from our own API
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     const response = await fetch(
-      `https://ssim.ac.in/wp-json/wp/v2/posts?slug=${blogId}&_embed`,
+      `${baseUrl}/api/blogs/${blogId}`,
       { next: { revalidate: 3600 } } // Cache for 1 hour
     );
 
@@ -12,59 +13,27 @@ export async function generateMetadata({ params }) {
       return {
         title: "Blog Post Not Found - SSIM",
         description: "The requested blog post could not be found.",
-        alternates: {
-          canonical: `https://www.ssim.ac.in/blog/${blogId}`,
-        },
       };
     }
 
-    const posts = await response.json();
+    const post = await response.json();
 
-    if (!posts || posts.length === 0) {
-      return {
-        title: "Blog Post Not Found - SSIM",
-        description: "The requested blog post could not be found.",
-        alternates: {
-          canonical: `https://www.ssim.ac.in/blog/${blogId}`,
-        },
-      };
-    }
+    console.log(post);
 
-    const post = posts[0];
-
-    // Extract clean text from HTML content
-    const cleanDescription = post.yoast_head_json.description;
-
-    // Get categories
-    const categories =
-      post._embedded?.["wp:term"]?.[0]?.map((cat) => cat.name) || [];
-
-    // Get featured image
-    const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-
-    // Get author info
-    const author = post._embedded?.author?.[0];
-    const authorName = author?.name || "SSIM";
-
-    // Calculate read time
-    const wordCount = post.content.rendered.split(" ").length;
-    const readTime = Math.ceil(wordCount / 200);
-
-    const title = post.title.rendered;
-    const description =
-      cleanDescription.length > 160
-        ? cleanDescription.substring(0, 157) + "..."
-        : cleanDescription;
+    const title = post.metaTitle || post.title;
+    const description = post.metaDescription || (post.content || '').substring(0, 157) + "...";
+    const featuredImage = post.imageUrl;
+    const authorName = post.authorName || "SSIM";
 
     return {
-      title: `${title}`,
+      title: title,
       description: description,
-      keywords: categories.join(", "),
+      keywords: post.keywords,
       authors: [{ name: authorName }],
       openGraph: {
-        title: title,
-        description: description,
-        url: `https://www.ssim.ac.in/blog/${blogId}`,
+        title: post.ogTitle || title,
+        description: post.ogDescription || description,
+        url: post.canonicalUrl,
         siteName: "Siva Sivani Institute of Management",
         images: featuredImage
           ? [
@@ -72,53 +41,22 @@ export async function generateMetadata({ params }) {
                 url: featuredImage,
                 width: 1200,
                 height: 630,
-                alt: title,
+                alt: post.imageAlt || title,
               },
             ]
-          : [
-              {
-                url: "/ssimlogo.webp",
-                width: 1200,
-                height: 630,
-                alt: "SSIM Blog",
-              },
-            ],
+          : [],
         locale: "en_US",
         type: "article",
-        publishedTime: post.date,
-        modifiedTime: post.modified,
-        authors: [authorName],
-        tags: categories,
+        publishedTime: post.publishDate,
       },
       twitter: {
         card: "summary_large_image",
-        title: title,
-        description: description,
-        images: featuredImage ? [featuredImage] : ["/ssimlogo.webp"],
-        creator: "@ssim_official",
-      },
-      robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-video-preview": -1,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-        },
+        title: post.ogTitle || title,
+        description: post.ogDescription || description,
+        images: featuredImage ? [featuredImage] : [],
       },
       alternates: {
-        canonical: `https://www.ssim.ac.in/blog/${blogId}`,
-      },
-      other: {
-        "article:published_time": post.date,
-        "article:modified_time": post.modified,
-        "article:author": authorName,
-        "article:section": categories[0] || "General",
-        "article:tag": categories.join(", "),
-        "twitter:label1": "Reading time",
-        "twitter:data1": `${readTime} min read`,
+        canonical: post.canonicalUrl,
       },
     };
   } catch (error) {
@@ -126,11 +64,7 @@ export async function generateMetadata({ params }) {
 
     return {
       title: "Blog Post - SSIM",
-      description:
-        "Read the latest articles and insights from the Siva Sivani Institute of Management (SSIM) blog.",
-      alternates: {
-        canonical: `https://www.ssim.ac.in/blog/${blogId}`,
-      },
+      description: "Read articles and insights from the Siva Sivani Institute of Management (SSIM) blog.",
     };
   }
 }

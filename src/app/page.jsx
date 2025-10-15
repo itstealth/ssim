@@ -85,12 +85,12 @@ export default function HomePage() {
     return (
       <div className="bg-[#002f87] pb-12 sm:pb-20 mb-12 sm:mb-0">
         <iframe
-          src="https://wg.univariety.com/widget/259a3fb6-4c6e-42af-b232-8f7e374ffda8"
+          src="https://wg.univariety.com/widget/9f39eae8-443b-49a2-a528-588148a356e8"
           title="Guiding Alumni"
           width="100%"
-          height={isMobile ? "710px" : "567px"}
+          height={isMobile ? "651px" : "567px"}
           loading="lazy"
-          description="Siva Sivani Institute of Management Guiding Alumni"
+          description="Siva Sivani Institute of Management Notable Alumni"
           style={{ border: "none", verticalAlign: "top" }}
         ></iframe>
         <div className="flex justify-center gap-4 md:gap-24">

@@ -29,55 +29,43 @@ const contentStyles = {
   h6: "text-base font-semibold text-mainBlue mb-3",
 };
 
+// Helper function to fetch a single blog post from our new API
+const fetchBlogPost = async (slug) => {
+  const response = await fetch(`/api/blogs/${slug}`);
+  if (!response.ok) {
+    if (response.status === 404) {
+      throw new Error("Blog post not found");
+    }
+    throw new Error("Failed to fetch blog post");
+  }
+  return response.json();
+};
+
 export default function BlogDetail() {
   const params = useParams();
-  const blogId = params.blogId; // Changed from 'id' to 'blogId' to match the route parameter
+  const blogId = params.blogId;
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
-  const WORDPRESS_API_URL = "https://ssim.ac.in/wp-json/wp/v2";
-
-  // Fetch blog post using React Query
+  // Fetch blog post using React Query from our new API
   const { data: blog, isLoading, error } = useQuery({
     queryKey: ['blog', blogId],
-    queryFn: async () => {
-      const response = await fetch(`${WORDPRESS_API_URL}/posts?slug=${blogId}&_embed`);
-      if (!response.ok) throw new Error("Failed to fetch blog post");
-      
-      const posts = await response.json();
-      
-      if (!posts || posts.length === 0) {
-        throw new Error("Blog post not found");
-      }
-
-      const post = posts[0];
-      
-      // Transform WordPress data
-      return {
-        title: post.title.rendered,
-        content: post.content.rendered,
-        description: post.excerpt.rendered.replace(/<[^>]+>/g, ''),
-        publishDate: new Date(post.date).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        }),
-        readTime: `${Math.ceil(post.content.rendered.split(' ').length / 200)} min read`,
-        categories: post._embedded["wp:term"]?.[0]?.map((cat) => cat.name) || [],
-        author: {
-          name: post._embedded["author"]?.[0]?.name || "Anonymous",
-          avatar: post._embedded["author"]?.[0]?.avatar_urls?.["96"] || "",
-          role: post._embedded["author"]?.[0]?.description || "Author",
-        },
-        imageUrl:
-          post._embedded["wp:featuredmedia"]?.[0]?.source_url ||
-          "default-image-url",
-      };
-    },
+    queryFn: () => fetchBlogPost(blogId),
     staleTime: 5 * 60 * 1000,
     cacheTime: 30 * 60 * 1000,
+    enabled: !!blogId, // Only run query if blogId is available
   });
 
+  // Function to safely parse JSON from a string field
+  const parseJsonField = (jsonString, defaultValue = []) => {
+    try {
+      if (jsonString) return JSON.parse(jsonString);
+    } catch (e) {
+      console.error("Failed to parse JSON field:", e);
+    }
+    return defaultValue;
+  };
+  
   // Function to process content and add classes to headings
   const processContent = (content) => {
     let processedContent = content;
@@ -122,15 +110,19 @@ export default function BlogDetail() {
     );
   }
 
+  // Transform data for rendering
+  const categories = parseJsonField(blog.categories);
+  const readTime = `${Math.ceil((blog.content || '').split(' ').length / 200)} min read`;
+  const publishDate = new Date(blog.publishDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const authorInitials = (blog.authorName || 'A').split(' ').map(n => n[0]).join('');
+
   return (
     <>
-      {/* <SEO
-        title={blog.title}
-        description={blog.description}
-        keywords={blog.categories.join(', ')}
-        canonicalUrl={`https://www.ssim.ac.in/blog/${blogId}`}
-        ogImage={blog.imageUrl}
-      /> */}
+      {/* SEO component is commented out, but data is available if you want to re-enable */}
       <div className="min-h-screen bg-slate-50/50 py-16 sm:py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Back Button */}
@@ -148,7 +140,7 @@ export default function BlogDetail() {
             {/* Header */}
             <div className="space-y-6">
               <div className="flex gap-2 flex-wrap">
-                {blog.categories.map((category) => (
+                {categories.map((category) => (
                   <Badge
                     key={category}
                     variant="secondary"
@@ -161,7 +153,7 @@ export default function BlogDetail() {
 
               {/* Main Title */}
               <h1 
-                className="text-3xl sm:text-5xl md:text-6xl font-bold text-mainBlue leading-tight"
+                className="text-3xl sm:text-5xl font-bold text-mainBlue leading-tight"
                 dangerouslySetInnerHTML={{ 
                   __html: blog.title 
                 }}
@@ -172,26 +164,26 @@ export default function BlogDetail() {
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12 border-2 border-blue-100">
                     <AvatarImage
-                      src={blog.author.avatar}
-                      alt={blog.author.name}
+                      src="/placeholder.svg" // Placeholder avatar
+                      alt={blog.authorName}
                     />
-                    <AvatarFallback>SJ</AvatarFallback>
+                    <AvatarFallback>{authorInitials}</AvatarFallback>
                   </Avatar>
                   <div>
                     <p className="font-semibold text-slate-900">
-                      {blog.author.name}
+                      {blog.authorName}
                     </p>
-                    <p className="text-sm text-slate-600">{blog.author.role}</p>
+                    <p className="text-sm text-slate-600">Author</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4 text-sm text-slate-600">
                   <div className="flex items-center">
                     <Calendar className="h-4 w-4 mr-2" />
-                    {blog.publishDate}
+                    {publishDate}
                   </div>
                   <div className="flex items-center">
                     <Clock className="h-4 w-4 mr-2" />
-                    {blog.readTime}
+                    {readTime}
                   </div>
                 </div>
               </div>
@@ -201,7 +193,7 @@ export default function BlogDetail() {
             <div className="relative aspect-video w-full sm:h-[400px] rounded-2xl overflow-hidden">
               <img
                 src={blog.imageUrl}
-                alt="Blog featured image"
+                alt={blog.imageAlt}
                 className="object-cover w-full h-full"
               />
             </div>
@@ -212,7 +204,7 @@ export default function BlogDetail() {
                 <div 
                   className="prose prose-blue max-w-none prose-headings:text-mainBlue prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-base prose-headings:font-semibold"
                   dangerouslySetInnerHTML={{
-                    __html: processContent(blog.content)
+                    __html: blog.content
                   }}
                 />
               </CardContent>

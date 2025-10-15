@@ -32,7 +32,7 @@ export default function Footer() {
         { name: "Accreditations", path: "/accreditations" },
         { name: "Events", path: "/students-life/life-at-ssim" },
         { name: "Media", path: "/students-life/news-announcements" },
-        // { name: "Blog", path: "/blog" },
+        { name: "Blog", path: "/blog" },
         // { name: "Careers", path: "/careers" },
         {
           name: "AICTE Feedback",
