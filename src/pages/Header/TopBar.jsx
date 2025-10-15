@@ -40,12 +40,18 @@ const TopBar = () => {
       icon: <Linkedin className="w-4 h-4" />,
       url: "https://www.linkedin.com/school/siva-sivani-institute-of-management/",
     },
-    { icon: <Youtube className="w-4 h-4" />, url: "https://www.youtube.com/@sivasivaniinstituteofmanag3545" },
+    {
+      icon: <Youtube className="w-4 h-4" />,
+      url: "https://www.youtube.com/@sivasivaniinstituteofmanag3545",
+    },
     {
       icon: <Facebook className="w-4 h-4" />,
       url: "https://www.facebook.com/SivaSivaniInstituteofManagementHyderabad/",
     },
-    { icon: <Twitter className="w-4 h-4" />, url: "https://x.com/SSIMHyderabad" },
+    {
+      icon: <Twitter className="w-4 h-4" />,
+      url: "https://x.com/SSIMHyderabad",
+    },
   ];
 
   return (
@@ -80,11 +86,18 @@ const TopBar = () => {
             ))}
           </div>
         </div>
-        <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex">
+        <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex max-w-lg">
           <div className="h-2 w-2 bg-pink-900 rounded-full animate-ping"></div>
-          <marquee className="font-bold" behavior="scroll" direction="left">
-            Welcome to our International Conference! Join us for an amazing
-            experience.
+          <marquee
+            className="font-bold text-xs"
+            behavior="scroll"
+            direction="left"
+          >
+            S.P. Sampathy’s Siva Sivani Institute of Management cordially
+            invites you to the 30th Snatak (Convocation) on Wednesday, 22nd
+            October at 11:30 AM — Chief Guest: Prof. T.G. Sitharam, Chairman,
+            AICTE | Guest of Honour: Sri Ramakrishna Sataluri, CEO, Shakti
+            Energy Solutions Limited (SESL).
           </marquee>
         </div>
         {/* Contact Info */}
@@ -102,9 +115,7 @@ const TopBar = () => {
             size="sm"
             rel="noopener noreferrer"
           >
-            <Button
-              className="text-xs text-white bg-black hover:bg-black/80"
-            >
+            <Button className="text-xs text-white bg-black hover:bg-black/80">
               Apply Now
             </Button>
           </a>
