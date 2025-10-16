@@ -1,10 +1,10 @@
 export const metadata = {
-    title: "Internships - SSIM",
-    description: "Explore internship opportunities and programs at Siva Sivani Institute of Management (SSIM).",
+    title: "Launch Your Career with SSIM Internships | 6281350079",
+    description: "SSIM Hyderabad offers internships that bridge classroom learning and real-world experience. Contact 6281350079 for details.",
     keywords: "SSIM internships, internship opportunities, summer internships, corporate internships",
     openGraph: {
-      title: "Internships - SSIM",
-      description: "Explore internship opportunities and programs at Siva Sivani Institute of Management (SSIM).",
+      title: "Launch Your Career with SSIM Internships | 6281350079",
+      description: "SSIM Hyderabad offers internships that bridge classroom learning and real-world experience. Contact 6281350079 for details.",
       url: "https://www.ssim.ac.in/placement/internships",
       siteName: "Siva Sivani Institute of Management",
       images: [
@@ -20,8 +20,8 @@ export const metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Internships - SSIM",
-      description: "Explore internship opportunities and programs at Siva Sivani Institute of Management (SSIM).",
+      title: "Launch Your Career with SSIM Internships | 6281350079",
+      description: "SSIM Hyderabad offers internships that bridge classroom learning and real-world experience. Contact 6281350079 for details.",
       images: ["/ssimlogo.webp"],
     },
     robots: {

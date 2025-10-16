@@ -1,13 +1,13 @@
 export const metadata = {
-    title: "FPM/EFPM - SSIM",
+    title: "FPM / EFPM Programs – SSIM Hyderabad | Call 9391114948",
     description:
-      "Learn about the FPM/EFPM program at Siva Sivani Institute of Management (SSIM). Discover our commitment to shaping future business leaders.",
+      "Join SSIM Hyderabad’s FPM/EFPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
     keywords:
       "SSIM FPM/EFPM, business school goals, management institute values",
     openGraph: {
-      title: "FPM/EFPM - SSIM",
+      title: "FPM / EFPM Programs – SSIM Hyderabad | Call 9391114948",
       description:
-        "Learn about the FPM/EFPM program at Siva Sivani Institute of Management (SSIM). Discover our commitment to shaping future business leaders.",
+        "Join SSIM Hyderabad’s FPM/EFPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
       url: "https://www.ssim.ac.in/admissions/fpm-efpm",
       siteName: "Siva Sivani Institute of Management",
       images: [
@@ -23,7 +23,7 @@ export const metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "FPM/EFPM - SSIM",
+      title: "FPM / EFPM Programs – SSIM Hyderabad | Call 9391114948",
       description:
         "Learn about the FPM/EFPM program at Siva Sivani Institute of Management (SSIM).",
       images: ["/ssimlogo.webp"],

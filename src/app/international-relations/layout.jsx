@@ -1,20 +1,20 @@
 export const metadata = {
-  title: "International Relations",
+  title: "SSIM Hyderabad International Relations | Global Partnerships",
   description:
-    "Explore SSIM's international relations, collaborations, and global initiatives. Discover how we provide a global perspective to our students.",
+    "Explore SSIM Hyderabad’s international relations initiatives, global collaborations, student exchange programs, and worldwide academic partnerships.",
   openGraph: {
-    title: "International Relations",
+    title: "SSIM Hyderabad International Relations | Global Partnerships",
     description:
-      "Explore SSIM's international relations, collaborations, and global initiatives. Discover how we provide a global perspective to our students.",
+      "Explore SSIM Hyderabad’s international relations initiatives, global collaborations, student exchange programs, and worldwide academic partnerships.",
     url: "https://www.ssim.ac.in/international-relations",
     siteName: "Siva Sivani Institute of Management",
     images: ["/ssimlogo.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "International Relations",
+    title: "SSIM Hyderabad International Relations | Global Partnerships",
     description:
-      "Explore SSIM's international relations, collaborations, and global initiatives. Discover how we provide a global perspective to our students.",
+      "Explore SSIM Hyderabad’s international relations initiatives, global collaborations, student exchange programs, and worldwide academic partnerships.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

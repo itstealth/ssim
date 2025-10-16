@@ -1,12 +1,12 @@
 export const metadata = {
-  title: "Contact Us - SSIM",
-  description: "Contact us for any questions or inquiries.",
+  title: "Get in Touch with SSIM Hyderabad | 6281350079",
+  description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
   alternates: {
     canonical: "https://www.ssim.ac.in/contact-us",
   },
   openGraph: {
-    title: "Contact Us - SSIM",
-    description: "Contact us for any questions or inquiries.",
+    title: "Get in Touch with SSIM Hyderabad | 6281350079",
+    description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
     url: "https://www.ssim.ac.in/contact-us",
     siteName: "SSIM",
     images: [
@@ -17,8 +17,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us - SSIM",
-    description: "Contact us for any questions or inquiries.",
+    title: "Get in Touch with SSIM Hyderabad | 6281350079",
+    description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
     images: ["/assets/logo.png"],
   },
   robots: {

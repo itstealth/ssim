@@ -1,10 +1,10 @@
 export const metadata = {
-    title: "News & Announcements - SSIM",
-    description: "Stay updated with latest news and announcements at Siva Sivani Institute of Management (SSIM).",
+    title: "News & Announcements - SSIM Hyderabad | Latest Updates",
+    description: "Stay updated with the latest news, events, and announcements from SSIM Hyderabad, keeping you informed about campus activities and initiatives.",
     keywords: "SSIM news, announcements, campus updates, student news, institute updates",
     openGraph: {
-      title: "News & Announcements - SSIM",
-      description: "Stay updated with latest news and announcements at Siva Sivani Institute of Management (SSIM).",
+      title: "News & Announcements - SSIM Hyderabad | Latest Updates",
+      description: "Stay updated with the latest news, events, and announcements from SSIM Hyderabad, keeping you informed about campus activities and initiatives.",
       url: "https://www.ssim.ac.in/students-life/news-announcements",
       siteName: "Siva Sivani Institute of Management",
       images: [
@@ -20,8 +20,8 @@ export const metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "News & Announcements - SSIM",
-      description: "Stay updated with latest news and announcements at Siva Sivani Institute of Management (SSIM).",
+      title: "News & Announcements - SSIM Hyderabad | Latest Updates",
+      description: "Stay updated with the latest news, events, and announcements from SSIM Hyderabad, keeping you informed about campus activities and initiatives.",
       images: ["/ssimlogo.webp"],
     },
     robots: {

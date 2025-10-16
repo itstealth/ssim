@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "PGDM BIFS - SSIM",
+  title: "PGDM-BIFS Admissions – SSIM Hyderabad | Apply Now",
   description:
-    "Learn about the PGDM in Banking, Insurance & Financial Services (BIFS) at Siva Sivani Institute of Management (SSIM). Explore the curriculum, eligibility, and career opportunities in the field of banking and financial services.",
+    "Apply for SSIM Hyderabad’s PGDM in Banking, Insurance & Financial Services. AICTE, NBA & NAAC approved with 100% placement support. Call 9391114948.",
   keywords:
     "SSIM PGDM BIFS, banking insurance financial services, finance management, banking courses, SSIM PGDM",
   openGraph: {
-    title: "PGDM BIFS - SSIM",
+    title: "PGDM-BIFS Admissions – SSIM Hyderabad | Apply Now",
     description:
-      "Learn about the PGDM in Banking, Insurance & Financial Services (BIFS) at Siva Sivani Institute of Management (SSIM). Explore the curriculum, eligibility, and career opportunities in the field of banking and financial services.",
+      "Apply for SSIM Hyderabad’s PGDM in Banking, Insurance & Financial Services. AICTE, NBA & NAAC approved with 100% placement support. Call 9391114948.",
     url: "https://www.ssim.ac.in/admissions/pgdm-bifs",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PGDM BIFS - SSIM",
+    title: "PGDM-BIFS Admissions – SSIM Hyderabad | Apply Now",
     description:
       "Learn about the PGDM in Banking, Insurance & Financial Services (BIFS) at Siva Sivani Institute of Management (SSIM).",
     images: ["/ssimlogo.webp"],

@@ -1,22 +1,22 @@
 export const metadata = {
-  title: "Faculty Publications",
+  title: "Faculty Publications - SSIM Hyderabad | Research Insights",
   description:
-    "Explore the latest research and publications from our faculty at Siva Sivani Institute of Management (SSIM). Discover their contributions to the field of management education.",
+    "Explore SSIM Hyderabad’s faculty publications showcasing impactful research, thought leadership, and academic contributions across management disciplines.",
   keywords:
-    "SSIM faculty publications, research papers, academic research, business school publications",
+    "SSIM Faculty Publications - SSIM Hyderabad | Research Insights, research papers, academic research, business school publications",
   openGraph: {
-    title: "Faculty Publications",
+    title: "Faculty Publications - SSIM Hyderabad | Research Insights",
     description:
-      "Explore the latest research and publications from our faculty at Siva Sivani Institute of Management (SSIM). Discover their contributions to the field of management education.",
+      "Explore SSIM Hyderabad’s faculty publications showcasing impactful research, thought leadership, and academic contributions across management disciplines.",
     url: "https://www.ssim.ac.in/faculty/publications",
     siteName: "Siva Sivani Institute of Management",
     images: ["/ssimlogo.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faculty Publications",
+    title: "Faculty Publications - SSIM Hyderabad | Research Insights",
     description:
-      "Explore the latest research and publications from our faculty at Siva Sivani Institute of Management (SSIM). Discover their contributions to the field of management education.",
+      "Explore SSIM Hyderabad’s faculty publications showcasing impactful research, thought leadership, and academic contributions across management disciplines.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

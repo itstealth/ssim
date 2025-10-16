@@ -29,8 +29,8 @@ const ChariVG = "/about/academic-advisory-board/VG_CHARI.jpg";
 const SudhakarA = "/about/academic-advisory-board/OIP.jpeg";
 
 export const metadata = {
-  title: "Academic Advisory Board - SSIM",
-  description: "Meet the esteemed members of the Academic Advisory Board at Siva Sivani Institute of Management (SSIM). Our board comprises distinguished leaders from academia and industry.",
+  title: "Academic Advisory Board - Siva Sivani Institute of Management",
+  description: "Academic Advisory Board at SSIM Hyderabad comprises eminent academicians and industry experts guiding management education, research, and institutional excellence.",
   keywords: "SSIM academic advisory board, advisory board, academic leadership, business school governance, SSIM board members",
   openGraph: {
     title: "Academic Advisory Board - SSIM",

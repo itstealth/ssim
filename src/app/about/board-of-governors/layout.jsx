@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Board of Governors - SSIM",
-  description: "Meet the Board of Governors at Siva Sivani Institute of Management (SSIM). Our board provides strategic direction and governance to ensure academic and operational excellence.",
+  title: "Board of Governors - SSIM | MBA in Hyderabad",
+  description: "Meet the Board of Governors at SSIM Hyderabad — visionary leaders and experts guiding one of the top MBA colleges in Hyderabad.",
   keywords: "SSIM board of governors, board of directors, academic governance, business school leadership, SSIM leadership team",
   openGraph: {
     title: "Board of Governors - SSIM",
-    description: "Meet the Board of Governors at Siva Sivani Institute of Management (SSIM). Our board provides strategic direction and governance to ensure academic and operational excellence.",
+    description: "Meet the Board of Governors at SSIM Hyderabad — visionary leaders and experts guiding one of the top MBA colleges in Hyderabad.",
     url: "https://www.ssim.ac.in/about/board-of-governors",
     siteName: "Siva Sivani Institute of Management",
     images: [

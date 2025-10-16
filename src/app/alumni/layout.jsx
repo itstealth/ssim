@@ -1,22 +1,22 @@
 export const metadata = {
-  title: "Our Alumni",
+  title: "SSIM Hyderabad Alumni Network | Leaders & Achievers",
   description:
-    "Connect with the accomplished alumni of Siva Sivani Institute of Management. Discover their achievements and see where a PGDM from SSIM can take you.",
+    "Explore the inspiring journeys of SSIM Hyderabad alumni who are making an impact across industries with leadership, innovation, and excellence.",
   keywords:
     "SSIM alumni, Siva Sivani alumni, alumni network, business school alumni",
   openGraph: {
-    title: "Our Alumni",
+    title: "SSIM Hyderabad Alumni Network | Leaders & Achievers",
     description:
-      "Connect with the accomplished alumni of Siva Sivani Institute of Management. Discover their achievements and see where a PGDM from SSIM can take you.",
+      "Explore the inspiring journeys of SSIM Hyderabad alumni who are making an impact across industries with leadership, innovation, and excellence.",
     url: "https://www.ssim.ac.in/alumni",
     siteName: "Siva Sivani Institute of Management",
     images: ["/ssimlogo.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our Alumni",
+    title: "SSIM Hyderabad Alumni Network | Leaders & Achievers",
     description:
-      "Connect with the accomplished alumni of Siva Sivani Institute of Management. Discover their achievements and see where a PGDM from SSIM can take you.",
+      "Explore the inspiring journeys of SSIM Hyderabad alumni who are making an impact across industries with leadership, innovation, and excellence.",
     images: ["/ssimlogo.webp"],
 },
   robots: {

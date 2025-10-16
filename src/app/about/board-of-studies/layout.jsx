@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "Board of Studies - SSIM",
+  title: "Board of Studies - SSIM | Leading MBA College in Hyderabad",
   description:
-    "Meet the Board of Studies at Siva Sivani Institute of Management (SSIM). Our board ensures the curriculum is relevant, rigorous, and industry-aligned.",
+    "Explore the Board of Studies at SSIM Hyderabad, a top MBA college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
   keywords:
     "SSIM board of studies, academic curriculum, course development, business school academics",
   openGraph: {
-    title: "Board of Studies - SSIM",
+    title: "Board of Studies - SSIM | Leading MBA College in Hyderabad",
     description:
-      "Meet the Board of Studies at Siva Sivani Institute of Management (SSIM). Our board ensures the curriculum is relevant, rigorous, and industry-aligned.",
+      "Explore the Board of Studies at SSIM Hyderabad, a top MBA college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
     url: "https://www.ssim.ac.in/about/board-of-studies",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Board of Studies - SSIM",
+    title: "Board of Studies - SSIM | Leading MBA College in Hyderabad",
     description:
       "Meet the Board of Studies at Siva Sivani Institute of Management (SSIM).",
     images: ["/ssimlogo.webp"],

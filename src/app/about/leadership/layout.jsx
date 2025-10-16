@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "Leadership - SSIM",
+  title: "Leadership - SSIM Hyderabad | Top MBA College in Hyderabad",
   description:
-    "Meet the leadership team at Siva Sivani Institute of Management (SSIM). Our leaders are dedicated to fostering an environment of academic excellence and innovation.",
+    "Discover the leadership team at SSIM Hyderabad — visionary academicians and industry experts guiding one of the best MBA colleges in Hyderabad.",
   keywords:
     "SSIM leadership, business school leaders, management team, academic leadership",
   openGraph: {
-    title: "Leadership - SSIM",
+    title: "Leadership - SSIM Hyderabad | Top MBA College in Hyderabad",
     description:
-      "Meet the leadership team at Siva Sivani Institute of Management (SSIM). Our leaders are dedicated to fostering an environment of academic excellence and innovation.",
+      "Discover the leadership team at SSIM Hyderabad — visionary academicians and industry experts guiding one of the best MBA colleges in Hyderabad.",
     url: "https://www.ssim.ac.in/about/leadership",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leadership - SSIM",
+    title: "Leadership - SSIM Hyderabad | Top MBA College in Hyderabad",
     description:
       "Meet the leadership team at Siva Sivani Institute of Management (SSIM).",
     images: ["/ssimlogo.webp"],

@@ -1,10 +1,10 @@
 export const metadata = {
-    title: "Student Feedback - SSIM",
-    description: "Read student feedback and testimonials at Siva Sivani Institute of Management (SSIM).",
+    title: "Student Feedback - SSIM Hyderabad | Share Your Insights",
+    description: "Provide your feedback at SSIM Hyderabad. Help the institute improve academic quality, campus facilities, and overall student experience effectively.",
     keywords: "SSIM student feedback, student testimonials, student reviews, campus feedback",
     openGraph: {
-      title: "Student Feedback - SSIM",
-      description: "Read student feedback and testimonials at Siva Sivani Institute of Management (SSIM).",
+      title: "Student Feedback - SSIM Hyderabad | Share Your Insights",
+      description: "Provide your feedback at SSIM Hyderabad. Help the institute improve academic quality, campus facilities, and overall student experience effectively.",
       url: "https://www.ssim.ac.in/students-life/students-feedback",
       siteName: "Siva Sivani Institute of Management",
       images: [
@@ -20,8 +20,8 @@ export const metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Student Feedback - SSIM",
-      description: "Read student feedback and testimonials at Siva Sivani Institute of Management (SSIM).",
+      title: "Student Feedback - SSIM Hyderabad | Share Your Insights",
+      description: "Provide your feedback at SSIM Hyderabad. Help the institute improve academic quality, campus facilities, and overall student experience effectively.",
       images: ["/ssimlogo.webp"],
     },
     robots: {

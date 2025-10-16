@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "SSIM - Siva Sivani Institute of Management",
+  title: "Top MBA & PGDM B-School in Hyderabad | SSIM Hyderabad",
   description:
-    "Siva Sivani Institute of Management - Excellence in Management Education",
+    "SSIM Hyderabad offers AICTE-approved MBA/PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
   icons: {
     icon: [
       {

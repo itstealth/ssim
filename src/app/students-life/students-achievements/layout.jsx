@@ -1,10 +1,10 @@
 export const metadata = {
-    title: "Student Achievements - SSIM",
-    description: "Celebrate student achievements and accomplishments at Siva Sivani Institute of Management (SSIM).",
+    title: "Student Achievements - SSIM Hyderabad | Success Stories",
+    description: "Discover the remarkable achievements of SSIM Hyderabad students in academics, competitions, and leadership, showcasing excellence and talent across fields.",
     keywords: "SSIM student achievements, student awards, accomplishments, student success stories",
     openGraph: {
-      title: "Student Achievements - SSIM",
-      description: "Celebrate student achievements and accomplishments at Siva Sivani Institute of Management (SSIM).",
+      title: "Student Achievements - SSIM Hyderabad | Success Stories",
+      description: "Discover the remarkable achievements of SSIM Hyderabad students in academics, competitions, and leadership, showcasing excellence and talent across fields.",
       url: "https://www.ssim.ac.in/students-life/students-achievements",
       siteName: "Siva Sivani Institute of Management",
       images: [
@@ -20,8 +20,8 @@ export const metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Student Achievements - SSIM",
-      description: "Celebrate student achievements and accomplishments at Siva Sivani Institute of Management (SSIM).",
+      title: "Student Achievements - SSIM Hyderabad | Success Stories",
+      description: "Discover the remarkable achievements of SSIM Hyderabad students in academics, competitions, and leadership, showcasing excellence and talent across fields.",
       images: ["/ssimlogo.webp"],
     },
     robots: {

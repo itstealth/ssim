@@ -1,13 +1,13 @@
 export const metadata = {
-    title: "PGDM Triple Specialisation - SSIM",
+    title: "PGDM Triple Specialisation - SSIM Hyderabad | Build Versatility",
     description:
-      "Learn about the PGDM Triple Specialisation at Siva Sivani Institute of Management (SSIM). Explore the curriculum, eligibility, and career opportunities in the field of banking and financial services.",
+      "Discover SSIM Hyderabad’s PGDM Triple Specialisation program designed to equip students with multidisciplinary skills and strong industry exposure.",
     keywords:
       "SSIM PGDM Triple Specialisation, banking insurance financial services, finance management, banking courses, SSIM PGDM",
     openGraph: {
-      title: "PGDM Triple Specialisation - SSIM",
+      title: "PGDM Triple Specialisation - SSIM Hyderabad | Build Versatility",
       description:
-        "Learn about the PGDM Triple Specialisation at Siva Sivani Institute of Management (SSIM). Explore the curriculum, eligibility, and career opportunities in the field of banking and financial services.",
+        "Discover SSIM Hyderabad’s PGDM Triple Specialisation program designed to equip students with multidisciplinary skills and strong industry exposure.",
       url: "https://www.ssim.ac.in/admissions/pgdm-triple-specialisation",
       siteName: "Siva Sivani Institute of Management",
       images: [
@@ -21,7 +21,7 @@ export const metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "PGDM Triple Specialisation - SSIM",
+      title: "PGDM Triple Specialisation - SSIM Hyderabad | Build Versatility",
       description:
         "Learn about the PGDM Triple Specialisation at Siva Sivani Institute of Management (SSIM).",
       images: ["/ssimlogo.webp"],

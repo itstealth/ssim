@@ -1,13 +1,13 @@
 export const metadata = {
-  title: "Guest Lectures - SSIM",
+  title: "Guest Lectures - SSIM Hyderabad | Expert Insights",
   description:
-    "Explore guest lectures and industry expert sessions at Siva Sivani Institute of Management (SSIM).",
+    "Explore SSIM Hyderabad’s guest lectures featuring industry leaders and academicians, providing students with practical insights and expert knowledge.",
   keywords:
     "SSIM guest lectures, industry experts, corporate sessions, business leaders",
   openGraph: {
-    title: "Guest Lectures - SSIM",
+    title: "Guest Lectures - SSIM Hyderabad | Expert Insights",
     description:
-      "Explore guest lectures and industry expert sessions at Siva Sivani Institute of Management (SSIM).",
+      "Explore SSIM Hyderabad’s guest lectures featuring industry leaders and academicians, providing students with practical insights and expert knowledge.",
     url: "https://www.ssim.ac.in/placement/guest-lectures",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -23,9 +23,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Guest Lectures - SSIM",
+    title: "Guest Lectures - SSIM Hyderabad | Expert Insights",
     description:
-      "Explore guest lectures and industry expert sessions at Siva Sivani Institute of Management (SSIM).",
+      "Explore SSIM Hyderabad’s guest lectures featuring industry leaders and academicians, providing students with practical insights and expert knowledge.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

@@ -1,10 +1,10 @@
 export const metadata = {
-    title: "Placement Records - SSIM",
-    description: "View placement records and statistics at Siva Sivani Institute of Management (SSIM).",
+    title: "SSIM Hyderabad Career Success Stories | Placement Records",
+    description: "Explore SSIM Hyderabad’s placement records showcasing student achievements, top recruiters, and career success across diverse industries and sectors.",
     keywords: "SSIM placement records, placement statistics, career outcomes, employment data",
     openGraph: {
-      title: "Placement Records - SSIM",
-      description: "View placement records and statistics at Siva Sivani Institute of Management (SSIM).",
+      title: "SSIM Hyderabad Career Success Stories | Placement Records",
+      description: "Explore SSIM Hyderabad’s placement records showcasing student achievements, top recruiters, and career success across diverse industries and sectors.",
       url: "https://www.ssim.ac.in/placement/records",
       siteName: "Siva Sivani Institute of Management",
       images: [
@@ -20,8 +20,8 @@ export const metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Placement Records - SSIM",
-      description: "View placement records and statistics at Siva Sivani Institute of Management (SSIM).",
+      title: "SSIM Hyderabad Career Success Stories | Placement Records",
+      description: "Explore SSIM Hyderabad’s placement records showcasing student achievements, top recruiters, and career success across diverse industries and sectors.",
       images: ["/ssimlogo.webp"],
     },
     robots: {

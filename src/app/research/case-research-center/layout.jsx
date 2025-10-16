@@ -1,22 +1,22 @@
 export const metadata = {   
-    title: "Case Research Center",
+    title: "SSIM Hyderabad Case Research Center | Real-World Studies Hub",
     description:
-      "Discover the Case Research Center at Siva Sivani Institute of Management (SSIM). We are dedicated to advancing management education through case studies and research.",
+      "Explore SSIM’s Case Research Center — developing case studies, fostering research, and connecting academia with industry through hands-on learning resources.",
     keywords:
       "SSIM case research center, business school research, management case studies, academic research",
     openGraph: {
-      title: "Case Research Center",
+      title: "SSIM Hyderabad Case Research Center | Real-World Studies Hub",
       description:
-        "Discover the Case Research Center at Siva Sivani Institute of Management (SSIM). We are dedicated to advancing management education through case studies and research.",
+        "Explore SSIM’s Case Research Center — developing case studies, fostering research, and connecting academia with industry through hands-on learning resources.",
       url: "https://www.ssim.ac.in/research/case-research-center",
       siteName: "Siva Sivani Institute of Management",  
       images: ["/ssimlogo.webp"],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Case Research Center",
+      title: "SSIM Hyderabad Case Research Center | Real-World Studies Hub",
       description:
-        "Discover the Case Research Center at Siva Sivani Institute of Management (SSIM). We are dedicated to advancing management education through case studies and research.",
+        "Explore SSIM’s Case Research Center — developing case studies, fostering research, and connecting academia with industry through hands-on learning resources.",
       images: ["/ssimlogo.webp"],
     },
     robots: {
