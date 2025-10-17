@@ -20,13 +20,51 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 const categories = [
   {
     id: "1",
+    label: "Sanman-2025",
+    icon: "",
+    heading: "Sanman-2025: Teacher’s Day Celebrations at SSIM",
+    description: `On September 4th, 2025, Siva Sivani Institute of Management (SSIM) celebrated Teacher’s Day to honor the birth anniversary of Dr. Sarvepalli Radhakrishnan, the second President and first Vice President of India, and an eminent teacher-philosopher.
+
+As part of its tradition, SSIM confers the Dr. S. Radhakrishnan Memorial ‘Teacher of Teachers Award’ each year to recognize and celebrate the contributions of distinguished academicians. This year (2025), the award was presented to Dr. Prof. Ch. S. Durga Prasad, Executive Director, Association of Indian Management Schools (AIMS), for his outstanding service to the teaching fraternity.
+
+Adding to the significance of the occasion, the SSIM Placement Department released the Placement Brochure – Shreshta 2025, showcasing the institute’s commitment to academic excellence and industry readiness.`,
+  },
+  {
+    id: "2",
+    label: "Spandana-2025",
+    icon: <Image />,
+    heading: "Spandana-2025 (Freshers’ Party) – PGDM Batch 2025–27",
+    description: `On 12th September 2025, the senior students of Siva Sivani Institute of Management (SSIM) warmly welcomed the PGDM Batch of 2025–27 by hosting a vibrant Freshers’ Party – Spandana 2025.
+
+The celebration was filled with energy, cultural performances, and fun activities, showcasing the talents of both seniors and juniors. A major highlight of the evening was the Mr. and Ms. Fresher 2025 contest, where participants competed with enthusiasm and confidence before the winners were crowned.
+
+Adding to the excitement, the SSIM Students’ Sports Club organized a cricket tournament for the new batch. After an intense competition, Section D emerged as the Winners, while Section A secured the Runners-up position.
+
+The entire SSIM fraternity—faculty, staff, and students—came together to celebrate, making the occasion a memorable day of joy, bonding, and new beginnings.`,
+  },
+  {
+    id: "3",
+    label: "Leadership Talk",
+    icon: "",
+    heading: "Leadership Talk by Mr. Manish Muralidhar Conjeevaram",
+    description: `on 9th September 2025, Siva Sivani Institute of Management (SSIM) organized an engaging Leadership Talk by Mr. Manish Muralidhar Conjeevaram, Partner – Audit & Assurance, Deloitte, Hyderabad, for the students of the 2024–26 batch.  He shared his perspectives on the evolving role of finance and audit in today’s business landscape, highlighting the importance of integrity, critical thinking, and adaptability for aspiring managers.`,
+  },
+  {
+    id: "4",
+    label: "HR Conclave",
+    icon: <Image />,
+    heading: "HR Conclave",
+    description: ``,
+  },
+  {
+    id: "5",
     label: "Ganesh Celebrations",
     icon: <Image />,
     heading: "Ganesh Celebrations",
     description: "",
   },
   {
-    id: "2",
+    id: "6",
     label: "SMRITI – 2025",
     icon: <Image />,
     heading: "SMRITI – 2025 (Farewell Party)",
@@ -34,14 +72,14 @@ const categories = [
       "On 22nd March 2025, SSIM organized ‘SMRITI-2025 (Farewell Party)’ at Swagath Grand, Suchithra. Junior students gave a nice treat to their Seniors Batch 2023-25. The students had fun while participating in various cultural activities and games.",
   },
   {
-    id: "3",
+    id: "7",
     label: "Onam Festival",
     icon: <Image />,
     heading: "Onam Festival",
     description: "",
   },
   {
-    id: "4",
+    id: "8",
     label: "Leadership Talk",
     icon: <Image />,
     heading: "Leadership Talk by Mr. Gijo Mathew",
@@ -49,7 +87,7 @@ const categories = [
       "Mr. Gijo Mathew, Head of Learning & Development at Auro Group, addressed the students on 08th September 2025 for the Batch 2026–27. In his session, he emphasized the importance of developing leadership through a growth mindset, highlighting how cultivating resilience, adaptability, and continuous learning can shape future leaders.",
   },
   {
-    id: "5",
+    id: "9",
     label: "HR Conclave",
     icon: <Image />,
     heading: "HR Conclave",
@@ -59,7 +97,7 @@ SSIM proudly hosted this landmark event at Hotel Marigold, Begumpet, bringing to
 The discussions sparked new ideas, future-ready strategies, and collaborative pathways to redefine the evolving workforce landscape. 🚀`,
   },
   {
-    id: "6",
+    id: "10",
     label: "Raksha Bandhan 2025",
     icon: <Image />,
     heading: "Raksha Bandhan with Our Soldiers",
@@ -67,7 +105,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "This Raksha Bandhan, Siva Sivani Institute of Management (SSIM) had the honor of celebrating with the brave soldiers at the Bollaram Army Campus. Tying rakhis was more than a tradition—it was a heartfelt tribute to the heroes who safeguard our nation. The warm interaction with officers and soldiers filled us with pride, gratitude, and inspiration",
   },
   {
-    id: "7",
+    id: "11",
     label: "Tiranga Campaign",
     icon: <Image />,
     heading: "Selfie with Tiranga Campaign @ SSIM",
@@ -75,7 +113,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "Siva Sivani Institute of Management (SSIM) organized the “Selfie with Tiranga” campaign on campus to celebrate India’s Independence. The initiative aimed to encourage students and staff to bring the Tiranga home and proudly hoist it as a symbol of patriotism and unity. Both senior and junior students actively participated, capturing memorable moments with the national flag and showcasing their love and respect for the nation",
   },
   {
-    id: "8",
+    id: "12",
     label: "SAMVADA",
     icon: <Image />,
     heading: "SAMVADA - A RESEARCH PLATFORM",
@@ -83,7 +121,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "On 20th August 2025, the Research & Publications Cell of SSIM inaugurated SAMVADA – a dedicated research platform designed to foster academic dialogue and collaboration among faculty at the SSIM campus.",
   },
   {
-    id: "9",
+    id: "13",
     label: "Outbound Training",
     icon: <Image />,
     heading: "Outbound Training for PGDM Students",
@@ -91,7 +129,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "On 1st and 2nd August 2025, SSIM organized Outbound Training (OBT) for PGDM students. This training was organized to help the students learn practical lessons of Leadership, Coordination, and teamwork while accepting criticism and handling negative feedback effectively. Some of the training activities arranged for the students included Toxic Waste, Battle Field, Mountain Trekking, Mission Impossible, and Shepherd and Pen. This event was organized for two days and the students were divided into two batches.",
   },
   {
-    id: "10",
+    id: "14",
     label: "Spandana",
     icon: "",
     heading: "SPANDANA - A SPONTANEOUS RESPONSE (FRESHERS' PARTY)",
@@ -99,7 +137,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "The institute strongly believes in inter personnel relations and teamwork. In order to give a feeling of oneness to the freshers, the Seniors conduct 'Spandana' to warmly and formally welcome their Juniors into the family of Siva Sivani.",
   },
   {
-    id: "11",
+    id: "15",
     label: "Sammelan",
     icon: "",
     heading: "SAMMELAN - AN INTRA COLLEGIATE MEET",
@@ -107,7 +145,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "To bring out the innate talent of the students, various cultural activities, management games etc are conducted. One day in a term is earmarked for this activity.",
   },
   {
-    id: "12",
+    id: "16",
     label: "Samaroh",
     icon: <Image />,
     heading: "SAMAROH - IT IS INTERNATIONAL RESEARCH CONFERENCE AT SSIM",
@@ -115,7 +153,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
 Samaroh is an international conference which is aimed to offer a knowledge sharing platform for academicians, researchers and corporate professionals for exchange of new body of knowledge. This conference will also have key note address from renowned management experts and research paper presentations of conference participants.`,
   },
   {
-    id: "13",
+    id: "17",
     label: "Samanvay",
     icon: <Image />,
     heading: "SAMANVAY - THE ESSENCE OF CO-ORDINATION",
@@ -124,7 +162,7 @@ Samaroh is an international conference which is aimed to offer a knowledge shari
 Many business houses sponsor the events organised in Samanvay. This clearly manifests the Industry- Institute-Interaction of Siva Sivani Institute of Management.`,
   },
   {
-    id: "14",
+    id: "18",
     label: "Sameeksha",
     icon: <Image />,
     heading: "SAMEEKSHA",
@@ -133,49 +171,49 @@ Many business houses sponsor the events organised in Samanvay. This clearly mani
 Experts from the industry may chair the club sessions conducted by the students who will share their experiences with the students. These activities help students acquire the knowledge on contemporary issues in their respective specializations, improve their oral and written communication skills and participate effectively in the competitions conducted by various Business Schools.`,
   },
   {
-    id: "15",
+    id: "20",
     label: "Smriti",
     icon: "",
     heading: "SMRITI - A FOND REMEMBRANCE (FAREWELL PARTY)",
     description: `Meeting and parting is a way of life. After the completion of the course, it is certain that the Seniors part with the Juniors. In order to express their feelings and the unwritten bonding between the Seniors and the Juniors, the Juniors bid a grand Farewell to the seniors in the 6th trimester. Various activities are organised in order to further strengthen the relationship even after leaving the portals of the Institute. The Juniors present mementos as a fond memory to the seniors.`,
   },
   {
-    id: "16",
+    id: "21",
     label: "Sneha",
     icon: <Image />,
     heading: "SNEHA - THE ALUMNI ASSOCIATION OF SSIM",
     description: `We at SSIM strongly believe that the Alumni Association has a great role to play in the developmental activities of the Institute. To strengthen our relationship with the Alumni, we conduct various activities and invite them to the campus. This gives a feeling to every student of SSIM that they are always a part of the Siva Sivani family.`,
   },
   {
-    id: "17",
+    id: "22",
     label: "Sadhana",
     icon: <Image />,
     heading: "SADHANA - STUDENT RESEARCH CONFERENCE",
     description: `SADHANA is a Student Research Conference introduced in 2022. The aim of the conference is to bring Bachelor's / Master's research into spotlight and to increase the enthusiasm among students for academic research. This conference gives UG / PG students a unique opportunity to present their research among the learned audiences. Participating in this conference enables the students to experience academic practice.`,
   },
   {
-    id: "18",
+    id: "23",
     label: "Snatak",
     icon: <Image />,
     heading: "SNATAK - CONVOCATION",
     description: `Snatak – Convocation of every batch will be held on 22nd October on every year to conform the degrees of the passed students.`,
   },
   {
-    id: "19",
+    id: "24",
     label: "Sanman",
     icon: <Image />,
     heading: "SANMAN - TEACHER'S DAY",
     description: `Teachers' Day is celebrated every year on 5th September at SSIM. On this day SSIM facilitates a distinguished teacher every year with a citation highlighting the accomplishments and contributions made by the teacher. This is sending a strong message to students on our tradition of respecting the teachers which is part of our culture in our society.`,
   },
   {
-    id: "20",
+    id: "25",
     label: "Satakshi",
     icon: <Image />,
     heading: "SATAKSHI - WOMAN'S DAY",
     description: `SSIM conducts women's day in the name of SATHAKSHI and the event is being organized by the Women Empowerment Cell at the institute. The event thrust area is gender sensitization and makes the students and employees aware of women's rights in society. As a part of it, successful women invited to campus to share their accomplishments and challenges faced in the journey of success and did they overcome.`,
   },
   {
-    id: "21",
+    id: "26",
     label: "Sanghibhav",
     icon: <Image />,
     heading: "SANGHIBHAV - ISR",
@@ -184,7 +222,7 @@ Experts from the industry may chair the club sessions conducted by the students 
 Presence of institutes' representative gives them immense happiness; they look forward to our visits expecting kind words, candies and surprises. Institute students give them a moral support. This brings a smile on their faces, by just being with them, for some time, once a week or a month.`,
   },
   {
-    id: "22",
+    id: "27",
     label: "Samskriti",
     icon: <Image />,
     heading: "SAMSKRITI - TRADITIONAL DAY TO THE FRESHER'S",
@@ -194,90 +232,109 @@ Presence of institutes' representative gives them immense happiness; they look f
 
 // Replace all individual samaroh imports with this
 
+const spandana2025Images = Array.from({ length: 30 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/spandana-2025/spandana (${i + 1}).jpg`,
+  category: "2",
+  alt: `spandana 2025 image ${i + 1}`,
+}));
+
+const hrConclave2025Images = Array.from({ length: 23 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/hr-conclave-2025/hr-conclave (${i + 1}).webp`,
+  category: "4",
+  alt: `hr conclave 2025 image ${i + 1}`,
+}));
+
 const ganeshCelebrationsImages = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/ganesh-celebrations/Ganesh Celebrations (${i + 1}).webp`,
-  category: "1",
+  src: `/studentslife/life-at-ssim/ganesh-celebrations/Ganesh Celebrations (${
+    i + 1
+  }).webp`,
+  category: "5",
   alt: `ganesh celebrations image ${i + 1}`,
 }));
 
 const smriti2025Images = Array.from({ length: 37 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/smriti-2025/smriti 2025 (${i + 1}).jpg`,
-  category: "2",
+  category: "6",
   alt: `smriti 2025 image ${i + 1}`,
 }));
 
 const onamFestivalImages = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/onam-celebrations/Onam Celebrations (${i + 1}).webp`,
-  category: "3",
+  src: `/studentslife/life-at-ssim/onam-celebrations/Onam Celebrations (${
+    i + 1
+  }).webp`,
+  category: "7",
   alt: `onam festival image ${i + 1}`,
 }));
 
 const leadershipTalkImages = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${i + 1}).webp`,
-  category: "4",
+  src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${
+    i + 1
+  }).webp`,
+  category: "8",
   alt: `leadership talk image ${i + 1}`,
 }));
 
 const hrConclaveImages = Array.from({ length: 23 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/hr-conclave/hr-conclave (${i + 1}).jpg`,
-  category: "5",
+  category: "9",
   alt: `hr conclave image ${i + 1}`,
 }));
-
 
 const rakshaBandhanImages = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/raksha-bandhan/raksha-bandhan (${
     i + 1
   }).jpg`,
-  category: "6",
+  category: "10",
   alt: `raksha bandhan image ${i + 1}`,
 }));
 
 const tirangaCampaignImages = Array.from({ length: 13 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/independence/independence (${i + 1}).webp`,
-  category: "7",
+  category: "11",
   alt: `tiranga campaign image ${i + 1}`,
 }));
 
 const samvadaImages = Array.from({ length: 3 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/samvada/samvada (${i + 1}).webp`,
-  category: "8",
+  category: "12",
   alt: `samvada image ${i + 1}`,
 }));
 
 const outboundTrainingImages = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/outbound/outbound (${i + 1}).webp`,
-  category: "9",
+  category: "13",
   alt: `outbound training image ${i + 1}`,
 }));
 
 const samarohImages = Array.from({ length: 21 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/samaroh/samaroh (${i + 1}).webp`,
-  category: "12",
+  category: "16",
   alt: `samaroh image ${i + 1}`,
 }));
 
 const samanvayImages = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/samanvay/samanvay (${i + 1}).webp`,
-  category: "13",
+  category: "17",
   alt: `samanvay image ${i + 1}`,
 }));
 
 const sameekshaImages = Array.from({ length: 23 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/sameeksha/sameeksha (${i + 1}).webp`,
-  category: "14",
+  category: "18",
   alt: `sameeksha image ${i + 1}`,
 }));
 
@@ -286,54 +343,56 @@ const snehaImages = Array.from({ length: 42 }, (_, i) => ({
   src: `/studentslife/life-at-ssim/sneha/sneha (${i + 1}).${
     i > 39 ? "png" : "webp"
   }`,
-  category: "16",
+  category: "21",
   alt: `sneha image ${i + 1}`,
 }));
 
 const sadhanaImages = Array.from({ length: 14 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/sadhana/sadhana (${i + 1}).webp`,
-  category: "17",
+  category: "22",
   alt: `sadhana image ${i + 1}`,
 }));
 
 const snatakImages = Array.from({ length: 21 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/snatak/snatak (${i + 1}).webp`,
-  category: "18",
+  category: "23",
   alt: `snatak image ${i + 1}`,
 }));
 
 const sanmanImages = Array.from({ length: 2 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/sanman/sanman (${i + 1}).webp`,
-  category: "19",
+  category: "24",
   alt: `sanman image ${i + 1}`,
 }));
 
 const satakshiImages = Array.from({ length: 9 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/satakshi/satakshi (${i + 1}).webp`,
-  category: "20",
+  category: "25",
   alt: `satakshi image ${i + 1}`,
 }));
 
 const sanghibhavImages = Array.from({ length: 11 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/sanghibhav/sanghibhav (${i + 1}).webp`,
-  category: "21",
+  category: "26",
   alt: `sanghibhav image ${i + 1}`,
 }));
 
 const samskritiImages = Array.from({ length: 25 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/samskriti/samskriti (${i + 1}).webp`,
-  category: "22",
+  category: "27",
   alt: `samskriti image ${i + 1}`,
 }));
 
 // Then modify your galleryItems array to use both image sets
 const galleryItems = [
+  ...spandana2025Images,
+  ...hrConclave2025Images,
   ...ganeshCelebrationsImages,
   ...smriti2025Images,
   ...onamFestivalImages,
