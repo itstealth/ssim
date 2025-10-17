@@ -14,7 +14,10 @@
     "debug": "node scripts/inspect-debug.js",
     "debug:overview": "node scripts/inspect-debug.js overview",
     "debug:latest": "node scripts/inspect-debug.js latest",
-    "debug:clear": "node scripts/inspect-debug.js clear"
+    "debug:clear": "node scripts/inspect-debug.js clear",
+    "sitemap:status": "node scripts/sitemap-manager.js status",
+    "sitemap:regenerate": "node scripts/sitemap-manager.js regenerate",
+    "sitemap:test": "node scripts/sitemap-manager.js test"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.28.0",

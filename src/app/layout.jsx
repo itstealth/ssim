@@ -23,19 +23,56 @@ export const metadata = {
   title: "Top MBA & PGDM B-School in Hyderabad | SSIM Hyderabad",
   description:
     "SSIM Hyderabad offers AICTE-approved MBA/PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+  canonical: "https://www.ssim.ac.in",
+  alternates: {
+    canonical: "https://www.ssim.ac.in",
+  },
+  openGraph: {
+    title: "Top MBA & PGDM B-School in Hyderabad | SSIM Hyderabad",
+    description:
+      "SSIM Hyderabad offers AICTE-approved MBA/PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+    url: "https://www.ssim.ac.in",
+    siteName: "SSIM Hyderabad",
+    images: ["/ssimlogo.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top MBA & PGDM B-School in Hyderabad | SSIM Hyderabad",
+    description:
+      "SSIM Hyderabad offers AICTE-approved MBA/PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+    images: ["/ssimlogo.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.ssim.ac.in",
+  },
   icons: {
-    icon: [
-      {
-        url: "/ssim-favicon.png",
-        type: "image/png",
-      },
-      {
-        url: "/ssim-favicon.png",
-        sizes: "any",
-      },
-    ],
-    apple: "/ssim-favicon.png",
-    shortcut: "/ssim-favicon.png",
+    icon: "/ssim-favicon.png",
+  },  
+  manifest: "/manifest.json",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
+  category: "education",
+  keywords: ["SSIM Hyderabad", "MBA", "PGDM", "B-School", "Hyderabad"],
+  authors: [{ name: "SSIM Hyderabad" }],
+  creator: "SSIM Hyderabad",
+  publisher: "SSIM Hyderabad",
+  applicationName: "SSIM Hyderabad",
+  generator: "Next.js",
+  referrer: "origin",
+  formatDetection: {
+    email: false,
+    address: false,
+  },
+  alternates: {
+    canonical: "https://www.ssim.ac.in",
   },
 };
 
