@@ -93,8 +93,7 @@ const processData = [
     title: "Aptitude Test Score",
     description:
       "Submit scores from accepted entrance exams like CAT/XAT/MAT/CMAT/ATMA/GMAT or State Government Exam",
-    details:
-      `Percentile / Scores of Aptitude Test (CAT/XAT/MAT/CMAT/ATMA/GMAT/State Government Exam)`,
+    details: `Percentile / Scores of Aptitude Test (CAT/XAT/MAT/CMAT/ATMA/GMAT/State Government Exam)`,
   },
   {
     step: 2,
@@ -264,6 +263,30 @@ const Overview = () => (
       specialist researchers, with sufficient depth of knowledge in different
       domains of management.
     </p>
+    <p className="text-lg text-gray-700 font-semibold">
+      SSIM offers Executive Fellow Program in Management (EFPM) for working
+      professionals.
+    </p>
+    <p className="text-lg text-gray-700">
+      Siva Sivani Institute of Management (SSIM), offers Executive Fellow
+      Program in Management (EFPM) approved by AICTE for working professionals.
+      The EFPM scholars of SSIM are required to undertake a rigorous
+      interdisciplinary research in contemporary areas of management having
+      implications for the corporate world and society.
+    </p>
+    <p className="text-lg text-gray-700">
+      EFPM has been designed to provide a holistic and enabling research
+      eco-system for working executives. The program focuses on preparing the
+      candidates through a well-designed path that helps them achieve excellence
+      in academics, consultancy assignments as well as research based corporate
+      roles.
+    </p>
+    <p className="text-lg text-gray-700 !mb-8">
+      To achieve this, the program provides scholars with the knowledge and
+      research skills along with sufficient depth of knowledge in different
+      domains of management.
+    </p>
+
     <h3 className="font-bold text-mainBlue text-2xl">Program Objectives</h3>
     <p className="text-gray-700 text-lg">
       The program aims to fulfill the following objectives:
@@ -276,7 +299,11 @@ const Overview = () => (
       <li>To establish and maintain interdisciplinary research practices</li>
       <li>To contribute high ethical standards in research work</li>
       <li>
-        To promote competencies for different roles in teaching and research
+        To develop research competencies for different roles in teaching,
+        research and consultancy.
+      </li>
+      <li>
+        To promote research that leads to effective decisions by the corporate world
       </li>
     </ul>
     <h3 className="font-bold text-mainBlue text-2xl">Program Duration</h3>
@@ -748,7 +775,9 @@ export default function FPM() {
 
                   {/* Section Content */}
                   <Card className="border">
-                    <CardContent className="p-4 sm:p-6">{renderSection()}</CardContent>
+                    <CardContent className="p-4 sm:p-6">
+                      {renderSection()}
+                    </CardContent>
                   </Card>
                 </motion.div>
               </AnimatePresence>

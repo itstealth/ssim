@@ -67,7 +67,12 @@ const sections = [
     icon: ChevronRight,
     hidden: ["fpm/efpm"],
   },
-  // { id: "specializations", name: "Specializations", icon: ChevronRight },
+  { 
+    id: "specializations", 
+    name: "Specializations", 
+    icon: ChevronRight,
+    showOnly: ["fpm/efpm"]
+  },
   {
     id: "managerialCompetency",
     name: "Managerial Competency Development Modules",
@@ -242,8 +247,12 @@ const Specializations = ({ specializations }) => {
             key={index}
             className="overflow-hidden flex flex-row items-center gap-4 p-2"
           >
-            {spec.icon.startsWith("http") ? (
-              <img src={spec?.icon} alt={spec?.title} className="w-20 h-20" />
+            {spec.icon.startsWith("http") ||
+            spec.icon.startsWith("data:image") ||
+            spec.icon.startsWith("/") ? (
+              <div className="min-w-20 h-20 flex items-center justify-center text-4xl bg-gray-50 rounded-lg">
+                <img src={spec?.icon} alt={spec?.title} className="w-14 h-14" />
+              </div>
             ) : (
               <div className="min-w-20 h-20 flex items-center justify-center text-4xl bg-gray-50 rounded-lg">
                 {spec?.icon}
@@ -328,47 +337,90 @@ const Differentiators = ({ differentiators }) => {
               <div className="mb-8">
                 <div className="rounded-2xl border border-mainBlue bg-blue-50/40 shadow-md p-6 md:p-8">
                   <h4 className="text-xl md:text-2xl text-mainBlue font-extrabold flex items-center gap-2 mb-3">
-                    <Briefcase className="w-7 h-7 text-mainBlue mr-1" /> Financial Support (Full-time Researchers & Freshers)
+                    <Briefcase className="w-7 h-7 text-mainBlue mr-1" />{" "}
+                    Financial Support (Full-time Researchers & Freshers)
                   </h4>
                   <ul className="list-inside list-disc text-base space-y-2 mb-4 pl-2 md:pl-5">
                     <li>
-                      <span className="font-medium">Limited scholarships</span> offered to FPM scholars (Full-time) based on academic performance during selection and tenure.
+                      <span className="font-medium">Limited scholarships</span>{" "}
+                      offered to FPM scholars (Full-time) based on academic
+                      performance during selection and tenure.
                     </li>
                     <li>
                       <span className="font-medium">Monthly Stipend:</span>
                       <ul className="list-inside list-[circle] ml-6 space-y-1">
                         <li>
-                          <span className="text-mainBlue font-semibold">Year 1:</span> ₹20,000/month
+                          <span className="text-mainBlue font-semibold">
+                            Year 1:
+                          </span>{" "}
+                          ₹20,000/month
                         </li>
                         <li>
-                          <span className="text-mainBlue font-semibold">Year 2:</span> ₹25,000/month
+                          <span className="text-mainBlue font-semibold">
+                            Year 2:
+                          </span>{" "}
+                          ₹25,000/month
                         </li>
                         <li>
-                          <span className="text-mainBlue font-semibold">Year 3:</span> ₹30,000/month
+                          <span className="text-mainBlue font-semibold">
+                            Year 3:
+                          </span>{" "}
+                          ₹30,000/month
                         </li>
                       </ul>
                     </li>
                     <li>
-                      Stipend applies only if scholar <span className="font-medium">is not employed elsewhere</span>.
+                      Stipend applies only if scholar{" "}
+                      <span className="font-medium">
+                        is not employed elsewhere
+                      </span>
+                      .
                     </li>
                     <li>
-                      Scholars are required to serve as <span className="font-medium">Teaching/Research Assistants</span> at SSIM.
+                      Scholars are required to serve as{" "}
+                      <span className="font-medium">
+                        Teaching/Research Assistants
+                      </span>{" "}
+                      at SSIM.
                     </li>
                     <li>
-                      <span className="font-medium">Progress Review:</span> Every 6 months by Research Advisory Committee and guide; next stipend installment is subject to satisfactory performance.
+                      <span className="font-medium">Progress Review:</span>{" "}
+                      Every 6 months by Research Advisory Committee and guide;
+                      next stipend installment is subject to satisfactory
+                      performance.
                     </li>
                     <li>
-                      <span className="font-medium">No stipend extension</span> beyond 3 years.
+                      <span className="font-medium">No stipend extension</span>{" "}
+                      beyond 3 years.
                     </li>
                     <li>
-                      <span className="font-medium">Tuition Exemption:</span> Scholars receiving stipends do <span className="text-green-700 font-semibold">not pay tuition fees</span>.
+                      <span className="font-medium">Tuition Exemption:</span>{" "}
+                      Scholars receiving stipends do{" "}
+                      <span className="text-green-700 font-semibold">
+                        not pay tuition fees
+                      </span>
+                      .
                     </li>
                     <li>
-                      <span className="font-medium">Fees Payable:</span> ₹70,000 (Acceptance fee: ₹60,000 <span className="text-gray-500 text-xs">(non-refundable)</span> + ₹10,000 <span className="text-gray-500 text-xs">(refundable security deposit)</span>).
+                      <span className="font-medium">Fees Payable:</span> ₹70,000
+                      (Acceptance fee: ₹60,000{" "}
+                      <span className="text-gray-500 text-xs">
+                        (non-refundable)
+                      </span>{" "}
+                      + ₹10,000{" "}
+                      <span className="text-gray-500 text-xs">
+                        (refundable security deposit)
+                      </span>
+                      ).
                     </li>
                   </ul>
                   <div className="text-xs text-gray-700 bg-yellow-50 rounded-lg p-3 border-l-4 border-yellow-400">
-                    <strong>Note:</strong> Scholars’ performance in previous 6 months must be certified as <span className="font-semibold text-green-600">satisfactory</span> by their academic guide to continue receiving stipend.
+                    <strong>Note:</strong> Scholars’ performance in previous 6
+                    months must be certified as{" "}
+                    <span className="font-semibold text-green-600">
+                      satisfactory
+                    </span>{" "}
+                    by their academic guide to continue receiving stipend.
                   </div>
                 </div>
               </div>
@@ -675,7 +727,11 @@ const ProgramSection = ({ programId, activeSection }) => {
           />
         );
       case "specializations":
-        return <Specializations specializations={program.specializations} />;
+        // Only show specializations for FPM/EFPM program
+        if (programId === "fpm/efpm") {
+          return <Specializations specializations={program.specializations} />;
+        }
+        return null;
       case "managerialCompetency":
         return (
           <ManagerialCompetency
@@ -790,7 +846,8 @@ const ProgramsOverview = ({ params }) => {
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     const isHidden = section.hidden?.includes(activeProgram);
-    return matchesSearch && !isHidden;
+    const isShowOnly = section.showOnly && !section.showOnly.includes(activeProgram);
+    return matchesSearch && !isHidden && !isShowOnly;
   });
 
   const Overlay = isDesktop ? Dialog : Drawer;

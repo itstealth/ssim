@@ -13,6 +13,13 @@ const project = "/programs/project.png";
 const internship = "/programs/working-man.png";
 const certification = "/programs/online-learning.png";
 const viva = "/programs/meeting.png";
+const budget = "/programs/budget.png";
+const partners = "/programs/partners.png";
+const shopping = "/programs/shopping-online.png";
+const economics = "/programs/economics.png";
+const performance = "/programs/performance.png";
+const planning = "/programs/planning.png";
+const teaching = "/programs/teaching.png";
 
 export const programData = {
   "fpm/efpm": {
@@ -25,34 +32,34 @@ export const programData = {
       degree: "Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)",
     },
     specializations: [
-      // {
-      //   title: "Accounting & Finance",
-      //   icon: "https://ssim.ac.in/wp-content/uploads/2022/12/5410839.png",
-      // },
-      // {
-      //   title: "Organizational Behavior / Human Resource",
-      //   icon: "https://ssim.ac.in/wp-content/uploads/2022/12/human-resource.png",
-      // },
-      // {
-      //   title: "Marketing",
-      //   icon: "https://ssim.ac.in/wp-content/uploads/2022/12/marketing.png",
-      // },
-      // {
-      //   title: "Economics",
-      //   icon: "https://ssim.ac.in/wp-content/uploads/2022/12/economics.png",
-      // },
-      // {
-      //   title: "Operations Management",
-      //   icon: "https://ssim.ac.in/wp-content/uploads/2022/12/OM.png",
-      // },
-      // {
-      //   title: "General Management",
-      //   icon: "https://ssim.ac.in/wp-content/uploads/2022/12/GM.png",
-      // },
-      // {
-      //   title: "Strategic Management",
-      //   icon: "https://ssim.ac.in/wp-content/uploads/2022/12/SM.png",
-      // },
+      {
+        title: "Accounting & Finance",
+        icon: budget,
+      },
+      {
+        title: "Organizational Behavior / Human Resource",
+        icon: partners,
+      },
+      {
+        title: "Marketing",
+        icon: shopping,
+      },
+      {
+        title: "Economics",
+        icon: economics,
+      },
+      {
+        title: "Operations Management",
+        icon: performance,
+      },
+      {
+        title: "General Management",
+        icon: teaching,
+      },
+      {
+        title: "Strategic Management",
+        icon: planning,
+      },
     ],
     managerialCompetency: [
       {
