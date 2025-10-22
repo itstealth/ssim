@@ -308,7 +308,7 @@ const Overview = () => (
     </ul>
     <h3 className="font-bold text-mainBlue text-2xl">Program Duration</h3>
     <p className="text-gray-700 text-lg">
-      The FPM at SSIM is three years' duration. Students are required to ensure
+      The FPM/EFPM at SSIM is three years' duration. Students are required to ensure
       that they complete all requirements of the program within the stipulated
       period of three and half years. Candidate shall submit his/ her Thesis
       only after a minimum period of two years after registration. However, in
@@ -318,28 +318,28 @@ const Overview = () => (
       from the date of admission to the Program.
     </p>
     <h3 className="font-bold text-mainBlue text-2xl">Other Requirements</h3>
-    <p className="text-gray-700 text-lg">
-      For the award of <strong>Fellow Program in Management (FPM)</strong>, the
+    <p className="text-gray-700 text-lg mb-6">
+      For the award of <strong>Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)</strong>, the
       candidate needs to fulfil specific requirements as specified by the
-      institute related to
+      institute related to:
     </p>
     <div className="grid md:grid-cols-3 !my-8 gap-6 h-full">
       {[
         {
-          title: "Industry Recognition",
+          title: "Case Study Publication",
           description:
-            "AICTE, NBA & NAAC Approved, AIU Affiliated and SAQS Accredited program with Outcome based education",
+            "Publication of case studies as per institute guidelines and requirements",
           icon: Award,
         },
         {
-          title: "Experiential Learning",
-          description: "Value Added Management Competency Development Modules",
+          title: "Conference Presentations",
+          description: "Presentation of two papers in national/international conferences",
           icon: BookOpen,
         },
         {
-          title: "Global Exposure",
+          title: "Journal Publications",
           description:
-            "Specialization in 3 domains with choice of 50+ Elective subjects",
+            "Publishing of two papers in SCOPUS/ABDC indexed journals",
           icon: Globe,
         },
       ].map((item, index) => (
@@ -364,7 +364,7 @@ const Overview = () => (
 
 const Process = () => (
   <div className="space-y-8">
-    <SelectionProcess />
+    <SelectionProcess programType="fpm-efpm" />
     <p className="text-lg font-semibold text-gray-700 !mt-5">
       SSIM follows Profile Based Selection process. The final selection is based
       on the cumulative score of the below mentioned components -
@@ -642,7 +642,7 @@ export default function FPM() {
       case "process":
         return <Process />;
       case "eligibility":
-        return <EligibilityCriteria />;
+        return <EligibilityCriteria programType="fpm-efpm" />;
       case "fees":
         return <Fees />;
       case "dates":

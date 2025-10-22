@@ -34,7 +34,7 @@ const itemVariants = {
   },
 };
 
-export default function EligibilityCriteria() {
+export default function EligibilityCriteria({ programType = "general" }) {
   // Table data for program-specific eligibility
   const programData = [
     {
@@ -76,136 +76,231 @@ export default function EligibilityCriteria() {
           </p>
         </motion.div> */}
 
-        {/* General Eligibility Requirements */}
-        <motion.div variants={itemVariants} className="mb-12">
-          <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center text-2xl font-semibold text-gray-800">
-                <FileText className="h-6 w-6 mr-3 text-primary" />
-                General Eligibility Requirements
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Basic Degree Requirement */}
-              <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                <h3 className="font-semibold text-gray-800 mb-2">
-                  Academic Qualification
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Candidates applying for the Post Graduate Diploma in
-                  Management (PGDM) must have a
-                  <span className="font-medium">
-                    {" "}
-                    Bachelor's Degree in any discipline
-                  </span>{" "}
-                  from a recognized university with a{" "}
-                  <span className="font-medium">
-                    minimum aggregate of 50% marks
-                  </span>{" "}
-                  (all subjects combined).
-                </p>
-              </div>
+        {/* General Eligibility Requirements - Hidden for FPM/EFPM */}
+        {programType !== "fpm-efpm" && (
+          <>
+            <motion.div variants={itemVariants} className="mb-12">
+              <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+                <CardHeader className="pb-4">
+                  <CardTitle className="flex items-center text-2xl font-semibold text-gray-800">
+                    <FileText className="h-6 w-6 mr-3 text-primary" />
+                    General Eligibility Requirements
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* Basic Degree Requirement */}
+                  <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Academic Qualification
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Candidates applying for the Post Graduate Diploma in
+                      Management (PGDM) must have a
+                      <span className="font-medium">
+                        {" "}
+                        Bachelor's Degree in any discipline
+                      </span>{" "}
+                      from a recognized university with a{" "}
+                      <span className="font-medium">
+                        minimum aggregate of 50% marks
+                      </span>{" "}
+                      (all subjects combined).
+                    </p>
+                  </div>
 
-              {/* Final Year Students */}
-              <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                <h3 className="font-semibold text-gray-800 mb-2 flex items-center">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Final Year Students
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Candidates in their final year of graduation can also apply,
-                  provided they've maintained a
-                  <span className="font-medium">
-                    {" "}
-                    50% average up to the current semester
-                  </span>{" "}
-                  and complete all exams before{" "}
-                  <span className="font-medium">July 31</span> of the respective admission year.
-                </p>
-              </div>
+                  {/* Final Year Students */}
+                  <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                    <h3 className="font-semibold text-gray-800 mb-2 flex items-center">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      Final Year Students
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Candidates in their final year of graduation can also
+                      apply, provided they've maintained a
+                      <span className="font-medium">
+                        {" "}
+                        50% average up to the current semester
+                      </span>{" "}
+                      and complete all exams before{" "}
+                      <span className="font-medium">July 31</span> of the
+                      respective admission year.
+                    </p>
+                  </div>
 
-              {/* Documentation Requirements */}
-              <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
-                <h3 className="font-semibold text-gray-800 mb-2">
-                  Documentation Deadline
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Proof of graduation with at least 50% marks must be submitted
-                  by{" "}
-                  <strong className="font-medium">July 31 </strong>
-                  of the respective admission year.
-                </p>
-              </div>
+                  {/* Documentation Requirements */}
+                  <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+                    <h3 className="font-semibold text-gray-800 mb-2">
+                      Documentation Deadline
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Proof of graduation with at least 50% marks must be
+                      submitted by{" "}
+                      <strong className="font-medium">July 31 </strong>
+                      of the respective admission year.
+                    </p>
+                  </div>
 
-              {/* Important Notes */}
-              <div className="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
-                <h3 className="font-semibold text-gray-800 mb-2 flex items-center">
-                  <AlertCircle className="h-4 w-4 mr-2" />
-                  Important Restrictions
-                </h3>
-                <div className="space-y-2 text-gray-700">
-                  <p>
-                    • Candidates with uncleared backlogs after July 31 are not
-                    eligible to apply.
+                  {/* Important Notes */}
+                  <div className="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                    <h3 className="font-semibold text-gray-800 mb-2 flex items-center">
+                      <AlertCircle className="h-4 w-4 mr-2" />
+                      Important Restrictions
+                    </h3>
+                    <div className="space-y-2 text-gray-700">
+                      <p>
+                        • Candidates with uncleared backlogs after July 31 are
+                        not eligible to apply.
+                      </p>
+                      <p>
+                        • Applicants must submit a valid management entrance
+                        exam score (only those accepted by AICTE) before July
+                        31.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <Separator className="my-8" />
+
+            {/* Program-Specific Eligibility Table */}
+            <motion.div variants={itemVariants}>
+              <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-2xl font-semibold text-gray-800">
+                    Program-Specific Eligibility
+                  </CardTitle>
+                  <p className="text-muted-foreground">
+                    Detailed eligibility criteria for each program offered
                   </p>
-                  <p>
-                    • Applicants must submit a valid management entrance exam
-                    score (only those accepted by AICTE) before July 31.
+                </CardHeader>
+                <CardContent>
+                  <div className="rounded-lg border overflow-hidden">
+                    <Table>
+                      <TableHeader>
+                        <TableRow className="bg-gray-50">
+                          <TableHead className="font-semibold text-gray-800 w-1/4">
+                            Program
+                          </TableHead>
+                          <TableHead className="font-semibold text-gray-800">
+                            Eligibility Criteria
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {programData.map((row, index) => (
+                          <TableRow
+                            key={index}
+                            className="hover:bg-gray-50/50 transition-colors"
+                          >
+                            <TableCell className="font-medium text-primary">
+                              <Badge
+                                variant="secondary"
+                                className="text-sm whitespace-nowrap"
+                              >
+                                {row.program}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-gray-700 leading-relaxed">
+                              {row.criteria}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </>
+        )}
+
+        {/* FPM/EFPM Specific Eligibility */}
+        {programType === "fpm-efpm" && (
+          <motion.div variants={itemVariants} className="mb-12">
+            <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center text-2xl font-semibold text-gray-800">
+                  <GraduationCap className="h-6 w-6 mr-3 text-primary" />
+                  FPM/EFPM Eligibility Criteria
+                </CardTitle>
+                <p className="text-muted-foreground">
+                  Specific requirements for Fellow Program in Management (FPM)
+                  and Executive Fellow Program in Management (EFPM)
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Academic Qualifications */}
+                <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                  <h3 className="font-semibold text-gray-800 mb-3">
+                    Academic Qualifications
+                  </h3>
+                  <div className="space-y-3 text-gray-700">
+                    <p>
+                      <span className="font-medium">
+                        1. Master's Degree or equivalent
+                      </span>{" "}
+                      in Engineering and Technology/Management/Economics/Social
+                      Science/Biological Science/Pure
+                      Science/Commerce/Humanities with{" "}
+                      <span className="font-medium">FIRST CLASS</span> shall be
+                      considered for admission to Fellow Program. Those
+                      appearing for the final examination in the respective
+                      discipline can also apply.
+                    </p>
+                    <p>
+                      <span className="font-medium">
+                        2. Professional Qualifications:
+                      </span>{" "}
+                      A graduate with professional qualifications like CA, ICWA,
+                      CS with a minimum of{" "}
+                      <span className="font-medium">60% aggregate</span>.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Work Experience */}
+                <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                  <h3 className="font-semibold text-gray-800 mb-3">
+                    Work Experience Requirement
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    In addition, the candidate must have completed{" "}
+                    <span className="font-medium">
+                      minimum three years of relevant work experience
+                    </span>{" "}
+                    in teaching / industry.
                   </p>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
 
-        <Separator className="my-8" />
+                {/* Important Notes */}
+                <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+                  <h3 className="font-semibold text-gray-800 mb-2 flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-2" />
+                    Important Notes
+                  </h3>
+                  <div className="space-y-2 text-gray-700">
+                    <p>
+                      • Final year students can apply but must complete their
+                      degree before the program starts.
+                    </p>
+                    <p>
+                      • Work experience should be relevant to the field of study
+                      and must be documented.
+                    </p>
+                    <p>
+                      • Professional qualifications must be from recognized
+                      institutions.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
 
-        {/* Program-Specific Eligibility Table */}
-        <motion.div variants={itemVariants}>
-          <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-2xl font-semibold text-gray-800">
-                Program-Specific Eligibility
-              </CardTitle>
-              <p className="text-muted-foreground">
-                Detailed eligibility criteria for each program offered
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="rounded-lg border overflow-hidden">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="bg-gray-50">
-                      <TableHead className="font-semibold text-gray-800 w-1/4">
-                        Program
-                      </TableHead>
-                      <TableHead className="font-semibold text-gray-800">
-                        Eligibility Criteria
-                      </TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {programData.map((row, index) => (
-                      <TableRow
-                        key={index}
-                        className="hover:bg-gray-50/50 transition-colors"
-                      >
-                        <TableCell className="font-medium text-primary">
-                          <Badge variant="secondary" className="text-sm whitespace-nowrap">
-                            {row.program}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="text-gray-700 leading-relaxed">
-                          {row.criteria}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+        {/* <Separator className="my-8" /> */}
 
         {/* Footer Note */}
         <motion.div variants={itemVariants} className="mt-8">
