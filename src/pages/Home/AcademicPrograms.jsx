@@ -151,24 +151,13 @@ export default function AcademicPrograms() {
       icon: <Users className="w-6 h-6" />,
       description: [
         <span key="1">
-          SSIM's two-year full-time PGDM program in Business Analytics (BA) is a{" "}
-          <strong className="text-red-600">brand new programme</strong> added to
-          meet the industry requirement.
+          <strong className="text-red-600">Siva Sivani Institute of Management (SSIM)</strong> offers the <strong className="text-red-600">Fellow Program in Management (FPM)</strong>, approved by <strong className="text-red-600">AICTE</strong>. The FPM scholars of SSIM are required to undertake rigorous interdisciplinary research in contemporary areas of management having implications for the corporate world and society.
         </span>,
         <span key="2">
-          PGDM – BA at SSIM exemplifies the foresight in{" "}
-          <strong className="text-red-600">
-            uniting Business management, Analytical Mathematics, Statistics and
-            Computer science
-          </strong>{" "}
-          under one course.
+          FPM is launched with the objective of developing <strong className="text-red-600">outstanding scholars for careers in teaching and research</strong>. To achieve this, the program provides scholars with the knowledge and research skills that help them become <strong className="text-red-600">specialist researchers</strong>, with sufficient depth of knowledge in different domains of management.
         </span>,
         <span key="3">
-          SSIM is the{" "}
-          <strong className="text-red-600">
-            first institute, among the Telugu-speaking states
-          </strong>
-          , to offer a PGDM program exclusively on Business Analytics.
+          SSIM offers <strong className="text-red-600">Full time Fellow Program in Management (FPM)</strong>.
         </span>,
       ],
       video: "https://www.youtube.com/watch?v=y-GwG39jVZc",

@@ -19,10 +19,10 @@ export const programData = {
     name: "FPM/EFPM",
     keyInfo: {
       duration: "3 years",
-      credits: "36",
+      credits: "FPM - 45, EFPM - 36",
       "Sanctioned Intake": "20",
       location: "Full-time On-campus",
-      degree: "Fellow Program in Management (FPM)",
+      degree: "Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)",
     },
     specializations: [
       // {
