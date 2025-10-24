@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 const HeroSection = ({ 
   desktopImageSrc = "/banner.png", 
@@ -10,23 +9,17 @@ const HeroSection = ({
   return (
     <section className={`relative w-full h-[60vh] md:h-screen ${className}`}>
       {/* Desktop Image */}
-      <Image
+      <img
         src={desktopImageSrc}
         alt={altText}
-        fill
-        priority
         className="object-cover object-center hidden md:block"
-        sizes="100vw"
       />
       
       {/* Mobile Image */}
-      <Image
+      <img
         src={mobileImageSrc}
         alt={altText}
-        fill
-        priority
         className="object-cover object-center block md:hidden"
-        sizes="100vw"
       />
     </section>
   );

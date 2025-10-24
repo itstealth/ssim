@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function WordPullUp({
   words,
+  tag = "div", // Default to div, can be overridden to h1, h2, etc.
 
   wrapperFramerProps = {
     hidden: { opacity: 0 },
@@ -32,8 +33,11 @@ export default function WordPullUp({
     triggerOnce: false, // Animate every time the component enters the viewport
   });
 
+  // Create a dynamic motion component based on the tag prop
+  const MotionComponent = motion[tag];
+
   return (
-    <motion.h1
+    <MotionComponent
       ref={ref} // Attach ref to the element to track its visibility
       variants={wrapperFramerProps}
       initial="hidden"
@@ -52,6 +56,6 @@ export default function WordPullUp({
           {word === "" ? <span>&nbsp;</span> : word}
         </motion.span>
       ))}
-    </motion.h1>
+    </MotionComponent>
   );
 }

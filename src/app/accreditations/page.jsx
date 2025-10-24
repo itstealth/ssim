@@ -113,9 +113,9 @@ export default function Accreditations() {
       {/* Hero Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-12 sm:mb-16 mb-10 col-span-2 items-start">
         <div className="sm:space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
             Accreditations
-          </h1>
+          </h2>
         </div>
         <div className="space-y-6">
           <p className="text-slate-700 text-lg leading-relaxed">

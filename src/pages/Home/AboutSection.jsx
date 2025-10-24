@@ -249,11 +249,12 @@ export default function AboutSection() {
               variants={fadeIn}
             >
               <div className="space-y-4">
-                <h2 className="text-xl md:text-2xl font-medium text-mainBlue mb-2 border-0">
+                <h3 className="text-xl md:text-2xl font-medium text-mainBlue mb-2 border-0">
                   About SSIM
-                </h2>
+                </h3>
                 <WordPullUp
                   words="Top Management Institute in Hyderabad"
+                  tag="h1"
                   className="text-4xl md:text-5xl font-bold tracking-tight text-red-600 text-left mt-8 mb-0 md:mb-6"
                 />
                 <div className="w-32 h-1.5 bg-red-600/80 rounded-none" />

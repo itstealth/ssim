@@ -21,7 +21,7 @@ export default function WordFadeIn({
   const _words = words.split(" ");
 
   return (
-    <motion.h1
+    <motion.p
       variants={variants}
       initial="hidden"
       animate="visible"
@@ -35,6 +35,6 @@ export default function WordFadeIn({
           {word}{" "}
         </motion.span>
       ))}
-    </motion.h1>
+    </motion.p>
   );
 }

@@ -205,9 +205,9 @@ export default function Leadership() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
               Our Leaders Message
-            </h1>
+            </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Meet the visionaries guiding Siva Sivani Institute of Management
               (SSIM) towards excellence and empowerment.
