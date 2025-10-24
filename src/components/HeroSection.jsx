@@ -7,7 +7,7 @@ const HeroSection = ({
   className = ""
 }) => {
   return (
-    <section className={`relative w-full h-[60vh] md:h-screen ${className}`}>
+    <section className={`relative w-full h-full md:h-screen ${className}`}>
       {/* Desktop Image */}
       <img
         src={desktopImageSrc}
