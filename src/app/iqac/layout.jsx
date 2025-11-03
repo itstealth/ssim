@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "IQAC - SSIM Hyderabad | MBA & PGDM College",
-  description: "Learn about SSIM Hyderabad’s IQAC, promoting quality in MBA and PGDM education, institutional best practices, and continuous academic improvement.",
+  title: "IQAC - SSIM  | PGDM College Hyderabad",
+  description: "Learn about SSIM Hyderabad’s IQAC, promoting quality in PGDM education, institutional best practices, and continuous academic improvement.",
   keywords: [
     "IQAC",
     "IQAC 2024",
@@ -21,8 +21,8 @@ export const metadata = {
     canonical: "https://www.ssim.ac.in/iqac",
   },
   openGraph: {
-    title: "IQAC - SSIM Hyderabad | MBA & PGDM College",
-    description: "Learn about SSIM Hyderabad’s IQAC, promoting quality in MBA and PGDM education, institutional best practices, and continuous academic improvement.",
+    title: "IQAC - SSIM  | PGDM College Hyderabad",
+    description: "Learn about SSIM Hyderabad’s IQAC, promoting quality in PGDM education, institutional best practices, and continuous academic improvement.",
     images: [{ url: "/iqac/iqac-banner.jpg" }],
   },
 };
@@ -30,3 +30,5 @@ export const metadata = {
 export default function IQACLayout({ children }) {
   return <>{children}</>;
 }
+
+

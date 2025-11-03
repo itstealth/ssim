@@ -1,13 +1,13 @@
 export const metadata = {
   title: "Vision And Mission - SSIM Hyderabad",
   description:
-    "Explore SSIM Hyderabad’s vision and mission, driving excellence in MBA and PGDM education with innovative, industry-relevant learning in Telangana.",
+    "Explore SSIM Hyderabad’s vision and mission, driving excellence in PGDM education with innovative, industry-relevant learning in Telangana.",
   keywords:
     "SSIM vision, SSIM mission, business school goals, management institute values",
   openGraph: {
     title: "Vision And Mission - SSIM Hyderabad",
     description:
-      "Explore SSIM Hyderabad’s vision and mission, driving excellence in MBA and PGDM education with innovative, industry-relevant learning in Telangana.",
+      "Explore SSIM Hyderabad’s vision and mission, driving excellence in PGDM education with innovative, industry-relevant learning in Telangana.",
     url: "https://www.ssim.ac.in/about/vision-mission",
     siteName: "Siva Sivani Institute of Management",
     images: [

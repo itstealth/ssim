@@ -15,11 +15,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Accreditations from "@/app/accreditations/page";
 
 export const metadata = {
-  title: "Accreditations & Rankings - SSIM | Top MBA College in Hyderabad",
+  title: "Accreditations & Rankings - SSIM | Top PGDM College in Hyderabad",
   description: "SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education.",
   keywords: "SSIM accreditations, SSIM rankings, business school ranking, AICTE approved, NBA accredited, SSIM recognition",
   openGraph: {
-    title: "Accreditations & Rankings - SSIM | Top MBA College in Hyderabad",
+    title: "Accreditations & Rankings - SSIM | Top PGDM College in Hyderabad",
     description: "SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education.",
     url: "https://www.ssim.ac.in/about/accreditations-rankings",
     siteName: "Siva Sivani Institute of Management",

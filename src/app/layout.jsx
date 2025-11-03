@@ -5,7 +5,7 @@ import Footer from "@/pages/Footer/Footer";
 import QueryProvider from "@/components/QueryProvider";
 import ConditionalBanner from "@/components/ConditionalBanner";
 import { DockButtons } from "@/components/DockButtons";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import Image from "next/image";
 import { Toaster } from "sonner";
 
@@ -20,26 +20,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Top MBA & PGDM B-School in Hyderabad | SSIM Hyderabad",
+  title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
   description:
-    "SSIM Hyderabad offers AICTE-approved MBA/PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+    "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
   canonical: "https://www.ssim.ac.in",
   alternates: {
     canonical: "https://www.ssim.ac.in",
   },
   openGraph: {
-    title: "Top MBA & PGDM B-School in Hyderabad | SSIM Hyderabad",
+    title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
     description:
-      "SSIM Hyderabad offers AICTE-approved MBA/PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+      "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
     url: "https://www.ssim.ac.in",
     siteName: "SSIM Hyderabad",
     images: ["/ssimlogo.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top MBA & PGDM B-School in Hyderabad | SSIM Hyderabad",
+    title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
     description:
-      "SSIM Hyderabad offers AICTE-approved MBA/PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+      "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
     images: ["/ssimlogo.webp"],
   },
   robots: {
@@ -114,6 +114,7 @@ export default function RootLayout({ children }) {
           </div>
         </QueryProvider>
       </body>
+      <GoogleAnalytics gaId="G-G3TY673HQG" />
     </html>
   );
 }
