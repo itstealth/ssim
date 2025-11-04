@@ -28,7 +28,7 @@ export default function BannerNav() {
             </a>
             <a href="mailto:info@ssim.ac.in" className="flex items-center">
               <Mail size={16} className="text-blue-800 mr-1" />
-              <span>info@ssim.ac.in</span>
+              <span>admissions@ssim.ac.in</span>
             </a>
             <div className="flex flex-col gap-2">
               <a href="tel:+91-040-27165451" className="flex items-center">

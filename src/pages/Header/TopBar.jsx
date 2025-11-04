@@ -86,20 +86,16 @@ const TopBar = () => {
             ))}
           </div>
         </div>
-        {/* <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex max-w-lg">
+        <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex max-w-lg">
           <div className="h-2 w-2 bg-pink-900 rounded-full animate-ping"></div>
           <marquee
             className="font-bold text-xs"
             behavior="scroll"
             direction="left"
           >
-            S.P. Sampathy’s Siva Sivani Institute of Management cordially
-            invites you to the 30th Snatak (Convocation) on Wednesday, 22nd
-            October at 11:30 AM — Chief Guest: Prof. T.G. Sitharam, Chairman,
-            AICTE | Guest of Honour: Sri Ramakrishna Sataluri, CEO, Shakti
-            Energy Solutions Limited (SESL).
+            Admission Open for the academic year 2026-2028. Apply Now!
           </marquee>
-        </div> */}
+        </div>
         {/* Contact Info */}
         <div className="flex flex-wrap items-center gap-6 text-gray-600">
           {/* <PulsatingButton
