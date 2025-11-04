@@ -86,7 +86,7 @@ const TopBar = () => {
             ))}
           </div>
         </div>
-        <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex max-w-lg">
+        {/* <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex max-w-lg">
           <div className="h-2 w-2 bg-pink-900 rounded-full animate-ping"></div>
           <marquee
             className="font-bold text-xs"
@@ -99,7 +99,7 @@ const TopBar = () => {
             AICTE | Guest of Honour: Sri Ramakrishna Sataluri, CEO, Shakti
             Energy Solutions Limited (SESL).
           </marquee>
-        </div>
+        </div> */}
         {/* Contact Info */}
         <div className="flex flex-wrap items-center gap-6 text-gray-600">
           {/* <PulsatingButton

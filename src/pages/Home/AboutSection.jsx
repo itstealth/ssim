@@ -174,10 +174,10 @@ export default function AboutSection() {
       </strong>
       , SSIM ranks{" "}
       <strong>
-        21st among private standalone B-Schools in India (Outlook 2024) and 2nd
+        21st among private standalone B-Schools in India (Outlook 2025) and 2nd
         in Telangana
       </strong>{" "}
-      (Outlook, CSR, and GHRDC Times 2024). Its{" "}
+      (Outlook, CSR, and GHRDC Times 2025). Its{" "}
       <strong>
         vibrant, extremely qualified, and talented alumni network spans across
         the globe

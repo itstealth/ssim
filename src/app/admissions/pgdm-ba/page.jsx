@@ -149,28 +149,28 @@ const feesData = {
     },
     {
       type: "1st Installment",
-      amount: "₹1,35,000",
-      dueDate: "As per Communication From Admissions Department",
+      amount: "₹1,67,000",
+      dueDate: "As Per Communication From Admissions Dept.",
     },
     {
       type: "2nd Installment",
-      amount: "₹1,35,000",
-      dueDate: "4th November 2025",
+      amount: "₹1,67,000",
+      dueDate: "4th November 2026",
     },
     {
       type: "3rd Installment",
-      amount: "₹1,10,000",
-      dueDate: "5th February 2026",
+      amount: "₹1,36,000",
+      dueDate: "5th February 2027",
     },
     {
       type: "4th Installment",
-      amount: "₹1,50,000",
-      dueDate: "31st July 2026",
+      amount: "₹1,86,000",
+      dueDate: "31st July 2027",
     },
     {
       type: "5th Installment",
-      amount: "₹1,00,000",
-      dueDate: "8th November 2026",
+      amount: "₹1,24,000",
+      dueDate: "8th November 2027",
     },
   ],
   transportFees: [
@@ -206,14 +206,12 @@ const feesData = {
     },
   ],
   importantNotes: [
-    "Caution money deposit of ₹25,000 (refundable upon exit) should be deposited along with the 1st installment fee",
-    "Fee structure includes Admission fee, Course fee and regular Examination fee",
-    "Institute provides Laptop, Business Suit and Textbooks (As per Book Bank Policy) to every student",
-    "Late payment fines: ₹100/day (days 1-10) and ₹500/day (days 11-15)",
-    "Names of defaulters will be removed from rolls after 15 days of due date",
-    "Students must report within 10 days of specified date or admission will be cancelled",
+    "An amount of INR 25,000 should be deposited by all students along with the 1st Installment fees. This caution money is subject to deductions, if any, and will be refunded upon the student's exit from the institute",
+    "The PGDM fee structure for Batch 2026-2028 includes Admission fee, Course fee, and the regular Examination fee",
+    "The institute mandatorily provides a Laptop, Business Suit, and Textbooks (As per Book Bank Policy) to every student",
+    "Admission cancellation policy is As per AICTE Norms",
   ],
-  totalFee: "₹6,90,000",
+  totalFee: "₹8,40,000",
   batch: "2026-28",
 };
 
@@ -484,7 +482,7 @@ const Fees = () => (
           Fee Structure (Batch 2026-28)
         </CardTitle>
         <CardDescription className="text-lg text-red-600 font-semibold">
-          Total Program Fee: ₹6,90,000 (Six Lakhs Ninety Thousand only)
+          Total Program Fee: ₹8,40,000 (Eight Lakhs Forty Thousand only)
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -616,29 +614,9 @@ const Fees = () => (
             Important Notes:
           </h4>
           <ul className="list-disc list-inside space-y-1 text-lg text-black">
-            <li>
-              Caution money deposit of ₹25,000 (refundable upon exit) should be
-              deposited along with the 1st installment fee
-            </li>
-            <li>
-              Fee structure includes Admission fee, Course fee and regular
-              Examination fee
-            </li>
-            <li>
-              Institute provides Laptop, Business Suit and Textbooks (As per
-              Book Bank Policy) to every student
-            </li>
-            <li>
-              Late payment fines: ₹100/day (days 1-10) and ₹500/day (days 11-15)
-            </li>
-            <li>
-              Names of defaulters will be removed from rolls after 15 days of
-              due date
-            </li>
-            <li>
-              Students must report within 10 days of specified date or admission
-              will be cancelled
-            </li>
+            {feesData.importantNotes.map((note, index) => (
+              <li key={index}>{note}</li>
+            ))}
           </ul>
         </div>
       </CardContent>
