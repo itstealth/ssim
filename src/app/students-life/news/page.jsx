@@ -126,13 +126,13 @@ const NewsEvents = () => {
   ];
 
   const handlePrevious = () => {
-    setSelectedImageIndex((prev) => 
+    setSelectedImageIndex((prev) =>
       prev === 0 ? newsImages.length - 1 : prev - 1
     );
   };
 
   const handleNext = () => {
-    setSelectedImageIndex((prev) => 
+    setSelectedImageIndex((prev) =>
       prev === newsImages.length - 1 ? 0 : prev + 1
     );
   };
@@ -159,46 +159,21 @@ const NewsEvents = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="news" className="w-full">
-            <TabsList className="grid w-full h-full grid-cols-2 text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
-              <TabsTrigger
-                value="news"
-                className="text-lg font-semibold data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground"
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-4 mt-10 sm:mt-16">
+            {newsImages.map((image, index) => (
+              <div
+                key={index}
+                className="border border-gray-300 rounded-lg cursor-pointer"
+                onClick={() => setSelectedImageIndex(index)}
               >
-                News
-              </TabsTrigger>
-              <TabsTrigger
-                value="announcements"
-                className="text-lg font-semibold data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground"
-              >
-                Announcements
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="news">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-4 mt-10 sm:mt-16">
-                {newsImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className="border border-gray-300 rounded-lg cursor-pointer"
-                    onClick={() => setSelectedImageIndex(index)}
-                  >
-                    <img
-                      className="h-auto max-w-full rounded-lg aspect-[4/3] object-contain"
-                      src={image.src}
-                      alt={image.alt}
-                    />
-                  </div>
-                ))}
+                <img
+                  className="h-auto max-w-full rounded-lg aspect-[4/3] object-contain"
+                  src={image.src}
+                  alt={image.alt}
+                />
               </div>
-            </TabsContent>
-            <TabsContent value="announcements">
-              <div className="grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-2 xl:grid-cols-2 xl:gap-16 mt-10 sm:mt-16">
-                {announcements.map((item, index) => (
-                  <AnnouncementCard key={index} {...item} />
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+            ))}
+          </div>
         </div>
 
         <Dialog
@@ -212,10 +187,12 @@ const NewsEvents = () => {
                 alt={newsImages[selectedImageIndex]?.alt}
                 className="w-full h-[80vh] object-contain rounded-xl"
               />
-              
+
               {/* Image Counter */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full text-sm font-medium">
-                {selectedImageIndex !== null ? `${selectedImageIndex + 1} / ${newsImages.length}` : ''}
+                {selectedImageIndex !== null
+                  ? `${selectedImageIndex + 1} / ${newsImages.length}`
+                  : ""}
               </div>
 
               {/* Navigation Buttons */}
