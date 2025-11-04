@@ -106,7 +106,7 @@ const AnimatedCounter = ({ value, shouldStart, delay = 0 }) => {
 const stats = [
   {
     icon: <Calendar className="w-6 h-6" />,
-    value: "33+",
+    value: "35",
     label: "Years of Excellence",
     description: "Academic excellence since 1992",
   },

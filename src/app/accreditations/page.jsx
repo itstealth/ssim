@@ -12,9 +12,10 @@ import { useState } from "react";
 const saqs = "/about/SAQS-Accredited-Logo.jpg";
 const aiu = "/about/aiu-header.png";
 const naac = "/about/naac.png";
-const nba = "/about/nba.png";
+const nba = "/about/NBA-logo.png";
 const III = "/about/III.png";
 const aict = "/about/aicte.png";
+const aascb = "/about/AACSB.jpeg";
 
 const ServiceCard = ({ title, description, features, image }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -77,6 +78,12 @@ export default function Accreditations() {
       description:
         "Siva Sivani Institute of Management (SSIM), PGDM – BIFS Program has been accredited by Insurance Institute of India (III), Mumbai. III is considered to be one of the best accrediting bodies in the area of Banking, Insurance and Financial Services. SSIM is privileged to receive this accreditation to serve our students in all best possible ways in collaboration with the latest industry needs.",
       image: III,
+    },
+    {
+      title: "Accreditation by AACSB",
+      description:
+        "Siva Sivani Institute of Management (SSIM) has been accredited by AACSB, one of the most prestigious business school accreditation bodies in the world. AACSB accreditation is a testament to SSIM's commitment to excellence in management education, ensuring that students receive a globally recognized and high-quality management education.",
+      image: aascb,
     },
     // {
     //   description: "Siva Sivani Institute of Management (SSIM) is one of the few institutes to collaborate with Harvard Business School Online for Business Analytics Certification. PGDM – Business Analytics program at SSIM has a global edge to carve our students' understanding and knowledge in analytics with the support of HBS online certification.",

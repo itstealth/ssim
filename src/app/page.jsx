@@ -138,9 +138,9 @@ export default function HomePage() {
       <SectionWrapper>
         <SsimStories />
       </SectionWrapper>
-      <SectionWrapper>
+      {/* <SectionWrapper>
         <LatestBlogsAndEvents />
-      </SectionWrapper>
+      </SectionWrapper> */}
       <SectionWrapper>
         <AlumniSection />
       </SectionWrapper>
