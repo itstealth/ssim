@@ -6,59 +6,63 @@ import { Trophy, Target, Star, BookOpen, Calculator, GraduationCap, TrendingUp }
 
 const examData = {
   cat: {
-    title: "CAT 2024 / XAT 2025 / GMAT",
+    title: "CAT 2025 / XAT 2026 / GMAT (after July, 2025)",
     subtitle: "Based on Percentile Score",
     icon: Trophy,
     color: "from-purple-500 to-indigo-600",
     bgGradient: "from-purple-50 to-indigo-50",
     tiers: [
-      { range: "80 percentile and above", amount: 90000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
-      { range: "70 – 79.99 percentile", amount: 80000, tier: "Gold", color: "from-orange-400 to-orange-600" },
-      { range: "60 – 69.99 percentile", amount: 70000, tier: "Silver", color: "from-gray-400 to-gray-600" },
-      { range: "55 – 59.99 percentile", amount: 55000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "50 – 54.99 percentile", amount: 50000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "90 & above percentile", amount: 90000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
+      { range: "85 – 89.99 percentile", amount: 80000, tier: "Gold", color: "from-orange-400 to-orange-600" },
+      { range: "80 – 84.99 percentile", amount: 70000, tier: "Silver", color: "from-gray-400 to-gray-600" },
+      { range: "70 – 79.99 percentile", amount: 60000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
+      { range: "60 – 69.99 percentile", amount: 50000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "50 – 59.99 percentile", amount: 40000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
   cmat: {
-    title: "CMAT 2025",
+    title: "CMAT 2026",
     subtitle: "Based on Rank",
     icon: Target,
     color: "from-emerald-500 to-teal-600",
     bgGradient: "from-emerald-50 to-teal-50",
     tiers: [
-      { range: "Rank ≤ 6000", amount: 90000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
-      { range: "Rank 6001 – 12999", amount: 80000, tier: "Gold", color: "from-orange-400 to-orange-600" },
-      { range: "Rank 13000 – 17999", amount: 70000, tier: "Silver", color: "from-gray-400 to-gray-600" },
-      { range: "Rank 18000 – 21999", amount: 65000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "Rank 22000 – 29999", amount: 60000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Rank 5000 & below", amount: 90000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
+      { range: "Rank 5001 – 10000", amount: 80000, tier: "Gold", color: "from-orange-400 to-orange-600" },
+      { range: "Rank 10001 – 15000", amount: 70000, tier: "Silver", color: "from-gray-400 to-gray-600" },
+      { range: "Rank 15001 – 20000", amount: 60000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
+      { range: "Rank 20001 – 25000", amount: 50000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Rank 25001 – 30000", amount: 40000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
   mat: {
-    title: "MAT 2024 & 2025 / ATMA 2024 & 2025",
+    title: "MAT 2025 & 26 / ATMA 2025 & 26",
     subtitle: "Based on Composite Score",
     icon: Calculator,
     color: "from-rose-500 to-pink-600",
     bgGradient: "from-rose-50 to-pink-50",
     tiers: [
-      { range: "Composite Score ≥ 700", amount: 70000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
-      { range: "Composite Score 650 – 699", amount: 60000, tier: "Gold", color: "from-orange-400 to-orange-600" },
-      { range: "Composite Score 600 – 649", amount: 50000, tier: "Silver", color: "from-gray-400 to-gray-600" },
-      { range: "Composite Score 550 – 599", amount: 45000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "Composite Score 500 – 549", amount: 40000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Composite Score 750 & above", amount: 80000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
+      { range: "Composite Score 700 – 749", amount: 70000, tier: "Gold", color: "from-orange-400 to-orange-600" },
+      { range: "Composite Score 650 – 699", amount: 60000, tier: "Silver", color: "from-gray-400 to-gray-600" },
+      { range: "Composite Score 600 – 649", amount: 50000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
+      { range: "Composite Score 550 – 599", amount: 45000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Composite Score 500 – 549", amount: 40000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
   icet: {
-    title: "ICET 2025",
+    title: "ICET 2026",
     subtitle: "Based on Rank",
     icon: GraduationCap,
     color: "from-cyan-500 to-blue-600",
     bgGradient: "from-cyan-50 to-blue-50",
     tiers: [
-      { range: "Rank ≤ 3000", amount: 60000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
-      { range: "Rank 3001 – 9999", amount: 50000, tier: "Gold", color: "from-orange-400 to-orange-600" },
-      { range: "Rank 10000 – 12000", amount: 40000, tier: "Silver", color: "from-gray-400 to-gray-600" },
-      { range: "Rank 12001 – 19999", amount: 30000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "Rank 20000 – 24999", amount: 25000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Rank 2000 & below", amount: 70000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
+      { range: "Rank 2001 – 5000", amount: 60000, tier: "Gold", color: "from-orange-400 to-orange-600" },
+      { range: "Rank 5001 – 10000", amount: 50000, tier: "Silver", color: "from-gray-400 to-gray-600" },
+      { range: "Rank 10001 – 15000", amount: 40000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
+      { range: "Rank 15001 – 20000", amount: 30000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Rank 20001 – 29999", amount: 25000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
 }
@@ -186,13 +190,12 @@ export default function EntranceScholarships() {
               <BookOpen className="w-8 h-8 text-white" />
             </div> */}
             <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Criteria-2: Entrance Exam Scholarships
+              Criteria-1: Scholarship based on Entrance Exam Score/Rank Percentile
             </h1>
           </div>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            Scholarship rewards based on your performance in various entrance examinations. Choose your exam category to
-            view eligible scholarship amounts.
-          </p>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Scholarship based on Entrance Exam Score/Rank Percentile. Students meeting the criteria are eligible for Merit Scholarship. If eligible for more than one criterion, the student will be awarded the best option.
+            </p>
         </motion.div>
 
         {/* Tabs Section */}
@@ -245,8 +248,7 @@ export default function EntranceScholarships() {
             </div>
             <p className="text-slate-600 text-sm leading-relaxed">
               All scholarship amounts are in INR and subject to verification of official scorecards. Students must
-              provide valid entrance exam certificates to claim their respective scholarships. Scholarships are
-              applicable for the academic year 2024-25 and may be subject to institutional policies.
+              provide valid entrance exam certificates to claim their respective scholarships. If eligible for more than one criterion, the student will be awarded the best option. Scholarships are applicable for Batch 2026-28 and may be subject to institutional policies.
             </p>
           </div>
         </motion.div>
