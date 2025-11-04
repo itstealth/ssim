@@ -64,7 +64,7 @@ const navigationSections = [
   { id: "eligibility", label: "Eligibility Criteria", icon: ClipboardList },
   { id: "process", label: "Selection Process", icon: GraduationCap },
   { id: "fees", label: "Fee Structure", icon: CreditCard },
-  { id: "dates", label: "Important Dates", icon: Calendar },
+  // { id: "dates", label: "Important Dates", icon: Calendar },
   // { id: "brochure", label: "Brochure", icon: BookOpen },
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },

@@ -59,7 +59,7 @@ const navigationSections = [
   { id: "process", label: "Selection Process", icon: GraduationCap },
   { id: "eligibility", label: "Eligibility Criteria", icon: ClipboardList },
   { id: "fees", label: "Fee Structure", icon: CreditCard },
-  { id: "dates", label: "Important Dates", icon: Calendar },
+  // { id: "dates", label: "Important Dates", icon: Calendar },
   // { id: "brochure", label: "Brochure", icon: BookOpen },
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },
@@ -535,37 +535,37 @@ const Fees = () => (
   </div>
 );
 
-const Dates = () => (
-  <Card className="border-none shadow-none">
-    <CardHeader>
-      <CardTitle className="text-3xl text-mainBlue">Important Dates</CardTitle>
-      <CardDescription className="text-lg text-red-600">
-        Mark these key dates in your calendar
-      </CardDescription>
-    </CardHeader>
-    <CardContent>
-      <div className="grid md:grid-cols-2 gap-6">
-        {datesData.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="p-6 bg-card rounded-lg shadow"
-          >
-            <time className="text-sm text-red-600 font-semibold">
-              {item.date}
-            </time>
-            <h3 className="text-lg font-semibold text-mainBlue mt-2">
-              {item.event}
-            </h3>
-            <p className="text-gray-700 text-lg mt-1">{item.description}</p>
-          </motion.div>
-        ))}
-      </div>
-    </CardContent>
-  </Card>
-);
+// const Dates = () => (
+//   <Card className="border-none shadow-none">
+//     <CardHeader>
+//       <CardTitle className="text-3xl text-mainBlue">Important Dates</CardTitle>
+//       <CardDescription className="text-lg text-red-600">
+//         Mark these key dates in your calendar
+//       </CardDescription>
+//     </CardHeader>
+//     <CardContent>
+//       <div className="grid md:grid-cols-2 gap-6">
+//         {datesData.map((item, index) => (
+//           <motion.div
+//             key={index}
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ delay: index * 0.1 }}
+//             className="p-6 bg-card rounded-lg shadow"
+//           >
+//             <time className="text-sm text-red-600 font-semibold">
+//               {item.date}
+//             </time>
+//             <h3 className="text-lg font-semibold text-mainBlue mt-2">
+//               {item.event}
+//             </h3>
+//             <p className="text-gray-700 text-lg mt-1">{item.description}</p>
+//           </motion.div>
+//         ))}
+//       </div>
+//     </CardContent>
+//   </Card>
+// );
 
 const Brochure = ({ setIsEnquireOpen }) => (
   <Card className="border-none shadow-none">
@@ -645,8 +645,8 @@ export default function FPM() {
         return <EligibilityCriteria programType="fpm-efpm" />;
       case "fees":
         return <Fees />;
-      case "dates":
-        return <Dates />;
+      // case "dates":
+      //   return <Dates />;
       case "brochure":
         return <Brochure setIsEnquireOpen={setIsEnquireOpen} />;
       case "apply":
