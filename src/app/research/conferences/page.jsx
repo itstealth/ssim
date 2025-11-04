@@ -103,7 +103,7 @@ const AboutSsim = () => (
     <h3 className="font-bold text-mainBlue text-2xl">
       About Siva Sivani Institute of Management
     </h3>
-    <p className="text-lg text-gray-700">
+    <p className="text-base text-gray-700">
       Siva Sivani Institute of Management (SSIM) is an autonomous B-School
       established in 1992 duly approved by All India Council for Technical
       Education (AICTE) and the first standalone B-School in both the Telugu
@@ -123,7 +123,7 @@ const AboutSsim = () => (
     <h3 className="font-bold text-mainBlue text-2xl">
       About London Metropolitan University (LMU)
     </h3>
-    <p className="text-gray-700 text-lg">
+    <p className="text-gray-700 text-base">
       Metropolitan University (LMU) is a public research university based in
       London, England. It was formed in 2002 by the merger of London Guildhall
       University and the University of North London. LMU is a dynamic
@@ -136,7 +136,7 @@ const AboutSsim = () => (
     <h3 className="font-bold text-mainBlue text-2xl">
       About SP Jain School of Global Management
     </h3>
-    <p className="text-gray-700 text-lg">
+    <p className="text-gray-700 text-base">
       SP Jain School of Global Management, an Australian business school with
       campuses in Dubai, Mumbai, Singapore, and Sydney, offers undergraduate,
       postgraduate, and executive programs emphasizing real-world business
@@ -148,7 +148,7 @@ const AboutSsim = () => (
     <h3 className="font-bold text-mainBlue text-2xl">
       About Dallas Baptist University
     </h3>
-    <p className="text-gray-700 text-lg">
+    <p className="text-gray-700 text-base">
       DBU's forerunner, Decatur Baptist College, was founded in 1898 as the
       first junior college in Texas, In 1965, the school relocated to the scenic
       foothills of southwest Dallas. Today, DBU offers a variety of degrees at
@@ -166,7 +166,7 @@ const AboutSsim = () => (
     <h3 className="font-bold text-mainBlue text-2xl">
       About Indian Society for Training & Development
     </h3>
-    <p className="text-gray-700 text-lg">
+    <p className="text-gray-700 text-base">
       The Indian Society for Training & Development (ISTD), established in April
       1970, is a national level professional & non-profit society registered
       under the Societies Registration Act, 1860. It has a over 11,000
@@ -187,7 +187,7 @@ const AboutConference = () => (
     <h3 className="font-bold text-mainBlue text-2xl">
       About Siva Sivani Institute of Management
     </h3>
-    <p className="text-lg text-gray-700">
+    <p className="text-base text-gray-700">
       Siva Sivani Institute of Management (SSIM) is an autonomous B-School
       established in 1992 duly approved by All India Council for Technical
       Education (AICTE) and the first standalone B-School in both the Telugu
@@ -213,7 +213,7 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         About Siva Sivani Institute of Management
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Risk management and resilience in Industry 5.0</li>
         <li>Circular economy business models and financial valuation</li>
         <li>
@@ -228,7 +228,7 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         Sustainable Marketing
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Sustainable marketing and green branding</li>
         <li>Ethical consumerism and conscious consumption</li>
         <li>Storytelling and purpose-driven marketing</li>
@@ -238,7 +238,7 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         Sustainable Human Resources Management
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Talent management and skills development for Industry 5.0</li>
         <li>Employee engagement and well-being in sustainable organizations</li>
         <li>Diversity, equity, and inclusion in Industry 5.0</li>
@@ -252,7 +252,7 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         Sustainable Business Analytics
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Data-driven decision-making for sustainability</li>
         <li>Predictive analytics and scenario planning</li>
         <li>Sustainabilitymetrics and performance measurement</li>
@@ -270,7 +270,7 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         Sustainable Communication
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Stakeholder engagement and communication strategies</li>
         <li>Corporate storytelling and brand reputation</li>
         <li>Crisis communication and reputation management</li>
@@ -280,7 +280,7 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         Sustainable Entrepreneurship
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Sustainable entrepreneurship and social enterprises</li>
         <li>Innovation and technology development for sustainability</li>
         <li>Venture capital and impact investing for sustainable startup</li>
@@ -290,7 +290,7 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         Sustainable Operations
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Sustainable operations and supply chain management</li>
         <li>Lean manufacturing and waste reduction</li>
         <li>Energy efficiency and resource conservation</li>
@@ -303,20 +303,20 @@ const ThemesForSamaroh = () => (
       <h3 className="font-bold text-mainBlue text-2xl">
         Sustainable Management
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Strategic management for sustainability</li>
         <li>Corporate governance and ethics</li>
         <li>Leadership for a sustainable future</li>
         <li>Organizational culture and values</li>
         <li>Business models for sustainable development</li>
       </ul>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         SAMAROH 2025 aims to shape the future of management by fostering thought
         leadership and promoting sustainable business solutions in the era of
         Industry 5.0. Join us in redefining management practices for a more
         sustainable and technologically driven world for human centric approach.
       </p>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         Submissions in the form of extended abstracts, in the prescribed format,
         can be made through the following email:{" "}
         <a
@@ -338,7 +338,7 @@ const ConferenceNote = () => (
   <>
     <div className="space-y-3">
       <h3 className="text-2xl font-bold text-mainBlue">Industry 5.0</h3>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         Industry 5.0. a paradigm shift from automation-centric Industry 4.0,
         emphasizes human-centered and sustainable production. This
         transformative approach offers a promising avenue for achieving
@@ -346,7 +346,7 @@ const ConferenceNote = () => (
         well-being, collaboration, and environmental stewardship, Industry 5.0
         can create a more equitable and resilient society.
       </p>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         This conference note explores the key principles and potential benefits
         of Industry 5.It delves into how Industry 5.0 can foster inclusive
         growth by creating new job opportunities, promoting social equity, and
@@ -355,7 +355,7 @@ const ConferenceNote = () => (
         reduce environmental impact, conserve resources, and promote circular
         economy practices.
       </p>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         By embracing Industry 5.0, businesses and governments can contribute to
         a more sustainable and equitable future. This conference aims to foster
         dialogue, share knowledge, and inspire action towards realizing the full
@@ -365,7 +365,7 @@ const ConferenceNote = () => (
       <h3 className="text-2xl font-bold text-mainBlue">
         PANEL DISCUSSION THEME:
       </h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>
           Humanistic Solutions for the Business (Insights from the manufacturing
           and service sector)
@@ -380,7 +380,7 @@ const ConferenceNote = () => (
         </li>
       </ul>
       <h3 className="text-2xl font-bold text-mainBlue">CONFIRMED JOURNALS</h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>
           <strong>Finance India</strong> a Scopus Indexed and ABDC Journal.
         </li>
@@ -404,30 +404,30 @@ const PublishingOpportunities = ({ setIsEnquireOpen }) => (
       <h3 className="text-2xl font-bold text-mainBlue">
         PUBLISHING&nbsp; OPPORTUNITIES
       </h3>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         The papers must be based on original research work neither been
         published nor submitted for publication
       </p>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         The abstract of all the research paper along with author profile will be
         published in conference proceeding with ISBN which will be released on
         the day of conference.
       </p>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         On the approval of the peer-review committee, the full research paper
         can be considered for publication after taking the consent of the
         author(s).
       </p>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         We will connect you to Scopus Indexed Publishers, UGC Care-01 Journals
         for your publication after peer-review
       </p>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         We provide publishing opportunities in "SuGyaan Management Journal of
         Siva Sivani institute of Management, ISSN 0975-4032.
       </p>
       <h3 className="text-2xl font-bold text-mainBlue">CONFIRMED JOURNALS</h3>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>
           <strong>Finance India</strong> a Scopus Indexed and ABDC Journal.
         </li>
@@ -444,10 +444,10 @@ const PublishingOpportunities = ({ setIsEnquireOpen }) => (
       <h3 className="text-2xl font-bold text-mainBlue">
         PAPER SUBMISSION GUIDELINES
       </h3>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         Papers must be formatted according to the following guidelines:
       </p>
-      <ul className="list-disc list-inside ml-5 space-y-1 text-lg text-black">
+      <ul className="list-disc list-inside ml-5 space-y-1 text-base text-black">
         <li>Abstract: 250-300 words</li>
         <li>Word limit: 4000-6000 words</li>
         <li>Font: Times New Roman, 12 points</li>
@@ -457,12 +457,12 @@ const PublishingOpportunities = ({ setIsEnquireOpen }) => (
         <li>References: APA style</li>
         <li>Similarity Index: Not more than 10%</li>
       </ul>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         <strong>Submission</strong>: The author(s) are suggested to email the
         complete research paper along with the abstract and authors profile to:{" "}
         <strong>samaroh2025@ssim.ac.in</strong>
       </p>
-      <ol className="list-decimal list-inside ml-5 space-y-1 text-lg text-black">
+      <ol className="list-decimal list-inside ml-5 space-y-1 text-base text-black">
         <li>
           The author(s) must clearly mention the theme under which their article
           is to be considered for presentation.
@@ -549,7 +549,7 @@ const OnlineRegistration = () => (
         <TableBody>
           <TableRow>
             <TableCell width="330" className="border border-gray-300">
-              <p className="text-lg text-gray-700 mb-5">
+              <p className="text-base text-gray-700 mb-5">
                 <strong>AWARDS FOR BEST PAPERS</strong>
               </p>
               <Table className="bg-blue-50 border border-gray-300">
@@ -587,7 +587,7 @@ const OnlineRegistration = () => (
       <h3 className="text-2xl !mt-10 font-bold text-mainBlue">
         REGISTRATION FEE
       </h3>
-      <p className="text-lg text-gray-700">
+      <p className="text-base text-gray-700">
         <strong>The registration fee is non-refundable.</strong>
       </p>
       <Table className="bg-blue-50 border border-gray-300">
@@ -642,7 +642,7 @@ const Conferences = () => {
                 keywords="SSIM conferences, business conferences, academic seminars, management events, research conferences"
                 canonicalUrl="https://www.ssim.ac.in/research/conferences"
             /> */}
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-10 sm:py-16">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-10 sm:pt-16">
         {/* Hero Section */}
         {/* <div className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-primary/5 to-background border-b">
         <div className="container max-w-7xl mx-auto px-4 py-16 relative z-10">
@@ -667,7 +667,7 @@ const Conferences = () => {
       </div> */}
 
         {/* Main Content */}
-        <div className="container max-w-7xl mx-auto px-4 py-8 sm:pb-20">
+        <div className="container max-w-7xl mx-auto px-4 py-8 sm:pb-0">
           <Heading
             title="SAMAROH 2025 - International Conference on Industry 5.0 - Business with Purpose"
             className="text-red-600 sm:!text-4xl"
@@ -677,10 +677,10 @@ const Conferences = () => {
             <aside className="hidden lg:block sticky top-8 h-fit">
               <Card>
                 <CardHeader>
-                  <CardTitle>Admissions Guide</CardTitle>
+                  {/* <CardTitle>Navigation</CardTitle>
                   <CardDescription>
-                    Explore our admissions process
-                  </CardDescription>
+                    Explore our navigation
+                  </CardDescription> */}
                 </CardHeader>
                 <CardContent>
                   <NavContent
@@ -778,7 +778,7 @@ const Conferences = () => {
             </main>
           </div>
         </div>
-        <TeamSection />
+        {/* <TeamSection /> */}
         <Tourists />
       </div>
     </>
@@ -1338,7 +1338,7 @@ function Tourists() {
         <div className="flex justify-center mt-14 text-2xl font-bold text-mainBlue mb-2">
           MANY MORE TO VISIT ..........
         </div>
-        <div className="flex flex-col sm:flex-row justify-center gap-10 sm:gap-4 items-center mt-12 sm:text-4xl text-2xl font-bold text-mainBlue mb-2">
+        {/* <div className="flex flex-col sm:flex-row justify-center gap-10 sm:gap-4 items-center mt-12 sm:text-4xl text-2xl font-bold text-mainBlue mb-2">
           <span className="flex items-center gap-2">
             Click Here for{" "}
             <span className="sm:hidden animate-bounce text-3xl"> 👇</span>
@@ -1359,7 +1359,7 @@ function Tourists() {
               </div>
             </Button>
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

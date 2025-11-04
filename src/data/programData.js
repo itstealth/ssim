@@ -1293,7 +1293,7 @@ export const programData = {
           "StratX simulations (Marketing), Equity Levers (Finance Lab), CESIM Simulations",
       },
       {
-        title: "International Exchange",
+        title: "Global Immersion Program (International Exposure)",
         description: "Exchange programs with Herzing University, Atlanta (USA)",
       },
     ],
