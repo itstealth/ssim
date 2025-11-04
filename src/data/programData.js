@@ -762,39 +762,36 @@ export const programData = {
           title: "Term Thematic: Corporate Impellent",
           duration: "3 months",
           description:
-            "Build a solid foundation in programming, statistics, and data manipulation",
+            "Build a solid foundation in management theory, economics, banking principles, and business communication",
           topics: [
             {
-              title: "Mgmt. Theory and Organizational Behaviour",
+              title: "Management Theory and Organizational Behaviour",
             },
             {
               title: "Managerial Economics",
             },
             {
-              title: "Managerial Accounting",
+              title: "Financial Reporting, Statements & Analysis",
             },
             {
               title: "Statistics for Decision Making",
             },
             {
-              title: "Advanced Excel for Managers",
+              title: "Principles and Practices of Banking",
             },
             {
-              title: "Entrepreneurship Development - I",
+              title: "Basics of Business Communication (BBC)",
             },
           ],
           mdevelopment: [
             {
-              title: "Company Fact Presentation",
+              title: "Industry Review Session [1]",
             },
             {
-              title: "Industry Readiness - I",
+              title: "Industry Readiness - I [1]",
             },
             {
-              title: "Experiential Learning",
-            },
-            {
-              title: "Market Pulse - I",
+              title: "Experiential Learning [1]",
             },
             {
               title: "Term End Viva - I",
@@ -805,10 +802,10 @@ export const programData = {
           title: "Term Thematic: Corporate Intrinsic",
           duration: "3 months",
           description:
-            "Master the core concepts and algorithms of machine learning",
+            "Master retail banking, insurance, corporate finance, and advanced analytics",
           topics: [
             {
-              title: "Banking Law and Operations",
+              title: "Retail Banking and Wealth management",
             },
             {
               title: "Insurance and Risk Management",
@@ -817,30 +814,30 @@ export const programData = {
               title: "Corporate Finance",
             },
             {
+              title: "Marketing of Financial Services",
+            },
+            {
+              title: "Advanced Excel for Managers",
+            },
+            {
               title: "Operations Research",
             },
             {
-              title: "Marketing Management",
+              title: "Art of Business Communication in Digital Era (ABCDE)",
             },
             {
-              title: "Entrepreneurship Development - II",
-            },
-            {
-              title: "Art of Business Communication in Digital Era",
+              title: "Research Methodology",
             },
           ],
           mdevelopment: [
             {
-              title: "Book Review Session",
+              title: "Book Review Session [1]",
             },
             {
-              title: "Industry Readiness - II",
+              title: "Industry Readiness - II [1]",
             },
             {
-              title: "Social Project",
-            },
-            {
-              title: "Market Pulse - II",
+              title: "Social Project [1]",
             },
             {
               title: "Term End Viva - II",
@@ -851,42 +848,39 @@ export const programData = {
           title: "Term Thematic: Corporate Integral",
           duration: "3 months",
           description:
-            "Explore cutting-edge techniques in deep learning and specialized domains",
+            "Explore corporate credit analysis, investment management, derivatives, and financial modeling",
           topics: [
             {
-              title: "Business Environment and Law",
+              title: "Corporate & Retail Credit Analysis",
             },
             {
-              title: "Operations Management",
+              title: "Principles and Practice of Life and General Insurance",
             },
             {
-              title: "Research Methodology",
+              title: "Investment Analysis & Portfolio Management",
             },
             {
-              title: "Major - I",
+              title: "Derivatives and Structured Products",
             },
             {
-              title: "Major - II",
+              title: "Financial Modelling",
             },
             {
-              title: "Major - III",
+              title: "Introduction to Econometrics",
             },
             {
-              title: "Entrepreneurship Development - III",
+              title: "Technology Enabled Managerial Communication (TEMC)",
             },
             {
-              title: "Technology Enabled Managerial Communication",
+              title: "Management Accounting",
             },
           ],
           mdevelopment: [
             {
-              title: "Industry Review Session",
+              title: "Company Review Session [1]",
             },
             {
-              title: "Industry Readiness - III",
-            },
-            {
-              title: "Market Pulse - III",
+              title: "Industry Readiness - III [1]",
             },
             {
               title: "Term End Viva - III",
@@ -897,43 +891,37 @@ export const programData = {
           title: "Term Thematic: Corporate Adept",
           duration: "3 months",
           description:
-            "Apply your skills to real-world problems and prepare for industry",
+            "Apply your skills to investment banking, fintech, wealth management, and industry projects",
           topics: [
             {
               title: "Project Management",
             },
             {
-              title: "Major - IV",
+              title: "Investment Banking",
             },
             {
-              title: "Major - V",
+              title: "Financial Planning and Wealth Management",
             },
             {
-              title: "Major - VI",
+              title: "AML & KYC in Banks",
             },
             {
-              title: "Minor - I",
+              title: "Fintech",
             },
             {
-              title: "Minor - II",
+              title: "Reinsurance Management",
             },
             {
-              title: "Sectoral - I",
-            },
-            {
-              title: "Organisational Communication for Industry 4.0",
-            },
-          ],
-          mdevelopment: [
-            {
-              title: "Company Review Session",
+              title: "Corporate Communication for Industry 5.0 (CCI)",
             },
             {
               title: "Industry Internship Project",
             },
             {
-              title: "Course of Independent Study/MOOC/Certificate Course",
+              title: "Course of Independent Study/ MOOCS/ Certificate Course",
             },
+          ],
+          mdevelopment: [
             {
               title: "Term End Viva - IV",
             },
@@ -943,28 +931,22 @@ export const programData = {
           title: "Term Thematic: Corporate Astute",
           duration: "3 months",
           description:
-            "Explore cutting-edge techniques in deep learning and specialized domains",
+            "Master strategic management, fixed income securities, trade finance, and group insurance",
           topics: [
+            {
+              title: "Fixed Income Securities",
+            },
             {
               title: "Strategic Management",
             },
             {
-              title: "InternationalBusiness",
+              title: "Trade Finance & Mortgage Banking",
             },
             {
-              title: "Design Thinking and Innovation",
-            },
-            {
-              title: "Minor - III",
-            },
-            {
-              title: "Sectoral - II",
+              title: "Group Insurance and Retirement Benefits",
             },
           ],
           mdevelopment: [
-            {
-              title: "Article Review Session",
-            },
             {
               title: "Term End Viva - V",
             },
@@ -974,17 +956,16 @@ export const programData = {
           title: "Term Thematic: Corporate Ace",
           duration: "3 months",
           description:
-            "Apply your skills to real-world problems and prepare for industry",
+            "Complete dissertation and corporate governance studies",
           topics: [
             {
               title: "Corporate Governance and Sustainability",
             },
-          ],
-          mdevelopment: [
             {
-              title: "Specialization Project",
+              title: "Dissertation",
             },
           ],
+          mdevelopment: [],
         },
       },
     ],
@@ -1797,3 +1778,4 @@ export const programData = {
     },
   },
 };
+
