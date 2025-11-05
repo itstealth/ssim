@@ -39,6 +39,7 @@ import {
   School,
   Trophy,
   Info,
+  UserCheck,
   Award,
   TrendingUp,
   Globe,
@@ -58,7 +59,7 @@ import SelectionProcess from "@/app/admissions/SelectionProcess";
 import AdmissionParameters from "@/app/admissions/AdmissionParameters";
 import EligibilityCriteria from "@/app/admissions/EligibilityCriteria";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
-import { UserCheck } from "lucide-react";
+import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
 const PGDMTPSBanner = "/admissions/admissions.webp";
 // Navigation Data
 const navigationSections = [
@@ -855,6 +856,8 @@ const PGDMTPS = () => {
 
         {/* Main Content */}
         <div className="container max-w-7xl mx-auto px-4 py-8">
+          {/* Program Tabs */}
+          <AdmissionProgramTabs />
           <div className="lg:grid lg:grid-cols-[280px_1fr] gap-8">
             {/* Desktop Sidebar */}
             <aside className="hidden lg:block sticky top-8 h-fit">
