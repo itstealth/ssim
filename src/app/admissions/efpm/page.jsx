@@ -248,23 +248,6 @@ const EnquireDialog = ({ isOpen, setIsOpen }) => (
 const Overview = () => (
   <div className="space-y-3 p-3">
     <p className="text-lg text-gray-700 font-semibold">
-      SSIM offers Fellow Program in Management (FPM) for full time candidates.
-    </p>
-    <p className="text-lg text-gray-700">
-      Siva Sivani Institute of Management (SSIM), offers Fellow Program in
-      Management (FPM) approved by AICTE. The FPM scholars of SSIM are required
-      to undertake a rigorous interdisciplinary research in contemporary areas
-      of management having serious implications for the corporate world and
-      society.
-    </p>
-    <p className="text-lg text-gray-700 !mb-8">
-      FPM is launched with the objective of developing outstanding scholars for
-      careers in teaching and research. To achieve this, the programme provides
-      scholars with the knowledge and research skills that help them become
-      specialist researchers, with sufficient depth of knowledge in different
-      domains of management.
-    </p>
-    <p className="text-lg text-gray-700 font-semibold">
       SSIM offers Executive Fellow Program in Management (EFPM) for working
       professionals.
     </p>
@@ -309,7 +292,7 @@ const Overview = () => (
     </ul>
     <h3 className="font-bold text-mainBlue text-2xl">Program Duration</h3>
     <p className="text-gray-700 text-lg">
-      The FPM/EFPM at SSIM is three years' duration. Students are required to ensure
+      The EFPM at SSIM is three years' duration. Students are required to ensure
       that they complete all requirements of the program within the stipulated
       period of three and half years. Candidate shall submit his/ her Thesis
       only after a minimum period of two years after registration. However, in
@@ -320,7 +303,7 @@ const Overview = () => (
     </p>
     <h3 className="font-bold text-mainBlue text-2xl">Other Requirements</h3>
     <p className="text-gray-700 text-lg mb-6">
-      For the award of <strong>Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)</strong>, the
+      For the award of <strong>Executive Fellow Program in Management (EFPM)</strong>, the
       candidate needs to fulfil specific requirements as specified by the
       institute related to:
     </p>
@@ -632,7 +615,7 @@ const Apply = () => (
 // const Scholarships = () => <div>Scholarships content here</div>;
 
 // Main Component
-export default function FPM() {
+export default function EFPM() {
   const [activeSection, setActiveSection] = useState("overview");
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
 
@@ -679,7 +662,7 @@ export default function FPM() {
               className="max-w-2xl"
             >
               <h1 className="text-4xl sm:text-5xl font-bold mb-4 pb-4 bg-gradient-to-r from-red-600 to-red-600/60 bg-clip-text text-transparent">
-                Begin Your Journey with FPM Program
+                Begin Your Journey with EFPM Program
               </h1>
               <p className="text-xl text-gray-900">
                 Take the first step towards your future with our world-class

@@ -264,29 +264,6 @@ const Overview = () => (
       specialist researchers, with sufficient depth of knowledge in different
       domains of management.
     </p>
-    <p className="text-lg text-gray-700 font-semibold">
-      SSIM offers Executive Fellow Program in Management (EFPM) for working
-      professionals.
-    </p>
-    <p className="text-lg text-gray-700">
-      Siva Sivani Institute of Management (SSIM), offers Executive Fellow
-      Program in Management (EFPM) approved by AICTE for working professionals.
-      The EFPM scholars of SSIM are required to undertake a rigorous
-      interdisciplinary research in contemporary areas of management having
-      implications for the corporate world and society.
-    </p>
-    <p className="text-lg text-gray-700">
-      EFPM has been designed to provide a holistic and enabling research
-      eco-system for working executives. The program focuses on preparing the
-      candidates through a well-designed path that helps them achieve excellence
-      in academics, consultancy assignments as well as research based corporate
-      roles.
-    </p>
-    <p className="text-lg text-gray-700 !mb-8">
-      To achieve this, the program provides scholars with the knowledge and
-      research skills along with sufficient depth of knowledge in different
-      domains of management.
-    </p>
 
     <h3 className="font-bold text-mainBlue text-2xl">Program Objectives</h3>
     <p className="text-gray-700 text-lg">
@@ -309,7 +286,7 @@ const Overview = () => (
     </ul>
     <h3 className="font-bold text-mainBlue text-2xl">Program Duration</h3>
     <p className="text-gray-700 text-lg">
-      The FPM/EFPM at SSIM is three years' duration. Students are required to ensure
+      The FPM at SSIM is three years' duration. Students are required to ensure
       that they complete all requirements of the program within the stipulated
       period of three and half years. Candidate shall submit his/ her Thesis
       only after a minimum period of two years after registration. However, in
@@ -320,7 +297,7 @@ const Overview = () => (
     </p>
     <h3 className="font-bold text-mainBlue text-2xl">Other Requirements</h3>
     <p className="text-gray-700 text-lg mb-6">
-      For the award of <strong>Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)</strong>, the
+      For the award of <strong>Fellow Program in Management (FPM)</strong>, the
       candidate needs to fulfil specific requirements as specified by the
       institute related to:
     </p>
@@ -632,7 +609,7 @@ const Apply = () => (
 // const Scholarships = () => <div>Scholarships content here</div>;
 
 // Main Component
-export default function FPM() {
+export default function FPM_EFPM() {
   const [activeSection, setActiveSection] = useState("overview");
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
 
