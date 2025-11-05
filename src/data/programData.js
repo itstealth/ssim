@@ -174,6 +174,310 @@ export const programData = {
       minThesisPeriod: 2,
     },
   },
+  "fpm": {
+    name: "FPM",
+    keyInfo: {
+      duration: "3 years",
+      credits: "45",
+      "Sanctioned Intake": "20",
+      location: "Full-time On-campus",
+      degree: "Fellow Program in Management (FPM)",
+    },
+    specializations: [
+      {
+        title: "Accounting & Finance",
+        icon: budget,
+      },
+      {
+        title: "Organizational Behavior / Human Resource",
+        icon: partners,
+      },
+      {
+        title: "Marketing",
+        icon: shopping,
+      },
+      {
+        title: "Economics",
+        icon: economics,
+      },
+      {
+        title: "Operations Management",
+        icon: performance,
+      },
+      {
+        title: "General Management",
+        icon: teaching,
+      },
+      {
+        title: "Strategic Management",
+        icon: planning,
+      },
+    ],
+    managerialCompetency: [
+      {
+        title: "Experiential Learning",
+        icon: experiential,
+        description:
+          "Structured industry visits where students interact directly with corporate professionals, observe operations in real-time, and gain practical insights into organizational structures, production processes, and business functions.",
+      },
+      {
+        title: "Company Facts Presentation",
+        icon: presentation,
+        description:
+          "Students research and analyze specific companies—covering history, operations, financials, and strategy—and present their findings creatively. This builds their confidence in public speaking, sharpens business analysis, and fosters peer-to-peer learning.",
+      },
+      {
+        title: "Book Review Session",
+        icon: bookreview,
+        description:
+          "Encourages students to read books across business, leadership, psychology, and other genres. Students present key takeaways, critical reflections, and business applications, promoting intellectual growth and diverse thinking.",
+      },
+      {
+        title: "Social Project",
+        icon: social,
+        description:
+          "Hands-on involvement with NGOs or social enterprises. Students identify societal problems, work at the grassroots, propose innovative solutions, and present their impact—developing empathy, social responsibility, and creative thinking.",
+      },
+      {
+        title: "Industry Review Session",
+        icon: industryreview,
+        description:
+          "In-depth sectoral studies where students examine market trends, industry dynamics, challenges, innovations, and future scope. It fosters macro-level business understanding and helps students identify potential career or business interests.",
+      },
+      {
+        title: "Outbound Training (OBT)",
+        icon: trainning,
+        description:
+          "Adventure-based learning programs conducted off-campus. Through team activities, problem-solving tasks, and survival scenarios, students build leadership, collaboration, time management, decision-making, and stress-handling skills.",
+      },
+      {
+        title: "Company Review Session",
+        icon: companyreview,
+        description:
+          "Post-internship presentations where students assess their host companies—structure, culture, strengths, and gaps. This peer-sharing activity reinforces learning, strengthens presentation skills, and prepares students for future interviews.",
+      },
+      {
+        title: "Industry Internship Project",
+        icon: internship,
+        description:
+          "A real-world corporate project undertaken during summer internships. Students also undertake a related academic extension to deepen understanding and bridge learning with their specialization areas.",
+      },
+      {
+        title: "Certification Courses",
+        icon: certification,
+        description:
+          "Students are encouraged to pursue relevant certifications (MOOCs, skill courses, or workshops) aligned with their career goals—enhancing technical know-how and strengthening their resumes with industry-recognized credentials.",
+      },
+      {
+        title: "Specialisation Project",
+        icon: project,
+        description:
+          "Research-based projects where students identify challenges or opportunities in their chosen domain (e.g., marketing, finance, HR), suggest solutions, and present their findings to an expert panel—fostering domain expertise and innovation.",
+      },
+      {
+        title: "Article Review Session",
+        icon: article,
+        description:
+          "Students critically review and present published research articles. This cultivates research literacy, academic curiosity, and helps build a foundation for evidence-based decision-making and future scholarly contributions.",
+      },
+      {
+        title: "Term-End Viva (Each Term)",
+        icon: viva,
+        description:
+          "Each term ends with a viva conducted by industry professionals. These interactions serve as checkpoints to assess student learning, provide corporate feedback, and enhance professional grooming and confidence.",
+      },
+    ],
+    differentiators: [
+      {
+        title: "Research Focus",
+        description:
+          "Rigorous interdisciplinary research in contemporary areas of management",
+      },
+      {
+        title: "Publication Support",
+        description:
+          "Focus on publishing 2 research papers in Scopus indexed journals and 1 case study",
+      },
+      {
+        title: "Financial Support",
+        description:
+          "Monthly stipend of ₹20,000-30,000 for qualified full-time scholars",
+      },
+    ],
+    eligibility: [
+      "MBA/PGDM/PG in allied subjects with first class aggregate marks",
+      "Graduate with CA/ICWA/CS qualification (minimum 60% aggregate)",
+      "Must complete comprehensive examination after coursework",
+      "Must submit thesis after minimum 2 years of registration",
+    ],
+    admission: [
+      "Submit application form",
+      "Pay acceptance fee of ₹60,000 (non-refundable)",
+      "Complete course work and comprehensive examination",
+      "Submit research proposal to Research Advisory Committee",
+      "Complete thesis work and defense",
+    ],
+    stats: {
+      programFee: 300000,
+      stipendYear1: 240000,
+      stipendYear2: 300000,
+      stipendYear3: 360000,
+      maxDuration: 5,
+      minThesisPeriod: 2,
+    },
+  },
+  "efpm": {
+    name: "EFPM",
+    keyInfo: {
+      duration: "3 years",
+      credits: "36",
+      "Sanctioned Intake": "20",
+      location: "Full-time On-campus",
+      degree: "Executive Fellow Program in Management (EFPM)",
+    },
+    specializations: [
+      {
+        title: "Accounting & Finance",
+        icon: budget,
+      },
+      {
+        title: "Organizational Behavior / Human Resource",
+        icon: partners,
+      },
+      {
+        title: "Marketing",
+        icon: shopping,
+      },
+      {
+        title: "Economics",
+        icon: economics,
+      },
+      {
+        title: "Operations Management",
+        icon: performance,
+      },
+      {
+        title: "General Management",
+        icon: teaching,
+      },
+      {
+        title: "Strategic Management",
+        icon: planning,
+      },
+    ],
+    managerialCompetency: [
+      {
+        title: "Experiential Learning",
+        icon: experiential,
+        description:
+          "Structured industry visits where students interact directly with corporate professionals, observe operations in real-time, and gain practical insights into organizational structures, production processes, and business functions.",
+      },
+      {
+        title: "Company Facts Presentation",
+        icon: presentation,
+        description:
+          "Students research and analyze specific companies—covering history, operations, financials, and strategy—and present their findings creatively. This builds their confidence in public speaking, sharpens business analysis, and fosters peer-to-peer learning.",
+      },
+      {
+        title: "Book Review Session",
+        icon: bookreview,
+        description:
+          "Encourages students to read books across business, leadership, psychology, and other genres. Students present key takeaways, critical reflections, and business applications, promoting intellectual growth and diverse thinking.",
+      },
+      {
+        title: "Social Project",
+        icon: social,
+        description:
+          "Hands-on involvement with NGOs or social enterprises. Students identify societal problems, work at the grassroots, propose innovative solutions, and present their impact—developing empathy, social responsibility, and creative thinking.",
+      },
+      {
+        title: "Industry Review Session",
+        icon: industryreview,
+        description:
+          "In-depth sectoral studies where students examine market trends, industry dynamics, challenges, innovations, and future scope. It fosters macro-level business understanding and helps students identify potential career or business interests.",
+      },
+      {
+        title: "Outbound Training (OBT)",
+        icon: trainning,
+        description:
+          "Adventure-based learning programs conducted off-campus. Through team activities, problem-solving tasks, and survival scenarios, students build leadership, collaboration, time management, decision-making, and stress-handling skills.",
+      },
+      {
+        title: "Company Review Session",
+        icon: companyreview,
+        description:
+          "Post-internship presentations where students assess their host companies—structure, culture, strengths, and gaps. This peer-sharing activity reinforces learning, strengthens presentation skills, and prepares students for future interviews.",
+      },
+      {
+        title: "Industry Internship Project",
+        icon: internship,
+        description:
+          "A real-world corporate project undertaken during summer internships. Students also undertake a related academic extension to deepen understanding and bridge learning with their specialization areas.",
+      },
+      {
+        title: "Certification Courses",
+        icon: certification,
+        description:
+          "Students are encouraged to pursue relevant certifications (MOOCs, skill courses, or workshops) aligned with their career goals—enhancing technical know-how and strengthening their resumes with industry-recognized credentials.",
+      },
+      {
+        title: "Specialisation Project",
+        icon: project,
+        description:
+          "Research-based projects where students identify challenges or opportunities in their chosen domain (e.g., marketing, finance, HR), suggest solutions, and present their findings to an expert panel—fostering domain expertise and innovation.",
+      },
+      {
+        title: "Article Review Session",
+        icon: article,
+        description:
+          "Students critically review and present published research articles. This cultivates research literacy, academic curiosity, and helps build a foundation for evidence-based decision-making and future scholarly contributions.",
+      },
+      {
+        title: "Term-End Viva (Each Term)",
+        icon: viva,
+        description:
+          "Each term ends with a viva conducted by industry professionals. These interactions serve as checkpoints to assess student learning, provide corporate feedback, and enhance professional grooming and confidence.",
+      },
+    ],
+    differentiators: [
+      {
+        title: "Research Focus",
+        description:
+          "Rigorous interdisciplinary research in contemporary areas of management",
+      },
+      {
+        title: "Publication Support",
+        description:
+          "Focus on publishing 2 research papers in Scopus indexed journals and 1 case study",
+      },
+      {
+        title: "Financial Support",
+        description:
+          "Monthly stipend of ₹20,000-30,000 for qualified full-time scholars",
+      },
+    ],
+    eligibility: [
+      "MBA/PGDM/PG in allied subjects with first class aggregate marks",
+      "Graduate with CA/ICWA/CS qualification (minimum 60% aggregate)",
+      "Must complete comprehensive examination after coursework",
+      "Must submit thesis after minimum 2 years of registration",
+    ],
+    admission: [
+      "Submit application form",
+      "Pay acceptance fee of ₹60,000 (non-refundable)",
+      "Complete course work and comprehensive examination",
+      "Submit research proposal to Research Advisory Committee",
+      "Complete thesis work and defense",
+    ],
+    stats: {
+      programFee: 300000,
+      stipendYear1: 240000,
+      stipendYear2: 300000,
+      stipendYear3: 360000,
+      maxDuration: 5,
+      minThesisPeriod: 2,
+    },
+  },
   "pgdm-ba": {
     name: "PGDM BA",
     keyInfo: {

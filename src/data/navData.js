@@ -50,10 +50,6 @@ export const navlinks = [
     name: "Programs",
     dropdown: [
       {
-        name: "FPM/EFPM",
-        path: "/programs/fpm-efpm",
-      },
-      {
         name: "PGDM",
         subDropdown: [
           { name: "PGDM BA", path: "/programs/pgdm-ba" },
@@ -63,6 +59,10 @@ export const navlinks = [
             path: "/programs/pgdm-triple-specialisation",
           },
         ],
+      },
+      {
+        name: "FPM/EFPM",
+        path: "/programs/fpm-efpm",
       },
     ],
   },

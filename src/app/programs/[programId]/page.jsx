@@ -49,15 +49,20 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { programData } from "@/data/programData";
 
 export const programs = [
-  { id: "fpm/efpm", name: "FPM/EFPM", link: "/programs/fpm-efpm" },
-  { id: "pgdm-ba", name: "PGDM BA", link: "/programs/pgdm-ba" },
-  { id: "pgdm-bifs", name: "PGDM BIFS", link: "/programs/pgdm-bifs" },
+  { id: "pgdm-ba", name: "PGDM BA", link: "/programs/pgdm-ba", category: "PGDM" },
+  { id: "pgdm-bifs", name: "PGDM BIFS", link: "/programs/pgdm-bifs", category: "PGDM" },
   {
     id: "pgdm-triple-specialisation",
     name: "PGDM Triple Specialisation",
     link: "/programs/pgdm-triple-specialisation",
+    category: "PGDM",
   },
+  { id: "fpm", name: "FPM", link: "/programs/fpm", category: "FPM/EFPM" },
+  { id: "efpm", name: "EFPM", link: "/programs/efpm", category: "FPM/EFPM" },
 ];
+
+const pgdmPrograms = programs.filter(p => p.category === "PGDM");
+const fpmEfpmPrograms = programs.filter(p => p.category === "FPM/EFPM");
 
 const sections = [
   { id: "about", name: "About", icon: ChevronRight },
@@ -65,13 +70,13 @@ const sections = [
     id: "electives",
     name: "Specializations",
     icon: ChevronRight,
-    hidden: ["fpm/efpm"],
+    hidden: ["fpm", "efpm", "fpm/efpm"],
   },
   { 
     id: "specializations", 
     name: "Specializations", 
     icon: ChevronRight,
-    showOnly: ["fpm/efpm"]
+    showOnly: ["fpm", "efpm", "fpm/efpm"]
   },
   {
     id: "managerialCompetency",
@@ -83,7 +88,7 @@ const sections = [
     id: "curriculum",
     name: "Program Structure",
     icon: ChevronRight,
-    hidden: ["fpm/efpm"],
+    hidden: ["fpm", "efpm", "fpm/efpm"],
   },
   { id: "eligibility", name: "Admissions", icon: ChevronRight },
 ];
@@ -317,7 +322,7 @@ const ManagerialCompetency = ({ managerialCompetency }) => {
   );
 };
 
-const Differentiators = ({ differentiators }) => {
+const Differentiators = ({ differentiators, programId }) => {
   const iconMap = {
     0: Briefcase,
     1: Flask,
@@ -332,8 +337,7 @@ const Differentiators = ({ differentiators }) => {
       {Array.isArray(differentiators) && differentiators.length && (
         <>
           {/* Financial Support Panel - Only for FPM/EFPM */}
-          {typeof window !== "undefined" &&
-            window.location.pathname.includes("fpm") && (
+          {(programId === "fpm" || programId === "efpm" || programId === "fpm/efpm") && (
               <div className="mb-8">
                 <div className="rounded-2xl border border-mainBlue bg-blue-50/40 shadow-md p-6 md:p-8">
                   <h4 className="text-xl md:text-2xl text-mainBlue font-extrabold flex items-center gap-2 mb-3">
@@ -727,8 +731,8 @@ const ProgramSection = ({ programId, activeSection }) => {
           />
         );
       case "specializations":
-        // Only show specializations for FPM/EFPM program
-        if (programId === "fpm/efpm") {
+        // Only show specializations for FPM/EFPM programs
+        if (programId === "fpm" || programId === "efpm" || programId === "fpm/efpm") {
           return <Specializations specializations={program.specializations} />;
         }
         return null;
@@ -739,7 +743,7 @@ const ProgramSection = ({ programId, activeSection }) => {
           />
         );
       case "differentiators":
-        return <Differentiators differentiators={program.differentiators} />;
+        return <Differentiators differentiators={program.differentiators} programId={programId} />;
       case "curriculum":
         return <Curriculum curriculum={program.curriculum} />;
       case "eligibility":
@@ -777,7 +781,9 @@ const ProgramsOverview = ({ params }) => {
 
   // Map URL segments to program IDs
   const urlToProgramId = {
-    "fpm-efpm": "fpm/efpm",
+    "fpm-efpm": "fpm", // Support legacy URL
+    "fpm": "fpm",
+    "efpm": "efpm",
     "pgdm-ba": "pgdm-ba",
     "pgdm-bifs": "pgdm-bifs",
     "pgdm-triple-specialisation": "pgdm-triple-specialisation",
@@ -817,7 +823,9 @@ const ProgramsOverview = ({ params }) => {
     if (sectionId === "eligibility") {
       // Map program IDs to their admission routes
       const admissionRoutes = {
-        "fpm/efpm": "/admissions/fpm-efpm",
+        "fpm": "/admissions/fpm-efpm",
+        "efpm": "/admissions/fpm-efpm",
+        "fpm/efpm": "/admissions/fpm-efpm", // Legacy support
         "pgdm-ba": "/admissions/pgdm-ba",
         "pgdm-bifs": "/admissions/pgdm-bifs",
         "pgdm-triple-specialisation": "/admissions/pgdm-triple-specialisation",
@@ -836,6 +844,12 @@ const ProgramsOverview = ({ params }) => {
     newParams.set("section", sectionId);
     router.push(`${pathname}?${newParams.toString()}`);
   };
+
+  // Determine active category based on selected program
+  const activeCategory = React.useMemo(() => {
+    const program = programs.find(p => p.id === activeProgram);
+    return program?.category || "PGDM";
+  }, [activeProgram]);
 
   const filteredSections = sections.filter((section) => {
     const program = programData[activeProgram];
@@ -917,23 +931,67 @@ const ProgramsOverview = ({ params }) => {
       {/* <h1 className="text-4xl font-bold mb-16 text-center text-primary">
         Graduate Programs
       </h1> */}
-      <Tabs
-        value={activeProgram}
-        onValueChange={handleProgramChange}
-        className="mb-8"
-      >
-        <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
-          {programs.map((program) => (
-            <TabsTrigger
-              key={program.id}
-              value={program.id}
-              className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground"
-            >
-              {program.name}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Tabs>
+      <div className="mb-8">
+        <Tabs
+          value={activeProgram}
+          onValueChange={handleProgramChange}
+          className="w-full"
+        >
+          <AnimatePresence mode="wait">
+            {/* PGDM Section - Only show when PGDM category is active */}
+            {activeCategory === "PGDM" && (
+              <motion.div
+                key="pgdm-section"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="space-y-3"
+              >
+                {/* <h2 className="text-xl font-semibold text-[#293794] px-2">
+                  Post Graduate Courses
+                </h2> */}
+                <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+                  {pgdmPrograms.map((program) => (
+                    <TabsTrigger
+                      key={program.id}
+                      value={program.id}
+                      className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300"
+                    >
+                      {program.name}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </motion.div>
+            )}
+
+            {/* FPM/EFPM Section - Only show when FPM/EFPM category is active */}
+            {activeCategory === "FPM/EFPM" && (
+              <motion.div
+                key="fpm-efpm-section"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="space-y-3"
+              >
+                <h2 className="text-xl font-semibold text-[#293794] px-2">FPM/EFPM</h2>
+                <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+                  {fpmEfpmPrograms.map((program) => (
+                    <TabsTrigger
+                      key={program.id}
+                      value={program.id}
+                      className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300"
+                    >
+                      {program.name}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </Tabs>
+      </div>
       <div className="flex flex-col lg:flex-row gap-8">
         {isDesktop ? (
           <nav className="lg:w-1/4">
