@@ -149,7 +149,7 @@ const NewsEvents = () => {
         <div className="mx-auto max-w-screen-xl px-4 md:px-8">
           <div className="mb-10 md:mb-14">
             <h2 className="mb-4 text-center font-bold text-gray-800 md:mb-6 text-3xl sm:text-5xl">
-              News & Announcements
+              News
             </h2>
 
             <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
