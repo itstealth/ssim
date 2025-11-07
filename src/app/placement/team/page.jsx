@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 // import SEO from "@/components/Seo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -16,6 +15,7 @@ const arijitImg = "/corporate-connect/arijit.png";
 const ramaraoImg = "/corporate-connect/ramarao.png";
 const rahulImg = "/corporate-connect/rahul.png";
 const sushmaImg = "/corporate-connect/sushma.png";
+const hrithikImg = "/corporate-connect/hrithik.jpg";
 
 const features = [
   {
@@ -45,11 +45,6 @@ const FeaturedItem = ({ feature, index, image }) => {
       <h4 className="text-[17px]">{feature.desc}</h4>
     </div>
   );
-};
-
-FeaturedItem.propTypes = {
-  feature: PropTypes.object.isRequired,
-  index: PropTypes.number,
 };
 
 export default function PlacementTeams() {
@@ -225,6 +220,13 @@ const TeamContactSection = () => {
       primaryEmail: "msushma@ssim.ac.in",
       secondaryEmail: "placements@ssim.ac.in",
       imageSrc: sushmaImg,
+    },
+    {
+      name: "K. HRITHIK",
+      title: "Placement Executive",
+      phone: "+91-9010300134",
+      primaryEmail: "hrithik@ssim.ac.in",
+      imageSrc: hrithikImg,
     },
   ];
 

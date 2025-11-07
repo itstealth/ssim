@@ -513,7 +513,7 @@ const Fees = () => (
           Fee Structure (Batch 2026-28)
         </CardTitle>
         <CardDescription className="text-lg text-red-600 font-semibold">
-          Total Program Fee: ₹6,90,000 (Six Lakhs Ninety Thousand only)
+          Total Program Fee: ₹8,40,000 (Six Lakhs Ninety Thousand only)
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">

@@ -1598,7 +1598,7 @@ export const programData = {
       },
       {
         title: "Global Immersion Program (International Exposure)",
-        description: "Exchange programs with Herzing University, Atlanta (USA)",
+        description: "International learning experience that expose participants to global cultures, business and practices.",
       },
     ],
     curriculum: [

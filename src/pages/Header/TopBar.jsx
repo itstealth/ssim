@@ -93,7 +93,7 @@ const TopBar = () => {
             behavior="scroll"
             direction="left"
           >
-            Admission Open for the academic year 2026-2028. Apply Now!
+            Admissions Open for the academic year 2026-2028. Apply Now!
           </marquee>
         </div>
         {/* Contact Info */}

@@ -642,7 +642,7 @@ const Conferences = () => {
                 keywords="SSIM conferences, business conferences, academic seminars, management events, research conferences"
                 canonicalUrl="https://www.ssim.ac.in/research/conferences"
             /> */}
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-10 sm:pt-16">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-10 sm:py-16">
         {/* Hero Section */}
         {/* <div className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-primary/5 to-background border-b">
         <div className="container max-w-7xl mx-auto px-4 py-16 relative z-10">
@@ -779,7 +779,7 @@ const Conferences = () => {
           </div>
         </div>
         {/* <TeamSection /> */}
-        <Tourists />
+        {/* <Tourists /> */}
       </div>
     </>
   );

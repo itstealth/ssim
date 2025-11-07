@@ -331,8 +331,7 @@ const ContactUs = () => {
             </a>
           </p>
           <p>
-            <strong>Call:</strong> <a href="tel:+919391114948">9391114948</a> /{" "}
-            <a href="tel:+916281350079">6281350079</a>
+            <strong>Call:</strong> <a href="tel:+919391114948">9391114948</a>
           </p>
         </>
       ),
@@ -364,7 +363,7 @@ const ContactUs = () => {
           </p>
           <p>
             <strong>Call:</strong> <a href="tel:+919133305060">9133305060</a> /{" "}
-            <a href="tel:+919989191878">9989191878</a>
+            <a href="tel:+919963713840">9963713840</a>
           </p>
         </>
       ),

@@ -259,7 +259,7 @@ export default function PlacementSection() {
                 </div>
                 <div>
                   <CardTitle className="text-3xl font-bold text-red-600">
-                    12 LPA
+                    12.7 LPA
                   </CardTitle>
                   <CardDescription className="text-base">
                     Highest Salary
@@ -304,7 +304,7 @@ export default function PlacementSection() {
                 </div>
                 <div>
                   <CardTitle className="text-3xl font-bold text-red-600">
-                    {stats.companiesHiring}
+                    180+
                   </CardTitle>
                   <CardDescription className="text-base">
                     Companies Hiring
