@@ -128,24 +128,76 @@ export const timelineData = [
       {
         title: "Top B-Schools Overall",
         rankings: [
-          { year: "2024", rank: 15 },
-          { year: "2023", rank: 14 },
-          { year: "2022", rank: 19 },
-          { year: "2021", rank: 1 },
-          { year: "2020", rank: 1 },
-          { year: "2019", rank: 50 },
-          { year: "2018", rank: 36 },
+          { 
+            year: "2024", 
+            rank: 15,
+            text: "Top Leading B-Schools of Super Excellence- 15th Rank (CSR Survey)"
+          },
+          { 
+            year: "2023", 
+            rank: 14,
+            text: "Top Eminent B-School of Super Excellence- 14th Rank"
+          },
+          { 
+            year: "2022", 
+            rank: 19,
+            text: "Top Eminent B-School of Super Excellence- 19th Rank"
+          },
+          { 
+            year: "2021", 
+            rank: 1,
+            text: "Top B-School of Super Excellence- 1st Rank"
+          },
+          { 
+            year: "2020", 
+            rank: 1,
+            text: "Top B-School of Super Excellence- 1st Rank"
+          },
+          { 
+            year: "2019", 
+            rank: 50,
+            text: "50th among all India"
+          },
+          { 
+            year: "2018", 
+            rank: 36,
+            text: "36th among private B-school in South India"
+          },
         ],
       },
       {
         title: "Top Private B-Schools - Telangana",
         rankings: [
-          { year: "2024", rank: 2 },
-          { year: "2023", rank: 3 },
-          { year: "2022", rank: 3 },
-          { year: "2021", rank: 3 },
-          { year: "2020", rank: 3 },
-          { year: "2019", rank: 1 },
+          { 
+            year: "2024", 
+            rank: 2,
+            text: "2nd Rank"
+          },
+          { 
+            year: "2023", 
+            rank: 3,
+            text: "3rd Rank"
+          },
+          { 
+            year: "2022", 
+            rank: 3,
+            text: "3rd Rank"
+          },
+          { 
+            year: "2021", 
+            rank: 3,
+            text: "3rd Rank"
+          },
+          { 
+            year: "2020", 
+            rank: 3,
+            text: "3rd Rank"
+          },
+          { 
+            year: "2019", 
+            rank: 1,
+            text: "1ST Among private B-School in Telangana"
+          },
         ],
       },
     ],
@@ -235,13 +287,25 @@ export const timelineData = [
         title: "Outcome Based Education",
         rankings: [
           {
+            year: "2025",
+            rank: "Titanium Band",
+            text: "Titanium Band: Institution of Academic Excellence",
+          },
+          {
             year: "2024",
             rank: "Diamond Band",
-            description:
-              "Diamond Band with the tagline of Institution of Prominence",
+            text: "Diamond Band with the tagline of Institution of Prominence",
           },
-          { year: "2023", rank: "B++, Silver Band" },
-          { year: "2022", rank: "B++, Silver Band" },
+          { 
+            year: "2023", 
+            rank: "B++, Silver Band",
+            text: "B++, Silver Band"
+          },
+          { 
+            year: "2022", 
+            rank: "B++, Silver Band",
+            text: "B++, Silver Band"
+          },
         ],
       },
     ],
@@ -273,20 +337,77 @@ export const timelineData = [
       {
         title: "Best B-School Ranking (Private) Overall Category",
         rankings: [
-          { year: "2024", rank: "28" },
-          { year: "2023", rank: "38" },
+          { 
+            year: "2025", 
+            rank: "27",
+            text: "27th Rank"
+          },
+          { 
+            year: "2024", 
+            rank: "28",
+            text: "28th Rank"
+          },
+          { 
+            year: "2023", 
+            rank: "38",
+            text: "38th Rank"
+          },
         ],
       },
       {
         title: "Top 50 Schools of Eminence for Employability Category",
         rankings: [
-          { year: "2024", rank: "37" },
-          { year: "2023", rank: "40" },
+          { 
+            year: "2024", 
+            rank: "37",
+            text: "37th Rank"
+          },
+          { 
+            year: "2023", 
+            rank: "40",
+            text: "40th Rank"
+          },
         ],
       },
       {
         title: "Top 50 Business Schools for Research Category",
-        rankings: [{ year: "2024", rank: "29" }],
+        rankings: [
+          { 
+            year: "2024", 
+            rank: "29",
+            text: "29th Rank"
+          },
+        ],
+      },
+      {
+        title: "Best Bschools (Pvt) for PGDM General",
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "26",
+            text: "26th Rank"
+          },
+        ],
+      },
+      {
+        title: "Top 25 Fastest Growing Bschools (Pvt)",
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "11",
+            text: "11th Rank"
+          },
+        ],
+      },
+      {
+        title: "South Zone Rank",
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "4",
+            text: "4th Rank"
+          },
+        ],
       },
     ],
   },
@@ -327,11 +448,43 @@ export const timelineData = [
     cards: [
       {
         title: "Top Private Bschool of India",
-        rankings: [{ year: "2024", rank: "8" }],
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "3",
+            text: "Overall Rank- 15th, Premier Bschool Rank- 3rd Rank"
+          },
+          { 
+            year: "2024", 
+            rank: "8",
+            text: "Overall Rank- 17th, Premier Bschool Rank- 8th Rank"
+          },
+        ],
       },
       {
         title: "State of Telangana (Private)",
-        rankings: [{ year: "2024", rank: "2" }],
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "2",
+            text: "2nd Rank"
+          },
+          { 
+            year: "2024", 
+            rank: "2",
+            text: "2nd Rank"
+          },
+        ],
+      },
+      {
+        title: "Regional Rank (South-Pvt)",
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "6",
+            text: "6th Rank"
+          },
+        ],
       },
     ],
   },

@@ -169,31 +169,38 @@ const RankingCard = ({ title, description, rankings }) => {
                   <span className="font-medium">{item.year}</span>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <Badge
-                    variant={isTopThree ? "default" : "outline"}
-                    className={`px-3 py-1 text-sm font-semibold ${
-                      item.rank === 1
-                        ? "bg-amber-500 hover:bg-amber-500/90 text-white"
-                        : item.rank === 2
-                        ? "bg-zinc-400 hover:bg-zinc-400/90 text-white"
-                        : item.rank === 3
-                        ? "bg-amber-700 hover:bg-amber-700/90 text-white"
-                        : ""
-                    }`}
-                  >
-                    {isTopThree && <Medal className="mr-1 h-3.5 w-3.5" />}#
-                    {item.rank}
-                  </Badge>
+                <div className="flex flex-col items-end gap-1">
+                  <div className="flex items-center gap-2">
+                    <Badge
+                      variant={isTopThree ? "default" : "outline"}
+                      className={`px-3 py-1 text-sm font-semibold ${
+                        item.rank === 1
+                          ? "bg-amber-500 hover:bg-amber-500/90 text-white"
+                          : item.rank === 2
+                          ? "bg-zinc-400 hover:bg-zinc-400/90 text-white"
+                          : item.rank === 3
+                          ? "bg-amber-700 hover:bg-amber-700/90 text-white"
+                          : ""
+                      }`}
+                    >
+                      {isTopThree && <Medal className="mr-1 h-3.5 w-3.5" />}#
+                      {item.rank}
+                    </Badge>
 
-                  {trend === "up" && (
-                    <TrendingUp className="h-4 w-4 text-green-500" />
-                  )}
-                  {trend === "down" && (
-                    <Minus className="h-4 w-4 text-muted-foreground" />
-                  )}
-                  {trend === "same" && index > 0 && (
-                    <Minus className="h-4 w-4 text-muted-foreground" />
+                    {trend === "up" && (
+                      <TrendingUp className="h-4 w-4 text-green-500" />
+                    )}
+                    {trend === "down" && (
+                      <Minus className="h-4 w-4 text-muted-foreground" />
+                    )}
+                    {trend === "same" && index > 0 && (
+                      <Minus className="h-4 w-4 text-muted-foreground" />
+                    )}
+                  </div>
+                  {item.text && (
+                    <span className="text-xs text-muted-foreground text-right max-w-[200px]">
+                      {item.text}
+                    </span>
                   )}
                 </div>
               </div>
