@@ -22,7 +22,7 @@ import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
-const AboutSSIM = "/about_ssim/About.png";
+const AboutSSIM = "/about_ssim/About.webp";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -220,13 +220,10 @@ export default function AboutSection() {
               <Card className="overflow-hidden border-0 shadow-2xl rounded-none">
                 <CardContent className="p-0">
                   <div className="relative aspect-square">
-                    <Image
+                    <img
                       alt="SSIM Campus Life"
                       src={AboutSSIM}
-                      fill
-                      priority
                       className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     {/* <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" /> */}
                     <Badge className="absolute top-4 left-4 bg-red-600 animate-pulse text-white  backdrop-blur">
