@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 // import { ScrollArea } from "@/components/ui/scroll-area";
-import Scholarships from "@/app/admissions/Scholarships";
+import FPMScholarships from "@/app/admissions/FPMScholarships";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
 // import SEO from "@/components/Seo";
 
@@ -630,7 +630,7 @@ export default function FPM_EFPM() {
       case "apply":
         return <Apply />;
       case "scholarships":
-        return <Scholarships />;
+        return <FPMScholarships />;
       case "admission-process":
         return <AdmissionProcess />;
       default:

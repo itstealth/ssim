@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 // import { ScrollArea } from "@/components/ui/scroll-area";
-import Scholarships from "@/app/admissions/Scholarships";
+// import Scholarships from "@/app/admissions/Scholarships";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
 // import SEO from "@/components/Seo";
 
@@ -64,7 +64,7 @@ const navigationSections = [
   // { id: "brochure", label: "Brochure", icon: BookOpen },
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },
-  { id: "scholarships", label: "Scholarships", icon: Trophy },
+  // { id: "scholarships", label: "Scholarships", icon: Trophy },
 ];
 
 // Section Data
@@ -635,8 +635,6 @@ export default function EFPM() {
         return <Brochure setIsEnquireOpen={setIsEnquireOpen} />;
       case "apply":
         return <Apply />;
-      case "scholarships":
-        return <Scholarships />;
       case "admission-process":
         return <AdmissionProcess />;
       default:
