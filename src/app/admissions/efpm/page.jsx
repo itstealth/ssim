@@ -124,26 +124,26 @@ const feesData = {
     {
       type: "Acceptance Fee (Non-refundable)",
       amount: "₹60,000",
-      dueDate: "July 30, 2024",
-      notes: "Initial payment before program commencement",
+      dueDate: "Before commencement of program",
+      notes: "Payable before commencement of the program in the academic year into which he/she is selected for admission",
     },
     {
-      type: "First Installment",
-      amount: "₹80,000",
-      dueDate: "January 30, 2025",
-      notes: "First part of balance payment",
+      type: "I Installment",
+      amount: "₹1,30,000",
+      dueDate: "As per schedule",
+      notes: "First part of balance payment (₹3,90,000)",
     },
     {
-      type: "Second Installment",
-      amount: "₹80,000",
-      dueDate: "July 30, 2025",
-      notes: "Second part of balance payment",
+      type: "II Installment",
+      amount: "₹1,30,000",
+      dueDate: "As per schedule",
+      notes: "Second part of balance payment (₹3,90,000)",
     },
     {
-      type: "Third Installment",
-      amount: "₹80,000",
-      dueDate: "July 30, 2026",
-      notes: "Final part of balance payment",
+      type: "III Installment",
+      amount: "₹1,30,000",
+      dueDate: "As per schedule",
+      notes: "Final part of balance payment (₹3,90,000)",
     },
   ],
   stipendDetails: [
@@ -391,7 +391,7 @@ const Fees = () => (
       <CardHeader>
         <CardTitle className="text-3xl text-[#002f87]">Fee Structure</CardTitle>
         <CardDescription className="text-lg text-red-600 font-semibold">
-          Total Program Fee: ₹3,00,000 (Three Lakhs only)
+          Total Program Fee: ₹4,50,000 (INR Four Lakh Fifty Thousand Only)
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -492,8 +492,7 @@ const Fees = () => (
           </h4>
           <ul className="list-disc list-inside space-y-1 text-lg text-black">
             <li>
-              25% fee waiver for Alumni of Siva Sivani Institute of Management
-              (SSIM)
+              A 25% fee waiver will be granted to the Alumni of Siva Sivani Institute of Management (SSIM)
             </li>
             <li>
               Eligible students for stipend are exempted from tuition fees
