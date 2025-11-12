@@ -74,21 +74,11 @@ export default function Accreditations() {
       image: aict,
     },
     {
-      title: "Accreditation by III",
+      title: "Accreditation by NAAC",
       description:
-        "Siva Sivani Institute of Management (SSIM), PGDM – BIFS Program has been accredited by Insurance Institute of India (III), Mumbai. III is considered to be one of the best accrediting bodies in the area of Banking, Insurance and Financial Services. SSIM is privileged to receive this accreditation to serve our students in all best possible ways in collaboration with the latest industry needs.",
-      image: III,
+        "Siva Sivani Institute of Management (SSIM) PGDM programs received accreditation from National Assessment and Accreditation Council (NAAC) in the year 2014 and re-accreditation in the year 2021. NAAC conducts strategic audit it is considered to be the nationally benchmarked system for mentoring, quality improvement, quality assurance and accreditation. NAAC conduct audit to understand the institutes previous performances and their future aspirations.",
+      image: naac,
     },
-    {
-      title: "Accreditation by AACSB",
-      description:
-        "Siva Sivani Institute of Management (SSIM) has been accredited by AACSB, one of the most prestigious business school accreditation bodies in the world. AACSB accreditation is a testament to SSIM's commitment to excellence in management education, ensuring that students receive a globally recognized and high-quality management education.",
-      image: aascb,
-    },
-    // {
-    //   description: "Siva Sivani Institute of Management (SSIM) is one of the few institutes to collaborate with Harvard Business School Online for Business Analytics Certification. PGDM – Business Analytics program at SSIM has a global edge to carve our students' understanding and knowledge in analytics with the support of HBS online certification.",
-    //   image: "https://ssim.ac.in/wp-content/uploads/2022/11/harvard-ssim.png"
-    // },
     {
       title: "Accreditation by NBA",
       description:
@@ -96,10 +86,10 @@ export default function Accreditations() {
       image: nba,
     },
     {
-      title: "Accreditation by NAAC",
+      title: "Accreditation by AIU",
       description:
-        "Siva Sivani Institute of Management (SSIM) PGDM programs received accreditation from National Assessment and Accreditation Council (NAAC) in the year 2014 and re-accreditation in the year 2021. NAAC conducts strategic audit it is considered to be the nationally benchmarked system for mentoring, quality improvement, quality assurance and accreditation. NAAC conduct audit to understand the institutes previous performances and their future aspirations.",
-      image: naac,
+        "Siva Sivani Institute of Management (SSIM) has been awarded the prestigious accreditation from the Association of Indian Universities (AIU), validating its commitment to maintaining high academic standards. The AIU accreditation recognizes SSIM's excellence in delivering quality management education through its PGDM program, ensuring it meets rigorous national benchmarks. This accreditation affirms SSIM's dedication to continuous quality improvement and its position among India's leading management institutions.",
+      image: aiu,
     },
     {
       title: "Accreditation by SAQS",
@@ -108,11 +98,21 @@ export default function Accreditations() {
       image: saqs,
     },
     {
-      title: "Accreditation by AIU",
+      title: "Accreditation by AACSB",
       description:
-        "Siva Sivani Institute of Management (SSIM) has been awarded the prestigious accreditation from the Association of Indian Universities (AIU), validating its commitment to maintaining high academic standards. The AIU accreditation recognizes SSIM's excellence in delivering quality management education through its PGDM program, ensuring it meets rigorous national benchmarks. This accreditation affirms SSIM's dedication to continuous quality improvement and its position among India's leading management institutions.",
-      image: aiu,
+        "Siva Sivani Institute of Management (SSIM) has been accredited by AACSB, one of the most prestigious business school accreditation bodies in the world. AACSB accreditation is a testament to SSIM's commitment to excellence in management education, ensuring that students receive a globally recognized and high-quality management education.",
+      image: aascb,
     },
+    {
+      title: "Accreditation by III",
+      description:
+        "Siva Sivani Institute of Management (SSIM), PGDM – BIFS Program has been accredited by Insurance Institute of India (III), Mumbai. III is considered to be one of the best accrediting bodies in the area of Banking, Insurance and Financial Services. SSIM is privileged to receive this accreditation to serve our students in all best possible ways in collaboration with the latest industry needs.",
+      image: III,
+    },
+    // {
+    //   description: "Siva Sivani Institute of Management (SSIM) is one of the few institutes to collaborate with Harvard Business School Online for Business Analytics Certification. PGDM – Business Analytics program at SSIM has a global edge to carve our students' understanding and knowledge in analytics with the support of HBS online certification.",
+    //   image: "https://ssim.ac.in/wp-content/uploads/2022/11/harvard-ssim.png"
+    // },
   ];
 
   return (

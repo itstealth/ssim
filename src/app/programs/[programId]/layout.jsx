@@ -70,6 +70,7 @@ const programData = {
 
 // URL mapping for program IDs
 const urlToProgramId = {
+  "fpm-efpm": "fpm",
   fpm: "fpm",
   efpm: "efpm",
   "pgdm-ba": "pgdm-ba",

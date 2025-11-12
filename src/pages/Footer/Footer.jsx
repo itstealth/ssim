@@ -28,8 +28,8 @@ export default function Footer() {
       label: "Useful Links",
       items: [
         { name: "About Us", path: "/about/vision-mission" },
-        { name: "Rankings & Awards", path: "/about/accreditations-rankings" },
-        { name: "Accreditations", path: "/accreditations" },
+        { name: "Rankings & Accreditations", path: "/about/accreditations-rankings" },
+        // { name: "Accreditations", path: "/accreditations" },
         { name: "Events", path: "/students-life/life-at-ssim" },
         { name: "Media", path: "/students-life/news-announcements" },
         { name: "Blog", path: "/blog" },

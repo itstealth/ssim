@@ -105,7 +105,7 @@ export const navlinks = [
             name: "Case Research Center",
             path: "/research/case-research-center",
           },
-          { name: "Conferences", path: "/research/conferences" },
+          // { name: "Conferences", path: "/research/conferences" },
           // { name: "Ph.D. Scholars", path: "/research/phd-scholars" },
         ],
       },

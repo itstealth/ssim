@@ -20,9 +20,9 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 const categories = [
   {
     id: "1",
-    label: "snatak-2025",
+    label: "Snatak-2025",
     icon: <Image />,
-    heading: "snatak-2025",
+    heading: "Snatak-2025",
     description: ``,
   },
   {
