@@ -30,7 +30,7 @@ export default function BannerNav() {
               <Mail size={16} className="text-blue-800 mr-1" />
               <span>admissions@ssim.ac.in</span>
             </a>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-row gap-2">
               <a href="tel:+91-040-27165451" className="flex items-center">
                 <Phone size={16} className="text-blue-800 mr-1" />
                 <span>040-2716 5451/53/54</span>

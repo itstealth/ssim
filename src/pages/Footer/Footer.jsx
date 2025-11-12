@@ -33,12 +33,12 @@ export default function Footer() {
         { name: "Events", path: "/students-life/life-at-ssim" },
         { name: "Media", path: "/students-life/news-announcements" },
         { name: "Blog", path: "/blog" },
-        {name: "IQAC", path: "/iqac"},
+        { name: "IQAC", path: "/iqac" },
         // { name: "Careers", path: "/careers" },
-        {
-          name: "AICTE Feedback",
-          path: "https://www.aicte-india.org/feedback/",
-        },
+        // {
+        //   name: "AICTE Feedback",
+        //   path: "https://www.aicte-india.org/feedback/",
+        // },
         { name: "AICTE Approvals", path: aicteapprovals },
       ],
     },
@@ -67,6 +67,10 @@ export default function Footer() {
       items: [
         { name: "Siva Sivani Institute of Management", path: "/" },
         { name: "Siva Sivani Degree College", path: "https://ssdc.ac.in" },
+        {
+          name: "Siva Sivani Degree College Hyderabad",
+          path: "https://ssdchyderabad.in",
+        },
         { name: "Siva Sivani Junior College", path: "https://ssjc.ac.in" },
         {
           name: "Siva Sivani High School",
