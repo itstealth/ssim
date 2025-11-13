@@ -154,18 +154,11 @@ export default function AboutSection() {
 
   const paragraphs = [
     <p className="text-lg leading-relaxed" key="1">
-      Located in the heart of Hyderabad and Secunderabad, Siva Sivani Institute
-      of Management (SSIM) is a{" "}
-      <strong>premier institution with over three decades of excellence</strong>{" "}
-      in management education. Renowned for its{" "}
-      <strong>strong ethical foundation</strong>, this{" "}
-      <strong>SAQS, AIU, NBA, NAAC and AICTE accredited institution</strong>{" "}
+      Located in the heart of Hyderabad and Secunderabad, Siva Sivani Institute of Management (SSIM) is a{" "}
+      <strong>premier institution with over three decades of excellence</strong> in management education. Renowned for its{" "}
+      <strong>strong ethical foundation</strong>, this <strong>AICTE accredited, NAAC, NBA for PGDM, AIU, SAQS and AACSB Member institution</strong>{" "}
       delivers industry-relevant learning through an{" "}
-      <strong>
-        innovative curriculum and experienced faculty blending academic and
-        corporate insights
-      </strong>
-      .
+      <strong>innovative curriculum and experienced faculty blending academic and corporate insights</strong>.
     </p>,
     <p className="text-lg leading-relaxed" key="2">
       Recognized as an{" "}
