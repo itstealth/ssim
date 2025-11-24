@@ -5,26 +5,51 @@ export async function generateMetadata({ params }) {
   try {
     // Build the API URL dynamically for both dev and production
     let apiUrl;
+    let detectionMethod = 'unknown';
     
     if (process.env.NEXT_PUBLIC_BASE_URL) {
-      // Use the environment variable if set
+      // Method 1: Use the environment variable if set (PREFERRED)
       apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${blogId}`;
-    } else if (typeof window !== 'undefined') {
-      // Client-side: use current origin (shouldn't happen in generateMetadata, but just in case)
-      apiUrl = `${window.location.origin}/api/blogs/${blogId}`;
+      detectionMethod = 'NEXT_PUBLIC_BASE_URL';
+    } else if (process.env.NEXT_PUBLIC_SITE_URL) {
+      // Method 2: Fallback to SITE_URL
+      apiUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/blogs/${blogId}`;
+      detectionMethod = 'NEXT_PUBLIC_SITE_URL';
     } else {
-      // Server-side in production: construct from headers or use relative URL
-      // For Azure and most hosting, we can use absolute URL construction
-      const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-      const host = process.env.VERCEL_URL || process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000';
-      apiUrl = `${protocol}://${host}/api/blogs/${blogId}`;
+      // Method 3: Try to detect from Azure/hosting environment
+      // Check various Azure environment variables
+      const azureWebsiteName = process.env.WEBSITE_HOSTNAME || process.env.APPSETTING_WEBSITE_HOSTNAME;
+      const vercelUrl = process.env.VERCEL_URL;
+      
+      if (azureWebsiteName) {
+        // Azure App Service detected
+        apiUrl = `https://${azureWebsiteName}/api/blogs/${blogId}`;
+        detectionMethod = 'Azure WEBSITE_HOSTNAME';
+      } else if (vercelUrl) {
+        // Vercel detected
+        apiUrl = `https://${vercelUrl}/api/blogs/${blogId}`;
+        detectionMethod = 'Vercel URL';
+      } else if (process.env.NODE_ENV === 'production') {
+        // Production but no host detected - try relative URL as last resort
+        // This will work if the API is on the same domain
+        apiUrl = `/api/blogs/${blogId}`;
+        detectionMethod = 'relative URL (same-domain fallback)';
+        console.warn('[SEO Warning] No base URL configured, using relative URL. Set NEXT_PUBLIC_BASE_URL!');
+      } else {
+        // Development fallback
+        apiUrl = `http://localhost:3000/api/blogs/${blogId}`;
+        detectionMethod = 'localhost (development)';
+      }
     }
 
     console.log('[SEO Debug] Fetching metadata from:', apiUrl);
+    console.log('[SEO Debug] Detection method:', detectionMethod);
     console.log('[SEO Debug] Environment:', {
       NODE_ENV: process.env.NODE_ENV,
-      NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
-      NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+      NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || 'NOT SET',
+      NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'NOT SET',
+      WEBSITE_HOSTNAME: process.env.WEBSITE_HOSTNAME || 'NOT SET',
+      VERCEL_URL: process.env.VERCEL_URL || 'NOT SET',
     });
 
     const response = await fetch(apiUrl, {
@@ -55,8 +80,27 @@ export async function generateMetadata({ params }) {
     const description = post.metaDescription || (post.content || '').replace(/<[^>]*>/g, '').substring(0, 157) + "...";
     const featuredImage = post.imageUrl;
     const authorName = post.authorName || "SSIM";
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL || 'https://ssim.ac.in';
+    
+    // Determine the base site URL for canonical and OG URLs
+    let siteUrl;
+    if (process.env.NEXT_PUBLIC_BASE_URL) {
+      siteUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    } else if (process.env.NEXT_PUBLIC_SITE_URL) {
+      siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+    } else if (process.env.WEBSITE_HOSTNAME) {
+      siteUrl = `https://${process.env.WEBSITE_HOSTNAME}`;
+    } else if (process.env.VERCEL_URL) {
+      siteUrl = `https://${process.env.VERCEL_URL}`;
+    } else {
+      // Last resort - use a placeholder (should be replaced with actual domain)
+      siteUrl = 'https://ssim.ac.in'; // Replace with your actual production domain
+      console.warn('[SEO Warning] Using hardcoded domain. Please set NEXT_PUBLIC_BASE_URL!');
+    }
+    
     const canonicalUrl = post.canonicalUrl || `${siteUrl}/blog/${blogId}`;
+    
+    console.log('[SEO Debug] Site URL detected as:', siteUrl);
+    console.log('[SEO Debug] Canonical URL:', canonicalUrl);
 
     return {
       title: `${title} | SSIM Blog`,
