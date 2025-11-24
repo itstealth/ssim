@@ -51,6 +51,10 @@ function initializeAzureClients() {
   return containerClient;
 }
 
+/**
+ * Upload featured image to Azure Blob Storage (for blog thumbnail)
+ * Stores in featured-images/ folder with blogId as filename
+ */
 export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
   const requestId = Math.random().toString(36).substring(2, 15);
 
@@ -80,8 +84,9 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
     const container = initializeAzureClients();
 
     const fileExtension = originalFilename.split(".").pop();
-    const newFilename = `${blogId}.${fileExtension}`;
-    const contentType = mime.lookup(newFilename) || "application/octet-stream";
+    // Store featured images in featured-images folder
+    const newFilename = `featured-images/${blogId}.${fileExtension}`;
+    const contentType = mime.lookup(originalFilename) || "application/octet-stream";
 
     console.log('[AZURE] Uploading file to Azure:', {
       requestId,
@@ -105,6 +110,7 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
         originalFilename,
         blogId: blogId.toString(),
         uploadedAt: new Date().toISOString(),
+        folder: 'featured-images'
       },
     });
 
@@ -130,6 +136,92 @@ export async function uploadImageToAzure(fileBuffer, originalFilename, blogId) {
       throw new Error('Network error while uploading to Azure Storage. Please try again.');
     } else {
       throw new Error(`Failed to upload image to Azure Storage: ${error.message}`);
+    }
+  }
+}
+
+/**
+ * Upload file to Azure Blob Storage (for editor uploads)
+ * Organizes files into images/ or documents/ folders based on file type
+ */
+export async function uploadFileToAzure(fileBuffer, originalFilename, fileType) {
+  const requestId = Math.random().toString(36).substring(2, 15);
+
+  try {
+    console.log('[AZURE] Starting file upload to Azure Blob Storage', {
+      requestId,
+      originalFilename,
+      fileType,
+      fileSize: fileBuffer.length,
+    });
+
+    // Validate inputs
+    if (!fileBuffer || fileBuffer.length === 0) {
+      throw new Error('File buffer is empty or invalid');
+    }
+
+    if (!originalFilename) {
+      throw new Error('Original filename is required');
+    }
+
+    // Initialize Azure clients
+    const container = initializeAzureClients();
+
+    // Determine folder based on file type
+    let folder = "documents";
+    if (fileType && fileType.startsWith("image/")) {
+      folder = "images";
+    }
+
+    // Generate unique filename
+    const timestamp = Date.now();
+    const randomString = Math.random().toString(36).substring(2, 15);
+    const fileExtension = originalFilename.split(".").pop();
+    const fileName = `${timestamp}-${randomString}.${fileExtension}`;
+    const blobName = `${folder}/${fileName}`;
+
+    const contentType = mime.lookup(originalFilename) || fileType || "application/octet-stream";
+
+    console.log('[AZURE] Uploading file to Azure:', {
+      requestId,
+      blobName,
+      contentType,
+      folder,
+    });
+
+    const blockBlobClient = container.getBlockBlobClient(blobName);
+
+    await blockBlobClient.uploadData(fileBuffer, {
+      blobHTTPHeaders: { blobContentType: contentType },
+      metadata: {
+        originalFilename,
+        uploadedAt: new Date().toISOString(),
+        folder,
+      },
+    });
+
+    const blobUrl = blockBlobClient.url;
+    console.log('[AZURE] File upload completed:', blobUrl);
+
+    return blobUrl;
+  } catch (error) {
+    console.error('[AZURE] File upload failed:', error.message);
+    console.error('[AZURE] Error details:', {
+      name: error.name,
+      code: error.code,
+      statusCode: error.statusCode,
+      stack: error.stack
+    });
+
+    // Provide more specific error messages
+    if (error.message.includes('AuthenticationFailed')) {
+      throw new Error('Azure Storage authentication failed. Check your connection string.');
+    } else if (error.message.includes('ContainerNotFound')) {
+      throw new Error(`Azure Storage container '${containerName}' not found.`);
+    } else if (error.message.includes('NetworkError') || error.message.includes('ECONNRESET')) {
+      throw new Error('Network error while uploading to Azure Storage. Please try again.');
+    } else {
+      throw new Error(`Failed to upload file to Azure Storage: ${error.message}`);
     }
   }
 }

@@ -185,3 +185,677 @@ img {
   justify-content: center!important;
 }
 
+/* TipTap Editor Styles - REMOVED DUPLICATES (kept consolidated version below) */
+
+.ProseMirror h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+}
+
+.ProseMirror h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.ProseMirror h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+}
+
+.ProseMirror h5 {
+  font-size: 0.83em;
+  font-weight: bold;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+}
+
+.ProseMirror h6 {
+  font-size: 0.67em;
+  font-weight: bold;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+}
+
+.ProseMirror code {
+  background-color: rgba(97, 97, 97, 0.1);
+  color: #616161;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+
+.ProseMirror pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: "JetBrainsMono", monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.ProseMirror pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.ProseMirror mark {
+  background-color: #faf594;
+  padding: 0.125em 0;
+  border-radius: 0.125em;
+}
+
+.ProseMirror blockquote {
+  padding-left: 1rem;
+  border-left: 3px solid rgba(13, 13, 13, 0.1);
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}
+
+.ProseMirror a {
+  color: #3b82f6;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ProseMirror a:hover {
+  color: #2563eb;
+}
+
+.ProseMirror sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.ProseMirror sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.ProseMirror table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.ProseMirror table td,
+.ProseMirror table th {
+  min-width: 1em;
+  border: 2px solid #ced4da;
+  padding: 0.5rem;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ProseMirror table th {
+  font-weight: bold;
+  text-align: left;
+  background-color: #f1f3f5;
+}
+
+.ProseMirror table .selectedCell {
+  background-color: #e9ecef;
+}
+
+.ProseMirror table .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: -2px;
+  width: 4px;
+  background-color: #3b82f6;
+  pointer-events: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ProseMirror img:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Document link styles */
+.ProseMirror a[download] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 0.375rem;
+  color: #1e40af !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.ProseMirror a[download]:hover {
+  background-color: #bfdbfe;
+  border-color: #60a5fa;
+}
+
+.dark .ProseMirror a[download] {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #93c5fd !important;
+}
+
+.dark .ProseMirror a[download]:hover {
+  background-color: rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, 0.7);
+}
+
+/* Dark mode support */
+.dark .ProseMirror code {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.dark .ProseMirror pre {
+  background: #1e1e1e;
+}
+
+.dark .ProseMirror blockquote {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .ProseMirror hr {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .ProseMirror table th {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .ProseMirror table td,
+.dark .ProseMirror table th {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===================================
+   TipTap Editor Styles (CONSOLIDATED)
+   =================================== */
+
+/* Fix for TipTap editor lists - Override all conflicting styles */
+.ProseMirror {
+  outline: none;
+}
+
+/* CRITICAL: Force ordered lists to show proper numbers */
+.ProseMirror ol {
+  padding-left: 2.5rem !important;
+  margin: 1rem 0 !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  counter-reset: item !important;
+}
+
+.ProseMirror ol > li {
+  display: list-item !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.ProseMirror ul {
+  padding-left: 2.5rem !important;
+  margin: 1rem 0 !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+.ProseMirror ul > li {
+  display: list-item !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.ProseMirror li {
+  display: list-item !important;
+}
+
+/* Support multiple paragraphs within list items */
+.ProseMirror li > p {
+  margin: 0 !important;
+  margin-bottom: 0.5rem !important;
+  display: block !important;
+}
+
+.ProseMirror li > p:first-child {
+  margin-top: 0 !important;
+}
+
+.ProseMirror li > p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Style for list item titles (first paragraph, often bold) */
+.ProseMirror li > p:first-child:has(strong) {
+  font-weight: 600;
+  margin-bottom: 0.5rem !important;
+}
+
+/* If list item has only one paragraph AND no nested lists, keep it inline */
+.ProseMirror li > p:only-child {
+  display: inline !important;
+  margin: 0 !important;
+}
+
+/* If list item has paragraph(s) AND nested lists, ensure proper spacing */
+.ProseMirror li:has(ul) > p,
+.ProseMirror li:has(ol) > p {
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.ProseMirror li:has(ul) > p:last-of-type,
+.ProseMirror li:has(ol) > p:last-of-type {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Nested lists in editor */
+.ProseMirror li ul,
+.ProseMirror li ol {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+  padding-left: 2rem !important;
+}
+
+.ProseMirror ul ul,
+.ProseMirror li ul {
+  list-style-type: circle !important;
+}
+
+.ProseMirror ol ol,
+.ProseMirror li ol {
+  list-style-type: lower-alpha !important;
+}
+
+.ProseMirror ol ul,
+.ProseMirror ol li ul {
+  list-style-type: circle !important;
+}
+
+.ProseMirror ul ol,
+.ProseMirror ul li ol {
+  list-style-type: decimal !important;
+}
+
+/* Nested list items */
+.ProseMirror li li {
+  margin-bottom: 0.25rem !important;
+  padding-left: 0.25rem !important;
+}
+
+/* ===================================
+   Blog Content Styling (Frontend)
+   =================================== */
+
+/* Container for blog content on frontend pages */
+.blog-content {
+  @apply text-slate-700;
+}
+
+/* Images in blog content */
+.blog-content img {
+  @apply w-full h-auto rounded-xl shadow-lg my-8 mx-auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* Responsive images */
+.blog-content img {
+  object-fit: cover;
+}
+
+/* Small images should be centered */
+.blog-content img[style*="max-width"] {
+  @apply mx-auto;
+}
+
+/* Document download links in blog content */
+.blog-content a[download],
+.blog-content a[href*=".pdf"],
+.blog-content a[href*=".doc"],
+.blog-content a[href*=".docx"],
+.blog-content a[href*=".xls"],
+.blog-content a[href*=".xlsx"],
+.blog-content a[href*=".ppt"],
+.blog-content a[href*=".pptx"],
+.blog-content a[href*="/documents/"] {
+  @apply inline-flex items-center gap-2 px-4 py-3 my-4;
+  @apply bg-blue-100 border-2 border-blue-300 rounded-lg;
+  @apply text-blue-700 font-semibold no-underline;
+  @apply transition-all duration-200;
+  @apply hover:bg-blue-200 hover:border-blue-400 hover:shadow-md;
+  @apply dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-300;
+  @apply dark:hover:bg-blue-900/50 dark:hover:border-blue-600;
+}
+
+/* Link icons (from emoji or SVG) */
+.blog-content a[download]::before {
+  content: "📄";
+  @apply text-xl;
+}
+
+/* Tables in blog content */
+.blog-content table {
+  @apply w-full my-8 border-collapse rounded-lg overflow-hidden shadow-md;
+}
+
+.blog-content table thead {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+.blog-content table th {
+  @apply px-6 py-4 text-left font-bold text-slate-900 dark:text-slate-100;
+  @apply border-b-2 border-slate-300 dark:border-slate-600;
+}
+
+.blog-content table td {
+  @apply px-6 py-4 text-slate-700 dark:text-slate-300;
+  @apply border-b border-slate-200 dark:border-slate-700;
+}
+
+.blog-content table tbody tr:hover {
+  @apply bg-slate-50 dark:bg-slate-800/50;
+}
+
+/* Code blocks */
+.blog-content pre {
+  @apply bg-slate-900 text-slate-100 rounded-lg p-6 my-6 overflow-x-auto;
+  @apply shadow-lg;
+}
+
+.blog-content pre code {
+  @apply bg-transparent text-inherit p-0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Inline code */
+.blog-content code {
+  @apply bg-pink-50 text-pink-700 px-2 py-1 rounded text-sm font-mono;
+  @apply dark:bg-pink-900/30 dark:text-pink-300;
+}
+
+.blog-content pre code {
+  @apply bg-transparent text-white px-0 py-0;
+}
+
+/* Blockquotes */
+.blog-content blockquote {
+  @apply border-l-4 border-blue-500 pl-6 pr-4 py-4 my-6;
+  @apply bg-blue-50 dark:bg-blue-900/20;
+  @apply italic text-slate-700 dark:text-slate-300;
+  @apply rounded-r-lg shadow-sm;
+}
+
+.blog-content blockquote p {
+  @apply mb-0;
+}
+
+/* Lists - CRITICAL: Override prose classes */
+.blog-content ul,
+.blog-content .prose ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  padding-left: 2.5rem !important;
+  @apply my-6;
+}
+
+.blog-content ol,
+.blog-content .prose ol {
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  padding-left: 2.5rem !important;
+  @apply my-6;
+  counter-reset: item !important;
+}
+
+.blog-content ol > li,
+.blog-content .prose ol > li {
+  display: list-item !important;
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed;
+  padding-left: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.blog-content ul > li,
+.blog-content .prose ul > li {
+  display: list-item !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed;
+  padding-left: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.blog-content li {
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed;
+  display: list-item !important;
+}
+
+/* Support multiple paragraphs within list items on frontend */
+.blog-content li > p,
+.blog-content .prose li > p {
+  display: block !important;
+  margin: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.blog-content li > p:first-child,
+.blog-content .prose li > p:first-child {
+  margin-top: 0 !important;
+}
+
+.blog-content li > p:last-child,
+.blog-content .prose li > p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Style for list item titles (first paragraph with bold text) */
+.blog-content li > p:first-child strong,
+.blog-content .prose li > p:first-child strong {
+  font-weight: 700 !important;
+  font-size: 1.05em;
+  @apply text-slate-900 dark:text-slate-100;
+}
+
+/* If list item has only one paragraph AND no nested lists, keep it inline */
+.blog-content li > p:only-child,
+.blog-content .prose li > p:only-child {
+  display: inline !important;
+  margin: 0 !important;
+}
+
+/* If list item has paragraph(s) AND nested lists, ensure proper spacing */
+.blog-content li:has(ul) > p,
+.blog-content li:has(ol) > p,
+.blog-content .prose li:has(ul) > p,
+.blog-content .prose li:has(ol) > p {
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.blog-content li:has(ul) > p:last-of-type,
+.blog-content li:has(ol) > p:last-of-type,
+.blog-content .prose li:has(ul) > p:last-of-type,
+.blog-content .prose li:has(ol) > p:last-of-type {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Nested lists within list items */
+.blog-content li ul,
+.blog-content li ol,
+.blog-content .prose li ul,
+.blog-content .prose li ol {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-left: 2rem !important;
+}
+
+/* Nested unordered lists */
+.blog-content ul ul,
+.blog-content li ul,
+.blog-content .prose ul ul,
+.blog-content .prose li ul {
+  list-style-type: circle !important;
+}
+
+/* Nested ordered lists */
+.blog-content ol ol,
+.blog-content li ol,
+.blog-content .prose ol ol,
+.blog-content .prose li ol {
+  list-style-type: lower-alpha !important;
+}
+
+/* Ordered list with nested unordered */
+.blog-content ol ul,
+.blog-content ol li ul,
+.blog-content .prose ol ul,
+.blog-content .prose ol li ul {
+  list-style-type: circle !important;
+}
+
+/* Unordered list with nested ordered */
+.blog-content ul ol,
+.blog-content ul li ol,
+.blog-content .prose ul ol,
+.blog-content .prose ul li ol {
+  list-style-type: decimal !important;
+}
+
+/* Nested list items spacing */
+.blog-content li li,
+.blog-content .prose li li {
+  margin-bottom: 0.25rem !important;
+  padding-left: 0.25rem !important;
+}
+
+/* Fix for TipTap generated lists */
+.blog-content ol[data-type="orderedList"],
+.blog-content .prose ol[data-type="orderedList"] {
+  list-style-type: decimal !important;
+}
+
+.blog-content ul[data-type="bulletList"],
+.blog-content .prose ul[data-type="bulletList"] {
+  list-style-type: disc !important;
+}
+
+/* Links */
+.blog-content a:not([download]):not([href*="/documents/"]) {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-700 dark:hover:text-blue-300;
+  @apply hover:underline;
+  @apply transition-colors duration-200;
+}
+
+/* Horizontal rules */
+.blog-content hr {
+  @apply border-t-2 border-slate-200 dark:border-slate-700 my-8;
+}
+
+/* Paragraphs */
+.blog-content p {
+  @apply mb-4 leading-relaxed;
+}
+
+/* Text emphasis */
+.blog-content strong {
+  @apply font-bold text-slate-900 dark:text-slate-100;
+}
+
+.blog-content em {
+  @apply italic;
+}
+
+.blog-content mark {
+  @apply bg-yellow-200 dark:bg-yellow-600/30 px-1 rounded;
+}
+
+/* Subscript and Superscript */
+.blog-content sub,
+.blog-content sup {
+  @apply text-xs;
+}
+
+/* First paragraph styling (optional - makes first para stand out) */
+.blog-content > p:first-of-type {
+  @apply text-lg font-medium text-slate-800 dark:text-slate-200;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .blog-content {
+    @apply text-base;
+  }
+  
+  .blog-content img {
+    @apply my-6;
+  }
+  
+  .blog-content pre {
+    @apply p-4 text-sm;
+  }
+  
+  .blog-content table {
+    @apply text-sm;
+  }
+  
+  .blog-content table th,
+  .blog-content table td {
+    @apply px-3 py-2;
+  }
+}
+
