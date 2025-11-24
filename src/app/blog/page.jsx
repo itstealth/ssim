@@ -229,10 +229,10 @@ export default function BlogSection() {
                               <Calendar className="h-4 w-4" />
                               <span>{post.date}</span>
                             </div>
-                            <div className="flex items-center gap-1.5">
+                            {/* <div className="flex items-center gap-1.5">
                               <Clock className="h-4 w-4" />
                               <span>{post.readTime}</span>
-                            </div>
+                            </div> */}
                           </div>
 
                           {/* <div className="flex items-center justify-between mb-6">
