@@ -179,29 +179,7 @@ export default function BlogDetail() {
             <Card className="border-none shadow-lg">
               <CardContent className="p-6 sm:p-8 lg:p-12">
                 <div 
-                  className="blog-content prose prose-lg max-w-none
-                    prose-headings:text-mainBlue prose-headings:font-bold prose-headings:tracking-tight
-                    prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 sm:prose-h1:text-5xl
-                    prose-h2:text-3xl prose-h2:mb-5 prose-h2:mt-8 sm:prose-h2:text-4xl
-                    prose-h3:text-2xl prose-h3:mb-4 prose-h3:mt-6 sm:prose-h3:text-3xl
-                    prose-h4:text-xl prose-h4:mb-4 prose-h4:mt-6 sm:prose-h4:text-2xl
-                    prose-h5:text-lg prose-h5:mb-3 prose-h5:mt-4 sm:prose-h5:text-xl
-                    prose-h6:text-base prose-h6:mb-3 prose-h6:mt-4 sm:prose-h6:text-lg
-                    prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-4
-                    prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700 hover:prose-a:underline
-                    prose-strong:text-slate-900 prose-strong:font-bold
-                    prose-em:text-slate-700 prose-em:italic
-                    prose-code:text-pink-600 prose-code:bg-pink-50 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
-                    prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-lg prose-pre:p-4 prose-pre:overflow-x-auto
-                    prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-slate-600 prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:pr-4 prose-blockquote:rounded-r-lg
-                    prose-ul:my-6 prose-ul:space-y-2
-                    prose-ol:my-6 prose-ol:space-y-2
-                    prose-li:text-slate-700 prose-li:leading-relaxed prose-li:marker:text-slate-500
-                    prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
-                    prose-hr:border-slate-200 prose-hr:my-8
-                    prose-table:border-collapse prose-table:w-full prose-table:my-8
-                    prose-th:bg-slate-100 prose-th:border prose-th:border-slate-300 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-slate-900
-                    prose-td:border prose-td:border-slate-300 prose-td:px-4 prose-td:py-3 prose-td:text-slate-700"
+                  className="blog-content"
                   dangerouslySetInnerHTML={{
                     __html: blog.content
                   }}

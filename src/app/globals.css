@@ -536,26 +536,64 @@ img {
    Blog Content Styling (Frontend)
    =================================== */
 
+/* ===================================
+   Container and Base Styles
+   =================================== */
+
 /* Container for blog content on frontend pages */
 .blog-content {
-  @apply text-slate-700;
+  @apply text-slate-700 dark:text-slate-300;
+  font-size: 1rem;
+  line-height: 1.75;
 }
+
+/* Ensure proper spacing between all elements */
+.blog-content > * + * {
+  margin-top: 1rem;
+}
+
+/* Larger spacing after headings */
+.blog-content h1 + *,
+.blog-content h2 + *,
+.blog-content h3 + * {
+  margin-top: 1.5rem !important;
+}
+
+/* Tighter spacing between heading and paragraph */
+.blog-content h4 + p,
+.blog-content h5 + p,
+.blog-content h6 + p {
+  margin-top: 0.75rem !important;
+}
+
+/* ===================================
+   Images and Media
+   =================================== */
 
 /* Images in blog content */
-.blog-content img {
+.blog-content img,
+.blog-content .prose img {
   @apply w-full h-auto rounded-xl shadow-lg my-8 mx-auto;
   max-width: 100%;
-  display: block;
-}
-
-/* Responsive images */
-.blog-content img {
+  display: block !important;
   object-fit: cover;
 }
 
 /* Small images should be centered */
-.blog-content img[style*="max-width"] {
+.blog-content img[style*="max-width"],
+.blog-content .prose img[style*="max-width"] {
   @apply mx-auto;
+}
+
+/* Figure captions */
+.blog-content figure,
+.blog-content .prose figure {
+  @apply my-8;
+}
+
+.blog-content figcaption,
+.blog-content .prose figcaption {
+  @apply text-sm text-slate-600 dark:text-slate-400 text-center mt-2 italic;
 }
 
 /* Document download links in blog content */
@@ -583,105 +621,149 @@ img {
   @apply text-xl;
 }
 
+/* ===================================
+   Tables
+   =================================== */
+
 /* Tables in blog content */
-.blog-content table {
+.blog-content table,
+.blog-content .prose table {
   @apply w-full my-8 border-collapse rounded-lg overflow-hidden shadow-md;
+  border: 1px solid rgb(226, 232, 240);
 }
 
-.blog-content table thead {
+.blog-content table thead,
+.blog-content .prose table thead {
   @apply bg-slate-100 dark:bg-slate-800;
 }
 
-.blog-content table th {
+.blog-content table th,
+.blog-content .prose table th {
   @apply px-6 py-4 text-left font-bold text-slate-900 dark:text-slate-100;
   @apply border-b-2 border-slate-300 dark:border-slate-600;
+  font-size: 1rem !important;
 }
 
-.blog-content table td {
+.blog-content table td,
+.blog-content .prose table td {
   @apply px-6 py-4 text-slate-700 dark:text-slate-300;
   @apply border-b border-slate-200 dark:border-slate-700;
+  font-size: 1rem !important;
 }
 
-.blog-content table tbody tr:hover {
+.blog-content table tbody tr:hover,
+.blog-content .prose table tbody tr:hover {
   @apply bg-slate-50 dark:bg-slate-800/50;
 }
 
 /* Code blocks */
-.blog-content pre {
-  @apply bg-slate-900 text-slate-100 rounded-lg p-6 my-6 overflow-x-auto;
+.blog-content pre,
+.blog-content .prose pre {
+  @apply bg-slate-900 text-slate-100 rounded-lg p-6 my-8 overflow-x-auto;
   @apply shadow-lg;
+  font-size: 0.875rem !important;
+  line-height: 1.7 !important;
 }
 
-.blog-content pre code {
+.blog-content pre code,
+.blog-content .prose pre code {
   @apply bg-transparent text-inherit p-0;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.875rem;
-  line-height: 1.7;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.7 !important;
 }
 
 /* Inline code */
-.blog-content code {
-  @apply bg-pink-50 text-pink-700 px-2 py-1 rounded text-sm font-mono;
+.blog-content code,
+.blog-content .prose code {
+  @apply bg-pink-50 text-pink-700 px-2 py-1 rounded font-mono;
   @apply dark:bg-pink-900/30 dark:text-pink-300;
+  font-size: 0.875em !important;
 }
 
-.blog-content pre code {
+.blog-content pre code,
+.blog-content .prose pre code {
   @apply bg-transparent text-white px-0 py-0;
+  font-size: 0.875rem !important;
 }
 
 /* Blockquotes */
-.blog-content blockquote {
-  @apply border-l-4 border-blue-500 pl-6 pr-4 py-4 my-6;
+.blog-content blockquote,
+.blog-content .prose blockquote {
+  @apply border-l-4 border-blue-500 pl-6 pr-4 py-4 my-8;
   @apply bg-blue-50 dark:bg-blue-900/20;
-  @apply italic text-slate-700 dark:text-slate-300;
+  @apply italic text-slate-700 dark:text-slate-300 text-lg;
   @apply rounded-r-lg shadow-sm;
+  font-style: italic !important;
 }
 
-.blog-content blockquote p {
-  @apply mb-0;
+.blog-content blockquote p,
+.blog-content .prose blockquote p {
+  @apply mb-2 last:mb-0 text-lg;
+  font-style: italic !important;
 }
 
-/* Lists - CRITICAL: Override prose classes */
+.blog-content blockquote strong {
+  @apply font-bold text-slate-900 dark:text-slate-100;
+}
+
+/* ===================================
+   Lists - Clear and Distinct
+   =================================== */
+
+/* Unordered Lists (Bullet Points) */
 .blog-content ul,
 .blog-content .prose ul {
   list-style-type: disc !important;
   list-style-position: outside !important;
   padding-left: 2.5rem !important;
-  @apply my-6;
+  @apply my-6 space-y-2;
 }
 
+/* Ordered Lists (Numbered) */
 .blog-content ol,
 .blog-content .prose ol {
   list-style-type: decimal !important;
   list-style-position: outside !important;
   padding-left: 2.5rem !important;
-  @apply my-6;
+  @apply my-6 space-y-2;
   counter-reset: item !important;
 }
 
+/* List Items - Ordered */
 .blog-content ol > li,
 .blog-content .prose ol > li {
   display: list-item !important;
   list-style-type: decimal !important;
   list-style-position: outside !important;
-  @apply text-slate-700 dark:text-slate-300 leading-relaxed;
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg;
   padding-left: 0.5rem !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.75rem !important;
 }
 
+/* List Items - Unordered */
 .blog-content ul > li,
 .blog-content .prose ul > li {
   display: list-item !important;
   list-style-type: disc !important;
   list-style-position: outside !important;
-  @apply text-slate-700 dark:text-slate-300 leading-relaxed;
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg;
   padding-left: 0.5rem !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.75rem !important;
 }
 
-.blog-content li {
-  @apply text-slate-700 dark:text-slate-300 leading-relaxed;
+/* All List Items */
+.blog-content li,
+.blog-content .prose li {
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg;
   display: list-item !important;
+}
+
+/* List markers should be visible */
+.blog-content ul > li::marker,
+.blog-content ol > li::marker {
+  @apply text-slate-500 dark:text-slate-400;
+  font-weight: 600;
 }
 
 /* Support multiple paragraphs within list items on frontend */
@@ -793,35 +875,128 @@ img {
   list-style-type: disc !important;
 }
 
-/* Links */
-.blog-content a:not([download]):not([href*="/documents/"]) {
+/* ===================================
+   Links
+   =================================== */
+
+/* Regular text links */
+.blog-content a:not([download]):not([href*="/documents/"]),
+.blog-content .prose a:not([download]):not([href*="/documents/"]) {
   @apply text-blue-600 dark:text-blue-400;
   @apply hover:text-blue-700 dark:hover:text-blue-300;
-  @apply hover:underline;
-  @apply transition-colors duration-200;
+  @apply underline decoration-blue-300 dark:decoration-blue-600;
+  @apply hover:decoration-blue-600 dark:hover:decoration-blue-400;
+  @apply transition-all duration-200;
+  font-weight: 500;
+}
+
+.blog-content a:visited:not([download]):not([href*="/documents/"]) {
+  @apply text-purple-600 dark:text-purple-400;
 }
 
 /* Horizontal rules */
-.blog-content hr {
-  @apply border-t-2 border-slate-200 dark:border-slate-700 my-8;
+.blog-content hr,
+.blog-content .prose hr {
+  @apply border-t-2 border-slate-200 dark:border-slate-700 my-10;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+/* ===================================
+   Typography Hierarchy
+   =================================== */
+
+/* Headings - Establish clear visual hierarchy */
+.blog-content h1,
+.blog-content .prose h1 {
+  @apply text-4xl sm:text-5xl font-bold text-mainBlue leading-tight;
+  @apply mt-12 mb-6;
+  @apply tracking-tight;
+}
+
+.blog-content h2,
+.blog-content .prose h2 {
+  @apply text-3xl sm:text-4xl font-bold text-mainBlue leading-tight;
+  @apply mt-10 mb-5;
+  @apply tracking-tight;
+}
+
+.blog-content h3,
+.blog-content .prose h3 {
+  @apply text-2xl sm:text-3xl font-bold text-mainBlue leading-snug;
+  @apply mt-8 mb-4;
+  @apply tracking-tight;
+}
+
+.blog-content h4,
+.blog-content .prose h4 {
+  @apply text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100;
+  @apply mt-6 mb-4;
+}
+
+.blog-content h5,
+.blog-content .prose h5 {
+  @apply text-lg sm:text-xl font-semibold text-slate-800 dark:text-slate-200;
+  @apply mt-6 mb-3;
+}
+
+.blog-content h6,
+.blog-content .prose h6 {
+  @apply text-base sm:text-lg font-semibold text-slate-700 dark:text-slate-300;
+  @apply mt-4 mb-3;
+}
+
+/* First heading should have less top margin */
+.blog-content h1:first-child,
+.blog-content h2:first-child,
+.blog-content h3:first-child,
+.blog-content h4:first-child,
+.blog-content h5:first-child,
+.blog-content h6:first-child {
+  @apply mt-0;
 }
 
 /* Paragraphs */
-.blog-content p {
-  @apply mb-4 leading-relaxed;
+.blog-content p,
+.blog-content .prose p {
+  @apply mb-4 leading-relaxed text-base sm:text-lg;
+  @apply text-slate-700 dark:text-slate-300;
 }
 
 /* Text emphasis */
-.blog-content strong {
+.blog-content strong,
+.blog-content .prose strong,
+.blog-content b {
   @apply font-bold text-slate-900 dark:text-slate-100;
+  font-weight: 700 !important;
 }
 
-.blog-content em {
-  @apply italic;
+.blog-content em,
+.blog-content .prose em,
+.blog-content i {
+  @apply italic text-slate-700 dark:text-slate-300;
+  font-style: italic !important;
 }
 
-.blog-content mark {
+.blog-content mark,
+.blog-content .prose mark {
   @apply bg-yellow-200 dark:bg-yellow-600/30 px-1 rounded;
+  @apply text-slate-900 dark:text-slate-100;
+}
+
+/* Underline */
+.blog-content u {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+/* Strike through */
+.blog-content s,
+.blog-content del,
+.blog-content strike {
+  text-decoration: line-through;
+  @apply text-slate-500 dark:text-slate-400;
 }
 
 /* Subscript and Superscript */
