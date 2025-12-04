@@ -625,35 +625,251 @@ img {
    Tables
    =================================== */
 
-/* Tables in blog content */
+/* Tables in blog content - Support both regular HTML tables and shadcn Table components */
 .blog-content table,
 .blog-content .prose table {
-  @apply w-full my-8 border-collapse rounded-lg overflow-hidden shadow-md;
+  @apply w-full border-collapse;
+  font-size: 1rem !important;
+}
+
+/* Regular HTML tables (fallback) */
+.blog-content table:not([data-shadcn-table]),
+.blog-content .prose table:not([data-shadcn-table]) {
+  @apply my-8 rounded-lg overflow-hidden shadow-md;
   border: 1px solid rgb(226, 232, 240);
 }
 
-.blog-content table thead,
-.blog-content .prose table thead {
+.blog-content table:not([data-shadcn-table]) thead,
+.blog-content .prose table:not([data-shadcn-table]) thead {
   @apply bg-slate-100 dark:bg-slate-800;
 }
 
-.blog-content table th,
-.blog-content .prose table th {
+.blog-content table:not([data-shadcn-table]) th,
+.blog-content .prose table:not([data-shadcn-table]) th {
   @apply px-6 py-4 text-left font-bold text-slate-900 dark:text-slate-100;
   @apply border-b-2 border-slate-300 dark:border-slate-600;
   font-size: 1rem !important;
 }
 
-.blog-content table td,
-.blog-content .prose table td {
+.blog-content table:not([data-shadcn-table]) td,
+.blog-content .prose table:not([data-shadcn-table]) td {
   @apply px-6 py-4 text-slate-700 dark:text-slate-300;
   @apply border-b border-slate-200 dark:border-slate-700;
   font-size: 1rem !important;
 }
 
-.blog-content table tbody tr:hover,
-.blog-content .prose table tbody tr:hover {
+.blog-content table:not([data-shadcn-table]) tbody tr:hover,
+.blog-content .prose table:not([data-shadcn-table]) tbody tr:hover {
   @apply bg-slate-50 dark:bg-slate-800/50;
+}
+
+/* Shadcn Table wrapper - ensure responsive scrolling */
+.blog-content > div > div[class*="overflow-x-auto"],
+.blog-content > div > div[class*="overflow-auto"] {
+  @apply w-full;
+  max-width: 100%;
+}
+
+/* Ensure tables don't break layout */
+.blog-content > div > div[class*="overflow-x-auto"] > table,
+.blog-content > div > div[class*="overflow-auto"] > table {
+  @apply min-w-full;
+  @apply border border-slate-200 dark:border-slate-700 rounded-lg;
+}
+
+/* Beautiful horizontal scrollbar styling for table containers */
+.blog-content .table-scroll-container {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(203, 213, 225) transparent;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.blog-content .table-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.blog-content .table-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.blog-content .table-scroll-container::-webkit-scrollbar-thumb {
+  background: rgb(203, 213, 225);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.blog-content .table-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgb(148, 163, 184);
+}
+
+/* Dark mode scrollbar */
+.dark .blog-content .table-scroll-container {
+  scrollbar-color: rgb(71, 85, 105) transparent;
+}
+
+.dark .blog-content .table-scroll-container::-webkit-scrollbar-thumb {
+  background: rgb(71, 85, 105);
+}
+
+.dark .blog-content .table-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgb(100, 116, 139);
+}
+
+/* Option to hide scrollbar completely - uncomment to use */
+/* .blog-content .table-scroll-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.blog-content .table-scroll-container::-webkit-scrollbar {
+  display: none;
+} */
+
+/* Prevent text wrapping in table cells - shadcn tables */
+.blog-content table th,
+.blog-content table td {
+  white-space: nowrap !important;
+}
+
+/* Also apply to regular HTML tables */
+.blog-content table:not([data-shadcn-table]) th,
+.blog-content table:not([data-shadcn-table]) td {
+  white-space: nowrap !important;
+}
+
+/* Table header background color - FORCE IT TO SHOW */
+.blog-content .table-scroll-container .blog-table thead,
+.blog-content .table-scroll-container table thead,
+.blog-content .blog-table thead,
+.blog-content table thead {
+  background-color: #002F87 !important;
+  background: #002F87 !important;
+}
+
+.dark .blog-content .table-scroll-container .blog-table thead,
+.dark .blog-content .table-scroll-container table thead,
+.dark .blog-content .blog-table thead,
+.dark .blog-content table thead {
+  background-color: rgb(30, 41, 59) !important;
+  background: rgb(30, 41, 59) !important;
+}
+
+.blog-content .blog-table-header,
+.blog-content .table-scroll-container .blog-table thead,
+.blog-content .table-scroll-container table thead,
+.blog-content .blog-table thead,
+.blog-content table thead {
+  background-color: #002F87 !important;
+  background: #002F87 !important;
+}
+
+.dark .blog-content .blog-table-header,
+.dark .blog-content .table-scroll-container .blog-table thead,
+.dark .blog-content .table-scroll-container table thead,
+.dark .blog-content .blog-table thead,
+.dark .blog-content table thead {
+  background-color: rgb(30, 41, 59) !important;
+  background: rgb(30, 41, 59) !important;
+}
+
+.blog-content .blog-table-header-row,
+.blog-content .table-scroll-container .blog-table thead tr,
+.blog-content .table-scroll-container table thead tr,
+.blog-content .blog-table thead tr,
+.blog-content table thead tr {
+  background-color: #002F87 !important;
+  background: #002F87 !important;
+}
+
+.dark .blog-content .blog-table-header-row,
+.dark .blog-content .table-scroll-container .blog-table thead tr,
+.dark .blog-content .table-scroll-container table thead tr,
+.dark .blog-content .blog-table thead tr,
+.dark .blog-content table thead tr {
+  background-color: rgb(30, 41, 59) !important;
+  background: rgb(30, 41, 59) !important;
+}
+
+.blog-content .blog-table-header-cell,
+.blog-content .table-scroll-container .blog-table thead th,
+.blog-content .table-scroll-container table thead th,
+.blog-content .blog-table thead th,
+.blog-content table thead th {
+  background-color: #002F87 !important;
+  background: #002F87 !important;
+  color: #ffffff !important;
+}
+
+/* Force white text color for all content inside header cells - override inline styles */
+.blog-content .blog-table-header-cell *,
+.blog-content .table-scroll-container .blog-table thead th *,
+.blog-content .table-scroll-container table thead th *,
+.blog-content .blog-table thead th *,
+.blog-content table thead th * {
+  color: #ffffff !important;
+}
+
+.blog-content .blog-table-header-cell p,
+.blog-content .table-scroll-container .blog-table thead th p,
+.blog-content .table-scroll-container table thead th p,
+.blog-content .blog-table thead th p,
+.blog-content table thead th p {
+  color: #ffffff !important;
+}
+
+.blog-content .blog-table-header-cell span,
+.blog-content .table-scroll-container .blog-table thead th span,
+.blog-content .table-scroll-container table thead th span,
+.blog-content .blog-table thead th span,
+.blog-content table thead th span {
+  color: #ffffff !important;
+}
+
+.blog-content .blog-table-header-cell strong,
+.blog-content .table-scroll-container .blog-table thead th strong,
+.blog-content .table-scroll-container table thead th strong,
+.blog-content .blog-table thead th strong,
+.blog-content table thead th strong {
+  color: #ffffff !important;
+}
+
+.dark .blog-content .blog-table-header-cell,
+.dark .blog-content .table-scroll-container .blog-table thead th,
+.dark .blog-content .table-scroll-container table thead th,
+.dark .blog-content .blog-table thead th,
+.dark .blog-content table thead th {
+  background-color: rgb(30, 41, 59) !important;
+  background: rgb(30, 41, 59) !important;
+  color: rgb(241, 245, 249) !important;
+}
+
+.dark .blog-content .blog-table-header-cell *,
+.dark .blog-content .table-scroll-container .blog-table thead th *,
+.dark .blog-content .table-scroll-container table thead th *,
+.dark .blog-content .blog-table thead th *,
+.dark .blog-content table thead th * {
+  color: rgb(241, 245, 249) !important;
+}
+
+/* Override any hover effects on header rows */
+.blog-content .blog-table-header-row:hover,
+.blog-content .table-scroll-container .blog-table thead tr:hover,
+.blog-content .table-scroll-container table thead tr:hover,
+.blog-content .blog-table thead tr:hover,
+.blog-content table thead tr:hover {
+  background-color: #002F87 !important;
+  background: #002F87 !important;
+}
+
+.dark .blog-content .blog-table-header-row:hover,
+.dark .blog-content .table-scroll-container .blog-table thead tr:hover,
+.dark .blog-content .table-scroll-container table thead tr:hover,
+.dark .blog-content .blog-table thead tr:hover,
+.dark .blog-content table thead tr:hover {
+  background-color: rgb(30, 41, 59) !important;
+  background: rgb(30, 41, 59) !important;
 }
 
 /* Code blocks */
