@@ -29,12 +29,6 @@ export const metadata = {
     icon: "/favicon.png",
   },
   manifest: "/manifest.json",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
   category: "education",
   keywords: ["SSIM", "Contact Us", "Contact", "Inquiry", "Information"],
   authors: [{ name: "SSIM", url: "https://www.ssim.ac.in" }],
@@ -50,6 +44,13 @@ export const metadata = {
   alternates: {
     canonical: "https://www.ssim.ac.in/contact-us",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function ContactUsLayout({ children }) {

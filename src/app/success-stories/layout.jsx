@@ -27,6 +27,13 @@ export const metadata = {
       canonical: "https://www.ssim.ac.in/success-stories",
     },
   };
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
   
   export default function AlumniLayout({ children }) {
     return children;

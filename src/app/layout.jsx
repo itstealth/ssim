@@ -53,12 +53,7 @@ export const metadata = {
     icon: "/ssim-favicon.png",
   },  
   manifest: "/manifest.json",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://www.ssim.ac.in"),
   category: "education",
   keywords: ["SSIM Hyderabad", "MBA", "PGDM", "B-School", "Hyderabad"],
   authors: [{ name: "SSIM Hyderabad" }],
@@ -74,6 +69,13 @@ export const metadata = {
   alternates: {
     canonical: "https://www.ssim.ac.in",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({ children }) {

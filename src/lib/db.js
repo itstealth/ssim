@@ -191,19 +191,26 @@ async function initializeDatabaseSchema() {
   } catch (error) {
     console.error('[DB] Error initializing database schema:', error.message);
     console.error('[DB] Error details:', error);
-    // Exit the process if we can't set up the database, as the app won't work.
-    process.exit(1);
+    // Don't exit the process - tables might already exist, or connection might be temporary
+    // The app can still work if tables already exist from previous runs
+    // Only log the error and continue
   } finally {
     if (connection) connection.release();
   }
 }
 
-// Initialize database schema on startup (only in production/runtime, not during build)
-if (process.env.NODE_ENV !== 'production' || process.env.DB_HOST) {
-  // Only run if we're not in build mode
-  if (typeof window === 'undefined' && dbPool) {
-    initializeDatabaseSchema().catch(error => {
-      console.error('[DB] Failed to initialize database schema:', error);
-    });
-  }
+// Initialize database schema on startup (only at runtime, not during build)
+// Check if we're in build mode by looking for Next.js build indicators
+const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build' || 
+                    process.env.NEXT_PHASE === 'phase-development-build' ||
+                    (typeof process.env.npm_lifecycle_event !== 'undefined' && 
+                     process.env.npm_lifecycle_event.includes('build'));
+
+if (!isBuildTime && typeof window === 'undefined' && dbPool) {
+  // Only run at runtime, not during build
+  initializeDatabaseSchema().catch(error => {
+    console.error('[DB] Failed to initialize database schema:', error);
+    // Don't exit process during runtime - just log the error
+    // The app can still work if tables already exist
+  });
 }
