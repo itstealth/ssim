@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Board of Governors - SSIM | PGDM in Hyderabad",
   description: "Meet the Board of Governors at SSIM Hyderabad — visionary leaders and experts guiding one of the top PGDM colleges in Hyderabad.",
-  keywords: "SSIM board of governors, board of directors, academic governance, business school leadership, SSIM leadership team",
+  keywords: "SSIM board of governors, governance, PGDM college Hyderabad, management institute leadership",
   openGraph: {
     title: "Board of Governors - SSIM | PGDM in Hyderabad",
     description: "Meet the Board of Governors at SSIM Hyderabad — visionary leaders and experts guiding one of the top PGDM colleges in Hyderabad.",
@@ -21,7 +21,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Board of Governors - SSIM",
-    description: "Meet the Board of Governors at Siva Sivani Institute of Management (SSIM).",
+    description: "Meet the Board of Governors at SSIM Hyderabad — visionary leaders and experts guiding one of the top PGDM colleges in Hyderabad.",
     images: ["/ssimlogo.webp"],
   },
   robots: {
@@ -35,4 +35,4 @@ export const metadata = {
 
 export default function BoardOfGovernorsLayout({ children }) {
   return children;
-} 
+}

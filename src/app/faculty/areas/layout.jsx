@@ -1,22 +1,27 @@
 export const metadata = {
   title: "Faculty Expertise - SSIM Hyderabad | Academic Excellence",
-  description:
-    "Discover SSIM Hyderabad’s faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
-  keywords:
-    "SSIM faculty, faculty expertise, business school professors, academic areas",
+  description: "Discover SSIM Hyderabad's faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
+  keywords: "SSIM faculty, management faculty, business school professors, academic expertise",
   openGraph: {
     title: "Faculty Expertise - SSIM Hyderabad | Academic Excellence",
-    description:
-      "Discover SSIM Hyderabad’s faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
+    description: "Discover SSIM Hyderabad's faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
     url: "https://www.ssim.ac.in/faculty/areas",
     siteName: "Siva Sivani Institute of Management",
-    images: ["/ssimlogo.webp"],
+    images: [
+      {
+        url: "/ssimlogo.webp",
+        width: 1200,
+        height: 630,
+        alt: "SSIM Faculty Expertise",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Faculty Expertise - SSIM Hyderabad | Academic Excellence",
-    description:
-      "Discover SSIM Hyderabad’s faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
+    title: "Faculty Expertise - SSIM Hyderabad",
+    description: "Discover SSIM Hyderabad's faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
     images: ["/ssimlogo.webp"],
   },
   robots: {
@@ -28,6 +33,6 @@ export const metadata = {
   },
 };
 
-export default function AreasLayout({ children }) {
+export default function FacultyAreasLayout({ children }) {
   return children;
-}   
+}

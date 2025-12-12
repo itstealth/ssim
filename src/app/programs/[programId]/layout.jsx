@@ -1,119 +1,53 @@
-// Import the program data from your page component
-const programData = {
-  fpm: {
-    name: "FPM",
-    title: "FPM Programs – SSIM Hyderabad | Call 9391114948",
-    description:
-      "Join SSIM Hyderabad’s FPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
-    keyInfo: {
-      duration: "3 years",
-      credits: "45",
-      "Sanctioned Intake": "20",
-      location: "Full-time On-campus",
-      degree: "Fellow Program in Management (FPM)",
-    },
-  },
-  efpm: {
-    name: "EFPM",
-    title: "EFPM Programs – SSIM Hyderabad | Call 9391114948",
-    description:
-      "Join SSIM Hyderabad’s EFPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
-    keyInfo: {
-      duration: "3 years",
-      credits: "36",
-      "Sanctioned Intake": "20",
-      location: "Full-time On-campus",
-      degree: "Executive Fellow Program in Management (EFPM)",
-    },
-  },
-  "pgdm-ba": {
-    name: "PGDM BA",
-    title: "PGDM in Business Analytics - SSIM | Top PGDM College Hyderabad",
-    description:
-      "Join SSIM Hyderabad for PGDM in Business Analytics, one of the leading PGDM colleges in Hyderabad offering industry-focused management education.",
-    keyInfo: {
-      duration: "2 years",
-      credits: "120",
-      "Sanctioned Intake": "60",
-      location: "Full-time On-campus",
-      degree: "Post Graduate Diploma in Management - Business Analytics",
-    },
-  },
-  "pgdm-bifs": {
-    name: "PGDM BIFS",
-    title: "PGDM BIFS – SSIM Hyderabad | Call 9391114948",
-    description:
-      "SSIM offers PGDM-BIFS, a specialized program to master Banking, Insurance, and Financial Services, preparing students for BFSI careers.",
-    keyInfo: {
-      duration: "2 years",
-      credits: "120",
-      "Sanctioned Intake": "60",
-      location: "Full-time On-campus",
-      degree:
-        "Post Graduate Diploma in Management - Banking, Insurance and Financial Services",
-    },
-  },
-  "pgdm-triple-specialisation": {
-    name: "PGDM Triple Specialisation",
-    title: "PGDM Triple Specialisation – SSIM Hyderabad | 3-in-1 Skill Set",
-    description:
-      "Explore the PGDM Triple Specialisation at SSIM: two-year on-campus program with Major, Minor & Sector choices, 120 credits, strong industry alignment.",
-    keyInfo: {
-      duration: "2 years",
-      credits: "120",
-      "Sanctioned Intake": "180",
-      location: "Full-time On-campus",
-      degree: "Post Graduate Diploma in Management",
-    },
-  },
-};
-
-// URL mapping for program IDs
-const urlToProgramId = {
-  "fpm-efpm": "fpm",
-  fpm: "fpm",
-  efpm: "efpm",
-  "pgdm-ba": "pgdm-ba",
-  "pgdm-bifs": "pgdm-bifs",
-  "pgdm-triple-specialisation": "pgdm-triple-specialisation",
-};
-
 export async function generateMetadata({ params }) {
-  const { programId } = params;
+  const { programId } = await params;
+  
+  const metadataMap = {
+    "fpm-efpm": {
+      title: "FPM/EFPM Programs – SSIM Hyderabad | Call 9391114948",
+      description: "Explore our AICTE approved Fellow Program in Management and understand the eligibility for FPM in management to pursue advanced research careers.",
+    },
+    "pgdm-ba": {
+      title: "PGDM Business Analytics course in Hyderabad  - SSIM",
+      description: "Explore the PGDM BA programme Hyderabad and learn PGDM Business Analytics fees in Hyderabad along with eligibility criteria for admission.",
+    },
+    "pgdm-bifs": {
+      title: "PGDM BIFS Program - SSIM Hyderabad | Call 9391114948",
+      description: "Explore PGDM BIFS fees and placements Hyderabad to understand career prospects and program value for aspiring BFSI professionals.",
+    },
+    "pgdm-triple-specialisation": {
+      title: "PGDM Triple Specialisation Hyderabad – SSIM | 3-in-1 Skill Set",
+      description: "Explore the PGDM with Triple Specialisation at SSIM: two-year on-campus program with Major, Minor & Sector choices, 120 credits, strong industry alignment.",
+    },
+    "fpm": {
+      title: "FPM/EFPM Programs – SSIM Hyderabad | Call 9391114948",
+      description: "Explore our AICTE approved Fellow Program in Management and understand the eligibility for FPM in management to pursue advanced research careers.",
+    },
+    "efpm": {
+      title: "FPM/EFPM Programs – SSIM Hyderabad | Call 9391114948",
+      description: "Explore our AICTE approved Fellow Program in Management and understand the eligibility for FPM in management to pursue advanced research careers.",
+    },
+  };
 
-  // Map URL segment to program ID
-  const actualProgramId = urlToProgramId[programId];
-  const program = programData[actualProgramId];
-
-  if (!program) {
-    return {
-      title: "Program Not Found - SSIM",
-      description: "The requested program could not be found.",
-    };
-  }
-
-  const title = program.title || `${program.name} - SSIM`;
-  const description =
-    program.description ||
-    `Explore the ${program.name} program at Siva Sivani Institute of Management (SSIM). Duration: ${program.keyInfo.duration}, Credits: ${program.keyInfo.credits}, Location: ${program.keyInfo.location}.`;
-  const keywords = `SSIM ${program.name}, ${program.name} program, ${program.name} curriculum, ${program.name} admissions, ${program.keyInfo.degree}`;
-  const canonicalUrl = `https://www.ssim.ac.in/programs/${programId}`;
+  const metadata = metadataMap[programId] || {
+    title: "Programs - SSIM Hyderabad",
+    description: "Explore SSIM Hyderabad's management programs designed to shape future business leaders.",
+  };
 
   return {
-    title,
-    description,
-    keywords,
+    title: metadata.title,
+    description: metadata.description,
+    keywords: "SSIM programs, PGDM programs, management courses, SSIM Hyderabad",
     openGraph: {
-      title,
-      description,
-      url: canonicalUrl,
+      title: metadata.title,
+      description: metadata.description,
+      url: `https://www.ssim.ac.in/programs/${programId}`,
       siteName: "Siva Sivani Institute of Management",
       images: [
         {
           url: "/ssimlogo.webp",
           width: 1200,
           height: 630,
-          alt: `${program.name} - SSIM`,
+          alt: metadata.title,
         },
       ],
       locale: "en_US",
@@ -121,8 +55,8 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: metadata.title,
+      description: metadata.description,
       images: ["/ssimlogo.webp"],
     },
     robots: {
@@ -130,11 +64,11 @@ export async function generateMetadata({ params }) {
       follow: true,
     },
     alternates: {
-      canonical: canonicalUrl,
+      canonical: `https://www.ssim.ac.in/programs/${programId}`,
     },
   };
 }
 
-export default function ProgramsLayout({ children }) {
+export default function ProgramLayout({ children }) {
   return children;
 }

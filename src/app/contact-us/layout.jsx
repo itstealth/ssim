@@ -1,58 +1,38 @@
 export const metadata = {
   title: "Get in Touch with SSIM Hyderabad | 6281350079",
   description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
-  alternates: {
-    canonical: "https://www.ssim.ac.in/contact-us",
-  },
+  keywords: "SSIM contact, contact siva sivani, ssim hyderabad address, ssim phone number",
   openGraph: {
     title: "Get in Touch with SSIM Hyderabad | 6281350079",
     description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
     url: "https://www.ssim.ac.in/contact-us",
-    siteName: "SSIM",
+    siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/assets/logo.png",
+        url: "/ssimlogo.webp",
+        width: 1200,
+        height: 630,
+        alt: "SSIM Contact Us",
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Get in Touch with SSIM Hyderabad | 6281350079",
+    title: "Get in Touch with SSIM Hyderabad",
     description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
-    images: ["/assets/logo.png"],
+    images: ["/ssimlogo.webp"],
   },
   robots: {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: "/favicon.png",
-  },
-  manifest: "/manifest.json",
-  category: "education",
-  keywords: ["SSIM", "Contact Us", "Contact", "Inquiry", "Information"],
-  authors: [{ name: "SSIM", url: "https://www.ssim.ac.in" }],
-  creator: "SSIM",
-  publisher: "SSIM",
-  applicationName: "SSIM",
-  generator: "Next.js",
-  referrer: "origin",
-  formatDetection: {
-    email: false,
-    address: false,
-  },
   alternates: {
     canonical: "https://www.ssim.ac.in/contact-us",
   },
 };
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-};
-
 export default function ContactUsLayout({ children }) {
-  return <>{children}</>;
+  return children;
 }

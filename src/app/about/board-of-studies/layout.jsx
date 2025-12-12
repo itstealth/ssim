@@ -1,13 +1,10 @@
 export const metadata = {
   title: "Board of Studies - SSIM | Leading PGDM College in Hyderabad",
-  description:
-    "Explore the Board of Studies at SSIM Hyderabad, a top PGDM college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
-  keywords:
-    "SSIM board of studies, academic curriculum, course development, business school academics",
+  description: "Explore the Board of Studies at SSIM Hyderabad, a top PGDM college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
+  keywords: "SSIM board of studies, academic curriculum, course development, business school academics",
   openGraph: {
     title: "Board of Studies - SSIM | Leading PGDM College in Hyderabad",
-    description:
-      "Explore the Board of Studies at SSIM Hyderabad, a top PGDM college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
+    description: "Explore the Board of Studies at SSIM Hyderabad, a top PGDM college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
     url: "https://www.ssim.ac.in/about/board-of-studies",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -23,9 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Board of Studies - SSIM | Leading PGDM College in Hyderabad",
-    description:
-      "Explore the Board of Studies at SSIM Hyderabad, a top PGDM college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
+    title: "Board of Studies - SSIM",
+    description: "Explore the Board of Studies at SSIM Hyderabad, a top PGDM college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

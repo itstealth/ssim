@@ -1,13 +1,10 @@
 export const metadata = {
   title: "PGDM in Business Analytics - SSIM PGDM College in Hyderabad",
-  description:
-    "Join SSIM Hyderabad, one of the top PGDM Business Analytics colleges in Hyderabad, offering industry-driven PGDM programs for future leaders.",
-  keywords:
-    "SSIM PGDM Business Analytics, business analytics courses, data analytics, SSIM PGDM",
+  description: "Join SSIM Hyderabad, one of the top PGDM Business Analytics colleges in Hyderabad, offering industry-driven PGDM programs for future leaders.",
+  keywords: "PGDM Business Analytics, PGDM BA, data analytics courses, business intelligence, SSIM PGDM",
   openGraph: {
     title: "PGDM in Business Analytics - SSIM PGDM College in Hyderabad",
-    description:
-      "Join SSIM Hyderabad, one of the top PGDM Business Analytics colleges in Hyderabad, offering industry-driven PGDM programs for future leaders.",
+    description: "Join SSIM Hyderabad, one of the top PGDM Business Analytics colleges in Hyderabad, offering industry-driven PGDM programs for future leaders.",
     url: "https://www.ssim.ac.in/admissions/pgdm-ba",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -18,12 +15,13 @@ export const metadata = {
         alt: "SSIM PGDM Business Analytics",
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PGDM in Business Analytics - SSIM PGDM College in Hyderabad",
-    description:
-      "Learn about the PGDM in Business Analytics (BA) at Siva Sivani Institute of Management (SSIM).",
+    title: "PGDM in Business Analytics - SSIM",
+    description: "Join SSIM Hyderabad, one of the top PGDM Business Analytics colleges in Hyderabad, offering industry-driven PGDM programs for future leaders.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

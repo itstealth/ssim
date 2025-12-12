@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
   description:
-    "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+    "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Call 9391114948!",
   canonical: "https://www.ssim.ac.in",
   alternates: {
     canonical: "https://www.ssim.ac.in",
@@ -30,7 +30,7 @@ export const metadata = {
   openGraph: {
     title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
     description:
-      "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+      "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Call 9391114948!",
     url: "https://www.ssim.ac.in",
     siteName: "SSIM Hyderabad",
     images: ["/ssimlogo.webp"],
@@ -39,7 +39,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
     description:
-      "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top B-schools in Hyderabad. Call 9391114948!",
+      "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Call 9391114948!",
     images: ["/ssimlogo.webp"],
   },
   robots: {
