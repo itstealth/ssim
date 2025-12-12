@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { OrganizationSchema } from "@/components/Schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -233,6 +234,7 @@ export default function PlacementSection() {
 
   return (
     <>
+      <OrganizationSchema />
       {/* <SEO
         title="Placement Records"
         description="Explore the placement records of Siva Sivani Institute of Management (SSIM). View our students' success stories, top recruiters, and salary statistics."

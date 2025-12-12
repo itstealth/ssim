@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 // import SEO from "@/components/Seo";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import { BlogPostingSchema } from "@/components/Schema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -47,8 +48,12 @@ export default function BlogDetail() {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   // Fetch blog post using React Query from our new API
-  const { data: blog, isLoading, error } = useQuery({
-    queryKey: ['blog', blogId],
+  const {
+    data: blog,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["blog", blogId],
     queryFn: () => fetchBlogPost(blogId),
     staleTime: 5 * 60 * 1000,
     cacheTime: 30 * 60 * 1000,
@@ -69,49 +74,54 @@ export default function BlogDetail() {
   // Automatically detects first row as header if no <thead> exists
   // Handles cases where first row is in <tbody> or directly in <table>
   const convertTableToComponent = (tableElement) => {
-    const thead = tableElement.querySelector('thead');
-    let tbody = tableElement.querySelector('tbody');
-    const tfoot = tableElement.querySelector('tfoot');
-    const caption = tableElement.querySelector('caption');
-    
+    const thead = tableElement.querySelector("thead");
+    let tbody = tableElement.querySelector("tbody");
+    const tfoot = tableElement.querySelector("tfoot");
+    const caption = tableElement.querySelector("caption");
+
     // Handle tables without explicit thead/tbody - check first row for headers
-    const allRows = tableElement.querySelectorAll('tr');
+    const allRows = tableElement.querySelectorAll("tr");
     let headerRows = [];
     let bodyRows = [];
-    
+
     // Function to check if a row looks like a header
     const isHeaderRow = (row) => {
-      const cells = row.querySelectorAll('th, td');
+      const cells = row.querySelectorAll("th, td");
       if (cells.length === 0) return false;
-      
+
       // Check if row has th elements (definite header)
-      const hasThElements = Array.from(cells).some(cell => cell.tagName === 'TH');
+      const hasThElements = Array.from(cells).some(
+        (cell) => cell.tagName === "TH"
+      );
       if (hasThElements) return true;
-      
+
       // Check if all cells contain <strong> tags (likely header)
-      const allCellsHaveStrong = Array.from(cells).every(cell => {
-        const strong = cell.querySelector('strong');
+      const allCellsHaveStrong = Array.from(cells).every((cell) => {
+        const strong = cell.querySelector("strong");
         return strong !== null;
       });
       if (allCellsHaveStrong) return true;
-      
+
       // Check if cells have centered text alignment (common for headers)
-      const allCellsCentered = Array.from(cells).every(cell => {
-        const style = cell.getAttribute('style') || '';
-        const p = cell.querySelector('p');
-        const pStyle = p ? (p.getAttribute('style') || '') : '';
-        return style.includes('text-align:center') || pStyle.includes('text-align:center');
+      const allCellsCentered = Array.from(cells).every((cell) => {
+        const style = cell.getAttribute("style") || "";
+        const p = cell.querySelector("p");
+        const pStyle = p ? p.getAttribute("style") || "" : "";
+        return (
+          style.includes("text-align:center") ||
+          pStyle.includes("text-align:center")
+        );
       });
       if (allCellsCentered && cells.length > 0) return true;
-      
+
       return false;
     };
-    
+
     if (!thead) {
       // No thead exists - need to detect if first row is a header
       if (tbody) {
         // Table has tbody - check first row in tbody
-        const tbodyRows = tbody.querySelectorAll('tr');
+        const tbodyRows = tbody.querySelectorAll("tr");
         if (tbodyRows.length > 0) {
           const firstRow = tbodyRows[0];
           if (isHeaderRow(firstRow)) {
@@ -138,7 +148,7 @@ export default function BlogDetail() {
     } else {
       // thead exists - use it and get remaining rows from tbody
       if (tbody) {
-        bodyRows = Array.from(tbody.querySelectorAll('tr'));
+        bodyRows = Array.from(tbody.querySelectorAll("tr"));
       }
     }
 
@@ -151,122 +161,146 @@ export default function BlogDetail() {
             </TableCaption>
           )}
           {(thead || headerRows.length > 0) && (
-            <TableHeader 
+            <TableHeader
               className="blog-table-header"
-              style={{ 
-                backgroundColor: '#002F87',
-                background: '#002F87'
+              style={{
+                backgroundColor: "#002F87",
+                background: "#002F87",
               }}
             >
               {thead
-                ? Array.from(thead.querySelectorAll('tr')).map((tr, rowIndex) => (
-                    <TableRow 
-                      key={rowIndex} 
-                      className="blog-table-header-row"
-                      style={{ 
-                        backgroundColor: '#002F87',
-                        background: '#002F87'
-                      }}
-                    >
-                      {Array.from(tr.querySelectorAll('th, td')).map((cell, cellIndex) => (
-                        <TableHead
-                          key={cellIndex}
-                          className="px-6 py-4 text-left font-bold text-white border-b-2 border-slate-300 whitespace-nowrap blog-table-header-cell"
-                          style={{ 
-                            backgroundColor: '#002F87',
-                            background: '#002F87',
-                            color: '#ffffff'
-                          }}
-                          dangerouslySetInnerHTML={{ __html: cell.innerHTML }}
-                        />
-                      ))}
-                    </TableRow>
-                  ))
+                ? Array.from(thead.querySelectorAll("tr")).map(
+                    (tr, rowIndex) => (
+                      <TableRow
+                        key={rowIndex}
+                        className="blog-table-header-row"
+                        style={{
+                          backgroundColor: "#002F87",
+                          background: "#002F87",
+                        }}
+                      >
+                        {Array.from(tr.querySelectorAll("th, td")).map(
+                          (cell, cellIndex) => (
+                            <TableHead
+                              key={cellIndex}
+                              className="px-6 py-4 text-left font-bold text-white border-b-2 border-slate-300 whitespace-nowrap blog-table-header-cell"
+                              style={{
+                                backgroundColor: "#002F87",
+                                background: "#002F87",
+                                color: "#ffffff",
+                              }}
+                              dangerouslySetInnerHTML={{
+                                __html: cell.innerHTML,
+                              }}
+                            />
+                          )
+                        )}
+                      </TableRow>
+                    )
+                  )
                 : headerRows.map((tr, rowIndex) => (
-                    <TableRow 
-                      key={rowIndex} 
+                    <TableRow
+                      key={rowIndex}
                       className="blog-table-header-row"
-                      style={{ 
-                        backgroundColor: '#002F87',
-                        background: '#002F87'
+                      style={{
+                        backgroundColor: "#002F87",
+                        background: "#002F87",
                       }}
                     >
-                      {Array.from(tr.querySelectorAll('th, td')).map((cell, cellIndex) => (
-                        <TableHead
-                          key={cellIndex}
-                          className="px-6 py-4 text-left font-bold text-white border-b-2 border-slate-300 whitespace-nowrap blog-table-header-cell"
-                          style={{ 
-                            backgroundColor: '#002F87',
-                            background: '#002F87',
-                            color: '#ffffff'
-                          }}
-                          dangerouslySetInnerHTML={{ __html: cell.innerHTML }}
-                        />
-                      ))}
+                      {Array.from(tr.querySelectorAll("th, td")).map(
+                        (cell, cellIndex) => (
+                          <TableHead
+                            key={cellIndex}
+                            className="px-6 py-4 text-left font-bold text-white border-b-2 border-slate-300 whitespace-nowrap blog-table-header-cell"
+                            style={{
+                              backgroundColor: "#002F87",
+                              background: "#002F87",
+                              color: "#ffffff",
+                            }}
+                            dangerouslySetInnerHTML={{ __html: cell.innerHTML }}
+                          />
+                        )
+                      )}
                     </TableRow>
                   ))}
             </TableHeader>
           )}
           {(tbody || bodyRows.length > 0) && (
             <TableBody>
-              {(tbody && !headerRows.length)
-                ? Array.from(tbody.querySelectorAll('tr')).map((tr, rowIndex) => (
-                    <TableRow
-                      key={rowIndex}
-                      className="border-b border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
-                    >
-                      {Array.from(tr.querySelectorAll('td, th')).map((cell, cellIndex) => {
-                        const isHeader = cell.tagName === 'TH';
-                        const CellComponent = isHeader ? TableHead : TableCell;
-                        return (
-                          <CellComponent
-                            key={cellIndex}
-                            className={`px-6 py-4 text-slate-700 dark:text-slate-300 whitespace-nowrap ${
-                              isHeader
-                                ? 'font-bold text-white dark:text-slate-100 bg-mainBlue dark:bg-slate-800'
-                                : ''
-                            }`}
-                            dangerouslySetInnerHTML={{ __html: cell.innerHTML }}
-                          />
-                        );
-                      })}
-                    </TableRow>
-                  ))
+              {tbody && !headerRows.length
+                ? Array.from(tbody.querySelectorAll("tr")).map(
+                    (tr, rowIndex) => (
+                      <TableRow
+                        key={rowIndex}
+                        className="border-b border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                      >
+                        {Array.from(tr.querySelectorAll("td, th")).map(
+                          (cell, cellIndex) => {
+                            const isHeader = cell.tagName === "TH";
+                            const CellComponent = isHeader
+                              ? TableHead
+                              : TableCell;
+                            return (
+                              <CellComponent
+                                key={cellIndex}
+                                className={`px-6 py-4 text-slate-700 dark:text-slate-300 whitespace-nowrap ${
+                                  isHeader
+                                    ? "font-bold text-white dark:text-slate-100 bg-mainBlue dark:bg-slate-800"
+                                    : ""
+                                }`}
+                                dangerouslySetInnerHTML={{
+                                  __html: cell.innerHTML,
+                                }}
+                              />
+                            );
+                          }
+                        )}
+                      </TableRow>
+                    )
+                  )
                 : bodyRows.map((tr, rowIndex) => (
                     <TableRow
                       key={rowIndex}
                       className="border-b border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
                     >
-                      {Array.from(tr.querySelectorAll('td, th')).map((cell, cellIndex) => {
-                        const isHeader = cell.tagName === 'TH';
-                        const CellComponent = isHeader ? TableHead : TableCell;
-                        return (
-                          <CellComponent
-                            key={cellIndex}
-                            className={`px-6 py-4 text-slate-700 dark:text-slate-300 whitespace-nowrap ${
-                              isHeader
-                                ? 'font-bold text-white dark:text-slate-100 bg-mainBlue dark:bg-slate-800'
-                                : ''
-                            }`}
-                            dangerouslySetInnerHTML={{ __html: cell.innerHTML }}
-                          />
-                        );
-                      })}
+                      {Array.from(tr.querySelectorAll("td, th")).map(
+                        (cell, cellIndex) => {
+                          const isHeader = cell.tagName === "TH";
+                          const CellComponent = isHeader
+                            ? TableHead
+                            : TableCell;
+                          return (
+                            <CellComponent
+                              key={cellIndex}
+                              className={`px-6 py-4 text-slate-700 dark:text-slate-300 whitespace-nowrap ${
+                                isHeader
+                                  ? "font-bold text-white dark:text-slate-100 bg-mainBlue dark:bg-slate-800"
+                                  : ""
+                              }`}
+                              dangerouslySetInnerHTML={{
+                                __html: cell.innerHTML,
+                              }}
+                            />
+                          );
+                        }
+                      )}
                     </TableRow>
                   ))}
             </TableBody>
           )}
           {tfoot && (
             <TableFooter>
-              {Array.from(tfoot.querySelectorAll('tr')).map((tr, rowIndex) => (
+              {Array.from(tfoot.querySelectorAll("tr")).map((tr, rowIndex) => (
                 <TableRow key={rowIndex}>
-                  {Array.from(tr.querySelectorAll('td, th')).map((cell, cellIndex) => (
-                    <TableCell
-                      key={cellIndex}
-                      className="px-6 py-4 font-medium whitespace-nowrap"
-                      dangerouslySetInnerHTML={{ __html: cell.innerHTML }}
-                    />
-                  ))}
+                  {Array.from(tr.querySelectorAll("td, th")).map(
+                    (cell, cellIndex) => (
+                      <TableCell
+                        key={cellIndex}
+                        className="px-6 py-4 font-medium whitespace-nowrap"
+                        dangerouslySetInnerHTML={{ __html: cell.innerHTML }}
+                      />
+                    )
+                  )}
                 </TableRow>
               ))}
             </TableFooter>
@@ -281,7 +315,7 @@ export default function BlogDetail() {
     if (!blog?.content) return null;
 
     // Check if content contains tables
-    if (!blog.content.includes('<table') && !blog.content.includes('<TABLE')) {
+    if (!blog.content.includes("<table") && !blog.content.includes("<TABLE")) {
       return { __html: blog.content };
     }
 
@@ -299,7 +333,7 @@ export default function BlogDetail() {
           const beforeContent = blog.content.substring(lastIndex, match.index);
           if (beforeContent.trim()) {
             parts.push({
-              type: 'html',
+              type: "html",
               content: beforeContent,
               key: `html-before-${tableIndex}`,
             });
@@ -309,7 +343,7 @@ export default function BlogDetail() {
         // Add table
         const tableHtml = match[0];
         parts.push({
-          type: 'table',
+          type: "table",
           content: tableHtml,
           key: `table-${tableIndex}`,
         });
@@ -323,9 +357,9 @@ export default function BlogDetail() {
         const afterContent = blog.content.substring(lastIndex);
         if (afterContent.trim()) {
           parts.push({
-            type: 'html',
+            type: "html",
             content: afterContent,
-            key: 'html-after',
+            key: "html-after",
           });
         }
       }
@@ -337,7 +371,7 @@ export default function BlogDetail() {
 
       // Convert parts to React elements
       return parts.map((part) => {
-        if (part.type === 'html') {
+        if (part.type === "html") {
           return (
             <div
               key={part.key}
@@ -347,9 +381,9 @@ export default function BlogDetail() {
         } else {
           // Parse table HTML and convert to component
           const parser = new DOMParser();
-          const doc = parser.parseFromString(part.content, 'text/html');
-          const tableElement = doc.querySelector('table');
-          
+          const doc = parser.parseFromString(part.content, "text/html");
+          const tableElement = doc.querySelector("table");
+
           if (!tableElement) {
             // Fallback: render as HTML if parsing fails
             return (
@@ -361,14 +395,12 @@ export default function BlogDetail() {
           }
 
           return (
-            <div key={part.key}>
-              {convertTableToComponent(tableElement)}
-            </div>
+            <div key={part.key}>{convertTableToComponent(tableElement)}</div>
           );
         }
       });
     } catch (error) {
-      console.error('Error processing blog content:', error);
+      console.error("Error processing blog content:", error);
       // Fallback to original content
       return { __html: blog.content };
     }
@@ -398,7 +430,9 @@ export default function BlogDetail() {
     return (
       <div className="min-h-screen bg-slate-50/50 py-12 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-red-500 font-semibold mb-2">Error loading blog post</p>
+          <p className="text-red-500 font-semibold mb-2">
+            Error loading blog post
+          </p>
           <p className="text-slate-600">{error.message}</p>
         </div>
       </div>
@@ -407,16 +441,40 @@ export default function BlogDetail() {
 
   // Transform data for rendering
   const categories = parseJsonField(blog.categories);
-  const readTime = `${Math.ceil((blog.content || '').split(' ').length / 200)} min read`;
+  const readTime = `${Math.ceil(
+    (blog.content || "").split(" ").length / 200
+  )} min read`;
   const publishDate = new Date(blog.publishDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
-  const authorInitials = (blog.authorName || 'A').split(' ').map(n => n[0]).join('');
+  const authorInitials = (blog.authorName || "A")
+    .split(" ")
+    .map((n) => n[0])
+    .join("");
+
+  // Generate BlogPosting Schema
+  const blogSchema = useMemo(() => {
+    if (!blog) return null;
+
+    return {
+      headline: blog.title,
+      description: blog.excerpt || blog.description || blog.title,
+      image:
+        blog.featuredImage ||
+        blog.image ||
+        "https://www.ssim.ac.in/ssimlogo.webp",
+      datePublished: blog.publishDate,
+      dateModified: blog.updatedAt || blog.publishDate,
+      url: `https://www.ssim.ac.in/blog/${blogId}`,
+      articleBody: blog.content,
+    };
+  }, [blog, blogId]);
 
   return (
     <>
+      {blogSchema && <BlogPostingSchema {...blogSchema} />}
       {/* SEO component is commented out, but data is available if you want to re-enable */}
       <div className="min-h-screen bg-slate-50/50 py-16 sm:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
@@ -447,10 +505,10 @@ export default function BlogDetail() {
               </div>
 
               {/* Main Title */}
-              <h1 
+              <h1
                 className="text-3xl sm:text-5xl font-bold text-mainBlue leading-tight"
-                dangerouslySetInnerHTML={{ 
-                  __html: blog.title 
+                dangerouslySetInnerHTML={{
+                  __html: blog.title,
                 }}
               />
 

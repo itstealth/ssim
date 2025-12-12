@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronRight,
@@ -14,6 +14,7 @@ import {
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CourseSchema } from "@/components/Schema";
 import {
   Dialog,
   DialogContent,
@@ -49,8 +50,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { programData } from "@/data/programData";
 
 export const programs = [
-  { id: "pgdm-ba", name: "PGDM BA", link: "/programs/pgdm-ba", category: "PGDM" },
-  { id: "pgdm-bifs", name: "PGDM BIFS", link: "/programs/pgdm-bifs", category: "PGDM" },
+  {
+    id: "pgdm-ba",
+    name: "PGDM BA",
+    link: "/programs/pgdm-ba",
+    category: "PGDM",
+  },
+  {
+    id: "pgdm-bifs",
+    name: "PGDM BIFS",
+    link: "/programs/pgdm-bifs",
+    category: "PGDM",
+  },
   {
     id: "pgdm-triple-specialisation",
     name: "PGDM Triple Specialisation",
@@ -61,8 +72,8 @@ export const programs = [
   { id: "efpm", name: "EFPM", link: "/programs/efpm", category: "FPM/EFPM" },
 ];
 
-const pgdmPrograms = programs.filter(p => p.category === "PGDM");
-const fpmEfpmPrograms = programs.filter(p => p.category === "FPM/EFPM");
+const pgdmPrograms = programs.filter((p) => p.category === "PGDM");
+const fpmEfpmPrograms = programs.filter((p) => p.category === "FPM/EFPM");
 
 const sections = [
   { id: "about", name: "About", icon: ChevronRight },
@@ -72,11 +83,11 @@ const sections = [
     icon: ChevronRight,
     hidden: ["fpm", "efpm", "fpm/efpm"],
   },
-  { 
-    id: "specializations", 
-    name: "Specializations", 
+  {
+    id: "specializations",
+    name: "Specializations",
     icon: ChevronRight,
-    showOnly: ["fpm", "efpm", "fpm/efpm"]
+    showOnly: ["fpm", "efpm", "fpm/efpm"],
   },
   {
     id: "managerialCompetency",
@@ -337,98 +348,99 @@ const Differentiators = ({ differentiators, programId }) => {
       {Array.isArray(differentiators) && differentiators.length && (
         <>
           {/* Financial Support Panel - Only for FPM/EFPM */}
-          {(programId === "fpm" || programId === "efpm" || programId === "fpm/efpm") && (
-              <div className="mb-8">
-                <div className="rounded-2xl border border-mainBlue bg-blue-50/40 shadow-md p-6 md:p-8">
-                  <h4 className="text-xl md:text-2xl text-mainBlue font-extrabold flex items-center gap-2 mb-3">
-                    <Briefcase className="w-7 h-7 text-mainBlue mr-1" />{" "}
-                    Financial Support (Full-time Researchers & Freshers)
-                  </h4>
-                  <ul className="list-inside list-disc text-base space-y-2 mb-4 pl-2 md:pl-5">
-                    <li>
-                      <span className="font-medium">Limited scholarships</span>{" "}
-                      offered to FPM scholars (Full-time) based on academic
-                      performance during selection and tenure.
-                    </li>
-                    <li>
-                      <span className="font-medium">Monthly Stipend:</span>
-                      <ul className="list-inside list-[circle] ml-6 space-y-1">
-                        <li>
-                          <span className="text-mainBlue font-semibold">
-                            Year 1:
-                          </span>{" "}
-                          ₹20,000/month
-                        </li>
-                        <li>
-                          <span className="text-mainBlue font-semibold">
-                            Year 2:
-                          </span>{" "}
-                          ₹25,000/month
-                        </li>
-                        <li>
-                          <span className="text-mainBlue font-semibold">
-                            Year 3:
-                          </span>{" "}
-                          ₹30,000/month
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      Stipend applies only if scholar{" "}
-                      <span className="font-medium">
-                        is not employed elsewhere
-                      </span>
-                      .
-                    </li>
-                    <li>
-                      Scholars are required to serve as{" "}
-                      <span className="font-medium">
-                        Teaching/Research Assistants
-                      </span>{" "}
-                      at SSIM.
-                    </li>
-                    <li>
-                      <span className="font-medium">Progress Review:</span>{" "}
-                      Every 6 months by Research Advisory Committee and guide;
-                      next stipend installment is subject to satisfactory
-                      performance.
-                    </li>
-                    <li>
-                      <span className="font-medium">No stipend extension</span>{" "}
-                      beyond 3 years.
-                    </li>
-                    <li>
-                      <span className="font-medium">Tuition Exemption:</span>{" "}
-                      Scholars receiving stipends do{" "}
-                      <span className="text-green-700 font-semibold">
-                        not pay tuition fees
-                      </span>
-                      .
-                    </li>
-                    <li>
-                      <span className="font-medium">Fees Payable:</span> ₹70,000
-                      (Acceptance fee: ₹60,000{" "}
-                      <span className="text-gray-500 text-xs">
-                        (non-refundable)
-                      </span>{" "}
-                      + ₹10,000{" "}
-                      <span className="text-gray-500 text-xs">
-                        (refundable security deposit)
-                      </span>
-                      ).
-                    </li>
-                  </ul>
-                  <div className="text-xs text-gray-700 bg-yellow-50 rounded-lg p-3 border-l-4 border-yellow-400">
-                    <strong>Note:</strong> Scholars’ performance in previous 6
-                    months must be certified as{" "}
-                    <span className="font-semibold text-green-600">
-                      satisfactory
+          {(programId === "fpm" ||
+            programId === "efpm" ||
+            programId === "fpm/efpm") && (
+            <div className="mb-8">
+              <div className="rounded-2xl border border-mainBlue bg-blue-50/40 shadow-md p-6 md:p-8">
+                <h4 className="text-xl md:text-2xl text-mainBlue font-extrabold flex items-center gap-2 mb-3">
+                  <Briefcase className="w-7 h-7 text-mainBlue mr-1" /> Financial
+                  Support (Full-time Researchers & Freshers)
+                </h4>
+                <ul className="list-inside list-disc text-base space-y-2 mb-4 pl-2 md:pl-5">
+                  <li>
+                    <span className="font-medium">Limited scholarships</span>{" "}
+                    offered to FPM scholars (Full-time) based on academic
+                    performance during selection and tenure.
+                  </li>
+                  <li>
+                    <span className="font-medium">Monthly Stipend:</span>
+                    <ul className="list-inside list-[circle] ml-6 space-y-1">
+                      <li>
+                        <span className="text-mainBlue font-semibold">
+                          Year 1:
+                        </span>{" "}
+                        ₹20,000/month
+                      </li>
+                      <li>
+                        <span className="text-mainBlue font-semibold">
+                          Year 2:
+                        </span>{" "}
+                        ₹25,000/month
+                      </li>
+                      <li>
+                        <span className="text-mainBlue font-semibold">
+                          Year 3:
+                        </span>{" "}
+                        ₹30,000/month
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    Stipend applies only if scholar{" "}
+                    <span className="font-medium">
+                      is not employed elsewhere
+                    </span>
+                    .
+                  </li>
+                  <li>
+                    Scholars are required to serve as{" "}
+                    <span className="font-medium">
+                      Teaching/Research Assistants
                     </span>{" "}
-                    by their academic guide to continue receiving stipend.
-                  </div>
+                    at SSIM.
+                  </li>
+                  <li>
+                    <span className="font-medium">Progress Review:</span> Every
+                    6 months by Research Advisory Committee and guide; next
+                    stipend installment is subject to satisfactory performance.
+                  </li>
+                  <li>
+                    <span className="font-medium">No stipend extension</span>{" "}
+                    beyond 3 years.
+                  </li>
+                  <li>
+                    <span className="font-medium">Tuition Exemption:</span>{" "}
+                    Scholars receiving stipends do{" "}
+                    <span className="text-green-700 font-semibold">
+                      not pay tuition fees
+                    </span>
+                    .
+                  </li>
+                  <li>
+                    <span className="font-medium">Fees Payable:</span> ₹70,000
+                    (Acceptance fee: ₹60,000{" "}
+                    <span className="text-gray-500 text-xs">
+                      (non-refundable)
+                    </span>{" "}
+                    + ₹10,000{" "}
+                    <span className="text-gray-500 text-xs">
+                      (refundable security deposit)
+                    </span>
+                    ).
+                  </li>
+                </ul>
+                <div className="text-xs text-gray-700 bg-yellow-50 rounded-lg p-3 border-l-4 border-yellow-400">
+                  <strong>Note:</strong> Scholars’ performance in previous 6
+                  months must be certified as{" "}
+                  <span className="font-semibold text-green-600">
+                    satisfactory
+                  </span>{" "}
+                  by their academic guide to continue receiving stipend.
                 </div>
               </div>
-            )}
+            </div>
+          )}
         </>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -732,7 +744,11 @@ const ProgramSection = ({ programId, activeSection }) => {
         );
       case "specializations":
         // Only show specializations for FPM/EFPM programs
-        if (programId === "fpm" || programId === "efpm" || programId === "fpm/efpm") {
+        if (
+          programId === "fpm" ||
+          programId === "efpm" ||
+          programId === "fpm/efpm"
+        ) {
           return <Specializations specializations={program.specializations} />;
         }
         return null;
@@ -743,7 +759,12 @@ const ProgramSection = ({ programId, activeSection }) => {
           />
         );
       case "differentiators":
-        return <Differentiators differentiators={program.differentiators} programId={programId} />;
+        return (
+          <Differentiators
+            differentiators={program.differentiators}
+            programId={programId}
+          />
+        );
       case "curriculum":
         return <Curriculum curriculum={program.curriculum} />;
       case "eligibility":
@@ -782,8 +803,8 @@ const ProgramsOverview = ({ params }) => {
   // Map URL segments to program IDs
   const urlToProgramId = {
     "fpm-efpm": "fpm", // Support legacy URL
-    "fpm": "fpm",
-    "efpm": "efpm",
+    fpm: "fpm",
+    efpm: "efpm",
     "pgdm-ba": "pgdm-ba",
     "pgdm-bifs": "pgdm-bifs",
     "pgdm-triple-specialisation": "pgdm-triple-specialisation",
@@ -823,8 +844,8 @@ const ProgramsOverview = ({ params }) => {
     if (sectionId === "eligibility") {
       // Map program IDs to their admission routes
       const admissionRoutes = {
-        "fpm": "/admissions/fpm",
-        "efpm": "/admissions/efpm",
+        fpm: "/admissions/fpm",
+        efpm: "/admissions/efpm",
         "fpm/efpm": "/admissions/fpm-efpm", // Legacy support
         "pgdm-ba": "/admissions/pgdm-ba",
         "pgdm-bifs": "/admissions/pgdm-bifs",
@@ -847,7 +868,7 @@ const ProgramsOverview = ({ params }) => {
 
   // Determine active category based on selected program
   const activeCategory = React.useMemo(() => {
-    const program = programs.find(p => p.id === activeProgram);
+    const program = programs.find((p) => p.id === activeProgram);
     return program?.category || "PGDM";
   }, [activeProgram]);
 
@@ -860,7 +881,8 @@ const ProgramsOverview = ({ params }) => {
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     const isHidden = section.hidden?.includes(activeProgram);
-    const isShowOnly = section.showOnly && !section.showOnly.includes(activeProgram);
+    const isShowOnly =
+      section.showOnly && !section.showOnly.includes(activeProgram);
     return matchesSearch && !isHidden && !isShowOnly;
   });
 
@@ -926,130 +948,161 @@ const ProgramsOverview = ({ params }) => {
     </>
   );
 
+  // Generate Course Schema based on active program
+  const courseSchemaData = useMemo(() => {
+    const program = programData[activeProgram];
+    if (!program) return null;
+
+    const programInfo = programs.find((p) => p.id === activeProgram);
+    const programName =
+      programInfo?.name || program.name || "Management Program";
+
+    return {
+      name: programName,
+      description:
+        program.description ||
+        program.about ||
+        `Learn about ${programName} at SSIM Hyderabad`,
+      courseCode: activeProgram.toUpperCase(),
+      educationalCredentialAwarded:
+        program.degree ||
+        program.keyInfo?.degree ||
+        "Post Graduate Diploma in Management",
+      timeRequired: program.duration || program.keyInfo?.duration || "P2Y",
+      url: `https://www.ssim.ac.in/programs/${programId}`,
+      coursePrerequisites: "Bachelor's degree from a recognized university",
+    };
+  }, [activeProgram, programId]);
+
   return (
-    <div className="container max-w-7xl mx-auto px-2 sm:px-4 py-14 sm:py-20">
-      {/* <h1 className="text-4xl font-bold mb-16 text-center text-primary">
+    <>
+      {courseSchemaData && <CourseSchema {...courseSchemaData} />}
+      <div className="container max-w-7xl mx-auto px-2 sm:px-4 py-14 sm:py-20">
+        {/* <h1 className="text-4xl font-bold mb-16 text-center text-primary">
         Graduate Programs
       </h1> */}
-      <div className="mb-8">
-        <Tabs
-          value={activeProgram}
-          onValueChange={handleProgramChange}
-          className="w-full"
-        >
-          <AnimatePresence mode="wait">
-            {/* PGDM Section - Only show when PGDM category is active */}
-            {activeCategory === "PGDM" && (
-              <motion.div
-                key="pgdm-section"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="space-y-3"
-              >
-                {/* <h2 className="text-xl font-semibold text-[#293794] px-2">
+        <div className="mb-8">
+          <Tabs
+            value={activeProgram}
+            onValueChange={handleProgramChange}
+            className="w-full"
+          >
+            <AnimatePresence mode="wait">
+              {/* PGDM Section - Only show when PGDM category is active */}
+              {activeCategory === "PGDM" && (
+                <motion.div
+                  key="pgdm-section"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="space-y-3"
+                >
+                  {/* <h2 className="text-xl font-semibold text-[#293794] px-2">
                   Post Graduate Courses
                 </h2> */}
-                <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
-                  {pgdmPrograms.map((program) => (
-                    <TabsTrigger
-                      key={program.id}
-                      value={program.id}
-                      className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300"
-                    >
-                      {program.name}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-              </motion.div>
-            )}
+                  <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+                    {pgdmPrograms.map((program) => (
+                      <TabsTrigger
+                        key={program.id}
+                        value={program.id}
+                        className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300"
+                      >
+                        {program.name}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </motion.div>
+              )}
 
-            {/* FPM/EFPM Section - Only show when FPM/EFPM category is active */}
-            {activeCategory === "FPM/EFPM" && (
-              <motion.div
-                key="fpm-efpm-section"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="space-y-3"
-              >
-                <h2 className="text-xl font-semibold text-[#293794] px-2">FPM/EFPM</h2>
-                <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
-                  {fpmEfpmPrograms.map((program) => (
-                    <TabsTrigger
-                      key={program.id}
-                      value={program.id}
-                      className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300"
-                    >
-                      {program.name}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </Tabs>
+              {/* FPM/EFPM Section - Only show when FPM/EFPM category is active */}
+              {activeCategory === "FPM/EFPM" && (
+                <motion.div
+                  key="fpm-efpm-section"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="space-y-3"
+                >
+                  <h2 className="text-xl font-semibold text-[#293794] px-2">
+                    FPM/EFPM
+                  </h2>
+                  <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+                    {fpmEfpmPrograms.map((program) => (
+                      <TabsTrigger
+                        key={program.id}
+                        value={program.id}
+                        className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300"
+                      >
+                        {program.name}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </Tabs>
+        </div>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {isDesktop ? (
+            <nav className="lg:w-1/4">
+              <SidebarContent />
+            </nav>
+          ) : (
+            <Drawer open={sidebarOpen} onOpenChange={setSidebarOpen}>
+              <DrawerTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="lg:hidden mb-4 w-full justify-between"
+                >
+                  <span className="flex items-center">
+                    <Menu className="mr-2 h-4 w-4" />
+                    Menu
+                  </span>
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className="p-4">
+                  <SidebarContent />
+                </div>
+                <DrawerClose asChild>
+                  <Button className="mt-4">Close</Button>
+                </DrawerClose>
+              </DrawerContent>
+            </Drawer>
+          )}
+          <main className="lg:w-3/4 overflow-hidden">
+            <AnimatePresence mode="wait">
+              {!showComparison ? (
+                <motion.div
+                  key={`${activeProgram}-${activeSection}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ProgramSection
+                    programId={activeProgram}
+                    activeSection={activeSection}
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="comparison"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ProgramComparison programs={programs} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </main>
+        </div>
       </div>
-      <div className="flex flex-col lg:flex-row gap-8">
-        {isDesktop ? (
-          <nav className="lg:w-1/4">
-            <SidebarContent />
-          </nav>
-        ) : (
-          <Drawer open={sidebarOpen} onOpenChange={setSidebarOpen}>
-            <DrawerTrigger asChild>
-              <Button
-                variant="outline"
-                className="lg:hidden mb-4 w-full justify-between"
-              >
-                <span className="flex items-center">
-                  <Menu className="mr-2 h-4 w-4" />
-                  Menu
-                </span>
-              </Button>
-            </DrawerTrigger>
-            <DrawerContent>
-              <div className="p-4">
-                <SidebarContent />
-              </div>
-              <DrawerClose asChild>
-                <Button className="mt-4">Close</Button>
-              </DrawerClose>
-            </DrawerContent>
-          </Drawer>
-        )}
-        <main className="lg:w-3/4 overflow-hidden">
-          <AnimatePresence mode="wait">
-            {!showComparison ? (
-              <motion.div
-                key={`${activeProgram}-${activeSection}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ProgramSection
-                  programId={activeProgram}
-                  activeSection={activeSection}
-                />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="comparison"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ProgramComparison programs={programs} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </main>
-      </div>
-    </div>
+    </>
   );
 };
 

@@ -13,14 +13,18 @@ import { TrendingUp, Minus, Trophy, Medal } from "lucide-react";
 import { timelineData } from "@/data/dataTimeline";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Accreditations from "@/app/accreditations/page";
+import { OrganizationSchema } from "@/components/Schema";
 
 export const metadata = {
   title: "Accreditations & Rankings - SSIM | Top PGDM College in Hyderabad",
-  description: "SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education.",
-  keywords: "SSIM accreditations, SSIM rankings, business school ranking, AICTE approved, NBA accredited, SSIM recognition",
+  description:
+    "SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education.",
+  keywords:
+    "SSIM accreditations, SSIM rankings, business school ranking, AICTE approved, NBA accredited, SSIM recognition",
   openGraph: {
     title: "Accreditations & Rankings - SSIM | Top PGDM College in Hyderabad",
-    description: "SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education.",
+    description:
+      "SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education.",
     url: "https://www.ssim.ac.in/about/accreditations-rankings",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -37,7 +41,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Accreditations & Rankings - SSIM",
-    description: "View the accreditations and rankings of Siva Sivani Institute of Management (SSIM).",
+    description:
+      "View the accreditations and rankings of Siva Sivani Institute of Management (SSIM).",
     images: ["/ssimlogo.webp"],
   },
   robots: {
@@ -70,42 +75,45 @@ export default function AccreditationsRankings() {
   }));
 
   return (
-    <div className="w-full">
-      <div className="max-w-7xl mx-auto pt-16">
-        <h2 className="px-5 sm:px-0 text-4xl font-bold md:text-5xl text-center text-black dark:text-white">
-          Accreditations & Rankings
-        </h2>
-        {/* <p className="text-neutral-700 dark:text-neutral-300 text-lg max-w-screen-md">
+    <>
+      <OrganizationSchema description="SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education." />
+      <div className="w-full">
+        <div className="max-w-7xl mx-auto pt-16">
+          <h2 className="px-5 sm:px-0 text-4xl font-bold md:text-5xl text-center text-black dark:text-white">
+            Accreditations & Rankings
+          </h2>
+          {/* <p className="text-neutral-700 dark:text-neutral-300 text-lg max-w-screen-md">
           I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
           a timeline of my journey.
         </p> */}
-        <Tabs
-          className="px-5 !pt-10 !pb-0 sm:py-20"
-          defaultValue="accreditations"
-        >
-          <TabsList className="grid w-full grid-cols-2 text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
-            <TabsTrigger
-              value="accreditations"
-              className="data-[state=active]:bg-mainBlue data-[state=active]:text-white"
-            >
-              Accreditations
-            </TabsTrigger>
-            <TabsTrigger
-              value="rankings"
-              className="data-[state=active]:bg-mainBlue data-[state=active]:text-white"
-            >
-              Rankings
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="rankings" className="space-y-8 sm:pt-16">
-            <Timeline data={data} />
-          </TabsContent>
-          <TabsContent value="accreditations" className="space-y-8 sm:pt-16">
-            <Accreditations />
-          </TabsContent>
-        </Tabs>
+          <Tabs
+            className="px-5 !pt-10 !pb-0 sm:py-20"
+            defaultValue="accreditations"
+          >
+            <TabsList className="grid w-full grid-cols-2 text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
+              <TabsTrigger
+                value="accreditations"
+                className="data-[state=active]:bg-mainBlue data-[state=active]:text-white"
+              >
+                Accreditations
+              </TabsTrigger>
+              <TabsTrigger
+                value="rankings"
+                className="data-[state=active]:bg-mainBlue data-[state=active]:text-white"
+              >
+                Rankings
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="rankings" className="space-y-8 sm:pt-16">
+              <Timeline data={data} />
+            </TabsContent>
+            <TabsContent value="accreditations" className="space-y-8 sm:pt-16">
+              <Accreditations />
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

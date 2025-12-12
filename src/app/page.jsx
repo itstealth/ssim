@@ -13,6 +13,7 @@ import AlumniSection from "@/pages/Home/AlumniSection";
 import PlacementIndustry from "@/pages/Home/Placement&Industry";
 import Footer from "@/pages/Footer/Footer";
 import HeroSection from "@/components/HeroSection";
+import { OrganizationSchema } from "@/components/Schema";
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -124,6 +125,7 @@ export default function HomePage() {
 
   return (
     <>
+      <OrganizationSchema />
       {/* <HeroSlider /> */}
       <HeroSection />
       <SectionWrapper>
