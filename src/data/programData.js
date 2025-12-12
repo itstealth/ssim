@@ -29,7 +29,8 @@ export const programData = {
       credits: "FPM - 45, EFPM - 36",
       "Sanctioned Intake": "20",
       location: "Full-time On-campus",
-      degree: "Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)",
+      degree:
+        "Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)",
     },
     specializations: [
       {
@@ -174,7 +175,7 @@ export const programData = {
       minThesisPeriod: 2,
     },
   },
-  "fpm": {
+  fpm: {
     name: "FPM",
     keyInfo: {
       duration: "3 years",
@@ -326,7 +327,7 @@ export const programData = {
       minThesisPeriod: 2,
     },
   },
-  "efpm": {
+  efpm: {
     name: "EFPM",
     keyInfo: {
       duration: "3 years",
@@ -480,6 +481,15 @@ export const programData = {
   },
   "pgdm-ba": {
     name: "PGDM BA",
+    about: `The Post Graduate Diploma in Management - Business Analytics (PGDM-BA) at Siva Sivani Institute of Management (SSIM) Hyderabad is a pioneering program in the Telugu-speaking states, designed to meet the growing demand for data analytics professionals in today's data-driven business landscape. This comprehensive two-year program uniquely combines Business Management, Analytical Mathematics, Statistics, and Computer Science to prepare professionals for the transformation from intuition-based to data-driven decision-making.
+
+In an era where 2.5 quintillion bytes of data are generated daily, organizations across industries are increasingly relying on data analytics to gain competitive advantages, optimize operations, and drive strategic growth. SSIM's PGDM-BA program addresses this critical need by equipping students with the technical expertise, analytical thinking, and business acumen required to excel in the rapidly expanding field of business analytics.
+
+The program is structured to provide students with a strong foundation in core management principles while simultaneously developing advanced analytical capabilities. Students learn to leverage cutting-edge tools and technologies including Python, SQL, Tableau, Machine Learning, and Big Data Analytics to extract meaningful insights from complex datasets. The curriculum emphasizes hands-on learning through real-world projects, case studies, and industry collaborations, ensuring that graduates are not just theoretically sound but also practically proficient.
+
+One of the program's key differentiators is its integration with Harvard Business School Online Business Analytics certification, providing students with globally recognized credentials. Additionally, students gain exposure to a wide range of software, programming languages, and big data processing tools, making them versatile and industry-ready. The program also offers international exchange opportunities with Herzing University in Atlanta, USA, enabling students to gain global perspectives on analytics practices.
+
+The PGDM-BA program at SSIM focuses on multiple analytical domains including Marketing Analytics, Financial Analytics, HR Analytics, and Operational Analytics. Students learn to apply analytical techniques to solve real business problems, make data-driven recommendations, and create value for organizations. With the demand for data analytics professionals projected to grow by 25% between 2020-2030, PGDM-BA graduates are exceptionally well-positioned for successful careers in this rapidly expanding field. The program's emphasis on experiential learning, industry exposure, and practical application ensures that students develop the skills and confidence needed to become leaders in the analytics domain.`,
     keyInfo: {
       duration: "2 years",
       credits: "120",
@@ -924,6 +934,15 @@ export const programData = {
   },
   "pgdm-bifs": {
     name: "PGDM BIFS",
+    about: `The Post Graduate Diploma in Management - Banking, Insurance and Financial Services (PGDM-BIFS) at Siva Sivani Institute of Management (SSIM) Hyderabad is a specialized program designed to create industry-ready professionals for the dynamic and evolving BFSI (Banking, Financial Services, and Insurance) sector. This comprehensive two-year program provides students with in-depth knowledge and practical skills required to excel in banking operations, insurance management, and financial services.
+
+The Indian BFSI sector has been experiencing rapid transformation driven by digitalization, regulatory changes, and evolving customer expectations. SSIM's PGDM-BIFS program is strategically designed to prepare students for these challenges by providing them with a strong foundation in banking principles, insurance practices, and financial services management. The program is accredited by the Insurance Institute of India (III), ensuring that students receive industry-recognized education that meets the highest professional standards.
+
+The curriculum covers a wide spectrum of topics including retail banking, digital banking, wealth management, life and general insurance, risk management, investment banking, fintech, and financial analytics. Students gain hands-on experience through advanced labs including NSE Assisted Finance Lab, Equity Levers Certification, and CESIM Simulations, which provide practical exposure to real-world financial scenarios and decision-making processes.
+
+One of the program's unique features is its three specialized streams: Banking Stream, Insurance Stream, and Analytical Stream. Students can choose their specialization based on their career interests, allowing them to develop deep expertise in their chosen domain. The Banking Stream focuses on retail banking, digital banking, and risk and treasury management. The Insurance Stream covers insure-tech, fraud risk management, and reinsurance management. The Analytical Stream emphasizes fraud risk analytics, financial analytics, and algorithmic trading with Python.
+
+The program emphasizes experiential learning through corporate interviews, industrial visits, NGO visits, and simulations. Students also benefit from international exchange programs with Herzing University in Atlanta, USA, providing them with global exposure and cross-cultural learning experiences. The outcome-based education approach ensures that students develop practical skills and industry readiness, making them highly sought after by leading BFSI organizations. With 100% placement support and strong industry connections, PGDM-BIFS graduates are well-positioned for successful careers in banks, insurance companies, fintech firms, and other financial services organizations.`,
     keyInfo: {
       duration: "2 years",
       credits: "120",
@@ -1259,8 +1278,7 @@ export const programData = {
         module6: {
           title: "Term Thematic: Corporate Ace",
           duration: "3 months",
-          description:
-            "Complete dissertation and corporate governance studies",
+          description: "Complete dissertation and corporate governance studies",
           topics: [
             {
               title: "Corporate Governance and Sustainability",
@@ -1442,6 +1460,15 @@ export const programData = {
   },
   "pgdm-triple-specialisation": {
     name: "PGDM Triple Specialisation",
+    about: `The Post Graduate Diploma in Management with Triple Specialisation at Siva Sivani Institute of Management (SSIM) Hyderabad is an innovative and comprehensive program that offers students the unique opportunity to develop expertise in three distinct business domains simultaneously. This two-year on-campus program is designed to create versatile, multi-skilled managers who can navigate the complexities of modern business environments with confidence and competence.
+
+The program's unique structure allows students to choose a Major specialization, a Minor specialization, and a Sectoral specialization, providing them with a 3-in-1 skill set that significantly enhances their career prospects and professional versatility. This approach recognizes that contemporary business challenges often require cross-functional knowledge and the ability to integrate insights from multiple domains. By specializing in three areas, students develop a holistic understanding of business operations and become valuable assets to organizations seeking well-rounded management professionals.
+
+The Major specializations available include Finance, Marketing, Human Resource, Operations Management, Business Analytics, Digital Marketing, Banking & Insurance, Retail Management, Entrepreneurship, Agribusiness Management, Technology Management, and Pharma Management. Students can choose their Minor from a diverse range of options, and select Sectoral specializations that align with emerging industry trends and career opportunities. This flexibility ensures that each student can tailor their education to match their career aspirations and interests.
+
+The program is accredited by NBA (National Board of Accreditation) and NAAC (National Assessment and Accreditation Council), reflecting its commitment to quality education and continuous improvement. The curriculum emphasizes experiential learning through corporate interviews, industrial visits, NGO visits, simulations, and real-world projects. Students also benefit from simulation labs including StratX simulations for Marketing, Equity Levers for Finance Lab, and CESIM Simulations, providing hands-on experience with industry-standard tools and practices.
+
+One of the program's standout features is the Global Immersion Program, which provides international learning experiences that expose participants to global cultures, business practices, and management philosophies. This international exposure helps students develop a global mindset and prepares them for leadership roles in multinational organizations. The program's emphasis on cross-functional skills, entrepreneurial focus, and practical application ensures that graduates are not just job-ready but also equipped to drive innovation and create value in their chosen fields. With 100% placement support and strong industry connections, PGDM Triple Specialisation graduates are highly sought after by leading organizations across various sectors.`,
     keyInfo: {
       duration: "2 years",
       credits: "120",
@@ -1598,7 +1625,8 @@ export const programData = {
       },
       {
         title: "Global Immersion Program (International Exposure)",
-        description: "International learning experience that expose participants to global cultures, business and practices.",
+        description:
+          "International learning experience that expose participants to global cultures, business and practices.",
       },
     ],
     curriculum: [
@@ -2082,4 +2110,3 @@ export const programData = {
     },
   },
 };
-

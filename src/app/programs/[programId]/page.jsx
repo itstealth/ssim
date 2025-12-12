@@ -734,7 +734,24 @@ const ProgramSection = ({ programId, activeSection }) => {
   const renderContent = () => {
     switch (activeSection) {
       case "about":
-        return <KeyInformation info={program.keyInfo} />;
+        return (
+          <div className="space-y-8">
+            {program.about && (
+              <div className="prose prose-lg max-w-none">
+                <h3 className="text-2xl font-semibold mb-4 text-red-600">
+                  About the Program
+                </h3>
+                <div
+                  className="text-gray-700 leading-relaxed space-y-4"
+                  dangerouslySetInnerHTML={{
+                    __html: program.about.replace(/\n/g, "<br />"),
+                  }}
+                />
+              </div>
+            )}
+            <KeyInformation info={program.keyInfo} />
+          </div>
+        );
       case "electives":
         return (
           <CourseElectives
