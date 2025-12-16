@@ -250,14 +250,14 @@ const routeConfig = {
       },
     ],
   },
-  "/students-life/news-announcements": {
+  "/students-life/news": {
     title: "News & Announcements",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Student Life", href: "/students-life" },
       {
         label: "News & Announcements",
-        href: "/students-life/news-announcements",
+        href: "/students-life/news",
         isActive: true,
       },
     ],

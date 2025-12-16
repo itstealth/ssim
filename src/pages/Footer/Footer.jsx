@@ -28,10 +28,13 @@ export default function Footer() {
       label: "Useful Links",
       items: [
         { name: "About Us", path: "/about/vision-mission" },
-        { name: "Rankings & Accreditations", path: "/about/accreditations-rankings" },
+        {
+          name: "Rankings & Accreditations",
+          path: "/about/accreditations-rankings",
+        },
         // { name: "Accreditations", path: "/accreditations" },
         { name: "Events", path: "/students-life/life-at-ssim" },
-        { name: "Media", path: "/students-life/news-announcements" },
+        { name: "Media", path: "/students-life/news" },
         { name: "Blog", path: "/blog" },
         { name: "IQAC", path: "/iqac" },
         // { name: "Careers", path: "/careers" },

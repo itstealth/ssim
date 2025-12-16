@@ -36,9 +36,9 @@ import {
                 <Shield className="h-8 w-8 text-blue-600" />
               </div>
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
               Internal Complaints Committee
-            </h1>
+            </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Ensuring a safe and respectful workplace environment for all
             </p>

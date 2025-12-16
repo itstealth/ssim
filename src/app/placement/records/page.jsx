@@ -244,9 +244,9 @@ export default function PlacementSection() {
       <div className="min-h-fit bg-gradient-to-b from-background to-muted/20 pb-16">
         <div className="container max-w-7xl mx-auto p-4 md:p-8 space-y-8">
           <div className="text-center space-y-4 py-8">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Student Placements
-            </h1>
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Explore our students' success stories and career achievements.
               Filter and sort to find specific placement details.

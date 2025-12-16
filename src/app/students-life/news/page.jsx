@@ -21,7 +21,8 @@ const news6 = "/studentslife/news/news6.jpg";
 // 2025 Convocation News Images
 const andhraJyothiAD = "/studentslife/news/Andhra Jyothi AD 2025 Conv.jpg";
 const andhraJyothiHyd = "/studentslife/news/Andhra Jyothi Hyd 2025 Conv.jpg";
-const andhraJyothiPaperAD = "/studentslife/news/Andhra Jyothi Paper AD 2025 Conv.jpg";
+const andhraJyothiPaperAD =
+  "/studentslife/news/Andhra Jyothi Paper AD 2025 Conv.jpg";
 const dashaHyd = "/studentslife/news/Dasha Hyd 2025 Conv.jpg";
 const deccanVisionHyd = "/studentslife/news/Deccan Vision Hyd 2025 Conv.jpg";
 const deekshaPrabhaHyd = "/studentslife/news/Deeksha Prabha Hyd 2025 Conv.jpg";
@@ -228,7 +229,7 @@ const NewsEvents = () => {
         title="News & Announcements"
         description="Stay updated with the latest news, events, and announcements from Siva Sivani Institute of Management (SSIM). Find out what's happening on campus."
         keywords="SSIM news, SSIM events, college announcements, campus news, business school events"
-        canonicalUrl="https://www.ssim.ac.in/students-life/news-announcements"
+        canonicalUrl="https://www.ssim.ac.in/students-life/news"
       /> */}
       <div className="bg-white py-10 lg:py-20">
         <div className="mx-auto max-w-screen-xl px-4 md:px-8">

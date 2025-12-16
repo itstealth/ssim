@@ -10,8 +10,16 @@ export function getStaticRoutes() {
   return [
     // Main pages
     { url: "", priority: 1.0, changefreq: "daily" },
-    { url: "/about/academic-advisory-board", priority: 0.8, changefreq: "monthly" },
-    { url: "/about/accreditations-rankings", priority: 0.8, changefreq: "monthly" },
+    {
+      url: "/about/academic-advisory-board",
+      priority: 0.8,
+      changefreq: "monthly",
+    },
+    {
+      url: "/about/accreditations-rankings",
+      priority: 0.8,
+      changefreq: "monthly",
+    },
     { url: "/about/board-of-governors", priority: 0.8, changefreq: "monthly" },
     { url: "/about/board-of-studies", priority: 0.8, changefreq: "monthly" },
     { url: "/about/leadership", priority: 0.8, changefreq: "monthly" },
@@ -20,7 +28,11 @@ export function getStaticRoutes() {
     { url: "/admissions/fpm-efpm", priority: 0.8, changefreq: "weekly" },
     { url: "/admissions/pgdm-ba", priority: 0.8, changefreq: "weekly" },
     { url: "/admissions/pgdm-bifs", priority: 0.8, changefreq: "weekly" },
-    { url: "/admissions/pgdm-triple-specialisation", priority: 0.8, changefreq: "weekly" },
+    {
+      url: "/admissions/pgdm-triple-specialisation",
+      priority: 0.8,
+      changefreq: "weekly",
+    },
     { url: "/alumni", priority: 0.7, changefreq: "monthly" },
     { url: "/alumni-guidance", priority: 0.7, changefreq: "monthly" },
     { url: "/blog", priority: 0.8, changefreq: "daily" },
@@ -29,7 +41,11 @@ export function getStaticRoutes() {
     { url: "/events/convocation-2024", priority: 0.6, changefreq: "monthly" },
     { url: "/faculty/areas", priority: 0.7, changefreq: "monthly" },
     { url: "/faculty/publications", priority: 0.7, changefreq: "monthly" },
-    { url: "/grievance-redressal-mechanism", priority: 0.6, changefreq: "monthly" },
+    {
+      url: "/grievance-redressal-mechanism",
+      priority: 0.6,
+      changefreq: "monthly",
+    },
     { url: "/internal-complaints", priority: 0.6, changefreq: "monthly" },
     { url: "/international-relations", priority: 0.7, changefreq: "monthly" },
     { url: "/iqac", priority: 0.7, changefreq: "monthly" },
@@ -40,13 +56,33 @@ export function getStaticRoutes() {
     { url: "/programs/fpm-efpm", priority: 0.8, changefreq: "weekly" },
     { url: "/programs/pgdm-ba", priority: 0.8, changefreq: "weekly" },
     { url: "/programs/pgdm-bifs", priority: 0.8, changefreq: "weekly" },
-    { url: "/programs/pgdm-triple-specialisation", priority: 0.8, changefreq: "weekly" },
-    { url: "/research/case-research-center", priority: 0.6, changefreq: "monthly" },
+    {
+      url: "/programs/pgdm-triple-specialisation",
+      priority: 0.8,
+      changefreq: "weekly",
+    },
+    {
+      url: "/research/case-research-center",
+      priority: 0.6,
+      changefreq: "monthly",
+    },
     { url: "/research/conferences", priority: 0.6, changefreq: "monthly" },
-    { url: "/students-life/life-at-ssim", priority: 0.6, changefreq: "monthly" },
-    { url: "/students-life/news-announcements", priority: 0.6, changefreq: "weekly" },
-    { url: "/students-life/students-achievements", priority: 0.6, changefreq: "monthly" },
-    { url: "/students-life/students-feedback", priority: 0.6, changefreq: "monthly" },
+    {
+      url: "/students-life/life-at-ssim",
+      priority: 0.6,
+      changefreq: "monthly",
+    },
+    { url: "/students-life/news", priority: 0.6, changefreq: "weekly" },
+    {
+      url: "/students-life/students-achievements",
+      priority: 0.6,
+      changefreq: "monthly",
+    },
+    {
+      url: "/students-life/students-feedback",
+      priority: 0.6,
+      changefreq: "monthly",
+    },
     { url: "/success-stories", priority: 0.7, changefreq: "monthly" },
   ];
 }
@@ -57,12 +93,16 @@ export function getStaticRoutes() {
 export function generateSitemapXml(urls, baseUrl) {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(({ url, lastmod, priority, changefreq }) => `  <url>
+${urls
+  .map(
+    ({ url, lastmod, priority, changefreq }) => `  <url>
     <loc>${baseUrl}${url}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-  </url>`).join('\n')}
+  </url>`
+  )
+  .join("\n")}
 </urlset>`;
 
   return sitemap;
@@ -86,11 +126,16 @@ export function isValidUrl(url) {
 export function sanitizeUrl(url) {
   return url.replace(/[<>"&]/g, (match) => {
     switch (match) {
-      case '<': return '&lt;';
-      case '>': return '&gt;';
-      case '"': return '&quot;';
-      case '&': return '&amp;';
-      default: return match;
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case '"':
+        return "&quot;";
+      case "&":
+        return "&amp;";
+      default:
+        return match;
     }
   });
 }

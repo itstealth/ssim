@@ -861,7 +861,7 @@ const ProgramsOverview = ({ params }) => {
     if (sectionId === "eligibility") {
       // Map program IDs to their admission routes
       const admissionRoutes = {
-        fpm: "/admissions/fpm",
+        fpm: "/admissions/fpm-efpm",
         efpm: "/admissions/efpm",
         "fpm/efpm": "/admissions/fpm-efpm", // Legacy support
         "pgdm-ba": "/admissions/pgdm-ba",

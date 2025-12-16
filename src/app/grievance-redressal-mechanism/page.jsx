@@ -36,9 +36,9 @@ import {
               >
                 Student Support Services
               </Badge>
-              <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+              <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
                 Grievance Redressal Mechanism
-              </h1>
+              </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Ensuring fair and prompt resolution of student concerns through
                 our structured grievance redressal system
