@@ -368,6 +368,23 @@ export default function BlogDetail() {
     }
   }, [blog?.content]);
 
+  // Build schema data before any conditional returns to keep hook order stable
+  const blogSchema = useMemo(() => {
+    if (!blog) return null;
+    return {
+      headline: blog.title,
+      description: blog.excerpt || blog.description || blog.title,
+      image:
+        blog.featuredImage ||
+        blog.image ||
+        "https://www.ssim.ac.in/ssimlogo.webp",
+      datePublished: blog.publishDate,
+      dateModified: blog.updatedAt || blog.publishDate,
+      url: `https://www.ssim.ac.in/blog/${blogId}`,
+      articleBody: blog.content,
+    };
+  }, [blog, blogId]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-slate-50/50 py-12">
@@ -431,22 +448,6 @@ export default function BlogDetail() {
     .split(" ")
     .map((n) => n[0])
     .join("");
-
-  const blogSchema = useMemo(() => {
-    if (!blog) return null;
-    return {
-      headline: blog.title,
-      description: blog.excerpt || blog.description || blog.title,
-      image:
-        blog.featuredImage ||
-        blog.image ||
-        "https://www.ssim.ac.in/ssimlogo.webp",
-      datePublished: blog.publishDate,
-      dateModified: blog.updatedAt || blog.publishDate,
-      url: `https://www.ssim.ac.in/blog/${blogId}`,
-      articleBody: blog.content,
-    };
-  }, [blog, blogId]);
 
   return (
     <>
