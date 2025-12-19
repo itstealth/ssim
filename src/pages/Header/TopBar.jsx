@@ -106,13 +106,23 @@ const TopBar = () => {
             International Conference
           </PulsatingButton> */}
           <a
+            href="https://apply.ssim.ac.in/fellowship-program-application-form"
+            target="_blank"
+            size="sm"
+            rel="noopener noreferrer"
+          >
+            <Button className="text-xs text-white bg-black hover:bg-black/80">
+              Apply Now for FPM/EFPM
+            </Button>
+          </a>
+          <a
             href="https://apply.ssim.ac.in"
             target="_blank"
             size="sm"
             rel="noopener noreferrer"
           >
             <Button className="text-xs text-white bg-black hover:bg-black/80">
-              Apply Now
+              Apply for PGDM
             </Button>
           </a>
           {/* <a
