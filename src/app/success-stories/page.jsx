@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CollectionPageSchema } from "@/components/Schema";
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 
 const page = () => {
   return (
@@ -37,53 +38,72 @@ const page = () => {
 export default page;
 
 const Banner = () => {
+  const [isIntroOpen, setIsIntroOpen] = useState(false);
+
   return (
-    <div className="bg-[#2A3A8A] text-white py-12 sm:py-16">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
-          <div className="text-center md:w-[320px] md:ml-auto md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold md:!leading-[1.575] md:w-min">
-              Creating Student Successes, Always!
-            </h1>
-            <a
-              href="https://www.youtube.com/watch?v=X-pMOa8jBYk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 rounded-full max-w-fit bg-yellow-500 px-6 py-3 text-white font-semibold flex items-center mx-auto md:mx-0"
-            >
-              <svg
-                className="mr-2 h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+    <>
+      <div className="bg-[#2A3A8A] text-white py-12 sm:py-16">
+        <div className="container max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
+            <div className="text-center md:w-[320px] md:ml-auto md:text-left">
+              <h1 className="text-4xl md:text-5xl font-bold md:!leading-[1.575] md:w-min">
+                Creating Student Successes, Always!
+              </h1>
+              <button
+                type="button"
+                onClick={() => setIsIntroOpen(true)}
+                className="mt-8 rounded-full max-w-fit bg-yellow-500 px-6 py-3 text-white font-semibold flex items-center mx-auto md:mx-0"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                ></path>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              WATCH INTRO
-            </a>
-          </div>
-          <div className="relative">
-            <img
-              src="/success-stories/banner-img.svg"
-              alt="Success Stories"
-              className="w-full h-full max-w-[550px]"
-            />
+                <svg
+                  className="mr-2 h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  ></path>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                WATCH INTRO
+              </button>
+            </div>
+            <div className="relative">
+              <img
+                src="/success-stories/banner-img.svg"
+                alt="Success Stories"
+                className="w-full h-full max-w-[550px]"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <Dialog open={isIntroOpen} onOpenChange={setIsIntroOpen}>
+        <DialogContent className="sm:max-w-4xl border-none bg-transparent p-0">
+          <DialogClose className="absolute -top-10 right-0 text-white hover:text-gray-300 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+            Close
+          </DialogClose>
+          <div className="w-full aspect-video">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/X-pMOa8jBYk?rel=0&modestbranding=1&playsinline=1`}
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

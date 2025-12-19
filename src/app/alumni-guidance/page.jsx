@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import "../../app/globals.css";
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 
 const Page = () => {
   const isMobile = useIsMobile();
+  const [isIntroOpen, setIsIntroOpen] = useState(false);
+
   return (
     <>
       <div className="relative z-10 h-full sm:h-[560px] sm:pt-20 py-12 text-white">
@@ -23,10 +26,9 @@ const Page = () => {
           <p className="mt-4 text-lg">
             Exclusive & Thriving Student-Alumni Community
           </p>
-          <a
-            href="https://www.youtube.com/watch?v=X-pMOa8jBYk"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => setIsIntroOpen(true)}
             className="mt-8 inline-block rounded-full bg-yellow-500 px-6 py-3 text-white"
           >
             <span className="flex items-center">
@@ -52,7 +54,7 @@ const Page = () => {
               </svg>
               WATCH INTRO
             </span>
-          </a>
+          </button>
         </div>
 
         {/* Alumni Images */}
@@ -78,6 +80,22 @@ const Page = () => {
           </div>
         )}
       </div>
+
+      <Dialog open={isIntroOpen} onOpenChange={setIsIntroOpen}>
+        <DialogContent className="sm:max-w-4xl border-none bg-transparent p-0">
+          <DialogClose className="absolute -top-10 right-0 text-white hover:text-gray-300 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+            Close
+          </DialogClose>
+          <div className="w-full aspect-video">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/X-pMOa8jBYk?rel=0&modestbranding=1&playsinline=1`}
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
       <AlumniNetwork />
       <GuidingAlumni />
       <AddingValues />

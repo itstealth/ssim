@@ -1,10 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
-import { Users, GraduationCap, Landmark, LineChart } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Users, GraduationCap, Landmark, LineChart, Play, Pause, FastForward, Rewind } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import WordPullUp from "@/components/ui/word-pull-up";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -15,6 +15,16 @@ export default function AcademicPrograms() {
   const [videoOpen, setVideoOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [localVideoOpen, setLocalVideoOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
+  const [forwardAnimating, setForwardAnimating] = useState(false);
+  const [backwardAnimating, setBackwardAnimating] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const controlsTimeoutRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     if (!isHovered && !videoOpen) {
@@ -161,6 +171,8 @@ export default function AcademicPrograms() {
         </span>,
       ],
       video: "https://www.youtube.com/watch?v=y-GwG39jVZc",
+      isLocalVideo: true,
+      localVideoPath: "/vids/SSIM_Offers_Fellow_Program_in_Management_FPM_-_Dr._V._Annapurna_FPM_Program_Chair_2160P.mp4",
       link: "/programs/fpm-efpm",
       link1: "https://apply.ssim.ac.in/fellowship-program-application-form",
     },
@@ -187,6 +199,143 @@ export default function AcademicPrograms() {
       router.push(link);
     }, 100);
   };
+
+  const handleVideoClick = () => {
+    const currentFeature = features[activeVideo];
+    if (currentFeature.isLocalVideo) {
+      setLocalVideoOpen(true);
+    } else {
+      setVideoOpen(true);
+    }
+  };
+
+  const handlePlayPause = async () => {
+    if (videoRef.current) {
+      try {
+        if (isPlaying) {
+          videoRef.current.pause();
+        } else {
+          // Unmute when user clicks play
+          videoRef.current.muted = false;
+          await videoRef.current.play();
+        }
+        showControlsTemporarily();
+      } catch (error) {
+        console.error("Error playing video:", error);
+      }
+    }
+  };
+
+  const handleSkipForward = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime += 20;
+      // Trigger animation
+      setForwardAnimating(true);
+      setTimeout(() => setForwardAnimating(false), 300);
+      showControlsTemporarily();
+    }
+  };
+
+  const handleSkipBackward = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = Math.max(0, videoRef.current.currentTime - 20);
+      // Trigger animation
+      setBackwardAnimating(true);
+      setTimeout(() => setBackwardAnimating(false), 300);
+      showControlsTemporarily();
+    }
+  };
+
+  const handleVideoLoad = async () => {
+    setVideoLoaded(true);
+    // Autoplay when video is loaded
+    if (videoRef.current) {
+      try {
+        await videoRef.current.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error("Error autoplaying video:", error);
+        // Some browsers may block autoplay, so we'll just set loaded state
+      }
+    }
+  };
+
+  const handleVideoEnd = () => {
+    setIsPlaying(false);
+  };
+
+  const handleVideoPlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handleVideoPause = () => {
+    setIsPlaying(false);
+  };
+
+  const showControlsTemporarily = () => {
+    setShowControls(true);
+    if (controlsTimeoutRef.current) {
+      clearTimeout(controlsTimeoutRef.current);
+    }
+    controlsTimeoutRef.current = setTimeout(() => {
+      if (isPlaying) {
+        setShowControls(false);
+      }
+    }, 3000);
+  };
+
+  // Auto-hide controls when video is playing
+  useEffect(() => {
+    if (isPlaying && videoLoaded) {
+      controlsTimeoutRef.current = setTimeout(() => {
+        setShowControls(false);
+      }, 3000);
+    } else {
+      setShowControls(true);
+    }
+    return () => {
+      if (controlsTimeoutRef.current) {
+        clearTimeout(controlsTimeoutRef.current);
+      }
+    };
+  }, [isPlaying, videoLoaded]);
+
+  // Load video when modal opens, reset when closes
+  useEffect(() => {
+    if (localVideoOpen) {
+      // Set video source when modal opens
+      const fpmFeature = features.find((f) => f.isLocalVideo);
+      if (fpmFeature && fpmFeature.localVideoPath) {
+        setVideoError(false);
+        setVideoLoaded(false);
+        setVideoSrc(fpmFeature.localVideoPath);
+        // Load video after a small delay to ensure DOM is ready
+        setTimeout(() => {
+          if (videoRef.current) {
+            videoRef.current.load().catch((error) => {
+              console.error("Error loading video:", error);
+              setVideoError(true);
+              setVideoLoaded(false);
+            });
+          }
+        }, 100);
+      }
+    } else {
+      // Reset video when modal closes
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+      setIsPlaying(false);
+      setVideoLoaded(false);
+      setVideoError(false);
+      setVideoSrc("");
+      setShowControls(true);
+      if (controlsTimeoutRef.current) {
+        clearTimeout(controlsTimeoutRef.current);
+      }
+    }
+  }, [localVideoOpen]);
 
   return (
     <div className="container mx-auto sm:pr-0 py-0 sm:pt-16 pb-20">
@@ -236,7 +385,7 @@ export default function AcademicPrograms() {
               className={`relative block lg:hidden cursor-pointer aspect-square bg-gray-900 overflow-hidden transition-opacity duration-500 ${
                 isAnimating ? "opacity-0" : "opacity-100"
               }`}
-              onClick={() => setVideoOpen(true)}
+              onClick={handleVideoClick}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -251,7 +400,7 @@ export default function AcademicPrograms() {
               />
               <div
                 className="absolute cursor-pointer inset-0 w-full h-full flex lg:hidden items-center justify-center"
-                onClick={() => setVideoOpen(true)}
+                onClick={handleVideoClick}
               >
                 <div className="relative">
                   <div className="w-16 h-16 bg-[#C62B28] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#B52522] transition-colors">
@@ -303,7 +452,7 @@ export default function AcademicPrograms() {
           className={`relative hidden lg:block cursor-pointer aspect-square bg-gray-900 overflow-hidden transition-opacity duration-500 ${
             isAnimating ? "opacity-0" : "opacity-100"
           }`}
-          onClick={() => setVideoOpen(true)}
+          onClick={handleVideoClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -318,7 +467,7 @@ export default function AcademicPrograms() {
           />
           <div
             className="absolute cursor-pointer inset-0 w-full h-full flex sm:hidden items-center justify-center"
-            onClick={() => setVideoOpen(true)}
+            onClick={handleVideoClick}
           >
             <div className="relative">
               <div className="w-16 h-16 bg-[#C62B28] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#B52522] transition-colors">
@@ -331,7 +480,7 @@ export default function AcademicPrograms() {
         </div>
         <div
           className="absolute cursor-pointer top-1/2 left-[53%] transform -translate-x-[53%] -translate-y-1/2 w-fit h-fit hidden lg:flex items-center justify-center"
-          onClick={() => setVideoOpen(true)}
+          onClick={handleVideoClick}
         >
           <div className="relative">
             <div className="w-16 h-16 bg-[#C62B28] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#B52522] transition-colors">
@@ -349,12 +498,115 @@ export default function AcademicPrograms() {
             <iframe
               width="100%"
               height="100%"
-              src={`https://www.youtube.com/embed/${getVideoId(
+              src={`https://www.youtube-nocookie.com/embed/${getVideoId(
                 features[activeVideo].video
-              )}`}
+              )}?rel=0&modestbranding=1&playsinline=1`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Custom Video Player Modal for FPM/EFPM */}
+      <Dialog open={localVideoOpen} onOpenChange={setLocalVideoOpen}>
+        <DialogContent className="sm:max-w-[900px] p-0 bg-black">
+          <div 
+            className="relative aspect-video bg-black"
+            onMouseMove={showControlsTemporarily}
+            onMouseLeave={() => {
+              if (isPlaying) {
+                setShowControls(false);
+              }
+            }}
+          >
+            <video
+              ref={videoRef}
+              className="w-full h-full"
+              onLoadedData={handleVideoLoad}
+              onPlay={handleVideoPlay}
+              onPause={handleVideoPause}
+              onEnded={handleVideoEnd}
+              onError={(e) => {
+                console.error("Video error:", e);
+                setVideoError(true);
+                setVideoLoaded(false);
+              }}
+              preload="none"
+              playsInline
+              muted
+            >
+              {videoSrc && (
+                <source src={videoSrc} type="video/mp4" />
+              )}
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Custom Controls */}
+            {videoLoaded && !videoError && (
+              <div 
+                className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 transition-opacity duration-300 ${
+                  showControls || !isPlaying ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <div className="flex items-center justify-center gap-4">
+                  {/* Skip Backward 20s */}
+                  <button
+                    onClick={handleSkipBackward}
+                    className={`bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 ${
+                      backwardAnimating ? "scale-125 rotate-12" : "scale-100"
+                    }`}
+                    aria-label="Skip backward 20 seconds"
+                  >
+                    <Rewind className={`w-5 h-5 transition-transform ${backwardAnimating ? "translate-x-1" : ""}`} />
+                  </button>
+
+                  {/* Play/Pause */}
+                  <button
+                    onClick={handlePlayPause}
+                    className="bg-[#C62B28] hover:bg-[#B52522] text-white rounded-full p-4 transition-colors flex items-center justify-center"
+                    aria-label={isPlaying ? "Pause" : "Play"}
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-6 h-6" />
+                    ) : (
+                      <Play className="w-6 h-6" />
+                    )}
+                  </button>
+
+                  {/* Skip Forward 20s */}
+                  <button
+                    onClick={handleSkipForward}
+                    className={`bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 ${
+                      forwardAnimating ? "scale-125 -rotate-12" : "scale-100"
+                    }`}
+                    aria-label="Skip forward 20 seconds"
+                  >
+                    <FastForward className={`w-5 h-5 transition-transform ${forwardAnimating ? "-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Loading indicator */}
+            {!videoLoaded && !videoError && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                <div className="text-white text-center">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+                  <p>Loading video...</p>
+                </div>
+              </div>
+            )}
+
+            {/* Error message */}
+            {videoError && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                <div className="text-white text-center">
+                  <p className="text-lg mb-2">Failed to load video</p>
+                  <p className="text-sm opacity-75">Please check if the video file exists at the specified path</p>
+                </div>
+              </div>
+            )}
           </div>
         </DialogContent>
       </Dialog>
