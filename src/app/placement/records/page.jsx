@@ -114,7 +114,7 @@ export default function PlacementSection() {
     if (!apiStudentsData || apiStudentsData.length === 0) {
       return {
         totalPlacements: 0,
-        averageSalary: "6.91LPA",
+        averageSalary: "7.25LPA",
         companiesHiring: 0,
         placementRate: "0%",
       };
@@ -131,7 +131,7 @@ export default function PlacementSection() {
           .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${
           totalPlacements > 0 && totalSalary > 0 ? "" : "K"
         }`
-      : "6.91LPA";
+      : "7.25LPA";
     const companiesHiring = new Set(apiStudentsData.map((s) => s.company)).size;
     const placementRate = "92%";
 
@@ -276,7 +276,7 @@ export default function PlacementSection() {
                 </div>
                 <div>
                   <CardTitle className="text-3xl font-bold text-red-600">
-                    6.91LPA
+                    7.25LPA
                   </CardTitle>
                   <CardDescription className="text-base">
                     Average Salary
