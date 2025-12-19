@@ -1,6 +1,6 @@
 "use client";
+
 import { useState, useMemo } from "react";
-// import SEO from "@/components/Seo";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { BlogPostingSchema } from "@/components/Schema";
@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import {
   Table,
   TableBody,
@@ -19,35 +18,37 @@ import {
   TableFooter,
   TableCaption,
 } from "@/components/ui/table";
-import {
-  BookmarkIcon,
-  Heart,
-  MessageCircle,
-  Share2,
-  Clock,
-  Calendar,
-  ArrowLeft,
-} from "lucide-react";
+import { Clock, Calendar, ArrowLeft } from "lucide-react";
 
-// Helper function to fetch a single blog post from our new API
+// Helper function to fetch a single blog post from our API
 const fetchBlogPost = async (slug) => {
   const response = await fetch(`/api/blogs/${slug}`);
   if (!response.ok) {
-    if (response.status === 404) {
-      throw new Error("Blog post not found");
-    }
+    if (response.status === 404) throw new Error("Blog post not found");
     throw new Error("Failed to fetch blog post");
   }
   return response.json();
 };
 
+// Safe JSON parse that NEVER throws
+const parseJsonField = (value, defaultValue = []) => {
+  if (typeof value !== "string") return defaultValue;
+  const s = value.trim();
+  if (!s) return defaultValue;
+  try {
+    return JSON.parse(s);
+  } catch {
+    return defaultValue;
+  }
+};
+
 export default function BlogDetail() {
   const params = useParams();
-  const blogId = params.blogId;
+  const blogId = params?.blogId;
+
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
-  // Fetch blog post using React Query from our new API
   const {
     data: blog,
     isLoading,
@@ -56,53 +57,36 @@ export default function BlogDetail() {
     queryKey: ["blog", blogId],
     queryFn: () => fetchBlogPost(blogId),
     staleTime: 5 * 60 * 1000,
+    // react-query v4 uses cacheTime, v5 uses gcTime. Keep this one since your original had cacheTime.
     cacheTime: 30 * 60 * 1000,
-    enabled: !!blogId, // Only run query if blogId is available
+    enabled: !!blogId,
   });
 
-  // Function to safely parse JSON from a string field
-  const parseJsonField = (jsonString, defaultValue = []) => {
-    try {
-      if (jsonString) return JSON.parse(jsonString);
-    } catch (e) {
-      console.error("Failed to parse JSON field:", e);
-    }
-    return defaultValue;
-  };
-
-  // Function to convert HTML table to shadcn Table component
-  // Automatically detects first row as header if no <thead> exists
-  // Handles cases where first row is in <tbody> or directly in <table>
+  // Convert HTML table to shadcn Table component
   const convertTableToComponent = (tableElement) => {
     const thead = tableElement.querySelector("thead");
-    let tbody = tableElement.querySelector("tbody");
+    const tbody = tableElement.querySelector("tbody");
     const tfoot = tableElement.querySelector("tfoot");
     const caption = tableElement.querySelector("caption");
 
-    // Handle tables without explicit thead/tbody - check first row for headers
     const allRows = tableElement.querySelectorAll("tr");
     let headerRows = [];
     let bodyRows = [];
 
-    // Function to check if a row looks like a header
     const isHeaderRow = (row) => {
       const cells = row.querySelectorAll("th, td");
       if (cells.length === 0) return false;
 
-      // Check if row has th elements (definite header)
       const hasThElements = Array.from(cells).some(
         (cell) => cell.tagName === "TH"
       );
       if (hasThElements) return true;
 
-      // Check if all cells contain <strong> tags (likely header)
-      const allCellsHaveStrong = Array.from(cells).every((cell) => {
-        const strong = cell.querySelector("strong");
-        return strong !== null;
-      });
+      const allCellsHaveStrong = Array.from(cells).every((cell) =>
+        cell.querySelector("strong")
+      );
       if (allCellsHaveStrong) return true;
 
-      // Check if cells have centered text alignment (common for headers)
       const allCellsCentered = Array.from(cells).every((cell) => {
         const style = cell.getAttribute("style") || "";
         const p = cell.querySelector("p");
@@ -118,23 +102,18 @@ export default function BlogDetail() {
     };
 
     if (!thead) {
-      // No thead exists - need to detect if first row is a header
       if (tbody) {
-        // Table has tbody - check first row in tbody
         const tbodyRows = tbody.querySelectorAll("tr");
         if (tbodyRows.length > 0) {
           const firstRow = tbodyRows[0];
           if (isHeaderRow(firstRow)) {
-            // First row is a header - treat it as header
             headerRows = [firstRow];
             bodyRows = Array.from(tbodyRows).slice(1);
           } else {
-            // First row is not a header - all rows go to body
             bodyRows = Array.from(tbodyRows);
           }
         }
       } else {
-        // No tbody - check all rows directly
         if (allRows.length > 0) {
           const firstRow = allRows[0];
           if (isHeaderRow(firstRow)) {
@@ -146,10 +125,7 @@ export default function BlogDetail() {
         }
       }
     } else {
-      // thead exists - use it and get remaining rows from tbody
-      if (tbody) {
-        bodyRows = Array.from(tbody.querySelectorAll("tr"));
-      }
+      if (tbody) bodyRows = Array.from(tbody.querySelectorAll("tr"));
     }
 
     return (
@@ -160,13 +136,11 @@ export default function BlogDetail() {
               <div dangerouslySetInnerHTML={{ __html: caption.innerHTML }} />
             </TableCaption>
           )}
+
           {(thead || headerRows.length > 0) && (
             <TableHeader
               className="blog-table-header"
-              style={{
-                backgroundColor: "#002F87",
-                background: "#002F87",
-              }}
+              style={{ backgroundColor: "#002F87", background: "#002F87" }}
             >
               {thead
                 ? Array.from(thead.querySelectorAll("tr")).map(
@@ -225,6 +199,7 @@ export default function BlogDetail() {
                   ))}
             </TableHeader>
           )}
+
           {(tbody || bodyRows.length > 0) && (
             <TableBody>
               {tbody && !headerRows.length
@@ -288,6 +263,7 @@ export default function BlogDetail() {
                   ))}
             </TableBody>
           )}
+
           {tfoot && (
             <TableFooter>
               {Array.from(tfoot.querySelectorAll("tr")).map((tr, rowIndex) => (
@@ -310,17 +286,14 @@ export default function BlogDetail() {
     );
   };
 
-  // Process blog content to replace tables with shadcn components
   const processedContent = useMemo(() => {
     if (!blog?.content) return null;
 
-    // Check if content contains tables
     if (!blog.content.includes("<table") && !blog.content.includes("<TABLE")) {
       return { __html: blog.content };
     }
 
     try {
-      // Use regex to split content and extract tables
       const tableRegex = /<table[^>]*>[\s\S]*?<\/table>/gi;
       const parts = [];
       let lastIndex = 0;
@@ -328,7 +301,6 @@ export default function BlogDetail() {
       let tableIndex = 0;
 
       while ((match = tableRegex.exec(blog.content)) !== null) {
-        // Add content before table
         if (match.index > lastIndex) {
           const beforeContent = blog.content.substring(lastIndex, match.index);
           if (beforeContent.trim()) {
@@ -340,11 +312,9 @@ export default function BlogDetail() {
           }
         }
 
-        // Add table
-        const tableHtml = match[0];
         parts.push({
           type: "table",
-          content: tableHtml,
+          content: match[0],
           key: `table-${tableIndex}`,
         });
 
@@ -352,7 +322,6 @@ export default function BlogDetail() {
         tableIndex++;
       }
 
-      // Add remaining content after last table
       if (lastIndex < blog.content.length) {
         const afterContent = blog.content.substring(lastIndex);
         if (afterContent.trim()) {
@@ -364,12 +333,8 @@ export default function BlogDetail() {
         }
       }
 
-      // If no tables were found by regex, return original
-      if (parts.length === 0) {
-        return { __html: blog.content };
-      }
+      if (parts.length === 0) return { __html: blog.content };
 
-      // Convert parts to React elements
       return parts.map((part) => {
         if (part.type === "html") {
           return (
@@ -378,30 +343,27 @@ export default function BlogDetail() {
               dangerouslySetInnerHTML={{ __html: part.content }}
             />
           );
-        } else {
-          // Parse table HTML and convert to component
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(part.content, "text/html");
-          const tableElement = doc.querySelector("table");
+        }
 
-          if (!tableElement) {
-            // Fallback: render as HTML if parsing fails
-            return (
-              <div
-                key={part.key}
-                dangerouslySetInnerHTML={{ __html: part.content }}
-              />
-            );
-          }
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(part.content, "text/html");
+        const tableElement = doc.querySelector("table");
 
+        if (!tableElement) {
           return (
-            <div key={part.key}>{convertTableToComponent(tableElement)}</div>
+            <div
+              key={part.key}
+              dangerouslySetInnerHTML={{ __html: part.content }}
+            />
           );
         }
+
+        return (
+          <div key={part.key}>{convertTableToComponent(tableElement)}</div>
+        );
       });
-    } catch (error) {
-      console.error("Error processing blog content:", error);
-      // Fallback to original content
+    } catch (e) {
+      console.error("Error processing blog content:", e);
       return { __html: blog.content };
     }
   }, [blog?.content]);
@@ -410,15 +372,14 @@ export default function BlogDetail() {
     return (
       <div className="min-h-screen bg-slate-50/50 py-12">
         <div className="container mx-auto px-4 max-w-4xl">
-          {/* Add a loading skeleton here */}
           <div className="animate-pulse space-y-8">
-            <div className="h-8 bg-slate-200 rounded w-1/4"></div>
-            <div className="h-12 bg-slate-200 rounded w-3/4"></div>
-            <div className="h-64 bg-slate-200 rounded"></div>
+            <div className="h-8 bg-slate-200 rounded w-1/4" />
+            <div className="h-12 bg-slate-200 rounded w-3/4" />
+            <div className="h-64 bg-slate-200 rounded" />
             <div className="space-y-4">
-              <div className="h-4 bg-slate-200 rounded w-full"></div>
-              <div className="h-4 bg-slate-200 rounded w-5/6"></div>
-              <div className="h-4 bg-slate-200 rounded w-4/6"></div>
+              <div className="h-4 bg-slate-200 rounded w-full" />
+              <div className="h-4 bg-slate-200 rounded w-5/6" />
+              <div className="h-4 bg-slate-200 rounded w-4/6" />
             </div>
           </div>
         </div>
@@ -439,25 +400,40 @@ export default function BlogDetail() {
     );
   }
 
-  // Transform data for rendering
-  const categories = parseJsonField(blog.categories);
+  if (!blog) {
+    return (
+      <div className="min-h-screen bg-slate-50/50 py-12 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-slate-700 font-semibold">No blog data found.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // IMPORTANT FIX:
+  // Your API returns categories as an ARRAY already (as shown in your response).
+  // If it ever comes as a JSON string, this still handles it safely.
+  const categories = Array.isArray(blog.categories)
+    ? blog.categories
+    : parseJsonField(blog.categories, []);
+
   const readTime = `${Math.ceil(
-    (blog.content || "").split(" ").length / 200
+    ((blog.content || "").split(" ").length || 0) / 200
   )} min read`;
+
   const publishDate = new Date(blog.publishDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
+
   const authorInitials = (blog.authorName || "A")
     .split(" ")
     .map((n) => n[0])
     .join("");
 
-  // Generate BlogPosting Schema
   const blogSchema = useMemo(() => {
     if (!blog) return null;
-
     return {
       headline: blog.title,
       description: blog.excerpt || blog.description || blog.title,
@@ -475,10 +451,9 @@ export default function BlogDetail() {
   return (
     <>
       {blogSchema && <BlogPostingSchema {...blogSchema} />}
-      {/* SEO component is commented out, but data is available if you want to re-enable */}
+
       <div className="min-h-screen bg-slate-50/50 py-16 sm:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
-          {/* Back Button */}
           <Button
             variant="ghost"
             className="mb-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50 -ml-2"
@@ -488,9 +463,7 @@ export default function BlogDetail() {
             Back to Articles
           </Button>
 
-          {/* Main Content */}
           <article className="space-y-8">
-            {/* Header */}
             <div className="space-y-6">
               <div className="flex gap-2 flex-wrap">
                 {categories.map((category) => (
@@ -504,22 +477,15 @@ export default function BlogDetail() {
                 ))}
               </div>
 
-              {/* Main Title */}
               <h1
                 className="text-3xl sm:text-5xl font-bold text-mainBlue leading-tight"
-                dangerouslySetInnerHTML={{
-                  __html: blog.title,
-                }}
+                dangerouslySetInnerHTML={{ __html: blog.title }}
               />
 
-              {/* Author and Meta Info */}
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12 border-2 border-blue-100">
-                    <AvatarImage
-                      src="/placeholder.svg" // Placeholder avatar
-                      alt={blog.authorName}
-                    />
+                    <AvatarImage src="/placeholder.svg" alt={blog.authorName} />
                     <AvatarFallback>{authorInitials}</AvatarFallback>
                   </Avatar>
                   <div>
@@ -529,6 +495,7 @@ export default function BlogDetail() {
                     <p className="text-sm text-slate-600">Author</p>
                   </div>
                 </div>
+
                 <div className="flex items-center space-x-4 text-sm text-slate-600">
                   <div className="flex items-center">
                     <Calendar className="h-4 w-4 mr-2" />
@@ -542,16 +509,14 @@ export default function BlogDetail() {
               </div>
             </div>
 
-            {/* Featured Image */}
             <div className="relative aspect-video w-full sm:h-[400px] rounded-2xl overflow-hidden">
               <img
                 src={blog.imageUrl}
-                alt={blog.imageAlt}
+                alt={blog.imageAlt || blog.title}
                 className="object-cover w-full h-full"
               />
             </div>
 
-            {/* Content */}
             <Card className="border-none shadow-lg">
               <CardContent className="p-6 sm:p-8 lg:p-12">
                 <div className="blog-content">
@@ -565,56 +530,6 @@ export default function BlogDetail() {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Engagement Section */}
-            {/* <div className="flex items-center justify-between py-6">
-              <div className="flex items-center space-x-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className={`flex items-center space-x-2 ${
-                    isLiked
-                      ? "text-red-500 hover:text-red-600"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                  onClick={() => setIsLiked(!isLiked)}
-                >
-                  <Heart className={`h-5 w-5 ${isLiked ? "fill-current" : ""}`} />
-                  <span>123</span>
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="flex items-center space-x-2 text-slate-600 hover:text-slate-900"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  <span>Comments</span>
-                </Button>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className={`${
-                    isBookmarked ? "text-blue-600" : "text-slate-600"
-                  } hover:text-blue-700`}
-                  onClick={() => setIsBookmarked(!isBookmarked)}
-                >
-                  <BookmarkIcon
-                    className={`h-5 w-5 ${isBookmarked ? "fill-current" : ""}`}
-                  />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-slate-600 hover:text-slate-900"
-                >
-                  <Share2 className="h-5 w-5" />
-                </Button>
-              </div>
-            </div> */}
-
-            {/* <Separator className="my-8" /> */}
           </article>
         </div>
       </div>
