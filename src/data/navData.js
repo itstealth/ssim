@@ -44,6 +44,10 @@ export const navlinks = [
         name: "Vision & Mission",
         path: "/about/vision-mission",
       },
+      {
+        name: "Virtual Tour",
+        path: "/about/virtual-tour",
+      },
     ],
   },
   {
