@@ -37,7 +37,7 @@ export default function Footer() {
         { name: "Media", path: "/students-life/news" },
         { name: "Blog", path: "/blog" },
         { name: "IQAC", path: "/iqac" },
-        // { name: "Careers", path: "/careers" },
+        { name: "Careers", path: "/careers" },
         // {
         //   name: "AICTE Feedback",
         //   path: "https://www.aicte-india.org/feedback/",
