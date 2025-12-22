@@ -44,10 +44,6 @@ export const navlinks = [
         name: "Vision & Mission",
         path: "/about/vision-mission",
       },
-      {
-        name: "Virtual Tour",
-        path: "/about/virtual-tour",
-      },
     ],
   },
   {
@@ -151,4 +147,8 @@ export const navlinks = [
     ],
   },
   { name: "Contact Us", path: "/contact-us" }, // Added Contact Us link
+  {
+    name: "Virtual Tour",
+    path: "/virtual-tour",
+  },
 ];
