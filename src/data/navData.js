@@ -146,9 +146,9 @@ export const navlinks = [
       // { name: "Students Feedback", path: "/students-life/students-feedback" },
     ],
   },
-  { name: "Contact Us", path: "/contact-us" }, // Added Contact Us link
   {
     name: "Virtual Tour",
     path: "/virtual-tour",
   },
+  { name: "Contact Us", path: "/contact-us" }, // Added Contact Us link
 ];
