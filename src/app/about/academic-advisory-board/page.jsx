@@ -1,5 +1,5 @@
 const Ramana = "/about/academic-advisory-board/Dr. Ramana Rao.webp";
-const Ambuj = "/about/academic-advisory-board/dr-ambuj.jpeg";
+const Ambuj = "/about/BoardOfGoverners/NRKS.jpeg";
 const ArathySampathy = "/about/academic-advisory-board/Smt_Arathy_Sampathy.jpg";
 const SaileshSampathy = "/about/academic-advisory-board/Dr_Sailesh_Sampathy.jpg";
 const AbhiramaKrishna = "/about/academic-advisory-board/Prof_Abhiram_Krishna.jpg";
@@ -78,7 +78,7 @@ export default function AcademicAdvisoryBoard() {
       image: SaileshSampathy,
     },
     {
-      name: "Prof. (Dr.) Ambuj Jagdish Gupta",
+      name: "NRKS Chakravarthy",
       role: "Director",
       bio: "Director, Siva Sivani Institute of Management",
       image: Ambuj,

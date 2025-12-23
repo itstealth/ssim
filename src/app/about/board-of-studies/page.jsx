@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 // import SEO from "@/components/Seo";
 const SaileshSampathy = "/about/BoardOfStudies/Dr_Sailesh_Sampathy.jpg";
-const Ambuj = "/about/BoardOfStudies/dr-ambuj (1).jpeg";
+const Ambuj = "/about/BoardOfGoverners/NRKS.jpeg";
 const Kalakar = "/about/BoardOfStudies/Dr_Kalakar_PP-1.jpg";
 const Ramana = "/about/BoardOfStudies/Dr. Ramana Rao.webp";
 const RKMishra = "/about/BoardOfStudies/R_K_Mishra.jpg";
@@ -33,7 +33,7 @@ export default function BoardOfStudies() {
     },
     {
       id: 2,
-      name: "Prof. (Dr.) Ambuj Jagdish Gupta",
+      name: "NRKS Chakravarthy",
       role: "Director",
       description: "Director, Siva Sivani Institute of Management",
       image: Ambuj,

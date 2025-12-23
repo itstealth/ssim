@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const ArathySampathy = "/about/BoardOfGoverners/Smt_Arathy_Sampathy.jpg";
 const SaileshSampathy = "/about/BoardOfGoverners/Dr_Sailesh_Sampathy.jpg";
-const Ambuj = "/about/BoardOfGoverners/dr-ambuj (1).jpeg";
+const Ambuj = "/about/BoardOfGoverners/NRKS.jpeg";
 const Ramana = "/about/BoardOfGoverners/Dr. Ramana Rao.webp";
 const Deepika = "/about/BoardOfGoverners/Deepika-mam_pp.jpg";
 const Kalakar = "/about/BoardOfGoverners/Dr_Kalakar_PP.jpg";
@@ -37,7 +37,7 @@ export default function BoardOfGovernors() {
     },
     {
       id: 3,
-      name: "Prof. (Dr.) Ambuj Jagdish Gupta",
+      name: "NRKS Chakravarthy",
       role: "Director",
       description: "Director, Siva Sivani Institute of Management",
       image: Ambuj,
