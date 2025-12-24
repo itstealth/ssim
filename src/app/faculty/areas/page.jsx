@@ -48,14 +48,24 @@ const Vallinayagam = "/faculty&research/faculty/Vallinayagam.webp";
 const Ambuj = "/about/dr-ambuj.jpeg";
 
 const teamMembers = [
+  // {
+  //   name: "Dr. Ambuj Gupta",
+  //   area: "HR & Strategy",
+  //   qualification: "Ph.D, MBA, UGC-NET",
+  //   experience: 31,
+  //   image: Ambuj,
+  //   description:
+  //     "Expert in strategy and entrepreneurship with extensive research experience. Passionate about teaching and mentoring students in strategic management and innovation.",
+  // },
+
   {
-    name: "Dr. Ambuj Gupta",
-    area: "HR & Strategy",
-    qualification: "Ph.D, MBA, UGC-NET",
-    experience: 31,
-    image: Ambuj,
+    name: "Mr. NRKS Chakravarthy",
+    area: "Data Science",
+    qualification: "MBA",
+    experience: 29,
+    image: NRKS,
     description:
-      "Expert in strategy and entrepreneurship with extensive research experience. Passionate about teaching and mentoring students in strategic management and innovation.",
+      "Specializes in strategic marketing and market research. Brings decades of industry experience to academic teaching.",
   },
   {
     name: "Dr. S.F. Chandra Sekhar",
@@ -281,15 +291,6 @@ const teamMembers = [
     image: DrRaj,
     description:
       "Specializes in corporate finance and financial management. Conducts research on emerging financial technologies and markets.",
-  },
-  {
-    name: "Mr. NRKS Chakravarthy",
-    area: "Data Science",
-    qualification: "MBA",
-    experience: 29,
-    image: NRKS,
-    description:
-      "Specializes in strategic marketing and market research. Brings decades of industry experience to academic teaching.",
   },
   {
     name: "Dr. Jada Kameshwari",
