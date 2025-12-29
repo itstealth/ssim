@@ -32,7 +32,7 @@ const Kommu = "/faculty&research/faculty/kiranmayi.webp";
 const LOHIT = "/faculty&research/faculty/LOHIT.webp";
 const MrMa = "/faculty&research/faculty/Mr-Madhava-Murthy.webp";
 const Murali = "/faculty&research/faculty/Murali-Krishna.jpg";
-const NRKS = "/faculty&research/faculty/NRKS-Chakravarthy.jpg";
+const NRKS = "/about/BoardOfGoverners/NRKS.jpeg";
 const PARDH = "/faculty&research/faculty/PARDHASARADHI.webp";
 const Pushpa = "/faculty&research/faculty/PUSHPA.webp";
 const rahul = "/faculty&research/faculty/rahul.webp";
@@ -59,8 +59,8 @@ const teamMembers = [
   // },
 
   {
-    name: "Mr. NRKS Chakravarthy",
-    area: "Data Science",
+    name: "Dr. NRKS Chakravarthy",
+    area: "Decision Science and Information System",
     qualification: "MBA",
     experience: 29,
     image: NRKS,

@@ -78,7 +78,7 @@ export default function AcademicAdvisoryBoard() {
       image: SaileshSampathy,
     },
     {
-      name: "NRKS Chakravarthy",
+      name: "Dr. NRKS Chakravarthy",
       role: "Director",
       bio: "Director, Siva Sivani Institute of Management",
       image: Ambuj,

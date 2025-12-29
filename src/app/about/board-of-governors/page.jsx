@@ -37,7 +37,7 @@ export default function BoardOfGovernors() {
     },
     {
       id: 3,
-      name: "NRKS Chakravarthy",
+      name: "Dr. NRKS Chakravarthy",
       role: "Director",
       description: "Director, Siva Sivani Institute of Management",
       image: Ambuj,

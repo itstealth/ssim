@@ -72,11 +72,11 @@ const leaders = [
   },
   {
     role: "Director, SSIM.",
-    name: "NRKS Chakravarthy",
+    name: "Dr. NRKS Chakravarthy",
     image: Ambuj,
     quote:
       "Nurturing holistic excellence through innovative education, industry integration, and value-based leadership",
-    quoteAuthor: "NRKS Chakravarthy",
+    quoteAuthor: "Dr. NRKS Chakravarthy",
     content: [
       "Management education has evolved to be a premier choice among post-graduation degrees for students all over the world. The growing complexity of business, coupled with quantum leaps in technological advances has made this course, futuristic in its outlook, attracting the best minds to unravel and chart new directions for organizations. Business education provided by business schools should, therefore, integrate these vagaries into the environment to build a competent talent base.",
       `Siva Sivani Institute of Management (SSIM) is one of the leading business schools in the country offering Post Graduation in Business Management since 1992. These programs are carefully designed in accordance with industry requirements offered by prominent professors from the industry as well as the academic fraternity. SSIM is striving to "achieve and sustain a reputation for excellence in teaching, learning, research and consultancy whilst upholding human values". These values are imbibed in every fibre of the operations at SSIM and leaders walk the talk to help students emulate these standards!`,

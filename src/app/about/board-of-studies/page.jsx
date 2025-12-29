@@ -33,7 +33,7 @@ export default function BoardOfStudies() {
     },
     {
       id: 2,
-      name: "NRKS Chakravarthy",
+      name: "Dr. NRKS Chakravarthy",
       role: "Director",
       description: "Director, Siva Sivani Institute of Management",
       image: Ambuj,
