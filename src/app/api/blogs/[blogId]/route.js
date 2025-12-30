@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { dbPool, initializePool } from "@/lib/db";
+import { dbPool } from "@/lib/db";
 
 export async function GET(request, { params }) {
   const { blogId } = params; // Can be a slug or an ID
@@ -7,21 +7,7 @@ export async function GET(request, { params }) {
 
   try {
     console.log(`=== FETCHING SINGLE BLOG POST: ${blogId} ===`);
-    
-    // Try to initialize pool if it doesn't exist (lazy initialization)
-    const pool = dbPool || initializePool();
-    
-    if (!pool) {
-      return NextResponse.json(
-        {
-          message: "Database connection not available",
-          error: "Database pool could not be initialized"
-        },
-        { status: 500 }
-      );
-    }
-    
-    connection = await pool.getConnection();
+    connection = await dbPool.getConnection();
     console.log("Database connection established for fetching single blog.");
 
     // Check if the blogId is numeric (an ID) or a string (a slug)

@@ -2,7 +2,6 @@
   "name": "ssim-next",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -18,13 +17,7 @@
     "debug:clear": "node scripts/inspect-debug.js clear",
     "sitemap:status": "node scripts/sitemap-manager.js status",
     "sitemap:regenerate": "node scripts/sitemap-manager.js regenerate",
-    "sitemap:test": "node scripts/sitemap-manager.js test",
-    "blog:add": "node scripts/add-blog-post.js",
-    "db:find": "node scripts/find-db-credentials.js",
-    "db:extract": "node scripts/extract-db-host.js",
-    "db:test-azure": "node scripts/test-azure-db-hosts.js",
-    "db:azure": "node scripts/find-azure-db.js",
-    "db:setup": "node scripts/setup-azure-db.js"
+    "sitemap:test": "node scripts/sitemap-manager.js test"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.28.0",

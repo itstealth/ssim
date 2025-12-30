@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { dbPool, initializePool } from "@/lib/db";
+import { dbPool } from "@/lib/db";
 
 export async function GET(request) {
   let connection;
@@ -9,48 +9,21 @@ export async function GET(request) {
     console.log('=== FETCHING ALL BLOG POSTS (NEW ROUTE) ===');
     console.log('Request URL:', request.url);
     console.log('Environment:', process.env.NODE_ENV);
-    
-    // Try to initialize pool if it doesn't exist (lazy initialization)
-    const pool = dbPool || initializePool();
-    
-    console.log('Database pool status:', pool ? 'Available' : 'Not available');
+    console.log('Database pool status:', dbPool ? 'Available' : 'Not available');
 
     // Check if database pool is available
-    if (!pool) {
-      const missingVars = ['DB_HOST', 'DB_USER', 'DB_DATABASE'].filter(
-        varName => !process.env[varName]
-      );
-      
+    if (!dbPool) {
       console.error('Database pool is not available');
-      console.error('Missing environment variables:', missingVars);
-      
       return NextResponse.json(
         {
           message: "Database connection not available",
-          error: "Database pool is null",
-          details: missingVars.length > 0 
-            ? `Missing environment variables: ${missingVars.join(', ')}. Please check your .env file.`
-            : "Database pool could not be initialized. Please check your database configuration.",
-          missingVariables: missingVars,
-          troubleshooting: {
-            step1: "Create a .env file in your project root (same level as package.json)",
-            step2: `Add these required variables: ${missingVars.length > 0 ? missingVars.join(', ') : 'DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE'}`,
-            step3: "Example .env file content:",
-            example: {
-              DB_HOST: "localhost",
-              DB_USER: "your_username",
-              DB_PASSWORD: "your_password",
-              DB_DATABASE: "your_database_name"
-            },
-            step4: "Restart your development server (stop with Ctrl+C and run 'pnpm dev' again)",
-            diagnosticEndpoint: "Visit http://localhost:3000/api/debug/db to check your database configuration"
-          }
+          error: "Database pool is null"
         },
         { status: 500 }
       );
     }
 
-    connection = await pool.getConnection();
+    connection = await dbPool.getConnection();
     console.log('Database connection established for fetching all blogs.');
 
     // Fetch only essential fields for listing page (no content field to avoid production issues)
