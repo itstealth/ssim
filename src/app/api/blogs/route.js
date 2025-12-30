@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { dbPool } from "@/lib/db";
+import { dbPool, initializePool } from "@/lib/db";
 import slugify from "@/utils/slugify";
 import sanitizeHtml from "sanitize-html";
 import { uploadImageToAzure } from "@/lib/azure-blob-storage";
@@ -182,7 +182,22 @@ export async function POST(request) {
     console.log('=== STEP 3: DATABASE CONNECTION ===');
     // Get database connection
     try {
-      connection = await dbPool.getConnection();
+      // Try to initialize pool if it doesn't exist (lazy initialization)
+      const pool = dbPool || initializePool();
+      
+      if (!pool) {
+        console.log('ERROR: Database pool could not be initialized');
+        return NextResponse.json(
+          {
+            message: "Database connection failed",
+            error: "Database pool could not be initialized. Please check your environment variables.",
+            details: "Ensure DB_HOST, DB_USER, DB_PASSWORD, and DB_DATABASE are set in your .env file"
+          },
+          { status: 500 }
+        );
+      }
+      
+      connection = await pool.getConnection();
       console.log('Database connection established');
     } catch (error) {
       console.log('ERROR: Database connection failed:', error.message);

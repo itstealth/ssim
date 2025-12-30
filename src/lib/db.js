@@ -38,31 +38,68 @@ function getSSLOptions() {
 // Only log and create pool if we have database credentials
 let dbPool = null;
 
-if (process.env.DB_HOST && process.env.DB_USER && process.env.DB_DATABASE) {
-  console.log('[DB] Creating database pool...');
+// Function to initialize the database pool (lazy initialization)
+function initializePool() {
+  if (dbPool) {
+    return dbPool; // Pool already exists
+  }
+
+  // Check for required environment variables
+  const requiredVars = ['DB_HOST', 'DB_USER', 'DB_DATABASE'];
+  const missingVars = requiredVars.filter(varName => !process.env[varName]);
+
+  if (missingVars.length > 0) {
+    console.error('[DB] Missing required environment variables:', missingVars.join(', '));
+    console.error('[DB] Please set the following in your .env file:');
+    missingVars.forEach(varName => {
+      console.error(`[DB]   ${varName}=your_value_here`);
+    });
+    console.error('[DB] Example .env file:');
+    console.error('[DB]   DB_HOST=your-database-host');
+    console.error('[DB]   DB_USER=your-database-user');
+    console.error('[DB]   DB_PASSWORD=your-database-password');
+    console.error('[DB]   DB_DATABASE=your-database-name');
+    return null;
+  }
+
+  console.log('[DB] Creating database pool (lazy initialization)...');
   console.log('[DB] DB_HOST:', process.env.DB_HOST);
   console.log('[DB] DB_DATABASE:', process.env.DB_DATABASE);
   console.log('[DB] DB_USER:', process.env.DB_USER);
 
-  dbPool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-    multipleStatements: true,
-    ssl: getSSLOptions(),
-    connectTimeout: 60000, // Changed from 'timeout'
-  });
+  try {
+    dbPool = mysql.createPool({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      waitForConnections: true,
+      connectionLimit: 10,
+      queueLimit: 0,
+      multipleStatements: true,
+      ssl: getSSLOptions(),
+      connectTimeout: 60000,
+    });
 
-  console.log('[DB] Database pool created successfully');
-} else {
-  console.log('[DB] Skipping database pool creation - no credentials provided (build time)');
+    console.log('[DB] Database pool created successfully');
+    return dbPool;
+  } catch (error) {
+    console.error('[DB] Failed to create database pool:', error.message);
+    console.error('[DB] Error details:', error);
+    return null;
+  }
 }
 
-export { dbPool };
+// Initialize pool on module load if environment variables are available
+if (process.env.DB_HOST && process.env.DB_USER && process.env.DB_DATABASE) {
+  initializePool();
+} else {
+  console.log('[DB] Skipping initial database pool creation - credentials not available at module load');
+  console.log('[DB] Pool will be created lazily when first accessed');
+}
+
+// Export both the pool and the initialization function
+export { dbPool, initializePool };
 
 async function initializeDatabaseSchema() {
   // Skip initialization during build or if no database credentials
