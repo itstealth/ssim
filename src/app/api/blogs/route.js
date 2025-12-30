@@ -180,12 +180,33 @@ export async function POST(request) {
     }
 
     console.log('=== STEP 3: DATABASE CONNECTION ===');
+    
+    // Check if database pool exists
+    if (!dbPool) {
+      console.log('ERROR: Database pool is not initialized');
+      const missingVars = [];
+      if (!process.env.DB_HOST) missingVars.push('DB_HOST');
+      if (!process.env.DB_USER) missingVars.push('DB_USER');
+      if (!process.env.DB_DATABASE) missingVars.push('DB_DATABASE');
+      
+      return NextResponse.json(
+        {
+          message: "Database connection failed Check with Yogesh for IP block",
+          error: "Database pool is not initialized",
+          details: missingVars.length > 0 
+            ? `Missing environment variables: ${missingVars.join(', ')}`
+            : "Database credentials not configured"
+        },
+        { status: 500 }
+      );
+    }
+    
     // Get database connection
     try {
       connection = await dbPool.getConnection();
       console.log('Database connection established');
     } catch (error) {
-      console.log('ERROR: Database connection failed:', error.message);
+      console.log('ERROR: Database connection failed Check with Yogesh for IP block:', error.message);
       console.log('Error details:', {
         name: error.name,
         code: error.code,
@@ -196,9 +217,16 @@ export async function POST(request) {
       });
       return NextResponse.json(
         {
-          message: "Database connection failed",
+          message: "Database connection failed Check with Yogesh for IP block",
           error: error.message,
-          details: error.code
+          details: error.code || error.sqlMessage || "Unable to connect to database",
+          hint: error.code === 'ECONNREFUSED' 
+            ? "Check if the database server is running and accessible"
+            : error.code === 'ETIMEDOUT'
+            ? "Connection timeout - check network connectivity and firewall settings"
+            : error.code === 'ER_ACCESS_DENIED_ERROR'
+            ? "Invalid database credentials - check DB_USER and DB_PASSWORD"
+            : "Check database configuration and network connectivity"
         },
         { status: 500 }
       );

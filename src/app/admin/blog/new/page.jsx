@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast } from "sonner";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -25,6 +24,26 @@ import slugify from "@/utils/slugify";
 
 // Define the base URL for generating canonical URLs
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://ssim.ac.in";
+
+// Helper function to highlight "Yogesh" in red
+const highlightYogesh = (message) => {
+  if (!message || typeof message !== "string") return message;
+  
+  const parts = message.split(/(Yogesh)/gi);
+  return (
+    <span>
+      {parts.map((part, index) =>
+        part.toLowerCase() === "yogesh" ? (
+          <span key={index} style={{ color: "red", fontWeight: "bold" }}>
+            {part}
+          </span>
+        ) : (
+          part
+        )
+      )}
+    </span>
+  );
+};
 
 const blogFormSchema = z.object({
   title: z
@@ -127,11 +146,11 @@ export default function AddNewBlogPostPage() {
           // Add the File object directly
           formData.append(key, values[key]);
         } else if (key === "tags" || key === "categories") {
-          // Convert comma-separated strings to JSON arrays
-          const items = values[key]
-            ? values[key].split(",").map((item) => item.trim())
-            : [];
-          formData.append(key, JSON.stringify(items));
+          // Send as plain string (API expects string, not JSON)
+          const value = values[key] || "";
+          if (value.trim()) {
+            formData.append(key, value);
+          }
         } else if (key === "publishDate") {
           // Convert date to MySQL format
           const mysqlDate = new Date(values[key])
@@ -139,8 +158,24 @@ export default function AddNewBlogPostPage() {
             .slice(0, 19)
             .replace("T", " ");
           formData.append(key, mysqlDate);
-        } else if (values[key] !== undefined && values[key] !== null) {
-          // Add all other non-null fields
+        } else if (key === "canonicalUrl" || key === "ogImageUrl") {
+          // These fields explicitly allow empty strings in the API schema
+          formData.append(key, values[key] || "");
+        } else if (
+          key === "metaTitle" ||
+          key === "metaDescription" ||
+          key === "keywords" ||
+          key === "authorName" ||
+          key === "ogTitle" ||
+          key === "ogDescription" ||
+          key === "jsonLdSchema"
+        ) {
+          // Optional fields: only send if not empty
+          if (values[key] && values[key].trim()) {
+            formData.append(key, values[key]);
+          }
+        } else if (values[key] !== undefined && values[key] !== null && values[key] !== "") {
+          // Add all other non-null, non-empty fields
           formData.append(key, values[key]);
         }
       }
@@ -152,14 +187,49 @@ export default function AddNewBlogPostPage() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Something went wrong");
+        
+        // Show detailed validation errors if available
+        if (errorData.errors) {
+          const errorMessages = [];
+          for (const [field, messages] of Object.entries(errorData.errors)) {
+            if (Array.isArray(messages)) {
+              errorMessages.push(`${field}: ${messages.join(", ")}`);
+            } else if (messages) {
+              errorMessages.push(`${field}: ${messages}`);
+            }
+          }
+          if (errorMessages.length > 0) {
+            toast.error(highlightYogesh(errorMessages.join(" | ")));
+            // Set form errors for each field
+            Object.keys(errorData.errors).forEach((field) => {
+              form.setError(field, {
+                type: "server",
+                message: Array.isArray(errorData.errors[field])
+                  ? errorData.errors[field][0]
+                  : errorData.errors[field],
+              });
+            });
+            return;
+          }
+        }
+        
+        // Show detailed database error messages
+        let errorMessage = errorData.message || "Something went wrong";
+        if (errorData.details) {
+          errorMessage += `: ${errorData.details}`;
+        }
+        if (errorData.hint) {
+          errorMessage += ` (${errorData.hint})`;
+        }
+        
+        throw new Error(errorMessage);
       }
 
       toast.success("Your blog post has been created successfully.");
       form.reset();
       form.setValue("publishDate", new Date().toISOString().split("T")[0]);
     } catch (error) {
-      toast.error(error.message);
+      toast.error(highlightYogesh(error.message));
     }
   }
 
