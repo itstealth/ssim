@@ -1,14 +1,13 @@
-import { Building2, GraduationCap, BookOpen, Utensils, Dumbbell, Users, Home, Presentation, MapPin, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+'use client';
 
-export const metadata = {
-  title: 'Virtual Tour - SSIM Campus | Siva Sivani Institute of Management',
-  description: 'Take a 360° virtual tour of SSIM campus. Explore our lecture halls, library, hostels, gymnasium, dining facilities, and more from anywhere in the world.',
-  keywords: 'SSIM virtual tour, campus tour, 360 view, business school facilities, MBA college campus',
-};
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Building2, GraduationCap, BookOpen, Utensils, Dumbbell, Users, Home, Presentation, ExternalLink, Maximize2, Minimize2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const tourLocations = [
   // Academic Spaces
@@ -17,6 +16,7 @@ const tourLocations = [
     name: 'Campus Entrance',
     category: 'academic',
     url: 'https://maps.app.goo.gl/h666JfAw3hhJf7bJ7',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767172442932!6m8!1m7!1sCAoSHENJQUJJaEJZNU9pMWtWeDJjMW5pRXdfZUpPNk0.!2m2!1d17.534029!2d78.4856262!3f338.51!4f5.150000000000006!5f0.4000000000000002',
     icon: Building2,
     description: 'Welcome to SSIM - Your journey begins here'
   },
@@ -25,6 +25,7 @@ const tourLocations = [
     name: 'Main Entrance View',
     category: 'academic',
     url: 'https://maps.app.goo.gl/hBu2nQ597hKevuNf6',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767172638162!6m8!1m7!1sCAoSHENJQUJJaERWWDEyNUZrX0hIaDY1VXVyOUVXNmI.!2m2!1d17.53410856606414!2d78.48561800499947!3f355.15!4f-0.7000000000000028!5f0.42769945808493315',
     icon: Building2,
     description: 'Alternate view of our grand entrance'
   },
@@ -33,6 +34,7 @@ const tourLocations = [
     name: 'Lecture Hall 1',
     category: 'academic',
     url: 'https://maps.app.goo.gl/fah8KbqXAb4xpBkAA',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767172948990!6m8!1m7!1sCAoSHENJQUJJaEFvbUswbWZGM3Y1VXZUbzNfYndCSEQ.!2m2!1d17.5340309!2d78.4856567!3f229.88!4f-10.049999999999997!5f0.4000000000000002',
     icon: Presentation,
     description: 'Modern classroom with state-of-the-art facilities'
   },
@@ -41,6 +43,7 @@ const tourLocations = [
     name: 'Lecture Hall 2',
     category: 'academic',
     url: 'https://maps.app.goo.gl/LHaP3a8xUyRN7Y278',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767173258990!6m8!1m7!1sCAoSHENJQUJJaEJoMUFWN2R2dDlwUHpIalkzSnpfOEE.!2m2!1d17.5340309!2d78.4856567!3f29.14!4f-11.129999999999995!5f0.4000000000000002',
     icon: Presentation,
     description: 'Interactive learning space for collaborative education'
   },
@@ -49,6 +52,7 @@ const tourLocations = [
     name: 'Lecture Hall 3',
     category: 'academic',
     url: 'https://maps.app.goo.gl/eEByqy4Me9mE44mk9',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767173569787!6m8!1m7!1sCAoSHENJQUJJaEE0TlhRWExvQU1DeExyLWM0UXZQWUk.!2m2!1d17.5340309!2d78.4856567!3f340.11!4f-7.099999999999994!5f0.4000000000000002',
     icon: Presentation,
     description: 'Technology-enabled classroom environment'
   },
@@ -57,6 +61,7 @@ const tourLocations = [
     name: 'Library',
     category: 'academic',
     url: 'https://maps.app.goo.gl/7KE6C8BbRnCR2FV5A',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767173984883!6m8!1m7!1sCAoSHENJQUJJaEE0M0VfTHpfZ2dOWkg4em1kUTRxbDM.!2m2!1d17.5340042!2d78.4857635!3f172.51!4f-6.099999999999994!5f0.4000000000000002',
     icon: BookOpen,
     description: 'Extensive collection of books, journals, and digital resources'
   },
@@ -65,6 +70,7 @@ const tourLocations = [
     name: 'Seminar Hall',
     category: 'academic',
     url: 'https://maps.app.goo.gl/XQei8MaNM7F1qsxq7',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767175003564!6m8!1m7!1sCAoSHENJQUJJaERBVU8yWDhER1FRdnFKR3ZwbDhsUm8.!2m2!1d17.5340309!2d78.4856567!3f356.93!4f-1.2999999999999972!5f0.4000000000000002',
     icon: Users,
     description: 'Host to guest lectures and student presentations'
   },
@@ -73,6 +79,7 @@ const tourLocations = [
     name: 'Conference Hall',
     category: 'academic',
     url: 'https://maps.app.goo.gl/vCRSH5sreDbox9vR6',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767175035716!6m8!1m7!1sCAoSHENJQUJJaEFybkRMVTNZM2RDSi0xRjRuMTJMNHE.!2m2!1d17.53403100919306!2d78.48565702450406!3f176.72!4f-5.939999999999998!5f0.4000000000000002',
     icon: Users,
     description: 'Professional venue for corporate events and workshops'
   },
@@ -83,6 +90,7 @@ const tourLocations = [
     name: 'Administration',
     category: 'administration',
     url: 'https://maps.app.goo.gl/XQr12M7KsgcXxf7h7',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767175227451!6m8!1m7!1sCAoSHENJQUJJaEJwall4aXpPRVFQajNuYkZHX1k2OWM.!2m2!1d17.5342153368222!2d78.48560265732357!3f83.38!4f-3.1500000000000057!5f0.42769945808493315',
     icon: Building2,
     description: 'Central administrative offices'
   },
@@ -91,6 +99,7 @@ const tourLocations = [
     name: 'Placement Cell',
     category: 'administration',
     url: 'https://maps.app.goo.gl/bB81SypQYREymcVf7',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767175257891!6m8!1m7!1sCAoSHENJQUJJaENBUkZNb19DRWFXd3BCR2Nwby1DTks.!2m2!1d17.53391982669953!2d78.48562736968192!3f26.18!4f-6.25!5f0.4000000000000002',
     icon: GraduationCap,
     description: 'Career services and placement support center'
   },
@@ -99,6 +108,7 @@ const tourLocations = [
     name: 'Faculty Space',
     category: 'administration',
     url: 'https://maps.app.goo.gl/9ZCu3t3RPLFuZDrNA',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767175289597!6m8!1m7!1sCAoSHENJQUJJaENBT2Z4ZFo4OVJIY05UQjdsN0cyeEE.!2m2!1d17.5340330140086!2d78.4856852052481!3f270.65!4f-5.290000000000006!5f0.4000000000000002',
     icon: Users,
     description: 'Faculty offices and collaborative workspace'
   },
@@ -107,6 +117,7 @@ const tourLocations = [
     name: 'Faculty Area',
     category: 'administration',
     url: 'https://maps.app.goo.gl/Rq8baDMFHqVMtoeL6',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767175357634!6m8!1m7!1sCAoSHENJQUJJaEJHUXZ4X0V3V0UtMVRNMWo2WDFnTC0.!2m2!1d17.53403100919306!2d78.48565702450406!3f100.6!4f-4.989999999999995!5f0.4000000000000002',
     icon: Users,
     description: 'Additional faculty workspace'
   },
@@ -117,6 +128,7 @@ const tourLocations = [
     name: 'Play Ground',
     category: 'facilities',
     url: 'https://maps.app.goo.gl/xu1aNCUmJcW8dLHH7',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767176223371!6m8!1m7!1sCAoSHENJQUJJaEJUbDlPUy1yLUNITkV6bVZMVEV5OVk.!2m2!1d17.5339298!2d78.485672!3f57.41!4f-2.6099999999999994!5f0.4000000000000002',
     icon: Users,
     description: 'Sports facilities for cricket, football, and outdoor activities'
   },
@@ -125,6 +137,7 @@ const tourLocations = [
     name: 'Gymnasium',
     category: 'facilities',
     url: 'https://maps.app.goo.gl/RfvGmeuK62zWwsV37',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767176258739!6m8!1m7!1sCAoSHENJQUJJaERUMDQ4T2FaQkJTVGV4YktMMHhuenA.!2m2!1d17.53403100919306!2d78.48565702450406!3f4.78!4f-11.25!5f0.4000000000000002',
     icon: Dumbbell,
     description: 'Fully equipped fitness center for students and faculty'
   },
@@ -133,6 +146,7 @@ const tourLocations = [
     name: 'Dining Hall',
     category: 'facilities',
     url: 'https://maps.app.goo.gl/qwCTDfc6mDm3WEm46',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767176369024!6m8!1m7!1sCAoSHENJQUJJaEJfeXJvaTQ1VjVBSVpNVEZ3SXlZS3E.!2m2!1d17.5340049669809!2d78.48564956744436!3f17.73!4f-6.920000000000002!5f0.4000000000000002',
     icon: Utensils,
     description: 'Spacious dining facility with hygienic food preparation'
   },
@@ -143,6 +157,7 @@ const tourLocations = [
     name: 'Boys Hostel',
     category: 'hostel',
     url: 'https://maps.app.goo.gl/sZG5dreybx81xV4w9',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767176465859!6m8!1m7!1sCAoSHENJQUJJaEJsVlZjSFk0TzQ4bnJEejQ5OF9nWmg.!2m2!1d17.53403100919306!2d78.48565702450406!3f178.2!4f1.25!5f0.4000000000000002',
     icon: Home,
     description: 'Comfortable accommodation for male students'
   },
@@ -151,6 +166,7 @@ const tourLocations = [
     name: 'Girls Hostel',
     category: 'hostel',
     url: 'https://maps.app.goo.gl/Y2LoX9adEG5mSx248',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767176532444!6m8!1m7!1sCAoSHENJQUJJaEF3M3ptZkxmWmZDY3VoWUJCUS1FY1E.!2m2!1d17.5340309!2d78.4856567!3f53.12!4f-2.0600000000000023!5f0.4000000000000002',
     icon: Home,
     description: 'Safe and secure accommodation for female students'
   },
@@ -179,47 +195,174 @@ const categoryInfo = {
   }
 };
 
-// Location Card Component
-function LocationCard({ location }) {
+// Component for embedded iframe viewer
+function EmbedViewer({ location, isLoading, onLoad }) {
   const Icon = location.icon;
-  
+
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-2 hover:border-blue-400">
-      <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-              <Icon className="w-5 h-5" />
-            </div>
-            <CardTitle className="text-lg">{location.name}</CardTitle>
-          </div>
+    <div className="relative w-full h-[70vh] overflow-hidden rounded-lg border border-border bg-background">
+      {/* Loading Skeleton */}
+      {isLoading && (
+        <div className="absolute inset-0 z-10">
+          <Skeleton className="w-full h-full" />
         </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground mb-4">
-          {location.description}
-        </p>
-        <Button 
-          className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors" 
-          variant="outline"
+      )}
+
+      {/* Location Name Overlay */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="absolute top-4 left-4 z-20 bg-gradient-to-r from-black/70 to-transparent px-4 py-2 rounded-lg backdrop-blur-sm"
+      >
+        <div className="flex items-center gap-2 text-white">
+          <Icon className="w-5 h-5" />
+          <span className="font-semibold text-sm md:text-base">
+            {location.name}
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Floating Controls */}
+      <div className="absolute top-4 right-4 z-20 flex gap-2">
+        <Button
+          variant="secondary"
+          size="icon"
           asChild
+          className="bg-background/80 backdrop-blur-sm hover:bg-background/90 shadow-sm"
         >
-          <a 
-            href={location.url} 
-            target="_blank" 
+          <a
+            href={location.url}
+            target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2"
+            title="Open in Google Maps"
           >
-            <span>Explore 360° View</span>
             <ExternalLink className="w-4 h-4" />
           </a>
         </Button>
-      </CardContent>
-    </Card>
+      </div>
+
+      {/* Iframe */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.id}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="w-full h-full"
+        >
+          {location.embedUrl ? (
+            <iframe
+              src={location.embedUrl}
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              onLoad={onLoad}
+              title={location.name}
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full bg-muted">
+              <div className="text-center p-8">
+                <Icon className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
+                <p className="text-muted-foreground mb-2 font-medium">
+                  Embed URL not configured
+                </p>
+                <p className="text-sm text-muted-foreground/70 mb-4">
+                  {location.description}
+                </p>
+                <Button variant="outline" asChild>
+                  <a
+                    href={location.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open in Google Maps
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// Component for category section with tabs
+function CategorySection({ category, categoryData, locations }) {
+  const [activeTab, setActiveTab] = useState(locations[0]?.id || '');
+  const [isLoading, setIsLoading] = useState(true);
+
+  const activeLocation = locations.find(loc => loc.id === activeTab) || locations[0];
+
+  const handleTabChange = (value) => {
+    setActiveTab(value);
+    setIsLoading(true);
+  };
+
+  const handleIframeLoad = () => {
+    setIsLoading(false);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="mb-12"
+    >
+      <div className="flex items-center gap-3 mb-6">
+        <div className={`w-1 h-8 ${categoryData.color} rounded-full`}></div>
+        <div>
+          <h2 className="text-2xl font-bold text-foreground">{categoryData.title}</h2>
+          <p className="text-sm text-muted-foreground">{categoryData.description}</p>
+        </div>
+      </div>
+
+      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+        <TabsList className="w-full h-auto flex-wrap justify-start gap-2 bg-muted/50 p-2">
+          {locations.map((location) => {
+            const Icon = location.icon;
+            return (
+              <TabsTrigger
+                key={location.id}
+                value={location.id}
+                className="flex items-center gap-2 data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all"
+              >
+                <Icon className="w-4 h-4" />
+                <span className="hidden sm:inline">{location.name}</span>
+                <span className="sm:hidden">{location.name.split(' ')[0]}</span>
+              </TabsTrigger>
+            );
+          })}
+        </TabsList>
+
+        {locations.map((location) => (
+          <TabsContent key={location.id} value={location.id} className="mt-6">
+            <EmbedViewer
+              location={location}
+              isLoading={isLoading}
+              onLoad={handleIframeLoad}
+            />
+          </TabsContent>
+        ))}
+      </Tabs>
+    </motion.div>
   );
 }
 
 export default function VirtualTourPage() {
+  // Group locations by category
+  const locationsByCategory = tourLocations.reduce((acc, location) => {
+    if (!acc[location.category]) {
+      acc[location.category] = [];
+    }
+    acc[location.category].push(location);
+    return acc;
+  }, {});
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Breadcrumb */}
@@ -227,12 +370,12 @@ export default function VirtualTourPage() {
         <nav className="flex" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
-              <a href="/" className="hover:text-primary">Home</a>
+              <a href="/" className="hover:text-primary transition-colors">Home</a>
             </li>
             <li>
               <div className="flex items-center">
                 <span className="mx-2">/</span>
-                <a href="/about" className="hover:text-primary">About</a>
+                <a href="/about" className="hover:text-primary transition-colors">About</a>
               </div>
             </li>
             <li aria-current="page">
@@ -260,12 +403,12 @@ export default function VirtualTourPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base">
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
-                <MapPin className="w-5 h-5" />
-                <span>Kompally, Secunderabad</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
                 <Building2 className="w-5 h-5" />
                 <span>17 Locations</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+                <Users className="w-5 h-5" />
+                <span>4 Categories</span>
               </div>
             </div>
           </div>
@@ -280,132 +423,25 @@ export default function VirtualTourPage() {
             <CardHeader>
               <CardTitle className="text-2xl">Experience SSIM Campus Virtually</CardTitle>
               <CardDescription className="text-base">
-                Navigate through our state-of-the-art facilities using interactive 360° views. Click on any location below to begin your virtual journey through SSIM.
+                Navigate through our state-of-the-art facilities using interactive 360° views. Select a tab to explore each location.
               </CardDescription>
             </CardHeader>
           </Card>
 
-          {/* Tabbed Navigation */}
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-auto gap-2 bg-transparent">
-              <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-                All Locations
-              </TabsTrigger>
-              <TabsTrigger value="academic" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-                Academic
-              </TabsTrigger>
-              <TabsTrigger value="administration" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white">
-                Administration
-              </TabsTrigger>
-              <TabsTrigger value="facilities" className="data-[state=active]:bg-green-600 data-[state=active]:text-white">
-                Facilities
-              </TabsTrigger>
-              <TabsTrigger value="hostel" className="data-[state=active]:bg-orange-600 data-[state=active]:text-white">
-                Residential
-              </TabsTrigger>
-            </TabsList>
+          {/* Category Sections with Tabs */}
+          {Object.entries(categoryInfo).map(([category, info]) => {
+            const locations = locationsByCategory[category] || [];
+            if (locations.length === 0) return null;
 
-            {/* All Locations */}
-            <TabsContent value="all" className="mt-8">
-              {Object.entries(categoryInfo).map(([category, info]) => (
-                <div key={category} className="mb-12">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className={`w-1 h-8 ${info.color} rounded-full`}></div>
-                    <div>
-                      <h2 className="text-2xl font-bold">{info.title}</h2>
-                      <p className="text-muted-foreground">{info.description}</p>
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {tourLocations
-                      .filter(loc => loc.category === category)
-                      .map((location) => (
-                        <LocationCard key={location.id} location={location} />
-                      ))}
-                  </div>
-                </div>
-              ))}
-            </TabsContent>
-
-            {/* Academic Tab */}
-            <TabsContent value="academic" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-2">{categoryInfo.academic.title}</h2>
-                <p className="text-lg text-muted-foreground">{categoryInfo.academic.description}</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tourLocations
-                  .filter(loc => loc.category === 'academic')
-                  .map((location) => (
-                    <LocationCard key={location.id} location={location} />
-                  ))}
-              </div>
-            </TabsContent>
-
-            {/* Administration Tab */}
-            <TabsContent value="administration" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-2">{categoryInfo.administration.title}</h2>
-                <p className="text-lg text-muted-foreground">{categoryInfo.administration.description}</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tourLocations
-                  .filter(loc => loc.category === 'administration')
-                  .map((location) => (
-                    <LocationCard key={location.id} location={location} />
-                  ))}
-              </div>
-            </TabsContent>
-
-            {/* Facilities Tab */}
-            <TabsContent value="facilities" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-2">{categoryInfo.facilities.title}</h2>
-                <p className="text-lg text-muted-foreground">{categoryInfo.facilities.description}</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tourLocations
-                  .filter(loc => loc.category === 'facilities')
-                  .map((location) => (
-                    <LocationCard key={location.id} location={location} />
-                  ))}
-              </div>
-            </TabsContent>
-
-            {/* Hostel Tab */}
-            <TabsContent value="hostel" className="mt-8">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-2">{categoryInfo.hostel.title}</h2>
-                <p className="text-lg text-muted-foreground">{categoryInfo.hostel.description}</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tourLocations
-                  .filter(loc => loc.category === 'hostel')
-                  .map((location) => (
-                    <LocationCard key={location.id} location={location} />
-                  ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-
-          {/* Information Banner */}
-          {/* <Card className="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-blue-900 mb-2">
-                    Want to Visit in Person?
-                  </h3>
-                  <p className="text-blue-700">
-                    Schedule a campus visit to experience SSIM firsthand. Our admissions team would be delighted to show you around and answer your questions.
-                  </p>
-                </div>
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 flex-shrink-0">
-                  Schedule Campus Visit
-                </Button>
-              </div>
-            </CardContent>
-          </Card> */}
+            return (
+              <CategorySection
+                key={category}
+                category={category}
+                categoryData={info}
+                locations={locations}
+              />
+            );
+          })}
         </div>
       </section>
     </div>
