@@ -416,7 +416,7 @@ export default function VirtualTourPage() {
       </section>
 
       {/* Main Content */}
-      <section className="container mx-auto px-4 py-12">
+      <section className="container mx-auto sm:px-4 py-12">
         <div className="max-w-7xl mx-auto">
           {/* Introduction Card */}
           <Card className="mb-12 border-t-4 border-t-blue-600">
