@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Building2, GraduationCap, BookOpen, Utensils, Dumbbell, Users, Home, Presentation, ExternalLink, Maximize2, Minimize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -16,7 +15,7 @@ const tourLocations = [
     name: 'Campus Entrance',
     category: 'academic',
     url: 'https://maps.app.goo.gl/h666JfAw3hhJf7bJ7',
-    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767172442932!6m8!1m7!1sCAoSHENJQUJJaEJZNU9pMWtWeDJjMW5pRXdfZUpPNk0.!2m2!1d17.534029!2d78.4856262!3f338.51!4f5.150000000000006!5f0.4000000000000002',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!4v1767592503612!6m8!1m7!1sCAoSHENJQUJJaEJZNU9pMWtWeDJjMW5pRXdfZUpPNk0.!2m2!1d17.534029!2d78.4856262!3f338.51!4f5.150000000000006!5f0.4000000000000002',
     icon: Building2,
     description: 'Welcome to SSIM - Your journey begins here'
   },
@@ -201,13 +200,6 @@ function EmbedViewer({ location, isLoading, onLoad }) {
 
   return (
     <div className="relative w-full h-[70vh] overflow-hidden rounded-lg border border-border bg-background">
-      {/* Loading Skeleton */}
-      {isLoading && (
-        <div className="absolute inset-0 z-10">
-          <Skeleton className="w-full h-full" />
-        </div>
-      )}
-
       {/* Location Name Overlay */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
@@ -223,7 +215,7 @@ function EmbedViewer({ location, isLoading, onLoad }) {
       </motion.div>
 
       {/* Floating Controls */}
-      <div className="absolute top-4 right-4 z-20 flex gap-2">
+      {/* <div className="absolute top-4 right-4 z-20 flex gap-2">
         <Button
           variant="secondary"
           size="icon"
@@ -239,7 +231,7 @@ function EmbedViewer({ location, isLoading, onLoad }) {
             <ExternalLink className="w-4 h-4" />
           </a>
         </Button>
-      </div>
+      </div> */}
 
       {/* Iframe */}
       <AnimatePresence mode="wait">
@@ -254,7 +246,10 @@ function EmbedViewer({ location, isLoading, onLoad }) {
           {location.embedUrl ? (
             <iframe
               src={location.embedUrl}
-              className="w-full h-full border-0"
+              width="800"
+              height="600"
+              style={{ border: 0 }}
+              className="w-full h-full"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
