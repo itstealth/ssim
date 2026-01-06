@@ -219,7 +219,7 @@ export default function HomePage() {
                 className="bg-[#002f87] text-white hover:bg-[#002f87]/80 rounded-full px-8 py-2 w-full sm:w-auto"
               >
                 <a
-                  href="/27th Samanvay Events.pdf"
+                  href="/27th_Samanvay_Events.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
