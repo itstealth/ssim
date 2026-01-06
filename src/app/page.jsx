@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -13,9 +13,18 @@ import AlumniSection from "@/pages/Home/AlumniSection";
 import PlacementIndustry from "@/pages/Home/Placement&Industry";
 import Footer from "@/pages/Footer/Footer";
 import HeroSection from "@/components/HeroSection";
+
 import { OrganizationSchema } from "@/components/Schema";
 
+import Image from "next/image";
+
+
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
 import Link from "next/link";
 
 const sectionVariants = {
@@ -50,6 +59,8 @@ const SectionWrapper = ({ children }) => {
 };
 
 export default function HomePage() {
+  const [showPopup, setShowPopup] = useState(false);
+
   // Auto scroll to top when component mounts (handles both link navigation and browser back button)
   useEffect(() => {
     const scrollToTop = () => {
@@ -78,6 +89,17 @@ export default function HomePage() {
     return () => {
       clearTimeout(timer);
       window.removeEventListener("popstate", handleNavigation);
+    };
+  }, []);
+
+  // Show popup after 6 seconds
+  useEffect(() => {
+    const popupTimer = setTimeout(() => {
+      setShowPopup(true);
+    }, 6000);
+
+    return () => {
+      clearTimeout(popupTimer);
     };
   }, []);
 
@@ -149,6 +171,65 @@ export default function HomePage() {
       <SectionWrapper>
         <PlacementIndustry />
       </SectionWrapper>
+
+      {/* Samanvay Event Popup */}
+      <Dialog open={showPopup} onOpenChange={setShowPopup}>
+        <DialogContent className="sm:max-w-2xl border-none bg-transparent p-0">
+          <div className="relative bg-white rounded-lg overflow-hidden">
+            <DialogClose className="absolute right-2 top-2 z-10 rounded-full opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none bg-white/80 hover:bg-white p-1">
+              <span className="sr-only">Close</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </DialogClose>
+            <div className="w-full">
+              <Image
+                src="/Samanvay Poster - Revised.jpg"
+                alt="Samanvay Event Poster"
+                width={800}
+                height={1000}
+                className="w-full h-auto object-contain"
+                priority
+              />
+            </div>
+            <div className="p-4 bg-white flex flex-col sm:flex-row gap-3 justify-center items-center">
+              <Button
+                asChild
+                className="bg-[#D8BB35] text-white hover:bg-[#D8BB35]/80 rounded-full px-8 py-2 w-full sm:w-auto"
+              >
+                <a
+                  href="https://forms.gle/dbocQiVVYczk479Q6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Register Now
+                </a>
+              </Button>
+              <Button
+                asChild
+                className="bg-[#002f87] text-white hover:bg-[#002f87]/80 rounded-full px-8 py-2 w-full sm:w-auto"
+              >
+                <a
+                  href="/27th Samanvay Events.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Event Details
+                </a>
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
