@@ -174,7 +174,7 @@ export default function HomePage() {
 
       {/* Samanvay Event Popup */}
       <Dialog open={showPopup} onOpenChange={setShowPopup}>
-        <DialogContent className="sm:max-w-2xl border-none bg-transparent p-0">
+        <DialogContent className="sm:max-w-3xl border-none bg-transparent p-0">
           <div className="relative bg-white rounded-lg overflow-hidden">
             <DialogClose className="absolute right-2 top-2 z-10 rounded-full opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none bg-white/80 hover:bg-white p-1">
               <span className="sr-only">Close</span>
@@ -204,7 +204,7 @@ export default function HomePage() {
             <div className="p-4 bg-white flex flex-col sm:flex-row gap-3 justify-center items-center">
               <Button
                 asChild
-                className="bg-[#D8BB35] text-white hover:bg-[#D8BB35]/80 rounded-full px-8 py-2 w-full sm:w-auto"
+                className="bg-[#dc2626] text-white hover:bg-[#dc2626]/80 rounded-full px-8 py-2 w-full sm:w-auto"
               >
                 <a
                   href="https://forms.gle/dbocQiVVYczk479Q6"
