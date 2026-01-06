@@ -193,7 +193,7 @@ export default function HomePage() {
             </DialogClose>
             <div className="w-full">
               <Image
-                src="/Samanvay Poster - Revised.jpg"
+                src="/Samanvay Poster - Revised.webp"
                 alt="Samanvay Event Poster"
                 width={800}
                 height={1000}
