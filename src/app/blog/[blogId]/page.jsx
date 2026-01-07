@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { BlogPostingSchema } from "@/components/Schema";
+import { ArticleSchema } from "@/components/Schema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -373,17 +373,26 @@ export default function BlogDetail() {
     if (!blog) return null;
     return {
       headline: blog.title,
-      description: blog.excerpt || blog.description || blog.title,
       image:
         blog.featuredImage ||
         blog.image ||
+        blog.imageUrl ||
         "https://www.ssim.ac.in/ssimlogo.webp",
+      author: {
+        "@type": "Organization",
+        name: blog.authorName || "Siva Sivani Institute of Management",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Siva Sivani Institute of Management",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://www.ssim.ac.in/ssimlogo.webp",
+        },
+      },
       datePublished: blog.publishDate,
-      dateModified: blog.updatedAt || blog.publishDate,
-      url: `https://www.ssim.ac.in/blog/${blogId}`,
-      articleBody: blog.content,
     };
-  }, [blog, blogId]);
+  }, [blog]);
 
   if (isLoading) {
     return (
@@ -451,7 +460,7 @@ export default function BlogDetail() {
 
   return (
     <>
-      {blogSchema && <BlogPostingSchema {...blogSchema} />}
+      {blogSchema && <ArticleSchema {...blogSchema} />}
 
       <div className="min-h-screen bg-slate-50/50 py-16 sm:py-20">
         <div className="container mx-auto px-4 max-w-5xl">

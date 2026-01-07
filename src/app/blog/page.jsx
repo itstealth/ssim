@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 // import SEO from "@/components/Seo";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import { Clock, Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-r
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { ArticleSchema } from "@/components/Schema";
 
 // Separate API function for fetching posts from the new Next.js API
 const fetchBlogPosts = async () => {
@@ -65,6 +66,10 @@ const fetchBlogPosts = async () => {
       // Use estimatedWordCount from API (based on metaDescription length)
       readTime: `${Math.ceil((post.estimatedWordCount || 200) / 200)} min read`,
       category: Array.isArray(categories) && categories.length > 0 ? categories[0] : 'Uncategorized',
+      // Keep original data for schema
+      publishDate: post.publishDate,
+      authorName: post.authorName || 'Siva Sivani Institute of Management',
+      imageUrl: post.imageUrl || post.featuredImage || post.image,
     };
   });
 };
@@ -150,6 +155,29 @@ export default function BlogSection() {
     );
   }
 
+  // Generate Article schemas for current posts
+  const articleSchemas = useMemo(() => {
+    if (!currentPosts || currentPosts.length === 0) return null;
+    
+    return currentPosts.map((post) => ({
+      headline: post.title,
+      image: post.imageUrl || post.image || "https://www.ssim.ac.in/ssimlogo.webp",
+      author: {
+        "@type": "Organization",
+        name: post.authorName || "Siva Sivani Institute of Management",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Siva Sivani Institute of Management",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://www.ssim.ac.in/ssimlogo.webp",
+        },
+      },
+      datePublished: post.publishDate,
+    }));
+  }, [currentPosts]);
+
   return (
     <>
       {/* <SEO
@@ -158,6 +186,10 @@ export default function BlogSection() {
         keywords="SSIM blog, management articles, business insights, student articles, faculty blogs"
         canonicalUrl="https://www.ssim.ac.in/blog"
       /> */}
+      {/* Article Schemas for each blog post */}
+      {articleSchemas && articleSchemas.map((schema, index) => (
+        <ArticleSchema key={`article-schema-${index}`} {...schema} />
+      ))}
       <section
         id="blog-section"
         className="py-20 bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-950"
