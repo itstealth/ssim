@@ -59,7 +59,7 @@ const SectionWrapper = ({ children }) => {
 };
 
 export default function HomePage() {
-  const [showPopup, setShowPopup] = useState(false);
+  // const [showPopup, setShowPopup] = useState(false);
 
   // Auto scroll to top when component mounts (handles both link navigation and browser back button)
   useEffect(() => {
@@ -93,15 +93,15 @@ export default function HomePage() {
   }, []);
 
   // Show popup after 6 seconds
-  useEffect(() => {
-    const popupTimer = setTimeout(() => {
-      setShowPopup(true);
-    }, 6000);
+  // useEffect(() => {
+  //   const popupTimer = setTimeout(() => {
+  //     setShowPopup(true);
+  //   }, 6000);
 
-    return () => {
-      clearTimeout(popupTimer);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(popupTimer);
+  //   };
+  // }, []);
 
   const GuidingAlumni = () => {
     const isMobile = useIsMobile();
@@ -173,7 +173,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* Samanvay Event Popup */}
-      <Dialog open={showPopup} onOpenChange={setShowPopup}>
+      {/* <Dialog open={showPopup} onOpenChange={setShowPopup}>
         <DialogContent className="sm:max-w-3xl border-none bg-transparent p-0">
           <div className="relative bg-white rounded-lg overflow-hidden">
             <DialogClose className="absolute right-2 top-2 z-10 rounded-full opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none bg-white/80 hover:bg-white p-1">
@@ -229,7 +229,7 @@ export default function HomePage() {
             </div>
           </div>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
     </>
   );
 }
