@@ -8,6 +8,8 @@ import { DockButtons } from "@/components/DockButtons";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import Image from "next/image";
 import { Toaster } from "sonner";
+import { WebSiteSchema } from "@/components/Schema";
+import DynamicSchema from "@/components/DynamicSchema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -93,6 +95,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+        {/* WebSite Schema */}
+        <WebSiteSchema />
+        {/* Dynamic Schema (Breadcrumbs, etc.) */}
+        <DynamicSchema />
       </head>
       <GoogleTagManager gtmId="GTM-TQZNQ47" />
       <body

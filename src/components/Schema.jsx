@@ -216,3 +216,112 @@ export function OfferSchema({
   };
 }
 
+// WebSite Schema - for the whole website
+export function WebSiteSchema({
+  name = "Siva Sivani Institute of Management",
+  url = "https://www.ssim.ac.in",
+  searchActionTarget = "https://www.ssim.ac.in/search?q={search_term_string}",
+}) {
+  const schema = {
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    name,
+    url,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: searchActionTarget,
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// Article Schema - for blog pages
+export function ArticleSchema({
+  headline,
+  image,
+  author = {
+    "@type": "Organization",
+    name: "Siva Sivani Institute of Management",
+  },
+  publisher = {
+    "@type": "Organization",
+    name: "Siva Sivani Institute of Management",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.ssim.ac.in/ssimlogo.webp",
+    },
+  },
+  datePublished,
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline,
+    image: image || "https://www.ssim.ac.in/ssimlogo.webp",
+    author,
+    publisher,
+    datePublished,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// BreadcrumbList Schema - for pages with breadcrumbs
+export function BreadcrumbListSchema({ itemListElement = [] }) {
+  const schema = {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    itemListElement: itemListElement.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.item || item.url,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// FAQPage Schema - for FAQ pages
+export function FAQPageSchema({ mainEntity = [] }) {
+  // If mainEntity is a single object, convert to array
+  const questions = Array.isArray(mainEntity) ? mainEntity : [mainEntity];
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: questions.map((faq) => ({
+      "@type": "Question",
+      name: faq.name || faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.text || faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
