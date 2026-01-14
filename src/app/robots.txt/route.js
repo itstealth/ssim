@@ -22,6 +22,9 @@ Disallow: /_next/
 Disallow: /debug-logs/
 Disallow: /logs/
 
+# Disallow specific blog post (id: 22)
+Disallow: /blog/cat-2025-results-out-your-complete-guide-to-next-steps
+
 # Allow important pages
 Allow: /blog/
 Allow: /programs/

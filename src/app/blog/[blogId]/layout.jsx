@@ -102,6 +102,9 @@ export async function generateMetadata({ params }) {
     console.log('[SEO Debug] Site URL detected as:', siteUrl);
     console.log('[SEO Debug] Canonical URL:', canonicalUrl);
 
+    // Check if this is the blocked blog post (id: 22)
+    const isBlockedPost = post.id === 22 || post.id === '22' || post.slug === 'cat-2025-results-out-your-complete-guide-to-next-steps';
+
     return {
       title: `${title} | SSIM Blog`,
       description: description,
@@ -137,7 +140,17 @@ export async function generateMetadata({ params }) {
       alternates: {
         canonical: canonicalUrl,
       },
-      robots: {
+      robots: isBlockedPost ? {
+        index: false,
+        follow: false,
+        googleBot: {
+          index: false,
+          follow: false,
+          noimageindex: true,
+          noarchive: true,
+          nosnippet: true,
+        },
+      } : {
         index: true,
         follow: true,
         googleBot: {

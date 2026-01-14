@@ -19,7 +19,7 @@ async function fetchBlogPosts() {
     connection = await dbPool.getConnection();
 
     const sql = `
-      SELECT slug, publishDate, updatedAt
+      SELECT id, slug, publishDate, updatedAt
       FROM blogs 
       WHERE publishDate <= NOW()
       ORDER BY publishDate DESC
@@ -28,12 +28,18 @@ async function fetchBlogPosts() {
     const [rows] = await connection.query(sql);
     console.log(`[SITEMAP] Fetched ${rows.length} blog posts`);
 
-    return rows.map((row) => ({
-      url: `/blog/${row.slug}`,
-      lastmod: new Date(row.updatedAt || row.publishDate).toISOString(),
-      priority: 0.7,
-      changefreq: "monthly",
-    }));
+    return rows
+      .filter((row) => {
+        // Exclude blog post with id 22 or the specific blocked slug
+        const isBlocked = row.id === 22 || row.slug === 'cat-2025-results-out-your-complete-guide-to-next-steps';
+        return !isBlocked;
+      })
+      .map((row) => ({
+        url: `/blog/${row.slug}`,
+        lastmod: new Date(row.updatedAt || row.publishDate).toISOString(),
+        priority: 0.7,
+        changefreq: "monthly",
+      }));
   } catch (error) {
     console.error("[SITEMAP] Error fetching blog posts:", error.message);
     return [];

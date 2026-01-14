@@ -70,8 +70,16 @@ const fetchBlogPosts = async () => {
       publishDate: post.publishDate,
       authorName: post.authorName || 'Siva Sivani Institute of Management',
       imageUrl: post.imageUrl || post.featuredImage || post.image,
+      // Keep original post data for filtering
+      originalId: post.id,
+      originalSlug: post.slug,
     };
-  }).filter(post => post.id !== '22' && post.id !== 22);
+  }).filter(post => {
+    // Filter out blog with id 22 or slug matching the blocked post
+    const isBlockedId = post.originalId === 22 || post.originalId === '22';
+    const isBlockedSlug = post.originalSlug === 'cat-2025-results-out-your-complete-guide-to-next-steps';
+    return !isBlockedId && !isBlockedSlug;
+  });
 };
 
 export default function BlogSection() {
