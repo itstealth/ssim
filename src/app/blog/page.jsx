@@ -66,7 +66,7 @@ const fetchBlogPosts = async () => {
       readTime: `${Math.ceil((post.estimatedWordCount || 200) / 200)} min read`,
       category: Array.isArray(categories) && categories.length > 0 ? categories[0] : 'Uncategorized',
     };
-  });
+  }).filter(post => post.id !== '22' && post.id !== 22);
 };
 
 export default function BlogSection() {
