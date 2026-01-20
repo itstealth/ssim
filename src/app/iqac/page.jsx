@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -20,16 +22,74 @@ import {
   Users,
 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
-const aicte2025 = `/pdfs/iqac/AICTE/AICTE_2025_.PDF`;
-const aicte2024 = `/pdfs/iqac/AICTE/AICTE_2024.pdf`;
-const aicte2023 = `/pdfs/iqac/AICTE/AICTE_2023.pdf`;
-const aicte2022 = `/pdfs/iqac/AICTE/AICTE_2022.pdf`;
-const aicte2021 = `/pdfs/iqac/AICTE/AICTE_2021.pdf`;
-const aicte2020 = `/pdfs/iqac/AICTE/AICTE_2020.pdf`;
-const aicte2019 = `/pdfs/iqac/AICTE/AICTE_2019.pdf`;
-const aicte2018 = `/pdfs/iqac/AICTE/AICTE_2018.pdf`;
-const aicte2017 = `/pdfs/iqac/AICTE/AICTE_2017.pdf`;
+// Mapping of actual AICTE PDF file names by year
+const aicteFileNames = {
+  2025: "AICTE_2025_.pdf",
+  2024: "AICTE_2024.pdf",
+  2023: "AICTE_2023.pdf",
+  2022: "AICTE_2022.pdf",
+  2021: "AICTE_2021.pdf",
+  2020: "AICTE_2020.pdf",
+  2019: "AICTE_2019.pdf",
+  2018: "AICTE_2018.pdf",
+  2017: "AICTE_2017.pdf",
+  2016: "AICTE_2016.pdf",
+  2015: "AICTE_2015.pdf",
+  2014: "AICTE_2014.pdf",
+  2013: "AICTE_2013_April.pdf",
+  2012: "AICTE_2012.pdf",
+  2011: "AICTE_2011.pdf",
+  2010: "AICTE_2010.pdf",
+  2009: "AICTE_2008_TO_2011.pdf",
+  2008: "AICTE_2008.pdf",
+  2007: "AICTE_2007.pdf",
+  2006: "AICTE_2006.pdf",
+  2005: "AICTE_2005.pdf",
+  2004: "AICTE_2004_&_2005.pdf",
+  2003: "AICTE_2003.pdf",
+  2002: "AICTE_2002.pdf",
+  2001: "AICTE_2000_TO_2003.pdf",
+  2000: "AICTE_2000_TO_2003.pdf",
+  1999: "AICTE_1999.pdf",
+  1998: "AICTE_1998.pdf",
+  1997: "AICTE_1997_98.pdf",
+  1996: "AICTE_1996.pdf",
+  1995: "AICTE_1995.pdf",
+  1994: "AICTE_1993_&_1994 (1).pdf",
+  1993: "AICTE_1993_&_1994 (1).pdf",
+  1992: "AICTE_1992.pdf",
+};
+
+// Generate AICTE PDF paths for all years (2025 to 1992) using new folder structure
+const generateAicteYears = () => {
+  const years = [];
+  for (let year = 2025; year >= 1992; year--) {
+    if (aicteFileNames[year]) {
+      years.push({
+        year,
+        link: `/pdfs/iqac/AICTE/${year}/${aicteFileNames[year]}`,
+      });
+    }
+  }
+  return years;
+};
+
+const allAicteYears = generateAicteYears();
+const recentYears = allAicteYears.filter((item) => item.year >= 2016);
+const olderYears = allAicteYears.filter((item) => item.year < 2016);
+
+// Keep old paths for reference (commented but alive)
+// const aicte2025 = `/pdfs/iqac/AICTE/AICTE_2025_.PDF`;
+// const aicte2024 = `/pdfs/iqac/AICTE/AICTE_2024.pdf`;
+// const aicte2023 = `/pdfs/iqac/AICTE/AICTE_2023.pdf`;
+// const aicte2022 = `/pdfs/iqac/AICTE/AICTE_2022.pdf`;
+// const aicte2021 = `/pdfs/iqac/AICTE/AICTE_2021.pdf`;
+// const aicte2020 = `/pdfs/iqac/AICTE/AICTE_2020.pdf`;
+// const aicte2019 = `/pdfs/iqac/AICTE/AICTE_2019.pdf`;
+// const aicte2018 = `/pdfs/iqac/AICTE/AICTE_2018.pdf`;
+// const aicte2017 = `/pdfs/iqac/AICTE/AICTE_2017.pdf`;
 const insurance2023 = `/pdfs/iqac/Accreditations/Insurance-Institute-of-India-of-Siva-Sivani-Inst.of-Management-Exemption-Letter-2023.pdf`;
 const insurance2021 = `/pdfs/iqac/Accreditations/Insurance-Institute-of-India-of-Siva-Sivani-Inst.of-Management-Exemption-Letter-2021.pdf`;
 const insurance2016 = `/pdfs/iqac/Accreditations/Insurance-Institute-of-India-of-Siva-Sivani-Inst.-of-Management-2016.pdf`;
@@ -54,9 +114,11 @@ const bogMay2023 = `/pdfs/iqac/AabBog/BOG-MAY-2023-MINUTES-OF-THE-MEETING.pdf`;
 
 const sss2122 = `/pdfs/iqac/SSS-21-22.pdf`;
 const aqar2021 = `/pdfs/iqac/AQAR-20-21.pdf`;
-const mandatoryDisclosure2023 = `/pdfs/iqac/Mandatory_Disclosures-2023.pdf`;
+const mandatoryDisclosure2025 = `/pdfs/iqac/Mandatory_Disclosures_2025_26.pdf`;
 
 export default function IQAC() {
+  const [showOlder, setShowOlder] = useState(false);
+
   return (
     <div className="min-h-screen bg-blue-50">
       {/* <header className="bg-white shadow-sm">
@@ -331,19 +393,9 @@ export default function IQAC() {
                 </CardTitle>
                 <CardDescription>Year-wise approval status</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative pb-12">
                 <div className="grid grid-cols-2 gap-2">
-                  {[
-                    { year: 2025, link: aicte2025 },
-                    { year: 2024, link: aicte2024 },
-                    { year: 2023, link: aicte2023 },
-                    { year: 2022, link: aicte2022 },
-                    { year: 2021, link: aicte2021 },
-                    { year: 2020, link: aicte2020 },
-                    { year: 2019, link: aicte2019 },
-                    { year: 2018, link: aicte2018 },
-                    { year: 2017, link: aicte2017 },
-                  ].map((item) => (
+                  {recentYears.map((item) => (
                     <Link
                       href={item.link}
                       target="_blank"
@@ -356,7 +408,40 @@ export default function IQAC() {
                       </span>
                     </Link>
                   ))}
+                  <div
+                    className={`grid grid-cols-2 gap-2 col-span-2 transition-all duration-700 ease-in-out overflow-hidden ${
+                      showOlder
+                        ? "max-h-[2000px] opacity-100 translate-y-0"
+                        : "max-h-0 opacity-0 -translate-y-4"
+                    }`}
+                  >
+                    {olderYears.map((item) => (
+                      <Link
+                        href={item.link}
+                        target="_blank"
+                        key={item.year}
+                        className={`flex items-center gap-2 p-2 rounded-lg hover:bg-slate-100 transition-all duration-300 ${
+                          showOlder
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 -translate-y-2"
+                        }`}
+                      >
+                        <Calendar className="h-4 w-4 text-red-500" />
+                        <span className="text-sm text-mainBlue font-medium">
+                          AICTE {item.year}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
+                {olderYears.length > 0 && (
+                  <button
+                    onClick={() => setShowOlder(!showOlder)}
+                    className="absolute bottom-2 right-2 px-3 py-1.5 text-xs font-medium text-blue-600 bg-transparent hover:bg-blue-600 hover:text-white rounded-lg transition-colors border border-blue-200"
+                  >
+                    {showOlder ? "Show Less" : "Show Older"}
+                  </button>
+                )}
               </CardContent>
             </Card>
 
@@ -559,12 +644,12 @@ export default function IQAC() {
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <Info className="h-5 w-5 text-amber-500" />
-                  Mandatory Disclosure 2023
+                  Mandatory Disclosure 2025-26
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <Link
-                  href={mandatoryDisclosure2023}
+                  href={mandatoryDisclosure2025}
                   target="_blank"
                   className="flex items-center justify-center gap-2 w-full p-3 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors"
                 >
