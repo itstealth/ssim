@@ -60,7 +60,7 @@ const StudentsAchievements = () => {
       <section className="relative py-10 sm:py-20">
         <Heading title="Student Achievements" />
         <div className="container max-w-7xl mx-auto grid gap-14 relative">
-          <div className="col-span-1">
+          <div className="col-span-1" style={{paddingLeft: "1.4rem", paddingRight: "1.4rem"}}>
             <div className="events grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {events.map((event) => (
                 <Card
@@ -162,9 +162,36 @@ const StudentsAchievements = () => {
                     <h3 className="text-2xl font-bold">
                       {selectedEvent.title}
                     </h3>
-                    <p className="text-muted-foreground">
-                      {selectedEvent.description}
-                    </p>
+                    <div className="text-muted-foreground whitespace-pre-line leading-relaxed">
+                      {selectedEvent.description.split('\n\n').map((paragraph, index) => {
+                        // Check if paragraph starts with bullet points
+                        if (paragraph.trim().startsWith('•') || paragraph.trim().startsWith('Winners:')) {
+                          return (
+                            <div key={index} className="mb-3">
+                              {paragraph.split('\n').map((line, lineIndex) => {
+                                if (line.trim().startsWith('•')) {
+                                  return (
+                                    <div key={lineIndex} className="ml-4 mb-1">
+                                      {line.trim()}
+                                    </div>
+                                  );
+                                }
+                                return (
+                                  <div key={lineIndex} className={lineIndex === 0 ? "font-semibold mb-2" : ""}>
+                                    {line}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          );
+                        }
+                        return (
+                          <p key={index} className="mb-3">
+                            {paragraph}
+                          </p>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </>
