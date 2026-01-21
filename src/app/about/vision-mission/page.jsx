@@ -1,33 +1,11 @@
 "use client";
 
-import { Eye, MapPin, Target } from "lucide-react";
 const vm1 = "/about/vm1.webp";
 const vm2 = "/about/vm2.webp";
 const vm3 = "/about/vm3.webp";
 const vm4 = "/about/vm4.webp";
 // import SEO from "@/components/Seo";
 import { useState } from "react";
-
-const missionItems = [
-  {
-    icon: Eye,
-    title: "Vision",
-    description:
-      "To revolutionize the way people connect and collaborate, creating meaningful experiences that transcend boundaries.",
-  },
-  {
-    icon: MapPin,
-    title: "Mission",
-    description:
-      "Empowering individuals and organizations through innovative solutions that drive positive change and sustainable growth.",
-  },
-  {
-    icon: Target,
-    title: "Goals",
-    description:
-      "To achieve measurable impact in our community while maintaining the highest standards of excellence and integrity.",
-  },
-];
 
 const images = [
   {
@@ -80,52 +58,46 @@ export default function VisionMission() {
               </div>
             </div>
             {/* Left Section */}
-            <div className="max-w-xl mx-auto lg:mx-0 order-2 lg:order-1">
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-8">
-                <div className="h-1 w-12 bg-teal-500" />
-                <h2 className="text-3xl md:text-4xl font-bold">
-                  Our Vision & Mission
-                </h2>
+            <div className="max-w-xl mx-auto lg:mx-0 order-2 lg:order-1 space-y-12 md:space-y-16">
+              {/* Vision Section */}
+              <div>
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+                  <div className="h-1 w-12 bg-teal-500" />
+                  <h2 className="text-3xl md:text-4xl font-bold">
+                    Our Vision
+                  </h2>
+                </div>
+                <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
+                  <strong>"To be a Premier Management Institute significantly contributing to Corporate World and Society."</strong>
+                </p>
               </div>
-              <div className="space-y-8 md:space-y-10">
-                <p className="text-zinc-600 text-sm sm:text-base">
-                  S.P Sampathy's Siva Sivani Institute of Management is promoted
-                  by the Siva Sivani Group of Educational Institutions. The
-                  group has been running the prestigious and internationally
-                  renowned Siva Sivani Public Schools for more than six decades.
-                </p>
-                <p className="text-zinc-600 text-sm sm:text-base">
-                  The Post Graduate Diploma in Management Programs of Siva
-                  Sivani Institute of Management is approved by the All India
-                  Council for Technical Education (AICTE), Ministry of Human
-                  Resource Development, Govt. of India, New Delhi, since its
-                  commencement. SSIM started functioning as an autonomous
-                  institute in 1992. SSIM is situated in Secunderabad, about 6
-                  kilometres from Bowenpally along National Highway No. 7, away
-                  from the bustle of the city.
-                </p>
-                <p className="text-zinc-600 text-sm sm:text-base">
-                  The institute is roomy and peaceful, providing the perfect
-                  setting for delivering value-based management education. Since
-                  its foundation, SSIM has a long history of sustained academic
-                  success and holistic development of our students. The founders
-                  started the institute with the vision of creating a premier
-                  management institute which significantly contributes to the
-                  corporate world and society.
-                </p>
-                {missionItems.map(({ icon: Icon, title, description }) => (
-                  <div key={title} className="flex items-start group">
-                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-teal-50 text-teal-500 rounded-lg transition-all duration-300 group-hover:bg-teal-500 group-hover:text-white">
-                      <Icon size={24} />
-                    </div>
-                    <div className="ml-4">
-                      <h4 className="text-xl font-bold mb-2">{title}</h4>
-                      <p className="text-zinc-600 text-sm sm:text-base">
-                        {description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+
+              {/* Mission Section */}
+              <div>
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+                  <div className="h-1 w-12 bg-teal-500" />
+                  <h2 className="text-3xl md:text-4xl font-bold">
+                    Our Mission
+                  </h2>
+                </div>
+                <ul className="space-y-3 md:space-y-4 text-zinc-600 text-sm sm:text-base">
+                  <li className="flex items-start gap-3">
+                    <span className="text-teal-500 font-bold mt-1">•</span>
+                    <span className="leading-relaxed">To disseminate management knowledge through focused educational programmes.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-teal-500 font-bold mt-1">•</span>
+                    <span className="leading-relaxed">To contribute to management knowledge through extension and research activities.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-teal-500 font-bold mt-1">•</span>
+                    <span className="leading-relaxed">To develop responsible management graduates through ethics-based education.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-teal-500 font-bold mt-1">•</span>
+                    <span className="leading-relaxed">To promote the culture of critical, innovative thinking and social entrepreneurship.</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
