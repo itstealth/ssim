@@ -60,44 +60,73 @@ export default function VisionMission() {
             {/* Left Section */}
             <div className="max-w-xl mx-auto lg:mx-0 order-2 lg:order-1 space-y-12 md:space-y-16">
               {/* Vision Section */}
-              <div>
+              <div className="relative">
                 <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-                  <div className="h-1 w-12 bg-teal-500" />
+                  <div className="h-1 w-12 bg-mainBlue" />
                   <h2 className="text-3xl md:text-4xl font-bold">
                     Our Vision
                   </h2>
                 </div>
-                <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
-                  <strong>"To be a Premier Management Institute significantly contributing to Corporate World and Society."</strong>
-                </p>
+                <div className="relative bg-gradient-to-br from-blue-50 via-blue-100/50 to-blue-50 rounded-2xl p-6 md:p-8 border-2 border-blue-200/50 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-mainBlue/5 to-transparent rounded-2xl"></div>
+                  <p className="relative text-mainBlue text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed text-center lg:text-left italic">
+                    "To be a Premier Management Institute significantly contributing to Corporate World and Society."
+                  </p>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-blue-500/10 rounded-full blur-2xl"></div>
+                  <div className="absolute -bottom-2 -left-2 w-20 h-20 bg-blue-400/10 rounded-full blur-2xl"></div>
+                </div>
               </div>
 
               {/* Mission Section */}
               <div>
                 <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-                  <div className="h-1 w-12 bg-teal-500" />
+                  <div className="h-1 w-12 bg-mainBlue" />
                   <h2 className="text-3xl md:text-4xl font-bold">
                     Our Mission
                   </h2>
                 </div>
-                <ul className="space-y-3 md:space-y-4 text-zinc-600 text-sm sm:text-base">
-                  <li className="flex items-start gap-3">
-                    <span className="text-teal-500 font-bold mt-1">•</span>
-                    <span className="leading-relaxed">To disseminate management knowledge through focused educational programmes.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-teal-500 font-bold mt-1">•</span>
-                    <span className="leading-relaxed">To contribute to management knowledge through extension and research activities.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-teal-500 font-bold mt-1">•</span>
-                    <span className="leading-relaxed">To develop responsible management graduates through ethics-based education.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-teal-500 font-bold mt-1">•</span>
-                    <span className="leading-relaxed">To promote the culture of critical, innovative thinking and social entrepreneurship.</span>
-                  </li>
-                </ul>
+                <div className="space-y-4 md:space-y-5">
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                        <span className="text-mainBlue group-hover:text-white font-bold text-lg">1</span>
+                      </div>
+                      <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">
+                        To disseminate management knowledge through focused educational programmes.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                        <span className="text-mainBlue group-hover:text-white font-bold text-lg">2</span>
+                      </div>
+                      <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">
+                        To contribute to management knowledge through extension and research activities.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                        <span className="text-mainBlue group-hover:text-white font-bold text-lg">3</span>
+                      </div>
+                      <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">
+                        To develop responsible management graduates through ethics-based education.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                        <span className="text-mainBlue group-hover:text-white font-bold text-lg">4</span>
+                      </div>
+                      <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">
+                        To promote the culture of critical, innovative thinking and social entrepreneurship.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
