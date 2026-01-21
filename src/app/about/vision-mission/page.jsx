@@ -37,7 +37,7 @@ export default function VisionMission() {
         keywords="SSIM vision, SSIM mission, business school goals, management institute values"
         canonicalUrl="https://www.ssim.ac.in/about/vision-mission"
       /> */}
-      <section className="py-14 md:py-24 bg-white text-zinc-900">
+      <section className="py-14 md:py-24 px-6 md:px-0 bg-white text-zinc-900">
         <div className="container mx-auto px-0 sm:px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
             {/* Right Section */}
