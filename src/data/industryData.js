@@ -9,8 +9,110 @@ const whatsAppImg7 = "/studentslife/student'sAchievements/WhatsApp-Image-2023-09
 const whatsAppImg8 = "/studentslife/student'sAchievements/WhatsApp-Image-2023-09-26-at-10.13.13-AM-8-768x512.jpeg";
 const whatsAppImgPM = "/studentslife/student'sAchievements/WhatsApp-Image-2023-10-07-at-6.14.47-PM.jpeg";
 const whatsAppImg9 = "/studentslife/student'sAchievements/aa.png";
+const bSmartFlyer = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/Flyer.jpeg";
+const bSmartImg1 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.14.40 PM.jpeg";
+const bSmartImg2 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.14.54 PM.jpeg";
+const bSmartImg3 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.15.10 PM.jpeg";
+const bSmartImg4 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.16.02 PM.jpeg";
+const bSmartImg5 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.16.04 PM.jpeg";
+const bSmartImg6 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.16.11 PM.jpeg";
+const bSmartImg7 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.18.32 PM.jpeg";
+const bSmartImg8 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 1.18.36 PM.jpeg";
+const bSmartImg9 = "/studentslife/student'sAchievements/BS_Casestudy_Certificate_Distribution/WhatsApp Image 2025-09-19 at 2.40.50 PM.jpeg";
+const ciiSummit = "/studentslife/student'sAchievements/StudentsCII/CIISummit.jpeg";
+const ciiImg1 = "/studentslife/student'sAchievements/StudentsCII/DSC_4479.JPG";
+const ciiImg2 = "/studentslife/student'sAchievements/StudentsCII/DSC_4634.JPG";
+const ciiImg3 = "/studentslife/student'sAchievements/StudentsCII/DSC_4638.JPG";
+const ciiImg4 = "/studentslife/student'sAchievements/StudentsCII/WhatsApp Image 2025-12-18 at 12.24.56 AM.jpeg";
+const ciiImg5 = "/studentslife/student'sAchievements/StudentsCII/WhatsApp Image 2025-12-18 at 12.24.57 AM.jpeg";
+const ciiImg6 = "/studentslife/student'sAchievements/StudentsCII/WhatsApp Image 2025-12-18 at 12.24.58 AM.jpeg";
+const ciiFelicitation = "/studentslife/student'sAchievements/CIIFelicitation/Case-Competition-Felicitation.jpg";
+const ciiFelImg1 = "/studentslife/student'sAchievements/CIIFelicitation/20251222_110924.jpg";
+const ciiFelImg2 = "/studentslife/student'sAchievements/CIIFelicitation/20251222_111005.jpg";
+const ciiFelImg3 = "/studentslife/student'sAchievements/CIIFelicitation/20251222_111441.jpg";
 
 export const industryData = [
+  {
+    id: 6,
+    image: ciiFelicitation,
+    date: "December 22, 2025",
+    category: "education",
+    title:
+      "SSIM organized a felicitation ceremony to honor the achievers of the CII National Case Study Challenge",
+    tags: ["Felicitation", "Awards", "CII"],
+    description: `SSIM organized a felicitation ceremony to honor the achievers of the CII National Case Study Challenge, awarding each student ₹10,000. The institute also felicitated Ms. Edla Ashwitha with ₹2,000 for suggesting the auditorium name—Samarthya: The Calibre.
+
+The ceremony celebrated the students' success and encouraged a culture of excellence and participation. SSIM appreciated these achievements and recognized contributions that strengthen the institute's identity and spirit.
+
+This felicitation ceremony reflects SSIM's commitment to recognizing and rewarding student excellence, fostering a culture of achievement, and encouraging active participation in national-level competitions. The institute takes pride in celebrating both academic achievements and creative contributions that enhance the campus community.`,
+    gallery: [
+      ciiFelicitation,
+      ciiFelImg1,
+      ciiFelImg2,
+      ciiFelImg3,
+    ],
+  },
+  {
+    id: 5,
+    image: ciiSummit,
+    date: "December 18, 2025",
+    category: "education",
+    title:
+      "SSIM secured Top 5 position at the prestigious CII National Case Study Challenge",
+    tags: ["Case Study", "Competition", "CII"],
+    description: `SSIM students, Team Mavericks, secured a Top 5 position at the prestigious CII National Case Study Challenge. Out of numerous entries from across India, 61 teams were shortlisted in the initial screening. After several rigorous evaluation rounds, only 11 advanced, and finally 5 teams reached the top.
+
+Team Mavericks—Mr. M. Satish Kumar (PGDM Business Analytics), Mr. Ashok Kumar Paswan (PGDM), and Ms. Disha Deolwar (PGDM)—were felicitated with a memento and prize for their exceptional presentation and analytical excellence.
+
+This remarkable achievement highlights the team's dedication, analytical prowess, and ability to compete at the national level against top business schools across India. The CII National Case Study Challenge is one of the most prestigious competitions in the country, attracting participation from leading management institutes.
+
+Congratulations to Team Mavericks for bringing laurels to SSIM and showcasing the institute's commitment to excellence in business education and practical problem-solving!`,
+    gallery: [
+      ciiSummit,
+      ciiImg1,
+      ciiImg2,
+      ciiImg3,
+      ciiImg4,
+      ciiImg5,
+      ciiImg6,
+    ],
+  },
+  {
+    id: 4,
+    image: bSmartFlyer,
+    date: "September 19, 2025",
+    category: "education",
+    title:
+      "SSIM Students Shine at The BSmart Case Study Challenge",
+    tags: ["Case Study", "Competition", "Business Standard"],
+    description: `SSIM students participated in The BSmart Case Study Challenge – "How Will You Make Tesla Succeed When Others Couldn't", held exclusively for SSIM as part of the Regional Round Rewards.
+
+Winners:
+
+• First Place: A. S. Rajeshwari, PGDM (2024–26), awarded ₹2,000 and a certificate.
+
+• First Runner-up: Badavath Sai Chandana, PGDM (2024–26), received a certificate.
+
+• Second Runner-up: Ansh Vardhan Katare, PGDM (2024–26), received a certificate.
+
+The event, held virtually on 19th September 2025, was graced by Mr. Arindam Bhattacharjee, Editor–BSchools, Business Standard, who addressed the PGDM (2025–27) batch, introducing the BSmart App and encouraging students to participate in case study challenges to win more rewards.
+
+Mr. S. Jayaraam, DGM, Business Standard, highlighted the career opportunities provided by the BSmart App and emphasized the importance of staying updated with current affairs. Mr. Ravinder Reddy, Manager, and Mr. Mohammed Hussain, Assistant Manager, Business Standard, felicitated the winners with certificates.
+
+This achievement showcases the analytical skills and competitive spirit of SSIM students, demonstrating their ability to excel in real-world business case studies and problem-solving challenges.`,
+    gallery: [
+      bSmartFlyer,
+      bSmartImg1,
+      bSmartImg2,
+      bSmartImg3,
+      bSmartImg4,
+      bSmartImg5,
+      bSmartImg6,
+      bSmartImg7,
+      bSmartImg8,
+      bSmartImg9,
+    ],
+  },
   {
     id: 1,
     image: whatsAppImgPM,

@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-const aicteapprovals = "/pdfs/footer/SSIM-AICTE-EOA-1992-2023.pdf";
+const aicteapprovals = "/pdfs/footer/AICTE_Approval_1992_2026_All_Years.pdf";
 // import { Input } from "@/components/ui/input";
 
 export default function Footer() {
