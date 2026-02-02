@@ -44,7 +44,7 @@ export default function SamarohPopup() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent 
-        className="max-w-[90vw] sm:max-w-md p-0 border-none bg-transparent"
+        className="max-w-[90vw] sm:max-w-[400px] p-0 border-none bg-transparent"
         // Prevent background scrolling when dialog is open
         onInteractOutside={(e) => {
           // Allow closing by clicking outside
