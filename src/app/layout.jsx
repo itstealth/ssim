@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Toaster } from "sonner";
 import { WebSiteSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
+import EnquireNowButton from "@/components/EnquireNowButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -127,6 +128,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <Footer />
           <DockButtons />
           <Toaster />
+          {/* Enquire Now Button with Widget */}
+          <EnquireNowButton />
           {/* Fixed WhatsApp button SSIM */}
           <div className="fixed hidden sm:block bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
             <a
