@@ -1,16 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/pages/Header/Header";
-import Footer from "@/pages/Footer/Footer";
 import QueryProvider from "@/components/QueryProvider";
-import ConditionalBanner from "@/components/ConditionalBanner";
-import { DockButtons } from "@/components/DockButtons";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
-import Image from "next/image";
 import { Toaster } from "sonner";
 import { WebSiteSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
-import EnquireNowButton from "@/components/EnquireNowButton";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -122,30 +117,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           document.body.appendChild(s);
         </script>
         <QueryProvider>
-          <Header />
-          <ConditionalBanner />
-          <main>{children}</main>
-          <Footer />
-          <DockButtons />
+          <ConditionalLayout>{children}</ConditionalLayout>
           <Toaster />
-          {/* Enquire Now Button with Widget */}
-          <EnquireNowButton />
-          {/* Fixed WhatsApp button SSIM */}
-          <div className="fixed hidden sm:block bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
-            <a
-              href="https://wa.me/919391114948"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-black/30 rounded-full p-2 inline-block"
-            >
-              <Image
-                src="/whatsapp.png"
-                alt="WhatsApp"
-                width={36}
-                height={36}
-              />
-            </a>
-          </div>
         </QueryProvider>
       </body>
       <GoogleAnalytics gaId="G-G3TY673HQG" />
