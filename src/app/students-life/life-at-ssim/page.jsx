@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ImageIcon, Image } from "lucide-react";
+import { ChevronLeft, ChevronRight, ImageIcon, Image, X } from "lucide-react";
 import { Button } from "@/components/ui/button"; // Adjust path as needed
 import {
   Dialog,
@@ -18,6 +18,41 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 // Categories array
 const categories = [
+  {
+    id: "31",
+    label: "National Mutual Fund Olympiad 2025",
+    icon: <Image />,
+    heading: "National Mutual Fund Olympiad 2025",
+    description: "",
+  },
+  {
+    id: "27",
+    label: "Medical Camp",
+    icon: <Image />,
+    heading: "Medical Camp",
+    description: "",
+  },
+  {
+    id: "28",
+    label: "ICMAI MOU",
+    icon: <Image />,
+    heading: "ICMAI MOU",
+    description: "",
+  },
+  {
+    id: "29",
+    label: "MOU with IBM",
+    icon: <Image />,
+    heading: "MOU with IBM",
+    description: "",
+  },
+  {
+    id: "30",
+    label: <>27<sup style={{ marginLeft: "-0.4rem" }}>th</sup> Samanvay</>,
+    icon: <Image />,
+    heading: <>27<sup style={{ marginLeft: "0.05em" }}>th</sup> Samanvay</>,
+    description: "",
+  },
   {
     id: "1",
     label: "Snatak-2025",
@@ -389,8 +424,179 @@ const samskritiImages = Array.from({ length: 25 }, (_, i) => ({
   alt: `samskriti image ${i + 1}`,
 }));
 
+const medicalCampImageFilenames = [
+  "DSC_8986.webp",
+  "DSC_8990.webp",
+  "DSC_9013.webp",
+  "DSC_9018.webp",
+  "DSC_9022.webp",
+  "DSC_9026.webp",
+  "DSC_9029.webp",
+  "DSC_9037.webp",
+  "DSC_9068.webp",
+  "DSC_9072.webp",
+  "DSC_9075.webp",
+  "DSC_9090.webp",
+  "DSC_9092.webp",
+  "DSC_9101.webp",
+  "DSC_9104.webp",
+  "DSC_9105.webp",
+];
+
+const medicalCampImages = medicalCampImageFilenames.map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/Medical Camp/${filename}`,
+  category: "27",
+  alt: `medical camp image ${i + 1}`,
+}));
+
+const icmaiMouImageFilenames = [
+  "DSC_9274.webp",
+  "DSC_9323.webp",
+  "DSC_9340.webp",
+  "DSC_9356.webp",
+  "DSC_9371.webp",
+  "DSC_9380.webp",
+  "DSC_9439.webp",
+  "DSC_9445.webp",
+  "DSC_9452.webp",
+  "DSC_9458.webp",
+  "DSC_9493.webp",
+];
+
+const icmaiMouImages = icmaiMouImageFilenames.map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/ICMAI MOU/${filename}`,
+  category: "28",
+  alt: `ICMAI MOU image ${i + 1}`,
+}));
+
+const mouWithIbmImageFilenames = [
+  "DSC_8767_8_2026_10_2026.webp",
+  "DSC_8768_1_2026_13_2026.webp",
+  "DSC_8865_2_2026_14_2026.webp",
+  "DSC_8883_9_2026_11_2026.webp",
+  "DSC_8896_3_2026_15_2026.webp",
+  "DSC_8903_4_2026_16_2026.webp",
+  "DSC_8905_5_2026_17_2026.webp",
+  "DSC_8912_6_2026_18_2026.webp",
+  "DSC_8919_7_2026_12_2026.webp",
+];
+
+const mouWithIbmImages = mouWithIbmImageFilenames.map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/MOU with  IBM/${filename}`,
+  category: "29",
+  alt: `MOU with IBM image ${i + 1}`,
+}));
+
+const samanvayEventPicsImageFilenames = [
+  "Day-1 Guests (2).webp",
+  "Day-1 Guests (3).webp",
+  "Day-1 Guests (4).webp",
+  "Day-1 Guests (5).webp",
+  "Day-1 Guests (6).webp",
+  "Day-1 Guests (7).webp",
+  "Day-2 Guest (1).webp",
+  "Day-2 Guest (2).webp",
+  "Day-2 Guest (3).webp",
+  "DSC_5149.webp",
+  "DSC_5262.webp",
+  "DSC_5270.webp",
+  "DSC_5324.webp",
+  "DSC_5329.webp",
+  "DSC_5357.webp",
+  "DSC_5396.webp",
+  "DSC_5458.webp",
+  "DSC_5479.webp",
+  "DSC_5539.webp",
+  "DSC_5736.webp",
+  "DSC_5800.webp",
+  "DSC_5810.webp",
+  "DSC_6049.webp",
+  "DSC_6055.webp",
+  "DSC_6070.webp",
+  "DSC_6076.webp",
+  "DSC_6085.webp",
+  "DSC_6096.webp",
+  "DSC_6100.webp",
+  "DSC_6106.webp",
+  "DSC_6118.webp",
+  "DSC_6124.webp",
+  "DSC_6126.webp",
+  "DSC_6130.webp",
+  "DSC_6133.webp",
+  "DSC_6135.webp",
+  "DSC_6138.webp",
+  "DSC_6141.webp",
+  "DSC_6178.webp",
+  "DSC_6185.webp",
+  "DSC_6299.webp",
+  "DSC_6376.webp",
+  "DSC_6391.webp",
+  "DSC_6396.webp",
+  "DSC_6536.webp",
+  "DSC_6538.webp",
+  "DSC_6629.webp",
+  "DSC_6644.webp",
+  "DSC_6801.webp",
+  "DSC_6842.webp",
+  "DSC_6850.webp",
+  "DSC_7236.webp",
+  "DSC_7548.webp",
+  "DSC_7843.webp",
+  "DSC_7929.webp",
+  "DSC_7935.webp",
+  "DSC_7937.webp",
+  "DSC_7965.webp",
+  "DSC_7977.webp",
+  "DSC_8002.webp",
+  "DSC_8244.webp",
+  "DSC_8255.webp",
+  "Other college Winners (1).webp",
+  "Other college Winners (3).webp",
+  "Other college Winners (4).webp",
+  "Other college Winners (5).webp",
+  "Other college Winners (6).webp",
+  "Other college Winners (7).webp",
+  "Other college Winners (8).webp",
+  "Other college Winners.webp",
+];
+
+const samanvayEventPicsImages = samanvayEventPicsImageFilenames.map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/Samanvay Event Pics/${filename}`,
+  category: "30",
+  alt: `27th Samanvay image ${i + 1}`,
+}));
+
+const nationalMutualFundOlympiad2025ImageFilenames = [
+  "1770056962310.webp",
+  "UJ_04992.webp",
+  "UJ_05198.webp",
+  "UJ_05200.webp",
+  "UJ_05205.webp",
+  "UJ_05317.webp",
+  "UJ_05515.webp",
+  "UJ_05601.webp",
+  "UJ_05602.webp",
+  "UJ_05656.webp",
+];
+
+const nationalMutualFundOlympiad2025Images = nationalMutualFundOlympiad2025ImageFilenames.map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/${filename}`,
+  category: "31",
+  alt: `National Mutual Fund Olympiad 2025 image ${i + 1}`,
+}));
+
 // Then modify your galleryItems array to use both image sets
 const galleryItems = [
+  ...medicalCampImages,
+  ...icmaiMouImages,
+  ...mouWithIbmImages,
+  ...samanvayEventPicsImages,
+  ...nationalMutualFundOlympiad2025Images,
   ...snatak2025Images,
   ...spandana2025Images,
   ...ganeshCelebrationsImages,
@@ -436,11 +642,20 @@ const ImageDialog = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl p-0 pt-6 bg-transparent border-none">
+      <DialogContent className="max-w-7xl p-0 pt-6 bg-transparent border-none [&>button]:hidden">
         <DialogDescription className="sr-only">
           Image gallery viewer showing {currentImage.title}
         </DialogDescription>
         <div className="relative flex-1 flex flex-col items-center justify-center p-6 pb-14">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute top-[-182px] right-5 z-[60] h-8 w-8 min-w-8 p-0 flex items-center justify-center rounded-full bg-slate-200 hover:bg-slate-100 text-black backdrop-blur-sm sm:right-[30px] sm:top-[30px]"
+            onClick={() => onOpenChange(false)}
+            aria-label="Close"
+          >
+            <X className="h-6 w-6 shrink-0" />
+          </Button>
           <Button
             variant="ghost"
             size="icon"
@@ -478,7 +693,7 @@ const ImageDialog = ({
 };
 
 export default function LifeAtSsim() {
-  const [activeCategory, setActiveCategory] = useState("1");
+  const [activeCategory, setActiveCategory] = useState("31");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -520,14 +735,14 @@ export default function LifeAtSsim() {
   }, [handleKeyPress]);
 
   return (
-    <>
+    <main style={{ background: "#fafbfb" }}>
       {/* <SEO
         title="Life at SSIM"
         description="Experience the vibrant student life at Siva Sivani Institute of Management (SSIM). Explore our campus, events, clubs, and the holistic development opportunities we offer."
         keywords="SSIM student life, campus life, student clubs, college events, SSIM culture"
         canonicalUrl="https://www.ssim.ac.in/students-life/life-at-ssim"
       /> */}
-      <div className="container mx-auto px-4 py-8 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto max-w-[90vw] px-4 py-8 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -618,12 +833,16 @@ export default function LifeAtSsim() {
           </div>
         </div>
 
-        {categories.find((cat) => cat.id === activeCategory)?.heading && (
-          <WordPullUp
-            words={categories.find((cat) => cat.id === activeCategory)?.heading}
-            className="text-2xl md:text-4xl text-left sm:text-center font-bold tracking-tight text-mainBlue mt-8 mb-4 md:mb-6"
-          />
-        )}
+        {(() => {
+          const heading = categories.find((cat) => cat.id === activeCategory)?.heading;
+          if (!heading) return null;
+          const className = "text-2xl md:text-4xl text-left sm:text-center font-bold tracking-tight text-mainBlue mt-8 mb-4 md:mb-6";
+          return typeof heading === "string" ? (
+            <WordPullUp words={heading} className={className} />
+          ) : (
+            <div className={className}>{heading}</div>
+          );
+        })()}
         {categories.find((cat) => cat.id === activeCategory)?.description && (
           <p className="text-base text-center max-w-7xl mx-auto text-gray-600">
             {categories.find((cat) => cat.id === activeCategory)?.description}
@@ -686,7 +905,7 @@ export default function LifeAtSsim() {
           onNext={handleNext}
         />
       </div>
-    </>
+    </main>
   );
 }
 
