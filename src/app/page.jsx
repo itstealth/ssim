@@ -152,7 +152,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* Samaroh Event Popup - Shows automatically after 3 seconds, once per session */}
-      <SamarohPopup />
+      {/* <SamarohPopup /> */}
     </>
   );
 }
