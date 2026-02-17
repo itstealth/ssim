@@ -144,9 +144,9 @@ export default function HomePage() {
       {/* <SectionWrapper>
         <LatestBlogsAndEvents />
       </SectionWrapper> */}
-      <SectionWrapper>
+      {/* <SectionWrapper>
         <AlumniSection />
-      </SectionWrapper>
+      </SectionWrapper> */}
       <SectionWrapper>
         <PlacementIndustry />
       </SectionWrapper>
