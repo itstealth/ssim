@@ -19,6 +19,15 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 // Categories array
 const categories = [
   {
+    id: "32",
+    label: "SAMAROH 2026 – Annual International Conference",
+    icon: <Image />,
+    heading: "SAMAROH 2026 – Annual International Conference",
+    description: `Siva Sivani Institute of Management hosted SAMAROH 2026 on February 11–12, 2026, themed “Digital Dharma – Responsible AI for a Sustainable Future.” The conference brought together academicians, researchers, industry experts, and students from across India to explore ethical and sustainable AI practices.
+With 114 research submissions, multiple presentation tracks, international keynote sessions, and industry panel discussions, the event promoted impactful academic dialogue and collaboration.
+SAMAROH 2026 recorded an Excellent NPS of +58.03 and a CSAT of 4.33/5, reflecting high participant satisfaction and strong academic engagement.`,
+  },
+  {
     id: "31",
     label: "National Mutual Fund Olympiad 2025",
     icon: <Image />,
@@ -283,9 +292,8 @@ const spandana2025Images = Array.from({ length: 30 }, (_, i) => ({
 
 const ganeshCelebrationsImages = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/ganesh-celebrations/Ganesh Celebrations (${
-    i + 1
-  }).webp`,
+  src: `/studentslife/life-at-ssim/ganesh-celebrations/Ganesh Celebrations (${i + 1
+    }).webp`,
   category: "5",
   alt: `ganesh celebrations image ${i + 1}`,
 }));
@@ -299,18 +307,16 @@ const smriti2025Images = Array.from({ length: 37 }, (_, i) => ({
 
 const onamFestivalImages = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/onam-celebrations/Onam Celebrations (${
-    i + 1
-  }).webp`,
+  src: `/studentslife/life-at-ssim/onam-celebrations/Onam Celebrations (${i + 1
+    }).webp`,
   category: "7",
   alt: `onam festival image ${i + 1}`,
 }));
 
 const leadershipTalkImages = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${
-    i + 1
-  }).webp`,
+  src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${i + 1
+    }).webp`,
   category: "8",
   alt: `leadership talk image ${i + 1}`,
 }));
@@ -324,9 +330,8 @@ const hrConclaveImages = Array.from({ length: 23 }, (_, i) => ({
 
 const rakshaBandhanImages = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/raksha-bandhan/raksha-bandhan (${
-    i + 1
-  }).jpg`,
+  src: `/studentslife/life-at-ssim/raksha-bandhan/raksha-bandhan (${i + 1
+    }).jpg`,
   category: "10",
   alt: `raksha bandhan image ${i + 1}`,
 }));
@@ -375,9 +380,8 @@ const sameekshaImages = Array.from({ length: 23 }, (_, i) => ({
 
 const snehaImages = Array.from({ length: 42 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sneha/sneha (${i + 1}).${
-    i > 39 ? "png" : "webp"
-  }`,
+  src: `/studentslife/life-at-ssim/sneha/sneha (${i + 1}).${i > 39 ? "png" : "webp"
+    }`,
   category: "20",
   alt: `sneha image ${i + 1}`,
 }));
@@ -590,8 +594,17 @@ const nationalMutualFundOlympiad2025Images = nationalMutualFundOlympiad2025Image
   alt: `National Mutual Fund Olympiad 2025 image ${i + 1}`,
 }));
 
+
+const samaroh2026Images = Array.from({ length: 14 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/samaroh-2026/${i + 1}.webp`,
+  category: "32",
+  alt: `samaroh 2026 image ${i + 1}`,
+}));
+
 // Then modify your galleryItems array to use both image sets
 const galleryItems = [
+  ...samaroh2026Images,
   ...medicalCampImages,
   ...icmaiMouImages,
   ...mouWithIbmImages,
@@ -693,7 +706,7 @@ const ImageDialog = ({
 };
 
 export default function LifeAtSsim() {
-  const [activeCategory, setActiveCategory] = useState("31");
+  const [activeCategory, setActiveCategory] = useState("32");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -807,7 +820,7 @@ export default function LifeAtSsim() {
                   className={cn(
                     "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
                     activeCategory === category.id &&
-                      "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
+                    "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
                   )}
                 >
                   <span>{category.icon}</span>
@@ -857,42 +870,42 @@ export default function LifeAtSsim() {
           <AnimatePresence mode="wait">
             {isLoading
               ? Array.from({ length: 8 }, (_, i) => (
-                  <motion.div
-                    key={`skeleton-${i}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Skeleton className="w-full aspect-[4/3] rounded-xl" />
-                  </motion.div>
-                ))
+                <motion.div
+                  key={`skeleton-${i}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Skeleton className="w-full aspect-[4/3] rounded-xl" />
+                </motion.div>
+              ))
               : filteredItems.map((item, index) => (
-                  <Dialog key={item.id}>
-                    <DialogTrigger asChild>
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="cursor-pointer group relative overflow-hidden rounded-sm shadow-lg bg-white"
-                        onClick={() => {
-                          setCurrentImageIndex(index);
-                          setIsDialogOpen(true);
-                        }}
-                      >
-                        <div className="aspect-[4/3] relative">
-                          <img
-                            src={item.src}
-                            alt={item.alt}
-                            loading="lazy"
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                          {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center text-white">
+                <Dialog key={item.id}>
+                  <DialogTrigger asChild>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      className="cursor-pointer group relative overflow-hidden rounded-sm shadow-lg bg-white"
+                      onClick={() => {
+                        setCurrentImageIndex(index);
+                        setIsDialogOpen(true);
+                      }}
+                    >
+                      <div className="aspect-[4/3] relative">
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center text-white">
                           <ImageIcon className="h-8 w-8" />
                         </div> */}
-                        </div>
-                      </motion.div>
-                    </DialogTrigger>
-                  </Dialog>
-                ))}
+                      </div>
+                    </motion.div>
+                  </DialogTrigger>
+                </Dialog>
+              ))}
           </AnimatePresence>
         </motion.div>
 
