@@ -121,15 +121,15 @@ const teamMembers = [
     description:
       "Specializes in investment analysis and portfolio management. Passionate about teaching financial planning and wealth management.",
   },
-  {
-    name: "Dr. Arijit Santikary",
-    area: "Marketing",
-    qualification: "Ph.D, MBA",
-    experience: 19,
-    image: DrArij,
-    description:
-      "Expert in consumer behavior and digital marketing strategies. Conducts research on emerging trends in social media marketing.",
-  },
+  // {
+  //   name: "Dr. Arijit Santikary",
+  //   area: "Marketing",
+  //   qualification: "Ph.D, MBA",
+  //   experience: 19,
+  //   image: DrArij,
+  //   description:
+  //     "Expert in consumer behavior and digital marketing strategies. Conducts research on emerging trends in social media marketing.",
+  // },
   {
     name: "Dr. T. Thirumal Reddy",
     area: "Marketing",

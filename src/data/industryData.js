@@ -30,8 +30,51 @@ const ciiFelicitation = "/studentslife/student'sAchievements/CIIFelicitation/Cas
 const ciiFelImg1 = "/studentslife/student'sAchievements/CIIFelicitation/20251222_110924.jpg";
 const ciiFelImg2 = "/studentslife/student'sAchievements/CIIFelicitation/20251222_111005.jpg";
 const ciiFelImg3 = "/studentslife/student'sAchievements/CIIFelicitation/20251222_111441.jpg";
+const iimJammuImg1 = "/studentslife/student'sAchievements/WhatsApp Image 2026-03-04 at 9.03.32 AM.jpeg";
+const iimJammuImg2 = "/studentslife/student'sAchievements/WhatsApp Image 2026-03-03 at 3.29.53 PM (2).jpeg";
+const iimJammuImg3 = "/studentslife/student'sAchievements/WhatsApp Image 2026-03-03 at 3.31.39 PM.jpeg";
+const iimJammuImg4 = "/studentslife/student'sAchievements/WhatsApp Image 2026-03-03 at 3.26.28 PM.jpeg";
+const nsssImg1 = "/studentslife/student'sAchievements/1772473018844.jpg";
+const nsssImg2 = "/studentslife/student'sAchievements/1772473017453.jpg";
+const nsssImg3 = "/studentslife/student'sAchievements/1772473020432.jpg";
 
 export const industryData = [
+  {
+    id: 8,
+    image: nsssImg1,
+    date: "February 27, 2026",
+    category: "education",
+    title:
+      "SSIM PGDM Student Presents Research at NSSS 2026 Organized by ISRO",
+    tags: ["Space Science", "ISRO", "Research", "Poster Presentation"],
+    description: `Mr. K. Prem Sai Mahesh, PGDM student (Batch 2024–26) from SSIM, presented a poster presentation titled “Vegetation on Mars: Solutions for Soil Fertility Challenges” at the National Space Science Symposium 2026(NSSS), organized by Indian Space Research Organisation (ISRO) and North Eastern Space Applications Centre in Shillong. He also interacted with Indian astronaut Shubhanshu Shukla, gaining valuable insights while engaging with leading scientists and researchers.
+
+Mr. Prem Sai Mahesh not only showcased his innovative research but also had the opportunity to interact with leading scientists and gaining valuable insights into space science initiatives. His participation highlights both his contribution to cutting-edge research and his engagement with the national scientific community.`,
+    gallery: [nsssImg1, nsssImg2, nsssImg3],
+  },
+  {
+    id: 7,
+    image: iimJammuImg1,
+    date: "February 27, 2026",
+    category: "education",
+    title: "Students' Paper Presentation at IIM Jammu",
+    tags: ["Conference", "IIM Jammu", "Research"],
+    description: `On 27 February 2026, SSIM PGDM students Mr. Ashok Kumar Paswan, Ms. Disha Deolwar, S. Mr. Harsh Vardhan, and PGDM–Business Analytics student Mr. M. Satish Kumar, along with Dr. Balanji Reddy, Assistant Professor, presented their research paper at the 3rd International Finance and Accounting Conference (IFAC) 2026 organized by Indian Institute of Management Jammu, focusing on Financial Strategies for Inclusive and Sustainable Economic Growth to Achieve Viksit Bharat @2047.
+
+The students presented on the following topics:
+
+1. Do Financial News Sentiments Predict Next-Day Stock Price Direction? Evidence from NSE Large-Cap Stocks Using FinBERT
+
+2. Does Greenwashing Affect Firm Performance? Evidence from Indian Listed Companies
+
+3. The Role of Non-Banking Financial Companies in Corporate Financing: A Contemporary Analysis`,
+    gallery: [
+      iimJammuImg1,
+      iimJammuImg2,
+      iimJammuImg3,
+      iimJammuImg4,
+    ],
+  },
   {
     id: 6,
     image: ciiFelicitation,

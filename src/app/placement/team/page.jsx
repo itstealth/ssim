@@ -188,14 +188,14 @@ const TeamMember = ({
 const TeamContactSection = () => {
   // Sample data for 4 team members
   const teamMembers = [
-    {
-      name: "Dr. Arijit Santikary",
-      title: `Chairperson - Placements and Corporate Relations Program Chair - PGDM TPS<br>Area Chair - Marketing`,
-      phone: "+91-9963713840",
-      primaryEmail: "arijitsantikary@ssim.ac.in",
-      secondaryEmail: "placements@ssim.ac.in",
-      imageSrc: arijitImg,
-    },
+    // {
+    //   name: "Dr. Arijit Santikary",
+    //   title: `Chairperson - Placements and Corporate Relations Program Chair - PGDM TPS<br>Area Chair - Marketing`,
+    //   phone: "+91-9963713840",
+    //   primaryEmail: "arijitsantikary@ssim.ac.in",
+    //   secondaryEmail: "placements@ssim.ac.in",
+    //   imageSrc: arijitImg,
+    // },
     {
       name: "Mr. K V Rama Rao",
       title: "General Manager - Placements and Corporate Relations",
