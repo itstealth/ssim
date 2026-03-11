@@ -43,35 +43,35 @@ export default function AcademicPrograms() {
   }, [isHovered, videoOpen]);
 
   const features = [
-    {
-      title: "PGDM",
-      subtitle: "Triple Specialisation",
-      icon: <GraduationCap className="w-6 h-6" />,
-      description: [
-        <span key="1">
-          SSIM's two-year Post-Graduation Diploma in Management (PGDM) program
-          is <strong className="text-red-600">NBA accredited</strong> and
-          uniquely designed to push our students to go beyond their boundaries
-          to reach their aspirational careers.
-        </span>,
-        <span key="2">
-          The two-year PGDM program will prepare our students with various{" "}
-          <strong className="text-red-600">
-            cross-functional skills and life skills
-          </strong>
-          : Communication skills, Decision making, Leadership Skills,
-          Problem-solving, Teamwork, Experiential Learning and several
-          industry-relevant skills to face this VUCA world.
-        </span>,
-        <span key="3">
-          These skills will help our students to achieve their career
-          aspirations and learn to exhibit their best selves.
-        </span>,
-      ],
-      video: "https://www.youtube.com/watch?v=aurjFtjWkIc",
-      link: "/programs/pgdm-triple-specialisation",
-      link1: "https://apply.ssim.ac.in",
-    },
+    // {
+    //   title: "PGDM",
+    //   subtitle: "Triple Specialisation",
+    //   icon: <GraduationCap className="w-6 h-6" />,
+    //   description: [
+    //     <span key="1">
+    //       SSIM's two-year Post-Graduation Diploma in Management (PGDM) program
+    //       is <strong className="text-red-600">NBA accredited</strong> and
+    //       uniquely designed to push our students to go beyond their boundaries
+    //       to reach their aspirational careers.
+    //     </span>,
+    //     <span key="2">
+    //       The two-year PGDM program will prepare our students with various{" "}
+    //       <strong className="text-red-600">
+    //         cross-functional skills and life skills
+    //       </strong>
+    //       : Communication skills, Decision making, Leadership Skills,
+    //       Problem-solving, Teamwork, Experiential Learning and several
+    //       industry-relevant skills to face this VUCA world.
+    //     </span>,
+    //     <span key="3">
+    //       These skills will help our students to achieve their career
+    //       aspirations and learn to exhibit their best selves.
+    //     </span>,
+    //   ],
+    //   video: "https://www.youtube.com/watch?v=aurjFtjWkIc",
+    //   link: "/programs/pgdm-triple-specialisation",
+    //   link1: "https://apply.ssim.ac.in",
+    // },
     {
       title: "PGDM - BIFS",
       subtitle: "Banking, Insurance & Financial Services",

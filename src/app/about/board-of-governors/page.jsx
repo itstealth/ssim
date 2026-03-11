@@ -79,13 +79,13 @@ export default function BoardOfGovernors() {
       description: "Guiding academic and administrative excellence.",
       image: Chandra,
     },
-    {
-      id: 9,
-      name: "Dr. Arijit Santikary",
-      role: "Board Member",
-      description: "Contributing to research and academic development.",
-      image: DrArijit,
-    },
+    // {
+    //   id: 9,
+    //   name: "Dr. Arijit Santikary",
+    //   role: "Board Member",
+    //   description: "Contributing to research and academic development.",
+    //   image: DrArijit,
+    // },
     {
       id: 10,
       name: "Dr. Harish",
