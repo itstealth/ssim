@@ -37,8 +37,40 @@ const iimJammuImg4 = "/studentslife/student'sAchievements/WhatsApp Image 2026-03
 const nsssImg1 = "/studentslife/student'sAchievements/1772473018844.jpg";
 const nsssImg2 = "/studentslife/student'sAchievements/1772473017453.jpg";
 const nsssImg3 = "/studentslife/student'sAchievements/1772473020432.jpg";
+const nmfoImg1 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/1770056962310.webp";
+const nmfoImg2 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_04992.webp";
+const nmfoImg3 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05198.webp";
+const nmfoImg4 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05200.webp";
+const nmfoImg5 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05205.webp";
+const nmfoImg6 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05317.webp";
+const nmfoImg7 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05515.webp";
+const nmfoImg8 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05601.webp";
+const nmfoImg9 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05602.webp";
+const nmfoImg10 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05656.webp";
 
 export const industryData = [
+  {
+    id: 9,
+    image: nmfoImg1,
+    date: "February 27, 2026",
+    category: "education",
+    title:
+      "National Mutual Fund Olympiad 2025",
+    tags: ["Mutual Fund", "Olympiad", "Research", "Poster Presentation"],
+    description: ``,
+    gallery: [
+      nmfoImg1,
+      nmfoImg2,
+      nmfoImg3,
+      nmfoImg4,
+      nmfoImg5,
+      nmfoImg6,
+      nmfoImg7,
+      nmfoImg8,
+      nmfoImg9,
+      nmfoImg10,
+    ],
+  },
   {
     id: 8,
     image: nsssImg1,
