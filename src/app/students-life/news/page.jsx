@@ -237,12 +237,6 @@ const NewsEvents = () => {
             <h2 className="mb-4 text-center font-bold text-gray-800 md:mb-6 text-3xl sm:text-5xl">
               News
             </h2>
-
-            <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-              This is a section of some simple filler text, also known as
-              placeholder text. It shares some characteristics of a real written
-              text but is random or otherwise generated.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-4 mt-10 sm:mt-16">
