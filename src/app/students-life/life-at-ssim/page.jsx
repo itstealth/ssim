@@ -748,7 +748,7 @@ const ImageDialog = ({
 };
 
 export default function LifeAtSsim() {
-  const [activeCategory, setActiveCategory] = useState("32");
+  const [activeCategory, setActiveCategory] = useState("33");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
