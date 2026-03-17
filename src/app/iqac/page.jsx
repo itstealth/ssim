@@ -97,6 +97,7 @@ const aiuEquivalent = `/pdfs/iqac/Accreditations/5.-Siva-Sivani-PGDM-Letters-PGD
 const naacAccreditation = `/pdfs/iqac/Accreditations/NAAC_Accreditation.pdf`;
 const nbaAccreditation = `/pdfs/iqac/Accreditations/NBA-Accreditation.pdf`;
 const saqsAccreditation = `/pdfs/iqac/Accreditations/SAQS-Accreditation.pdf`;
+const nirfAccreditation = `/pdfs/iqac/Accreditations/NIRF-Ranking.pdf`;
 const annualReport2022 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2021-22.pdf`;
 const annualReport2021 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2020-21.pdf`;
 const annualReport2020 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2019-20.pdf`;
@@ -483,6 +484,10 @@ export default function IQAC() {
                     {
                       name: "SAQS Accreditation",
                       link: saqsAccreditation,
+                    },
+                    {
+                      name: "NIRF Ranking",
+                      link: nirfAccreditation,
                     },
                   ].map((item, index) => (
                     <Link
