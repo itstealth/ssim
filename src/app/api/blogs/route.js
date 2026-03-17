@@ -20,20 +20,20 @@ const blogFormSchema = z.object({
   content: z
     .string()
     .min(10, { message: "Content must be at least 10 characters long." }),
-  
+
   imageUrl: z.any().refine((file) => file instanceof File, "Image is required."),
 
   imageAlt: z
     .string()
     .min(5, { message: "Image alt text must be at least 5 characters long." })
     .max(125, { message: "Image alt text cannot be longer than 125 characters." }),
-  
+
   publishDate: z.string().refine((val) => !isNaN(Date.parse(val)), {
     message: "Please enter a valid date.",
   }),
 
   authorName: z.string().max(100).optional(),
-  
+
   tags: z.string().optional(),
   categories: z.string().optional(),
 
@@ -41,7 +41,7 @@ const blogFormSchema = z.object({
   metaDescription: z.string().max(160, { message: "Meta Description cannot be longer than 160 characters." }).optional(),
   keywords: z.string().optional(),
   canonicalUrl: z.string().url({ message: "Please enter a valid canonical URL." }).optional().or(z.literal("")),
-  
+
   ogTitle: z.string().max(80).optional(),
   ogDescription: z.string().max(160).optional(),
   ogImageUrl: z.string().url({ message: "Please enter a valid URL for the Open Graph image." }).optional().or(z.literal("")),
@@ -81,7 +81,7 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-    
+
     // Use the validated data from now on
     const {
       title,
@@ -101,7 +101,7 @@ export async function POST(request) {
       ogImageUrl,
       slug: manualSlug,
     } = validatedData.data;
-    
+
     // SEO Fallbacks: Use meta fields if OG fields are empty
     const finalOgTitle = ogTitle || metaTitle;
     const finalOgDescription = ogDescription || metaDescription;
@@ -165,9 +165,9 @@ export async function POST(request) {
         ]),
         allowedAttributes: {
           ...sanitizeHtml.defaults.allowedAttributes,
-          '*': [ 'class', 'style' ],
-          'a': [ 'href', 'name', 'target' ],
-          'img': [ 'src', 'srcset', 'alt', 'title', 'width', 'height', 'loading' ]
+          '*': ['class', 'style'],
+          'a': ['href', 'name', 'target'],
+          'img': ['src', 'srcset', 'alt', 'title', 'width', 'height', 'loading']
         }
       });
       console.log('Content sanitized successfully');
@@ -180,7 +180,7 @@ export async function POST(request) {
     }
 
     console.log('=== STEP 3: DATABASE CONNECTION ===');
-    
+
     // Check if database pool exists
     if (!dbPool) {
       console.log('ERROR: Database pool is not initialized');
@@ -188,19 +188,19 @@ export async function POST(request) {
       if (!process.env.DB_HOST) missingVars.push('DB_HOST');
       if (!process.env.DB_USER) missingVars.push('DB_USER');
       if (!process.env.DB_DATABASE) missingVars.push('DB_DATABASE');
-      
+
       return NextResponse.json(
         {
           message: "Database connection failed Check with Yogesh for IP block",
           error: "Database pool is not initialized",
-          details: missingVars.length > 0 
+          details: missingVars.length > 0
             ? `Missing environment variables: ${missingVars.join(', ')}`
             : "Database credentials not configured"
         },
         { status: 500 }
       );
     }
-    
+
     // Get database connection
     try {
       connection = await dbPool.getConnection();
@@ -220,13 +220,13 @@ export async function POST(request) {
           message: "Database connection failed Check with Yogesh for IP block",
           error: error.message,
           details: error.code || error.sqlMessage || "Unable to connect to database",
-          hint: error.code === 'ECONNREFUSED' 
+          hint: error.code === 'ECONNREFUSED'
             ? "Check if the database server is running and accessible"
             : error.code === 'ETIMEDOUT'
-            ? "Connection timeout - check network connectivity and firewall settings"
-            : error.code === 'ER_ACCESS_DENIED_ERROR'
-            ? "Invalid database credentials - check DB_USER and DB_PASSWORD"
-            : "Check database configuration and network connectivity"
+              ? "Connection timeout - check network connectivity and firewall settings"
+              : error.code === 'ER_ACCESS_DENIED_ERROR'
+                ? "Invalid database credentials - check DB_USER and DB_PASSWORD"
+                : "Check database configuration and network connectivity"
         },
         { status: 500 }
       );
@@ -247,7 +247,7 @@ export async function POST(request) {
       `;
 
       const placeholderImageUrl = "placeholder";
-      
+
       const initialValues = [
         title,
         slug,
@@ -259,8 +259,8 @@ export async function POST(request) {
         metaTitle,
         metaDescription,
         keywords,
-        tags, // Now sending the raw string, to be parsed on the frontend
-        categories, // Now sending the raw string
+        tags ? JSON.stringify(tags.split(',').map(t => t.trim()).filter(Boolean)) : JSON.stringify([]),
+        categories ? JSON.stringify(categories.split(',').map(c => c.trim()).filter(Boolean)) : JSON.stringify([]),
         canonicalUrl,
         jsonLdSchema,
         finalOgTitle,

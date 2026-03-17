@@ -19,7 +19,34 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 // Categories array
 const categories = [
   {
+    id: "33",
+    label: "Women’s Week @SSIM",
+    icon: <Image />,
+    heading: "Women’s Week @SSIM",
+    description: `Siva Sivani Institute of Management celebrates Women and considers Women the power engine driving and propelling the growth of the institution. Headed by our Leader, Mrs. Aarathy Sampathy, President and Chief Executive, the institution celebrated a whole week dedicated to Women's day starting  March 2 to March 10, 2026.
+
+On the occasion of Women’s Week, SSIM Cultural Club in collaboration with SSIM ESG Club and Team Satakshi (Team of Women Employees), organized a Donation Drive inspired by this year’s International Women’s Day theme — “Give to Gain.” The initiative witnessed enthusiastic participation from the SSIM community. Faculty members, staff, and students came forward generously to contribute towards this meaningful cause. The collected donations primarily included groceries and clothing items.
+
+Adding to the spirit of giving, Non-Fire Cooking Challenge was conducted as part of the Women’s Week celebrations. The participants of this challenge contributed the proceeds towards purchasing additional groceries for donations. Individual donations also supported this effort, enabling the team to extend greater assistance to those in need.
+
+On March 10, 2026, the collected items were donated to the 'Integrated Welfare Society', an NGO for the Aged Mentally Sick Persons located at Quthubullapur, Hyderabad, bringing smiles and support to the beneficiaries.
+`,
+  },
+  {
     id: "32",
+    label: "Learning Beyond the Classroom!",
+    icon: <Image />,
+    heading: "Learning Beyond the Classroom!",
+    description: `The first batch of PGDM students from Siva Sivani Institute of Management (SSIM) visited the Hetero Plant, Jeedimetla as part of an Industry Study Tour, gaining first-hand exposure to real-world pharmaceutical operations.
+
+During the visit, Students explored key areas including warehouse operations, manufacturing processes, and QC/QA practices. They also had the opportunity to interact with plant operators and managers, understanding how large-scale pharma operations function on the ground.
+
+As a part of their academic learning, students will now map the existing operational processes and identify opportunities for automation and improvement using Lean and TQM techniques.
+
+Experiences like these bridge the gap between management concepts and industry practice, preparing our students to become future-ready professionals.`,
+  },
+  {
+    id: "31",
     label: "SAMAROH 2026 – Annual International Conference",
     icon: <Image />,
     heading: "SAMAROH 2026 – Annual International Conference",
@@ -27,13 +54,13 @@ const categories = [
 With 114 research submissions, multiple presentation tracks, international keynote sessions, and industry panel discussions, the event promoted impactful academic dialogue and collaboration.
 SAMAROH 2026 recorded an Excellent NPS of +58.03 and a CSAT of 4.33/5, reflecting high participant satisfaction and strong academic engagement.`,
   },
-  {
-    id: "31",
-    label: "National Mutual Fund Olympiad 2025",
-    icon: <Image />,
-    heading: "National Mutual Fund Olympiad 2025",
-    description: "",
-  },
+  // {
+  //   id: "31",
+  //   label: "National Mutual Fund Olympiad 2025",
+  //   icon: <Image />,
+  //   heading: "National Mutual Fund Olympiad 2025",
+  //   description: "",
+  // },
   {
     id: "27",
     label: "Medical Camp",
@@ -587,18 +614,31 @@ const nationalMutualFundOlympiad2025ImageFilenames = [
   "UJ_05656.webp",
 ];
 
-const nationalMutualFundOlympiad2025Images = nationalMutualFundOlympiad2025ImageFilenames.map((filename, i) => ({
+// const nationalMutualFundOlympiad2025Images = nationalMutualFundOlympiad2025ImageFilenames.map((filename, i) => ({
+//   id: i + 1,
+//   src: `/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/${filename}`,
+//   category: "31",
+//   alt: `National Mutual Fund Olympiad 2025 image ${i + 1}`,
+// }));
+
+const classroomImages = Array.from({ length: 3 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/${filename}`,
-  category: "31",
-  alt: `National Mutual Fund Olympiad 2025 image ${i + 1}`,
+  src: `/studentslife/life-at-ssim/Classroom/Classroom${i + 1}.jpeg`,
+  category: "32",
+  alt: `Classroom image ${i + 1}`,
 }));
 
+const womensWeekImages = Array.from({ length: 8 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/Women’sWeek/image${i + 2}.jpeg`,
+  category: "33",
+  alt: `Women’sWeek image ${i + 1}`,
+}));
 
 const samaroh2026Images = Array.from({ length: 14 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/samaroh-2026/${i + 1}.webp`,
-  category: "32",
+  category: "31",
   alt: `samaroh 2026 image ${i + 1}`,
 }));
 
@@ -609,7 +649,9 @@ const galleryItems = [
   ...icmaiMouImages,
   ...mouWithIbmImages,
   ...samanvayEventPicsImages,
-  ...nationalMutualFundOlympiad2025Images,
+  ...classroomImages,
+  ...womensWeekImages,
+  // ...nationalMutualFundOlympiad2025Images,
   ...snatak2025Images,
   ...spandana2025Images,
   ...ganeshCelebrationsImages,
