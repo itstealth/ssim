@@ -13,6 +13,10 @@ module.exports = {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			colors: {
+				navy:  { DEFAULT:'#0F2557', light:'#1B3A7A', deep:'#07132A' },
+				gold:  { DEFAULT:'#C9971A', light:'#E8B931', pale:'#FDF8EE' },
+				ssred: { DEFAULT:'#C0392B', dark:'#A93226' },
+				mist:  '#F4F6FB',
 				mainBlue: '#002F87',
 				'brand-blue': '#2196f3',
 				background: 'hsl(var(--background))',
@@ -65,6 +69,10 @@ module.exports = {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				display: ['"Playfair Display"','serif'],
+				body:    ['"DM Sans"','sans-serif'],
 			},
 			animation: {
 				orbit: 'orbit calc(var(--duration)*1s) linear infinite',

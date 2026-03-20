@@ -10,17 +10,17 @@ import Image from "next/image";
 
 export default function ConditionalLayout({ children }) {
   const pathname = usePathname();
-  const isThankYouPage = pathname === "/thank-you";
+  const hideLayoutElements = pathname === "/thank-you" || pathname === "/pgdm-admissions";
 
   return (
     <>
-      {!isThankYouPage && <Header />}
-      {!isThankYouPage && <ConditionalBanner />}
+      {!hideLayoutElements && <Header />}
+      {!hideLayoutElements && <ConditionalBanner />}
       <main>{children}</main>
-      {!isThankYouPage && <Footer />}
-      {!isThankYouPage && <DockButtons />}
-      {!isThankYouPage && <EnquireNowButton />}
-      {!isThankYouPage && (
+      {!hideLayoutElements && <Footer />}
+      {!hideLayoutElements && <DockButtons />}
+      {!hideLayoutElements && <EnquireNowButton />}
+      {!hideLayoutElements && (
         <div className="fixed hidden sm:block bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
           <a
             href="https://wa.me/919391114948"
