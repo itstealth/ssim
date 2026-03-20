@@ -44,7 +44,7 @@ export function DockButtons() {
         </DockIcon> */}
         <DockIcon size="48" className="bg-black/10 dark:bg-white/10">
           <Link href="tel:+919391114948" target="_blank" rel="noopener noreferrer">
-            <Image src="/call-now.png" alt="phone" width={36} height={36} />
+            <img src="/call-now.png" alt="phone" width={36} height={36} />
           </Link>
         </DockIcon>
 
