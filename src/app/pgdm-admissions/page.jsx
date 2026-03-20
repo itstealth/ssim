@@ -211,9 +211,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </p>
     <div className="grid grid-cols-2 gap-3 mb-5">
       <div><span className="font-display text-xl font-black text-gold-light block">35+</span><span className="text-white/60 text-[9px] uppercase tracking-wide mt-0.5 block">Years of Excellence</span></div>
-      <div><span className="font-display text-xl font-black text-gold-light block">500+</span><span className="text-white/60 text-[9px] uppercase tracking-wide mt-0.5 block">Corporate Partners</span></div>
-      <div><span className="font-display text-xl font-black text-gold-light block">10K+</span><span className="text-white/60 text-[9px] uppercase tracking-wide mt-0.5 block">Global Alumni</span></div>
-      <div><span className="font-display text-xl font-black text-gold-light block">₹12L</span><span className="text-white/60 text-[9px] uppercase tracking-wide mt-0.5 block">Top CTC Offered</span></div>
+      <div><span className="font-display text-xl font-black text-gold-light block">350+</span><span className="text-white/60 text-[9px] uppercase tracking-wide mt-0.5 block">Corporate Partners</span></div>
+      <div><span className="font-display text-xl font-black text-gold-light block">6.5K+</span><span className="text-white/60 text-[9px] uppercase tracking-wide mt-0.5 block">Global Alumni</span></div>
+      <div><span className="font-display text-xl font-black text-gold-light block">₹12.7L</span><span className="text-white/60 text-[9px] uppercase tracking-wide mt-0.5 block">Top CTC Offered</span></div>
     </div>
     {/*  <div className="flex flex-wrap gap-2">
       <span className="bg-white/10 border border-white/20 text-white/85 text-[10px] font-medium px-2.5 py-1 rounded-full">AICTE Approved</span>
@@ -371,7 +371,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div className="flex items-start gap-3"><div className="w-5 h-5 md:w-6 md:h-6 bg-gold rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0 mt-0.5">✓</div><p className="text-xs md:text-sm text-white/85 leading-relaxed"><strong className="text-white">Industry Interface</strong> — Regular guest lectures, conclaves, and live projects.</p></div>
           <div className="flex items-start gap-3"><div className="w-5 h-5 md:w-6 md:h-6 bg-gold rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0 mt-0.5">✓</div><p className="text-xs md:text-sm text-white/85 leading-relaxed"><strong className="text-white">Summer Internship</strong> — 8-week mandatory internship with top-tier companies.</p></div>
           <div className="flex items-start gap-3"><div className="w-5 h-5 md:w-6 md:h-6 bg-gold rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0 mt-0.5">✓</div><p className="text-xs md:text-sm text-white/85 leading-relaxed"><strong className="text-white">Value-Added Certifications</strong> — Industry-recognised certs bundled with PGDM.</p></div>
-          <div className="flex items-start gap-3"><div className="w-5 h-5 md:w-6 md:h-6 bg-gold rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0 mt-0.5">✓</div><p className="text-xs md:text-sm text-white/85 leading-relaxed"><strong className="text-white">Dedicated Placement Cell</strong> — 365-day support with mock interviews, GDs &amp; workshops.</p></div>
+          {/* <div className="flex items-start gap-3"><div className="w-5 h-5 md:w-6 md:h-6 bg-gold rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0 mt-0.5">✓</div><p className="text-xs md:text-sm text-white/85 leading-relaxed"><strong className="text-white">Dedicated Placement Cell</strong> — 365-day support with mock interviews, GDs &amp; workshops.</p></div> */}
         </div>
         <a href="#lead-form" className="inline-block mt-5 bg-ssred hover:bg-ssred-dark text-white font-bold text-sm px-5 py-2.5 rounded-lg transition-colors">Download Brochure &amp; Apply →</a>
       </div>
