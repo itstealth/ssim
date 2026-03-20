@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export default function PgdmAdmissions() {
   const [openFaq, setOpenFaq] = useState(1);
@@ -37,6 +38,28 @@ export default function PgdmAdmissions() {
 
   return (
     <div className="bg-white text-gray-900 pb-16 md:pb-0 font-body">
+      {/* Google Tag Manager (Raw) */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5LJR499N');`,
+        }}
+      />
+      {/* End Google Tag Manager */}
+      <GoogleTagManager gtmId="GTM-TQZNQ47" />
+      <GoogleAnalytics gaId="G-G3TY673HQG" />
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-5LJR499N"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        ></iframe>
+      </noscript>
+
       <title>PGDM Admissions 2026–2028 | SSIM Hyderabad | Top B-School in Telangana</title>
       <meta name="description" content="Apply for PGDM 2026-2028 at SSIM Hyderabad. NBA Accredited, AICTE Approved. Ranked 2nd in Telangana & 21st among Private B-Schools in India. 100% Placement Support." />
       <style dangerouslySetInnerHTML={{ __html: `
