@@ -6,7 +6,7 @@ import path from "path";
  * GET handler for llms.txt
  */
 export async function GET() {
-  const filePath = path.join(process.cwd(), "llms.txt");
+  const filePath = path.join(process.cwd(), "public", "llms.txt");
 
   try {
     const fileContent = fs.readFileSync(filePath, "utf8");
