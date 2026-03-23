@@ -1,0 +1,25 @@
+User-agent: *
+
+# Sitemap
+Sitemap: https://ssim.ac.in/sitemap.xml
+
+# LLMs.txt reference
+Sitemap: https://ssim.ac.in/llms.txt
+
+# Disallow sensitive folders
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /debug-logs/
+Disallow: /logs/
+
+
+# Control aggressive bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-Delay: 20
+
+User-agent: DotBot
+Crawl-delay: 10
