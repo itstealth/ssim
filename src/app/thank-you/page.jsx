@@ -7,13 +7,13 @@ export default function ThankYouPage() {
   return (
     <>
 
-      <div className="min-h-screen bg-gradient-to-br from-brand-blue to-blue-600 overflow-x-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-white to-gray-100 overflow-x-hidden text-black">
 
         {/* Background Decorative Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
           {/* Abstract Shapes */}
           <svg
-            className="absolute top-0 right-0 w-96 h-96 text-white/5"
+            className="absolute top-0 right-0 w-96 h-96 text-black/5"
             viewBox="0 0 200 200"
           >
             <path
@@ -24,9 +24,9 @@ export default function ThankYouPage() {
           </svg>
 
           {/* Floating Circles */}
-          <div className="absolute left-10 top-40 w-20 h-20 bg-white/10 rounded-full animate-float" />
+          <div className="absolute left-10 top-40 w-20 h-20 bg-black/5 rounded-full animate-float" />
           <div
-            className="absolute right-20 bottom-40 w-16 h-16 bg-white/5 rounded-full animate-float"
+            className="absolute right-20 bottom-40 w-16 h-16 bg-black/5 rounded-full animate-float"
             style={{ animationDelay: "-2s" }}
           />
         </div>
@@ -59,11 +59,11 @@ export default function ThankYouPage() {
                   <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop
                       offset="0%"
-                      style={{ stopColor: "#ffffff", stopOpacity: 0.2 }}
+                      style={{ stopColor: "#000000", stopOpacity: 0.2 }}
                     />
                     <stop
                       offset="100%"
-                      style={{ stopColor: "#ffffff", stopOpacity: 0.05 }}
+                      style={{ stopColor: "#000000", stopOpacity: 0.05 }}
                     />
                   </linearGradient>
                 </defs>
@@ -84,14 +84,14 @@ export default function ThankYouPage() {
                     cx="50"
                     cy="50"
                     r="45"
-                    stroke="white"
+                    stroke="black"
                     strokeWidth="5"
                     className="opacity-20"
                   />
                   <path
                     className="check"
                     d="M30 50l15 15 25-25"
-                    stroke="white"
+                    stroke="black"
                     strokeWidth="5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -102,9 +102,9 @@ export default function ThankYouPage() {
 
             {/* Text Content */}
             <div className="space-y-6 animate-fade-up">
-              <h1 className="text-6xl font-bold text-white mb-6">Thank You!</h1>
+              <h1 className="text-6xl font-bold text-black mb-6">Thank You!</h1>
 
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-xl text-black/90 leading-relaxed">
                 Your registration was successful.
                 <br />
                 We will get in touch with you soon.
@@ -117,7 +117,7 @@ export default function ThankYouPage() {
                   href="https://www.ssim.ac.in"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white transform hover:scale-105 transition-transform"
+                  className="bg-black/5 backdrop-blur-md rounded-2xl p-6 text-black transform hover:scale-105 transition-transform"
                 >
                   <svg
                     className="w-12 h-12 mx-auto mb-4"
@@ -133,7 +133,7 @@ export default function ThankYouPage() {
                     />
                   </svg>
                   <h3 className="text-lg font-semibold mb-2">Check Our Website</h3>
-                  <p className="text-sm text-white/80">
+                  <p className="text-sm text-black/80">
                     Visit our website for more information
                     <br />
                     about courses and upcoming events.
@@ -141,7 +141,7 @@ export default function ThankYouPage() {
                 </a>
 
                 {/* Next Steps Card */}
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white transform hover:scale-105 transition-transform">
+                <div className="bg-black/5 backdrop-blur-md rounded-2xl p-6 text-black transform hover:scale-105 transition-transform">
                   <svg
                     className="w-12 h-12 mx-auto mb-4"
                     viewBox="0 0 24 24"
@@ -154,7 +154,7 @@ export default function ThankYouPage() {
                     />
                   </svg>
                   <h3 className="text-lg font-semibold mb-2">Next Steps</h3>
-                  <p className="text-sm text-white/80">
+                  <p className="text-sm text-black/80">
                     Our team will review your application
                     <br />
                     and contact you within 24 hours.
@@ -165,7 +165,7 @@ export default function ThankYouPage() {
           </div>
 
           {/* Footer */}
-          <div className="text-white/60 self-center mt-16 text-sm">
+          <div className="text-black/60 self-center mt-16 text-sm">
             <p>© 2024 Siva Sivani Institute of Management. All rights reserved.</p>
           </div>
         </div>
