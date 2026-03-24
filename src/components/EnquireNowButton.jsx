@@ -18,25 +18,46 @@ import Image from "next/image";
  */
 export default function EnquireNowButton() {
   const [isOpen, setIsOpen] = useState(false);
-  const [widgetLoaded, setWidgetLoaded] = useState(false);
 
-  // Load the widget script when dialog opens
+  // Preload script on mount to improve initial load time
   useEffect(() => {
-    if (isOpen && !widgetLoaded) {
-      // Check if script already exists
-      const existingScript = document.querySelector('script[src="https://widgets.nopaperforms.com/emwgts.js"]');
-      
-      if (!existingScript) {
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.async = true;
-        script.src = "https://widgets.nopaperforms.com/emwgts.js";
-        document.body.appendChild(script);
-      }
-      
-      setWidgetLoaded(true);
+    const scriptSrc = "https://widgets.nopaperforms.com/emwgts.js";
+    const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
+    
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = scriptSrc;
+      document.body.appendChild(script);
     }
-  }, [isOpen, widgetLoaded]);
+  }, []);
+
+  // Initialize widget when dialog opens
+  useEffect(() => {
+    let retryTimer;
+    if (isOpen) {
+      // Delay to ensure the Radix dialog content (.npf_wgts) is rendered in the DOM
+      const timer = setTimeout(() => {
+        if (typeof window !== 'undefined' && typeof window.cIframe === 'function') {
+          window.cIframe();
+        } else {
+          // If script is still loading, poll until it's available
+          retryTimer = setInterval(() => {
+            if (typeof window !== 'undefined' && typeof window.cIframe === 'function') {
+              window.cIframe();
+              clearInterval(retryTimer);
+            }
+          }, 200);
+        }
+      }, 100);
+
+      return () => {
+        clearTimeout(timer);
+        if (retryTimer) clearInterval(retryTimer);
+      };
+    }
+  }, [isOpen]);
 
   const handleClose = () => {
     setIsOpen(false);
