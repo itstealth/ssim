@@ -15,7 +15,7 @@ import {
 import { Quote, ChevronRight } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 const sampathy = "/about/Sampathy.png";
-const ramana = "/faculty&research/faculty/Dr. Ramana Rao.webp";
+const ramana = "/about/director.jpeg";
 const ambuj = "/about/dr-ambuj.jpeg";
 const ArathySampathy = "/about/BoardOfGoverners/Smt_Arathy_Sampathy.jpg";
 const SaileshSampathy = "/about/BoardOfGoverners/Dr_Sailesh_Sampathy.jpg";
@@ -72,11 +72,11 @@ const leaders = [
   },
   {
     role: "Director, SSIM.",
-    name: "Dr. NRKS Chakravarthy",
-    image: Ambuj,
+    name: "Dr. S.V. Ramana Rao",
+    image: ramana,
     quote:
       "Nurturing holistic excellence through innovative education, industry integration, and value-based leadership",
-    quoteAuthor: "Dr. NRKS Chakravarthy",
+    quoteAuthor: "Dr. S.V. Ramana Rao",
     content: [
       "Management education has evolved to be a premier choice among post-graduation degrees for students all over the world. The growing complexity of business, coupled with quantum leaps in technological advances has made this course, futuristic in its outlook, attracting the best minds to unravel and chart new directions for organizations. Business education provided by business schools should, therefore, integrate these vagaries into the environment to build a competent talent base.",
       `Siva Sivani Institute of Management (SSIM) is one of the leading business schools in the country offering Post Graduation in Business Management since 1992. These programs are carefully designed in accordance with industry requirements offered by prominent professors from the industry as well as the academic fraternity. SSIM is striving to "achieve and sustain a reputation for excellence in teaching, learning, research and consultancy whilst upholding human values". These values are imbibed in every fibre of the operations at SSIM and leaders walk the talk to help students emulate these standards!`,
