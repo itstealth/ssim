@@ -46,7 +46,7 @@ const Subhash = "/faculty&research/faculty/Subhash-Tej.webp";
 const Thirumal = "/faculty&research/faculty/THIRUMALREDDY.jpg";
 const Vallinayagam = "/faculty&research/faculty/Vallinayagam.webp";
 const Ambuj = "/about/dr-ambuj.jpeg";
-const ramana = "https://minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com/ccv2%2F2026-03-27%2FMiniMax-M2.7%2F2030974885278265449%2F5c38ed1d2a16be00217ea0667617de54f9e412703982ecccba3d308ccfb7a006..jpeg?Expires=1774691940&OSSAccessKeyId=LTAI5tCpJNKCf5EkQHSuL9xg&Signature=X%2BIkRRCbTE%2F7u%2B71rmNV8wsINvY%3D";
+const ramana = "/about/director.jpeg";
 
 const teamMembers = [
   {
