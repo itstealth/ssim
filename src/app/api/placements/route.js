@@ -6,7 +6,7 @@ export async function GET() {
   try {
     connection = await dbPool.getConnection();
     const [rows] = await connection.query(
-      "SELECT id, name, company, designation, year, created_at FROM placements ORDER BY id"
+      "SELECT name, company, designation, year, created_at FROM placements"
     );
     return NextResponse.json(rows);
   } catch (error) {
