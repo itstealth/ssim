@@ -16,6 +16,7 @@ import HeroSection from "@/components/HeroSection";
 
 import { OrganizationSchema } from "@/components/Schema";
 import SamarohPopup from "@/components/SamarohPopup";
+import ConclavePopup from "@/components/ConclavePopup";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -153,6 +154,9 @@ export default function HomePage() {
 
       {/* Samaroh Event Popup - Shows automatically after 3 seconds, once per session */}
       {/* <SamarohPopup /> */}
+
+      {/* Education Conclave Popup - Shows immediately on homepage load */}
+      <ConclavePopup />
     </>
   );
 }
