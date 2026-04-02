@@ -53,7 +53,7 @@ export default function PlacementSection() {
   const [selectedYear, setSelectedYear] = useState("all");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
   const [selectedCompany, setSelectedCompany] = useState("all");
-  const [sortConfig, setSortConfig] = useState(null);
+  const [sortConfig, setSortConfig] = useState({ key: "name", direction: "asc" });
 
   useEffect(() => {
     const fetchPlacementData = async () => {
@@ -220,7 +220,8 @@ export default function PlacementSection() {
     setSelectedDesignation("all");
     setSelectedCompany("all");
     setSearchTerm("");
-    setSortConfig(null);
+    // Keep name A-Z sort always active
+    setSortConfig({ key: "name", direction: "asc" });
   };
 
   const SortIcon = ({ columnKey }) => {

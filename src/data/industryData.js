@@ -55,9 +55,13 @@ export const industryData = [
     date: "February 27, 2026",
     category: "education",
     title:
-      "National Mutual Fund Olympiad 2025",
-    tags: ["Mutual Fund", "Olympiad", "Research", "Poster Presentation"],
-    description: ``,
+      "National Recognition for SSIM at Franklin Templeton National Mutual Fund Olympiad 2025",
+    tags: ["Mutual Fund", "Olympiad", "National", "FinX Institute"],
+    description: `Putluru Sandhya Reddy, a PGDM student of Siva Sivani Institute of Management (SSIM), has achieved remarkable success by emerging as one of the Overall Top 6 Finalists at the Franklin Templeton National Mutual Fund Olympiad 2025, organized by FinX Institute.
+
+She was shortlisted among the Top 12 finalists nationwide, with the final round held on 31st January 2025 at the Bombay Stock Exchange (BSE), Mumbai. Demonstrating exceptional knowledge and analytical skills, Sandhya secured her place among the Top 6 finalists at the national level.
+
+This achievement brought national recognition to SSIM, making it the only institute from AP & Telangana to reach the final stage of the prestigious Olympiad.`,
     gallery: [
       nmfoImg1,
       nmfoImg2,

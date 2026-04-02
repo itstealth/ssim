@@ -46,17 +46,18 @@ const Subhash = "/faculty&research/faculty/Subhash-Tej.webp";
 const Thirumal = "/faculty&research/faculty/THIRUMALREDDY.jpg";
 const Vallinayagam = "/faculty&research/faculty/Vallinayagam.webp";
 const Ambuj = "/about/dr-ambuj.jpeg";
+const ramana = "/about/director.jpeg";
 
 const teamMembers = [
-  // {
-  //   name: "Dr. Ambuj Gupta",
-  //   area: "HR & Strategy",
-  //   qualification: "Ph.D, MBA, UGC-NET",
-  //   experience: 31,
-  //   image: Ambuj,
-  //   description:
-  //     "Expert in strategy and entrepreneurship with extensive research experience. Passionate about teaching and mentoring students in strategic management and innovation.",
-  // },
+  {
+    name: "Dr. S.V. Ramana Rao",
+    area: "Finance",
+    qualification: "Ph.D / MBA",
+    experience: 32,
+    image: ramana,
+    description:
+      "Expert in Corporate Finance with decades of teaching and administrative experience in India and abroad.",
+  },
 
   {
     name: "Dr. NRKS Chakravarthy",
@@ -68,15 +69,6 @@ const teamMembers = [
       "Specializes in strategic marketing and market research. Brings decades of industry experience to academic teaching.",
   },
   {
-    name: "Dr. S.F. Chandra Sekhar",
-    area: "HR & Strategy",
-    qualification: "Ph.D, MBA",
-    experience: 37,
-    image: chandra,
-    description:
-      "Specializes in organizational behavior and strategic management. Focuses on employee development and creating effective workplace cultures.",
-  },
-  {
     name: "Dr. Pavan Patel",
     area: "HR & Strategy",
     qualification: "Ph.D, MIRPM",
@@ -84,6 +76,15 @@ const teamMembers = [
     image: DrPAV,
     description:
       "Expert in human resource development and strategic planning. Passionate about training programs and organizational development.",
+  },
+  {
+    name: "Dr. S.F. Chandra Sekhar",
+    area: "HR & Strategy",
+    qualification: "Ph.D, MBA",
+    experience: 37,
+    image: chandra,
+    description:
+      "Specializes in organizational behavior and strategic management. Focuses on employee development and creating effective workplace cultures.",
   },
   {
     name: "Dr. K.S. Harish",
