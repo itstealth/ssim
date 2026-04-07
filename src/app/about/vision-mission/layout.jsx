@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/about/vision-mission",
+    canonical: "https://ssim.ac.in/about/vision-mission",
   },
 };
 

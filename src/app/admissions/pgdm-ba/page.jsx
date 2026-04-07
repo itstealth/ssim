@@ -755,7 +755,7 @@ const PGDMBA = () => {
         title="PGDM Business Analytics"
         description="Discover the PGDM in Business Analytics (BA) at Siva Sivani Institute of Management (SSIM). Explore the curriculum, eligibility, and career opportunities in the field of data analytics."
         keywords="PGDM Business Analytics, PGDM BA, data analytics courses, business intelligence, SSIM PGDM"
-        canonicalUrl="https://www.ssim.ac.in/admissions/pgdm-ba"
+        canonicalUrl="https://ssim.ac.in/admissions/pgdm-ba"
       /> */}
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-10 sm:pb-16">
         {/* Hero Section */}

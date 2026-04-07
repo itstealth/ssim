@@ -35,7 +35,7 @@ export default function VisionMission() {
         title="Vision & Mission"
         description="Learn about the vision, mission, and goals of Siva Sivani Institute of Management (SSIM). Discover our commitment to shaping future business leaders."
         keywords="SSIM vision, SSIM mission, business school goals, management institute values"
-        canonicalUrl="https://www.ssim.ac.in/about/vision-mission"
+        canonicalUrl="https://ssim.ac.in/about/vision-mission"
       /> */}
       <section className="py-14 md:py-24 px-6 md:px-0 bg-white text-zinc-900">
         <div className="container mx-auto px-0 sm:px-4">

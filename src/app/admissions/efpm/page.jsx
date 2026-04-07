@@ -647,7 +647,7 @@ export default function EFPM() {
         title="FPM/EFPM Program"
         description="Learn about the Fellow Program in Management (FPM) at Siva Sivani Institute of Management (SSIM). Explore the program details, eligibility, and application process."
         keywords="FPM program, Fellow Program in Management, doctoral program in management, PhD in management, SSIM FPM"
-        canonicalUrl="https://www.ssim.ac.in/admissions/fpm-efpm"
+        canonicalUrl="https://ssim.ac.in/admissions/fpm-efpm"
       /> */}
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-10 sm:pb-16">
         {/* Hero Section */}

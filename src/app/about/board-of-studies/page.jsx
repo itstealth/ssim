@@ -147,7 +147,7 @@ export default function BoardOfStudies() {
         title="Board of Studies"
         description="Meet the Board of Studies at Siva Sivani Institute of Management (SSIM). Our board ensures the curriculum is relevant, rigorous, and industry-aligned."
         keywords="SSIM board of studies, academic curriculum, course development, business school academics"
-        canonicalUrl="https://www.ssim.ac.in/about/board-of-studies"
+        canonicalUrl="https://ssim.ac.in/about/board-of-studies"
       /> */}
       <section className="container mx-auto px-4 py-16">
         <motion.div

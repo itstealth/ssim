@@ -47,7 +47,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/events/convocation-2024",
+    canonical: "https://ssim.ac.in/events/convocation-2024",
   },
 };
 

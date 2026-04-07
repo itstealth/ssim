@@ -821,7 +821,7 @@ const PGDMTPS = () => {
         title="PGDM Triple Specialization"
         description="Explore the PGDM Triple Specialization program at Siva Sivani Institute of Management (SSIM). Learn about the curriculum, specializations, eligibility, and admission process."
         keywords="PGDM Triple Specialization, PGDM TPS, dual specialization, business management program, SSIM PGDM"
-        canonicalUrl="https://www.ssim.ac.in/admissions/pgdm-triple-specialisation"
+        canonicalUrl="https://ssim.ac.in/admissions/pgdm-triple-specialisation"
       /> */}
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-10 sm:pb-16">
         {/* Hero Section */}

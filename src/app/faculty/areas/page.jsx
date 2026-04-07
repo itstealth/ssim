@@ -331,7 +331,7 @@ export default function Areas() {
         title="Faculty Areas of Expertise"
         description="Explore the diverse areas of expertise of our distinguished faculty at Siva Sivani Institute of Management (SSIM). Meet our experts in Finance, HR, Marketing, and more."
         keywords="SSIM faculty, faculty expertise, business school professors, academic areas"
-        canonicalUrl="https://www.ssim.ac.in/faculty/areas"
+        canonicalUrl="https://ssim.ac.in/faculty/areas"
       /> */}
       <section className="w-full py-16">
         <div className="px-4 md:px-6 mx-auto">

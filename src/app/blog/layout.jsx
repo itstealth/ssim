@@ -2,19 +2,19 @@ export const metadata = {
     title: "Blog - SSIM",
     description: "Read the latest articles and insights from the Siva Sivani Institute of Management (SSIM) blog. Stay informed on industry trends, management topics, and campus news.",
     alternates: {
-        canonical: "https://www.ssim.ac.in/blog",
+        canonical: "https://ssim.ac.in/blog",
     },
     openGraph: {
         title: "Blog - SSIM",
         description: "Read the latest articles and insights from the Siva Sivani Institute of Management (SSIM) blog. Stay informed on industry trends, management topics, and campus news.",
-        url: "https://www.ssim.ac.in/blog",
+        url: "https://ssim.ac.in/blog",
         siteName: "SSIM",
         images: [
             { url: "/blog/blog-banner.jpg" },
         ],
     },
     alternates: {
-        canonical: "https://www.ssim.ac.in/blog",
+        canonical: "https://ssim.ac.in/blog",
     },
     twitter: {
         card: "summary_large_image",

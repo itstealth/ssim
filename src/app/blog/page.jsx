@@ -192,7 +192,7 @@ export default function BlogSection() {
         title="Blog"
         description="Read the latest articles and insights from the Siva Sivani Institute of Management (SSIM) blog. Stay informed on industry trends, management topics, and campus news."
         keywords="SSIM blog, management articles, business insights, student articles, faculty blogs"
-        canonicalUrl="https://www.ssim.ac.in/blog"
+        canonicalUrl="https://ssim.ac.in/blog"
       /> */}
       {/* Article Schemas for each blog post */}
       {articleSchemas && articleSchemas.map((schema, index) => (

@@ -21,9 +21,9 @@ export const metadata = {
   title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
   description:
     "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Call 9391114948!",
-  canonical: "https://www.ssim.ac.in",
+  canonical: "https://ssim.ac.in",
   alternates: {
-    canonical: "https://www.ssim.ac.in",
+    canonical: "https://ssim.ac.in",
   },
   openGraph: {
     title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
@@ -45,13 +45,13 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in",
+    canonical: "https://ssim.ac.in",
   },
   icons: {
     icon: "/ssim-favicon.png",
   },  
   manifest: "/manifest.json",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://www.ssim.ac.in"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://ssim.ac.in"),
   category: "education",
   keywords: ["SSIM Hyderabad", "MBA", "PGDM", "B-School", "Hyderabad"],
   authors: [{ name: "SSIM Hyderabad" }],
@@ -65,7 +65,7 @@ export const metadata = {
     address: false,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in",
+    canonical: "https://ssim.ac.in",
   },
 };
 

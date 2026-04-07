@@ -32,7 +32,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/admissions/efpm",
+    canonical: "https://ssim.ac.in/admissions/efpm",
   },
 };
 

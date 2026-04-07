@@ -281,7 +281,7 @@ const AlumniSection = () => {
         title="Our Alumni"
         description="Connect with the accomplished alumni of Siva Sivani Institute of Management. Discover their achievements and see where a PGDM from SSIM can take you."
         keywords="SSIM alumni, Siva Sivani alumni, alumni network, business school alumni"
-        canonicalUrl="https://www.ssim.ac.in/alumni"
+        canonicalUrl="https://ssim.ac.in/alumni"
       /> */}
       <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

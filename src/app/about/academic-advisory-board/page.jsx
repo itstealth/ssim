@@ -59,7 +59,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/about/academic-advisory-board",
+    canonical: "https://ssim.ac.in/about/academic-advisory-board",
   },
 };
 

@@ -410,7 +410,7 @@ const ContactUs = () => {
         title="Contact Us"
         description="Get in touch with Siva Sivani Institute of Management (SSIM). Find our address, phone number, and email for admissions, placements, and general inquiries."
         keywords="SSIM contact, contact siva sivani, ssim hyderabad address, ssim phone number"
-        canonicalUrl="https://www.ssim.ac.in/contact-us"
+        canonicalUrl="https://ssim.ac.in/contact-us"
       /> */}    
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

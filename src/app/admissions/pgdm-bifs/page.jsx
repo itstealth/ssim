@@ -805,7 +805,7 @@ const PGDMBIFS = () => {
         title="PGDM BIFS"
         description="Discover the PGDM in Banking, Insurance & Financial Services (BIFS) at Siva Sivani Institute of Management (SSIM). Explore program details, eligibility, and career prospects."
         keywords="PGDM BIFS, Banking Insurance Financial Services, finance management, banking courses, SSIM PGDM"
-        canonicalUrl="https://www.ssim.ac.in/admissions/pgdm-bifs"
+        canonicalUrl="https://ssim.ac.in/admissions/pgdm-bifs"
       /> */}
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-10 sm:pb-16">
         {/* Hero Section */}
