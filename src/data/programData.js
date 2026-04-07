@@ -23,6 +23,81 @@ const teaching = "/programs/teaching.png";
 
 export const programData = {
   "fpm/efpm": {
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)",
+      "description": "FPM / EFPM at Siva Sivani Institute of Management (SSIM) is a doctoral-level management program designed to develop advanced research skills in business and management domains. The 3-year program focuses on interdisciplinary research, academic excellence, and industry-relevant problem solving. It prepares scholars for careers in academia, consulting, and corporate research roles.",
+      "provider": {
+        "@type": "CollegeOrUniversity",
+        "name": "Siva Sivani Institute of Management",
+        "sameAs": "https://www.ssim.ac.in/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "NH 44, Kompally",
+          "addressLocality": "Secunderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500100",
+          "addressCountry": "IN"
+        }
+      },
+      "url": "https://ssim.ac.in/programs/fpm-efpm",
+      "courseCode": "FPM-EFPM",
+      "educationalCredentialAwarded": "Fellow Program in Management (Doctoral Level)",
+      "courseMode": "Full-time / Executive",
+      "timeRequired": "P3Y",
+      "numberOfCredits": 45,
+      "educationalLevel": "Doctoral",
+      "occupationalCategory": "Research, Academia, Management Consulting, Business Research",
+      "inLanguage": "en",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "OnCampus",
+        "courseWorkload": "Full-time / Part-time (Executive)",
+        "startDate": "2026-06",
+        "endDate": "2029-05",
+        "location": {
+          "@type": "Place",
+          "name": "SSIM Campus",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Secunderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "India"
+          }
+        }
+      },
+      "teaches": [
+        "Research Methodology",
+        "Advanced Management Theories",
+        "Quantitative and Qualitative Research",
+        "Organizational Behavior",
+        "Finance and Accounting Research",
+        "Operations Management",
+        "Marketing Research",
+        "Strategic Management",
+        "Data Analysis for Research"
+      ],
+      "about": [
+        "Doctoral Program in Management",
+        "FPM Hyderabad",
+        "Executive FPM India",
+        "AICTE Approved Doctoral Program",
+        "Management Research Program"
+      ],
+      "keywords": "FPM SSIM, EFPM Hyderabad, Doctoral Program Management India, Fellow Program in Management, Executive PhD in Management India",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "619",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
     name: "FPM/EFPM",
     keyInfo: {
       duration: "3 years",
@@ -176,6 +251,81 @@ export const programData = {
     },
   },
   fpm: {
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)",
+      "description": "FPM / EFPM at Siva Sivani Institute of Management (SSIM) is a doctoral-level management program designed to develop advanced research skills in business and management domains. The 3-year program focuses on interdisciplinary research, academic excellence, and industry-relevant problem solving. It prepares scholars for careers in academia, consulting, and corporate research roles.",
+      "provider": {
+        "@type": "CollegeOrUniversity",
+        "name": "Siva Sivani Institute of Management",
+        "sameAs": "https://www.ssim.ac.in/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "NH 44, Kompally",
+          "addressLocality": "Secunderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500100",
+          "addressCountry": "IN"
+        }
+      },
+      "url": "https://ssim.ac.in/programs/fpm-efpm",
+      "courseCode": "FPM-EFPM",
+      "educationalCredentialAwarded": "Fellow Program in Management (Doctoral Level)",
+      "courseMode": "Full-time / Executive",
+      "timeRequired": "P3Y",
+      "numberOfCredits": 45,
+      "educationalLevel": "Doctoral",
+      "occupationalCategory": "Research, Academia, Management Consulting, Business Research",
+      "inLanguage": "en",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "OnCampus",
+        "courseWorkload": "Full-time / Part-time (Executive)",
+        "startDate": "2026-06",
+        "endDate": "2029-05",
+        "location": {
+          "@type": "Place",
+          "name": "SSIM Campus",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Secunderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "India"
+          }
+        }
+      },
+      "teaches": [
+        "Research Methodology",
+        "Advanced Management Theories",
+        "Quantitative and Qualitative Research",
+        "Organizational Behavior",
+        "Finance and Accounting Research",
+        "Operations Management",
+        "Marketing Research",
+        "Strategic Management",
+        "Data Analysis for Research"
+      ],
+      "about": [
+        "Doctoral Program in Management",
+        "FPM Hyderabad",
+        "Executive FPM India",
+        "AICTE Approved Doctoral Program",
+        "Management Research Program"
+      ],
+      "keywords": "FPM SSIM, EFPM Hyderabad, Doctoral Program Management India, Fellow Program in Management, Executive PhD in Management India",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "619",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
     name: "FPM",
     keyInfo: {
       duration: "3 years",
@@ -328,6 +478,81 @@ export const programData = {
     },
   },
   efpm: {
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Fellow Program in Management (FPM) / Executive Fellow Program in Management (EFPM)",
+      "description": "FPM / EFPM at Siva Sivani Institute of Management (SSIM) is a doctoral-level management program designed to develop advanced research skills in business and management domains. The 3-year program focuses on interdisciplinary research, academic excellence, and industry-relevant problem solving. It prepares scholars for careers in academia, consulting, and corporate research roles.",
+      "provider": {
+        "@type": "CollegeOrUniversity",
+        "name": "Siva Sivani Institute of Management",
+        "sameAs": "https://www.ssim.ac.in/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "NH 44, Kompally",
+          "addressLocality": "Secunderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500100",
+          "addressCountry": "IN"
+        }
+      },
+      "url": "https://ssim.ac.in/programs/fpm-efpm",
+      "courseCode": "FPM-EFPM",
+      "educationalCredentialAwarded": "Fellow Program in Management (Doctoral Level)",
+      "courseMode": "Full-time / Executive",
+      "timeRequired": "P3Y",
+      "numberOfCredits": 45,
+      "educationalLevel": "Doctoral",
+      "occupationalCategory": "Research, Academia, Management Consulting, Business Research",
+      "inLanguage": "en",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "OnCampus",
+        "courseWorkload": "Full-time / Part-time (Executive)",
+        "startDate": "2026-06",
+        "endDate": "2029-05",
+        "location": {
+          "@type": "Place",
+          "name": "SSIM Campus",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Secunderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "India"
+          }
+        }
+      },
+      "teaches": [
+        "Research Methodology",
+        "Advanced Management Theories",
+        "Quantitative and Qualitative Research",
+        "Organizational Behavior",
+        "Finance and Accounting Research",
+        "Operations Management",
+        "Marketing Research",
+        "Strategic Management",
+        "Data Analysis for Research"
+      ],
+      "about": [
+        "Doctoral Program in Management",
+        "FPM Hyderabad",
+        "Executive FPM India",
+        "AICTE Approved Doctoral Program",
+        "Management Research Program"
+      ],
+      "keywords": "FPM SSIM, EFPM Hyderabad, Doctoral Program Management India, Fellow Program in Management, Executive PhD in Management India",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "619",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
     name: "EFPM",
     keyInfo: {
       duration: "3 years",
@@ -480,6 +705,81 @@ export const programData = {
     },
   },
   "pgdm-ba": {
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "PGDM in Business Analytics",
+      "description": "PGDM in Business Analytics at Siva Sivani Institute of Management (SSIM) is a 2-year full-time postgraduate program designed to build expertise in data-driven decision making, analytics, statistics, machine learning fundamentals and business intelligence. The program combines management education with analytical and technical skills aligned with industry requirements.",
+      "provider": {
+        "@type": "CollegeOrUniversity",
+        "name": "Siva Sivani Institute of Management",
+        "sameAs": "https://www.ssim.ac.in/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "NH 44, Kompally",
+          "addressLocality": "Secunderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500100",
+          "addressCountry": "IN"
+        }
+      },
+      "url": "https://ssim.ac.in/programs/pgdm-ba",
+      "courseCode": "PGDM-BA",
+      "educationalCredentialAwarded": "Post Graduate Diploma in Management (Business Analytics)",
+      "courseMode": "Full-time",
+      "timeRequired": "P2Y",
+      "numberOfCredits": 120,
+      "educationalLevel": "Postgraduate",
+      "occupationalCategory": "Business Analytics, Data Analytics, Management",
+      "inLanguage": "en",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "OnCampus",
+        "courseWorkload": "Full-time",
+        "startDate": "2026-06",
+        "endDate": "2028-05",
+        "location": {
+          "@type": "Place",
+          "name": "SSIM Campus",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Secunderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "India"
+          }
+        }
+      },
+      "teaches": [
+        "Business Analytics",
+        "Data Analysis",
+        "Statistical Modeling",
+        "Machine Learning Basics",
+        "Data Visualization",
+        "Business Intelligence",
+        "Predictive Analytics",
+        "Big Data Concepts",
+        "Python for Analytics"
+      ],
+      "about": [
+        "PGDM Business Analytics",
+        "Data Analytics Course in Hyderabad",
+        "AICTE Approved PGDM",
+        "Business Analytics Management Program",
+        "MBA Equivalent Program"
+      ],
+      "keywords": "PGDM Business Analytics, Business Analytics Course Hyderabad, PGDM Analytics SSIM, Data Science Management Course, MBA Analytics Equivalent",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "619",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
     name: "PGDM BA",
     keyInfo: {
       duration: "2 years",
@@ -924,6 +1224,81 @@ export const programData = {
     },
   },
   "pgdm-bifs": {
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "PGDM in Banking, Insurance and Financial Services (BIFS)",
+      "description": "PGDM in Banking, Insurance and Financial Services (BIFS) at Siva Sivani Institute of Management (SSIM) is a 2-year full-time postgraduate management program focused on the BFSI sector. The course covers banking operations, insurance management, financial analytics, capital markets, risk management and fintech, with strong industry exposure and placement support.",
+      "provider": {
+        "@type": "CollegeOrUniversity",
+        "name": "Siva Sivani Institute of Management",
+        "sameAs": "https://www.ssim.ac.in/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "NH 44, Kompally",
+          "addressLocality": "Secunderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500100",
+          "addressCountry": "IN"
+        }
+      },
+      "url": "https://ssim.ac.in/programs/pgdm-bifs",
+      "courseCode": "PGDM-BIFS",
+      "educationalCredentialAwarded": "Post Graduate Diploma in Management (PGDM)",
+      "courseMode": "Full-time",
+      "timeRequired": "P2Y",
+      "numberOfCredits": 120,
+      "educationalLevel": "Postgraduate",
+      "occupationalCategory": "Banking, Insurance, Financial Services, Finance",
+      "inLanguage": "en",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "OnCampus",
+        "courseWorkload": "Full-time",
+        "startDate": "2026-06",
+        "endDate": "2028-05",
+        "location": {
+          "@type": "Place",
+          "name": "SSIM Campus",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Secunderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "India"
+          }
+        }
+      },
+      "teaches": [
+        "Banking Operations",
+        "Retail and Digital Banking",
+        "Insurance Management",
+        "Risk Management",
+        "Financial Analytics",
+        "Capital Markets",
+        "Portfolio Management",
+        "FinTech and Blockchain",
+        "Fraud Risk Analytics"
+      ],
+      "about": [
+        "PGDM BIFS",
+        "Banking and Finance Course in Hyderabad",
+        "AICTE Approved PGDM",
+        "BFSI Management Program",
+        "MBA Equivalent Program"
+      ],
+      "keywords": "PGDM BIFS, Banking and Finance Course Hyderabad, PGDM Finance SSIM, BFSI Course India, Insurance Management Course, MBA Finance Equivalent",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "619",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
     name: "PGDM BIFS",
     
     keyInfo: {
@@ -1442,6 +1817,78 @@ export const programData = {
     },
   },
   "pgdm-triple-specialisation": {
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "PGDM Triple Specialisation",
+      "description": "PGDM Triple Specialisation at Siva Sivani Institute of Management (SSIM) is a 2-year full-time management program designed to develop cross-functional business skills with triple specialization options in areas like Finance, Marketing, HR, Business Analytics and more. The program focuses on experiential learning, industry exposure, leadership development, and strong placement support.",
+      "provider": {
+        "@type": "CollegeOrUniversity",
+        "name": "Siva Sivani Institute of Management",
+        "sameAs": "https://www.ssim.ac.in/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "NH 44, Kompally",
+          "addressLocality": "Secunderabad",
+          "addressRegion": "Telangana",
+          "postalCode": "500100",
+          "addressCountry": "IN"
+        }
+      },
+      "url": "https://ssim.ac.in/programs/pgdm-triple-specialisation",
+      "courseCode": "PGDM-TPS",
+      "educationalCredentialAwarded": "Post Graduate Diploma in Management (PGDM)",
+      "courseMode": "Full-time",
+      "timeRequired": "P2Y",
+      "numberOfCredits": 120,
+      "occupationalCategory": "Management, Business Administration",
+      "inLanguage": "en",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "OnCampus",
+        "courseWorkload": "Full-time",
+        "startDate": "2026-06",
+        "endDate": "2028-05",
+        "location": {
+          "@type": "Place",
+          "name": "SSIM Campus",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Secunderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "India"
+          }
+        }
+      },
+      "educationalLevel": "Postgraduate",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "teaches": [
+        "Finance",
+        "Marketing",
+        "Human Resource Management",
+        "Business Analytics",
+        "Operations Management",
+        "Entrepreneurship",
+        "Digital Marketing"
+      ],
+      "about": [
+        "Triple Specialisation PGDM",
+        "Management Course in Hyderabad",
+        "AICTE Approved PGDM",
+        "MBA Equivalent Program"
+      ],
+      "keywords": "PGDM Triple Specialisation, Management Course Hyderabad, PGDM SSIM, MBA Equivalent, Triple Specialization MBA, Business School India",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "619",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
     name: "PGDM Triple Specialisation",
     
     keyInfo: {

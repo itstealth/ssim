@@ -14,7 +14,7 @@ import {
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CourseSchema } from "@/components/Schema";
+import { CourseSchema, CustomSchema } from "@/components/Schema";
 import {
   Dialog,
   DialogContent,
@@ -993,7 +993,11 @@ const ProgramsOverview = ({ params }) => {
 
   return (
     <>
-      {courseSchemaData && <CourseSchema {...courseSchemaData} />}
+      {programData[activeProgram]?.schema ? (
+        <CustomSchema schema={programData[activeProgram].schema} />
+      ) : (
+        courseSchemaData && <CourseSchema {...courseSchemaData} />
+      )}
       <div className="container max-w-7xl mx-auto px-2 sm:px-4 py-14 sm:py-20">
         {/* <h1 className="text-4xl font-bold mb-16 text-center text-primary">
         Graduate Programs
