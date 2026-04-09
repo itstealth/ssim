@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Get in Touch with SSIM Hyderabad | 6281350079",
-  description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
+  title: "Get in Touch with SSIM Hyderabad | +91-9391114948",
+  description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at +91-9391114948 for any queries, support, or campus-related information.",
   keywords: "SSIM contact, contact siva sivani, ssim hyderabad address, ssim phone number",
   openGraph: {
-    title: "Get in Touch with SSIM Hyderabad | 6281350079",
-    description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
+    title: "Get in Touch with SSIM Hyderabad | +91-9391114948",
+    description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at +91-9391114948 for any queries, support, or campus-related information.",
     url: "https://www.ssim.ac.in/contact-us",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Get in Touch with SSIM Hyderabad",
-    description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at 6281350079 for any queries, support, or campus-related information.",
+    description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at +91-9391114948 for any queries, support, or campus-related information.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

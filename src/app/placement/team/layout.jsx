@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Meet the SSIM Placement Team | Call 6281350079",
-  description: "Connect with the SSIM Hyderabad placement team at 6281350079. Learn how they guide students to top internships, industry projects, and career opportunities.",
+  title: "Meet the SSIM Placement Team | Call +91-9391114948",
+  description: "Connect with the SSIM Hyderabad placement team at +91-9391114948. Learn how they guide students to top internships, industry projects, and career opportunities.",
   keywords: "SSIM placement team, career services, placement support, SSIM careers",
   openGraph: {
-    title: "Meet the SSIM Placement Team | Call 6281350079",
-    description: "Connect with the SSIM Hyderabad placement team at 6281350079. Learn how they guide students to top internships, industry projects, and career opportunities.",
+    title: "Meet the SSIM Placement Team | Call +91-9391114948",
+    description: "Connect with the SSIM Hyderabad placement team at +91-9391114948. Learn how they guide students to top internships, industry projects, and career opportunities.",
     url: "https://www.ssim.ac.in/placement/team",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Meet the SSIM Placement Team",
-    description: "Connect with the SSIM Hyderabad placement team at 6281350079. Learn how they guide students to top internships, industry projects, and career opportunities.",
+    description: "Connect with the SSIM Hyderabad placement team at +91-9391114948. Learn how they guide students to top internships, industry projects, and career opportunities.",
     images: ["/ssimlogo.webp"],
   },
   robots: {
