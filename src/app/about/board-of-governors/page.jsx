@@ -37,18 +37,18 @@ export default function BoardOfGovernors() {
     },
     {
       id: 3,
-      name: "Dr. NRKS Chakravarthy",
+      name: "Dr. S.V. Ramana Rao",
       role: "Director",
       description: "Director, Siva Sivani Institute of Management",
-      image: Ambuj,
+      image: Ramana,
     },
     {
       id: 4,
-      name: "Dr. S.V. Ramana Rao",
+      name: "Dr. NRKS Chakravarthy",
       role: "Board Member",
       description:
         "Contributing valuable insights to SSIM's governance and development.",
-      image: Ramana,
+      image: Ambuj,
     },
     {
       id: 5,

@@ -33,10 +33,10 @@ export default function BoardOfStudies() {
     },
     {
       id: 2,
-      name: "Dr. NRKS Chakravarthy",
+      name: "Dr. S.V. Ramana Rao",
       role: "Director",
       description: "Director, Siva Sivani Institute of Management",
-      image: Ambuj,
+      image: Ramana,
     },
     {
       id: 3,
@@ -48,11 +48,11 @@ export default function BoardOfStudies() {
     },
     {
       id: 4,
-      name: "Dr. S.V. Ramana Rao",
+      name: "Dr. NRKS Chakravarthy",
       role: "Member",
       description:
         "Providing valuable insights for academic growth and innovation.",
-      image: Ramana,
+      image: Ambuj,
     },
     {
       id: 5,
