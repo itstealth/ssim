@@ -88,7 +88,7 @@ const Page = () => {
           </DialogClose>
           <div className="w-full aspect-video">
             <iframe
-              src={`https://www.youtube-nocookie.com/embed/X-pMOa8jBYk?rel=0&modestbranding=1&playsinline=1`}
+              src={`https://www.youtube-nocookie.com/embed/miXLSDJ9RkI?rel=0&modestbranding=1&playsinline=1`}
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

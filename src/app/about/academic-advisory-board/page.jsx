@@ -78,16 +78,16 @@ export default function AcademicAdvisoryBoard() {
       image: SaileshSampathy,
     },
     {
-      name: "Dr. NRKS Chakravarthy",
+      name: "Dr. S.V. Ramana Rao",
       role: "Director",
       bio: "Director, Siva Sivani Institute of Management",
-      image: Ambuj,
+      image: Ramana,
     },
     {
-      name: "Dr. S.V. Ramana Rao",
+      name: "Dr. NRKS Chakravarthy",
       role: "Member",
       bio: "Member, Siva Sivani Institute of Management",
-      image: Ramana,
+      image: Ambuj,
     },
     {
       name: "Prof. S. Abhirama Krishna",
