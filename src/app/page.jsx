@@ -156,7 +156,7 @@ export default function HomePage() {
       {/* <SamarohPopup /> */}
 
       {/* Education Conclave Popup - Shows immediately on homepage load */}
-      <ConclavePopup />
+      {/* <ConclavePopup /> */}
     </>
   );
 }
