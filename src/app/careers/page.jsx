@@ -50,7 +50,7 @@ const jobPostingSchema = {
       "unitText": "YEAR"
     }
   },
-  "qualifications": "MBA with minimum 60% marks and Ph.D. in Marketing from reputed university. 10 research publications in ABDC/SCOPUS/WoS indexed journals. Minimum 10 years of cumulative experience.",
+  "qualifications": "MBA with minimum 60% marks and Ph.D. in Marketing from reputed Institution. 10 research publications in ABDC/SCOPUS/WoS indexed journals. Minimum 10 years of cumulative experience.",
   "responsibilities": "Lead and teach core and elective Marketing courses at Post-Graduate level. Mentor junior faculty and Ph.D. scholars. Maintain active research program.",
   "applicantLocationRequirements": {
     "@type": "Country",
@@ -211,7 +211,7 @@ export default function ProfessorMarketingCareer() {
                       <TableBody>
                         <TableRow>
                           <TableCell className="font-medium">Educational Qualification</TableCell>
-                          <TableCell>MBA with a minimum of 60% marks & a Ph.D. in the relevant subject area (Marketing) from a reputed university</TableCell>
+                          <TableCell>MBA with a minimum of 60% marks & a Ph.D. in the relevant subject area (Marketing) from a reputed Institution</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium">Research Output</TableCell>
@@ -219,7 +219,7 @@ export default function ProfessorMarketingCareer() {
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium">Teaching/Industry Experience</TableCell>
-                          <TableCell>Minimum of 10 years of cumulative experience in teaching, research, and/or industry</TableCell>
+                          <TableCell>Minimum of 15 years of cumulative experience in teaching, research, and/or industry</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell className="font-medium">Experience at Rank</TableCell>
@@ -403,7 +403,7 @@ export default function ProfessorMarketingCareer() {
                       <Separator />
                       <div>
                         <p className="font-medium text-muted-foreground">Min. Experience</p>
-                        <p className="font-semibold">10 Years</p>
+                        <p className="font-semibold">15 Years</p>
                       </div>
                       <Separator />
                       <div>
