@@ -186,7 +186,7 @@ export default function JobDetails() {
                     <TableBody>
                       <TableRow className="hover:bg-slate-50/30 border-slate-100 transition-colors">
                         <TableCell className="font-semibold text-slate-700 px-6 align-top">Educational Qualification</TableCell>
-                        <TableCell className="px-6 py-4 text-slate-600">MBA with a minimum of 60% marks & a Ph.D. in the relevant subject area (Marketing) from a reputed Institution</TableCell>
+                        <TableCell className="px-6 py-4 text-slate-600">MBA with a minimum of 60% marks & a Ph.D. in the relevant subject area (Marketing) from a reputed University/Institution</TableCell>
                       </TableRow>
                       <TableRow className="hover:bg-slate-50/30 border-slate-100 transition-colors">
                         <TableCell className="font-semibold text-slate-700 px-6 align-top">Research Output</TableCell>
