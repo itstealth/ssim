@@ -51,7 +51,7 @@ const useCountAnimation = (end, duration = 2000, shouldStart = false) => {
       // Easing function for smooth animation
       const easeOutExpo = 1 - Math.pow(2, -10 * progress);
       const currentCount = Math.floor(
-        startValue + (end - startValue) * easeOutExpo
+        startValue + (end - startValue) * easeOutExpo,
       );
 
       countRef.current = currentCount;
@@ -93,7 +93,7 @@ const AnimatedCounter = ({ value, shouldStart, delay = 0 }) => {
   const animatedValue = useCountAnimation(
     numericValue,
     2000 + delay,
-    shouldStart
+    shouldStart,
   );
 
   return (
@@ -154,11 +154,21 @@ export default function AboutSection() {
 
   const paragraphs = [
     <p className="text-lg leading-relaxed" key="1">
-      Located in the heart of Hyderabad and Secunderabad, Siva Sivani Institute of Management (SSIM) is a{" "}
-      <strong>premier institution with over three decades of excellence</strong> in management education. Renowned for its{" "}
-      <strong>strong ethical foundation</strong>, this <strong>AICTE accredited, NAAC, NBA for PGDM, AIU, SAQS and AACSB Member institution</strong>{" "}
+      Located in the heart of Hyderabad and Secunderabad, Siva Sivani Institute
+      of Management (SSIM) is a{" "}
+      <strong>premier institution with over three decades of excellence</strong>{" "}
+      in management education. Renowned for its{" "}
+      <strong>strong ethical foundation</strong>, this{" "}
+      <strong>
+        AICTE accredited, NAAC, NBA for PGDM, AIU, SAQS and AACSB Member
+        institution
+      </strong>{" "}
       delivers industry-relevant learning through an{" "}
-      <strong>innovative curriculum and experienced faculty blending academic and corporate insights</strong>.
+      <strong>
+        innovative curriculum and experienced faculty blending academic and
+        corporate insights
+      </strong>
+      .
     </p>,
     <p className="text-lg leading-relaxed" key="2">
       Recognized as an{" "}
@@ -249,16 +259,16 @@ export default function AboutSection() {
                 />
                 <div className="w-32 h-1.5 bg-red-600/80 rounded-none" />
               </div>
-              <Card className="overflow-hidden block lg:hidden !mt-16 border-0 shadow-2xl rounded-none">
+              <Card className="overflow-hidden block lg:hidden mt-8 border-0 shadow-2xl rounded-none">
                 <CardContent className="p-0">
-                  <div className="relative aspect-square">
+                  <div className="relative w-full aspect-square">
                     <Image
                       src={AboutSSIM}
                       alt="SSIM Campus Life"
                       fill
                       priority
                       className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
-                      sizes="100vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
                     />
                     {/* <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" /> */}
                     <Badge className="absolute top-4 left-4 bg-red-600 animate-pulse text-white  backdrop-blur">
