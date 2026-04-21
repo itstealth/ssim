@@ -16,6 +16,51 @@ const EXCLUDED_PATHS = [
 ];
 
 // ============================================================================
+// VALID PATHS - Known good Next.js routes, NEVER intercepted by middleware
+// ============================================================================
+const VALID_PATHS = [
+  "/",
+  "/about/leadership",
+  "/about/vision-mission",
+  "/about/board-of-governors",
+  "/about/board-of-studies",
+  "/about/academic-advisory-board",
+  "/about/accreditations-rankings",
+  "/programs/pgdm-ba",
+  "/programs/pgdm-bifs",
+  "/programs/pgdm-triple-specialisation",
+  "/programs/fpm-efpm",
+  "/programs/fpm",
+  "/programs/efpm",
+  "/admissions/pgdm-ba",
+  "/admissions/pgdm-bifs",
+  "/admissions/pgdm-triple-specialisation",
+  "/admissions/fpm-efpm",
+  "/alumni",
+  "/alumni-guidance",
+  "/success-stories",
+  "/faculty/areas",
+  "/faculty/publications",
+  "/research/case-research-center",
+  "/international-relations",
+  "/placement/records",
+  "/placement/team",
+  "/placement/internships",
+  "/placement/guest-lectures",
+  "/students-life/news",
+  "/students-life/students-achievements",
+  "/students-life/life-at-ssim",
+  "/virtual-tour",
+  "/contact-us",
+  "/iqac",
+  "/blog",
+  "/thank-you",
+  "/pgdm-admissions",
+  "/internal-complaints",
+  "/grievance-redressal-mechanism",
+];
+
+// ============================================================================
 // LEGACY WORDPRESS/JOOMLA PATH PREFIXES
 // These indicate the URL is from the old WordPress/Joomla site
 // ============================================================================
@@ -379,6 +424,11 @@ export function middleware(request) {
 
   // 1. Skip excluded paths
   if (EXCLUDED_PATHS.some((path) => pathname.startsWith(path))) {
+    return NextResponse.next();
+  }
+
+  // 1.5. Skip known valid Next.js routes — never redirect these
+  if (VALID_PATHS.includes(pathname)) {
     return NextResponse.next();
   }
 
