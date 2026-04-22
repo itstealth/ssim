@@ -4,6 +4,7 @@
 
 import fs from "fs";
 import path from "path";
+import generatedRoutes from "./generated-sitemap-routes.json";
 
 const APP_DIR = path.join(process.cwd(), "src", "app");
 const PAGE_FILE_NAMES = ["page.js", "page.jsx", "page.ts", "page.tsx"];
@@ -211,6 +212,32 @@ function inferRouteMetadata(routePath) {
  * This is filesystem-driven so newly added pages are picked up automatically.
  */
 export function getStaticRoutes() {
+  const generated = Array.isArray(generatedRoutes) ? generatedRoutes : [];
+  if (generated.length > 0) {
+    const uniqueRoutes = new Map();
+
+    for (const route of generated) {
+      const routeUrl =
+        typeof route === "string" ? route : route?.url || route?.path || "/";
+      const normalized = normalizeRoutePath(routeUrl);
+      if (uniqueRoutes.has(normalized)) continue;
+
+      uniqueRoutes.set(normalized, {
+        url: normalized,
+        ...inferRouteMetadata(normalized),
+        ...(typeof route === "string" ? {} : route),
+      });
+    }
+
+    return [...uniqueRoutes.values()].sort((a, b) => {
+      if (a.priority !== b.priority) {
+        return b.priority - a.priority;
+      }
+
+      return a.url.localeCompare(b.url);
+    });
+  }
+
   const discoveredRoutes = walkAppRoutes();
   const uniqueRoutes = new Map();
 
