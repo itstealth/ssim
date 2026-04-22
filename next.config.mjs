@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Use platform default runtime (no standalone) so next start loads deps from root node_modules.
-  // output: "standalone", // remove this line
+  output: "standalone",
 
   outputFileTracingIncludes: {
     "/*": [

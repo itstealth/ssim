@@ -337,8 +337,12 @@ function isLegacyUrl(path) {
       "board-of-governors",
       "board-of-studies",
       "about-us",
+      "about-leadership",
+      "about-leadership/",
       "campus-life",
       "past-recuiters",
+      "about/leadership",
+      "about/leadership/",
     ];
     if (!excluded.includes(normalized)) {
       return true;

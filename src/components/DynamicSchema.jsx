@@ -22,6 +22,18 @@ const routeConfig = {
       { label: "Leadership", href: "/about/leadership", isActive: true },
     ],
   },
+  "/about/message-from-leaders": {
+    title: "Leadership",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "About", href: "/about" },
+      {
+        label: "Leadership",
+        href: "/about/message-from-leaders",
+        isActive: true,
+      },
+    ],
+  },
   "/about/board-of-governors": {
     title: "Board of Governors",
     breadcrumbs: [
@@ -350,4 +362,3 @@ export default function DynamicSchema({
 
   return null;
 }
-

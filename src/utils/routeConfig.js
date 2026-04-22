@@ -29,6 +29,10 @@ export const routeConfigs = {
           title: "Our Leaders Message",
           breadcrumbLabel: "Leadership"
         },
+        "message-from-leaders": {
+          title: "Our Leaders Message",
+          breadcrumbLabel: "Leadership"
+        },
         "board-of-governors": {
           title: "Board of Governors", 
           breadcrumbLabel: "Board of Governors"
