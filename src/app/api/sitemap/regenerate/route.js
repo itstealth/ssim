@@ -1,8 +1,16 @@
 import { NextResponse } from "next/server";
 import { dbPool } from "@/lib/db";
-import { getStaticRoutes, generateSitemapXml } from "@/lib/sitemap-utils";
+import {
+  buildSitemapUrls,
+  generateSitemapXml,
+} from "@/lib/sitemap-utils";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.ssim.ac.in";
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  "https://ssim.ac.in";
+
+export const runtime = "nodejs";
 
 /**
  * POST handler for manual sitemap regeneration
@@ -23,50 +31,8 @@ export async function POST(request) {
       );
     }
     
-    // Get current timestamp
-    const currentTime = new Date().toISOString();
-    
-    // Get static routes
-    const staticRoutes = getStaticRoutes();
-    const staticUrls = staticRoutes.map(route => ({
-      ...route,
-      lastmod: currentTime
-    }));
-    
-    // Fetch blog posts
-    let blogUrls = [];
-    if (dbPool) {
-      let connection;
-      try {
-        connection = await dbPool.getConnection();
-        
-        const sql = `
-          SELECT slug, publishDate, updatedAt
-          FROM blogs 
-          WHERE publishDate <= NOW()
-          ORDER BY publishDate DESC
-        `;
-        
-        const [rows] = await connection.query(sql);
-        blogUrls = rows.map(row => ({
-          url: `/blog/${row.slug}`,
-          lastmod: new Date(row.updatedAt || row.publishDate).toISOString(),
-          priority: 0.7,
-          changefreq: "monthly"
-        }));
-        
-        console.log(`[SITEMAP-REGENERATE] Fetched ${blogUrls.length} blog posts`);
-      } catch (error) {
-        console.error('[SITEMAP-REGENERATE] Error fetching blog posts:', error.message);
-      } finally {
-        if (connection) {
-          connection.release();
-        }
-      }
-    }
-    
-    // Combine all URLs
-    const allUrls = [...staticUrls, ...blogUrls];
+    const { staticRoutes, blogUrls, allUrls, generatedAt } =
+      await buildSitemapUrls({ dbPool });
     
     // Generate XML
     const sitemapXml = generateSitemapXml(allUrls, baseUrl);
@@ -76,9 +42,9 @@ export async function POST(request) {
     return NextResponse.json({
       message: "Sitemap regenerated successfully",
       urlCount: allUrls.length,
-      staticRoutes: staticUrls.length,
+      staticRoutes: staticRoutes.length,
       blogPosts: blogUrls.length,
-      generatedAt: currentTime,
+      generatedAt,
       sitemapUrl: `${baseUrl}/sitemap.xml`
     });
     
@@ -101,35 +67,17 @@ export async function POST(request) {
 export async function GET() {
   try {
     const currentTime = new Date().toISOString();
-    const staticRoutes = getStaticRoutes();
-    
-    let blogCount = 0;
-    if (dbPool) {
-      let connection;
-      try {
-        connection = await dbPool.getConnection();
-        const [rows] = await connection.query(
-          "SELECT COUNT(*) as count FROM blogs WHERE publishDate <= NOW()"
-        );
-        blogCount = rows[0].count;
-      } catch (error) {
-        console.error('[SITEMAP-REGENERATE] Error counting blogs:', error.message);
-      } finally {
-        if (connection) {
-          connection.release();
-        }
-      }
-    }
+    const { staticRoutes, blogUrls } = await buildSitemapUrls({ dbPool, currentTime });
     
     return NextResponse.json({
       status: "Sitemap is dynamic and auto-regenerates",
       staticRoutes: staticRoutes.length,
-      publishedBlogs: blogCount,
-      totalUrls: staticRoutes.length + blogCount,
+      publishedBlogs: blogUrls.length,
+      totalUrls: staticRoutes.length + blogUrls.length,
       lastChecked: currentTime,
       sitemapUrl: `${baseUrl}/sitemap.xml`,
-      cacheDuration: "1 hour",
-      nextRegeneration: "Automatic on next request after cache expires"
+      cacheDuration: "no-store",
+      nextRegeneration: "Automatic on next request"
     });
     
   } catch (error) {
