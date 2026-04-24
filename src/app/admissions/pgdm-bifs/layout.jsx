@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "PGDM BIFS Admissions 2026 – SSIM Hyderabad | Apply Now",
-  description: "Apply for SSIM Hyderabad's PGDM in Banking, Insurance & Financial Services. AICTE, NBA & NAAC approved with 100% placement support. Call 9391114948.",
+  title: "PGDM BIFS Hyderabad Admission 2026 | Fees, Process & Course",
+  description: "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2026 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
   keywords: "PGDM BIFS, banking insurance financial services, PGDM admissions, SSIM BIFS",
   openGraph: {
-    title: "PGDM BIFS Admissions 2026 – SSIM Hyderabad | Apply Now",
-    description: "Apply for SSIM Hyderabad's PGDM in Banking, Insurance & Financial Services. AICTE, NBA & NAAC approved with 100% placement support. Call 9391114948.",
+    title: "PGDM BIFS Hyderabad Admission 2026 | Fees, Process & Course",
+    description: "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2026 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
     url: "https://www.ssim.ac.in/admissions/pgdm-bifs",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PGDM BIFS Admissions 2026 – SSIM Hyderabad",
-    description: "Apply for SSIM Hyderabad's PGDM in Banking, Insurance & Financial Services. AICTE, NBA & NAAC approved with 100% placement support. Call 9391114948.",
+    title: "PGDM BIFS Hyderabad Admission 2026 | Fees, Process & Course",
+    description: "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2026 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

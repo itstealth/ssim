@@ -3,28 +3,28 @@ export async function generateMetadata({ params }) {
   
   const metadataMap = {
     "fpm-efpm": {
-      title: "FPM/EFPM Programs – SSIM Hyderabad | Call 9391114948",
-      description: "Explore our AICTE approved Fellow Program in Management and understand the eligibility for FPM in management to pursue advanced research careers.",
+      title: "FPM & EFPM Program | Fellow Program in Management | SSIM Hyderabad",
+      description: "Pursue SSIM's FPM & EFPM – Fellow Program in Management. 3-year full-time doctoral program with 45 credits & 20 seats. AICTE-approved | Hyderabad. Apply now!",
     },
     "pgdm-ba": {
       title: "PGDM Business Analytics course in Hyderabad  - SSIM",
       description: "Explore the PGDM BA programme Hyderabad and learn PGDM Business Analytics fees in Hyderabad along with eligibility criteria for admission.",
     },
     "pgdm-bifs": {
-      title: "PGDM BIFS Program - SSIM Hyderabad | Call 9391114948",
-      description: "Explore PGDM BIFS fees and placements Hyderabad to understand career prospects and program value for aspiring BFSI professionals.",
+      title: "PGDM in Banking, Insurance & Financial Services | SSIM Hyderabad",
+      description: "Join SSIM's 2-year PGDM BIFS – a full-time program in Banking, Insurance & Financial Services. AICTE-approved | 120 Credits | 60 Seats | Hyderabad. Apply now!",
     },
     "pgdm-triple-specialisation": {
       title: "PGDM Triple Specialisation Hyderabad – SSIM | 3-in-1 Skill Set",
       description: "Explore the PGDM with Triple Specialisation at SSIM: two-year on-campus program with Major, Minor & Sector choices, 120 credits, strong industry alignment.",
     },
     "fpm": {
-      title: "FPM/EFPM Programs – SSIM Hyderabad | Call 9391114948",
-      description: "Explore our AICTE approved Fellow Program in Management and understand the eligibility for FPM in management to pursue advanced research careers.",
+      title: "FPM & EFPM Program | Fellow Program in Management | SSIM Hyderabad",
+      description: "Pursue SSIM's FPM & EFPM – Fellow Program in Management. 3-year full-time doctoral program with 45 credits & 20 seats. AICTE-approved | Hyderabad. Apply now!",
     },
     "efpm": {
-      title: "FPM/EFPM Programs – SSIM Hyderabad | Call 9391114948",
-      description: "Explore our AICTE approved Fellow Program in Management and understand the eligibility for FPM in management to pursue advanced research careers.",
+      title: "FPM & EFPM Program | Fellow Program in Management | SSIM Hyderabad",
+      description: "Pursue SSIM's FPM & EFPM – Fellow Program in Management. 3-year full-time doctoral program with 45 credits & 20 seats. AICTE-approved | Hyderabad. Apply now!",
     },
   };
 

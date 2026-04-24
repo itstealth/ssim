@@ -1,12 +1,12 @@
 export const metadata = {
-    title: "Internal Complaints Committee - SSIM",
-    description: "Learn about the Internal Complaints Committee at Siva Sivani Institute of Management (SSIM). Get information on the committee's establishment, responsibilities, and how to submit complaints.",
+    title: "Internal Complaints Committee (ICC) | SSIM Hyderabad",
+    description: "SSIM's Internal Complaints Committee (ICC) ensures a safe campus under the Sexual Harassment at Workplace Act. Submit grievances via email or post. We're here to help.",
     alternates: {
         canonical: "https://www.ssim.ac.in/internal-complaints",
     },
     openGraph: {
-        title: "Internal Complaints Committee - SSIM",
-        description: "Learn about the Internal Complaints Committee at Siva Sivani Institute of Management (SSIM). Get information on the committee's establishment, responsibilities, and how to submit complaints.",
+        title: "Internal Complaints Committee (ICC) | SSIM Hyderabad",
+        description: "SSIM's Internal Complaints Committee (ICC) ensures a safe campus under the Sexual Harassment at Workplace Act. Submit grievances via email or post. We're here to help.",
         url: "https://www.ssim.ac.in/internal-complaints",
         siteName: "SSIM",
         images: [
@@ -15,8 +15,8 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Internal Complaints Committee - SSIM",
-        description: "Learn about the Internal Complaints Committee at Siva Sivani Institute of Management (SSIM). Get information on the committee's establishment, responsibilities, and how to submit complaints.",
+        title: "Internal Complaints Committee (ICC) | SSIM Hyderabad",
+        description: "SSIM's Internal Complaints Committee (ICC) ensures a safe campus under the Sexual Harassment at Workplace Act. Submit grievances via email or post. We're here to help.",
         images: [
             { url: "/internal-complaints/internal-complaints-banner.jpg" },
         ],

@@ -1,12 +1,12 @@
 export const metadata = {
-    title: "Blog - SSIM",
-    description: "Read the latest articles and insights from the Siva Sivani Institute of Management (SSIM) blog. Stay informed on industry trends, management topics, and campus news.",
+    title: "SSIM Blog | Management Insights, MBA Tips & Industry Trends",
+    description: "Explore SSIM's blog for expert insights on management, MBA career tips, business trends & leadership — written by faculty, students, and industry contributors.",
     alternates: {
         canonical: "https://ssim.ac.in/blog",
     },
     openGraph: {
-        title: "Blog - SSIM",
-        description: "Read the latest articles and insights from the Siva Sivani Institute of Management (SSIM) blog. Stay informed on industry trends, management topics, and campus news.",
+        title: "SSIM Blog | Management Insights, MBA Tips & Industry Trends",
+        description: "Explore SSIM's blog for expert insights on management, MBA career tips, business trends & leadership — written by faculty, students, and industry contributors.",
         url: "https://ssim.ac.in/blog",
         siteName: "SSIM",
         images: [
@@ -18,8 +18,8 @@ export const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Blog - SSIM",
-        description: "Read the latest articles and insights from the Siva Sivani Institute of Management (SSIM) blog. Stay informed on industry trends, management topics, and campus news.",
+        title: "SSIM Blog | Management Insights, MBA Tips & Industry Trends",
+        description: "Explore SSIM's blog for expert insights on management, MBA career tips, business trends & leadership — written by faculty, students, and industry contributors.",
         images: ["/blog/blog-banner.jpg"],
     },
     robots: {

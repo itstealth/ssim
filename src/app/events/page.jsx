@@ -13,14 +13,14 @@ import {
 import Link from "next/link";
 
 export const metadata = {
-  title: "Events - SSIM",
+  title: "Events at SSIM Hyderabad | Convocations, Seminars & Alumni Meets",
   description:
-    "Explore upcoming and past events at Siva Sivani Institute of Management. Stay updated with convocations, seminars, workshops, and cultural events.",
+    "Stay updated with SSIM Hyderabad's latest events – convocations, alumni meets, seminars & more. Explore upcoming & past events and subscribe for announcements.",
   keywords: "SSIM events, convocation, seminars, workshops, student activities",
   openGraph: {
-    title: "Events - SSIM",
+    title: "Events at SSIM Hyderabad | Convocations, Seminars & Alumni Meets",
     description:
-      "Explore upcoming and past events at Siva Sivani Institute of Management.",
+      "Stay updated with SSIM Hyderabad's latest events – convocations, alumni meets, seminars & more. Explore upcoming & past events and subscribe for announcements.",
     url: "https://www.ssim.ac.in/events",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -36,9 +36,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Events - SSIM",
+    title: "Events at SSIM Hyderabad | Convocations, Seminars & Alumni Meets",
     description:
-      "Explore upcoming and past events at Siva Sivani Institute of Management.",
+      "Stay updated with SSIM Hyderabad's latest events – convocations, alumni meets, seminars & more. Explore upcoming & past events and subscribe for announcements.",
     images: ["/events-banner.jpg"],
   },
   robots: {

@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "FPM / EFPM Programs – SSIM Hyderabad | Call 9391114948",
-  description: "Join SSIM Hyderabad's FPM/EFPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
+  title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
+  description: "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
   keywords: "FPM, EFPM, Fellow Program in Management, research programs, SSIM research",
   openGraph: {
-    title: "FPM / EFPM Programs – SSIM Hyderabad | Call 9391114948",
-    description: "Join SSIM Hyderabad's FPM/EFPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
+    title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
+    description: "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
     url: "https://www.ssim.ac.in/admissions/fpm-efpm",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FPM / EFPM Programs – SSIM Hyderabad",
-    description: "Join SSIM Hyderabad's FPM/EFPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
+    title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
+    description: "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

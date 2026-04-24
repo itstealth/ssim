@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "SSIM Hyderabad Alumni Network | Leaders & Achievers",
-  description: "Explore the inspiring journeys of SSIM Hyderabad alumni who are making an impact across industries with leadership, innovation, and excellence.",
+  title: "SSIM Alumni Network | Leaders, Achievers & Industry Professionals",
+  description: "SSIM Hyderabad's alumni are leaders and achievers across industries worldwide. Explore our growing alumni network and reconnect with the SSIM community today.",
   keywords: "SSIM alumni, alumni network, business school graduates, SSIM success stories",
   openGraph: {
-    title: "SSIM Hyderabad Alumni Network | Leaders & Achievers",
-    description: "Explore the inspiring journeys of SSIM Hyderabad alumni who are making an impact across industries with leadership, innovation, and excellence.",
+    title: "SSIM Alumni Network | Leaders, Achievers & Industry Professionals",
+    description: "SSIM Hyderabad's alumni are leaders and achievers across industries worldwide. Explore our growing alumni network and reconnect with the SSIM community today.",
     url: "https://www.ssim.ac.in/alumni",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SSIM Hyderabad Alumni Network",
-    description: "Explore the inspiring journeys of SSIM Hyderabad alumni who are making an impact across industries with leadership, innovation, and excellence.",
+    title: "SSIM Alumni Network | Leaders, Achievers & Industry Professionals",
+    description: "SSIM Hyderabad's alumni are leaders and achievers across industries worldwide. Explore our growing alumni network and reconnect with the SSIM community today.",
     images: ["/ssimlogo.webp"],
   },
   robots: {

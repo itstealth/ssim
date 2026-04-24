@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "PGDM Triple Specialisation - SSIM Hyderabad | Build Versatility",
-  description: "Discover SSIM Hyderabad's PGDM Triple Specialisation program designed to equip students with multidisciplinary skills and strong industry exposure.",
+  title: "PGDM Triple Specialisation Admission 2026 | Fees & Process – SSIM",
+  description: "Join PGDM Triple Specialisation in Hyderabad at SSIM. Know fee structure, admission process & eligibility. Build multi-domain skills with strong placement support.",
   keywords: "PGDM triple specialisation, PGDM TPS, multiple specializations, SSIM PGDM",
   openGraph: {
-    title: "PGDM Triple Specialisation - SSIM Hyderabad | Build Versatility",
-    description: "Discover SSIM Hyderabad's PGDM Triple Specialisation program designed to equip students with multidisciplinary skills and strong industry exposure.",
+    title: "PGDM Triple Specialisation Admission 2026 | Fees & Process – SSIM",
+    description: "Join PGDM Triple Specialisation in Hyderabad at SSIM. Know fee structure, admission process & eligibility. Build multi-domain skills with strong placement support.",
     url: "https://www.ssim.ac.in/admissions/pgdm-triple-specialisation",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PGDM Triple Specialisation - SSIM Hyderabad",
-    description: "Discover SSIM Hyderabad's PGDM Triple Specialisation program designed to equip students with multidisciplinary skills and strong industry exposure.",
+    title: "PGDM Triple Specialisation Admission 2026 | Fees & Process – SSIM",
+    description: "Join PGDM Triple Specialisation in Hyderabad at SSIM. Know fee structure, admission process & eligibility. Build multi-domain skills with strong placement support.",
     images: ["/ssimlogo.webp"],
   },
   robots: {
