@@ -521,15 +521,15 @@ export default function IQAC() {
                 <div className="space-y-2">
                   {[
                     {
-                      name: "SSIM Annual Accounts - 2025 - 26",
+                      name: "SSIM Annual Accounts - 2024 - 25",
                       link: annualReport2025,
                     },
                     {
-                      name: "SSIM Annual Accounts - 2024 - 25",
+                      name: "SSIM Annual Accounts - 2023 - 24",
                       link: annualReport2024,
                     },
                     {
-                      name: "SSIM Annual Accounts - 2023 - 24",
+                      name: "SSIM Annual Accounts - 2022 - 23",
                       link: annualReport2023,
                     },
                     {
