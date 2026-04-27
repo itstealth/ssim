@@ -26,6 +26,7 @@ import { useState } from "react";
 
 // Mapping of actual AICTE PDF file names by year
 const aicteFileNames = {
+  2026: "AICTE_2026.PDF",
   2025: "AICTE_2025_.pdf",
   2024: "AICTE_2024.pdf",
   2023: "AICTE_2023.pdf",
@@ -62,10 +63,10 @@ const aicteFileNames = {
   1992: "AICTE_1992.pdf",
 };
 
-// Generate AICTE PDF paths for all years (2025 to 1992) using new folder structure
+// Generate AICTE PDF paths for all years (2026 to 1992) using new folder structure
 const generateAicteYears = () => {
   const years = [];
-  for (let year = 2025; year >= 1992; year--) {
+  for (let year = 2026; year >= 1992; year--) {
     if (aicteFileNames[year]) {
       years.push({
         year,
@@ -77,8 +78,8 @@ const generateAicteYears = () => {
 };
 
 const allAicteYears = generateAicteYears();
-const recentYears = allAicteYears.filter((item) => item.year >= 2016);
-const olderYears = allAicteYears.filter((item) => item.year < 2016);
+const recentYears = allAicteYears.filter((item) => item.year >= 2017);
+const olderYears = allAicteYears.filter((item) => item.year < 2017);
 
 // Keep old paths for reference (commented but alive)
 // const aicte2025 = `/pdfs/iqac/AICTE/AICTE_2025_.PDF`;
