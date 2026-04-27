@@ -99,7 +99,7 @@ const nbaAccreditation = `/pdfs/iqac/Accreditations/NBA-Accreditation.pdf`;
 const saqsAccreditation = `/pdfs/iqac/Accreditations/SAQS-Accreditation.pdf`;
 const nirfAccreditation = `/pdfs/iqac/Accreditations/NIRF-Ranking.pdf`;
 const annualReport2025 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2024-25.pdf`;
-const annualReport2024 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2023-24.pdf`;
+const annualReport2024 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2023-24.pdf?v=2`;
 const annualReport2023 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2022-23.pdf`;
 const annualReport2022 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2021-22.pdf`;
 const annualReport2021 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2020-21.pdf`;
