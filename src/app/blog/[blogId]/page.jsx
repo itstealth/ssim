@@ -519,7 +519,7 @@ export default function BlogDetail() {
               </div>
             </div>
 
-            <div className="relative aspect-video w-full sm:h-[400px] rounded-2xl overflow-hidden">
+            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden">
               <img
                 src={blog.imageUrl}
                 alt={blog.imageAlt || blog.title}
