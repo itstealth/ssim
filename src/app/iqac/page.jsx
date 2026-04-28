@@ -26,6 +26,7 @@ import { useState } from "react";
 
 // Mapping of actual AICTE PDF file names by year
 const aicteFileNames = {
+  2026: "AICTE_2026.PDF",
   2025: "AICTE_2025_.pdf",
   2024: "AICTE_2024.pdf",
   2023: "AICTE_2023.pdf",
@@ -62,10 +63,10 @@ const aicteFileNames = {
   1992: "AICTE_1992.pdf",
 };
 
-// Generate AICTE PDF paths for all years (2025 to 1992) using new folder structure
+// Generate AICTE PDF paths for all years (2026 to 1992) using new folder structure
 const generateAicteYears = () => {
   const years = [];
-  for (let year = 2025; year >= 1992; year--) {
+  for (let year = 2026; year >= 1992; year--) {
     if (aicteFileNames[year]) {
       years.push({
         year,
@@ -77,8 +78,8 @@ const generateAicteYears = () => {
 };
 
 const allAicteYears = generateAicteYears();
-const recentYears = allAicteYears.filter((item) => item.year >= 2016);
-const olderYears = allAicteYears.filter((item) => item.year < 2016);
+const recentYears = allAicteYears.filter((item) => item.year >= 2017);
+const olderYears = allAicteYears.filter((item) => item.year < 2017);
 
 // Keep old paths for reference (commented but alive)
 // const aicte2025 = `/pdfs/iqac/AICTE/AICTE_2025_.PDF`;
@@ -98,6 +99,9 @@ const naacAccreditation = `/pdfs/iqac/Accreditations/NAAC_Accreditation.pdf`;
 const nbaAccreditation = `/pdfs/iqac/Accreditations/NBA-Accreditation.pdf`;
 const saqsAccreditation = `/pdfs/iqac/Accreditations/SAQS-Accreditation.pdf`;
 const nirfAccreditation = `/pdfs/iqac/Accreditations/NIRF-Ranking.pdf`;
+const annualReport2025 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2024-25.pdf`;
+const annualReport2024 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2023-24.pdf?v=2`;
+const annualReport2023 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2022-23.pdf`;
 const annualReport2022 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2021-22.pdf`;
 const annualReport2021 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2020-21.pdf`;
 const annualReport2020 = `/pdfs/iqac/AnnualReport/SSIM_Annual-Accounts_OriginalScanned_FY2019-20.pdf`;
@@ -517,6 +521,18 @@ export default function IQAC() {
               <CardContent>
                 <div className="space-y-2">
                   {[
+                    {
+                      name: "SSIM Annual Accounts - 2024 - 25",
+                      link: annualReport2025,
+                    },
+                    {
+                      name: "SSIM Annual Accounts - 2023 - 24",
+                      link: annualReport2024,
+                    },
+                    {
+                      name: "SSIM Annual Accounts - 2022 - 23",
+                      link: annualReport2023,
+                    },
                     {
                       name: "SSIM Annual Accounts - 2021 - 22",
                       link: annualReport2022,

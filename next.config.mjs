@@ -335,11 +335,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/iqac",
-        destination: "/iqac",
-        permanent: true,
-      },
-      {
         source: "/iqac-1",
         destination: "/",
         permanent: true,
