@@ -383,7 +383,14 @@ function handlePatternRedirect(path) {
   if (/^footer\/.*\.pdf$/.test(normalized)) return "/";
   if (/^assets\/images\/pdfs\/.*\.pdf$/.test(normalized)) return "/";
   if (/^assets\/images\/applications\/.*\.pdf$/.test(normalized)) return "/";
-  if (/^pdfs\/.*\.pdf$/.test(normalized)) return "/";
+
+  // Exclude valid /pdfs/ paths from generic redirect
+  const EXCLUDED_PDFS_PATTERNS = [
+    /^pdfs\/footer\//,
+    /^pdfs\/iqac\//,
+  ];
+  const isExcludedPdfPath = EXCLUDED_PDFS_PATTERNS.some(p => p.test(normalized));
+  if (/^pdfs\/.*\.pdf$/.test(normalized) && !isExcludedPdfPath) return "/";
 
   // IQAC files -> homepage
   if (/^iqac\/.*\.pdf$/.test(normalized)) return "/";

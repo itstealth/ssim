@@ -324,9 +324,10 @@ const patternRedirects = [
     destination: "/homepage",
     description: "Any PDF file",
     exclude: [
-      "Employee_Hand_Book.pdf",
-      "Student_Hand_Book_Batch_2025_27.pdf",
-      "hr&facultyDevelopmentPolicies.pdf",
+      "pdfs/footer/employee_hand_book.pdf",
+      "pdfs/footer/student_hand_book_batch_2025_27.pdf",
+      "pdfs/footer/hr&facultydevelopmentpolicies.pdf",
+      "pdfs/iqac/",
     ],
   },
 
