@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors")
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
@@ -13,7 +15,7 @@ module.exports = {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			colors: {
-				navy:  { DEFAULT:'#0F2557', light:'#1B3A7A', deep:'#07132A' },
+				navy:  { DEFAULT:'#102269', light:'#1B3A7A', deep:'#07132A' },
 				gold:  { DEFAULT:'#C9971A', light:'#E8B931', pale:'#FDF8EE' },
 				ssred: { DEFAULT:'#C0392B', dark:'#A93226' },
 				mist:  '#F4F6FB',
@@ -68,11 +70,20 @@ module.exports = {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				sky:    { ...colors.sky, DEFAULT: '#D5E7FF' },
+				dark:   '#29355E',
+				blue:   { ...colors.blue, DEFAULT: '#1B50EC' },
+				red:    { ...colors.red, DEFAULT: '#DC2626' },
+				light:  '#f4f8ff',
+				gray:   { ...colors.gray, DEFAULT: '#6B7A99' },
+				border: '#dde8f8'
 			},
 			fontFamily: {
 				display: ['"Playfair Display"','serif'],
 				body:    ['"DM Sans"','sans-serif'],
+				playfair: ['Playfair Display', 'serif'],
+				dm: ['DM Sans', 'sans-serif'],
 			},
 			animation: {
 				orbit: 'orbit calc(var(--duration)*1s) linear infinite',
@@ -82,7 +93,9 @@ module.exports = {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				float: 'float 6s ease-in-out infinite',
-				'fade-up': 'fadeUp 0.8s ease-out forwards'
+				'fade-up': 'fadeUp 0.8s ease-out forwards',
+				ticker: 'ticker 32s linear infinite',
+				'scroll-logos': 'scroll-logos 22s linear infinite'
 			},
 			keyframes: {
 				orbit: {
@@ -137,6 +150,14 @@ module.exports = {
 				fadeUp: {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				ticker: {
+					from: { transform: 'translateX(0)' },
+					to:   { transform: 'translateX(-50%)' },
+				},
+				'scroll-logos': {
+					from: { transform: 'translateX(0)' },
+					to:   { transform: 'translateX(-50%)' },
 				}
 			},
 			rotate: {

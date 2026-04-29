@@ -2,18 +2,18 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 // import SEO from "@/components/Seo";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "../../../components/ui/card";
+import { Separator } from "../../../components/ui/separator";
+import { Button } from "../../../components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "../../../components/ui/dialog";
 import { Quote, ChevronRight } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "../../../components/ui/scroll-area";
 const sampathy = "/about/Sampathy.png";
 const ramana = "/about/director.jpeg";
 const ambuj = "/about/dr-ambuj.jpeg";

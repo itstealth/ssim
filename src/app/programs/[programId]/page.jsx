@@ -49,7 +49,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { programData } from "@/data/programData";
 
-export const programs = [
+const programs = [
   {
     id: "pgdm-ba",
     name: "PGDM BA",

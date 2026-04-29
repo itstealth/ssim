@@ -607,12 +607,38 @@ img {
 .blog-content a[href*=".pptx"],
 .blog-content a[href*="/documents/"] {
   @apply inline-flex items-center gap-2 px-4 py-3 my-4;
-  @apply bg-blue-100 border-2 border-blue-300 rounded-lg;
-  @apply text-blue-700 font-semibold no-underline;
+  @apply bg-blue border-2 border-[#1B50EC] rounded-lg;
+  @apply text-blue font-semibold no-underline;
   @apply transition-all duration-200;
-  @apply hover:bg-blue-200 hover:border-blue-400 hover:shadow-md;
-  @apply dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-300;
-  @apply dark:hover:bg-blue-900/50 dark:hover:border-blue-600;
+  @apply hover:opacity-90 hover:border-[#1B50EC] hover:shadow-md;
+}
+
+.dark .blog-content a[download],
+.dark .blog-content a[href*=".pdf"],
+.dark .blog-content a[href*=".doc"],
+.dark .blog-content a[href*=".docx"],
+.dark .blog-content a[href*=".xls"],
+.dark .blog-content a[href*=".xlsx"],
+.dark .blog-content a[href*=".ppt"],
+.dark .blog-content a[href*=".pptx"],
+.dark .blog-content a[href*="/documents/"] {
+  background-color: rgb(27 80 236 / 0.3);
+  border-color: #1B50EC;
+  color: rgb(147 197 253);
+}
+
+.dark .blog-content a[download]:hover,
+.dark .blog-content a[href*=".pdf"]:hover,
+.dark .blog-content a[href*=".doc"]:hover,
+.dark .blog-content a[href*=".docx"]:hover,
+.dark .blog-content a[href*=".xls"]:hover,
+.dark .blog-content a[href*=".xlsx"]:hover,
+.dark .blog-content a[href*=".ppt"]:hover,
+.dark .blog-content a[href*=".pptx"]:hover,
+.dark .blog-content a[href*="/documents/"]:hover {
+  background-color: rgb(27 80 236 / 0.5);
+  border-color: #1B50EC;
+  opacity: 0.8;
 }
 
 /* Link icons (from emoji or SVG) */
@@ -906,11 +932,17 @@ img {
 /* Blockquotes */
 .blog-content blockquote,
 .blog-content .prose blockquote {
-  @apply border-l-4 border-blue-500 pl-6 pr-4 py-4 my-8;
-  @apply bg-blue-50 dark:bg-blue-900/20;
+  @apply border-l-4 border-[#1B50EC] pl-6 pr-4 py-4 my-8;
+  @apply bg-blue-50;
   @apply italic text-slate-700 dark:text-slate-300 text-lg;
   @apply rounded-r-lg shadow-sm;
   font-style: italic !important;
+}
+
+.dark .blog-content blockquote,
+.dark .blog-content .prose blockquote {
+  background-color: rgb(27 80 236 / 0.2);
+  color: rgb(226 232 240);
 }
 
 .blog-content blockquote p,
@@ -1098,12 +1130,24 @@ img {
 /* Regular text links */
 .blog-content a:not([download]):not([href*="/documents/"]),
 .blog-content .prose a:not([download]):not([href*="/documents/"]) {
-  @apply text-blue-600 dark:text-blue-400;
-  @apply hover:text-blue-700 dark:hover:text-blue-300;
-  @apply underline decoration-blue-300 dark:decoration-blue-600;
-  @apply hover:decoration-blue-600 dark:hover:decoration-blue-400;
+  @apply text-blue-600;
+  @apply hover:text-blue-700;
+  @apply underline decoration-blue-300;
+  @apply hover:decoration-blue-600;
   @apply transition-all duration-200;
   font-weight: 500;
+}
+
+.dark .blog-content a:not([download]):not([href*="/documents/"]),
+.dark .blog-content .prose a:not([download]):not([href*="/documents/"]) {
+  color: rgb(96 165 250);
+  text-decoration-color: rgb(37 99 235);
+}
+
+.dark .blog-content a:not([download]):not([href*="/documents/"]):hover,
+.dark .blog-content .prose a:not([download]):not([href*="/documents/"]):hover {
+  color: rgb(147 197 253);
+  text-decoration-color: rgb(96 165 250);
 }
 
 .blog-content a:visited:not([download]):not([href*="/documents/"]) {
@@ -1250,3 +1294,151 @@ img {
   }
 }
 
+/* TICKER */
+.ticker-track {
+  display: flex;
+  animation: ticker 32s linear infinite;
+  white-space: nowrap;
+  padding-left: 30px;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* RECRUITER SCROLL */
+.recruiter-scroll {
+  display: flex;
+  gap: 24px;
+  animation: scroll-logos 22s linear infinite;
+}
+
+@keyframes scroll-logos {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* NAV UNDERLINE */
+.nav-link-item {
+  position: relative;
+  display: block;
+  padding: 0 14px;
+  height: 76px;
+  line-height: 76px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--dark);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-link-item:hover { color: var(--blue); }
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  right: 14px;
+  height: 3px;
+  background: var(--blue);
+  border-radius: 3px 3px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+.nav-link-item:hover::after { transform: scaleX(1); }
+
+/* DROPDOWN */
+.nav-group { position: relative; }
+.nav-group .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 220px;
+  box-shadow: 0 12px 40px rgba(16,34,105,.15);
+  border-top: 3px solid var(--blue);
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: all 0.2s;
+  z-index: 999;
+}
+.nav-group:hover .dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+.dropdown a {
+  display: block;
+  padding: 11px 20px;
+  font-size: 13px;
+  color: var(--dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.dropdown a:last-child { border-bottom: none; }
+.dropdown a:hover {
+  background: var(--sky);
+  color: var(--blue);
+  padding-left: 26px;
+}
+
+/* WHY CARD TOP BORDER */
+.why-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.why-card:hover::before { transform: scaleX(1); }
+.why-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(16,34,105,.09); }
+
+/* TEST CARD QUOTE */
+.test-card {
+  position: relative;
+}
+.test-card::before {
+  content: '"';
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 68px;
+  color: var(--blue);
+  opacity: 0.1;
+  font-family: 'Playfair Display', serif;
+  line-height: 1;
+}
+
+/* FOOTER H4 underline */
+.footer-heading {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 26px;
+  height: 2px;
+  background: var(--blue);
+  border-radius: 2px;
+}
