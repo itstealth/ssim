@@ -56,13 +56,16 @@ export default function Footer() {
       ],
     },
     {
-      label: "Committees",
+      label: "Committees & Policies",
       items: [
         {
           name: "Grievance Redressal Mechanism",
           path: "/grievance-redressal-mechanism",
         },
         { name: "Internal Complaints Committee", path: "/internal-complaints" },
+        { name: "Employee Handbook", path: "/Employee_Hand_Book.pdf", external: true },
+        { name: "Student Handbook", path: "/Student_Hand_Book_Batch_2025_27.pdf", external: true },
+        { name: "HR & Faculty Development Policies", path: "/hr&facultyDevelopmentPolicies.pdf", external: true },
       ],
     },
     {
@@ -187,6 +190,7 @@ export default function Footer() {
                   {section.items.map((item) => (
                     <li key={item.name}>
                       {item.path.startsWith("https:") ||
+                      item.external ||
                       item.path === aicteapprovals ? (
                         <a
                           href={item.path}

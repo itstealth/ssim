@@ -195,7 +195,7 @@ export default function Leadership() {
         title="Leadership"
         description="Meet the visionary leaders at Siva Sivani Institute of Management (SSIM). Our leadership team is dedicated to fostering an environment of academic excellence and innovation."
         keywords="SSIM leadership, business school leaders, management team, academic leadership"
-        canonicalUrl="https://ssim.ac.in/about/leadership"
+        canonicalUrl="https://www.ssim.ac.in/about/leadership"
       />*/}
       <section className="w-full py-16 sm:py-20">
         <div className="container px-4 md:px-6 mx-auto max-w-5xl">
