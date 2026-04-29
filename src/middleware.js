@@ -13,6 +13,9 @@ const EXCLUDED_PATHS = [
   "/ssimlogo.webp",
   "/ssim-favicon.png",
   "/public",
+  "/Employee_Hand_Book.pdf",
+  "/Student_Hand_Book_Batch_2025_27.pdf",
+  "/hr&facultyDevelopmentPolicies.pdf",
 ];
 
 // ============================================================================
@@ -407,7 +410,12 @@ function handlePatternRedirect(path) {
   if (/^feed\/.*$/.test(normalized)) return "/";
 
   // Any remaining PDF -> homepage
-  if (/\.pdf$/.test(normalized)) return "/";
+  const EXCLUDED_PDF_PATHS = [
+    "employee_hand_book.pdf",
+    "student_hand_book_batch_2025_27.pdf",
+    "hr&facultydevelopmentpolicies.pdf",
+  ];
+  if (/\.pdf$/.test(normalized) && !EXCLUDED_PDF_PATHS.includes(normalized)) return "/";
 
   // Hash/fragment URLs -> homepage
   if (/^#openModal$/.test(normalized)) return "/";
