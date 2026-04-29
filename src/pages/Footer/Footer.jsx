@@ -63,9 +63,9 @@ export default function Footer() {
           path: "/grievance-redressal-mechanism",
         },
         { name: "Internal Complaints Committee", path: "/internal-complaints" },
-        { name: "Employee Handbook", path: "/Employee_Hand_Book.pdf", external: true },
-        { name: "Student Handbook", path: "/Student_Hand_Book_Batch_2025_27.pdf", external: true },
-        { name: "HR & Faculty Development Policies", path: "/hr&facultyDevelopmentPolicies.pdf", external: true },
+        { name: "Employee Handbook", path: "/pdfs/footer/Employee_Hand_Book.pdf", external: true },
+        { name: "Student Handbook", path: "/pdfs/footer/Student_Hand_Book_Batch_2025_27.pdf", external: true },
+        { name: "HR & Faculty Development Policies", path: "/pdfs/footer/hr&facultyDevelopmentPolicies.pdf", external: true },
       ],
     },
     {
