@@ -323,6 +323,11 @@ const patternRedirects = [
     pattern: /^.*\.pdf$/,
     destination: "/homepage",
     description: "Any PDF file",
+    exclude: [
+      "Employee_Hand_Book.pdf",
+      "Student_Hand_Book_Batch_2025_27.pdf",
+      "hr&facultyDevelopmentPolicies.pdf",
+    ],
   },
 
   // WordPress feed URLs
