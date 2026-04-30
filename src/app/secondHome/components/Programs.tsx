@@ -1,30 +1,35 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const programs = [
   {
-    img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&auto=format&fit=crop',
     title: 'PGDM',
     sub: 'Triple Specialisation · 2 Years · NBA Accredited',
-    desc: 'Our flagship 2-year PGDM equips students with cross-functional skills, leadership, and decision-making competencies to thrive in the VUCA world.',
+    desc: "SSIM's two-year Post-Graduation Diploma in Management (PGDM) program is NBA accredited and uniquely designed to push our students to go beyond their boundaries to reach their aspirational careers. The program prepares students with cross-functional skills and life skills: Communication skills, Decision making, Leadership Skills, Problem-solving, Teamwork, Experiential Learning and several industry-relevant skills to face this VUCA world.",
     highlight: true,
+    img: '/Home/Education.webp',
+    link: '/programs/pgdm-triple-specialisation',
   },
   {
-    img: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=600&q=80&auto=format&fit=crop',
     title: 'PGDM – BIFS',
     sub: 'Banking, Insurance & Financial Services',
-    desc: 'Specialised program for aspiring BFSI professionals with deep industry connect and practical modules tailored for financial services.',
+    desc: 'The Post-Graduation Diploma in Management – Banking, Insurance, and Financial Services (PGDM-BIFS) at Siva Sivani Institute of Management (SSIM) is designed to provide management graduates with in-depth knowledge of the Banking, Financial Services, and Insurance (BFSI) sectors. The program combines academic theory with practical learning, ensuring students are well-equipped for specialized roles in the industry.',
+    img: '/Home/Labs.webp',
+    link: '/programs/pgdm-bifs',
   },
   {
-    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop',
     title: 'PGDM – BA',
     sub: 'Business Analytics · Data-Driven Leadership',
-    desc: 'Master analytics, machine learning and BI tools to become a data-driven leader in the age of digital transformation.',
+    desc: 'Embark on a transformative journey with SSIMs Post Graduate Diploma in Management (PGDM – BA) in Business Analytics, meticulously crafted to mold future-ready business leaders adept in data-driven decision-making. Our industry-aligned curriculum encompasses Data Visualization, Machine Learning, Predictive Modelling, and Big Data Analytics.',
+    img: '/Home/Placements.webp',
+    link: '/programs/pgdm-ba',
   },
   {
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop',
     title: 'FPM / EFPM',
-    sub: 'Fellow Program in Management · Doctoral',
-    desc: 'Rigorous doctoral-level program for those pursuing academic excellence, management research and thought leadership.',
+    sub: 'Fellow Program In Management',
+    desc: 'Siva Sivani Institute of Management (SSIM) offers the Fellow Program in Management (FPM), approved by AICTE. The FPM is launched with the objective of developing outstanding scholars for careers in teaching and research. SSIM offers Full time Fellow Program in Management (FPM) for those pursuing academic excellence.',
+    img: '/Home/Auditorium.webp',
+    link: '/programs/fpm-efpm',
   },
 ]
 
@@ -32,14 +37,14 @@ export default function Programs() {
   return (
     <section id="programs" className="bg-light px-[60px] py-[80px]">
       <div className="text-center">
-        <span className="inline-block bg-sky text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+        <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Academic Programs
         </span>
         <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
           World-Class Management Programs
         </h2>
         <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mx-auto">
-          Designed to push students beyond boundaries and shape future-ready business leaders for a complex, fast-changing world.
+          We train our students to master both the technical & management aspects of the business.
         </p>
       </div>
 
@@ -50,11 +55,10 @@ export default function Programs() {
             className="bg-white rounded-[18px] overflow-hidden transition-all duration-300 shadow-[0_2px_12px_rgba(16,34,105,0.07)] border border-border hover:-translate-y-[6px] hover:shadow-[0_16px_40px_rgba(16,34,105,0.14)] group"
           >
             <div className="relative h-[160px] overflow-hidden">
-              <Image
+              <img
                 src={p.img}
                 alt={p.title}
-                fill
-                className="object-cover transition-transform duration-[400ms] group-hover:scale-[1.07]"
+                className="object-cover w-full h-full transition-transform duration-[400ms] group-hover:scale-[1.07]"
               />
               <div
                 className="absolute inset-0 flex flex-col justify-end p-[14px]"
@@ -70,9 +74,9 @@ export default function Programs() {
             </div>
             <div className="p-[16px_18px]">
               <p className="text-[12.5px] text-gray leading-[1.65] mb-[14px]">{p.desc}</p>
-              <a href="#" className="text-blue font-bold text-[13px] no-underline inline-flex items-center gap-[5px] transition-[gap] hover:gap-[10px]">
+              <Link href={p.link} className="text-blue font-bold text-[13px] no-underline inline-flex items-center gap-[5px] transition-[gap] hover:gap-[10px]">
                 Know More →
-              </a>
+              </Link>
             </div>
           </div>
         ))}

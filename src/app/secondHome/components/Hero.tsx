@@ -1,49 +1,80 @@
 import Image from 'next/image'
+import Link from 'next/link'
+
+const imgSlider = [
+  {
+    image: "/Home/Events.webp",
+    tagline: "Shaping Bright Futures Together",
+    highlight: "World-class curriculum, experienced faculty, and state-of-the-art classrooms.",
+  },
+  {
+    image: "/Home/Education.webp",
+    tagline: "Celebrate Every Special Moment",
+    highlight: "Cultural festivals, workshops, and leadership opportunities.",
+  },
+  {
+    image: "/Home/Sports.webp",
+    tagline: "Fuel Your Passion Daily",
+    highlight: "Top-notch facilities, diverse sports options, and vibrant athletic culture.",
+  },
+  {
+    image: "/Home/Labs.webp",
+    tagline: "Innovate, Learn, Discover Together",
+    highlight: "Cutting-edge labs for practical learning, research, and discovery.",
+  },
+  {
+    image: "/Home/Auditorium.webp",
+    tagline: "Inspire, Engage, Create Together",
+    highlight: "Modern auditorium for events, seminars, and cultural programs.",
+  },
+  {
+    image: "/Home/Placements.webp",
+    tagline: "Launch Your Career Successfully",
+    highlight: "Strong industry connections and 100% placement assistance.",
+  },
+]
 
 export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* BG */}
-      <Image
-        src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1800&q=85&auto=format&fit=crop"
-        alt="University Campus"
-        fill
-        className="object-cover object-top"
-        priority
-      />
-      {/* Overlay */}
-      <div
-        className="absolute inset-0"
-        style={{background: 'linear-gradient(100deg, rgba(16,34,105,.94) 0%, rgba(41,53,94,.87) 48%, rgba(27,80,236,.38) 100%)'}}
-      />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={imgSlider[0].image}
+          alt={imgSlider[0].tagline}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
 
       {/* Content */}
       <div className="relative z-[2] px-[60px] py-[60px] max-w-[640px]">
         <div className="inline-flex items-center gap-2 bg-[rgba(213,231,255,0.15)] border border-[rgba(213,231,255,0.35)] px-[18px] py-[6px] rounded-full text-sky text-[12px] font-semibold tracking-[0.5px] uppercase mb-6">
-          ★ AICTE Approved · 32+ Years of Excellence
+          AICTE Approved · 32+ Years of Excellence
         </div>
         <h1 className="font-playfair text-white leading-[1.12] mb-[10px]" style={{fontSize:'clamp(36px,5vw,62px)'}}>
-          Shape Your Future at<br />
-          <span className="text-sky">SSIM Hyderabad</span>
+          {imgSlider[0].tagline.split(' ').map((word, i) => (
+            i === 1 ? <span key={i} className="text-sky">{word} </span> : word + ' '
+          ))}
         </h1>
         <p className="text-[16px] text-[rgba(213,231,255,0.88)] mb-8 leading-[1.75] max-w-[500px]">
-          Premier PGDM programs with triple specialisation, industry-integrated curriculum, and a 30,000+ strong global alumni network at the heart of India&apos;s fastest-growing business hub.
+          {imgSlider[0].highlight}
         </p>
         <div className="flex gap-4 flex-wrap mb-12">
-          <a
+          <Link
             href="https://apply.ssim.ac.in"
             target="_blank"
             rel="noreferrer"
             className="bg-red text-white px-8 py-[14px] rounded-[10px] font-bold text-[15px] no-underline transition-all hover:bg-[#b91c1c] hover:-translate-y-[2px] shadow-[0_6px_20px_rgba(220,38,38,0.4)]"
           >
             Apply for 2026–28 →
-          </a>
-          <a
+          </Link>
+          <Link
             href="#programs"
             className="bg-transparent text-sky px-8 py-[14px] rounded-[10px] font-semibold text-[15px] no-underline border-2 border-[rgba(213,231,255,0.45)] transition-all hover:bg-[rgba(213,231,255,0.1)]"
           >
             Explore Programs
-          </a>
+          </Link>
         </div>
 
         {/* Stats */}

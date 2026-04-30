@@ -8,6 +8,7 @@ import StatsBanner from './components/StatsBanner'
 import Placements from './components/Placements'
 import WhySSIM from './components/WhySSIM'
 import Faculty from './components/Faculty'
+import SSIMStories from './components/SSIMStories'
 import Testimonials from './components/Testimonials'
 import CTASection from './components/CTASection'
 
@@ -24,6 +25,7 @@ export default function SecondHome() {
       <Placements />
       <WhySSIM />
       <Faculty />
+      <SSIMStories />
       <Testimonials />
       <CTASection />
     </>
