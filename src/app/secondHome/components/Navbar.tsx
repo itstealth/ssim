@@ -180,9 +180,9 @@ export default function Navbar() {
           <li key={item.name} className="nav-group relative group">
             {item.dropdown ? (
               <>
-                <button className="nav-link-item flex items-center gap-1 cursor-pointer">
+                <button className="nav-link-item flex items-center gap-1 cursor-pointer whitespace-nowrap">
                   {item.name}
-                  <ChevronDown size={14} className="mt-[-2px]" />
+                  <ChevronDown size={14} className="flex-shrink-0" />
                 </button>
                 <div className="dropdown absolute hidden group-hover:block top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[220px] z-50">
                   {item.dropdown.map((subItem) => (
