@@ -1,57 +1,80 @@
-import Image from 'next/image'
-import Link from 'next/link'
+"use client";
+import React, { useState } from "react";
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+
+import WordPullUp from "@/components/ui/word-pull-up";
 
 const slides = [
   {
-    videoId: "huRs1xw8Cfc",
+    videoId: "https://www.youtube.com/watch?v=huRs1xw8Cfc",
     alt: "Akshita - PGDM 2023 · KPMG",
-    thumbnail: "https://img.youtube.com/vi/huRs1xw8Cfc/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/huRs1xw8Cfc/maxresdefault.jpg`,
   },
   {
-    videoId: "3zQr7bXzYek",
+    videoId: "https://www.youtube.com/watch?v=3zQr7bXzYek",
     alt: "Sarvesh Rathi - PGDM 2024 · Asian Paints",
-    thumbnail: "https://img.youtube.com/vi/3zQr7bXzYek/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/3zQr7bXzYek/maxresdefault.jpg`,
   },
   {
-    videoId: "waiRCPTGtro",
+    videoId: "https://www.youtube.com/watch?v=waiRCPTGtro",
     alt: "Shubham Singh",
-    thumbnail: "https://img.youtube.com/vi/waiRCPTGtro/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/waiRCPTGtro/maxresdefault.jpg`,
   },
   {
-    videoId: "SGFAi8MpnS4",
+    videoId: "https://www.youtube.com/watch?v=SGFAi8MpnS4",
     alt: "Ayesha Begum",
-    thumbnail: "https://img.youtube.com/vi/SGFAi8MpnS4/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/SGFAi8MpnS4/maxresdefault.jpg`,
   },
   {
-    videoId: "39XOoUacs9Q",
+    videoId: "https://www.youtube.com/watch?v=39XOoUacs9Q",
     alt: "Ann Jacob",
-    thumbnail: "https://img.youtube.com/vi/39XOoUacs9Q/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/39XOoUacs9Q/maxresdefault.jpg`,
   },
   {
-    videoId: "tbfW_5bGKm4",
+    videoId: "https://www.youtube.com/watch?v=tbfW_5bGKm4",
     alt: "Gayatri Reddy - PGDM 2023 · Deloitte",
-    thumbnail: "https://img.youtube.com/vi/tbfW_5bGKm4/maxresdefault.jpg",
+    thumbnail: `https://img.youtube.com/vi/tbfW_5bGKm4/maxresdefault.jpg`,
   },
-]
+];
+
+const getYouTubeVideoId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
 
 export default function SSIMStories() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVideoId, setSelectedVideoId] = useState(null);
+
+  const handleVideoClick = (videoUrl) => {
+    const videoId = getYouTubeVideoId(videoUrl);
+    if (videoId) {
+      setSelectedVideoId(videoId);
+      setIsModalOpen(true);
+    }
+  };
+
   return (
-    <div className="w-full bg-blue px-[60px] py-[80px]">
-      <div className="text-center mb-12">
-        <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+    <div className="w-full bg-navy px-[60px] py-[60px]">
+      <div className="text-center mb-6 flex flex-col items-center">
+        <span className="inline-block bg-[rgba(213,231,255,0.15)] text-sky text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           SSIM Stories
         </span>
-        <h2 className="font-playfair text-white leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
-          Hear from Our Alumni
-        </h2>
+        <WordPullUp
+          words="Hear from Our Alumni"
+          tag="h2"
+          className="font-playfair text-white leading-[1.2] mb-4 text-center"
+          style={{ fontSize: "clamp(26px, 3.5vw, 42px)" }}
+        />
       </div>
 
-      {/* Video Carousel */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
         {slides.map((slide, index) => (
           <div
             key={index}
             className="relative aspect-video rounded-lg overflow-hidden shadow-xl group cursor-pointer"
+            onClick={() => handleVideoClick(slide.videoId)}
           >
             <img
               src={slide.thumbnail}
@@ -70,6 +93,22 @@ export default function SSIMStories() {
           </div>
         ))}
       </div>
+
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="sm:max-w-4xl border-none bg-transparent p-0">
+          <DialogClose className="absolute -top-10 right-0 text-white hover:text-gray-300 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+            Close
+          </DialogClose>
+          <div className="w-full aspect-video">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${selectedVideoId}?rel=0&modestbranding=1&playsinline=1&autoplay=1`}
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
-  )
+  );
 }

@@ -25,6 +25,7 @@ export default function WordPullUp({
   },
 
   className,
+  ...props
 }) {
   // Detect when the component is near the center of the viewport
   const { ref, inView } = useInView({
@@ -46,6 +47,7 @@ export default function WordPullUp({
         "font-display text-center text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm",
         className
       )}
+      {...props}
     >
       {words.split(" ").map((word, i) => (
         <motion.span

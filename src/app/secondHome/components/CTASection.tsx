@@ -1,26 +1,17 @@
-import Image from 'next/image'
-
 export default function CTASection() {
   return (
-    <section className="relative overflow-hidden">
-      <Image
-        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&q=80&auto=format&fit=crop"
-        alt="Graduation"
-        fill
-        className="object-cover"
-      />
-      <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(135deg, rgba(220,38,38,.93), rgba(185,28,28,.88))' }}
-      />
-      <div className="relative z-[2] px-[60px] py-[80px] text-center">
-        <h2 className="font-playfair text-white mb-4" style={{fontSize:'clamp(28px,4vw,48px)'}}>
+    <section 
+      className="px-[60px] py-[60px] text-center"
+      style={{ background: 'linear-gradient(135deg, #DC2626, #B91C1C)' }}
+    >
+      <div className="max-w-4xl mx-auto">
+        <h2 className="font-playfair text-white mb-2" style={{fontSize:'clamp(28px,4vw,48px)'}}>
           Your Transformative Journey Starts Here
         </h2>
-        <p className="text-[rgba(255,255,255,0.88)] text-[16px] mb-9">
+        <p className="text-[rgba(255,255,255,0.88)] text-[16px] mb-6">
           Join 30,000+ alumni and become part of SSIM&apos;s legacy of excellence. Admissions open for 2026–2028 batch.
         </p>
-        <div className="flex gap-4 justify-center flex-wrap">
+        <div className="flex gap-4 justify-center flex-wrap mt-4">
           <a
             href="https://apply.ssim.ac.in"
             target="_blank"

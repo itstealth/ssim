@@ -6,32 +6,32 @@ const programs = [
     title: 'PGDM',
     sub: 'Triple Specialisation · 2 Years · NBA Accredited',
     highlight: true,
-    img: '/Home/Education.webp',
+    img: '/admissions/admissions.webp',
     link: '/programs/pgdm-triple-specialisation',
   },
   {
     title: 'PGDM – BIFS',
     sub: 'Banking, Insurance & Financial Services',
-    img: '/Home/Labs.webp',
+    img: '/admissions/statement-of-purpose.jpg',
     link: '/programs/pgdm-bifs',
   },
   {
     title: 'PGDM – BA',
     sub: 'Business Analytics · Data-Driven Leadership',
-    img: '/Home/Placements.webp',
+    img: '/admissions/interview.png',
     link: '/programs/pgdm-ba',
   },
   {
     title: 'FPM / EFPM',
     sub: 'Fellow Program In Management',
-    img: '/Home/Auditorium.webp',
+    img: '/admissions/documents-submission.png',
     link: '/programs/fpm-efpm',
   },
 ]
 
 export default function Programs() {
   return (
-    <section id="programs" className="bg-light px-[60px] py-[80px]">
+    <section id="programs" className="bg-light px-[60px] py-[60px]">
       <div className="text-center">
         <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Academic Programs
@@ -44,11 +44,12 @@ export default function Programs() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[22px] mt-[50px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[22px] mt-[30px]">
         {programs.map((p) => (
-          <div
+          <Link
+            href={p.link}
             key={p.title}
-            className="bg-white rounded-[18px] overflow-hidden transition-all duration-300 shadow-[0_2px_12px_rgba(16,34,105,0.07)] border border-border hover:-translate-y-[6px] hover:shadow-[0_16px_40px_rgba(16,34,105,0.14)] group"
+            className="bg-white rounded-[18px] overflow-hidden transition-all duration-300 shadow-[0_2px_12px_rgba(16,34,105,0.07)] border border-border hover:-translate-y-[6px] hover:shadow-[0_16px_40px_rgba(16,34,105,0.14)] group block no-underline"
           >
             <div className="relative h-[200px] overflow-hidden">
               <img
@@ -59,12 +60,12 @@ export default function Programs() {
             </div>
             <div className="p-[16px_18px]">
               <h3 className="text-navy text-[16px] font-bold mb-[2px]">{p.title}</h3>
-              <span className="text-gray text-[11px]">{p.sub}</span>
-              <Link href={p.link} className="text-blue font-bold text-[13px] no-underline inline-flex items-center gap-[5px] transition-[gap] hover:gap-[10px] mt-[14px]">
+              <div className="text-gray text-[11px] block">{p.sub}</div>
+              <div className="text-blue font-bold text-[13px] inline-flex items-center gap-[5px] transition-[gap] group-hover:gap-[10px] mt-[14px]">
                 Know More →
-              </Link>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

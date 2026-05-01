@@ -1,220 +1,245 @@
 "use client";
-import { useState } from "react";
 
-const testimonials = [
+import { useState, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+
+interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  text: string;
+  rating: number;
+  avatar: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     name: "Aditya Datta",
     role: "Executive Director",
     company: "JPMC",
-    text: "Inspiring leadership qualities. Always pushes the team forward with innovative solutions and creative problem-solving approaches.",
+    text: "The SSIM experience gave me the confidence to lead with clarity, think strategically, and build strong teams around me.",
     rating: 5,
-    avatar: "/user_images/aditya.jpg",
+    avatar: "/testimonial_images/test0.png",
   },
   {
     name: "Akshata Dani",
     role: "Technical Writer Specialist",
     company: "GOC",
-    text: "Excellent commitment and creativity. The attention to detail and fresh perspective brings new life to every project we collaborate on.",
+    text: "The learning environment here helped me sharpen my communication and approach every challenge with structure.",
     rating: 4,
-    avatar: "/user_images/daniaskhata.jpg",
+    avatar: "/testimonial_images/test1.png",
   },
   {
     name: "Itha Lakshmipathi",
     role: "AVP & Global Head - HR",
     company: "Prodapt",
-    text: "Reliable and punctual in every project. A true professional who consistently delivers outstanding results on time.",
+    text: "What I carry from SSIM is a practical mindset, strong values, and the ability to adapt quickly in the real world.",
     rating: 5,
-    avatar: "/user_images/Itha.jpg",
+    avatar: "/testimonial_images/test2.png",
   },
   {
     name: "Jaideep Avasarala",
     role: "Talent Acquisition Leader",
     company: "Microsoft",
-    text: "An amazing communicator who always keeps the team informed. Her ability to connect with clients is unmatched.",
-    rating: 4,
-    avatar: "/user_images/jaideep.jpg",
+    text: "The mentoring culture and peer learning at SSIM helped me build the discipline to keep growing in my career.",
+    rating: 5,
+    avatar: "/testimonial_images/test3.png",
   },
   {
     name: "Niraj Kumar Rana",
     role: "EVP & Head of Sales",
     company: "Naukri",
-    text: "Brings incredible data insights to every project. His analytical skills and attention to detail make all the difference.",
+    text: "SSIM pushed me to think beyond the classroom and prepare for leadership in a dynamic business environment.",
     rating: 5,
-    avatar: "/user_images/niraj.jpg",
-  },
-  {
-    name: "Parameshwar N",
-    role: "Vice-President Customer Engagement",
-    company: "SBI",
-    text: "An extraordinary thinker who knows how to capture the essence of our brand in every piece of content.",
-    rating: 5,
-    avatar: "/user_images/Parameshwar.jpg",
-  },
-  {
-    name: "Swapnil Bhele",
-    role: "Assistant Vice President",
-    company: "Citi",
-    text: "A quick problem solver who always finds efficient and scalable solutions. A great team player.",
-    rating: 4,
-    avatar: "/user_images/swapnil.jpg",
-  },
-  {
-    name: "Umesh Golecha",
-    role: "Director",
-    company: "Innova",
-    text: "Her designs are always fresh and creative, perfectly capturing the essence of every project.",
-    rating: 5,
-    avatar: "/user_images/Umesh.jpeg",
-  },
-  {
-    name: "Ankit Bhadauriya",
-    role: "National Key Account Manager",
-    company: "Dabur",
-    text: "Has a knack for making our systems run smoothly. A key player in maintaining our infrastructure.",
-    rating: 4,
-    avatar: "/user_images/Ankit.jpeg",
-  },
-  {
-    name: "Venkatesh Dixit",
-    role: "Presales Consultant",
-    company: "Cognizant",
-    text: "Consistently delivers exceptional results in improving our online presence and driving organic traffic.",
-    rating: 5,
-    avatar: "/user_images/Venkatesh.jpeg",
+    avatar: "/testimonial_images/test4.png",
   },
 ];
 
-const companyLogos = {
-  JPMC: "/Home/jpmc-logo.svg",
-  GOC: "/user_images/goc.png",
-  Microsoft: "/Home/microsoft.png",
-  Naukri: "/Home/naukri.svg",
-  SBI: "/Home/SBI_Logo.png",
-  Citi: "/Home/citi-logo.svg",
-  Prodapt: "/Home/prodapt.svg",
-  Dabur: "/Home/dabur.png",
-  Cognizant: "/Home/cognizant.svg",
-  Innova: "/Home/innova-logo.svg",
-};
-
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const activeTestimonial = testimonials[activeIndex];
+  const navigate = useCallback(
+    (newDirection: number) => {
+      setDirection(newDirection);
+      setCurrentIndex((prev) => {
+        const next = prev + newDirection;
+        if (next < 0) return testimonials.length - 1;
+        if (next >= testimonials.length) return 0;
+        return next;
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => navigate(1), 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, navigate]);
+
+  const variants = {
+    enter: (direction: number) => ({
+      opacity: 0,
+      x: direction > 0 ? 50 : -50,
+    }),
+    center: {
+      opacity: 1,
+      x: 0,
+    },
+    exit: (direction: number) => ({
+      opacity: 0,
+      x: direction > 0 ? -50 : 50,
+    }),
+  };
 
   return (
-    <section className="bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 px-[60px] py-[80px]">
-      <div className="text-center">
-        <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
-          Alumni Testimonials
-        </span>
-        <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
-          What Our Students Say
-        </h2>
-        <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mx-auto">
-          Hear from the leaders who transformed their careers at SSIM.
-        </p>
-      </div>
+    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="text-center mb-12">
+          <span className="inline-flex items-center rounded-full bg-[#002f87]/10 px-4 py-1 text-[12px] font-bold uppercase tracking-[0.14em] text-[#002f87]">
+            Alumni Testimonials
+          </span>
+          <h2 className="mt-4 font-playfair text-[clamp(2rem,4vw,3.6rem)] leading-tight text-[#101a3a]">
+            What Our Alumni Say
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-7 text-slate-600">
+            Hear from our alumni about their transformative journey at SSIM
+          </p>
+        </div>
 
-      {/* Circular Alumni Section */}
-      <div className="max-w-7xl mx-auto mt-[50px]">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-          {/* Left - Circular Image Carousel */}
-          <div className="md:col-span-2 flex justify-center items-center relative h-[20rem]">
-            <div className="relative flex justify-center items-center">
-              {testimonials.map((t, index) => {
-                const isActive = index === activeIndex;
-                const anglePerImage = 360 / testimonials.length;
-                const circleRadius = "9rem";
+        {/* Carousel */}
+        <div
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="overflow-hidden rounded-3xl">
+            <div className="relative flex items-center justify-center min-h-[400px]">
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={currentIndex}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="absolute inset-0 flex items-center justify-center px-4"
+                >
+                  <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 max-w-2xl w-full">
+                    <div className="flex flex-col md:flex-row gap-8 items-center">
+                      {/* Avatar */}
+                      <div className="flex-shrink-0">
+                        <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-lg">
+                          <img
+                            src={testimonials[currentIndex].avatar}
+                            alt={testimonials[currentIndex].name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
 
-                if (isActive) {
-                  return (
-                    <div
-                      key={index}
-                      className="absolute w-36 h-36 rounded-full overflow-hidden shadow-xl border-4 border-white"
-                      style={{ zIndex: 10 }}
-                    >
-                      <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                      {/* Content */}
+                      <div className="flex-1 text-center md:text-left">
+                        {/* Stars */}
+                        <div className="flex items-center justify-center md:justify-start gap-1 mb-4">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              size={18}
+                              className={i < testimonials[currentIndex].rating ? "fill-yellow-400 text-yellow-400" : "fill-slate-200 text-slate-200"}
+                            />
+                          ))}
+                        </div>
+
+                        {/* Quote */}
+                        <blockquote>
+                          <p className="text-lg md:text-xl leading-relaxed text-slate-700 italic">
+                            &ldquo;{testimonials[currentIndex].text}&rdquo;
+                          </p>
+                        </blockquote>
+
+                        {/* Author */}
+                        <div className="mt-6">
+                          <p className="text-lg font-semibold text-[#101a3a]">
+                            {testimonials[currentIndex].name}
+                          </p>
+                          <p className="text-sm text-slate-500">
+                            {testimonials[currentIndex].role} · {testimonials[currentIndex].company}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  );
-                }
-                return null;
-              })}
-
-              {/* Surrounding circle */}
-              <div className="absolute w-64 h-64">
-                {testimonials.map((t, index) => {
-                  if (index === activeIndex) return null;
-                  const anglePerImage = 360 / (testimonials.length - 1);
-                  const angle = anglePerImage * index;
-                  const radians = (angle - 90) * Math.PI / 180;
-                  const x = Math.cos(radians) * 8 + 8;
-                  const y = Math.sin(radians) * 8 + 8;
-
-                  return (
-                    <div
-                      key={index}
-                      className="absolute w-16 h-16 rounded-full overflow-hidden shadow-lg cursor-pointer border-2 border-white/50 hover:border-white transition-all"
-                      style={{
-                        left: `${x}rem`,
-                        top: `${y}rem`,
-                        transform: 'translate(-50%, -50%)',
-                      }}
-                      onClick={() => setActiveIndex(index)}
-                    >
-                      <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
-                    </div>
-                  );
-                })}
-              </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
 
-          {/* Right - Testimonial Content */}
-          <div className="md:col-span-3 text-center md:text-left">
-            <div className="flex justify-center md:justify-start items-center mb-4">
-              {[...Array(5)].map((_, i) => (
-                <span
-                  key={i}
-                  className={`text-xl ${i < activeTestimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                >
-                  ★
-                </span>
+          {/* Navigation */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              onClick={() => navigate(-1)}
+              className="p-3 rounded-full border border-slate-200 bg-white text-[#101a3a] shadow-sm hover:bg-slate-50 hover:border-slate-300 transition-all hover:-translate-y-0.5"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setDirection(index > currentIndex ? 1 : -1);
+                    setCurrentIndex(index);
+                  }}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? "w-10 bg-[#002f87]" : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
               ))}
             </div>
-            <p className="text-lg md:text-xl text-gray-700 mb-6 italic">
-              &quot;{activeTestimonial.text}&quot;
-            </p>
-            <div className="flex items-center gap-4">
-              <img
-                src={companyLogos[activeTestimonial.company]}
-                alt={activeTestimonial.company}
-                className="h-8 w-auto object-contain"
-              />
-            </div>
-            <div className="mt-4">
-              <p className="text-lg font-semibold text-gray-800">{activeTestimonial.name}</p>
-              <p className="text-sm text-gray-500">{activeTestimonial.role}</p>
-            </div>
 
-            {/* Navigation */}
-            <div className="flex gap-4 mt-6 justify-center md:justify-start">
+            <button
+              onClick={() => navigate(1)}
+              className="p-3 rounded-full bg-[#d92b2b] text-white shadow-sm hover:bg-[#bf2020] transition-all hover:-translate-y-0.5"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Thumbnails */}
+          <div className="flex items-center justify-center gap-3 mt-6">
+            {testimonials.map((t, index) => (
               <button
-                onClick={() => setActiveIndex(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
-                className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition-colors"
+                key={t.name}
+                onClick={() => {
+                  setDirection(index > currentIndex ? 1 : -1);
+                  setCurrentIndex(index);
+                }}
+                className={`group overflow-hidden rounded-xl border-2 transition-all duration-300 ${
+                  index === currentIndex ? "border-[#002f87] ring-2 ring-[#002f87]/20" : "border-transparent hover:border-slate-300"
+                }`}
               >
-                ←
+                <div className="relative w-16 h-16">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
               </button>
-              <button
-                onClick={() => setActiveIndex(prev => prev === testimonials.length - 1 ? 0 : prev + 1)}
-                className="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition-colors"
-              >
-                →
-              </button>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

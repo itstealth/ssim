@@ -11,11 +11,11 @@ const reasons = [
 
 export default function WhySSIM() {
   return (
-    <section id="why" className="bg-white px-[60px] py-[80px]">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mt-0">
+    <section id="why" className="px-[60px] py-[60px] bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-0">
         <div className="lg:sticky lg:top-20 lg:h-[calc(100vh-160px)]">
           <Image
-            src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80&auto=format&fit=crop"
+            src="/about_ssim/aboutssim.webp"
             alt="Why SSIM"
             width={800}
             height={480}
@@ -29,7 +29,7 @@ export default function WhySSIM() {
           <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
             Your Gateway to Leadership Excellence
           </h2>
-          <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mb-[26px]">
+          <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mb-[14px]">
             Six compelling reasons why SSIM is the right choice for your management journey.
           </p>
           <div className="grid grid-cols-2 gap-[18px]">

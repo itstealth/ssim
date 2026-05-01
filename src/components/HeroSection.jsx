@@ -7,19 +7,19 @@ const HeroSection = ({
   className = ""
 }) => {
   return (
-    <section className={`relative w-full h-full md:h-screen ${className}`}>
+    <section className={`relative w-full overflow-hidden flex flex-col ${className}`}>
       {/* Desktop Image */}
       <img
         src={desktopImageSrc}
         alt={altText}
-        className="object-cover object-center hidden md:block"
+        className="w-full h-auto object-cover object-center hidden md:block"
       />
       
       {/* Mobile Image */}
       <img
         src={mobileImageSrc}
         alt={altText}
-        className="object-cover object-center block md:hidden"
+        className="w-full h-auto object-cover object-center block md:hidden"
       />
     </section>
   );

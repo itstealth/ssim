@@ -1,16 +1,17 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const gallery = [
-  { src: '/Home/Events.webp', caption: 'Main Campus · Kompally, Hyderabad', tall: true },
-  { src: '/Home/Education.webp', caption: 'Smart Classrooms' },
-  { src: '/Home/Sports.webp', caption: 'Sports & Recreation' },
-  { src: '/Home/Labs.webp', caption: 'Digital Library' },
-  { src: '/Home/Auditorium.webp', caption: 'Cultural Events & Fests' },
+  { src: '/studentslife/life-at-ssim/samaroh-2026/1.webp', caption: 'Main Campus · Kompally, Hyderabad', tall: true },
+  { src: '/studentslife/life-at-ssim/samaroh-2026/2.webp', caption: 'Campus Celebration' },
+  { src: '/studentslife/life-at-ssim/samaroh-2026/3.webp', caption: 'Student Participation' },
+  { src: '/studentslife/life-at-ssim/samaroh-2026/4.webp', caption: 'Cultural Showcase' },
+  { src: '/studentslife/life-at-ssim/samaroh-2026/5.webp', caption: 'Memorable Moments' },
 ]
 
 export default function CampusLife() {
   return (
-    <section className="bg-navy px-[60px] py-[80px]">
+    <section className="bg-navy px-[60px] py-[60px]">
       <div className="text-center">
         <span className="inline-block bg-[rgba(213,231,255,0.15)] text-sky text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Campus Life
@@ -25,7 +26,7 @@ export default function CampusLife() {
 
       {/* Gallery Grid */}
       <div
-        className="mt-11"
+        className="mt-6"
         style={{
           display: 'grid',
           gridTemplateColumns: '2fr 1fr 1fr',
@@ -34,9 +35,10 @@ export default function CampusLife() {
         }}
       >
         {gallery.map((item, i) => (
-          <div
+          <Link
+            href="/students-life/life-at-ssim"
             key={i}
-            className="relative overflow-hidden rounded-[14px] group"
+            className="relative overflow-hidden rounded-[14px] group block"
             style={item.tall ? { gridRow: '1 / 3' } : {}}
           >
             <img
@@ -50,7 +52,7 @@ export default function CampusLife() {
             >
               {item.caption}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

@@ -8,15 +8,15 @@ const stats = [
   { icon: '📅', value: '35', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
   { icon: '🤝', value: '350+', label: 'Corporate', desc: 'Partners' },
   { icon: '🎓', value: '6500+', label: 'Alumni', desc: 'Network' },
-  { icon: '💰', value: '₹90000', label: 'Merit', desc: 'Scholarship' },
+  { icon: '💰', value: '₹1 Lakh', label: 'Merit', desc: 'Scholarship' },
   { icon: '🧠', value: '50+', label: 'New Age', desc: 'Specializations' },
   { icon: '📚', value: '9', label: 'Value Added', desc: 'Certification Programs' },
 ]
 
 export default function About() {
   return (
-    <section id="about" className="px-[60px] py-[80px] bg-white">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <section id="about" className="px-[60px] py-[60px] bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Left Column - Image */}
         <div className="lg:sticky lg:top-20 hidden lg:block h-fit">
           <div className="overflow-hidden shadow-2xl rounded-none">
@@ -26,7 +26,7 @@ export default function About() {
                 src={AboutSSIM}
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
               />
-              <div className="absolute top-4 left-4 bg-red-600 animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
+              <div className="absolute top-4 left-4 bg-red animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
                 🎓 Excellence in Education
               </div>
             </div>
@@ -34,18 +34,18 @@ export default function About() {
         </div>
 
         {/* Right Column - Content */}
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px]">
+        <div className="space-y-4">
+          <div className="space-y-3">
+            <span className="inline-block bg-sky text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px]">
               About SSIM
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-red-600">
+            <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
               Top Management Institute in Hyderabad
-            </h1>
-            <div className="w-32 h-1.5 bg-red-600/80 rounded-none" />
+            </h2>
+            <div className="w-32 h-1.5 bg-red rounded-full" />
           </div>
 
-          <div className="space-y-4 text-gray-600">
+          <div className="space-y-3 text-gray-600">
             <p className="text-lg leading-relaxed">
               Located in the heart of Hyderabad and Secunderabad, Siva Sivani Institute
               of Management (SSIM) is a <strong>premier institution with over three decades of excellence</strong>{" "}
@@ -61,7 +61,7 @@ export default function About() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mt-6">
             {stats.map((stat, index) => (
               <div
                 key={index}
@@ -69,9 +69,9 @@ export default function About() {
               >
                 <div className="flex flex-col space-y-2">
                   <div className="text-2xl">{stat.icon}</div>
-                  <div className="text-3xl font-bold text-mainBlue">{stat.value}</div>
-                  <div className="text-sm font-medium text-gray-600">{stat.label}</div>
-                  <div className="text-xs text-gray-500">{stat.desc}</div>
+                  <div className="text-3xl font-bold text-blue">{stat.value}</div>
+                  <div className="text-sm font-medium text-navy">{stat.label}</div>
+                  <div className="text-xs text-gray">{stat.desc}</div>
                 </div>
               </div>
             ))}
@@ -82,11 +82,11 @@ export default function About() {
             href="/about/vision-mission"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="inline-flex items-center gap-0 mt-8">
-              <div className="bg-red-600 h-11 flex items-center px-8 text-white hover:bg-red-700 transition-colors">
+            <div className="inline-flex items-center gap-0 mt-6">
+              <div className="bg-red h-11 flex items-center px-8 text-white hover:bg-red/90 transition-colors rounded-l-[10px]">
                 Learn More About SSIM
               </div>
-              <div className="bg-mainBlue h-11 flex items-center px-4 text-white">
+              <div className="bg-navy h-11 flex items-center px-4 text-white rounded-r-[10px]">
                 →
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function About() {
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
               />
-              <div className="absolute top-4 left-4 bg-red-600 animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
+              <div className="absolute top-4 left-4 bg-red animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
                 🎓 Excellence in Education
               </div>
             </div>

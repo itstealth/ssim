@@ -147,7 +147,7 @@ export default function Navbar() {
       <Link href="/" className="flex items-center gap-3 no-underline">
         {!logoError ? (
           <Image
-            src="https://ssim.ac.in/logo%20ssim.png"
+            src="/logo ssim.png"
             alt="SSIM Logo"
             width={52}
             height={52}
@@ -167,23 +167,29 @@ export default function Navbar() {
           <li key={item.name} className="nav-group relative group">
             {item.dropdown ? (
               <>
-                <button className="nav-link-item flex items-center gap-1 cursor-pointer whitespace-nowrap">
+                <button className="nav-link-item nav-link-trigger cursor-pointer whitespace-nowrap">
                   {item.name}
                   <ChevronDown size={14} className="flex-shrink-0" />
                 </button>
-                <div className="dropdown absolute hidden group-hover:block top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[220px] z-50">
+                <div
+                  className="dropdown absolute hidden group-hover:block top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[220px] z-50 overflow-visible"
+                >
                   {item.dropdown.map((subItem) => (
-                    <div key={subItem.name}>
+                    <div key={subItem.name} className="relative group/sub">
                       {subItem.subDropdown ? (
-                        <div className="relative group/sub">
+                        <>
                           <Link
                             href={subItem.path || '#'}
-                            className="flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors text-sm"
+                            className="nav-sub-trigger h-11 px-4 text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors text-sm"
                           >
-                            {subItem.name}
+                            <span className="whitespace-nowrap">{subItem.name}</span>
                             <ChevronRight size={12} />
                           </Link>
-                          <div className="dropdown absolute hidden group-hover/sub:block left-full top-0 bg-white shadow-xl rounded-lg py-2 min-w-[200px] z-50">
+                          <div
+                            className={`submenu-flyout absolute hidden group-hover/sub:block top-0 bg-white border border-gray-200 shadow-[0_8px_24px_rgba(16,34,105,0.14)] rounded-lg py-2 min-w-[240px] z-[60] ${
+                              item.name === "Student's Life" ? 'right-full' : 'left-full'
+                            }`}
+                          >
                             {subItem.subDropdown.map((sub) => (
                               <Link
                                 key={sub.name}
@@ -194,7 +200,7 @@ export default function Navbar() {
                               </Link>
                             ))}
                           </div>
-                        </div>
+                        </>
                       ) : (
                         <Link
                           href={subItem.path}
