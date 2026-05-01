@@ -25,6 +25,9 @@ const navItems = [
       { name: 'Board of Studies', path: '/about/board-of-studies' },
       { name: 'Message from Leaders', path: '/about/message-from-leaders' },
       { name: 'Vision & Mission', path: '/about/vision-mission' },
+      { name: 'International Relations', path: '/international-relations' },
+      { name: 'Virtual Tour', path: '/virtual-tour' },
+      { name: 'Contact Us', path: '/contact-us' },
     ],
   },
   {
@@ -77,10 +80,6 @@ const navItems = [
     ],
   },
   {
-    name: 'International Relations',
-    path: '/international-relations',
-  },
-  {
     name: 'Corporate Connect',
     dropdown: [
       { name: 'Placement', path: '/placement/records' },
@@ -101,14 +100,6 @@ const navItems = [
       },
       { name: 'Life at SSIM', path: '/students-life/life-at-ssim' },
     ],
-  },
-  {
-    name: 'Virtual Tour',
-    path: '/virtual-tour',
-  },
-  {
-    name: 'Contact Us',
-    path: '/contact-us',
   },
 ]
 
