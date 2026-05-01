@@ -1,20 +1,32 @@
-"use client";
+"use client"
 
-import { usePathname } from "next/navigation";
-import Header from "@/pages/Header/Header";
-import Footer from "@/pages/Footer/Footer";
-import ConditionalBanner from "@/components/ConditionalBanner";
-import { DockButtons } from "@/components/DockButtons";
-import EnquireNowButton from "@/components/EnquireNowButton";
-import Image from "next/image";
+import { usePathname } from "next/navigation"
+import TopBar from "@/pages/Header/TopBar"
+import BannerNav from "@/pages/Header/BannerNav"
+import Navbar from "@/app/secondHome/components/Navbar"
+import Footer from "@/pages/Footer/Footer"
+import ConditionalBanner from "@/components/ConditionalBanner"
+import { DockButtons } from "@/components/DockButtons"
+import EnquireNowButton from "@/components/EnquireNowButton"
+import Image from "next/image"
 
 export default function ConditionalLayout({ children }) {
-  const pathname = usePathname();
-  const hideLayoutElements = pathname === "/thank-you" || pathname === "/pgdm-admissions";
+  const pathname = usePathname()
+  const hideLayoutElements = pathname === "/thank-you" || pathname === "/pgdm-admissions"
 
   return (
     <>
-      {!hideLayoutElements && <Header />}
+      {!hideLayoutElements && (
+        <>
+          <TopBar />
+          <div className="hidden md:block">
+            <Navbar />
+          </div>
+          <div className="md:hidden">
+            <BannerNav />
+          </div>
+        </>
+      )}
       {!hideLayoutElements && <ConditionalBanner />}
       <main>{children}</main>
       {!hideLayoutElements && <Footer />}
@@ -38,6 +50,5 @@ export default function ConditionalLayout({ children }) {
         </div>
       )}
     </>
-  );
+  )
 }
-

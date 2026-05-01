@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useIsMobile } from "@/hooks/use-mobile";
-import Header from "@/pages/Header/Header";
 import HeroSlider from "@/pages/Home/HeroSlider";
 import AboutSection from "@/pages/Home/AboutSection";
 import AcademicPrograms from "@/pages/Home/AcademicPrograms";
