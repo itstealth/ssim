@@ -12,8 +12,8 @@ const reasons = [
 export default function WhySSIM() {
   return (
     <section id="why" className="bg-white px-[60px] py-[80px]">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mt-0">
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mt-0">
+        <div className="lg:sticky lg:top-20 lg:h-[calc(100vh-160px)]">
           <Image
             src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&q=80&auto=format&fit=crop"
             alt="Why SSIM"

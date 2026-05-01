@@ -45,7 +45,7 @@ export default function About() {
             <div className="w-32 h-1.5 bg-red-600/80 rounded-none" />
           </div>
 
-          <div className="space-y-6 text-gray-600">
+          <div className="space-y-4 text-gray-600">
             <p className="text-lg leading-relaxed">
               Located in the heart of Hyderabad and Secunderabad, Siva Sivani Institute
               of Management (SSIM) is a <strong>premier institution with over three decades of excellence</strong>{" "}
@@ -56,16 +56,7 @@ export default function About() {
             <p className="text-lg leading-relaxed">
               Recognized as an <strong>A<sup>+++</sup> B-School by Business India (2024)</strong>,
               SSIM ranks <strong>21st among private standalone B-Schools in India (Outlook 2025) and 2nd in Telangana</strong>
-              (Outlook, CSR, and GHRDC Times 2025). Its <strong>vibrant, extremely qualified, and talented alumni network spans across the globe</strong>,
-              fostering valuable professional connections and success stories across industries, domains, and profiles.
-            </p>
-            <p className="text-lg leading-relaxed">
-              With a focus on <strong>holistic development of individuals</strong> with special inclination towards{" "}
-              <strong>critical decision-making bordering on creativity, innovation, sustainability, ethics, and practical applicability</strong>,
-              SSIM continues to shape future-ready leaders year-on-year.
-            </p>
-            <p className="text-lg leading-relaxed font-medium">
-              Embark on your transformative journey with SSIM today and unlock limitless opportunities of growth and success ready to embrace you!!!
+              (Outlook, CSR, and GHRDC Times 2025). Its <strong>vibrant, extremely qualified, and talented alumni network spans across the globe</strong>.
             </p>
           </div>
 

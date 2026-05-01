@@ -17,7 +17,7 @@ export default function Scholarship() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mt-[50px]">
         {/* Image Column */}
-        <div className="relative">
+        <div className="relative lg:sticky lg:top-20 h-fit">
           <Image
             src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80&auto=format&fit=crop"
             alt="Scholarship"

@@ -3,32 +3,24 @@ import Link from 'next/link'
 
 const placementCards = [
   { icon: '💰', num: '₹30L+', title: 'Highest Package', desc: 'Exceptional CTC by top-performing graduates' },
-  { icon: '🏢', num: '500+', title: 'Companies Visit SSIM', desc: 'MNCs, Big 4, FMCG, BFSI & consulting firms' },
+  { icon: '🏢', num: '350+', title: 'Companies Visit SSIM', desc: 'MNCs, Big 4, FMCG, BFSI & consulting firms' },
   { icon: '📈', num: '95%+', title: 'Placement Rate', desc: 'Consistently high placement outcomes' },
-  { icon: '🌐', num: '50+', title: 'Countries', desc: 'Alumni working across the globe in top roles' },
+  { icon: '🌐', num: '500+', title: 'Alumni Network', desc: 'Working across the globe in top roles' },
 ]
 
 const recruiters = [
-  { name: 'KPMG', logo: '/Home/citi-logo.svg' },
-  { name: 'Deloitte', logo: '/Home/citi-logo.svg' },
-  { name: 'Asian Paints', logo: '/Home/dabur.png' },
-  { name: 'ITC', logo: '/Home/dabur.png' },
-  { name: 'Aditya Birla Group', logo: '/Home/dabur.png' },
-  { name: 'EY', logo: '/Home/citi-logo.svg' },
-  { name: 'Amazon', logo: '/Home/microsoft.png' },
-  { name: 'Wipro', logo: '/Home/microsoft.png' },
-  { name: 'HDFC Bank', logo: '/Home/SBI_Logo.png' },
-  { name: 'Axis Bank', logo: '/Home/SBI_Logo.png' },
-  { name: 'Kotak Mahindra', logo: '/Home/SBI_Logo.png' },
-  { name: 'JPMC', logo: '/Home/jpmc-logo.svg' },
-  { name: 'Citi', logo: '/Home/citi-logo.svg' },
-  { name: 'Microsoft', logo: '/Home/microsoft.png' },
-  { name: 'Cognizant', logo: '/Home/cognizant.svg' },
-  { name: 'Dabur', logo: '/Home/dabur.png' },
-  { name: 'Naukri', logo: '/Home/naukri.svg' },
-  { name: 'Prodapt', logo: '/Home/prodapt.svg' },
-  { name: 'Innova', logo: '/Home/innova-logo.svg' },
-  { name: 'SBI', logo: '/Home/SBI_Logo.png' },
+  { name: 'KPMG', logo: '/placement-logos/kpmg.png' },
+  { name: 'Deloitte', logo: '/placement-logos/deloitte.png' },
+  { name: 'Asian Paints', logo: '/placement-logos/asian-paints.png' },
+  { name: 'ITC', logo: '/placement-logos/itc.png' },
+  { name: 'Aditya Birla', logo: '/placement-logos/aditya-birla.png' },
+  { name: 'Oxane', logo: '/placement-logos/oxane.png' },
+  { name: 'Nestle', logo: '/placement-logos/nestle.png' },
+  { name: 'Godrej', logo: '/placement-logos/godrej-jersey.png' },
+  { name: 'Lloyds', logo: '/placement-logos/lloyds.webp' },
+  { name: 'Sneha', logo: '/placement-logos/sneha.png' },
+  { name: 'Praval', logo: '/placement-logos/PRAVAL.webp' },
+  { name: 'Berkadia', logo: '/placement-logos/berkadia.png' },
 ]
 
 export default function Placements() {
@@ -67,16 +59,35 @@ export default function Placements() {
         </div>
 
         {/* Image column */}
-        <div className="flex flex-col gap-3">
-          <img
-            src="/Home/Placements.webp"
-            alt="SSIM Placement Drive"
-            className="w-full h-[320px] object-cover rounded-[18px]"
-          />
-          <div className="flex gap-[10px]">
-            {['/Home/Education.webp', '/Home/Events.webp', '/Home/Sports.webp'].map((src, i) => (
-              <img key={i} src={src} alt="placement" className="flex-1 h-[90px] object-cover rounded-[10px]" />
-            ))}
+        <div className="w-full max-w-[560px] lg:sticky lg:top-20">
+          <div className="grid gap-3">
+            <div className="relative overflow-hidden rounded-[18px] shadow-[0_10px_30px_rgba(11,31,59,0.08)] aspect-[16/10]">
+              <Image
+                src="/Home/Placements.webp"
+                alt="SSIM Placement Drive"
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+                sizes="(max-width: 1024px) 100vw, 560px"
+                priority
+              />
+            </div>
+
+            <div className="grid grid-cols-3 gap-3">
+              {['/Home/Education.webp', '/Home/Events.webp', '/Home/Sports.webp'].map((src, i) => (
+                <div
+                  key={src}
+                  className="relative overflow-hidden rounded-[12px] aspect-[4/3] shadow-[0_8px_24px_rgba(11,31,59,0.06)]"
+                >
+                  <Image
+                    src={src}
+                    alt={`Placement gallery ${i + 1}`}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-[1.04]"
+                    sizes="(max-width: 1024px) 33vw, 180px"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -84,15 +95,11 @@ export default function Placements() {
       {/* Recruiter Strip */}
       <div className="mt-11 p-[26px] bg-white rounded-2xl border border-border overflow-hidden">
         <h4 className="text-center text-navy text-[15px] font-bold mb-[22px]">Our Phenomenal Recruiters</h4>
-        <div className="overflow-x-auto">
-          <div className="flex gap-4 min-w-max">
+        <div className="relative overflow-hidden">
+          <div className="flex gap-8 animate-scroll">
             {[...recruiters, ...recruiters].map((r, i) => (
-              <div
-                key={i}
-                className="bg-light border border-border rounded-lg px-5 py-[9px] font-extrabold text-[13px] text-navy whitespace-nowrap flex-shrink-0 flex items-center gap-2"
-              >
-                <img src={r.logo} alt={r.name} className="h-5 w-auto object-contain" />
-                {r.name}
+              <div key={i} className="flex-shrink-0">
+                <img src={r.logo} alt={r.name} className="h-12 w-auto object-contain" />
               </div>
             ))}
           </div>

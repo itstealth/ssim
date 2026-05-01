@@ -1,9 +1,9 @@
 const stats = [
-  { num: '32', sup: '+', label: 'Years of Excellence' },
-  { num: '300', sup: '+', label: 'Corporate Partners' },
-  { num: '30K', sup: '+', label: 'Alumni Network' },
-  { num: '₹30L', sup: '+', label: 'Highest Package' },
-  { num: '5', sup: '+', label: 'New-Age Specialisations' },
+  { num: '35', sup: '+', label: 'Years of Excellence' },
+  { num: '350', sup: '+', label: 'Corporate Partners' },
+  { num: '6500', sup: '+', label: 'Alumni Network' },
+  { num: '50', sup: '+', label: 'New-Age Specialisations' },
+  { num: '9', sup: '', label: 'Certification Programs' },
 ]
 
 export default function StatsBanner() {
