@@ -159,10 +159,6 @@ export default function Navbar() {
             S
           </div>
         )}
-        <div className="logo-text">
-          <strong className="font-playfair text-xl text-navy block leading-tight">SSIM</strong>
-          <span className="text-[10px] text-gray">Siva Sivani Institute of Management</span>
-        </div>
       </Link>
 
       {/* Desktop Nav Links */}
