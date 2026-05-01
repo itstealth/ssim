@@ -1,5 +1,6 @@
+import TopBar from '@/pages/Header/TopBar'
+import BannerNav from '@/pages/Header/BannerNav'
 import Navbar from './components/Navbar'
-import TopBar from './components/TopBar'
 import Hero from './components/Hero'
 import AccredBar from './components/AccredBar'
 import About from './components/About'
@@ -18,8 +19,13 @@ import Footer from './components/Footer'
 export default function SecondHome() {
   return (
     <>
-      <Navbar />
       <TopBar />
+      <div className="hidden md:block">
+        <Navbar />
+      </div>
+      <div className="md:hidden">
+        <BannerNav />
+      </div>
       <Hero />
       <AccredBar />
       <About />
