@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation"
 import TopBar from "@/pages/Header/TopBar"
 import BannerNav from "@/pages/Header/BannerNav"
-import Navbar from "@/app/secondHome/components/Navbar"
 import Footer from "@/pages/Footer/Footer"
 import ConditionalBanner from "@/components/ConditionalBanner"
 import { DockButtons } from "@/components/DockButtons"
@@ -17,15 +16,10 @@ export default function ConditionalLayout({ children }) {
   return (
     <>
       {!hideLayoutElements && (
-        <>
+        <header>
           <TopBar />
-          <div className="hidden md:block">
-            <Navbar />
-          </div>
-          <div className="md:hidden">
-            <BannerNav />
-          </div>
-        </>
+          <BannerNav />
+        </header>
       )}
       {!hideLayoutElements && <ConditionalBanner />}
       <main>{children}</main>
