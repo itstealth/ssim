@@ -26,7 +26,10 @@ export default function Faculty() {
   const scrollByCards = useCallback((direction: 'left' | 'right') => {
     const track = trackRef.current
     if (!track || isScrollingRef.current) return
-    const amount = 260
+    
+    // Get the exact width of one card + the gap (16px)
+    const cardWidth = track.firstElementChild?.clientWidth || 240
+    const amount = cardWidth + 16
     const scrollAmount = direction === 'left' ? -amount : amount
 
     const newScrollLeft = track.scrollLeft + scrollAmount
@@ -58,7 +61,7 @@ export default function Faculty() {
   return (
     <section
       id="faculty"
-      className="bg-light px-4 py-[60px] sm:px-6 lg:px-[60px]"
+      className="bg-light px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -101,27 +104,31 @@ export default function Faculty() {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {faculty.map((f) => (
-              <article
-                key={f.name}
-                className="min-w-[240px] snap-start flex-shrink-0 overflow-hidden rounded-[18px] border border-border bg-white shadow-[0_10px_30px_rgba(16,34,105,0.08)] transition-transform duration-300 hover:-translate-y-1 w-[calc((100%-64px)/5)]"
+              <div 
+                key={f.name} 
+                className="snap-center sm:snap-start flex-shrink-0 flex justify-center sm:block w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] max-w-[400px]"
               >
-                <div className="relative aspect-[3/4] bg-gradient-to-b from-[#edf4ff] to-white overflow-hidden">
-                  <Image
-                    src={f.img}
-                    alt={f.name}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-[1.02]"
-                    style={{ objectPosition: 'center 16%' }}
-                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 28vw, 240px"
-                    priority={false}
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="mb-1 text-[14px] font-bold text-navy leading-tight">{f.name}</h3>
-                  <div className="mb-1 text-[11.5px] font-semibold text-blue leading-tight">{f.role}</div>
-                  <div className="text-[11px] text-gray">{f.exp}</div>
-                </div>
-              </article>
+                <article
+                  className="overflow-hidden rounded-[18px] border border-border bg-white shadow-[0_10px_30px_rgba(16,34,105,0.08)] transition-transform duration-300 hover:-translate-y-1 w-[280px] sm:w-full"
+                >
+                  <div className="relative aspect-[3/4] bg-gradient-to-b from-[#edf4ff] to-white overflow-hidden">
+                    <Image
+                      src={f.img}
+                      alt={f.name}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-[1.02]"
+                      style={{ objectPosition: 'center 16%' }}
+                      sizes="(max-width: 640px) 75vw, (max-width: 1024px) 28vw, 240px"
+                      priority={false}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="mb-1 text-[14px] font-bold text-navy leading-tight">{f.name}</h3>
+                    <div className="mb-1 text-[11.5px] font-semibold text-blue leading-tight">{f.role}</div>
+                    <div className="text-[11px] text-gray">{f.exp}</div>
+                  </div>
+                </article>
+              </div>
             ))}
           </div>
         </div>

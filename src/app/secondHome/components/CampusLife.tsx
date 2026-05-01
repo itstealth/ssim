@@ -11,7 +11,7 @@ const gallery = [
 
 export default function CampusLife() {
   return (
-    <section className="bg-navy px-[60px] py-[60px]">
+    <section className="bg-navy px-4 lg:px-[60px] py-[60px]">
       <div className="text-center">
         <span className="inline-block bg-[rgba(213,231,255,0.15)] text-sky text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Campus Life
@@ -25,21 +25,16 @@ export default function CampusLife() {
       </div>
 
       {/* Gallery Grid */}
-      <div
-        className="mt-6"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr',
-          gridTemplateRows: '230px 230px',
-          gap: '14px',
-        }}
-      >
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {gallery.map((item, i) => (
           <Link
             href="/students-life/life-at-ssim"
             key={i}
-            className="relative overflow-hidden rounded-[14px] group block"
-            style={item.tall ? { gridRow: '1 / 3' } : {}}
+            className={`relative overflow-hidden rounded-[14px] group block ${
+              i === 0
+                ? 'col-span-2 row-span-2 h-[280px] md:h-[476px]'
+                : 'col-span-1 h-[150px] md:h-[230px]'
+            }`}
           >
             <img
               src={item.src}
@@ -47,8 +42,8 @@ export default function CampusLife() {
               className="object-cover w-full h-full transition-transform duration-[400ms] group-hover:scale-[1.05]"
             />
             <div
-              className="absolute bottom-0 left-0 right-0 text-white px-[14px] pt-5 pb-[10px] text-[12px] font-semibold"
-              style={{ background: 'linear-gradient(transparent, rgba(16,34,105,.85))' }}
+              className="absolute bottom-0 left-0 right-0 text-white px-[14px] pt-8 pb-[10px] text-[11px] md:text-[13px] font-semibold leading-tight"
+              style={{ background: 'linear-gradient(transparent, rgba(16,34,105,.9))' }}
             >
               {item.caption}
             </div>

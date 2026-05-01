@@ -1,6 +1,6 @@
 export default function TopBar() {
   return (
-    <div className="bg-sky px-[60px] py-2 flex justify-between items-center text-[12.5px] text-navy gap-5 flex-wrap">
+    <div className="bg-sky px-4 lg:px-[60px] py-2 flex justify-between items-center text-[12.5px] text-navy gap-5 flex-wrap">
       <div className="flex gap-6 flex-wrap">
         <a href="tel:+914027165451" className="text-navy font-medium no-underline hover:text-blue transition-colors">📞 040-2716 5451</a>
         <a href="tel:+919391114948" className="text-navy font-medium no-underline hover:text-blue transition-colors">📱 +91 93911 14948</a>

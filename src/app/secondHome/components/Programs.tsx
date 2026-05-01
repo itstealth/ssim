@@ -1,37 +1,61 @@
+"use client";
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 
 const programs = [
   {
     title: 'PGDM',
     sub: 'Triple Specialisation · 2 Years · NBA Accredited',
     highlight: true,
-    img: '/admissions/admissions.webp',
+    img: '/programs/pgdm_general.png',
     link: '/programs/pgdm-triple-specialisation',
   },
   {
     title: 'PGDM – BIFS',
     sub: 'Banking, Insurance & Financial Services',
-    img: '/admissions/statement-of-purpose.jpg',
+    img: '/programs/pgdm_bifs.png',
     link: '/programs/pgdm-bifs',
   },
   {
     title: 'PGDM – BA',
     sub: 'Business Analytics · Data-Driven Leadership',
-    img: '/admissions/interview.png',
+    img: '/programs/pgdm_ba.png',
     link: '/programs/pgdm-ba',
   },
   {
     title: 'FPM / EFPM',
     sub: 'Fellow Program In Management',
-    img: '/admissions/documents-submission.png',
+    img: '/programs/fpm_program.png',
     link: '/programs/fpm-efpm',
   },
 ]
 
 export default function Programs() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const interval = setInterval(() => {
+      // Only run auto-scroll if it's horizontally scrollable (mobile)
+      if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+        
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollContainer.scrollBy({ left: clientWidth / 2, behavior: 'smooth' });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="programs" className="bg-light px-[60px] py-[60px]">
+    <section id="programs" className="bg-light px-4 lg:px-[60px] py-[60px]">
       <div className="text-center">
         <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Academic Programs
@@ -44,12 +68,15 @@ export default function Programs() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[22px] mt-[30px]">
+      <div 
+        ref={scrollRef}
+        className="flex sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-[22px] mt-[30px] overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory sm:snap-none pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      >
         {programs.map((p) => (
           <Link
             href={p.link}
             key={p.title}
-            className="bg-white rounded-[18px] overflow-hidden transition-all duration-300 shadow-[0_2px_12px_rgba(16,34,105,0.07)] border border-border hover:-translate-y-[6px] hover:shadow-[0_16px_40px_rgba(16,34,105,0.14)] group block no-underline"
+            className="bg-white rounded-[18px] overflow-hidden transition-all duration-300 shadow-[0_2px_12px_rgba(16,34,105,0.07)] border border-border hover:-translate-y-[6px] hover:shadow-[0_16px_40px_rgba(16,34,105,0.14)] group block no-underline shrink-0 snap-center w-[85vw] sm:w-auto"
           >
             <div className="relative h-[200px] overflow-hidden">
               <img

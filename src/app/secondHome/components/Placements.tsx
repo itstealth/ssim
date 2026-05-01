@@ -21,7 +21,7 @@ export default function Placements() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="placements" className="bg-light px-4 py-[60px] sm:px-6 lg:px-[60px]">
+    <section id="placements" className="bg-light px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
           <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">

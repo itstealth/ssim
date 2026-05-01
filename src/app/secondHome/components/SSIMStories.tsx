@@ -55,8 +55,28 @@ export default function SSIMStories() {
     }
   };
 
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const interval = setInterval(() => {
+      if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollContainer.scrollBy({ left: clientWidth / 2, behavior: 'smooth' });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="w-full bg-navy px-[60px] py-[60px]">
+    <div className="w-full bg-navy px-4 lg:px-[60px] py-[60px]">
       <div className="text-center mb-6 flex flex-col items-center">
         <span className="inline-block bg-[rgba(213,231,255,0.15)] text-sky text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           SSIM Stories
@@ -69,11 +89,14 @@ export default function SSIMStories() {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[22px]">
+      <div 
+        ref={scrollRef}
+        className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-[22px] overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none pb-4 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="relative aspect-video rounded-lg overflow-hidden shadow-xl group cursor-pointer"
+            className="relative aspect-video rounded-lg overflow-hidden shadow-xl group cursor-pointer shrink-0 snap-center w-[85vw] md:w-auto"
             onClick={() => handleVideoClick(slide.videoId)}
           >
             <img

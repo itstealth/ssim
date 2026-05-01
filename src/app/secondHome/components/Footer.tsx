@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-[rgba(213,231,255,0.75)] px-[60px] pt-[60px] pb-[30px]">
+    <footer className="bg-navy text-[rgba(213,231,255,0.75)] px-4 lg:px-[60px] pt-[60px] pb-[30px]">
       <div
         className="mb-11"
         style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '44px' }}

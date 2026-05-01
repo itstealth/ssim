@@ -18,7 +18,7 @@ const recruiters = [
 
 export default function Recruiters() {
   return (
-    <section className="bg-white px-[60px] py-[60px]">
+    <section className="bg-white px-4 lg:px-[60px] pt-[60px] pb-[20px]">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-10">
           <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">

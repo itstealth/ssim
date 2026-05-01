@@ -15,7 +15,7 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="px-[60px] py-[60px] bg-white">
+    <section id="about" className="px-4 lg:px-[60px] py-[60px] bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Left Column - Image */}
         <div className="lg:sticky lg:top-20 hidden lg:block h-fit">

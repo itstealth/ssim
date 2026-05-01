@@ -1,7 +1,7 @@
 export default function CTASection() {
   return (
     <section 
-      className="px-[60px] py-[60px] text-center"
+      className="px-4 lg:px-[60px] py-[60px] text-center"
       style={{ background: 'linear-gradient(135deg, #DC2626, #B91C1C)' }}
     >
       <div className="max-w-4xl mx-auto">

@@ -239,7 +239,7 @@ export default function Navbar() {
             <Menu className="w-6 h-6 text-navy" />
           </SheetTrigger>
           <SheetContent className="bg-white overflow-auto w-[300px]">
-            <SheetHeader>
+            <SheetHeader className="text-left mb-4">
               <SheetTitle className="text-navy text-2xl font-bold text-left font-playfair">
                 SSIM
               </SheetTitle>

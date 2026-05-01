@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Scholarship() {
   return (
-    <section id="admissions" className="px-[60px] py-[60px]">
+    <section id="admissions" className="px-4 lg:px-[60px] py-[60px]">
       <div className="text-center">
         <span className="inline-block bg-sky text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Merit Scholarships

@@ -9,14 +9,16 @@ const stats = [
 export default function StatsBanner() {
   return (
     <div
-      className="px-[60px] py-14 grid text-center gap-6"
+      className="px-4 lg:px-[60px] py-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 text-center gap-8 lg:gap-6"
       style={{
         background: 'linear-gradient(135deg, #1B50EC, #0e3bbf)',
-        gridTemplateColumns: 'repeat(5, 1fr)',
       }}
     >
-      {stats.map((s) => (
-        <div key={s.label} className="text-white">
+      {stats.map((s, i) => (
+        <div 
+          key={s.label} 
+          className={`text-white ${i === 4 ? 'col-span-2 sm:col-span-1' : ''}`}
+        >
           <span className="font-playfair text-[42px] font-extrabold leading-none block mb-[6px]">
             {s.num}<sup className="text-[22px]">{s.sup}</sup>
           </span>

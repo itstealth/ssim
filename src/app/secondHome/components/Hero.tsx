@@ -67,7 +67,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/30 lg:hidden" /> {/* Extra darkening for mobile */}
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-[60px] relative z-10 w-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-4 lg:px-[60px] relative z-10 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           
           {/* Left Content Column */}
