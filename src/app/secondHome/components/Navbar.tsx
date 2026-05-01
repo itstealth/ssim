@@ -1,48 +1,159 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
+import { ChevronDown, ChevronRight, Menu } from 'lucide-react'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 
 const navItems = [
-  { label: 'Home', href: '#' },
   {
-    label: 'About ▾', href: '#',
-    children: [
-      { label: 'Vision & Mission', href: '#' },
-      { label: 'Leadership', href: '#' },
-      { label: 'Infrastructure', href: '#' },
-      { label: 'Accreditations', href: '#' },
-    ]
+    name: 'Home',
+    path: '/',
   },
   {
-    label: 'Programs ▾', href: '#',
-    children: [
-      { label: 'PGDM (Triple Specialisation)', href: '#' },
-      { label: 'PGDM – BIFS', href: '#' },
-      { label: 'PGDM – Business Analytics', href: '#' },
-      { label: 'FPM / EFPM', href: '#' },
-    ]
+    name: 'About',
+    dropdown: [
+      { name: 'Academic Advisory Board', path: '/about/academic-advisory-board' },
+      { name: 'Accreditations & Rankings', path: '/about/accreditations-rankings' },
+      { name: 'Board of Governors', path: '/about/board-of-governors' },
+      { name: 'Board of Studies', path: '/about/board-of-studies' },
+      { name: 'Message from Leaders', path: '/about/message-from-leaders' },
+      { name: 'Vision & Mission', path: '/about/vision-mission' },
+    ],
   },
-  { label: 'Admissions', href: '#' },
-  { label: 'Placements', href: '#' },
   {
-    label: 'Research ▾', href: '#',
-    children: [
-      { label: 'Faculty Research', href: '#' },
-      { label: 'Publications', href: '#' },
-      { label: 'Case Studies', href: '#' },
-    ]
+    name: 'Programs',
+    dropdown: [
+      {
+        name: 'PGDM',
+        subDropdown: [
+          { name: 'PGDM BA', path: '/programs/pgdm-ba' },
+          { name: 'PGDM BIFS', path: '/programs/pgdm-bifs' },
+          { name: 'PGDM Triple Specialisation', path: '/programs/pgdm-triple-specialisation' },
+        ],
+      },
+      { name: 'FPM/EFPM', path: '/programs/fpm-efpm' },
+    ],
   },
-  { label: 'Alumni', href: '#' },
-  { label: 'Contact', href: '#' },
+  {
+    name: 'Admissions',
+    dropdown: [
+      { name: 'FPM/EFPM', path: '/admissions/fpm-efpm' },
+      { name: 'PGDM BA', path: '/admissions/pgdm-ba' },
+      { name: 'PGDM BIFS', path: '/admissions/pgdm-bifs' },
+      { name: 'PGDM Triple Specialisation', path: '/admissions/pgdm-triple-specialisation' },
+    ],
+  },
+  {
+    name: 'Alumni',
+    dropdown: [
+      { name: 'Alumni', path: '/alumni' },
+      { name: 'Alumni Guidance', path: '/alumni-guidance' },
+      { name: 'Success Stories', path: '/success-stories' },
+    ],
+  },
+  {
+    name: 'Faculty & Research',
+    dropdown: [
+      {
+        name: 'Faculty',
+        subDropdown: [
+          { name: 'Areas', path: '/faculty/areas' },
+          { name: 'Faculty Publications', path: '/faculty/publications' },
+        ],
+      },
+      {
+        name: 'Research',
+        subDropdown: [
+          { name: 'Case Research Center', path: '/research/case-research-center' },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'International Relations',
+    path: '/international-relations',
+  },
+  {
+    name: 'Corporate Connect',
+    dropdown: [
+      { name: 'Placement', path: '/placement/records' },
+      { name: 'Placement Team', path: '/placement/team' },
+      { name: 'Internships', path: '/placement/internships' },
+      { name: 'Guest lectures', path: '/placement/guest-lectures' },
+    ],
+  },
+  {
+    name: "Student's Life",
+    dropdown: [
+      {
+        name: 'Buzz About Us',
+        subDropdown: [
+          { name: 'News', path: '/students-life/news' },
+          { name: "Student's Achievements", path: '/students-life/students-achievements' },
+        ],
+      },
+      { name: 'Life at SSIM', path: '/students-life/life-at-ssim' },
+    ],
+  },
+  {
+    name: 'Virtual Tour',
+    path: '/virtual-tour',
+  },
+  {
+    name: 'Contact Us',
+    path: '/contact-us',
+  },
 ]
+
+const CollapsibleNavItem = ({ item }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="border-b border-gray-100">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full py-3 px-4 text-gray-700 hover:text-red-600 transition-colors"
+      >
+        <span className="font-medium">{item.name}</span>
+        {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+      </button>
+      {isOpen && (
+        <div className="bg-gray-50">
+          {item.dropdown?.map((subItem, subIndex) => (
+            <div key={subIndex}>
+              {subItem.subDropdown ? (
+                <CollapsibleNavItem item={subItem} />
+              ) : (
+                <Link
+                  href={subItem.path}
+                  className="block py-2 px-8 text-sm text-gray-600 hover:text-red-600 transition-colors"
+                >
+                  {subItem.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function Navbar() {
   const [logoError, setLogoError] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-[1000] bg-white shadow-[0_2px_20px_rgba(16,34,105,0.10)] px-10 flex items-center justify-between h-[76px]">
+    <nav className="sticky top-0 z-[1000] bg-white shadow-[0_2px_20px_rgba(16,34,105,0.10)] px-4 md:px-10 flex items-center justify-between h-[76px]">
       {/* Logo */}
-      <a href="#" className="flex items-center gap-3 no-underline">
+      <Link href="/" className="flex items-center gap-3 no-underline">
         {!logoError ? (
           <Image
             src="https://ssim.ac.in/logo%20ssim.png"
@@ -61,33 +172,107 @@ export default function Navbar() {
           <strong className="font-playfair text-xl text-navy block leading-tight">SSIM</strong>
           <span className="text-[10px] text-gray">Siva Sivani Institute of Management</span>
         </div>
-      </a>
+      </Link>
 
-      {/* Nav Links */}
-      <ul className="hidden md:flex gap-[2px] list-none">
+      {/* Desktop Nav Links */}
+      <ul className="hidden xl:flex gap-1 list-none m-0 p-0">
         {navItems.map((item) => (
-          <li key={item.label} className="nav-group">
-            <a href={item.href} className="nav-link-item">{item.label}</a>
-            {item.children && (
-              <div className="dropdown">
-                {item.children.map((child) => (
-                  <a key={child.label} href={child.href}>{child.label}</a>
-                ))}
-              </div>
+          <li key={item.name} className="nav-group relative group">
+            {item.dropdown ? (
+              <>
+                <button className="nav-link-item flex items-center gap-1 cursor-pointer">
+                  {item.name}
+                  <ChevronDown size={14} className="mt-[-2px]" />
+                </button>
+                <div className="dropdown absolute hidden group-hover:block top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[220px] z-50">
+                  {item.dropdown.map((subItem) => (
+                    <div key={subItem.name}>
+                      {subItem.subDropdown ? (
+                        <div className="relative group/sub">
+                          <Link
+                            href={subItem.path || '#'}
+                            className="flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors text-sm"
+                          >
+                            {subItem.name}
+                            <ChevronRight size={12} />
+                          </Link>
+                          <div className="dropdown absolute hidden group-hover/sub:block left-full top-0 bg-white shadow-xl rounded-lg py-2 min-w-[200px] z-50">
+                            {subItem.subDropdown.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sub.path}
+                                className="block px-4 py-2.5 text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors text-sm"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <Link
+                          href={subItem.path}
+                          className="block px-4 py-2.5 text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors text-sm"
+                        >
+                          {subItem.name}
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <Link href={item.path} className="nav-link-item">
+                {item.name}
+              </Link>
             )}
           </li>
         ))}
       </ul>
 
       {/* CTA */}
-      <a
-        href="https://apply.ssim.ac.in"
-        target="_blank"
-        rel="noreferrer"
-        className="bg-red text-white border-none px-6 py-[11px] rounded-lg font-bold text-[13px] no-underline transition-all hover:bg-[#b91c1c] hover:-translate-y-[1px] whitespace-nowrap"
-      >
-        Apply Now →
-      </a>
+      <div className="flex items-center gap-4">
+        <a
+          href="https://apply.ssim.ac.in"
+          target="_blank"
+          rel="noreferrer"
+          className="hidden md:block bg-red text-white border-none px-5 py-2.5 rounded-lg font-bold text-[13px] no-underline transition-all hover:bg-[#b91c1c] hover:-translate-y-[1px] whitespace-nowrap"
+        >
+          Apply Now →
+        </a>
+
+        {/* Mobile Menu */}
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+          <SheetTrigger className="xl:hidden flex items-center">
+            <Menu className="w-6 h-6 text-navy" />
+          </SheetTrigger>
+          <SheetContent className="bg-white overflow-auto w-[300px]">
+            <SheetHeader>
+              <SheetTitle className="text-navy text-2xl font-bold text-left font-playfair">
+                SSIM
+              </SheetTitle>
+            </SheetHeader>
+            <nav className="mt-4">
+              <ul className="space-y-0">
+                {navItems.map((item) => (
+                  <li key={item.name}>
+                    {item.dropdown ? (
+                      <CollapsibleNavItem item={item} />
+                    ) : (
+                      <Link
+                        href={item.path}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-3 px-4 text-gray-700 hover:text-red-600 transition-colors font-medium border-b border-gray-100"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
     </nav>
   )
 }
