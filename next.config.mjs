@@ -20,6 +20,7 @@ const nextConfig = {
       { protocol: "https", hostname: "img.freepik.com", pathname: "/**" },
       { protocol: "https", hostname: "ssim.ac.in", pathname: "/**" },
       { protocol: "https", hostname: "www.ssim.ac.in", pathname: "/**" },
+      { protocol: "https", hostname: "www.searchurcollege.com", pathname: "/**" },
     ],
     minimumCacheTTL: 60,
     formats: ["image/webp", "image/avif"],

@@ -1,7 +1,7 @@
 const stats = [
   { num: '35', sup: '+', label: 'Years of Excellence' },
   { num: '350', sup: '+', label: 'Corporate Partners' },
-  { num: '6500', sup: '+', label: 'Alumni Network' },
+  { num: '6,500', sup: '+', label: 'Alumni Network' },
   { num: '50', sup: '+', label: 'New-Age Specialisations' },
   { num: '9', sup: '', label: 'Certification Programs' },
 ]

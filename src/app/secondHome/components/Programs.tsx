@@ -6,26 +6,26 @@ import { useEffect, useRef } from 'react'
 const programs = [
   {
     title: 'PGDM',
-    sub: 'Triple Specialisation · 2 Years · NBA Accredited',
+    sub: 'Triple Specialisation · 35 Years Legacy · Global Immersion',
     highlight: true,
     img: '/programs/pgdm_general.png',
     link: '/programs/pgdm-triple-specialisation',
   },
   {
     title: 'PGDM – BIFS',
-    sub: 'Banking, Insurance & Financial Services',
+    sub: 'Banking, Insurance & Financial Services · 19 Years Legacy',
     img: '/programs/pgdm_bifs.png',
     link: '/programs/pgdm-bifs',
   },
   {
     title: 'PGDM – BA',
-    sub: 'Business Analytics · Data-Driven Leadership',
+    sub: 'Business Analytics · 5 Years Legacy · IBM Collaboration',
     img: '/programs/pgdm_ba.png',
     link: '/programs/pgdm-ba',
   },
   {
     title: 'FPM / EFPM',
-    sub: 'Fellow Program In Management',
+    sub: 'Fellow / Executive Fellow Program in Management',
     img: '/programs/fpm_program.png',
     link: '/programs/fpm-efpm',
   },

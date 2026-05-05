@@ -1,14 +1,13 @@
 "use client";
-import Image from 'next/image'
 import Link from 'next/link'
 
-const AboutSSIM = "/about_ssim/About.webp"
+const AboutSSIM = "https://www.searchurcollege.com/exam/admin/search/gallery/college/col_431.jpg"
 
 const stats = [
   { icon: '📅', value: '35', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
   { icon: '🤝', value: '350+', label: 'Corporate', desc: 'Partners' },
-  { icon: '🎓', value: '6500+', label: 'Alumni', desc: 'Network' },
-  { icon: '💰', value: '₹1 Lakh', label: 'Merit', desc: 'Scholarship' },
+  { icon: '🎓', value: '6,500+', label: 'Alumni', desc: 'Network' },
+  { icon: '💰', value: '₹90,000', label: 'Merit', desc: 'Scholarship' },
   { icon: '🧠', value: '50+', label: 'New Age', desc: 'Specializations' },
   { icon: '📚', value: '9', label: 'Value Added', desc: 'Certification Programs' },
 ]
@@ -20,7 +19,7 @@ export default function About() {
         {/* Left Column - Image */}
         <div className="lg:sticky lg:top-20 hidden lg:block h-fit">
           <div className="overflow-hidden shadow-2xl rounded-none">
-            <div className="relative aspect-square">
+            <div className="relative aspect-[4/3]">
               <img
                 alt="SSIM Campus Life"
                 src={AboutSSIM}
@@ -45,18 +44,38 @@ export default function About() {
             <div className="w-32 h-1.5 bg-red rounded-full" />
           </div>
 
-          <div className="space-y-3 text-gray-600">
-            <p className="text-lg leading-relaxed">
-              Located in the heart of Hyderabad and Secunderabad, Siva Sivani Institute
-              of Management (SSIM) is a <strong>premier institution with over three decades of excellence</strong>{" "}
-              in management education. Renowned for its <strong>strong ethical foundation</strong>, this{" "}
-              <strong>AICTE accredited, NAAC, NBA for PGDM, AIU, SAQS and AACSB Member institution</strong>{" "}
-              delivers industry-relevant learning through an <strong>innovative curriculum and experienced faculty blending academic and corporate insights</strong>.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Recognized as an <strong>A<sup>+++</sup> B-School by Business India (2024)</strong>,
-              SSIM ranks <strong>21st among private standalone B-Schools in India (Outlook 2025) and 2nd in Telangana</strong>
-              (Outlook, CSR, and GHRDC Times 2025). Its <strong>vibrant, extremely qualified, and talented alumni network spans across the globe</strong>.
+          <div className="text-gray-600 text-[16px] leading-relaxed">
+            <ul className="list-disc pl-5 space-y-3">
+              <li>A Premier Institution with over Three Decades of excellence in management education</li>
+              <li>Renowned for its Strong Ethical Foundation</li>
+              <li>
+                Delivers Industry-Relevant learning that blends academic and corporate insights
+                <ul className="list-[circle] pl-6 mt-2 space-y-1.5 text-[15px] text-gray-500">
+                  <li>Innovative Curriculum</li>
+                  <li>Experienced Faculty</li>
+                  <li>Rich Corporate Mentoring</li>
+                  <li>Practical On field Applicability</li>
+                  <li>Blended Learning Platforms</li>
+                  <li>Latest Technological Integration</li>
+                </ul>
+              </li>
+              <li>
+                Focus on Holistic Development of Individual Personality with emphasis on:
+                <ul className="list-[circle] pl-6 mt-2 space-y-1.5 text-[15px] text-gray-500">
+                  <li>Critical Decision-Making</li>
+                  <li>Creativity</li>
+                  <li>Innovation</li>
+                  <li>Sustainability</li>
+                  <li>Ethics</li>
+                  <li>Managerial Competency Development Components</li>
+                </ul>
+              </li>
+              <li>
+                Proud of vibrant, extremely qualified, and talented alumni network spanning across the globe, across industries, across domains, and across profiles.
+              </li>
+            </ul>
+            <p className="font-bold text-navy mt-6 text-[16px]">
+              SSIM continues to shape future-ready leaders year-on-year................
             </p>
           </div>
 
@@ -94,14 +113,11 @@ export default function About() {
 
           {/* Mobile Image */}
           <div className="lg:hidden overflow-hidden shadow-2xl rounded-none mt-8">
-            <div className="relative w-full aspect-square">
-              <Image
+            <div className="relative w-full aspect-[4/3]">
+              <img
                 src={AboutSSIM}
                 alt="SSIM Campus Life"
-                fill
-                priority
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
               />
               <div className="absolute top-4 left-4 bg-red animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
                 🎓 Excellence in Education

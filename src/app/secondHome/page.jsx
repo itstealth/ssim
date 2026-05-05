@@ -1,6 +1,7 @@
 import HeroSection from '@/components/HeroSection'
 import AccredBar from './components/AccredBar'
 import About from './components/About'
+import Timeline from './components/Timeline'
 import Programs from './components/Programs'
 import CampusLife from './components/CampusLife'
 import Scholarship from './components/Scholarship'
@@ -20,6 +21,7 @@ export default function SecondHome() {
       <HeroSection />
       <AccredBar />
       <About />
+      <Timeline />
       <Programs />
       <CampusLife />
       <Scholarship />

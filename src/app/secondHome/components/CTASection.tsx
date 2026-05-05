@@ -9,7 +9,7 @@ export default function CTASection() {
           Your Transformative Journey Starts Here
         </h2>
         <p className="text-[rgba(255,255,255,0.88)] text-[16px] mb-6">
-          Join 30,000+ alumni and become part of SSIM&apos;s legacy of excellence. Admissions open for 2026–2028 batch.
+          Join 6,500+ alumni and become part of SSIM&apos;s legacy of excellence. Admissions open for 2026–2028 batch.
         </p>
         <div className="flex gap-4 justify-center flex-wrap mt-4">
           <a
