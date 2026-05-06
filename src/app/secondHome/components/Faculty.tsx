@@ -61,16 +61,16 @@ export default function Faculty() {
   return (
     <section
       id="faculty"
-      className="bg-light px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]"
+      className="bg-white px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-sky px-4 py-[5px] text-[12px] font-bold uppercase tracking-[0.8px] text-blue mb-[14px]">
+          <span className="inline-block rounded-full bg-[#521092] px-4 py-[5px] text-[12px] font-bold uppercase tracking-[0.8px] text-[#d74dec] mb-[14px]">
             Our Faculty
           </span>
-          <h2 className="mb-4 font-playfair leading-[1.2] text-navy" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
+          <h2 className="mb-4 font-playfair leading-[1.2] text-[#521092]" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
             Learn from the Best
           </h2>
           <p className="mx-auto max-w-[620px] text-[15px] leading-[1.75] text-gray">
@@ -82,7 +82,7 @@ export default function Faculty() {
           <button
             type="button"
             onClick={() => scrollByCards('left')}
-            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-navy shadow-sm transition-transform hover:-translate-y-0.5 hover:border-blue hover:text-blue"
+            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-[#521092] shadow-sm transition-transform hover:-translate-y-0.5 hover:border-blue hover:text-[#d74dec]"
             aria-label="Scroll faculty left"
           >
             ←
@@ -90,7 +90,7 @@ export default function Faculty() {
           <button
             type="button"
             onClick={() => scrollByCards('right')}
-            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-navy shadow-sm transition-transform hover:-translate-y-0.5 hover:border-blue hover:text-blue"
+            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-[#521092] shadow-sm transition-transform hover:-translate-y-0.5 hover:border-blue hover:text-[#d74dec]"
             aria-label="Scroll faculty right"
           >
             →
@@ -123,8 +123,8 @@ export default function Faculty() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="mb-1 text-[14px] font-bold text-navy leading-tight">{f.name}</h3>
-                    <div className="mb-1 text-[11.5px] font-semibold text-blue leading-tight">{f.role}</div>
+                    <h3 className="mb-1 text-[14px] font-bold text-[#521092] leading-tight">{f.name}</h3>
+                    <div className="mb-1 text-[11.5px] font-semibold text-[#d74dec] leading-tight">{f.role}</div>
                     <div className="text-[11px] text-gray">{f.exp}</div>
                   </div>
                 </article>

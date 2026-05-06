@@ -25,7 +25,7 @@ export default function About() {
                 src={AboutSSIM}
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
               />
-              <div className="absolute top-4 left-4 bg-red animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
+              <div className="absolute top-4 left-4 bg-[#521092] animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
                 🎓 Excellence in Education
               </div>
             </div>
@@ -35,13 +35,13 @@ export default function About() {
         {/* Right Column - Content */}
         <div className="space-y-4">
           <div className="space-y-3">
-            <span className="inline-block bg-sky text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px]">
+            <span className="inline-block bg-[#521092] text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px]">
               About SSIM
             </span>
-            <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
+            <h2 className="font-playfair text-[#521092] leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
               Top Management Institute in Hyderabad
             </h2>
-            <div className="w-32 h-1.5 bg-red rounded-full" />
+            <div className="w-32 h-1.5 bg-[#521092] rounded-full" />
           </div>
 
           <div className="text-gray-600 text-[16px] leading-relaxed">
@@ -74,7 +74,7 @@ export default function About() {
                 Proud of vibrant, extremely qualified, and talented alumni network spanning across the globe, across industries, across domains, and across profiles.
               </li>
             </ul>
-            <p className="font-bold text-navy mt-6 text-[16px]">
+            <p className="font-bold text-[#521092] mt-6 text-[16px]">
               SSIM continues to shape future-ready leaders year-on-year................
             </p>
           </div>
@@ -88,8 +88,8 @@ export default function About() {
               >
                 <div className="flex flex-col space-y-2">
                   <div className="text-2xl">{stat.icon}</div>
-                  <div className="text-3xl font-bold text-blue">{stat.value}</div>
-                  <div className="text-sm font-medium text-navy">{stat.label}</div>
+                  <div className="text-3xl font-bold text-[#d74dec]">{stat.value}</div>
+                  <div className="text-sm font-medium text-[#521092]">{stat.label}</div>
                   <div className="text-xs text-gray">{stat.desc}</div>
                 </div>
               </div>
@@ -102,10 +102,10 @@ export default function About() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <div className="inline-flex items-center gap-0 mt-6">
-              <div className="bg-red h-11 flex items-center px-8 text-white hover:bg-red/90 transition-colors rounded-l-[10px]">
+              <div className="bg-[#521092] h-11 flex items-center px-8 text-white hover:bg-[#521092]/90 transition-colors rounded-l-[10px]">
                 Learn More About SSIM
               </div>
-              <div className="bg-navy h-11 flex items-center px-4 text-white rounded-r-[10px]">
+              <div className="bg-[#521092] h-11 flex items-center px-4 text-white rounded-r-[10px]">
                 →
               </div>
             </div>
@@ -119,7 +119,7 @@ export default function About() {
                 alt="SSIM Campus Life"
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
               />
-              <div className="absolute top-4 left-4 bg-red animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
+              <div className="absolute top-4 left-4 bg-[#521092] animate-pulse text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur flex items-center gap-2">
                 🎓 Excellence in Education
               </div>
             </div>

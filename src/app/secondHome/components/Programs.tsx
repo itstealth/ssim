@@ -55,12 +55,12 @@ export default function Programs() {
   }, []);
 
   return (
-    <section id="programs" className="bg-light px-4 lg:px-[60px] py-[60px]">
+    <section id="programs" className="bg-white px-4 lg:px-[60px] py-[60px]">
       <div className="text-center">
-        <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+        <span className="inline-block bg-[#521092]/20 text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Academic Programs
         </span>
-        <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
+        <h2 className="font-playfair text-[#521092] leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
           World-Class Management Programs
         </h2>
         <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mx-auto">
@@ -86,9 +86,9 @@ export default function Programs() {
               />
             </div>
             <div className="p-[16px_18px]">
-              <h3 className="text-navy text-[16px] font-bold mb-[2px]">{p.title}</h3>
+              <h3 className="text-[#521092] text-[16px] font-bold mb-[2px]">{p.title}</h3>
               <div className="text-gray text-[11px] block">{p.sub}</div>
-              <div className="text-blue font-bold text-[13px] inline-flex items-center gap-[5px] transition-[gap] group-hover:gap-[10px] mt-[14px]">
+              <div className="text-[#d74dec] font-bold text-[13px] inline-flex items-center gap-[5px] transition-[gap] group-hover:gap-[10px] mt-[14px]">
                 Know More →
               </div>
             </div>

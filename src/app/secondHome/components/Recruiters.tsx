@@ -21,10 +21,10 @@ export default function Recruiters() {
     <section className="bg-white px-4 lg:px-[60px] pt-[60px] pb-[20px]">
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-10">
-          <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+          <span className="inline-block bg-[#521092]/20 text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
             Our Partners
           </span>
-          <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
+          <h2 className="font-playfair text-[#521092] leading-[1.2] mb-4" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
             Our Phenomenal Recruiters
           </h2>
           <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mx-auto">

@@ -47,10 +47,10 @@ export default function WhySSIM() {
           />
         </div>
         <div>
-          <span className="inline-block bg-sky text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+          <span className="inline-block bg-[#521092] text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
             Why Choose SSIM
           </span>
-          <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
+          <h2 className="font-playfair text-[#521092] leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
             Your Gateway to Leadership Excellence
           </h2>
           <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mb-[14px]">
@@ -61,9 +61,9 @@ export default function WhySSIM() {
             className="flex sm:grid sm:grid-cols-2 gap-[18px] overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory sm:snap-none pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             {reasons.map((r) => (
-              <div key={r.title} className="why-card bg-light rounded-[14px] p-[22px_20px] border border-border shrink-0 snap-center w-[80vw] sm:w-auto">
-                <div className="w-[46px] h-[46px] bg-sky rounded-xl grid place-items-center text-[22px] mb-3">{r.icon}</div>
-                <h3 className="text-[14px] font-bold text-navy mb-[6px]">{r.title}</h3>
+              <div key={r.title} className="why-card bg-white rounded-[14px] p-[22px_20px] border border-border shrink-0 snap-center w-[80vw] sm:w-auto">
+                <div className="w-[46px] h-[46px] bg-[#521092] rounded-xl grid place-items-center text-[22px] mb-3">{r.icon}</div>
+                <h3 className="text-[14px] font-bold text-[#521092] mb-[6px]">{r.title}</h3>
                 <p className="text-[13px] text-gray leading-[1.65]">{r.desc}</p>
               </div>
             ))}

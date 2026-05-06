@@ -76,9 +76,9 @@ export default function SSIMStories() {
   }, []);
 
   return (
-    <div className="w-full bg-navy px-4 lg:px-[60px] py-[60px]">
+    <div className="w-full bg-[#521092] px-4 lg:px-[60px] py-[60px]">
       <div className="text-center mb-6 flex flex-col items-center">
-        <span className="inline-block bg-[rgba(213,231,255,0.15)] text-sky text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+        <span className="inline-block bg-[rgba(213,231,255,0.15)] text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           SSIM Stories
         </span>
         <WordPullUp
@@ -106,7 +106,7 @@ export default function SSIMStories() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 bg-red rounded-full flex items-center justify-center hover:bg-red/80 transition-colors">
+              <div className="w-16 h-16 bg-[#521092] rounded-full flex items-center justify-center hover:bg-[#521092]/80 transition-colors">
                 <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
               </div>
             </div>

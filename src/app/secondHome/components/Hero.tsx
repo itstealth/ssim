@@ -63,7 +63,7 @@ export default function Hero() {
             style={{ transitionProperty: 'opacity, transform' }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#521092]/95 via-[#521092]/80 to-transparent" />
         <div className="absolute inset-0 bg-black/30 lg:hidden" /> {/* Extra darkening for mobile */}
       </div>
 
@@ -72,13 +72,13 @@ export default function Hero() {
           
           {/* Left Content Column */}
           <div className="w-full lg:w-[60%] xl:w-[55%] text-white">
-            <div className="inline-flex items-center gap-2 bg-sky/20 border border-sky/30 backdrop-blur-sm px-[18px] py-[6px] rounded-full text-sky text-[12px] font-semibold tracking-[0.5px] uppercase mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#521092]/20 border border-[#d74dec]/30 backdrop-blur-sm px-[18px] py-[6px] rounded-full text-[#d74dec] text-[12px] font-semibold tracking-[0.5px] uppercase mb-6">
               AICTE Approved · 32+ Years of Excellence
             </div>
             
             <h1 className="font-playfair leading-[1.15] mb-[16px] text-[36px] sm:text-[46px] lg:text-[56px] xl:text-[64px] font-bold text-white drop-shadow-lg">
               {currentSlide.tagline.split(' ').map((word, i) => (
-                i === 1 ? <span key={i} className="text-sky">{word} </span> : word + ' '
+                i === 1 ? <span key={i} className="text-[#d74dec]">{word} </span> : word + ' '
               ))}
             </h1>
             
@@ -91,7 +91,7 @@ export default function Hero() {
                 href="https://apply.ssim.ac.in"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-red text-white px-8 py-[14px] rounded-[10px] font-bold text-[15px] no-underline transition-all hover:bg-[#b91c1c] hover:-translate-y-[2px] shadow-[0_6px_20px_rgba(220,38,38,0.4)]"
+                className="bg-[#521092] text-white px-8 py-[14px] rounded-[10px] font-bold text-[15px] no-underline transition-all hover:bg-[#d74dec] hover:-translate-y-[2px] shadow-[0_6px_20px_rgba(82,16,146,0.4)]"
               >
                 Apply for 2026–28 →
               </Link>
@@ -113,7 +113,7 @@ export default function Hero() {
               ].map((s) => (
                 <div key={s.label}>
                   <div className="font-playfair text-[32px] font-extrabold text-white leading-none">
-                    {s.num}<span className="text-sky text-[20px]">{s.sup}</span>
+                    {s.num}<span className="text-[#d74dec] text-[20px]">{s.sup}</span>
                   </div>
                   <p className="text-[11px] text-[rgba(213,231,255,0.7)] mt-[3px] uppercase tracking-[0.5px]">{s.label}</p>
                 </div>
@@ -127,7 +127,7 @@ export default function Hero() {
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    idx === activeIndex ? 'w-10 bg-sky' : 'w-2 bg-white/40 hover:bg-white/70'
+                    idx === activeIndex ? 'w-10 bg-[#d74dec]' : 'w-2 bg-white/40 hover:bg-white/70'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -146,11 +146,11 @@ export default function Hero() {
                 key={card.label}
                 className={`backdrop-blur-[14px] border rounded-2xl px-[22px] py-[18px] text-white min-w-[220px] transition-transform hover:-translate-y-1 hover:shadow-xl ${
                   card.red
-                    ? 'bg-red/40 border-red/50 shadow-[0_8px_32px_rgba(220,38,38,0.2)]'
+                    ? 'bg-[#521092]/40 border-[#521092]/50 shadow-[0_8px_32px_rgba(82,16,146,0.2)]'
                     : 'bg-white/10 border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)]'
                 }`}
               >
-                <div className="text-[11px] text-sky font-semibold uppercase tracking-[0.6px] mb-1">{card.label}</div>
+                <div className="text-[11px] text-[#d74dec] font-semibold uppercase tracking-[0.6px] mb-1">{card.label}</div>
                 <div className="font-playfair text-[32px] font-bold leading-none">{card.val}</div>
                 <div className="text-[13px] text-white/80 mt-[4px]">{card.sub}</div>
               </div>

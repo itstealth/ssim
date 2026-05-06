@@ -11,9 +11,9 @@ const gallery = [
 
 export default function CampusLife() {
   return (
-    <section className="bg-navy px-4 lg:px-[60px] py-[60px]">
+    <section className="bg-[#521092] px-4 lg:px-[60px] py-[60px]">
       <div className="text-center">
-        <span className="inline-block bg-[rgba(213,231,255,0.15)] text-sky text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+        <span className="inline-block bg-[rgba(213,231,255,0.15)] text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
           Campus Life
         </span>
         <h2 className="font-playfair text-white leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>

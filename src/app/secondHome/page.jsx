@@ -13,7 +13,6 @@ import Faculty from './components/Faculty'
 import SSIMStories from './components/SSIMStories'
 import Testimonials from './components/Testimonials'
 import CTASection from './components/CTASection'
-// import Footer from './components/Footer'
 
 export default function SecondHome() {
   return (
@@ -31,9 +30,7 @@ export default function SecondHome() {
       <WhySSIM />
       <Faculty />
       <SSIMStories />
-      {/* <Testimonials /> */}
       <CTASection />
-      {/* <Footer /> */}
     </>
   )
 }

@@ -11,7 +11,7 @@ export default function StatsBanner() {
     <div
       className="px-4 lg:px-[60px] py-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 text-center gap-8 lg:gap-6"
       style={{
-        background: 'linear-gradient(135deg, #1B50EC, #0e3bbf)',
+        background: 'linear-gradient(135deg, #521092, #d74dec)',
       }}
     >
       {stats.map((s, i) => (
@@ -22,7 +22,7 @@ export default function StatsBanner() {
           <span className="font-playfair text-[42px] font-extrabold leading-none block mb-[6px]">
             {s.num}<sup className="text-[22px]">{s.sup}</sup>
           </span>
-          <p className="text-[11.5px] text-sky uppercase tracking-[0.6px] font-semibold">{s.label}</p>
+          <p className="text-[11.5px] text-[#d74dec] uppercase tracking-[0.6px] font-semibold">{s.label}</p>
         </div>
       ))}
     </div>

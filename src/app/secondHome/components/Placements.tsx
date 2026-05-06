@@ -21,13 +21,13 @@ export default function Placements() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="placements" className="bg-light px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]">
+    <section id="placements" className="bg-white px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <span className="inline-block bg-sky/20 text-blue text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+          <span className="inline-block bg-[#521092]/20 text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
             Placement Excellence
           </span>
-          <h2 className="font-playfair text-navy leading-[1.2] mb-4" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
+          <h2 className="font-playfair text-[#521092] leading-[1.2] mb-4" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
             Phenomenal Placement Record
           </h2>
           <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mx-auto">
@@ -43,11 +43,11 @@ export default function Placements() {
                 key={c.title}
                 className="bg-white rounded-[14px] px-6 py-5 border border-border flex items-center gap-[18px] transition-all duration-300 hover:border-blue hover:shadow-[0_8px_28px_rgba(27,80,236,0.1)] hover:translate-x-1"
               >
-                <div className="w-[52px] h-[52px] rounded-xl bg-sky/20 grid place-items-center text-2xl flex-shrink-0">
+                <div className="w-[52px] h-[52px] rounded-xl bg-[#521092]/20 grid place-items-center text-2xl flex-shrink-0">
                   {c.icon}
                 </div>
                 <div>
-                  <div className="font-playfair text-[28px] font-extrabold text-navy leading-none">{c.num}</div>
+                  <div className="font-playfair text-[28px] font-extrabold text-[#521092] leading-none">{c.num}</div>
                   <h4 className="text-[13px] font-bold text-dark mt-[2px]">{c.title}</h4>
                   <p className="text-[12px] text-gray mt-[2px]">{c.desc}</p>
                 </div>
@@ -76,7 +76,7 @@ export default function Placements() {
                     <p className="text-white font-semibold text-sm">{students[activeIndex].name}</p>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-                    <span className="bg-white/90 text-navy text-xs px-3 py-1.5 rounded-full font-medium">Click to rotate</span>
+                    <span className="bg-white/90 text-[#521092] text-xs px-3 py-1.5 rounded-full font-medium">Click to rotate</span>
                   </div>
                 </div>
 

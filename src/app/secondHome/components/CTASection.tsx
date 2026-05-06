@@ -2,7 +2,7 @@ export default function CTASection() {
   return (
     <section 
       className="px-4 lg:px-[60px] py-[60px] text-center"
-      style={{ background: 'linear-gradient(135deg, #DC2626, #B91C1C)' }}
+      style={{ background: 'linear-gradient(135deg, #521092, #d74dec)' }}
     >
       <div className="max-w-4xl mx-auto">
         <h2 className="font-playfair text-white mb-2" style={{fontSize:'clamp(28px,4vw,48px)'}}>

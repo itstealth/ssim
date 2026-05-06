@@ -1,112 +1,224 @@
-import Image from 'next/image'
+"use client";
+
+const logo = "/logo ssim.png";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Youtube,
+  Phone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+const aicteapprovals = "/pdfs/footer/AICTE_Approval_1992_2026_All_Years.pdf";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const footerSections = [
+    {
+      label: "Useful Links",
+      items: [
+        { name: "About Us", path: "/about/vision-mission" },
+        {
+          name: "Rankings & Accreditations",
+          path: "/about/accreditations-rankings",
+        },
+        { name: "Events", path: "/students-life/life-at-ssim" },
+        { name: "Media", path: "/students-life/news" },
+        { name: "Blog", path: "/blog" },
+        { name: "IQAC", path: "/iqac" },
+        { name: "Careers", path: "/careers" },
+        { name: "AICTE Approvals", path: aicteapprovals },
+      ],
+    },
+    {
+      label: "Programs Offered",
+      items: [
+        { name: "PGDM", path: "/programs/pgdm-triple-specialisation" },
+        { name: "PGDM - BIFS", path: "/programs/pgdm-bifs" },
+        { name: "PGDM - BA", path: "/programs/pgdm-ba" },
+        { name: "FPM", path: "/programs/fpm-efpm" },
+        { name: "EFPM", path: "/programs/fpm-efpm" },
+      ],
+    },
+    {
+      label: "Committees & Policies",
+      items: [
+        {
+          name: "Grievance Redressal Mechanism",
+          path: "/grievance-redressal-mechanism",
+        },
+        { name: "Internal Complaints Committee", path: "/internal-complaints" },
+        { name: "Employee Handbook", path: "/pdfs/footer/Employee_Hand_Book.pdf", external: true },
+        { name: "Student Handbook", path: "/pdfs/footer/Student_Hand_Book_Batch_2025_27.pdf", external: true },
+        { name: "HR & Faculty Development Policies", path: "/pdfs/footer/hr&facultyDevelopmentPolicies.pdf", external: true },
+      ],
+    },
+    {
+      label: "S P Sampathys Siva Sivani Educational Society",
+      items: [
+        { name: "Siva Sivani Institute of Management", path: "/" },
+        { name: "Siva Sivani Degree College", path: "https://ssdc.ac.in" },
+        {
+          name: "Siva Sivani Degree College Hyderabad",
+          path: "https://ssdchyderabad.in",
+        },
+        { name: "Siva Sivani Junior College", path: "https://ssjc.ac.in" },
+        {
+          name: "Siva Sivani High School",
+          path: "https://www.spsschool.ac.in",
+        },
+      ],
+    },
+  ];
+
   return (
-    <footer className="bg-navy text-[rgba(213,231,255,0.75)] px-4 lg:px-[60px] pt-[60px] pb-[30px]">
-      <div
-        className="mb-11"
-        style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '44px' }}
-      >
-        {/* Brand */}
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <Image
-              src="/logo ssim.png"
-              alt="SSIM Logo"
-              width={48}
-              height={48}
-              className="h-12 w-auto brightness-0 invert"
-            />
-            <span className="font-playfair text-xl text-white font-bold">SSIM</span>
-          </div>
-          <p className="text-[13px] leading-[1.75] mb-4">
-            Siva Sivani Institute of Management — over three decades shaping ethical, innovative, and industry-ready business leaders in Hyderabad, Telangana.
-          </p>
-          <Image
-            src="/banner2.jpg"
-            alt="SSIM campus event"
-            width={600}
-            height={110}
-            className="w-full h-[110px] object-cover rounded-[10px] mb-[14px] opacity-65"
-          />
-          {[
-            { icon: 'pin', text: 'NH 44, Kompally, Secunderabad, Telangana – 500100' },
-            { icon: 'phone', text: '040-2716 5451 / 53 / 54 · +91 93911 14948' },
-            { icon: 'mail', text: 'admissions@ssim.ac.in' },
-          ].map((c) => (
-            <div key={c.text} className="flex gap-[10px] items-start mb-[10px] text-[13px]">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mt-[2px] flex-shrink-0">
-                {c.icon === 'pin' && <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></>}
-                {c.icon === 'phone' && <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.15.97.39 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.27 1.86.44 2.81.7A2 2 0 0122 14.92v2z"/>}
-                {c.icon === 'mail' && <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></>}
-              </svg>
-              {c.text}
-            </div>
-          ))}
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h4 className="footer-heading">Quick Links</h4>
-          <ul className="list-none">
-            {['About SSIM','Vision & Mission','Accreditations','Faculty','Infrastructure','Research','Media & Press'].map(l => (
-              <li key={l} className="mb-[10px]">
-                <a href="#" className="text-[rgba(213,231,255,0.75)] no-underline text-[13px] transition-colors hover:text-sky">{l}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Programs */}
-        <div>
-          <h4 className="footer-heading">Programs</h4>
-          <ul className="list-none">
-            {['PGDM (Triple Spec.)','PGDM – BIFS','PGDM – BA','FPM / EFPM','Value Add Certifications','Executive Programs'].map(l => (
-              <li key={l} className="mb-[10px]">
-                <a href="#" className="text-[rgba(213,231,255,0.75)] no-underline text-[13px] transition-colors hover:text-sky">{l}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Students */}
-        <div>
-          <h4 className="footer-heading">Students</h4>
-          <ul className="list-none">
-            {['Admissions 2026','Scholarships','Placements','Student Life','Alumni Network','SSIM Stories','Contact Us'].map(l => (
-              <li key={l} className="mb-[10px]">
-                <a href="#" className="text-[rgba(213,231,255,0.75)] no-underline text-[13px] transition-colors hover:text-sky">{l}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Policies */}
-        <div>
-          <h4 className="footer-heading">Policy</h4>
-          <ul className="list-none">
-            {[
-              { name: 'Employee Handbook', url: '/Employee_Hand_Book.pdf' },
-              { name: 'Student Handbook', url: '/Student_Hand_Book_Batch_2025_27.pdf' },
-              { name: 'HR & Faculty Development Policies', url: '/hr&facultyDevelopmentPolicies.pdf' },
-            ].map(p => (
-              <li key={p.name} className="mb-[10px]">
-                <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-[rgba(213,231,255,0.75)] no-underline text-[13px] transition-colors hover:text-sky">{p.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <footer className="relative bg-gradient-to-r from-[#521092] via-[#d74dec] to-[#521092] pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
-      {/* Bottom */}
-      <div className="border-t border-[rgba(213,231,255,0.12)] pt-[22px] flex justify-between items-center flex-wrap gap-3 text-[12.5px]">
-        <span>© 2025 Siva Sivani Institute of Management. All rights reserved.</span>
-        <div className="flex gap-5 flex-wrap">
-          {['Privacy Policy','Terms of Use','Sitemap','AICTE Approval'].map(l => (
-            <a key={l} href="#" className="text-sky no-underline">{l}</a>
-          ))}
+      <div className="container relative mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12">
+          {/* Logo and Social Section */}
+          <div className="lg:col-span-3 space-y-8">
+            <div className="space-y-6">
+              <Link
+                href="/"
+                className="flex items-center gap-3 group"
+                onClick={scrollToTop}
+              >
+                <img
+                  src={logo || "/placeholder.svg"}
+                  alt="SSIM Logo"
+                  className="h-14 sm:h-[72px] cursor-pointer w-auto transition-transform group-hover:scale-105 brightness-0 invert"
+                />
+              </Link>
+              <div className="flex gap-3">
+                {[
+                  {
+                    icon: Facebook,
+                    bgColor: "bg-white",
+                    label: "Facebook",
+                    href: "https://www.facebook.com/SivaSivaniInstituteofManagementHyderabad/",
+                  },
+                  {
+                    icon: Instagram,
+                    bgColor: "bg-white",
+                    label: "Instagram",
+                    href: "https://www.instagram.com/ssim_b_school/?hl=en",
+                  },
+                  {
+                    icon: Twitter,
+                    bgColor: "bg-white",
+                    label: "Twitter",
+                    href: "https://x.com/SSIMHyderabad",
+                  },
+                  {
+                    icon: Linkedin,
+                    bgColor: "bg-white",
+                    label: "LinkedIn",
+                    href: "https://www.linkedin.com/school/siva-sivani-institute-of-management/",
+                  },
+                  {
+                    icon: Youtube,
+                    bgColor: "bg-white",
+                    label: "YouTube",
+                    href: "https://www.youtube.com/@sivasivaniinstituteofmanag3545",
+                  },
+                ].map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      size="icon"
+                      className={`rounded-full transition-all hover:scale-110 text-[#521092] ${social.bgColor} hover:opacity-90`}
+                      aria-label={social.label}
+                    >
+                      <social.icon className="h-5 w-5" />
+                    </Button>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-3">
+              <p className="text-sm text-white font-medium mb-3">
+                24/7 Women Helpline Number
+              </p>
+              <a href="tel:+919133305062">
+                <Button className="gap-2 bg-white text-[#521092] rounded-full hover:bg-white/80 hover:text-[#521092] transition-colors">
+                  <Phone className="h-4 w-4" />
+                  91333 05062
+                </Button>
+              </a>
+            </div>
+          </div>
+
+          {/* Links Sections */}
+          <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-4 gap-8">
+            {footerSections.map((section) => (
+              <div key={section.label} className="space-y-6">
+                <h3 className="text-lg font-semibold text-white tracking-wide">
+                  {section.label}
+                </h3>
+                <ul className="space-y-3 text-base">
+                  {section.items.map((item) => (
+                    <li key={item.name}>
+                      {item.path.startsWith("https:") ||
+                      item.external ||
+                      item.path === aicteapprovals ? (
+                        <a
+                          href={item.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group inline-flex items-center gap-1 text-white/90 hover:text-white transition-colors duration-200"
+                        >
+                          {item.name}
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.path}
+                          onClick={scrollToTop}
+                          className="group inline-flex items-center gap-1 text-white/90 hover:text-white transition-colors duration-200"
+                        >
+                          {item.name}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Separator className="my-12 bg-white/20" />
+
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base text-white">
+          <p className="text-white">
+            Copyright © SSIM {new Date().getFullYear()}
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
