@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { secondHomeTheme } from '../theme'
 
 const eras = [
   {
@@ -61,18 +62,18 @@ function EraCard({ era, index, above }: { era: (typeof eras)[0]; index: number; 
     >
       {/* Card */}
       <div
-        className={`w-[148px] rounded-xl border border-[rgba(213,231,255,0.13)] bg-[rgba(213,231,255,0.06)] p-3 hover:bg-[rgba(213,231,255,0.11)] hover:border-[#521092]/30 transition-all duration-300 ${
+        className={`w-[148px] rounded-[18px] border border-slate-200/80 bg-white/85 p-3 hover:bg-white hover:border-purple-700/20 transition-all duration-300 shadow-[0_10px_24px_rgba(16,34,105,0.05)] ${
           above ? "mb-4" : "mt-4 order-last"
         }`}
       >
         <div className="flex items-center gap-1.5 mb-2">
           <span className="text-base">{era.icon}</span>
           <div>
-            <div className="text-[#d74dec] font-extrabold text-[12px] leading-tight">{era.year}</div>
-            <div className="text-[rgba(213,231,255,0.38)] text-[8.5px] uppercase tracking-widest">{era.label}</div>
+            <div className="text-purple-700 font-extrabold text-[12px] leading-tight">{era.year}</div>
+            <div className="text-slate-500 text-[8.5px] uppercase tracking-widest">{era.label}</div>
           </div>
         </div>
-        <div className="h-px bg-[rgba(213,231,255,0.09)] mb-2" />
+        <div className="h-px bg-slate-200 mb-2" />
         <ul className="space-y-1">
           {era.events.map((e, j) => (
             <motion.li
@@ -80,9 +81,9 @@ function EraCard({ era, index, above }: { era: (typeof eras)[0]; index: number; 
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: index * 0.1 + 0.2 + j * 0.07 }}
-              className="flex items-start gap-1.5 text-[10.5px] text-[rgba(213,231,255,0.68)] leading-[1.45]"
+              className="flex items-start gap-1.5 text-[10.5px] text-slate-600 leading-[1.45]"
             >
-              <span className="mt-[4px] w-[3px] h-[3px] rounded-full bg-[#d74dec] shrink-0" />
+              <span className="mt-[4px] w-[3px] h-[3px] rounded-full bg-[#1B50EC] shrink-0" />
               {e}
             </motion.li>
           ))}
@@ -91,7 +92,7 @@ function EraCard({ era, index, above }: { era: (typeof eras)[0]; index: number; 
 
       {/* Stem */}
       <motion.div
-        className={`w-[1px] bg-[rgba(147,197,253,0.3)] ${above ? "" : "order-first"}`}
+        className={`w-[1px] bg-gradient-to-b from-transparent via-purple-400 to-transparent ${above ? "" : "order-first"}`}
         style={{ height: 28 }}
         initial={{ scaleY: 0 }}
         animate={inView ? { scaleY: 1 } : {}}
@@ -106,11 +107,11 @@ function EraCard({ era, index, above }: { era: (typeof eras)[0]; index: number; 
         transition={{ type: "spring", stiffness: 300, damping: 16, delay: index * 0.1 + 0.1 }}
       >
         <motion.div
-          className="absolute inset-0 rounded-full bg-[#d74dec]/20"
+          className="absolute inset-0 rounded-full bg-purple-400/15"
           animate={{ scale: [1, 2.4, 1], opacity: [0.4, 0, 0.4] }}
           transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }}
         />
-        <div className="w-4 h-4 rounded-full bg-[#d74dec] border-[3px] border-[#521092] shadow-[0_0_12px_3px_rgba(147,197,253,0.35)]" />
+        <div className="w-4 h-4 rounded-full bg-gradient-to-br from-purple-700 to-[#1B50EC] border-[3px] border-white shadow-[0_0_12px_3px_rgba(107,33,168,0.18)]" />
       </motion.div>
     </motion.div>
   );
@@ -123,11 +124,11 @@ export default function Timeline() {
   const lineInView = useInView(lineRef, { once: true, margin: "-80px" });
 
   return (
-    <section className="bg-[#521092] relative px-4 lg:px-[60px] py-[80px] overflow-hidden">
+    <section className={`relative px-4 lg:px-[60px] py-[80px] overflow-hidden ${secondHomeTheme.shellMuted}`}>
       {/* Glow blobs */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-10 left-1/4 w-[500px] h-[300px] rounded-full opacity-[0.04] blur-[80px] bg-[#d74dec]" />
-        <div className="absolute bottom-10 right-1/4 w-[400px] h-[300px] rounded-full opacity-[0.04] blur-[80px] bg-[#d74dec]" />
+        <div className="absolute top-10 left-1/4 w-[500px] h-[300px] rounded-full opacity-[0.05] blur-[90px] bg-purple-400" />
+        <div className="absolute bottom-10 right-1/4 w-[400px] h-[300px] rounded-full opacity-[0.05] blur-[90px] bg-[#1B50EC]" />
       </div>
 
       {/* Header */}
@@ -138,16 +139,16 @@ export default function Timeline() {
         animate={headerInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.65 }}
       >
-        <span className="inline-block bg-[rgba(213,231,255,0.1)] text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[1px] mb-4 border border-[rgba(213,231,255,0.12)]">
+        <span className={secondHomeTheme.eyebrowSoft}>
           Our Journey
         </span>
         <h2
-          className="font-playfair text-white leading-[1.2] mb-3"
+          className={`${secondHomeTheme.title} mb-3`}
           style={{ fontSize: "clamp(28px,4vw,48px)" }}
         >
-          Siva Sivani Institute of Management — <span className="text-[#d74dec]">Journey</span>
+          Siva Sivani Institute of Management - <span className="text-purple-700">Journey</span>
         </h2>
-        <p className="text-[rgba(213,231,255,0.5)] text-[15px]">Crafting Careers Since 1992</p>
+        <p className="text-slate-500 text-[15px]">Crafting Careers Since 1992</p>
       </motion.div>
 
       {/* ── Desktop Horizontal Timeline ── */}
@@ -173,9 +174,8 @@ export default function Timeline() {
           <motion.div
             className="h-[2px] w-full origin-left rounded-full"
             style={{
-              background:
-                "linear-gradient(to right, rgba(147,197,253,0.05), rgba(147,197,253,0.5) 15%, rgba(147,197,253,0.5) 85%, rgba(147,197,253,0.05))",
-              boxShadow: "0 0 8px 2px rgba(147,197,253,0.12)",
+              background: "linear-gradient(to right, rgba(168,85,247,0.05), rgba(107,33,168,0.55) 15%, rgba(27,80,236,0.55) 85%, rgba(168,85,247,0.05))",
+              boxShadow: "0 0 10px 2px rgba(107,33,168,0.12)",
             }}
             initial={{ scaleX: 0 }}
             animate={lineInView ? { scaleX: 1 } : {}}
@@ -218,23 +218,23 @@ export default function Timeline() {
             <div key={i} className="flex flex-col gap-2 w-[180px] shrink-0">
               {/* Dot + line */}
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#d74dec] shadow-[0_0_8px_2px_rgba(147,197,253,0.4)] shrink-0" />
-                <div className="h-[1px] flex-1 bg-[rgba(147,197,253,0.25)]" />
+                <div className="w-3 h-3 rounded-full bg-gradient-to-br from-purple-700 to-[#1B50EC] shadow-[0_0_8px_2px_rgba(107,33,168,0.2)] shrink-0" />
+                <div className="h-[1px] flex-1 bg-slate-200" />
               </div>
               {/* Card */}
-              <div className="rounded-xl border border-[rgba(213,231,255,0.13)] bg-[rgba(213,231,255,0.06)] p-3">
+              <div className="rounded-[18px] border border-slate-200/80 bg-white/85 p-3 shadow-[0_10px_24px_rgba(16,34,105,0.05)]">
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <span>{era.icon}</span>
                   <div>
-                    <div className="text-[#d74dec] font-extrabold text-[12px]">{era.year}</div>
-                    <div className="text-[rgba(213,231,255,0.38)] text-[8px] uppercase tracking-widest">{era.label}</div>
+                    <div className="text-purple-700 font-extrabold text-[12px]">{era.year}</div>
+                    <div className="text-slate-500 text-[8px] uppercase tracking-widest">{era.label}</div>
                   </div>
                 </div>
-                <div className="h-px bg-[rgba(213,231,255,0.09)] mb-1.5" />
+                <div className="h-px bg-slate-200 mb-1.5" />
                 <ul className="space-y-1">
                   {era.events.map((e, j) => (
-                    <li key={j} className="flex items-start gap-1 text-[11px] text-[rgba(213,231,255,0.7)] leading-[1.4]">
-                      <span className="mt-[4px] w-[3px] h-[3px] rounded-full bg-[#d74dec] shrink-0" />
+                    <li key={j} className="flex items-start gap-1 text-[11px] text-slate-600 leading-[1.4]">
+                      <span className="mt-[4px] w-[3px] h-[3px] rounded-full bg-[#1B50EC] shrink-0" />
                       {e}
                     </li>
                   ))}
@@ -252,7 +252,7 @@ export default function Timeline() {
         animate={headerInView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 1.8, duration: 0.5 }}
       >
-        <div className="px-7 py-3 rounded-full bg-[rgba(213,231,255,0.08)] border border-[rgba(213,231,255,0.18)] text-[#d74dec] text-[13px] font-semibold tracking-wider">
+        <div className="px-7 py-3 rounded-full bg-white/75 border border-slate-200 text-purple-700 text-[13px] font-semibold tracking-wider shadow-[0_10px_24px_rgba(16,34,105,0.05)]">
           🚀 The Journey Continues...
         </div>
       </motion.div>

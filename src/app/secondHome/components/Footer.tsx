@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import { secondHomeTheme } from '../theme'
 const aicteapprovals = "/pdfs/footer/AICTE_Approval_1992_2026_All_Years.pdf";
 
 export default function Footer() {
@@ -81,7 +82,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-r from-[#521092] via-[#d74dec] to-[#521092] pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden">
+    <footer className={`relative pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden ${secondHomeTheme.shellMuted}`}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div
@@ -104,11 +105,11 @@ export default function Footer() {
                 className="flex items-center gap-3 group"
                 onClick={scrollToTop}
               >
-                <img
-                  src={logo || "/placeholder.svg"}
-                  alt="SSIM Logo"
-                  className="h-14 sm:h-[72px] cursor-pointer w-auto transition-transform group-hover:scale-105 brightness-0 invert"
-                />
+              <img
+                src={logo || "/placeholder.svg"}
+                alt="SSIM Logo"
+                className="h-14 sm:h-[72px] cursor-pointer w-auto transition-transform group-hover:scale-105"
+              />
               </Link>
               <div className="flex gap-3">
                 {[
@@ -151,7 +152,7 @@ export default function Footer() {
                   >
                     <Button
                       size="icon"
-                      className={`rounded-full transition-all hover:scale-110 text-[#521092] ${social.bgColor} hover:opacity-90`}
+                      className={`rounded-full transition-all hover:scale-110 text-purple-700 ${social.bgColor} hover:opacity-90 shadow-[0_8px_18px_rgba(16,34,105,0.08)]`}
                       aria-label={social.label}
                     >
                       <social.icon className="h-5 w-5" />
@@ -161,11 +162,11 @@ export default function Footer() {
               </div>
             </div>
             <div className="space-y-3">
-              <p className="text-sm text-white font-medium mb-3">
-                24/7 Women Helpline Number
-              </p>
-              <a href="tel:+919133305062">
-                <Button className="gap-2 bg-white text-[#521092] rounded-full hover:bg-white/80 hover:text-[#521092] transition-colors">
+                <p className="text-sm text-slate-700 font-medium mb-3">
+                  24/7 Women Helpline Number
+                </p>
+                <a href="tel:+919133305062">
+                <Button className="gap-2 bg-white text-purple-700 rounded-full hover:bg-white/90 hover:text-purple-700 transition-colors shadow-[0_10px_24px_rgba(16,34,105,0.08)]">
                   <Phone className="h-4 w-4" />
                   91333 05062
                 </Button>
@@ -177,7 +178,7 @@ export default function Footer() {
           <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-4 gap-8">
             {footerSections.map((section) => (
               <div key={section.label} className="space-y-6">
-                <h3 className="text-lg font-semibold text-white tracking-wide">
+                <h3 className="text-lg font-semibold text-slate-900 tracking-wide">
                   {section.label}
                 </h3>
                 <ul className="space-y-3 text-base">
@@ -190,7 +191,7 @@ export default function Footer() {
                           href={item.path}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group inline-flex items-center gap-1 text-white/90 hover:text-white transition-colors duration-200"
+                          className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
                         >
                           {item.name}
                         </a>
@@ -198,7 +199,7 @@ export default function Footer() {
                         <Link
                           href={item.path}
                           onClick={scrollToTop}
-                          className="group inline-flex items-center gap-1 text-white/90 hover:text-white transition-colors duration-200"
+                          className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
                         >
                           {item.name}
                         </Link>
@@ -211,10 +212,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <Separator className="my-12 bg-white/20" />
+        <Separator className="my-12 bg-slate-200/80" />
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base text-white">
-          <p className="text-white">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base text-slate-700">
+          <p className="text-slate-700">
             Copyright © SSIM {new Date().getFullYear()}
           </p>
         </div>

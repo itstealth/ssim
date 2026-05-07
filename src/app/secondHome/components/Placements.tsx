@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image'
+import { secondHomeTheme } from '../theme'
 
 const students = [
   { name: 'AMAN KUMAR SINGH', src: '/placement_images/AMAN KUMAR SINGH.webp' },
@@ -21,16 +22,16 @@ export default function Placements() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="placements" className="bg-white px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]">
+    <section id="placements" className={`px-4 py-[64px] sm:px-6 lg:px-4 lg:px-[60px] ${secondHomeTheme.shell}`}>
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <span className="inline-block bg-[#521092]/20 text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+          <span className={secondHomeTheme.eyebrow}>
             Placement Excellence
           </span>
-          <h2 className="font-playfair text-[#521092] leading-[1.2] mb-4" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
+          <h2 className={secondHomeTheme.title} style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
             Phenomenal Placement Record
           </h2>
-          <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mx-auto">
+          <p className={`${secondHomeTheme.lead} max-w-[620px] mx-auto`}>
             Our students secure roles at India&apos;s most prestigious companies, transforming their careers from day one.
           </p>
         </div>
@@ -41,15 +42,15 @@ export default function Placements() {
             {placementCards.map((c) => (
               <div
                 key={c.title}
-                className="bg-white rounded-[14px] px-6 py-5 border border-border flex items-center gap-[18px] transition-all duration-300 hover:border-blue hover:shadow-[0_8px_28px_rgba(27,80,236,0.1)] hover:translate-x-1"
+                className={`bg-white rounded-[18px] px-6 py-5 border border-slate-200/80 flex items-center gap-[18px] transition-all duration-300 hover:border-purple-700/20 hover:shadow-[0_16px_40px_rgba(16,34,105,0.08)] hover:translate-x-1 ${secondHomeTheme.surfaceLift}`}
               >
-                <div className="w-[52px] h-[52px] rounded-xl bg-[#521092]/20 grid place-items-center text-2xl flex-shrink-0">
+                <div className="w-[52px] h-[52px] rounded-xl bg-gradient-to-br from-purple-700/15 to-[#1B50EC]/15 grid place-items-center text-2xl flex-shrink-0">
                   {c.icon}
                 </div>
                 <div>
-                  <div className="font-playfair text-[28px] font-extrabold text-[#521092] leading-none">{c.num}</div>
-                  <h4 className="text-[13px] font-bold text-dark mt-[2px]">{c.title}</h4>
-                  <p className="text-[12px] text-gray mt-[2px]">{c.desc}</p>
+                  <div className="font-playfair text-[28px] font-extrabold text-slate-900 leading-none">{c.num}</div>
+                  <h4 className="text-[13px] font-bold text-slate-900 mt-[2px]">{c.title}</h4>
+                  <p className="text-[12px] text-slate-500 mt-[2px]">{c.desc}</p>
                 </div>
               </div>
             ))}
@@ -76,7 +77,7 @@ export default function Placements() {
                     <p className="text-white font-semibold text-sm">{students[activeIndex].name}</p>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-                    <span className="bg-white/90 text-[#521092] text-xs px-3 py-1.5 rounded-full font-medium">Click to rotate</span>
+                    <span className="bg-white/90 text-purple-700 text-xs px-3 py-1.5 rounded-full font-medium shadow-lg">Click to rotate</span>
                   </div>
                 </div>
 
@@ -85,9 +86,9 @@ export default function Placements() {
                     <button
                       type="button"
                       key={student.src}
-                      onClick={() => setActiveIndex(index)}
-                      className={`relative aspect-square overflow-hidden rounded-[12px] shadow-[0_8px_24px_rgba(11,31,59,0.06)] transition-all duration-300 ${
-                        index === activeIndex ? 'ring-2 ring-blue scale-95' : 'hover:scale-105'
+                    onClick={() => setActiveIndex(index)}
+                    className={`relative aspect-square overflow-hidden rounded-[12px] shadow-[0_8px_24px_rgba(11,31,59,0.06)] transition-all duration-300 ${
+                        index === activeIndex ? 'ring-2 ring-purple-400 scale-95' : 'hover:scale-105'
                       }`}
                       aria-label={`Show placement story for ${student.name}`}
                     >

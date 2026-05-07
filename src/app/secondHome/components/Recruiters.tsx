@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import { secondHomeTheme } from '../theme'
 
 const recruiters = [
   { name: 'KPMG', logo: '/placement-logos/kpmg.png' },
@@ -18,21 +19,21 @@ const recruiters = [
 
 export default function Recruiters() {
   return (
-    <section className="bg-white px-4 lg:px-[60px] pt-[60px] pb-[20px]">
+    <section className={`px-4 lg:px-[60px] pt-[64px] pb-[20px] ${secondHomeTheme.shellMuted}`}>
       <div className="mx-auto max-w-7xl">
         <div className="text-center mb-10">
-          <span className="inline-block bg-[#521092]/20 text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+          <span className={secondHomeTheme.eyebrowSoft}>
             Our Partners
           </span>
-          <h2 className="font-playfair text-[#521092] leading-[1.2] mb-4" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
+          <h2 className={secondHomeTheme.title} style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
             Our Phenomenal Recruiters
           </h2>
-          <p className="text-[15px] text-gray leading-[1.75] max-w-[620px] mx-auto">
+          <p className={`${secondHomeTheme.lead} max-w-[620px] mx-auto`}>
             Top MNCs and industry leaders who consistently recruit from SSIM.
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-border bg-white p-6 sm:p-[26px]">
+        <div className="overflow-hidden rounded-[24px] border border-slate-200/80 bg-white p-6 sm:p-[26px] shadow-[0_16px_40px_rgba(16,34,105,0.06)]">
           <div className="relative overflow-hidden">
             <div className="flex gap-12 animate-scroll">
               {[...recruiters, ...recruiters].map((r, i) => (

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { secondHomeTheme } from '../theme'
 
 const gallery = [
   { src: '/studentslife/life-at-ssim/samaroh-2026/1.webp', caption: 'Main Campus · Kompally, Hyderabad', tall: true },
@@ -11,15 +12,15 @@ const gallery = [
 
 export default function CampusLife() {
   return (
-    <section className="bg-[#521092] px-4 lg:px-[60px] py-[60px]">
+    <section className={`px-4 lg:px-[60px] py-[64px] ${secondHomeTheme.shellMuted}`}>
       <div className="text-center">
-        <span className="inline-block bg-[rgba(213,231,255,0.15)] text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+        <span className={secondHomeTheme.eyebrowSoft}>
           Campus Life
         </span>
-        <h2 className="font-playfair text-white leading-[1.2] mb-4" style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
+        <h2 className={secondHomeTheme.title} style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
           Experience Life at SSIM
         </h2>
-        <p className="text-[15px] text-[rgba(213,231,255,0.75)] leading-[1.75] max-w-[620px] mx-auto">
+        <p className={`${secondHomeTheme.lead} max-w-[620px] mx-auto`}>
           A vibrant, state-of-the-art campus that fosters learning, innovation, leadership, and lifelong friendships.
         </p>
       </div>
@@ -41,9 +42,10 @@ export default function CampusLife() {
               alt={item.caption}
               className="object-cover w-full h-full transition-transform duration-[400ms] group-hover:scale-[1.05]"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#101a3a]/28 via-transparent to-transparent" />
             <div
               className="absolute bottom-0 left-0 right-0 text-white px-[14px] pt-8 pb-[10px] text-[11px] md:text-[13px] font-semibold leading-tight"
-              style={{ background: 'linear-gradient(transparent, rgba(16,34,105,.9))' }}
+              style={{ background: 'linear-gradient(transparent, rgba(16,26,58,.95))' }}
             >
               {item.caption}
             </div>

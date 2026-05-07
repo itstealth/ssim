@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
+import { secondHomeTheme } from '../theme'
 
 const accreds = [
   { badge: 'AICTE', label: 'AICTE Approved', img: '/about/aicte.png' },
@@ -37,7 +38,7 @@ export default function AccredBar() {
   }, []);
 
   return (
-    <div className="bg-[#521092] py-[18px]">
+    <div className={`py-[18px] ${secondHomeTheme.shellMuted}`}>
       <div 
         ref={scrollRef}
         className="flex items-center lg:justify-center gap-4 lg:gap-9 px-4 lg:px-[60px] flex-nowrap lg:flex-wrap overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory scroll-pl-4 lg:scroll-pl-[60px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
@@ -45,9 +46,9 @@ export default function AccredBar() {
         {accreds.map((a) => (
           <div 
             key={a.label} 
-            className="flex items-center gap-[10px] font-bold text-[12px] md:text-[13px] text-[#521092] shrink-0 snap-start w-[calc(50vw-24px)] md:w-[calc(33vw-24px)] lg:w-auto p-2 lg:p-0 bg-white/40 lg:bg-transparent rounded-xl lg:rounded-none"
+            className="flex items-center gap-[10px] font-bold text-[12px] md:text-[13px] text-slate-700 shrink-0 snap-start w-[calc(50vw-24px)] md:w-[calc(33vw-24px)] lg:w-auto p-2 lg:p-0 bg-white/75 lg:bg-transparent rounded-xl lg:rounded-none border border-white/60 lg:border-transparent shadow-[0_10px_24px_rgba(16,34,105,0.04)]"
           >
-            <div className="w-10 h-10 lg:w-11 lg:h-11 rounded-[8px] lg:rounded-[10px] bg-white lg:bg-blue-200 grid place-items-center overflow-hidden shrink-0 shadow-sm lg:shadow-none">
+            <div className="w-10 h-10 lg:w-11 lg:h-11 rounded-[8px] lg:rounded-[10px] bg-white lg:bg-purple-50 grid place-items-center overflow-hidden shrink-0 shadow-sm lg:shadow-none">
               <img src={a.img} alt={a.badge} className="w-7 h-7 lg:w-9 lg:h-9 object-contain" />
             </div>
             <span className="whitespace-normal leading-[1.2]">{a.label}</span>

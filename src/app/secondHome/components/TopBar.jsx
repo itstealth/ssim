@@ -52,10 +52,10 @@ const TopBar = () => {
   ];
 
   return (
-    <div className="hidden px-5 sm:px-8 py-3 bg-gradient-to-r from-[#521092] via-[#d74dec] to-[#521092] md:block">
+    <div className="hidden px-5 sm:px-8 py-3 bg-white-cool md:block">
       <div className="flex flex-wrap items-center justify-between mx-auto text-sm">
         <div className="flex items-center gap-4">
-          <span className="text-white">Follow us</span>
+          <span className="text-purple-700">Follow us</span>
           <div className="flex gap-3">
             {socialIcons.map((item, index) => (
               <motion.a
@@ -63,7 +63,7 @@ const TopBar = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#d74dec] bg-white/10 hover:bg-white/20 rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110"
+                className="text-purple-700 hover:text-purple-200 bg-white/10 hover:bg-white/20 rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110"
                 initial={{ y: -50, opacity: 0 }}
                 animate={
                   iconsLoaded[index]
@@ -82,8 +82,8 @@ const TopBar = () => {
             ))}
           </div>
         </div>
-        <div className="text-white justify-center items-center bg-white/10 p-3 gap-2 rounded-full border border-white/20 shadow-sm flex max-w-lg">
-          <div className="h-2 w-2 bg-[#d74dec] rounded-full animate-ping"></div>
+        <div className="text-purple-700 justify-center items-center bg-white/10 p-3 gap-2 rounded-full border border-white/20 shadow-sm flex max-w-lg">
+          <div className="h-2 w-2 bg-purple-400 rounded-full animate-ping"></div>
           <marquee
             className="font-bold text-xs"
             behavior="scroll"
@@ -92,14 +92,14 @@ const TopBar = () => {
             Admissions Open for the academic year 2026-2028. Apply Now!
           </marquee>
         </div>
-        <div className="flex flex-wrap items-center gap-6 text-white">
+        <div className="flex flex-wrap items-center gap-6 text-purple-700">
           <a
             href="https://apply.ssim.ac.in/fellowship-program-application-form"
             target="_blank"
             size="sm"
             rel="noopener noreferrer"
           >
-            <Button className="text-xs text-[#521092] bg-white hover:bg-white/80">
+            <Button className="text-xs text-purple-700 bg-white hover:bg-purple-50 border border-purple-200">
               Apply Now for FPM/EFPM
             </Button>
           </a>
@@ -109,7 +109,7 @@ const TopBar = () => {
             size="sm"
             rel="noopener noreferrer"
           >
-            <Button className="text-xs text-[#521092] bg-white hover:bg-white/80">
+            <Button className="text-xs text-purple-700 bg-white hover:bg-purple-50 border border-purple-200">
               Apply for PGDM
             </Button>
           </a>

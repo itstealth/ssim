@@ -8,8 +8,8 @@ export default function Ticker() {
   ]
 
   return (
-    <div className="bg-[#521092] text-white text-[13px] py-[7px] flex items-center overflow-hidden">
-      <div className="bg-[#521092] text-white px-[18px] py-[2px] font-bold whitespace-nowrap tracking-[0.5px] text-[12px] flex-shrink-0 uppercase">
+    <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white text-[13px] py-[7px] flex items-center overflow-hidden shadow-[0_10px_24px_rgba(16,34,105,0.12)]">
+      <div className="bg-white/12 text-white px-[18px] py-[2px] font-bold whitespace-nowrap tracking-[0.5px] text-[12px] flex-shrink-0 uppercase backdrop-blur">
         🔔 Latest
       </div>
       <div className="ticker-track">

@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
+import { secondHomeTheme } from '../theme'
 
 const faculty = [
   { img: '/faculty&research/faculty/Dr-Rajyalakshmi.webp', name: 'Dr. Rajyalakshmi', role: 'Professor – Marketing', exp: '25+ Years · PhD' },
@@ -61,19 +62,19 @@ export default function Faculty() {
   return (
     <section
       id="faculty"
-      className="bg-white px-4 py-[60px] sm:px-6 lg:px-4 lg:px-[60px]"
+      className={`px-4 py-[64px] sm:px-6 lg:px-4 lg:px-[60px] ${secondHomeTheme.shell}`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <span className="inline-block rounded-full bg-[#521092] px-4 py-[5px] text-[12px] font-bold uppercase tracking-[0.8px] text-[#d74dec] mb-[14px]">
+          <span className={secondHomeTheme.eyebrow}>
             Our Faculty
           </span>
-          <h2 className="mb-4 font-playfair leading-[1.2] text-[#521092]" style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
+          <h2 className={`mb-4 ${secondHomeTheme.title}`} style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
             Learn from the Best
           </h2>
-          <p className="mx-auto max-w-[620px] text-[15px] leading-[1.75] text-gray">
+          <p className={`${secondHomeTheme.lead} mx-auto max-w-[620px]`}>
             Our distinguished faculty bring decades of academic and industry experience to shape tomorrow&apos;s leaders.
           </p>
         </div>
@@ -82,7 +83,7 @@ export default function Faculty() {
           <button
             type="button"
             onClick={() => scrollByCards('left')}
-            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-[#521092] shadow-sm transition-transform hover:-translate-y-0.5 hover:border-blue hover:text-[#d74dec]"
+            className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-purple-700 shadow-sm transition-transform hover:-translate-y-0.5 hover:border-purple-300 hover:text-purple-400"
             aria-label="Scroll faculty left"
           >
             ←
@@ -90,7 +91,7 @@ export default function Faculty() {
           <button
             type="button"
             onClick={() => scrollByCards('right')}
-            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-[#521092] shadow-sm transition-transform hover:-translate-y-0.5 hover:border-blue hover:text-[#d74dec]"
+            className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-purple-700 shadow-sm transition-transform hover:-translate-y-0.5 hover:border-purple-300 hover:text-purple-400"
             aria-label="Scroll faculty right"
           >
             →
@@ -109,7 +110,7 @@ export default function Faculty() {
                 className="snap-center sm:snap-start flex-shrink-0 flex justify-center sm:block w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] max-w-[400px]"
               >
                 <article
-                  className="overflow-hidden rounded-[18px] border border-border bg-white shadow-[0_10px_30px_rgba(16,34,105,0.08)] transition-transform duration-300 hover:-translate-y-1 w-[280px] sm:w-full"
+                  className={`overflow-hidden rounded-[20px] border border-slate-200/80 bg-white shadow-[0_10px_30px_rgba(16,34,105,0.08)] transition-transform duration-300 hover:-translate-y-1 w-[280px] sm:w-full ${secondHomeTheme.surfaceLift}`}
                 >
                   <div className="relative aspect-[3/4] bg-gradient-to-b from-[#edf4ff] to-white overflow-hidden">
                     <Image
@@ -123,9 +124,9 @@ export default function Faculty() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="mb-1 text-[14px] font-bold text-[#521092] leading-tight">{f.name}</h3>
-                    <div className="mb-1 text-[11.5px] font-semibold text-[#d74dec] leading-tight">{f.role}</div>
-                    <div className="text-[11px] text-gray">{f.exp}</div>
+                    <h3 className="mb-1 text-[14px] font-bold text-slate-900 leading-tight">{f.name}</h3>
+                    <div className="mb-1 text-[11.5px] font-semibold text-purple-700 leading-tight">{f.role}</div>
+                    <div className="text-[11px] text-slate-500">{f.exp}</div>
                   </div>
                 </article>
               </div>

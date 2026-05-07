@@ -21,6 +21,28 @@ module.exports = {
 				mist:  '#F4F6FB',
 				mainBlue: '#002F87',
 				'brand-blue': '#2196f3',
+				// Second Home Purple Color Scheme
+				purple: {
+					DEFAULT: '#6B21A8',
+					50: '#FAF5FF',
+					100: '#F3E8FF',
+					200: '#E9D5FF',
+					300: '#D8B4FE',
+					400: '#C084FC',
+					500: '#A855F7',
+					600: '#7C3AED',
+					700: '#6B21A8',
+					800: '#581C87',
+					900: '#4A1D6E',
+				},
+				// Whites and cool tones for backgrounds
+				white: {
+					DEFAULT: '#FFFFFF',
+					cool: '#F8FAFC',
+					grayish: '#F1F5F9',
+					bluish: '#EEF4FF',
+					warm: '#FFFBF7',
+				},
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
@@ -178,5 +200,5 @@ module.exports = {
 		}
 	},
 	plugins: [],
-  };
-  
+};
+

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 
 import WordPullUp from "@/components/ui/word-pull-up";
+import { secondHomeTheme } from '../theme'
 
 const slides = [
   {
@@ -76,15 +77,15 @@ export default function SSIMStories() {
   }, []);
 
   return (
-    <div className="w-full bg-[#521092] px-4 lg:px-[60px] py-[60px]">
+    <div className={`w-full px-4 lg:px-[60px] py-[64px] ${secondHomeTheme.shellMuted}`}>
       <div className="text-center mb-6 flex flex-col items-center">
-        <span className="inline-block bg-[rgba(213,231,255,0.15)] text-[#d74dec] text-[12px] font-bold px-4 py-[5px] rounded-full uppercase tracking-[0.8px] mb-[14px]">
+        <span className={secondHomeTheme.eyebrowSoft}>
           SSIM Stories
         </span>
         <WordPullUp
           words="Hear from Our Alumni"
           tag="h2"
-          className="font-playfair text-white leading-[1.2] mb-4 text-center"
+          className="font-playfair text-slate-900 leading-[1.2] mb-4 text-center"
           style={{ fontSize: "clamp(26px, 3.5vw, 42px)" }}
         />
       </div>
@@ -106,10 +107,10 @@ export default function SSIMStories() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 bg-[#521092] rounded-full flex items-center justify-center hover:bg-[#521092]/80 transition-colors">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
-              </div>
+            <div className="w-16 h-16 bg-gradient-to-br from-purple-700 to-[#1B50EC] rounded-full flex items-center justify-center hover:opacity-95 transition-colors shadow-[0_12px_28px_rgba(107,33,168,0.22)]">
+              <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
             </div>
+          </div>
             <div className="absolute bottom-4 left-4 right-4">
               <p className="text-white text-sm font-semibold">{slide.alt}</p>
             </div>
