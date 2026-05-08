@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { ChevronDown, ChevronRight, Menu } from 'lucide-react'
+import { ChevronDown, ChevronRight, Menu, Phone } from 'lucide-react'
 import {
   Sheet,
   SheetContent,
@@ -163,11 +163,11 @@ export default function Navbar() {
       <Link href="/" className="flex items-center gap-3 no-underline">
         {!logoError ? (
           <Image
-            src="/logo ssim.png"
+            src="/SSIM_Logo.png"
             alt="SSIM Logo"
-            width={52}
-            height={52}
-            className="h-[52px] w-auto object-contain"
+            width={70}
+            height={70}
+            className="h-[70px] w-auto object-contain object-center"
             onError={() => setLogoError(true)}
           />
         ) : (
@@ -241,12 +241,12 @@ export default function Navbar() {
       {/* CTA */}
       <div className="flex items-center gap-4">
         <a
-          href="https://apply.ssim.ac.in"
-          target="_blank"
+          href="tel:+919391114948"
           rel="noreferrer"
           className={`hidden md:block border-none px-5 py-2.5 rounded-lg font-bold text-[13px] no-underline transition-all whitespace-nowrap ${accentButton}`}
         >
-          Apply Now →
+          <Phone className="w-4 h-4 inline mr-1" />
+          Call Us
         </a>
 
         {/* Mobile Menu */}

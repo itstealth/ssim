@@ -13,9 +13,9 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <Link href="/">
               <img
-                src="/logo ssim.png"
+                src="/SSIM_Logo.png"
                 alt="SSIM Logo"
-                className="h-12 sm:h-[72px] object-contain"
+                className="h-20 sm:h-[100px] object-contain object-center"
               />
             </Link>
           </div>
@@ -45,12 +45,12 @@ export default function Header() {
               </div>
             </div>
             <a
-              href="https://apply.ssim.ac.in"
-              target="_blank"
+              href="tel:+919391114948"
               rel="noreferrer"
               className={`hidden md:block ${secondHomeTheme.accentGradient} text-white border-none px-5 py-2.5 rounded-lg font-bold text-[13px] no-underline transition-all hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(107,33,168,0.18)] whitespace-nowrap`}
             >
-              Apply Now →
+              <Phone size={14} className="inline mr-1" />
+              Call Us
             </a>
           </div>
         </div>
