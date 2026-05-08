@@ -28,7 +28,7 @@ export default function ConditionalLayout({ children }) {
       {!hideLayoutElements && <ConditionalBanner />}
       <main>{children}</main>
       {!hideLayoutElements && (
-        isSecondHome ? <SecondHomeFooter /> : <Footer />
+        isSecondHome || isThirdHome ? <SecondHomeFooter /> : <Footer />
       )}
       {!hideLayoutElements && <DockButtons />}
       {!hideLayoutElements && <EnquireNowButton />}

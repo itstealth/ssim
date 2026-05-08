@@ -1,33 +1,26 @@
 "use client";
 
 /* eslint-disable react/no-unknown-property */
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-// import PulsatingButton from "@/components/ui/pulsating-button";
-import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Instagram, Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
-// import { RiTwitterXLine } from "react-icons/ri";
 import { Button } from "@/components/ui/button";
 
 const TopBar = () => {
-  const [iconsLoaded, setIconsLoaded] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const pathname = usePathname();
+  const isPurpleHome = pathname === "/secondHome" || pathname === "/thirdHome";
+  const [iconsLoaded, setIconsLoaded] = useState([false, false, false, false, false]);
 
   useEffect(() => {
-    // Animate icons one by one with a delay
     iconsLoaded.forEach((_, index) => {
       setTimeout(() => {
         setIconsLoaded((prev) => {
-          const newState = [...prev];
-          newState[index] = true;
-          return newState;
+          const next = [...prev];
+          next[index] = true;
+          return next;
         });
-      }, index * 150); // 150ms delay between each icon
+      }, index * 150);
     });
   }, []);
 
@@ -55,11 +48,18 @@ const TopBar = () => {
   ];
 
   return (
-    <div className="hidden px-5 sm:px-8 py-3 bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 md:block">
+    <div
+      className={`hidden px-5 sm:px-8 py-3 md:block ${
+        isPurpleHome
+          ? "bg-gradient-to-r from-purple-950 via-purple-900 to-[#2E1065] border-b border-white/10"
+          : "bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200"
+      }`}
+    >
       <div className="flex flex-wrap items-center justify-between mx-auto text-sm">
-        {/* Social Links */}
         <div className="flex items-center gap-4">
-          <span className="text-gray-600">Follow us</span>
+          <span className={isPurpleHome ? "text-white/85" : "text-gray-600"}>
+            Follow us
+          </span>
           <div className="flex gap-3">
             {socialIcons.map((item, index) => (
               <motion.a
@@ -67,7 +67,11 @@ const TopBar = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-100 hover:text-gray-50 bg-gray-800 hover:bg-gray-700 rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110"
+                className={`rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110 ${
+                  isPurpleHome
+                    ? "text-white bg-white/10 hover:bg-white/15 border border-white/15"
+                    : "text-gray-100 hover:text-gray-50 bg-gray-800 hover:bg-gray-700"
+                }`}
                 initial={{ y: -50, opacity: 0 }}
                 animate={
                   iconsLoaded[index]
@@ -86,8 +90,18 @@ const TopBar = () => {
             ))}
           </div>
         </div>
-        <div className="text-gray-600 justify-center items-center bg-slate-50 p-3 gap-2 rounded-full border-none shadow-sm flex max-w-lg">
-          <div className="h-2 w-2 bg-pink-900 rounded-full animate-ping"></div>
+        <div
+          className={`justify-center items-center p-3 gap-2 rounded-full shadow-sm flex max-w-lg ${
+            isPurpleHome
+              ? "text-white bg-white/10 border border-white/15 backdrop-blur-md"
+              : "text-gray-600 bg-slate-50 border-none"
+          }`}
+        >
+          <div
+            className={`h-2 w-2 rounded-full animate-ping ${
+              isPurpleHome ? "bg-purple-300" : "bg-pink-900"
+            }`}
+          />
           <marquee
             className="font-bold text-xs"
             behavior="scroll"
@@ -96,56 +110,41 @@ const TopBar = () => {
             Admissions Open for the academic year 2026-2028. Apply Now!
           </marquee>
         </div>
-        {/* Contact Info */}
-        <div className="flex flex-wrap items-center gap-6 text-gray-600">
-          {/* <PulsatingButton
-            size="sm"
-            className="text-xs bg-black hover:bg-black/80"
-            pulseColor="#000"
-          >
-            International Conference
-          </PulsatingButton> */}
+        <div
+          className={`flex flex-wrap items-center gap-6 ${
+            isPurpleHome ? "text-white" : "text-gray-600"
+          }`}
+        >
           <a
             href="https://apply.ssim.ac.in/fellowship-program-application-form"
             target="_blank"
-            size="sm"
             rel="noopener noreferrer"
           >
-            <Button className="text-xs text-white bg-black hover:bg-black/80">
+            <Button
+              className={
+                isPurpleHome
+                  ? "text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
+                  : "text-xs text-white bg-black hover:bg-black/80"
+              }
+            >
               Apply Now for FPM/EFPM
             </Button>
           </a>
           <a
             href="https://apply.ssim.ac.in"
             target="_blank"
-            size="sm"
-            rel="noopener noreferrer"
-          >
-            <Button className="text-xs text-white bg-black hover:bg-black/80">
-              Apply for PGDM
-            </Button>
-          </a>
-          {/* <a
-            // href="https://payment.atomtech.in/payment/form/pay.action?mId=A95D13C110F64630E963122D5321258A"
-            target="_blank"
-            size="sm"
             rel="noopener noreferrer"
           >
             <Button
-              className="text-xs text-white bg-black hover:bg-black/80"
+              className={
+                isPurpleHome
+                  ? "text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
+                  : "text-xs text-white bg-black hover:bg-black/80"
+              }
             >
-              Pay Fee
+              Apply for PGDM
             </Button>
-          </a> */}
-          {/* <Link href="/blog">
-          <PulsatingButton
-            size="sm"
-            className="text-xs bg-black hover:bg-black/80"
-            pulseColor="#000"
-          >
-           Blogs
-          </PulsatingButton>
-          </Link> */}
+          </a>
         </div>
       </div>
     </div>

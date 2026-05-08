@@ -15,10 +15,6 @@ import { secondHomeTheme } from '../theme'
 
 const navItems = [
   {
-    name: 'Home',
-    path: '/',
-  },
-  {
     name: 'About',
     dropdown: [
       { name: 'Academic Advisory Board', path: '/about/academic-advisory-board' },

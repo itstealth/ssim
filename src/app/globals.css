@@ -90,20 +90,20 @@
 
   .home-shell-muted {
     background:
-      radial-gradient(circle at top left, rgba(27, 80, 236, 0.06), transparent 38%),
-      linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      radial-gradient(circle at top left, rgba(168, 85, 247, 0.08), transparent 38%),
+      linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
   }
 
   .third-home .home-shell {
     background:
       radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 40%),
-      linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
+      linear-gradient(180deg, #faf5ff 0%, #ede1ff 100%);
   }
 
   .third-home .home-shell-muted {
     background:
       radial-gradient(circle at top left, rgba(168, 85, 247, 0.14), transparent 36%),
-      linear-gradient(180deg, #f5eafe 0%, #fbf7ff 100%);
+      linear-gradient(180deg, #f4e8ff 0%, #eadcff 100%);
   }
 }
 
