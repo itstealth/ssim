@@ -16,7 +16,7 @@ export const secondHomeTheme = {
   accentGradientSoft:
     'bg-gradient-to-r from-purple-700/90 via-purple-600/90 to-[#1B50EC]/90',
   shell:
-    'relative bg-[radial-gradient(circle_at_top,_rgba(107,33,168,0.08),_transparent_42%),linear-gradient(180deg,_#ffffff_0%,_#f8fafc_100%)]',
+    'relative home-shell',
   shellMuted:
-    'relative bg-[radial-gradient(circle_at_top_left,_rgba(27,80,236,0.08),_transparent_38%),linear-gradient(180deg,_#f8fafc_0%,_#ffffff_100%)]',
+    'relative home-shell-muted',
 }

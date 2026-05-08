@@ -144,10 +144,21 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
   const isSecondHome = pathname === '/secondHome'
-  const linkColor = isSecondHome ? 'text-slate-700 hover:text-purple-700' : 'text-slate-700 hover:text-navy'
-  const dropdownHover = isSecondHome ? 'hover:bg-purple-50 hover:text-purple-700' : 'hover:bg-slate-50 hover:text-navy'
+  const isThirdHome = pathname === '/thirdHome'
+  const linkColor = isSecondHome
+    ? 'text-slate-700 hover:text-purple-700'
+    : isThirdHome
+      ? 'text-slate-700 hover:text-purple-600'
+      : 'text-slate-700 hover:text-navy'
+  const dropdownHover = isSecondHome
+    ? 'hover:bg-purple-50 hover:text-purple-700'
+    : isThirdHome
+      ? 'hover:bg-purple-50 hover:text-purple-600'
+      : 'hover:bg-slate-50 hover:text-navy'
   const accentButton = isSecondHome
     ? 'bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(107,33,168,0.18)]'
+    : isThirdHome
+      ? 'bg-gradient-to-r from-purple-500 via-fuchsia-500 to-purple-300 text-white hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(168,85,247,0.18)]'
     : 'bg-navy text-white hover:bg-navy-light hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,34,105,0.18)]'
 
   return (
@@ -164,7 +175,7 @@ export default function Navbar() {
             onError={() => setLogoError(true)}
           />
         ) : (
-          <div className={`w-[52px] h-[52px] rounded-xl grid place-items-center text-white font-playfair text-xl font-extrabold flex-shrink-0 ${isSecondHome ? 'bg-gradient-to-br from-purple-700 to-[#1B50EC]' : 'bg-navy'}`}>
+          <div className={`w-[52px] h-[52px] rounded-xl grid place-items-center text-white font-playfair text-xl font-extrabold flex-shrink-0 ${isSecondHome ? 'bg-gradient-to-br from-purple-700 to-[#1B50EC]' : isThirdHome ? 'bg-gradient-to-br from-purple-500 to-fuchsia-500' : 'bg-navy'}`}>
             S
           </div>
         )}
@@ -245,11 +256,11 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger className="xl:hidden flex items-center">
-            <Menu className={`w-6 h-6 ${isSecondHome ? 'text-purple-700' : 'text-navy'}`} />
+            <Menu className={`w-6 h-6 ${isSecondHome || isThirdHome ? 'text-purple-700' : 'text-navy'}`} />
           </SheetTrigger>
           <SheetContent className="bg-white overflow-auto w-[300px]">
             <SheetHeader className="text-left mb-4">
-              <SheetTitle className={`text-2xl font-bold text-left font-playfair ${isSecondHome ? 'text-purple-700' : 'text-navy'}`}>
+              <SheetTitle className={`text-2xl font-bold text-left font-playfair ${isSecondHome || isThirdHome ? 'text-purple-700' : 'text-navy'}`}>
                 SSIM
               </SheetTitle>
             </SheetHeader>

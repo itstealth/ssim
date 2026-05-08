@@ -15,6 +15,18 @@ import Link from "next/link";
 import { secondHomeTheme } from '../theme'
 const aicteapprovals = "/pdfs/footer/AICTE_Approval_1992_2026_All_Years.pdf";
 
+type FooterItem = {
+  name: string;
+  path: string;
+  external?: boolean;
+}
+
+type FooterSection = {
+  label: string;
+  items: FooterItem[];
+  helpline?: boolean;
+}
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -23,7 +35,7 @@ export default function Footer() {
     });
   };
 
-  const footerSections = [
+  const footerSections: FooterSection[] = [
     {
       label: "Useful Links",
       items: [

@@ -14,9 +14,11 @@ export default function ConditionalLayout({ children }) {
   const pathname = usePathname()
   const hideLayoutElements = pathname === "/thank-you" || pathname === "/pgdm-admissions"
   const isSecondHome = pathname === "/secondHome"
+  const isThirdHome = pathname === "/thirdHome"
+  const homeVariantClass = isThirdHome ? "third-home" : isSecondHome ? "second-home" : ""
 
   return (
-    <>
+    <div className={homeVariantClass}>
       {!hideLayoutElements && (
         <header>
           <div className="hidden md:block"><TopBar /></div>
@@ -47,6 +49,6 @@ export default function ConditionalLayout({ children }) {
           </a>
         </div>
       )}
-    </>
+    </div>
   )
 }
