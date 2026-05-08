@@ -172,6 +172,20 @@ export default function Footer() {
                 </Button>
               </a>
             </div>
+            <div className="space-y-3">
+              <p className="text-sm text-slate-600">
+                <strong className="text-slate-700">Address:</strong> NH 44, Kompally, Secunderabad, Telangana - 500100
+              </p>
+              <p className="text-sm text-slate-600">
+                <strong className="text-slate-700">Email:</strong>{' '}
+                <a href="mailto:info@ssim.ac.in" className="hover:text-purple-700">info@ssim.ac.in</a>
+              </p>
+              <p className="text-sm text-slate-600">
+                <strong className="text-slate-700">Phone:</strong>{' '}
+                <a href="tel:+91-040-27165451" className="hover:text-purple-700">040-2716 5451/53/54</a>,{' '}
+                <a href="tel:+919391114948" className="hover:text-purple-700">+91 9391114948</a>
+              </p>
+            </div>
           </div>
 
           {/* Links Sections */}
