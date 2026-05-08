@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { secondHomeTheme } from '../theme'
 
 const imgSlider = [
   {
@@ -64,8 +63,8 @@ export default function Hero() {
             style={{ transitionProperty: 'opacity, transform' }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#101a3a]/88 via-purple-700/78 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_30%),linear-gradient(180deg,rgba(11,18,44,0.1),rgba(11,18,44,0.18))] lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-700/95 via-purple-700/80 to-transparent" />
+        <div className="absolute inset-0 bg-black/30 lg:hidden" /> {/* Extra darkening for mobile */}
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-4 lg:px-[60px] relative z-10 w-full">
@@ -73,7 +72,7 @@ export default function Hero() {
           
           {/* Left Content Column */}
           <div className="w-full lg:w-[60%] xl:w-[55%] text-white">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-[18px] py-[6px] text-[12px] font-semibold uppercase tracking-[0.5px] text-purple-100 backdrop-blur-md mb-6">
+            <div className="inline-flex items-center gap-2 bg-purple-900/30 border border-purple-400/40 backdrop-blur-sm px-[18px] py-[6px] rounded-full text-purple-300 text-[12px] font-semibold tracking-[0.5px] uppercase mb-6">
               AICTE Approved · 32+ Years of Excellence
             </div>
 
@@ -83,7 +82,7 @@ export default function Hero() {
               ))}
             </h1>
             
-            <p className="text-[16px] sm:text-[18px] text-[rgba(255,255,255,0.88)] mb-8 leading-[1.6] max-w-[540px] drop-shadow-md">
+            <p className="text-[16px] sm:text-[18px] text-[rgba(255,255,255,0.9)] mb-8 leading-[1.6] max-w-[540px] drop-shadow-md">
               {currentSlide.highlight}
             </p>
             
@@ -92,13 +91,13 @@ export default function Hero() {
                 href="https://apply.ssim.ac.in"
                 target="_blank"
                 rel="noreferrer"
-                className={`${secondHomeTheme.accentGradient} text-white px-8 py-[14px] rounded-[12px] font-bold text-[15px] no-underline transition-all hover:-translate-y-[2px] shadow-[0_10px_30px_rgba(16,34,105,0.18)]`}
+                className="bg-purple-700 text-white px-8 py-[14px] rounded-[10px] font-bold text-[15px] no-underline transition-all hover:bg-purple-600 hover:-translate-y-[2px] shadow-[0_6px_20px_rgba(107,33,168,0.4)]"
               >
                 Apply for 2026–28 →
               </Link>
               <Link
                 href="#programs"
-                className="bg-white/8 text-white px-8 py-[14px] rounded-[12px] font-semibold text-[15px] no-underline border border-white/25 backdrop-blur-md transition-all hover:bg-white/14 hover:border-white/45"
+                className="bg-transparent text-white px-8 py-[14px] rounded-[10px] font-semibold text-[15px] no-underline border-2 border-white/30 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/50"
               >
                 Explore Programs
               </Link>
@@ -114,9 +113,9 @@ export default function Hero() {
               ].map((s) => (
                 <div key={s.label}>
                   <div className="font-playfair text-[32px] font-extrabold text-white leading-none">
-                    {s.num}<span className="text-[#FFD37A] text-[20px]">{s.sup}</span>
+                    {s.num}<span className="text-purple-300 text-[20px]">{s.sup}</span>
                   </div>
-                  <p className="text-[11px] text-[rgba(255,255,255,0.7)] mt-[3px] uppercase tracking-[0.5px]">{s.label}</p>
+                  <p className="text-[11px] text-[rgba(213,231,255,0.7)] mt-[3px] uppercase tracking-[0.5px]">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -128,7 +127,7 @@ export default function Hero() {
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    idx === activeIndex ? 'w-10 bg-[#FFD37A]' : 'w-2 bg-white/40 hover:bg-white/75'
+                    idx === activeIndex ? 'w-10 bg-purple-400' : 'w-2 bg-white/40 hover:bg-white/70'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -147,11 +146,11 @@ export default function Hero() {
                 key={card.label}
                 className={`backdrop-blur-[14px] border rounded-2xl px-[22px] py-[18px] text-white min-w-[220px] transition-transform hover:-translate-y-1 hover:shadow-xl ${
                   card.red
-                    ? 'bg-[#101a3a]/55 border-white/15 shadow-[0_8px_32px_rgba(16,34,105,0.22)]'
+                    ? 'bg-purple-700/40 border-purple-500/50 shadow-[0_8px_32px_rgba(107,33,168,0.2)]'
                     : 'bg-white/10 border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)]'
                 }`}
               >
-                <div className="text-[11px] text-[#FFD37A] font-semibold uppercase tracking-[0.6px] mb-1">{card.label}</div>
+                <div className="text-[11px] text-purple-300 font-semibold uppercase tracking-[0.6px] mb-1">{card.label}</div>
                 <div className="font-playfair text-[32px] font-bold leading-none">{card.val}</div>
                 <div className="text-[13px] text-white/80 mt-[4px]">{card.sub}</div>
               </div>
