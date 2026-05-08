@@ -78,6 +78,7 @@ export default function Footer() {
           path: "https://www.spsschool.ac.in",
         },
       ],
+      helpline: true,
     },
   ];
 
@@ -162,17 +163,6 @@ export default function Footer() {
               </div>
             </div>
             <div className="space-y-3">
-                <p className="text-sm text-slate-700 font-medium mb-3">
-                  24/7 Women Helpline Number
-                </p>
-                <a href="tel:+919133305062">
-                <Button className="gap-2 bg-white text-purple-700 rounded-full hover:bg-white/90 hover:text-purple-700 transition-colors shadow-[0_10px_24px_rgba(16,34,105,0.08)]">
-                  <Phone className="h-4 w-4" />
-                  91333 05062
-                </Button>
-              </a>
-            </div>
-            <div className="space-y-3">
               <p className="text-sm text-slate-600">
                 <strong className="text-slate-700">Address:</strong> NH 44, Kompally, Secunderabad, Telangana - 500100
               </p>
@@ -195,32 +185,74 @@ export default function Footer() {
                 <h3 className="text-lg font-semibold text-slate-900 tracking-wide">
                   {section.label}
                 </h3>
-                <ul className="space-y-3 text-base">
-                  {section.items.map((item) => (
-                    <li key={item.name}>
-                      {item.path.startsWith("https:") ||
-                      item.external ||
-                      item.path === aicteapprovals ? (
-                        <a
-                          href={item.path}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
-                        >
-                          {item.name}
-                        </a>
-                      ) : (
-                        <Link
-                          href={item.path}
-                          onClick={scrollToTop}
-                          className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                {section.helpline ? (
+                  <>
+                    <ul className="space-y-3 text-base">
+                      {section.items.map((item) => (
+                        <li key={item.name}>
+                          {item.path.startsWith("https:") ||
+                          item.external ||
+                          item.path === aicteapprovals ? (
+                            <a
+                              href={item.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
+                            >
+                              {item.name}
+                            </a>
+                          ) : (
+                            <Link
+                              href={item.path}
+                              onClick={scrollToTop}
+                              className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
+                            >
+                              {item.name}
+                            </Link>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="pt-4">
+                      <p className="text-sm text-slate-700 font-medium mb-2">
+                        24/7 Women Helpline Number
+                      </p>
+                      <a href="tel:+919133305062">
+                        <Button className="gap-2 bg-gradient-to-r from-purple-700 to-[#1B50EC] text-white rounded-full hover:opacity-90 transition-colors shadow-[0_10px_24px_rgba(16,34,105,0.08)]">
+                          <Phone className="h-4 w-4" />
+                          91333 05062
+                        </Button>
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <ul className="space-y-3 text-base">
+                    {section.items.map((item) => (
+                      <li key={item.name}>
+                        {item.path.startsWith("https:") ||
+                        item.external ||
+                        item.path === aicteapprovals ? (
+                          <a
+                            href={item.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
+                          >
+                            {item.name}
+                          </a>
+                        ) : (
+                          <Link
+                            href={item.path}
+                            onClick={scrollToTop}
+                            className="group inline-flex items-center gap-1 text-slate-600 hover:text-purple-700 transition-colors duration-200"
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
