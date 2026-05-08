@@ -16,6 +16,7 @@ import { secondHomeTheme } from '../theme'
 const navItems = [
   {
     name: 'About',
+    path: '/about',
     dropdown: [
       { name: 'Academic Advisory Board', path: '/about/academic-advisory-board' },
       { name: 'Accreditations & Rankings', path: '/about/accreditations-rankings' },
@@ -30,6 +31,7 @@ const navItems = [
   },
   {
     name: 'Programs',
+    path: '/programs',
     dropdown: [
       {
         name: 'PGDM',
@@ -44,6 +46,7 @@ const navItems = [
   },
   {
     name: 'Admissions',
+    path: '/admissions',
     dropdown: [
       { name: 'FPM/EFPM', path: '/admissions/fpm-efpm' },
       { name: 'PGDM BA', path: '/admissions/pgdm-ba' },
@@ -53,6 +56,7 @@ const navItems = [
   },
   {
     name: 'Alumni',
+    path: '/alumni',
     dropdown: [
       { name: 'Alumni', path: '/alumni' },
       { name: 'Alumni Guidance', path: '/alumni-guidance' },
@@ -61,6 +65,7 @@ const navItems = [
   },
   {
     name: 'Faculty & Research',
+    path: '/faculty',
     dropdown: [
       {
         name: 'Faculty',
@@ -79,6 +84,7 @@ const navItems = [
   },
   {
     name: 'Corporate Connect',
+    path: '/placement',
     dropdown: [
       { name: 'Placement', path: '/placement/records' },
       { name: 'Placement Team', path: '/placement/team' },
@@ -88,6 +94,7 @@ const navItems = [
   },
   {
     name: "Student's Life",
+    path: '/students-life',
     dropdown: [
       {
         name: 'Buzz About Us',
