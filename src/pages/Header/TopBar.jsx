@@ -3,13 +3,10 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
 import { Instagram, Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const TopBar = () => {
-  const pathname = usePathname();
-  const isPurpleHome = pathname === "/secondHome" || pathname === "/thirdHome";
   const [iconsLoaded, setIconsLoaded] = useState([false, false, false, false, false]);
 
   useEffect(() => {
@@ -49,15 +46,11 @@ const TopBar = () => {
 
   return (
     <div
-      className={`hidden px-5 sm:px-8 py-3 md:block ${
-        isPurpleHome
-          ? "bg-gradient-to-r from-purple-950 via-purple-900 to-[#2E1065] border-b border-white/10"
-          : "bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200"
-      }`}
+      className="hidden px-5 sm:px-8 py-3 md:block bg-gradient-to-r from-purple-950 via-purple-900 to-[#2E1065] border-b border-white/10"
     >
       <div className="flex flex-wrap items-center justify-between mx-auto text-sm">
         <div className="flex items-center gap-4">
-          <span className={isPurpleHome ? "text-white/85" : "text-gray-600"}>
+          <span className="text-white/85">
             Follow us
           </span>
           <div className="flex gap-3">
@@ -67,11 +60,7 @@ const TopBar = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110 ${
-                  isPurpleHome
-                    ? "text-white bg-white/10 hover:bg-white/15 border border-white/15"
-                    : "text-gray-100 hover:text-gray-50 bg-gray-800 hover:bg-gray-700"
-                }`}
+                className="rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110 text-white bg-white/10 hover:bg-white/15 border border-white/15"
                 initial={{ y: -50, opacity: 0 }}
                 animate={
                   iconsLoaded[index]
@@ -91,16 +80,10 @@ const TopBar = () => {
           </div>
         </div>
         <div
-          className={`justify-center items-center p-3 gap-2 rounded-full shadow-sm flex max-w-lg ${
-            isPurpleHome
-              ? "text-white bg-white/10 border border-white/15 backdrop-blur-md"
-              : "text-gray-600 bg-slate-50 border-none"
-          }`}
+          className="justify-center items-center p-3 gap-2 rounded-full shadow-sm flex max-w-lg text-white bg-white/10 border border-white/15 backdrop-blur-md"
         >
           <div
-            className={`h-2 w-2 rounded-full animate-ping ${
-              isPurpleHome ? "bg-purple-300" : "bg-pink-900"
-            }`}
+            className="h-2 w-2 rounded-full animate-ping bg-purple-300"
           />
           <marquee
             className="font-bold text-xs"
@@ -111,9 +94,7 @@ const TopBar = () => {
           </marquee>
         </div>
         <div
-          className={`flex flex-wrap items-center gap-6 ${
-            isPurpleHome ? "text-white" : "text-gray-600"
-          }`}
+          className="flex flex-wrap items-center gap-6 text-white"
         >
           <a
             href="https://apply.ssim.ac.in/fellowship-program-application-form"
@@ -121,11 +102,7 @@ const TopBar = () => {
             rel="noopener noreferrer"
           >
             <Button
-              className={
-                isPurpleHome
-                  ? "text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
-                  : "text-xs text-white bg-black hover:bg-black/80"
-              }
+              className="text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
             >
               Apply Now for FPM/EFPM
             </Button>
@@ -136,11 +113,7 @@ const TopBar = () => {
             rel="noopener noreferrer"
           >
             <Button
-              className={
-                isPurpleHome
-                  ? "text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
-                  : "text-xs text-white bg-black hover:bg-black/80"
-              }
+              className="text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
             >
               Apply for PGDM
             </Button>
