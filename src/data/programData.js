@@ -249,6 +249,32 @@ export const programData = {
       maxDuration: 5,
       minThesisPeriod: 2,
     },
+    faqs: [
+      {
+        question: "What is the FPM program at SSIM Hyderabad and what are its key details?",
+        answer: "FPM (Fellow Program in Management) at SSIM is a 3-year full-time on-campus AICTE-approved doctoral-level program with 45 academic credits, designed for scholars pursuing careers in teaching, academic research, consulting, and advanced business studies.",
+      },
+      {
+        question: "What is the FPM program at SSIM and how long does it take?",
+        answer: "SSIM's FPM is a 3-year full-time AICTE-approved doctoral-level program with a maximum thesis submission window of 5 years. It's built for scholars serious about research, academia, and advanced management thinking.",
+      },
+      {
+        question: "What research domains can FPM scholars specialize in at SSIM?",
+        answer: "FPM scholars can specialize in Accounting & Finance, Marketing, Economics, Operations Management, Strategic Management, Organisational Behaviour/HR, and General Management — covering the full spectrum of management research.",
+      },
+      {
+        question: "What is the total fee for FPM at SSIM — and are there any concessions?",
+        answer: "The total FPM fee is ₹3,00,000 for the complete program. SSIM alumni receive a 25% fee waiver. Stipend-eligible scholars are exempted from tuition fees and pay only ₹70,000 — making it one of the most affordable doctoral programs available.",
+      },
+      {
+        question: "What stipends does SSIM offer for full-time FPM scholars?",
+        answer: "Full-time FPM scholars receive ₹20,000/month (1st year), ₹25,000/month (2nd year), and ₹30,000/month (3rd year) — rewarding serious researchers while supporting their academic journey.",
+      },
+      {
+        question: "What careers open up after completing FPM from SSIM?",
+        answer: "FPM graduates move into academia, research institutions, consulting firms, corporate strategy, policy research, and higher education — roles that demand doctoral-level thinking and credibility that a regular MBA cannot provide.",
+      },
+    ],
   },
   fpm: {
     schema: {
@@ -476,6 +502,32 @@ export const programData = {
       maxDuration: 5,
       minThesisPeriod: 2,
     },
+    faqs: [
+      {
+        question: "What is the FPM program at SSIM Hyderabad and what are its key details?",
+        answer: "FPM (Fellow Program in Management) at SSIM is a 3-year full-time on-campus AICTE-approved doctoral-level program with 45 academic credits, designed for scholars pursuing careers in teaching, academic research, consulting, and advanced business studies.",
+      },
+      {
+        question: "What is the FPM program at SSIM and how long does it take?",
+        answer: "SSIM's FPM is a 3-year full-time AICTE-approved doctoral-level program with a maximum thesis submission window of 5 years. It's built for scholars serious about research, academia, and advanced management thinking.",
+      },
+      {
+        question: "What research domains can FPM scholars specialize in at SSIM?",
+        answer: "FPM scholars can specialize in Accounting & Finance, Marketing, Economics, Operations Management, Strategic Management, Organisational Behaviour/HR, and General Management — covering the full spectrum of management research.",
+      },
+      {
+        question: "What is the total fee for FPM at SSIM — and are there any concessions?",
+        answer: "The total FPM fee is ₹3,00,000 for the complete program. SSIM alumni receive a 25% fee waiver. Stipend-eligible scholars are exempted from tuition fees and pay only ₹70,000 — making it one of the most affordable doctoral programs available.",
+      },
+      {
+        question: "What stipends does SSIM offer for full-time FPM scholars?",
+        answer: "Full-time FPM scholars receive ₹20,000/month (1st year), ₹25,000/month (2nd year), and ₹30,000/month (3rd year) — rewarding serious researchers while supporting their academic journey.",
+      },
+      {
+        question: "What careers open up after completing FPM from SSIM?",
+        answer: "FPM graduates move into academia, research institutions, consulting firms, corporate strategy, policy research, and higher education — roles that demand doctoral-level thinking and credibility that a regular MBA cannot provide.",
+      },
+    ],
   },
   efpm: {
     schema: {
@@ -703,6 +755,36 @@ export const programData = {
       maxDuration: 5,
       minThesisPeriod: 2,
     },
+    faqs: [
+      {
+        question: "What is the Executive Fellow Program in Management (EFPM) at SSIM?",
+        answer: "EFPM at SSIM Hyderabad is an AICTE-approved doctoral-level management program designed specifically for working professionals who want to build expertise in research, academics, consulting, and strategic leadership roles.",
+      },
+      {
+        question: "Who is the SSIM EFPM program really built for?",
+        answer: "Not for fresh graduates — EFPM is designed for working executives, consultants, industry professionals, and academicians who want a doctoral credential without pausing their career. If you have 3+ years of experience and a research mindset, EFPM is your next move.",
+      },
+      {
+        question: "Can I complete EFPM while working full-time?",
+        answer: "Yes — that's exactly the point. SSIM's EFPM is a 3-year part-time doctoral program structured for busy professionals, with a flexible thesis submission window of up to 5 years under exceptional circumstances.",
+      },
+      {
+        question: "What does EFPM demand from its scholars beyond coursework?",
+        answer: "EFPM scholars go beyond classroom learning — you must publish case studies, present research at national/international conferences, and publish papers in SCOPUS/ABDC indexed journals. It's a program that builds your academic reputation, not just your degree.",
+      },
+      {
+        question: "What will EFPM actually change in your career?",
+        answer: "EFPM sharpens interdisciplinary research thinking, advanced analytical capabilities, and ethical research practices — opening doors to senior academia, independent consulting, policy roles, and C-suite advisory positions that a regular MBA simply cannot unlock.",
+      },
+      {
+        question: "What is the total fee structure for the EFPM program at SSIM Hyderabad?",
+        answer: "The total EFPM fee is ₹4,50,000 for the complete program duration — starting with a non-refundable acceptance fee of ₹60,000, followed by three installments of ₹1,30,000 each, making it a structured and manageable investment for working professionals.",
+      },
+      {
+        question: "Can EFPM scholars at SSIM get a stipend or fee exemption?",
+        answer: "Yes. Eligible full-time research scholars receive monthly stipends of ₹20,000 (1st year), ₹25,000 (2nd year), and ₹30,000 (3rd year). Stipend-receiving scholars are exempted from tuition fees and only need to pay ₹70,000 — covering the acceptance fee and refundable security deposit — making it one of the most affordable doctoral programs in Hyderabad.",
+      },
+    ],
   },
   "pgdm-ba": {
     schema: {
@@ -1222,6 +1304,56 @@ export const programData = {
         ],
       },
     },
+    faqs: [
+      {
+        question: "What is the PGDM-BA program at SSIM Hyderabad?",
+        answer: "The PGDM-BA (Post Graduate Diploma in Management – Business Analytics) at Siva Sivani Institute of Management (SSIM) is a 2-year, full-time, on-campus postgraduate management program with 120 credits and a sanctioned intake of 60 seats. It is among the pioneering PGDM Business Analytics programs integrating Business Management, Analytical Mathematics, Statistics, and Computer Science to produce data-driven management professionals.",
+      },
+      {
+        question: "What subjects and specialization areas are covered in the PGDM-BA at SSIM?",
+        answer: "The curriculum covers Marketing Analytics, Financial Analytics, HR Analytics, Operational Analytics, Artificial Intelligence and Neural Networks, Advanced Machine Learning, Big Data Analytics, and Cloud Computing Techniques. Students choose from 50+ elective subjects across 3 specialization domains, ensuring industry-aligned depth and breadth.",
+      },
+      {
+        question: "Is the SSIM PGDM-BA program approved by AICTE and accredited?",
+        answer: "Yes. The PGDM-BA at SSIM is approved by AICTE, accredited by NBA and NAAC, affiliated with AIU (Association of Indian Universities), and holds SAQS (South Asian Quality Suretrust) accreditation.",
+      },
+      {
+        question: "How is PGDM-BA at SSIM different from a regular MBA in Analytics?",
+        answer: "Unlike a conventional MBA, the PGDM-BA uniquely blends management breadth with data science rigour — integrating Analytical Mathematics, Statistics, and Computer Science as core pillars. Students benefit from 50+ elective choices, 3 specialization domains, paid internships (Earn-While-You-Learn), gamification-based learning, and direct corporate interface — producing practitioners ready for real-world analytics roles from Day 1.",
+      },
+      {
+        question: "What is the teaching methodology followed in the PGDM-BA program at SSIM?",
+        answer: "SSIM follows an experiential learning approach. Students engage in simulations, gamification exercises, corporate interviews, and industrial visits. Faculty bring combined expertise from industry, academia, and research. The paid summer internship model (Earn-While-You-Learn) ensures students gain hands-on professional exposure while studying, accelerating placement readiness.",
+      },
+      {
+        question: "What are the career opportunities after completing PGDM-BA from SSIM?",
+        answer: "PGDM-BA graduates from SSIM are equipped for roles such as Business Analyst, Data Analyst, Marketing Analyst, Financial Analytics Specialist, HR Analytics Consultant, Machine Learning Engineer, Data Scientist, and Business Intelligence Manager. With global demand for analytics professionals projected to grow 25% between 2020–2030, SSIM PGDM-BA is one of the most future-proof management specializations available today.",
+      },
+      {
+        question: "Which sectors and companies recruit PGDM-BA graduates from SSIM?",
+        answer: "SSIM PGDM-BA graduates are recruited across BFSI (Banking, Financial Services & Insurance), IT & Technology, Management Consulting, FMCG, E-Commerce, and Healthcare sectors. SSIM's Corporate Connect ecosystem — including a dedicated Placement Team, structured internship pipeline, and industry guest lectures — ensures active recruiter engagement every academic year.",
+      },
+      {
+        question: "Does SSIM offer paid internships as part of the PGDM-BA curriculum?",
+        answer: "Yes. The PGDM-BA program includes paid summer internships through an Earn-While-You-Learn model embedded in the curriculum. These internships provide structured real-world industry experience and frequently serve as a springboard for Pre-Placement Offers (PPOs) from hiring companies.",
+      },
+      {
+        question: "What is the scope of Business Analytics as a career in India and globally?",
+        answer: "With 2.5 quintillion bytes of data generated globally every day, organizations across industries are rapidly shifting to data-driven decision-making. The demand for Business Analytics professionals is projected to grow by 25% between 2020 and 2030. In India, Hyderabad is among the top analytics hubs, making an SSIM PGDM-BA — a Hyderabad-based, AICTE-approved program — a strong career investment.",
+      },
+      {
+        question: "What accreditations and rankings does SSIM hold as a B-school?",
+        answer: "Siva Sivani Institute of Management (SSIM) is AICTE-approved, NBA-accredited, NAAC-accredited, AIU-affiliated, and holds SAQS accreditation — making it one of the few B-schools in South India with this full portfolio of recognitions. These accreditations validate the quality of faculty, curriculum, infrastructure, and student outcomes, providing credibility for placements and higher education abroad.",
+      },
+      {
+        question: "What is SSIM's legacy and how long has it been offering management education?",
+        answer: "SSIM has been offering quality management education since 1992, with uninterrupted AICTE approvals for over 33 years. Part of the S P Sampathy's Siva Sivani Educational Society — a multi-institution group spanning school to postgraduate education in Telangana — SSIM has built a strong legacy in Hyderabad's management education landscape, with PGDM-BA being its pioneering analytics-focused offering.",
+      },
+      {
+        question: "What campus facilities and student life does SSIM offer for PGDM-BA students?",
+        answer: "SSIM's Hyderabad campus offers a full-time residential experience with academic infrastructure, dedicated analytics labs, corporate connect facilities, and an active student life programme. The campus has a 24/7 Women's Helpline (91333 05062), an Internal Complaints Committee, and robust safety policies. Prospective students can explore the campus through SSIM's virtual tour at ssim.ac.in/virtual-tour.",
+      },
+    ],
   },
   "pgdm-bifs": {
     schema: {
@@ -1815,6 +1947,56 @@ export const programData = {
         ],
       },
     },
+    faqs: [
+      {
+        question: "What is PGDM-BIFS at SSIM Hyderabad?",
+        answer: "PGDM-BIFS at SSIM is a 2-year full-time, on-campus Post Graduate Diploma in Management — Banking, Insurance and Financial Services. The program carries 120 credits with a sanctioned intake of 60 students per batch.",
+      },
+      {
+        question: "Is PGDM-BIFS at SSIM approved by AICTE?",
+        answer: "Yes. PGDM-BIFS at SSIM is AICTE, NBA & NAAC approved, AIU affiliated, and SAQS accredited with outcome-based education.",
+      },
+      {
+        question: "What are the key specializations offered in the PGDM-BIFS program?",
+        answer: "Students can choose electives in Banking, Insurance, Analytics, Marketing, Operations, Human Resource, Technology Management, Agri Business Management, Digital Marketing, and FinTech.",
+      },
+      {
+        question: "What practical learning opportunities are included in the PGDM-BIFS program?",
+        answer: "The program includes industry visits, simulations, internships, certification courses, company review sessions, live projects, outbound training, and term-end viva sessions with industry experts.",
+      },
+      {
+        question: "Is a PGDM-BIFS degree from SSIM equivalent to an MBA?",
+        answer: "Yes. SSIM is recognized by the Association of Indian Universities (AIU), which makes the PGDM-BIFS diploma equivalent to an MBA degree for employment and higher education purposes.",
+      },
+      {
+        question: "What makes SSIM Hyderabad's PGDM-BIFS program unique?",
+        answer: "The program offers III accreditation, NSE-assisted finance labs, Equity Levers certifications, CESIM simulations, international exchange opportunities, and strong industry integration.",
+      },
+      {
+        question: "How can students apply for PGDM-BIFS at SSIM Hyderabad?",
+        answer: "Students can apply online through the official SSIM admissions portal by submitting academic details, entrance exam scores, and required documents.",
+      },
+      {
+        question: "What career opportunities and roles are available after completing PGDM-BIFS at SSIM Hyderabad?",
+        answer: "Graduates can build careers across banking, insurance, fintech, financial analytics, risk management, wealth management, and investment services. Key roles include Financial Analyst, Risk Analyst, Banking Associate, Insurance Advisor, FinTech Executive, Relationship Manager, and Investment Analyst.",
+      },
+      {
+        question: "Does SSIM Hyderabad provide placement support for PGDM-BIFS students?",
+        answer: "Yes. SSIM offers placement assistance through internships, industry collaborations, simulations, corporate mentoring, and campus recruitment drives.",
+      },
+      {
+        question: "Are international exposure opportunities available in PGDM-BIFS?",
+        answer: "Yes. SSIM offers international exchange opportunities with institutions like Herzing University, Atlanta (USA).",
+      },
+      {
+        question: "What is the total fee and hostel facility available for PGDM-BIFS at SSIM Hyderabad?",
+        answer: "The total program fee for Batch 2026–28 is ₹8,40,000 for the complete two-year duration. Additionally, SSIM offers hostel accommodation with A/C and Non-A/C rooms in single and double occupancy options, inclusive of food facilities, at separate charges.",
+      },
+      {
+        question: "What scholarships are available for PGDM-BIFS at SSIM Hyderabad?",
+        answer: "SSIM offers merit scholarships based on entrance exam scores (up to ₹90,000 for 90+ percentile in CAT/XAT/GMAT), academic performance in Class X, XII & Graduation (up to ₹45,000), and special categories including the President Scholarship (₹1,00,000) for Defence personnel children. The best applicable scholarship is awarded if eligible for multiple criteria.",
+      },
+    ],
   },
   "pgdm-triple-specialisation": {
     schema: {
@@ -2530,5 +2712,47 @@ export const programData = {
         ],
       },
     },
+    faqs: [
+      {
+        question: "What is the duration and key details of the PGDM Triple Specialisation program at SSIM Hyderabad?",
+        answer: "PGDM Triple Specialisation at SSIM is a 2-year full-time on-campus Post Graduate Diploma in Management with 120 credits and a sanctioned intake of 180 students per batch. The program offers comprehensive management education with the flexibility to choose one Major, one Minor, and one Sectoral specialisation from 10+ domain options.",
+      },
+      {
+        question: "Why choose SSIM Hyderabad for PGDM Triple Specialisation?",
+        answer: "SSIM's NBA-accredited PGDM Triple Specialisation offers a unique combination of Major, Minor, and Sectoral electives across 10+ domains, with 180 student intake, Harvard Business School Online collaboration, and 30+ years of academic legacy — ranked 2nd in Telangana by Outlook 2025.",
+      },
+      {
+        question: "What Major specialisations and electives are available in PGDM Triple Specialisation at SSIM Hyderabad?",
+        answer: "Students can choose from 7 major specialisations Finance, Marketing, Human Resource, Agri-Business Management, Operations Management, Technology Management and Banking — each offering 6 focused electives covering areas like Portfolio Management, Consumer Behaviour, HR Analytics, Supply Chain Management, and Digital Transformation.",
+      },
+      {
+        question: "What Minor specialisations can students choose in the PGDM Triple Specialisation program at SSIM?",
+        answer: "Minor electives are available in Finance, Marketing, Operations Management, Technology Management, Human Resource, Banking, Agri-Business Management, and Business Analytics — covering subjects like Wealth Management, Digital Banking, Machine Learning, and Visual Analytics, allowing students to build cross-functional expertise.",
+      },
+      {
+        question: "What is the eligibility for PGDM admissions 2026?",
+        answer: "Candidates must have a minimum 3-year bachelor's degree with 50% marks and valid scores in exams like CAT, MAT, XAT, CMAT, or ATMA.",
+      },
+      {
+        question: "Which entrance exam is best for PGDM in Hyderabad and how should I prepare?",
+        answer: "CAT and XAT are the top choices, but MAT, CMAT, and ATMA are equally good options depending on your preparation level and target colleges. For preparation, focus on Quantitative Aptitude, Logical Reasoning, Data Interpretation, and Verbal Ability — backed by regular mock tests and strong time management practice.",
+      },
+      {
+        question: "What is the total fee structure for PGDM Triple Specialisation at SSIM Hyderabad for Batch 2026–28?",
+        answer: "The total program fee is ₹8,40,000 payable in installments — Admission Fee (₹50,000) and Alumni Association Fee (₹10,000) at the time of admission, followed by 5 installments ranging from ₹1,24,000 to ₹1,86,000 spread across the two-year duration. A refundable caution deposit of ₹25,000 is also payable with the 1st installment.",
+      },
+      {
+        question: "Are transportation facilities available for students?",
+        answer: "Yes. Transportation services are available with charges depending on travel distance from the campus.",
+      },
+      {
+        question: "Are there any additional charges apart from the PGDM tuition fee at SSIM?",
+        answer: "Yes. Additional charges include Transportation (₹40,000–₹50,000 per annum based on distance) and Hostel fees ranging from ₹1,55,000 (Non-A/C Double) to ₹1,97,500 (A/C Single) per annum including food. Note that food charges increase by 15% every year.",
+      },
+      {
+        question: "What is included in the PGDM fee at SSIM Hyderabad?",
+        answer: "The PGDM fee covers Admission Fee, Course Fee, and Examination Fee. Additionally, the institute mandatorily provides every student a Laptop, Business Suit, and Textbooks as per the Book Bank Policy — at no extra cost.",
+      },
+    ],
   },
 };

@@ -102,6 +102,7 @@ const sections = [
     hidden: ["fpm", "efpm", "fpm/efpm"],
   },
   { id: "eligibility", name: "Admissions", icon: ChevronRight },
+  { id: "faq", name: "FAQs", icon: ChevronRight },
 ];
 
 const useMediaQuery = (query) => {
@@ -649,6 +650,62 @@ const EligibilityAdmission = ({ eligibility, admission }) => {
   );
 };
 
+const ProgramFAQ = ({ faqs }) => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  if (!faqs || faqs.length === 0) return null;
+
+  return (
+    <div className="space-y-4">
+      <h3 className="text-2xl font-semibold mb-6 text-red-600">
+        Frequently Asked Questions
+      </h3>
+      <div className="space-y-3">
+        {faqs.map((faq, index) => (
+          <div
+            key={index}
+            className="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm transition-all duration-300 hover:shadow-md"
+          >
+            <button
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              className="w-full flex items-center justify-between p-5 text-left transition-colors hover:bg-slate-50 group"
+            >
+              <span className="text-lg font-semibold text-slate-800 pr-8 group-hover:text-red-600 transition-colors">
+                {faq.question}
+              </span>
+              <motion.div
+                animate={{ rotate: openIndex === index ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="flex-shrink-0"
+              >
+                <ChevronDown
+                  className={`h-5 w-5 ${
+                    openIndex === index ? "text-red-600" : "text-slate-400"
+                  }`}
+                />
+              </motion.div>
+            </button>
+            <AnimatePresence initial={false}>
+              {openIndex === index && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <div className="px-5 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 bg-slate-50/30">
+                    {faq.answer}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const CourseElectives = ({ electives, programId }) => {
   console.log(programId, electives?.major?.title);
   if (!electives) {
@@ -791,6 +848,8 @@ const ProgramSection = ({ programId, activeSection }) => {
             admission={program.admission}
           />
         );
+      case "faq":
+        return <ProgramFAQ faqs={program.faqs} />;
       default:
         return <div>Select a section</div>;
     }
