@@ -190,8 +190,8 @@ export default function Footer() {
                   {section.items.map((item) => (
                     <li key={item.name}>
                       {item.path.startsWith("https:") ||
-                      item.external ||
-                      item.path === aicteapprovals ? (
+                        item.external ||
+                        item.path === aicteapprovals ? (
                         <a
                           href={item.path}
                           target="_blank"
@@ -245,6 +245,18 @@ export default function Footer() {
         <Separator className="my-12 bg-[#293794]" />
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base text-muted-foreground">
+          <p className="text-mainBlue">
+            Designed & Developed By{" "}
+            <a
+              href="https://www.stealthdigital.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors font-medium"
+            >
+              Stealth Digital
+            </a>
+          </p>
+          <span className="hidden sm:block text-mainBlue">|</span>
           <p className="text-mainBlue">
             Copyright © SSIM {new Date().getFullYear()}
           </p>
