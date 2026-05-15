@@ -166,7 +166,7 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-            <div className="space-y-3">
+            {/* <div className="space-y-3">
               <p className="text-sm text-black font-medium mb-3">
                 24/7 Women Helpline Number
               </p>
@@ -176,7 +176,7 @@ export default function Footer() {
                   91333 05062
                 </Button>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Links Sections */}

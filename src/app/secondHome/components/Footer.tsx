@@ -272,7 +272,7 @@ export default function Footer() {
                         </li>
                       ))}
                     </ul>
-                    <div className="pt-4">
+                    {/* <div className="pt-4">
                       <p className={`text-sm font-medium mb-2 ${isPurpleHome ? "text-white" : "text-slate-700"}`}>
                         24/7 Women Helpline Number
                       </p>
@@ -288,7 +288,7 @@ export default function Footer() {
                           91333 05062
                         </Button>
                       </a>
-                    </div>
+                    </div> */}
                   </>
                 ) : (
                   <ul className="space-y-3 text-base">

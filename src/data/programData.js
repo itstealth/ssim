@@ -1349,9 +1349,13 @@ export const programData = {
         question: "What is SSIM's legacy and how long has it been offering management education?",
         answer: "SSIM has been offering quality management education since 1992, with uninterrupted AICTE approvals for over 33 years. Part of the S P Sampathy's Siva Sivani Educational Society — a multi-institution group spanning school to postgraduate education in Telangana — SSIM has built a strong legacy in Hyderabad's management education landscape, with PGDM-BA being its pioneering analytics-focused offering.",
       },
-      {
+      // {
+      //   question: "What campus facilities and student life does SSIM offer for PGDM-BA students?",
+      //   answer: "SSIM's Hyderabad campus offers a full-time residential experience with academic infrastructure, dedicated analytics labs, corporate connect facilities, and an active student life programme. The campus has a 24/7 Women's Helpline (91333 05062), an Internal Complaints Committee, and robust safety policies. Prospective students can explore the campus through SSIM's virtual tour at ssim.ac.in/virtual-tour.",
+      // },
+       {
         question: "What campus facilities and student life does SSIM offer for PGDM-BA students?",
-        answer: "SSIM's Hyderabad campus offers a full-time residential experience with academic infrastructure, dedicated analytics labs, corporate connect facilities, and an active student life programme. The campus has a 24/7 Women's Helpline (91333 05062), an Internal Complaints Committee, and robust safety policies. Prospective students can explore the campus through SSIM's virtual tour at ssim.ac.in/virtual-tour.",
+        answer: "SSIM's Hyderabad campus offers a full-time residential experience with academic infrastructure, dedicated analytics labs, corporate connect facilities, and an active student life programme. Prospective students can explore the campus through SSIM's virtual tour at ssim.ac.in/virtual-tour.",
       },
     ],
   },
