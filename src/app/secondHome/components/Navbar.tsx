@@ -167,9 +167,9 @@ export default function Navbar() {
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
         <img
-          src="/logo ssim.png"
+          src="/SSIM_Logo.png"
           alt="SSIM Logo"
-          className="h-[60px] md:h-[70px] w-auto object-contain object-center p-2"
+          className="h-[80px] md:h-[90px] w-auto object-contain object-center "
           // onError={(e) => {
           //   e.target.style.display = 'none';
           //   e.target.nextSibling.style.display = 'flex';

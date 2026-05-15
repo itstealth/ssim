@@ -1,6 +1,6 @@
 "use client";
 
-const logo = "/logo ssim.png";
+const logo = "/SSIM_Logo.png";
 import {
   Facebook,
   Instagram,
@@ -87,7 +87,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden">
+    <footer className="relative bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 pt-10 md:pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div
@@ -104,7 +104,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12">
           {/* Logo and Social Section */}
           <div className="lg:col-span-3 space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-2">
               <Link
                 href="/"
                 className="flex items-center gap-3 group"
@@ -113,7 +113,7 @@ export default function Footer() {
                 <img
                   src={logo || "/placeholder.svg"}
                   alt="SSIM Logo"
-                  className="h-14 sm:h-[72px] cursor-pointer w-auto transition-transform group-hover:scale-105"
+                  className="h-24 sm:h-[120px] cursor-pointer w-auto transition-transform group-hover:scale-105"
                 />
               </Link>
               <div className="flex gap-3">
