@@ -19,6 +19,9 @@ import {
   TableCaption,
 } from "@/components/ui/table";
 import { Clock, Calendar, ArrowLeft } from "lucide-react";
+import { BlogCTA } from "@/components/blog/BlogCTA";
+import { AuthorBio } from "@/components/blog/AuthorBio";
+import { RecommendedPosts } from "@/components/blog/RecommendedPosts";
 
 // Helper function to fetch a single blog post from our API
 const fetchBlogPost = async (slug) => {
@@ -287,84 +290,88 @@ export default function BlogDetail() {
   };
 
   const processedContent = useMemo(() => {
-    if (!blog?.content) return null;
+    if (!blog?.content) return [];
 
-    if (!blog.content.includes("<table") && !blog.content.includes("<TABLE")) {
-      return { __html: blog.content };
+    const splitByParagraphs = (html, keyPrefix) => {
+      const parts = [];
+      const pCloseRegex = /<\/p>/gi;
+      let lastIndex = 0;
+      let paraCount = 0;
+      let chunkIndex = 0;
+      let match;
+
+      while ((match = pCloseRegex.exec(html)) !== null) {
+        paraCount++;
+        if (paraCount % 3 === 0) {
+          const chunk = html.substring(lastIndex, match.index + match[0].length);
+          if (chunk.trim()) {
+            parts.push({ type: "html", content: chunk, key: `${keyPrefix}-chunk-${chunkIndex}` });
+            parts.push({ type: "cta", key: `${keyPrefix}-cta-${chunkIndex}` });
+          }
+          lastIndex = match.index + match[0].length;
+          chunkIndex++;
+        }
+      }
+
+      if (lastIndex < html.length) {
+        const remaining = html.substring(lastIndex);
+        if (remaining.trim()) {
+          parts.push({ type: "html", content: remaining, key: `${keyPrefix}-chunk-${chunkIndex}` });
+        }
+      }
+
+      return parts.length > 0
+        ? parts
+        : [{ type: "html", content: html, key: `${keyPrefix}-chunk-0` }];
+    };
+
+    const content = blog.content;
+
+    if (!content.includes("<table") && !content.includes("<TABLE")) {
+      return splitByParagraphs(content, "main");
     }
 
     try {
       const tableRegex = /<table[^>]*>[\s\S]*?<\/table>/gi;
-      const parts = [];
+      const rawParts = [];
       let lastIndex = 0;
       let match;
       let tableIndex = 0;
 
-      while ((match = tableRegex.exec(blog.content)) !== null) {
+      while ((match = tableRegex.exec(content)) !== null) {
         if (match.index > lastIndex) {
-          const beforeContent = blog.content.substring(lastIndex, match.index);
+          const beforeContent = content.substring(lastIndex, match.index);
           if (beforeContent.trim()) {
-            parts.push({
-              type: "html",
-              content: beforeContent,
-              key: `html-before-${tableIndex}`,
-            });
+            rawParts.push({ type: "html", content: beforeContent, key: `html-before-${tableIndex}` });
           }
         }
-
-        parts.push({
-          type: "table",
-          content: match[0],
-          key: `table-${tableIndex}`,
-        });
-
+        rawParts.push({ type: "table", content: match[0], key: `table-${tableIndex}` });
         lastIndex = match.index + match[0].length;
         tableIndex++;
       }
 
-      if (lastIndex < blog.content.length) {
-        const afterContent = blog.content.substring(lastIndex);
+      if (lastIndex < content.length) {
+        const afterContent = content.substring(lastIndex);
         if (afterContent.trim()) {
-          parts.push({
-            type: "html",
-            content: afterContent,
-            key: "html-after",
-          });
+          rawParts.push({ type: "html", content: afterContent, key: "html-after" });
         }
       }
 
-      if (parts.length === 0) return { __html: blog.content };
-
-      return parts.map((part) => {
+      const expandedParts = [];
+      rawParts.forEach((part) => {
         if (part.type === "html") {
-          return (
-            <div
-              key={part.key}
-              dangerouslySetInnerHTML={{ __html: part.content }}
-            />
-          );
+          expandedParts.push(...splitByParagraphs(part.content, part.key));
+        } else {
+          expandedParts.push(part);
         }
-
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(part.content, "text/html");
-        const tableElement = doc.querySelector("table");
-
-        if (!tableElement) {
-          return (
-            <div
-              key={part.key}
-              dangerouslySetInnerHTML={{ __html: part.content }}
-            />
-          );
-        }
-
-        return (
-          <div key={part.key}>{convertTableToComponent(tableElement)}</div>
-        );
       });
+
+      return expandedParts.length > 0
+        ? expandedParts
+        : [{ type: "html", content, key: "main-chunk-0" }];
     } catch (e) {
       console.error("Error processing blog content:", e);
-      return { __html: blog.content };
+      return [{ type: "html", content, key: "main-chunk-0" }];
     }
   }, [blog?.content]);
 
@@ -530,17 +537,45 @@ export default function BlogDetail() {
             <Card className="border-none shadow-lg">
               <CardContent className="p-6 sm:p-8 lg:p-12">
                 <div className="blog-content">
-                  {processedContent && Array.isArray(processedContent) ? (
-                    processedContent
-                  ) : processedContent && processedContent.__html ? (
-                    <div dangerouslySetInnerHTML={processedContent} />
-                  ) : (
-                    <div dangerouslySetInnerHTML={{ __html: blog.content }} />
-                  )}
+                  {processedContent.map((part) => {
+                    if (part.type === "cta") return <BlogCTA key={part.key} />;
+                    if (part.type === "table") {
+                      try {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(part.content, "text/html");
+                        const tableEl = doc.querySelector("table");
+                        if (!tableEl)
+                          return (
+                            <div
+                              key={part.key}
+                              dangerouslySetInnerHTML={{ __html: part.content }}
+                            />
+                          );
+                        return <div key={part.key}>{convertTableToComponent(tableEl)}</div>;
+                      } catch {
+                        return (
+                          <div
+                            key={part.key}
+                            dangerouslySetInnerHTML={{ __html: part.content }}
+                          />
+                        );
+                      }
+                    }
+                    return (
+                      <div
+                        key={part.key}
+                        dangerouslySetInnerHTML={{ __html: part.content }}
+                      />
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
           </article>
+
+          <AuthorBio />
+          <BlogCTA />
+          <RecommendedPosts currentSlug={blogId} />
         </div>
       </div>
     </>
