@@ -53,6 +53,7 @@ export default function Footer() {
         { name: "Events", path: "/students-life/life-at-ssim" },
         { name: "Media", path: "/students-life/news" },
         { name: "Blog", path: "/blog" },
+        { name: "Contact Us", path: "/contact-us" },
         { name: "IQAC", path: "/iqac" },
         { name: "Careers", path: "/careers" },
         { name: "AICTE Approvals", path: aicteapprovals },
