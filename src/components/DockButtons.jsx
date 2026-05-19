@@ -32,23 +32,23 @@ export function DockButtons() {
       }`}
     >
       <Dock className="bg-gradient-to-r from-blue-200 via-blue-200 to-blue-200 h-full">
-        <DockIcon size="full" className="bg-black/10 dark:bg-white/10 animate-pulse">
+        <DockIcon size="full" className="bg-black/10 animate-pulse">
           <Link href="https://apply.ssim.ac.in/" target="_blank">
             <Button className="bg-red-600 text-white hover:bg-red-600/80">
               Apply Now
             </Button>
           </Link>
         </DockIcon>
-        {/* <DockIcon className="bg-black/10 dark:bg-white/10">
+        {/* <DockIcon className="bg-black/10">
           <Icons.hamburger className="size-full" />
         </DockIcon> */}
-        <DockIcon size="48" className="bg-black/10 dark:bg-white/10">
+        <DockIcon size="48" className="bg-black/10">
           <Link href="tel:+919391114948" target="_blank" rel="noopener noreferrer">
             <img src="/call-now.png" alt="phone" width={36} height={36} />
           </Link>
         </DockIcon>
 
-        <DockIcon size="48" className="bg-black/10 dark:bg-white/10">
+        <DockIcon size="48" className="bg-black/10">
           <Icons.whatsapp className="size-9 sm:size-full" />
         </DockIcon>
       </Dock>

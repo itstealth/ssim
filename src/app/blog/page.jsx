@@ -200,7 +200,7 @@ export default function BlogSection() {
       ))}
       <section
         id="blog-section"
-        className="py-20 bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-950"
+        className="py-20 bg-gradient-to-b from-white to-slate-50"
       >
         <div className="container mx-auto px-4 max-w-7xl">
           <motion.div
@@ -235,7 +235,7 @@ export default function BlogSection() {
                     variants={fadeIn}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
                   >
-                    <div className="group bg-white dark:bg-gray-800/80 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                       <div
                         className={`flex flex-col ${
                           index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
@@ -255,7 +255,7 @@ export default function BlogSection() {
                         {/* Content container */}
                         <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
                           <h3 
-                            className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-mainBlue dark:group-hover:text-mainBlue transition-colors duration-300 line-clamp-2"
+                            className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-mainBlue transition-colors duration-300 line-clamp-2"
                             dangerouslySetInnerHTML={{ __html: post.title }}
                           />
 
@@ -277,12 +277,12 @@ export default function BlogSection() {
 
                           {/* <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-3">
-                              <Avatar className="h-10 w-10 border-2 border-indigo-100 dark:border-gray-700">
+                              <Avatar className="h-10 w-10 border-2 border-indigo-100">
                                 <AvatarImage
                                   src={post.author.avatar}
                                   alt={post.author.name}
                                 />
-                                <AvatarFallback className="bg-indigo-100 text-indigo-800 dark:bg-gray-700 dark:text-indigo-300">
+                                <AvatarFallback className="bg-indigo-100 text-indigo-800">
                                   {post.author.initials}
                                 </AvatarFallback>
                               </Avatar>

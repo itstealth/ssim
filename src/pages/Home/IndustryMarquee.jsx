@@ -38,7 +38,7 @@ const logos = [
 
 const LogoCard = ({ img }) => {
   return (
-    <div className="flex justify-center items-center py-2 px-6 mx-4 bg-white dark:bg-gray-800 rounded-sm shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 group">
+    <div className="flex justify-center items-center py-2 px-6 mx-4 bg-white rounded-sm shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 group">
       <img
         src={img}
         alt="Company logo"
@@ -50,8 +50,8 @@ const LogoCard = ({ img }) => {
 
 const IndustryMarquee = () => {
   return (
-    <div className="relative w-full overflow-hidden py-8 rounded-sm bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.8))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
+    <div className="relative w-full overflow-hidden py-8 rounded-sm bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
+      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.8))]"></div>
       <Marquee className="py-8" gradientWidth={100} speed={100} pauseOnHover>
         {logos.map((logo, index) => (
           <LogoCard key={index} img={logo} />

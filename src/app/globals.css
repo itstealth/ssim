@@ -37,40 +37,6 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 }
 @layer base {
   * {
@@ -402,43 +368,7 @@ img {
   border-color: #60a5fa;
 }
 
-.dark .ProseMirror a[download] {
-  background-color: rgba(59, 130, 246, 0.2);
-  border-color: rgba(59, 130, 246, 0.5);
-  color: #93c5fd !important;
-}
-
-.dark .ProseMirror a[download]:hover {
-  background-color: rgba(59, 130, 246, 0.3);
-  border-color: rgba(59, 130, 246, 0.7);
-}
-
 /* Dark mode support */
-.dark .ProseMirror code {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
-}
-
-.dark .ProseMirror pre {
-  background: #1e1e1e;
-}
-
-.dark .ProseMirror blockquote {
-  border-left-color: rgba(255, 255, 255, 0.2);
-}
-
-.dark .ProseMirror hr {
-  border-top-color: rgba(255, 255, 255, 0.2);
-}
-
-.dark .ProseMirror table th {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.dark .ProseMirror table td,
-.dark .ProseMirror table th {
-  border-color: rgba(255, 255, 255, 0.2);
-}
 
 /* ===================================
    TipTap Editor Styles (CONSOLIDATED)
@@ -568,7 +498,7 @@ img {
 
 /* Container for blog content on frontend pages */
 .blog-content {
-  @apply text-slate-700 dark:text-slate-300;
+  @apply text-slate-700;
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -619,7 +549,7 @@ img {
 
 .blog-content figcaption,
 .blog-content .prose figcaption {
-  @apply text-sm text-slate-600 dark:text-slate-400 text-center mt-2 italic;
+  @apply text-sm text-slate-600 text-center mt-2 italic;
 }
 
 /* Document download links in blog content */
@@ -637,34 +567,6 @@ img {
   @apply text-blue font-semibold no-underline;
   @apply transition-all duration-200;
   @apply hover:opacity-90 hover:border-[#1B50EC] hover:shadow-md;
-}
-
-.dark .blog-content a[download],
-.dark .blog-content a[href*=".pdf"],
-.dark .blog-content a[href*=".doc"],
-.dark .blog-content a[href*=".docx"],
-.dark .blog-content a[href*=".xls"],
-.dark .blog-content a[href*=".xlsx"],
-.dark .blog-content a[href*=".ppt"],
-.dark .blog-content a[href*=".pptx"],
-.dark .blog-content a[href*="/documents/"] {
-  background-color: rgb(27 80 236 / 0.3);
-  border-color: #1B50EC;
-  color: rgb(147 197 253);
-}
-
-.dark .blog-content a[download]:hover,
-.dark .blog-content a[href*=".pdf"]:hover,
-.dark .blog-content a[href*=".doc"]:hover,
-.dark .blog-content a[href*=".docx"]:hover,
-.dark .blog-content a[href*=".xls"]:hover,
-.dark .blog-content a[href*=".xlsx"]:hover,
-.dark .blog-content a[href*=".ppt"]:hover,
-.dark .blog-content a[href*=".pptx"]:hover,
-.dark .blog-content a[href*="/documents/"]:hover {
-  background-color: rgb(27 80 236 / 0.5);
-  border-color: #1B50EC;
-  opacity: 0.8;
 }
 
 /* Link icons (from emoji or SVG) */
@@ -693,26 +595,26 @@ img {
 
 .blog-content table:not([data-shadcn-table]) thead,
 .blog-content .prose table:not([data-shadcn-table]) thead {
-  @apply bg-slate-100 dark:bg-slate-800;
+  @apply bg-slate-100;
 }
 
 .blog-content table:not([data-shadcn-table]) th,
 .blog-content .prose table:not([data-shadcn-table]) th {
-  @apply px-6 py-4 text-left font-bold text-slate-900 dark:text-slate-100;
-  @apply border-b-2 border-slate-300 dark:border-slate-600;
+  @apply px-6 py-4 text-left font-bold text-slate-900;
+  @apply border-b-2 border-slate-300;
   font-size: 1rem !important;
 }
 
 .blog-content table:not([data-shadcn-table]) td,
 .blog-content .prose table:not([data-shadcn-table]) td {
-  @apply px-6 py-4 text-slate-700 dark:text-slate-300;
-  @apply border-b border-slate-200 dark:border-slate-700;
+  @apply px-6 py-4 text-slate-700;
+  @apply border-b border-slate-200;
   font-size: 1rem !important;
 }
 
 .blog-content table:not([data-shadcn-table]) tbody tr:hover,
 .blog-content .prose table:not([data-shadcn-table]) tbody tr:hover {
-  @apply bg-slate-50 dark:bg-slate-800/50;
+  @apply bg-slate-50;
 }
 
 /* Shadcn Table wrapper - ensure responsive scrolling */
@@ -726,7 +628,7 @@ img {
 .blog-content > div > div[class*="overflow-x-auto"] > table,
 .blog-content > div > div[class*="overflow-auto"] > table {
   @apply min-w-full;
-  @apply border border-slate-200 dark:border-slate-700 rounded-lg;
+  @apply border border-slate-200 rounded-lg;
 }
 
 /* Beautiful horizontal scrollbar styling for table containers */
@@ -757,17 +659,6 @@ img {
 }
 
 /* Dark mode scrollbar */
-.dark .blog-content .table-scroll-container {
-  scrollbar-color: rgb(71, 85, 105) transparent;
-}
-
-.dark .blog-content .table-scroll-container::-webkit-scrollbar-thumb {
-  background: rgb(71, 85, 105);
-}
-
-.dark .blog-content .table-scroll-container::-webkit-scrollbar-thumb:hover {
-  background: rgb(100, 116, 139);
-}
 
 /* Option to hide scrollbar completely - uncomment to use */
 /* .blog-content .table-scroll-container {
@@ -800,14 +691,6 @@ img {
   background: #002F87 !important;
 }
 
-.dark .blog-content .table-scroll-container .blog-table thead,
-.dark .blog-content .table-scroll-container table thead,
-.dark .blog-content .blog-table thead,
-.dark .blog-content table thead {
-  background-color: rgb(30, 41, 59) !important;
-  background: rgb(30, 41, 59) !important;
-}
-
 .blog-content .blog-table-header,
 .blog-content .table-scroll-container .blog-table thead,
 .blog-content .table-scroll-container table thead,
@@ -817,15 +700,6 @@ img {
   background: #002F87 !important;
 }
 
-.dark .blog-content .blog-table-header,
-.dark .blog-content .table-scroll-container .blog-table thead,
-.dark .blog-content .table-scroll-container table thead,
-.dark .blog-content .blog-table thead,
-.dark .blog-content table thead {
-  background-color: rgb(30, 41, 59) !important;
-  background: rgb(30, 41, 59) !important;
-}
-
 .blog-content .blog-table-header-row,
 .blog-content .table-scroll-container .blog-table thead tr,
 .blog-content .table-scroll-container table thead tr,
@@ -833,15 +707,6 @@ img {
 .blog-content table thead tr {
   background-color: #002F87 !important;
   background: #002F87 !important;
-}
-
-.dark .blog-content .blog-table-header-row,
-.dark .blog-content .table-scroll-container .blog-table thead tr,
-.dark .blog-content .table-scroll-container table thead tr,
-.dark .blog-content .blog-table thead tr,
-.dark .blog-content table thead tr {
-  background-color: rgb(30, 41, 59) !important;
-  background: rgb(30, 41, 59) !important;
 }
 
 .blog-content .blog-table-header-cell,
@@ -887,24 +752,6 @@ img {
   color: #ffffff !important;
 }
 
-.dark .blog-content .blog-table-header-cell,
-.dark .blog-content .table-scroll-container .blog-table thead th,
-.dark .blog-content .table-scroll-container table thead th,
-.dark .blog-content .blog-table thead th,
-.dark .blog-content table thead th {
-  background-color: rgb(30, 41, 59) !important;
-  background: rgb(30, 41, 59) !important;
-  color: rgb(241, 245, 249) !important;
-}
-
-.dark .blog-content .blog-table-header-cell *,
-.dark .blog-content .table-scroll-container .blog-table thead th *,
-.dark .blog-content .table-scroll-container table thead th *,
-.dark .blog-content .blog-table thead th *,
-.dark .blog-content table thead th * {
-  color: rgb(241, 245, 249) !important;
-}
-
 /* Override any hover effects on header rows */
 .blog-content .blog-table-header-row:hover,
 .blog-content .table-scroll-container .blog-table thead tr:hover,
@@ -913,15 +760,6 @@ img {
 .blog-content table thead tr:hover {
   background-color: #002F87 !important;
   background: #002F87 !important;
-}
-
-.dark .blog-content .blog-table-header-row:hover,
-.dark .blog-content .table-scroll-container .blog-table thead tr:hover,
-.dark .blog-content .table-scroll-container table thead tr:hover,
-.dark .blog-content .blog-table thead tr:hover,
-.dark .blog-content table thead tr:hover {
-  background-color: rgb(30, 41, 59) !important;
-  background: rgb(30, 41, 59) !important;
 }
 
 /* Code blocks */
@@ -945,7 +783,7 @@ img {
 .blog-content code,
 .blog-content .prose code {
   @apply bg-pink-50 text-pink-700 px-2 py-1 rounded font-mono;
-  @apply dark:bg-pink-900/30 dark:text-pink-300;
+  @apply;
   font-size: 0.875em !important;
 }
 
@@ -960,15 +798,9 @@ img {
 .blog-content .prose blockquote {
   @apply border-l-4 border-[#1B50EC] pl-6 pr-4 py-4 my-8;
   @apply bg-blue-50;
-  @apply italic text-slate-700 dark:text-slate-300 text-lg;
+  @apply italic text-slate-700 text-lg;
   @apply rounded-r-lg shadow-sm;
   font-style: italic !important;
-}
-
-.dark .blog-content blockquote,
-.dark .blog-content .prose blockquote {
-  background-color: rgb(27 80 236 / 0.2);
-  color: rgb(226 232 240);
 }
 
 .blog-content blockquote p,
@@ -978,7 +810,7 @@ img {
 }
 
 .blog-content blockquote strong {
-  @apply font-bold text-slate-900 dark:text-slate-100;
+  @apply font-bold text-slate-900;
 }
 
 /* ===================================
@@ -1010,7 +842,7 @@ img {
   display: list-item !important;
   list-style-type: decimal !important;
   list-style-position: outside !important;
-  @apply text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg;
+  @apply text-slate-700 leading-relaxed text-base sm:text-lg;
   padding-left: 0.5rem !important;
   margin-bottom: 0.75rem !important;
 }
@@ -1021,7 +853,7 @@ img {
   display: list-item !important;
   list-style-type: disc !important;
   list-style-position: outside !important;
-  @apply text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg;
+  @apply text-slate-700 leading-relaxed text-base sm:text-lg;
   padding-left: 0.5rem !important;
   margin-bottom: 0.75rem !important;
 }
@@ -1029,14 +861,14 @@ img {
 /* All List Items */
 .blog-content li,
 .blog-content .prose li {
-  @apply text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg;
+  @apply text-slate-700 leading-relaxed text-base sm:text-lg;
   display: list-item !important;
 }
 
 /* List markers should be visible */
 .blog-content ul > li::marker,
 .blog-content ol > li::marker {
-  @apply text-slate-500 dark:text-slate-400;
+  @apply text-slate-500;
   font-weight: 600;
 }
 
@@ -1063,7 +895,7 @@ img {
 .blog-content .prose li > p:first-child strong {
   font-weight: 700 !important;
   font-size: 1.05em;
-  @apply text-slate-900 dark:text-slate-100;
+  @apply text-slate-900;
 }
 
 /* If list item has only one paragraph AND no nested lists, keep it inline */
@@ -1164,26 +996,14 @@ img {
   font-weight: 500;
 }
 
-.dark .blog-content a:not([download]):not([href*="/documents/"]),
-.dark .blog-content .prose a:not([download]):not([href*="/documents/"]) {
-  color: rgb(96 165 250);
-  text-decoration-color: rgb(37 99 235);
-}
-
-.dark .blog-content a:not([download]):not([href*="/documents/"]):hover,
-.dark .blog-content .prose a:not([download]):not([href*="/documents/"]):hover {
-  color: rgb(147 197 253);
-  text-decoration-color: rgb(96 165 250);
-}
-
 .blog-content a:visited:not([download]):not([href*="/documents/"]) {
-  @apply text-purple-600 dark:text-purple-400;
+  @apply text-purple-600;
 }
 
 /* Horizontal rules */
 .blog-content hr,
 .blog-content .prose hr {
-  @apply border-t-2 border-slate-200 dark:border-slate-700 my-10;
+  @apply border-t-2 border-slate-200 my-10;
   border-bottom: none;
   border-left: none;
   border-right: none;
@@ -1217,19 +1037,19 @@ img {
 
 .blog-content h4,
 .blog-content .prose h4 {
-  @apply text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100;
+  @apply text-xl sm:text-2xl font-semibold text-slate-900;
   @apply mt-6 mb-4;
 }
 
 .blog-content h5,
 .blog-content .prose h5 {
-  @apply text-lg sm:text-xl font-semibold text-slate-800 dark:text-slate-200;
+  @apply text-lg sm:text-xl font-semibold text-slate-800;
   @apply mt-6 mb-3;
 }
 
 .blog-content h6,
 .blog-content .prose h6 {
-  @apply text-base sm:text-lg font-semibold text-slate-700 dark:text-slate-300;
+  @apply text-base sm:text-lg font-semibold text-slate-700;
   @apply mt-4 mb-3;
 }
 
@@ -1247,28 +1067,28 @@ img {
 .blog-content p,
 .blog-content .prose p {
   @apply mb-4 leading-relaxed text-base sm:text-lg;
-  @apply text-slate-700 dark:text-slate-300;
+  @apply text-slate-700;
 }
 
 /* Text emphasis */
 .blog-content strong,
 .blog-content .prose strong,
 .blog-content b {
-  @apply font-bold text-slate-900 dark:text-slate-100;
+  @apply font-bold text-slate-900;
   font-weight: 700 !important;
 }
 
 .blog-content em,
 .blog-content .prose em,
 .blog-content i {
-  @apply italic text-slate-700 dark:text-slate-300;
+  @apply italic text-slate-700;
   font-style: italic !important;
 }
 
 .blog-content mark,
 .blog-content .prose mark {
-  @apply bg-yellow-200 dark:bg-yellow-600/30 px-1 rounded;
-  @apply text-slate-900 dark:text-slate-100;
+  @apply bg-yellow-200 px-1 rounded;
+  @apply text-slate-900;
 }
 
 /* Underline */
@@ -1282,7 +1102,7 @@ img {
 .blog-content del,
 .blog-content strike {
   text-decoration: line-through;
-  @apply text-slate-500 dark:text-slate-400;
+  @apply text-slate-500;
 }
 
 /* Subscript and Superscript */
@@ -1293,7 +1113,7 @@ img {
 
 /* First paragraph styling (optional - makes first para stand out) */
 .blog-content > p:first-of-type {
-  @apply text-lg font-medium text-slate-800 dark:text-slate-200;
+  @apply text-lg font-medium text-slate-800;
 }
 
 /* Responsive adjustments */

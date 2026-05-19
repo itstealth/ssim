@@ -38,10 +38,10 @@ const PlacementIndustry = () => {
               className="absolute inset-0 flex items-center"
               aria-hidden="true"
             >
-              <div className="w-full border-t border-gray-300 dark:border-gray-700"></div>
+              <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center">
-              <span className="px-3 bg-white dark:bg-gray-900 text-lg font-medium text-gray-900 dark:text-white">
+              <span className="px-3 bg-white text-lg font-medium text-gray-900">
                 Empowering Future Leaders
               </span>
             </div>
@@ -49,7 +49,7 @@ const PlacementIndustry = () => {
           <StatsDashboard /> */}
         </div>
       </div>
-      <div className="py-20 pt-10 relative bg-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-white">
+      <div className="py-20 pt-10 relative bg-white text-gray-900">
         {/* <div className="absolute inset-0 opacity-5">
           <div
             className="w-full h-full"

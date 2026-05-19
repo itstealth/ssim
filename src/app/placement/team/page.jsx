@@ -35,7 +35,7 @@ const features = [
 const FeaturedItem = ({ feature, index, image }) => {
   return (
     <div
-      className={`bg-gray-100 shadow-md dark:bg-slate-700 flex items-center rounded-xl p-2 ${
+      className={`bg-gray-100 shadow-md flex items-center rounded-xl p-2 ${
         index !== features.length - 1 ? "mb-4" : ""
       }`}
     >
@@ -56,7 +56,7 @@ export default function PlacementTeams() {
         keywords="SSIM placement team, corporate relations, career services, placement officers"
         canonicalUrl="https://www.ssim.ac.in/placement/team"
       /> */}
-      <section className="py-10 md:py-20 bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 dark:bg-[#0b1727] text-black dark:text-white relative overflow-hidden z-10">
+      <section className="py-10 md:py-20 bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 text-black relative overflow-hidden z-10">
         <div className="container max-w-7xl px-4 mx-auto">
           <div className="grid grid-cols-2 gap-6 items-start">
             <div className="col-span-2 md:col-span-1 md:order-2">

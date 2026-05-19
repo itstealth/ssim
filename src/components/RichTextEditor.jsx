@@ -737,12 +737,12 @@ export const RichTextEditor = ({ value, onChange }) => {
       
       {/* Helper Banner for Lists */}
       {(editor.isActive('bulletList') || editor.isActive('orderedList')) && (
-        <div className="bg-blue-50 dark:bg-blue-900/20 border-b border-blue-200 dark:border-blue-800 px-4 py-2 text-sm text-blue-700 dark:text-blue-300">
+        <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-sm text-blue-700">
           <span className="font-semibold">💡 List Tips:</span>{" "}
-          <kbd className="px-2 py-0.5 bg-white dark:bg-gray-800 border border-blue-300 dark:border-blue-700 rounded text-xs">Enter</kbd> = new item | {" "}
-          <kbd className="px-2 py-0.5 bg-white dark:bg-gray-800 border border-blue-300 dark:border-blue-700 rounded text-xs">Shift+Enter</kbd> = add paragraph | {" "}
-          <kbd className="px-2 py-0.5 bg-white dark:bg-gray-800 border border-blue-300 dark:border-blue-700 rounded text-xs">Tab</kbd> = indent/nest | {" "}
-          <kbd className="px-2 py-0.5 bg-white dark:bg-gray-800 border border-blue-300 dark:border-blue-700 rounded text-xs">Shift+Tab</kbd> = outdent
+          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Enter</kbd> = new item | {" "}
+          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Shift+Enter</kbd> = add paragraph | {" "}
+          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Tab</kbd> = indent/nest | {" "}
+          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Shift+Tab</kbd> = outdent
         </div>
       )}
       

@@ -79,10 +79,10 @@ export default function AccreditationsRankings() {
       <OrganizationSchema description="SSIM Hyderabad holds prestigious accreditations and top rankings, reflecting its excellence, quality standards, and leadership in management education." />
       <div className="w-full">
         <div className="max-w-7xl mx-auto pt-16">
-          <h2 className="px-5 sm:px-0 text-4xl font-bold md:text-5xl text-center text-black dark:text-white">
+          <h2 className="px-5 sm:px-0 text-4xl font-bold md:text-5xl text-center text-black">
             Accreditations & Rankings
           </h2>
-          {/* <p className="text-neutral-700 dark:text-neutral-300 text-lg max-w-screen-md">
+          {/* <p className="text-neutral-700 text-lg max-w-screen-md">
           I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
           a timeline of my journey.
         </p> */}

@@ -134,7 +134,7 @@ export default function BlogDetail() {
 
     return (
       <div className="my-8 w-full table-scroll-container">
-        <Table className="w-full min-w-full border-collapse border border-slate-200 dark:border-slate-700 rounded-lg blog-table">
+        <Table className="w-full min-w-full border-collapse border border-slate-200 rounded-lg blog-table">
           {caption && (
             <TableCaption className="mb-4 text-left">
               <div dangerouslySetInnerHTML={{ __html: caption.innerHTML }} />
@@ -211,7 +211,7 @@ export default function BlogDetail() {
                     (tr, rowIndex) => (
                       <TableRow
                         key={rowIndex}
-                        className="border-b border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                        className="border-b border-slate-200 hover:bg-slate-50"
                       >
                         {Array.from(tr.querySelectorAll("td, th")).map(
                           (cell, cellIndex) => {
@@ -222,9 +222,9 @@ export default function BlogDetail() {
                             return (
                               <CellComponent
                                 key={cellIndex}
-                                className={`px-6 py-4 text-slate-700 dark:text-slate-300 whitespace-nowrap ${
+                                className={`px-6 py-4 text-slate-700 whitespace-nowrap ${
                                   isHeader
-                                    ? "font-bold text-white dark:text-slate-100 bg-mainBlue dark:bg-slate-800"
+                                    ? "font-bold text-white bg-mainBlue"
                                     : ""
                                 }`}
                                 dangerouslySetInnerHTML={{
@@ -240,7 +240,7 @@ export default function BlogDetail() {
                 : bodyRows.map((tr, rowIndex) => (
                     <TableRow
                       key={rowIndex}
-                      className="border-b border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                      className="border-b border-slate-200 hover:bg-slate-50"
                     >
                       {Array.from(tr.querySelectorAll("td, th")).map(
                         (cell, cellIndex) => {
@@ -251,9 +251,9 @@ export default function BlogDetail() {
                           return (
                             <CellComponent
                               key={cellIndex}
-                              className={`px-6 py-4 text-slate-700 dark:text-slate-300 whitespace-nowrap ${
+                              className={`px-6 py-4 text-slate-700 whitespace-nowrap ${
                                 isHeader
-                                  ? "font-bold text-white dark:text-slate-100 bg-mainBlue dark:bg-slate-800"
+                                  ? "font-bold text-white bg-mainBlue"
                                   : ""
                               }`}
                               dangerouslySetInnerHTML={{
