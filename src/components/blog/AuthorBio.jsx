@@ -1,4 +1,5 @@
-// src/components/blog/AuthorBio.jsx
+import Link from "next/link";
+
 export function AuthorBio() {
   return (
     <div className="my-8 rounded-xl border border-[#D6DDED] overflow-hidden">
@@ -18,13 +19,17 @@ export function AuthorBio() {
         <div>
           <p className="font-semibold text-slate-900 mb-2">SSIM Editorial Team</p>
           <p className="text-sm text-slate-600 leading-relaxed">
-            The SSIM Editorial Team comprises experienced academicians, researchers,
-            management professionals, and career mentors dedicated to sharing insightful
-            content on management education, MBA programs, leadership, entrepreneurship,
-            placements, business analytics, and emerging industry trends. Backed by the
-            academic excellence of SSIM – Siva Sivani Institute of Management, the
-            team creates research-driven, student-focused, and industry-relevant content
-            aligned with Google EEAT, Helpful Content, AIO, and GEO optimization standards.
+            The SSIM Editorial Team is a group of experienced academicians, researchers,
+            management professionals, and career mentors dedicated to sharing insightful,
+            student-focused, and industry-relevant content on management education, MBA
+            programs, leadership, entrepreneurship, placements, business analytics, and
+            emerging industry trends. Backed by the academic excellence of{" "}
+            <Link href="/" className="text-[#003366] font-medium hover:underline">
+              Siva Sivani Institute of Management
+            </Link>
+            , the team focuses on creating research-driven and informative blogs, news
+            articles, and resources that help students make informed academic and career
+            decisions.
           </p>
         </div>
       </div>

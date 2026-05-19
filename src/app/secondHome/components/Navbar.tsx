@@ -26,7 +26,6 @@ const navItems = [
       { name: 'Vision & Mission', path: '/about/vision-mission' },
       { name: 'International Relations', path: '/international-relations' },
       { name: 'Virtual Tour', path: '/virtual-tour' },
-      { name: 'Contact Us', path: '/contact-us' },
     ],
   },
   {
@@ -105,6 +104,10 @@ const navItems = [
       },
       { name: 'Life at SSIM', path: '/students-life/life-at-ssim' },
     ],
+  },
+  {
+    name: 'Contact Us',
+    path: '/contact-us',
   },
 ]
 
