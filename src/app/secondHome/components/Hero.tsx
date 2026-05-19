@@ -53,15 +53,22 @@ export default function Hero() {
       {/* Background Image Slider */}
       <div className="absolute inset-0 z-0">
         {imgSlider.map((slide, idx) => (
-          <img
+          <div
             key={slide.image}
-            src={slide.image}
-            alt={slide.tagline}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-              idx === activeIndex ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
+              idx === activeIndex ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{ transitionProperty: 'opacity, transform' }}
-          />
+          >
+            <Image
+              src={slide.image}
+              alt={slide.tagline}
+              fill
+              className={`object-cover transition-transform duration-1000 ease-in-out ${
+                idx === activeIndex ? 'scale-105' : 'scale-100'
+              }`}
+              priority={idx === 0}
+            />
+          </div>
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-700/95 via-purple-700/80 to-transparent" />
         <div className="absolute inset-0 bg-black/30 lg:hidden" /> {/* Extra darkening for mobile */}

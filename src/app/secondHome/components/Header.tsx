@@ -12,10 +12,13 @@ export default function Header() {
         <div className="mx-auto flex justify-between sm:items-center">
           <div className="flex items-center space-x-4">
             <Link href="/">
-              <img
+              <Image
                 src="/SSIM_Logo.png"
                 alt="SSIM Logo"
-                className="h-20 sm:h-[100px] object-contain object-center"
+                width={240}
+                height={100}
+                className="h-20 sm:h-[100px] w-auto object-contain object-center"
+                style={{ width: 'auto' }}
               />
             </Link>
           </div>

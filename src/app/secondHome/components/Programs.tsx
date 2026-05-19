@@ -80,10 +80,11 @@ export default function Programs() {
           className={`rounded-[20px] overflow-hidden bg-white transition-all duration-300 border border-slate-200/80 group block no-underline shrink-0 snap-center w-[85vw] sm:w-auto shadow-[0_12px_30px_rgba(16,34,105,0.06)] ${secondHomeTheme.surfaceLift}`}
         >
           <div className="relative h-[200px] overflow-hidden">
-            <img
+            <Image
               src={p.img}
               alt={p.title}
-              className="object-cover w-full h-full transition-transform duration-[400ms] group-hover:scale-[1.07]"
+              fill
+              className="object-cover transition-transform duration-[400ms] group-hover:scale-[1.07]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#101a3a]/20 via-transparent to-transparent" />
           </div>

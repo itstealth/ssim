@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
@@ -135,10 +136,11 @@ export default function Testimonials() {
                       {/* Avatar */}
                       <div className="flex-shrink-0">
                         <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-lg">
-                          <img
+                          <Image
                             src={testimonials[currentIndex].avatar}
                             alt={testimonials[currentIndex].name}
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
                           />
                         </div>
                       </div>
@@ -229,10 +231,11 @@ export default function Testimonials() {
                 }`}
               >
                 <div className="relative w-16 h-16">
-                  <img
+                  <Image
                     src={t.avatar}
                     alt={t.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
               </button>

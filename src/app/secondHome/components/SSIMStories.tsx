@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 
 import WordPullUp from "@/components/ui/word-pull-up";
@@ -100,10 +101,11 @@ export default function SSIMStories() {
             className="relative aspect-video rounded-lg overflow-hidden shadow-xl group cursor-pointer shrink-0 snap-center w-[85vw] md:w-auto"
             onClick={() => handleVideoClick(slide.videoId)}
           >
-            <img
+            <Image
               src={slide.thumbnail}
               alt={slide.alt}
-              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+              fill
+              className="object-cover transform group-hover:scale-110 transition-transform duration-300"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">

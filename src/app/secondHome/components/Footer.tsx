@@ -1,6 +1,7 @@
 "use client";
 
 const logo = "/logo ssim.png";
+import Image from "next/image";
 import {
   Facebook,
   Instagram,
@@ -135,10 +136,13 @@ export default function Footer() {
                 <span className="relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-white/85 px-4 py-3 shadow-[0_18px_40px_rgba(7,8,25,0.28)] ring-1 ring-white/35 backdrop-blur-xl transition-transform duration-300 group-hover:scale-[1.02]">
                   <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/80 via-white/25 to-white/10" />
                   <span className="pointer-events-none absolute inset-x-3 top-2 h-4 rounded-full bg-white/35 blur-md" />
-                  <img
+                  <Image
                     src={logo || "/placeholder.svg"}
                     alt="SSIM Logo"
+                    width={240}
+                    height={72}
                     className="relative z-10 h-14 sm:h-[72px] w-auto drop-shadow-[0_3px_6px_rgba(255,255,255,0.22)]"
+                    style={{ width: 'auto' }}
                   />
                 </span>
               </Link>

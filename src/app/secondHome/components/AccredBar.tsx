@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { secondHomeTheme } from '../theme'
 
 const accreds = [
@@ -49,7 +50,7 @@ export default function AccredBar() {
             className="flex items-center gap-[10px] font-bold text-[12px] md:text-[13px] text-slate-700 shrink-0 snap-start w-[calc(50vw-24px)] md:w-[calc(33vw-24px)] lg:w-auto p-2 lg:p-0 bg-white/75 lg:bg-transparent rounded-xl lg:rounded-none border border-white/60 lg:border-transparent shadow-[0_10px_24px_rgba(16,34,105,0.04)]"
           >
             <div className="w-10 h-10 lg:w-11 lg:h-11 rounded-[8px] lg:rounded-[10px] bg-white lg:bg-purple-50 grid place-items-center overflow-hidden shrink-0 shadow-sm lg:shadow-none">
-              <img src={a.img} alt={a.badge} className="w-7 h-7 lg:w-9 lg:h-9 object-contain" />
+              <Image src={a.img} alt={a.badge} width={36} height={36} className="w-7 h-7 lg:w-9 lg:h-9 object-contain" />
             </div>
             <span className="whitespace-normal leading-[1.2]">{a.label}</span>
           </div>

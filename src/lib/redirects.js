@@ -479,7 +479,7 @@ export function generateStaticRedirects() {
   return redirects;
 }
 
-export default {
+const redirectUtils = {
   exactRedirects,
   patternRedirects,
   pagesNeedingCreation,
@@ -488,3 +488,5 @@ export default {
   isSpamUrl,
   generateStaticRedirects,
 };
+
+export default redirectUtils;

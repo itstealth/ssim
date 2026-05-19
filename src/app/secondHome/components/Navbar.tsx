@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
@@ -166,14 +167,13 @@ export default function Navbar() {
     <nav className="sticky top-0 z-[1000] bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-4 md:px-10 flex items-center justify-between h-[76px]">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
-        <img
+        <Image
           src="/SSIM_Logo.png"
           alt="SSIM Logo"
-          className="h-[80px] md:h-[90px] w-auto object-contain object-center "
-          // onError={(e) => {
-          //   e.target.style.display = 'none';
-          //   e.target.nextSibling.style.display = 'flex';
-          // }}
+          width={200}
+          height={90}
+          className="h-[80px] md:h-[90px] w-auto object-contain object-center"
+          style={{ width: 'auto' }}
         />
         <div className={`w-[52px] h-[52px] rounded-xl grid place-items-center text-white font-playfair text-xl font-extrabold flex-shrink-0 ${isSecondHome ? 'bg-gradient-to-br from-purple-700 to-[#1B50EC]' : isThirdHome ? 'bg-gradient-to-br from-purple-500 to-fuchsia-500' : 'bg-navy'}`} style={{ display: 'none' }}>
           S
