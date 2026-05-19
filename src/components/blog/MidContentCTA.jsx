@@ -15,7 +15,7 @@ export function MidContentCTA() {
             >
               PGDM 2026–28 &nbsp;·&nbsp; Admissions Open
             </p>
-            <p className="text-white font-semibold text-base leading-snug">
+            <p className="font-semibold text-base leading-snug" style={{ color: "#ffffff" }}>
               Shape your management career at SSIM
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
