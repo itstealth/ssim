@@ -293,87 +293,63 @@ export default function BlogDetail() {
   const processedContent = useMemo(() => {
     if (!blog?.content) return [];
 
-    const splitByParagraphs = (html, keyPrefix) => {
-      const parts = [];
-      const pCloseRegex = /<\/p>/gi;
-      let lastIndex = 0;
-      let paraCount = 0;
-      let chunkIndex = 0;
-      let match;
-
-      while ((match = pCloseRegex.exec(html)) !== null) {
-        paraCount++;
-        if (paraCount % 3 === 0) {
-          const chunk = html.substring(lastIndex, match.index + match[0].length);
-          if (chunk.trim()) {
-            parts.push({ type: "html", content: chunk, key: `${keyPrefix}-chunk-${chunkIndex}` });
-            parts.push({ type: "cta", key: `${keyPrefix}-cta-${chunkIndex}` });
-          }
-          lastIndex = match.index + match[0].length;
-          chunkIndex++;
-        }
-      }
-
-      if (lastIndex < html.length) {
-        const remaining = html.substring(lastIndex);
-        if (remaining.trim()) {
-          parts.push({ type: "html", content: remaining, key: `${keyPrefix}-chunk-${chunkIndex}` });
-        }
-      }
-
-      return parts.length > 0
-        ? parts
-        : [{ type: "html", content: html, key: `${keyPrefix}-chunk-0` }];
-    };
-
     const content = blog.content;
 
-    if (!content.includes("<table") && !content.includes("<TABLE")) {
-      return splitByParagraphs(content, "main");
+    // Find the position right after the 3rd </p> in the entire content
+    const pCloseRegex = /<\/p>/gi;
+    let paraCount = 0;
+    let insertPos = -1;
+    let match;
+
+    while ((match = pCloseRegex.exec(content)) !== null) {
+      paraCount++;
+      if (paraCount === 3) {
+        insertPos = match.index + match[0].length;
+        break;
+      }
     }
 
-    try {
-      const tableRegex = /<table[^>]*>[\s\S]*?<\/table>/gi;
-      const rawParts = [];
-      let lastIndex = 0;
-      let match;
-      let tableIndex = 0;
-
-      while ((match = tableRegex.exec(content)) !== null) {
-        if (match.index > lastIndex) {
-          const beforeContent = content.substring(lastIndex, match.index);
-          if (beforeContent.trim()) {
-            rawParts.push({ type: "html", content: beforeContent, key: `html-before-${tableIndex}` });
-          }
-        }
-        rawParts.push({ type: "table", content: match[0], key: `table-${tableIndex}` });
-        lastIndex = match.index + match[0].length;
-        tableIndex++;
-      }
-
-      if (lastIndex < content.length) {
-        const afterContent = content.substring(lastIndex);
-        if (afterContent.trim()) {
-          rawParts.push({ type: "html", content: afterContent, key: "html-after" });
-        }
-      }
-
-      const expandedParts = [];
-      rawParts.forEach((part) => {
-        if (part.type === "html") {
-          expandedParts.push(...splitByParagraphs(part.content, part.key));
-        } else {
-          expandedParts.push(part);
-        }
-      });
-
-      return expandedParts.length > 0
-        ? expandedParts
-        : [{ type: "html", content, key: "main-chunk-0" }];
-    } catch (e) {
-      console.error("Error processing blog content:", e);
+    // If there aren't 3 paragraphs, just render the whole content without CTA
+    if (insertPos === -1) {
       return [{ type: "html", content, key: "main-chunk-0" }];
     }
+
+    const before = content.substring(0, insertPos);
+    const after = content.substring(insertPos);
+
+    const parts = [];
+
+    // Helper to expand an HTML segment into table + html parts (no CTA injection)
+    const expandTables = (html, keyPrefix) => {
+      if (!html.includes("<table") && !html.includes("<TABLE")) {
+        return [{ type: "html", content: html, key: `${keyPrefix}-0` }];
+      }
+      const tableRegex = /<table[^>]*>[\s\S]*?<\/table>/gi;
+      const result = [];
+      let lastIdx = 0;
+      let tIdx = 0;
+      let m;
+      while ((m = tableRegex.exec(html)) !== null) {
+        if (m.index > lastIdx) {
+          const chunk = html.substring(lastIdx, m.index);
+          if (chunk.trim()) result.push({ type: "html", content: chunk, key: `${keyPrefix}-h${tIdx}` });
+        }
+        result.push({ type: "table", content: m[0], key: `${keyPrefix}-t${tIdx}` });
+        lastIdx = m.index + m[0].length;
+        tIdx++;
+      }
+      if (lastIdx < html.length) {
+        const rest = html.substring(lastIdx);
+        if (rest.trim()) result.push({ type: "html", content: rest, key: `${keyPrefix}-h${tIdx}` });
+      }
+      return result.length > 0 ? result : [{ type: "html", content: html, key: `${keyPrefix}-0` }];
+    };
+
+    if (before.trim()) parts.push(...expandTables(before, "before"));
+    parts.push({ type: "cta", key: "mid-cta" });
+    if (after.trim()) parts.push(...expandTables(after, "after"));
+
+    return parts;
   }, [blog?.content]);
 
   // Build schema data before any conditional returns to keep hook order stable
