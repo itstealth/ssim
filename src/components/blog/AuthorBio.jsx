@@ -22,7 +22,7 @@ export function AuthorBio() {
             management professionals, and career mentors dedicated to sharing insightful
             content on management education, MBA programs, leadership, entrepreneurship,
             placements, business analytics, and emerging industry trends. Backed by the
-            academic excellence of SSIM &ndash; Siva Sivani Institute of Management, the
+            academic excellence of SSIM – Siva Sivani Institute of Management, the
             team creates research-driven, student-focused, and industry-relevant content
             aligned with Google EEAT, Helpful Content, AIO, and GEO optimization standards.
           </p>
