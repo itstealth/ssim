@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/table";
 import { Clock, Calendar, ArrowLeft } from "lucide-react";
 import { BlogCTA } from "@/components/blog/BlogCTA";
+import { MidContentCTA } from "@/components/blog/MidContentCTA";
 import { AuthorBio } from "@/components/blog/AuthorBio";
 import { RecommendedPosts } from "@/components/blog/RecommendedPosts";
 
@@ -538,7 +539,7 @@ export default function BlogDetail() {
               <CardContent className="p-6 sm:p-8 lg:p-12">
                 <div className="blog-content">
                   {processedContent.map((part) => {
-                    if (part.type === "cta") return <BlogCTA key={part.key} />;
+                    if (part.type === "cta") return <MidContentCTA key={part.key} />;
                     if (part.type === "table") {
                       if (typeof window === "undefined")
                         return <div key={part.key} dangerouslySetInnerHTML={{ __html: part.content }} />;
