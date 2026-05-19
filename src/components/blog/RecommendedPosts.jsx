@@ -12,7 +12,7 @@ const fetchAllBlogs = async () => {
 
 export function RecommendedPosts({ currentSlug }) {
   const { data: posts, isError } = useQuery({
-    queryKey: ["posts"],
+    queryKey: ["posts-raw"],
     queryFn: fetchAllBlogs,
     staleTime: 5 * 60 * 1000,
   });

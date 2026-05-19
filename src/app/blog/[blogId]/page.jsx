@@ -540,6 +540,8 @@ export default function BlogDetail() {
                   {processedContent.map((part) => {
                     if (part.type === "cta") return <BlogCTA key={part.key} />;
                     if (part.type === "table") {
+                      if (typeof window === "undefined")
+                        return <div key={part.key} dangerouslySetInnerHTML={{ __html: part.content }} />;
                       try {
                         const parser = new DOMParser();
                         const doc = parser.parseFromString(part.content, "text/html");
