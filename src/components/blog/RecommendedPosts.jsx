@@ -11,11 +11,13 @@ const fetchAllBlogs = async () => {
 };
 
 export function RecommendedPosts({ currentSlug }) {
-  const { data: posts } = useQuery({
+  const { data: posts, isError } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchAllBlogs,
     staleTime: 5 * 60 * 1000,
   });
+
+  if (isError) return null;
 
   const recommended = (posts || [])
     .filter((p) => p.slug !== currentSlug)
