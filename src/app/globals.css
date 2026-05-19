@@ -783,7 +783,6 @@ img {
 .blog-content code,
 .blog-content .prose code {
   @apply bg-pink-50 text-pink-700 px-2 py-1 rounded font-mono;
-  @apply;
   font-size: 0.875em !important;
 }
 
