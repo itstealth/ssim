@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { secondHomeTheme } from '../theme'
 
 const gallery = [
-  { src: '/studentslife/life-at-ssim/samaroh-2026/1.webp', caption: 'Main Campus · Kompally, Hyderabad', tall: true },
-  { src: '/studentslife/life-at-ssim/samaroh-2026/2.webp', caption: 'Campus Celebration' },
-  { src: '/studentslife/life-at-ssim/samaroh-2026/3.webp', caption: 'Student Participation' },
-  { src: '/studentslife/life-at-ssim/samaroh-2026/4.webp', caption: 'Cultural Showcase' },
-  { src: '/studentslife/life-at-ssim/samaroh-2026/5.webp', caption: 'Memorable Moments' },
+  { src: '/campus.webp', caption: 'Main Campus · Kompally, Hyderabad', tall: true },
+  { src: '/campus-celebration.webp', caption: 'Campus Celebration' },
+  { src: '/student-participation.webp', caption: 'Student Participation' },
+  { src: '/cultural-showcase.webp', caption: 'Cultural Showcase' },
+  { src: '/memorable-moment.webp', caption: 'Memorable Moments' },
 ]
 
 export default function CampusLife() {
