@@ -4,10 +4,12 @@ const logo = "/SSIM_Logo.png";
 import {
   Facebook,
   Instagram,
+  Mail,
+  MapPin,
+  Phone,
   Twitter,
   Linkedin,
   Youtube,
-  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -16,6 +18,27 @@ const aicteapprovals = "/pdfs/footer/AICTE_Approval_1992_2026_All_Years.pdf";
 // import { Input } from "@/components/ui/input";
 
 export default function Footer() {
+  const contactDetails = [
+    {
+      icon: MapPin,
+      label: "Address",
+      value: "NH 44, Kompally, Secunderabad, Telangana - 500100",
+      href: "https://maps.google.com/?q=SSIM+NH+44+Kompally+Secunderabad+Telangana+500100",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+91 9391114948",
+      href: "tel:+919391114948",
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "admissions@ssim.ac.in",
+      href: "mailto:admissions@ssim.ac.in",
+    },
+  ];
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -162,6 +185,26 @@ export default function Footer() {
                     >
                       <social.icon className="h-5 w-5" />
                     </Button>
+                  </a>
+                ))}
+              </div>
+              <div className="space-y-4 pt-4">
+                {contactDetails.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.label === "Address" ? "_blank" : undefined}
+                    rel={
+                      item.label === "Address"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="group flex items-start gap-3 text-sm text-[#293794] transition-colors hover:text-primary"
+                  >
+                    <span className="mt-0.5 rounded-full bg-white/80 p-2 shadow-sm ring-1 ring-blue-100">
+                      <item.icon className="h-4 w-4 text-mainBlue" />
+                    </span>
+                    <span className="leading-6">{item.value}</span>
                   </a>
                 ))}
               </div>
