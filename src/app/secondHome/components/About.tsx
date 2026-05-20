@@ -41,9 +41,9 @@ export default function About() {
             <span className={secondHomeTheme.eyebrow}>
               About SSIM
             </span>
-            <h2 className={secondHomeTheme.title} style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
+            <h1 className={secondHomeTheme.title} style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
               Top Management Institute in Hyderabad
-            </h2>
+            </h1>
             <div className="w-32 h-1.5 rounded-full bg-gradient-to-r from-purple-700 via-purple-500 to-[#1B50EC]" />
           </div>
 
