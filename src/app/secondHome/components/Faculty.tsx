@@ -5,18 +5,180 @@ import Image from 'next/image'
 import { secondHomeTheme } from '../theme'
 
 const faculty = [
-  { img: '/faculty&research/faculty/Dr-Rajyalakshmi.webp', name: 'Dr. Rajyalakshmi', role: 'Professor – Marketing', exp: '25+ Years · PhD' },
-  { img: '/faculty&research/faculty/Dr-Harish.webp', name: 'Dr. Harish', role: 'Professor – Finance', exp: '20+ Years · PhD' },
-  { img: '/faculty&research/faculty/DR-PAVAN.webp', name: 'Dr. Pavan', role: 'Professor – Operations', exp: '18+ Years · PhD' },
-  { img: '/faculty&research/faculty/Dr-Ramana-Rao.webp', name: 'Dr. Ramana Rao', role: 'Professor – HR & OB', exp: '22+ Years · PhD' },
-  { img: '/faculty&research/faculty/ANNAPURNA.webp', name: 'Dr. Annapurna', role: 'Professor – Finance', exp: '28+ Years · PhD' },
-  { img: '/faculty&research/faculty/dr-jayalakshmi.webp', name: 'Dr. Jayalakshmi', role: 'Professor – Finance', exp: '29+ Years · PhD' },
-  { img: '/faculty&research/faculty/rahul.webp', name: 'Mr. Rahul Jain', role: 'HR & Strategy', exp: '22+ Years · PGDBA' },
-  { img: '/faculty&research/faculty/daman.webp', name: 'Ms. Damandeep', role: 'HR & Strategy', exp: '17+ Years · PGDBA' },
-  { img: '/faculty&research/faculty/gracemani.webp', name: 'Dr. Grace Mani', role: 'Professor – Marketing', exp: '26+ Years · PhD' },
-  { img: '/faculty&research/faculty/Subhash-Tej.webp', name: 'Mr. Subash Tej', role: 'Data Science', exp: '22+ Years · MCA, MBA' },
-  { img: '/faculty&research/faculty/kiranmayi.webp', name: 'Ms. Kiranmayi', role: 'Data Science', exp: '12+ Years · MBA' },
-  { img: '/faculty&research/faculty/Smarpitaroy.webp', name: 'Ms. Samarpita', role: 'HR & Strategy', exp: '15+ Years · MBA' },
+  {
+    img: "/about/director.jpeg",
+    name: "Dr. S.V. Ramana Rao",
+    area: "Finance",
+    exp: "32 Years · Ph.D / MBA",
+  },
+  {
+    img: "/about/BoardOfGoverners/NRKS.jpeg",
+    name: "Dr. NRKS Chakravarthy",
+    area: "Decision Science and Information System",
+    exp: "29 Years · MBA",
+  },
+  {
+    img: "/faculty&research/faculty/DR-PAVAN.jpg",
+    name: "Dr. Pavan Patel",
+    area: "HR & Strategy",
+    exp: "32 Years · Ph.D, MIRPM",
+  },
+  {
+    img: "/faculty&research/faculty/SF-Chandra.webp",
+    name: "Dr. S.F. Chandra Sekhar",
+    area: "HR & Strategy",
+    exp: "37 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Dr-Harish.webp",
+    name: "Dr. K.S. Harish",
+    area: "Data Science",
+    exp: "32 Years · Ph.D, M.Sc.",
+  },
+  {
+    img: "/faculty&research/faculty/SREEHARI.webp",
+    name: "Mr. Karanam Sreehari",
+    area: "Data Science",
+    exp: "35 Years · MCA, M.Tech, M.Sc.",
+  },
+  {
+    img: "/faculty&research/faculty/ANNAPURNA.webp",
+    name: "Dr. Annapurna Valluripally",
+    area: "Finance",
+    exp: "28 Years · Ph.D, MBA, M.Com",
+  },
+  {
+    img: "/faculty&research/faculty/dr-jayalakshmi.webp",
+    name: "Dr. Jayalakshmi Valluri",
+    area: "Finance",
+    exp: "29 Years · Ph.D, M.Com",
+  },
+  {
+    img: "/faculty&research/faculty/THIRUMALREDDY.jpg",
+    name: "Dr. T. Thirumal Reddy",
+    area: "Marketing",
+    exp: "22 Years · Ph.D, PGDBA",
+  },
+  {
+    img: "/faculty&research/faculty/rahul.webp",
+    name: "Mr. Rahul Jain",
+    area: "HR & Strategy",
+    exp: "22 Years · PGDBA",
+  },
+  {
+    img: "/faculty&research/faculty/daman.webp",
+    name: "Ms. Damandeep Johar",
+    area: "HR & Strategy",
+    exp: "17 Years · PGDBA, (Ph.D)",
+  },
+  {
+    img: "/faculty&research/faculty/gracemani.webp",
+    name: "Dr. Grace Mani K.",
+    area: "Marketing",
+    exp: "26 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Subhash-Tej.webp",
+    name: "Mr. Subash Tej Tumu",
+    area: "Data Science",
+    exp: "22 Years · MCA, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/kiranmayi.webp",
+    name: "Ms. Kiranmayi Patel",
+    area: "Data Science",
+    exp: "12 Years · MBA",
+  },
+  {
+    img: "/faculty&research/faculty/balanji.webp",
+    name: "Dr. Balanji Reddy Mora",
+    area: "Finance",
+    exp: "16 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/DINESH.webp",
+    name: "Dr. Avudaiappan Dinesh",
+    area: "HR & Strategy",
+    exp: "6 Years · Ph.D, MA, M.Phil",
+  },
+  {
+    img: "/faculty&research/faculty/PUSHPA.webp",
+    name: "Dr. Pushpa Machani",
+    area: "HR & Strategy",
+    exp: "17 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/chaithanya.webp",
+    name: "Mr. M. Chaithanya",
+    area: "Marketing",
+    exp: "21 Years · PGDBA",
+  },
+  {
+    img: "/faculty&research/faculty/subba.webp",
+    name: "Dr. K. Subba Rama Sarma",
+    area: "Data Science",
+    exp: "23 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Smarpitaroy.jpg",
+    name: "Ms. Samarpita Roy",
+    area: "HR & Strategy",
+    exp: "15 Years · MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Shubhra-Johri.webp",
+    name: "Dr. Shubhra Johri",
+    area: "Finance",
+    exp: "20 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Gowri-Kusuma.jpg",
+    name: "Dr. Pinjarla Gowri Kusuma",
+    area: "HR & Strategy",
+    exp: "18 Years · Ph.D",
+  },
+  {
+    img: "/faculty&research/faculty/Shambhavi.webp",
+    name: "Dr. Shambhavi Tamrakar",
+    area: "Marketing",
+    exp: "14 Years · Ph.D, MBA, MA",
+  },
+  {
+    img: "/faculty&research/faculty/Bipul-Kumar.jpg",
+    name: "Dr. Bipul Kumar",
+    area: "Marketing",
+    exp: "6 Years · Ph.D, MBA, UGC-NET",
+  },
+  {
+    img: "/faculty&research/faculty/Mr-Madhava-Murthy.webp",
+    name: "Mr. T. Madhav Murthy",
+    area: "Finance",
+    exp: "23 Years · MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Dr-Rajyalakshmi.webp",
+    name: "Dr. N.C. Rajyalakshmi",
+    area: "Finance",
+    exp: "30 Years · Ph.D",
+  },
+  {
+    img: "/faculty&research/faculty/J-Kameswari.jpg",
+    name: "Dr. Jada Kameshwari",
+    area: "Data Science",
+    exp: "19 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Kiran-Kumar.jpg",
+    name: "Dr. K. Kiran Kumar",
+    area: "Data Science",
+    exp: "16 Years · Ph.D, MBA",
+  },
+  {
+    img: "/faculty&research/faculty/Murali-Krishna.jpg",
+    name: "Mr. G. Murali Krishna Patnaik",
+    area: "HR & Strategy",
+    exp: "19 Years · M.Sc.",
+  },
 ]
 
 export default function Faculty() {
@@ -125,7 +287,7 @@ export default function Faculty() {
                   </div>
                   <div className="p-4">
                     <h3 className="mb-1 text-[14px] font-bold text-slate-900 leading-tight">{f.name}</h3>
-                    <div className="mb-1 text-[11.5px] font-semibold text-purple-700 leading-tight">{f.role}</div>
+                    <div className="mb-1 text-[11.5px] font-semibold text-purple-700 leading-tight">{f.area}</div>
                     <div className="text-[11px] text-slate-500">{f.exp}</div>
                   </div>
                 </article>
