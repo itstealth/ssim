@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { secondHomeTheme } from '../theme'
 
-const AboutSSIM = "https://www.searchurcollege.com/exam/admin/search/gallery/college/col_431.jpg"
+const AboutSSIM = "/Home/about.webp"
 
 const stats = [
   { icon: '📅', value: '35', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
@@ -24,8 +24,9 @@ export default function About() {
             <div className="relative aspect-[4/3]">
               <img
                 alt="SSIM Campus Life"
-                src={AboutSSIM} 
-                className="object-cover transform transition-transform hover:scale-105 duration-700"
+                src={AboutSSIM}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-700"
               />
               <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-[#101a3a]/75 px-4 py-2 text-sm font-semibold text-white backdrop-blur flex items-center gap-2 shadow-lg">
                 🎓 Excellence in Education
@@ -40,7 +41,7 @@ export default function About() {
             <span className={secondHomeTheme.eyebrow}>
               About SSIM
             </span>
-            <h1 className={secondHomeTheme.title} style={{fontSize:'clamp(26px,3.5vw,42px)'}}>
+            <h1 className={secondHomeTheme.title} style={{ fontSize: 'clamp(26px,3.5vw,42px)' }}>
               Top Management Institute in Hyderabad
             </h1>
             <div className="w-32 h-1.5 rounded-full bg-gradient-to-r from-purple-700 via-purple-500 to-[#1B50EC]" />

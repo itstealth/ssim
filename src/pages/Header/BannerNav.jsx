@@ -10,7 +10,7 @@ export default function BannerNav() {
           <Link href="/">
             <img
               src="/logo ssim.png"
-              alt="Indo Global Group of Colleges"
+              alt="SSIM Hyderabad"
               className="h-12 sm:h-[72px] object-contain"
             />
           </Link>
