@@ -213,10 +213,10 @@ const AlumniSection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 pb-16 sm:pb-20">
+    <div className="bg-white pb-16 sm:pb-0">
       <WordPullUp
         words="Alumni Testimonials"
-        className="text-4xl block md:hidden md:text-5xl font-bold tracking-tight text-mainBlue text-center sm:text-left pt-12 mb-0"
+        className="text-4xl block md:hidden md:text-5xl font-bold tracking-tight text-black text-center sm:text-left pt-12 mb-0"
       />
       <Card
         className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-6 max-w-screen-xl mx-auto p-6 md:p-8 border-none shadow-none items-center min-h-screen pb-20 md:min-h-[90vh] bg-inherit"
@@ -287,7 +287,7 @@ const AlumniSection = () => {
         <CardContent className="col-span-3 relative flex flex-col justify-between items-center md:items-start text-center md:text-left p-0 md:p-6">
           <WordPullUp
             words="Alumni Testimonials"
-            className="text-4xl hidden md:block md:text-5xl font-bold tracking-tight text-mainBlue sm:text-left mt-8 mb-0 md:mb-6 pl-6"
+            className="text-4xl hidden md:block md:text-5xl font-bold tracking-tight text-black sm:text-left mt-8 mb-0 md:mb-6 pl-6"
           />
           <div
             className={`p-0 pb-6 sm:p-6 rounded-md flex-grow w-full max-w-full sm:max-w-2xl mx-auto md:mx-0 transition-opacity duration-500 ${
@@ -325,14 +325,14 @@ const AlumniSection = () => {
             <Button
               size="icon"
               onClick={handlePrevious}
-              className="rounded-full bg-red-600 text-white hover:bg-red-600/80"
+              className="rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white"
             >
               <ArrowLeft className="h-6 w-6" />
             </Button>
             <Button
               size="icon"
               onClick={handleNext}
-              className="rounded-full bg-red-600 text-white hover:bg-red-600/80"
+              className="rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white"
             >
               <ArrowRight className="h-6 w-6" />
             </Button>
@@ -351,11 +351,11 @@ const AlumniSection = () => {
               className="group gap-0 text-white px-0 py-0 h-0 rounded-none"
               size="lg"
             >
-              <div className="bg-red-600 h-11 flex items-center pl-8 pr-4 hover:bg-red-700">
+              <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] h-11 flex items-center pl-8 pr-4">
                 View All Alumni
               </div>
-              <div className="bg-mainBlue h-11 flex items-center px-4">
-                <ArrowRight className="w-4 bg-mainBlue h-4 transition-transform group-hover:translate-x-1" />
+              <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] h-11 flex items-center px-4">
+                <ArrowRight className="w-4 bg-transparent h-4 transition-transform group-hover:translate-x-1" />
               </div>
             </Button>
           </Link>
