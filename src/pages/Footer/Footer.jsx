@@ -92,7 +92,7 @@ export default function Footer() {
       ],
     },
     {
-      label: "S P Sampathys Siva Sivani Educational Society",
+      label: "S. P. Sampathy’s Siva Sivani Educational Society",
       items: [
         { name: "Siva Sivani Institute of Management", path: "/" },
         { name: "Siva Sivani Degree College", path: "https://ssdc.ac.in" },
