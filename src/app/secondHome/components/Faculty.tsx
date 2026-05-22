@@ -6,175 +6,175 @@ import { secondHomeTheme } from '../theme'
 
 const faculty = [
   {
-    img: "/about/director.jpeg",
+    img: "/Faculty/1. Ramana Rao.webp",
     name: "Dr. S.V. Ramana Rao",
     area: "Finance",
     exp: "32 Years · Ph.D / MBA",
   },
   {
-    img: "/about/BoardOfGoverners/NRKS.jpeg",
+    img: "/Faculty/9. Mr. N.R.K.S. Chakravarthy.webp",
     name: "Dr. NRKS Chakravarthy",
     area: "Decision Science and Information System",
     exp: "29 Years · MBA",
   },
   {
-    img: "/faculty&research/faculty/DR-PAVAN.jpg",
+    img: "/Faculty/3. Dr. Pavan Patel.webp",
     name: "Dr. Pavan Patel",
     area: "HR & Strategy",
     exp: "32 Years · Ph.D, MIRPM",
   },
   {
-    img: "/faculty&research/faculty/SF-Chandra.webp",
+    img: "/Faculty/2. Dr. S.F. Chandra Sekhar.webp",
     name: "Dr. S.F. Chandra Sekhar",
     area: "HR & Strategy",
     exp: "37 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/Dr-Harish.webp",
+    img: "/Faculty/4. Dr. K.S. Harish.webp",
     name: "Dr. K.S. Harish",
     area: "Data Science",
     exp: "32 Years · Ph.D, M.Sc.",
   },
   {
-    img: "/faculty&research/faculty/SREEHARI.webp",
+    img: "/Faculty/10. Mr. K. Sreehari.webp",
     name: "Mr. Karanam Sreehari",
     area: "Data Science",
     exp: "35 Years · MCA, M.Tech, M.Sc.",
   },
   {
-    img: "/faculty&research/faculty/ANNAPURNA.webp",
+    img: "/Faculty/5. Dr. V. Annapurna.webp",
     name: "Dr. Annapurna Valluripally",
     area: "Finance",
     exp: "28 Years · Ph.D, MBA, M.Com",
   },
   {
-    img: "/faculty&research/faculty/dr-jayalakshmi.webp",
+    img: "/Faculty/6. Dr. V. Jayalakshmi.webp",
     name: "Dr. Jayalakshmi Valluri",
     area: "Finance",
     exp: "29 Years · Ph.D, M.Com",
   },
   {
-    img: "/faculty&research/faculty/THIRUMALREDDY.jpg",
+    img: "/Faculty/12. Dr. T. Thirumal Reddy.webp",
     name: "Dr. T. Thirumal Reddy",
     area: "Marketing",
     exp: "22 Years · Ph.D, PGDBA",
   },
   {
-    img: "/faculty&research/faculty/rahul.webp",
+    img: "/Faculty/15. Mr. Rahul Jain.webp",
     name: "Mr. Rahul Jain",
     area: "HR & Strategy",
     exp: "22 Years · PGDBA",
   },
   {
-    img: "/faculty&research/faculty/daman.webp",
+    img: "/Faculty/16. Mrs. Damandeep Johar.webp",
     name: "Ms. Damandeep Johar",
     area: "HR & Strategy",
     exp: "17 Years · PGDBA, (Ph.D)",
   },
   {
-    img: "/faculty&research/faculty/gracemani.webp",
+    img: "/Faculty/13. Dr. K. Grace Mani.webp",
     name: "Dr. Grace Mani K.",
     area: "Marketing",
     exp: "26 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/Subhash-Tej.webp",
+    img: "/Faculty/17. Mr. T. Subash Tej.webp",
     name: "Mr. Subash Tej Tumu",
     area: "Data Science",
     exp: "22 Years · MCA, MBA",
   },
   {
-    img: "/faculty&research/faculty/kiranmayi.webp",
+    img: "/Faculty/18. Mrs. Kiranmayi Patel.webp",
     name: "Ms. Kiranmayi Patel",
     area: "Data Science",
     exp: "12 Years · MBA",
   },
   {
-    img: "/faculty&research/faculty/balanji.webp",
+    img: "/Faculty/20. Dr. M. Balanji Reddy.webp",
     name: "Dr. Balanji Reddy Mora",
     area: "Finance",
     exp: "16 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/DINESH.webp",
+    img: "/Faculty/20. Dr. A. Dinesh.webp",
     name: "Dr. Avudaiappan Dinesh",
     area: "HR & Strategy",
     exp: "6 Years · Ph.D, MA, M.Phil",
   },
   {
-    img: "/faculty&research/faculty/PUSHPA.webp",
+    img: "/Faculty/21. Dr. M. Pushpa.webp",
     name: "Dr. Pushpa Machani",
     area: "HR & Strategy",
     exp: "17 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/chaithanya.webp",
+    img: "/Faculty/22. Mr. M. Chaithanya.webp",
     name: "Mr. M. Chaithanya",
     area: "Marketing",
     exp: "21 Years · PGDBA",
   },
   {
-    img: "/faculty&research/faculty/subba.webp",
+    img: "/Faculty/23. Dr. K. Subba Rama Sarma.webp",
     name: "Dr. K. Subba Rama Sarma",
     area: "Data Science",
     exp: "23 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/Smarpitaroy.jpg",
+    img: "/Faculty/24. Mrs. Samarpita Roy.webp",
     name: "Ms. Samarpita Roy",
     area: "HR & Strategy",
     exp: "15 Years · MBA",
   },
   {
-    img: "/faculty&research/faculty/Shubhra-Johri.webp",
+    img: "/Faculty/25. Dr. Shubhra Johri.webp",
     name: "Dr. Shubhra Johri",
     area: "Finance",
     exp: "20 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/Gowri-Kusuma.jpg",
+    img: "/Faculty/26. Dr. P. Gowri Kusuma.webp",
     name: "Dr. Pinjarla Gowri Kusuma",
     area: "HR & Strategy",
     exp: "18 Years · Ph.D",
   },
   {
-    img: "/faculty&research/faculty/Shambhavi.webp",
+    img: "/Faculty/27. Dr. Shambhavi Tamrakar.webp",
     name: "Dr. Shambhavi Tamrakar",
     area: "Marketing",
     exp: "14 Years · Ph.D, MBA, MA",
   },
   {
-    img: "/faculty&research/faculty/Bipul-Kumar.jpg",
+    img: "/Faculty/28. Mr. Bipul Kumar.webp",
     name: "Dr. Bipul Kumar",
     area: "Marketing",
     exp: "6 Years · Ph.D, MBA, UGC-NET",
   },
   {
-    img: "/faculty&research/faculty/Mr-Madhava-Murthy.webp",
+    img: "/Faculty/14. Mr. T. Madhav Murthy.webp",
     name: "Mr. T. Madhav Murthy",
     area: "Finance",
     exp: "23 Years · MBA",
   },
   {
-    img: "/faculty&research/faculty/Dr-Rajyalakshmi.webp",
+    img: "/Faculty/8. Dr. N.C. Rajyalakshmi.webp",
     name: "Dr. N.C. Rajyalakshmi",
     area: "Finance",
     exp: "30 Years · Ph.D",
   },
   {
-    img: "/faculty&research/faculty/J-Kameswari.jpg",
+    img: "/Faculty/31. Dr. Jada Kameswari.webp",
     name: "Dr. Jada Kameshwari",
     area: "Data Science",
     exp: "19 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/Kiran-Kumar.jpg",
+    img: "/Faculty/29.  Dr. K. Kiran Kumar.webp",
     name: "Dr. K. Kiran Kumar",
     area: "Data Science",
     exp: "16 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty&research/faculty/Murali-Krishna.jpg",
+    img: "/Faculty/30. Mr. G. Murali Krishna Patnaik.webp",
     name: "Mr. G. Murali Krishna Patnaik",
     area: "HR & Strategy",
     exp: "19 Years · M.Sc.",
@@ -189,7 +189,7 @@ export default function Faculty() {
   const scrollByCards = useCallback((direction: 'left' | 'right') => {
     const track = trackRef.current
     if (!track || isScrollingRef.current) return
-    
+
     // Get the exact width of one card + the gap (16px)
     const cardWidth = track.firstElementChild?.clientWidth || 240
     const amount = cardWidth + 16
@@ -267,8 +267,8 @@ export default function Faculty() {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {faculty.map((f) => (
-              <div 
-                key={f.name} 
+              <div
+                key={f.name}
                 className="snap-center sm:snap-start flex-shrink-0 flex justify-center sm:block w-full sm:w-[calc(50%-8px)] md:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] max-w-[400px]"
               >
                 <article
