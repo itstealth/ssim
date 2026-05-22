@@ -14,7 +14,7 @@ const slides = [
   },
   {
     videoId: "https://www.youtube.com/watch?v=3zQr7bXzYek",
-    alt: "Sarvesh Rathi - PGDM 2024 · Asian Paints",
+    alt: "Sarvesh Rathi - PGDM 2024",
     thumbnail: `https://img.youtube.com/vi/3zQr7bXzYek/maxresdefault.jpg`,
   },
   {
