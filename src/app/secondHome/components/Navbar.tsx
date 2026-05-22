@@ -73,12 +73,12 @@ const navItems = [
           { name: 'Faculty Publications', path: '/faculty/publications' },
         ],
       },
-      {
-        name: 'Research',
-        subDropdown: [
-          { name: 'Case Research Center', path: '/research/case-research-center' },
-        ],
-      },
+      // {
+      //   name: 'Research',
+      //   subDropdown: [
+      //     { name: 'Case Research Center', path: '/research/case-research-center' },
+      //   ],
+      // },
     ],
   },
   {
