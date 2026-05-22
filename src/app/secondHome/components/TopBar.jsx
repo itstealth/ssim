@@ -106,7 +106,7 @@ const TopBar = () => {
             rel="noopener noreferrer"
           >
             <Button className={isPurpleHome ? 'text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15' : 'text-xs text-purple-700 bg-white hover:bg-purple-50 border border-purple-200'}>
-              Apply Now for FPM/EFPM
+              Apply for FPM
             </Button>
           </a>
           <a
