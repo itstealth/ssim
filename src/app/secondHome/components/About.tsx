@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { secondHomeTheme } from '../theme'
 
-const AboutSSIM = "/Home/about.webp"
+const AboutSSIM = "/Home/about.jpg"
 
 const stats = [
   { icon: '📅', value: '35', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
@@ -26,7 +26,7 @@ export default function About() {
                 alt="SSIM Campus Life"
                 src={AboutSSIM}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-700"
+                className="w-full h-full object-full transform transition-transform hover:scale-105 duration-700"
               />
               <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-[#101a3a]/75 px-4 py-2 text-sm font-semibold text-white backdrop-blur flex items-center gap-2 shadow-lg">
                 🎓 Excellence in Education

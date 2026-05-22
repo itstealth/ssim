@@ -20,11 +20,11 @@ export default function Scholarship() {
         {/* Image Column */}
         <div className="relative lg:sticky lg:top-20 h-fit">
           <Image
-            src="/admissions/ssim-scholarship-hero.png"
+            src="/campus.webp"
             alt="Scholarship Hero"
             width={800}
             height={400}
-            className="w-full h-[400px] object-cover rounded-[20px] block"
+            className="w-full h-full object-contain rounded-[20px] block"
           />
           <div className="absolute -bottom-[18px] -right-[18px] bg-gradient-to-br from-purple-700 to-[#1B50EC] text-white rounded-2xl p-[20px_24px] text-center shadow-[0_10px_30px_rgba(27,80,236,0.32)]">
             <div className="font-playfair text-[40px] font-extrabold leading-none">₹1L</div>
