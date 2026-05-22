@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Student Achievements - SSIM Hyderabad | Success Stories",
     description: "Discover the remarkable achievements of SSIM Hyderabad students in academics, competitions, and leadership, showcasing excellence and talent across fields.",
-    url: "https://www.ssim.ac.in/students-life/students-achievements",
+    url: "https://ssim.ac.in/students-life/students-achievements",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/students-life/students-achievements",
+    canonical: "https://ssim.ac.in/students-life/students-achievements",
   },
 };
 

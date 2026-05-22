@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Placement Team | Corporate Relations & Careers – SSIM Hyderabad",
     description: "Meet SSIM Hyderabad's dedicated placement team with 25+ years of experience in corporate relations. Connecting PGDM graduates with top industry opportunities. Contact us today!",
-    url: "https://www.ssim.ac.in/placement/team",
+    url: "https://ssim.ac.in/placement/team",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/placement/team",
+    canonical: "https://ssim.ac.in/placement/team",
   },
 };
 

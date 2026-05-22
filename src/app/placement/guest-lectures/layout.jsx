@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Guest Lectures - SSIM Hyderabad | Expert Insights",
     description: "Explore SSIM Hyderabad's guest lectures featuring industry leaders and academicians, providing students with practical insights and expert knowledge.",
-    url: "https://www.ssim.ac.in/placement/guest-lectures",
+    url: "https://ssim.ac.in/placement/guest-lectures",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/placement/guest-lectures",
+    canonical: "https://ssim.ac.in/placement/guest-lectures",
   },
 };
 

@@ -18,7 +18,7 @@ const page = () => {
       <CollectionPageSchema
         name="SSIM Hyderabad Success Stories"
         description="Read inspiring success stories from SSIM Hyderabad—alumni achievements, student milestones, and career journeys that exemplify dedication and excellence."
-        url="https://www.ssim.ac.in/success-stories"
+        url="https://ssim.ac.in/success-stories"
         mainEntity={{
           "@type": "ItemList",
           itemListElement: [],

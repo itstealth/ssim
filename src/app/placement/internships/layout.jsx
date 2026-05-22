@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Launch Your Career with SSIM Internships | +91-9391114948",
     description: "SSIM Hyderabad offers internships that bridge classroom learning and real-world experience. Contact +91-9391114948 for details.",
-    url: "https://www.ssim.ac.in/placement/internships",
+    url: "https://ssim.ac.in/placement/internships",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/placement/internships",
+    canonical: "https://ssim.ac.in/placement/internships",
   },
 };
 

@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Faculty Publications - SSIM Hyderabad | Research Insights",
     description: "Explore SSIM Hyderabad's faculty publications showcasing impactful research, thought leadership, and academic contributions across management disciplines.",
-    url: "https://www.ssim.ac.in/faculty/publications",
+    url: "https://ssim.ac.in/faculty/publications",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/faculty/publications",
+    canonical: "https://ssim.ac.in/faculty/publications",
   },
 };
 

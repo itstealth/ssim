@@ -55,7 +55,7 @@ const StudentsAchievements = () => {
         title="Student Achievements"
         description="Celebrate the achievements of our students at Siva Sivani Institute of Management (SSIM). Discover their accomplishments in academics, competitions, and extracurricular activities."
         keywords="SSIM student achievements, student success, student awards, business school competitions"
-        canonicalUrl="https://www.ssim.ac.in/students-life/achievements"
+        canonicalUrl="https://ssim.ac.in/students-life/achievements"
       /> */}
       <section className="relative py-10 sm:py-20">
         <Heading title="Student Achievements" />

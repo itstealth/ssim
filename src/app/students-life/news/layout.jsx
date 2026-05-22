@@ -7,7 +7,7 @@ export const metadata = {
     title: "News & Announcements - SSIM Hyderabad | Latest Updates",
     description:
       "Stay updated with the latest news, events, and announcements from SSIM Hyderabad, keeping you informed about campus activities and initiatives.",
-    url: "https://www.ssim.ac.in/students-life/news",
+    url: "https://ssim.ac.in/students-life/news",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/students-life/news",
+    canonical: "https://ssim.ac.in/students-life/news",
   },
 };
 

@@ -795,7 +795,7 @@ export default function LifeAtSsim() {
         title="Life at SSIM"
         description="Experience the vibrant student life at Siva Sivani Institute of Management (SSIM). Explore our campus, events, clubs, and the holistic development opportunities we offer."
         keywords="SSIM student life, campus life, student clubs, college events, SSIM culture"
-        canonicalUrl="https://www.ssim.ac.in/students-life/life-at-ssim"
+        canonicalUrl="https://ssim.ac.in/students-life/life-at-ssim"
       /> */}
       <div className="container mx-auto max-w-[90vw] px-4 py-8 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
         <motion.div
@@ -1141,7 +1141,7 @@ export default function LifeAtSsim() {
 //         title="Life at SSIM"
 //         description="Experience the vibrant student life at Siva Sivani Institute of Management (SSIM). Explore our campus, events, clubs, and the holistic development opportunities we offer."
 //         keywords="SSIM student life, campus life, student clubs, college events, SSIM culture"
-//         canonicalUrl="https://www.ssim.ac.in/students-life/life-at-ssim"
+//         canonicalUrl="https://ssim.ac.in/students-life/life-at-ssim"
 //       /> */}
 //       <div className="container mx-auto px-4 py-8 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
 //         <motion.div

@@ -240,7 +240,7 @@ export default function PlacementSection() {
         title="Placement Records"
         description="Explore the placement records of Siva Sivani Institute of Management (SSIM). View our students' success stories, top recruiters, and salary statistics."
         keywords="SSIM placements, placement records, job placements, top recruiters, management placements"
-        canonicalUrl="https://www.ssim.ac.in/placement/records"
+        canonicalUrl="https://ssim.ac.in/placement/records"
       /> */}
       <div className="min-h-fit bg-gradient-to-b from-background to-muted/20 pb-16">
         <div className="container max-w-7xl mx-auto p-4 md:p-8 space-y-8">

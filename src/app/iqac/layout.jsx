@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "IQAC - SSIM  | PGDM College Hyderabad",
     description: "Learn about SSIM Hyderabad's IQAC, promoting quality in PGDM education, institutional best practices, and continuous academic improvement.",
-    url: "https://www.ssim.ac.in/iqac",
+    url: "https://ssim.ac.in/iqac",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/iqac",
+    canonical: "https://ssim.ac.in/iqac",
   },
 };
 

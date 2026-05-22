@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: metadata.title,
       description: metadata.description,
-      url: `https://www.ssim.ac.in/programs/${programId}`,
+      url: `https://ssim.ac.in/programs/${programId}`,
       siteName: "Siva Sivani Institute of Management",
       images: [
         {
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }) {
       follow: true,
     },
     alternates: {
-      canonical: `https://www.ssim.ac.in/programs/${programId}`,
+      canonical: `https://ssim.ac.in/programs/${programId}`,
     },
   };
 }

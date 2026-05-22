@@ -212,7 +212,7 @@ export default function Internships() {
         title="Internship Records"
         description="Discover the internship opportunities and records at Siva Sivani Institute of Management (SSIM). Our students gain valuable industry experience with top companies."
         keywords="SSIM internships, internship records, student internships, corporate internships, summer internships"
-        canonicalUrl="https://www.ssim.ac.in/placement/internships"
+        canonicalUrl="https://ssim.ac.in/placement/internships"
       /> */}
       <div className="min-h-fit bg-gradient-to-b from-background to-muted/20 pb-16">
         <div className="container max-w-7xl mx-auto p-4 md:p-8 space-y-8">

@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Life at SSIM Hyderabad | Campus Culture, Events & Student Activities",
     description: "Life at SSIM goes beyond textbooks – explore cultural fests, leadership talks, outbound training, clubs & community initiatives that build future-ready managers.",
-    url: "https://www.ssim.ac.in/students-life/life-at-ssim",
+    url: "https://ssim.ac.in/students-life/life-at-ssim",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/students-life/life-at-ssim",
+    canonical: "https://ssim.ac.in/students-life/life-at-ssim",
   },
 };
 

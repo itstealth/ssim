@@ -786,7 +786,7 @@ const ProgramSection = ({ programId, activeSection }) => {
   const seoTitle = `${program.name} | SSIM`;
   const seoDescription = `Learn about the ${program.name} program at Siva Sivani Institute of Management. Explore the curriculum, specializations, and career opportunities.`;
   const seoKeywords = `SSIM ${program.name}, ${program.name} program, ${program.name} curriculum, ${program.name} admissions`;
-  const canonicalUrl = `https://www.ssim.ac.in/programs/${programId}`;
+  const canonicalUrl = `https://ssim.ac.in/programs/${programId}`;
 
   const renderContent = () => {
     switch (activeSection) {
@@ -1045,7 +1045,7 @@ const ProgramsOverview = ({ params }) => {
         program.keyInfo?.degree ||
         "Post Graduate Diploma in Management",
       timeRequired: program.duration || program.keyInfo?.duration || "P2Y",
-      url: `https://www.ssim.ac.in/programs/${programId}`,
+      url: `https://ssim.ac.in/programs/${programId}`,
       coursePrerequisites: "Bachelor's degree from a recognized university",
     };
   }, [activeProgram, programId]);

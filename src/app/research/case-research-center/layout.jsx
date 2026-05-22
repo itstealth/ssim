@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "SSIM Hyderabad Case Research Center | Real-World Studies Hub",
     description: "Explore SSIM's Case Research Center — developing case studies, fostering research, and connecting academia with industry through hands-on learning resources.",
-    url: "https://www.ssim.ac.in/research/case-research-center",
+    url: "https://ssim.ac.in/research/case-research-center",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/research/case-research-center",
+    canonical: "https://ssim.ac.in/research/case-research-center",
   },
 };
 

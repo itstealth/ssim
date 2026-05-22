@@ -229,7 +229,7 @@ const NewsEvents = () => {
         title="News & Announcements"
         description="Stay updated with the latest news, events, and announcements from Siva Sivani Institute of Management (SSIM). Find out what's happening on campus."
         keywords="SSIM news, SSIM events, college announcements, campus news, business school events"
-        canonicalUrl="https://www.ssim.ac.in/students-life/news"
+        canonicalUrl="https://ssim.ac.in/students-life/news"
       /> */}
       <div className="bg-white py-10 lg:py-20">
         <div className="mx-auto max-w-screen-xl px-4 md:px-8">

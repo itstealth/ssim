@@ -233,7 +233,7 @@ export default function GuestLectures() {
         title="Guest Lectures"
         description="Explore the guest lectures hosted by Siva Sivani Institute of Management (SSIM). Industry experts and thought leaders share their insights with our students."
         keywords="SSIM guest lectures, industry expert talks, leadership sessions, business seminars"
-        canonicalUrl="https://www.ssim.ac.in/placement/guest-lectures"
+        canonicalUrl="https://ssim.ac.in/placement/guest-lectures"
       /> */}
       <div className="min-h-fit bg-gradient-to-b from-background to-muted/20 pb-16">
         <div className="container max-w-7xl mx-auto p-4 md:p-8 space-y-8">
