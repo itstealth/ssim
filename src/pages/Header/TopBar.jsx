@@ -96,17 +96,7 @@ const TopBar = () => {
         <div
           className="flex flex-wrap items-center gap-6 text-white"
         >
-          <a
-            href="https://apply.ssim.ac.in/fellowship-program-application-form"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              className="text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
-            >
-              Apply Now for FPM/EFPM
-            </Button>
-          </a>
+
           <a
             href="https://apply.ssim.ac.in"
             target="_blank"
@@ -116,6 +106,17 @@ const TopBar = () => {
               className="text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
             >
               Apply for PGDM
+            </Button>
+          </a>
+          <a
+            href="https://apply.ssim.ac.in/fellowship-program-application-form"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              className="text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
+            >
+              Apply for FPM
             </Button>
           </a>
         </div>

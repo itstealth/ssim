@@ -65,11 +65,10 @@ const TopBar = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110 ${
-                  isPurpleHome
+                className={`rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110 ${isPurpleHome
                     ? 'text-white bg-white/10 hover:bg-white/15'
                     : 'text-purple-700 hover:text-purple-200 bg-white/10 hover:bg-white/20'
-                }`}
+                  }`}
                 initial={{ y: -50, opacity: 0 }}
                 animate={
                   iconsLoaded[index]
@@ -82,8 +81,8 @@ const TopBar = () => {
                   damping: 20,
                   delay: 0.1,
                 }}
-                >
-                  {item.icon}
+              >
+                {item.icon}
               </motion.a>
             ))}
           </div>
@@ -100,16 +99,6 @@ const TopBar = () => {
         </div>
         <div className={`flex flex-wrap items-center gap-6 ${isPurpleHome ? 'text-white' : 'text-purple-700'}`}>
           <a
-            href="https://apply.ssim.ac.in/fellowship-program-application-form"
-            target="_blank"
-            size="sm"
-            rel="noopener noreferrer"
-          >
-            <Button className={isPurpleHome ? 'text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15' : 'text-xs text-purple-700 bg-white hover:bg-purple-50 border border-purple-200'}>
-              Apply for FPM
-            </Button>
-          </a>
-          <a
             href="https://apply.ssim.ac.in"
             target="_blank"
             size="sm"
@@ -117,6 +106,16 @@ const TopBar = () => {
           >
             <Button className={isPurpleHome ? 'text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15' : 'text-xs text-purple-700 bg-white hover:bg-purple-50 border border-purple-200'}>
               Apply for PGDM
+            </Button>
+          </a>
+          <a
+            href="https://apply.ssim.ac.in/fellowship-program-application-form"
+            target="_blank"
+            size="sm"
+            rel="noopener noreferrer"
+          >
+            <Button className={isPurpleHome ? 'text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15' : 'text-xs text-purple-700 bg-white hover:bg-purple-50 border border-purple-200'}>
+              Apply for FPM
             </Button>
           </a>
         </div>
