@@ -5,10 +5,15 @@ import Image from 'next/image'
 import { secondHomeTheme } from '../theme'
 
 const students = [
-  { name: 'AMAN KUMAR SINGH', src: '/placement_images/AMAN KUMAR SINGH.webp' },
-  { name: 'AYESHA BEGUM', src: '/placement_images/AYESHA BEGUM.webp' },
-  { name: 'NOMULA SAMEEKSHA', src: '/placement_images/NOMULA SAMEEKSHA.webp' },
-  { name: 'BHUSHI NIKHITHA REDDY', src: '/placement_images/BHUSHI NIKHITHA REDDY.webp' },
+  // { name: 'AMAN KUMAR SINGH', src: '/placement_images/AMAN KUMAR SINGH.webp' },
+  // { name: 'AYESHA BEGUM', src: '/placement_images/AYESHA BEGUM.webp' },
+  // { name: 'NOMULA SAMEEKSHA', src: '/placement_images/NOMULA SAMEEKSHA.webp' },
+  // { name: 'BHUSHI NIKHITHA REDDY', src: '/placement_images/BHUSHI NIKHITHA REDDY.webp' },
+  { name: 'Basupally Tharuni Reddy', src: '/Home/basupally.jpeg' },
+  { name: 'Devi Srilalitha Shahukaru', src: '/Home/devi.jpeg' },
+  { name: 'Purihella Vijay Raghav Swamy', src: '/Home/purihella.jpeg' },
+  { name: 'Pygeri Madhusudhan', src: '/Home/pygeri.jpeg' },
+  { name: 'Vanama Jyoshitha', src: '/Home/vanama.jpeg' },
 ]
 
 const placementCards = [
