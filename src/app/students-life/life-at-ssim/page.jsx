@@ -1,33 +1,157 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ImageIcon, Image, X } from "lucide-react";
-import { Button } from "@/components/ui/button"; // Adjust path as needed
+import { ChevronLeft, ChevronRight, Image, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
   DialogDescription,
-} from "@/components/ui/dialog"; // Adjust path as needed
-import { Skeleton } from "@/components/ui/skeleton"; // Adjust path as needed
+} from "@/components/ui/dialog";
+import { Skeleton } from "@/components/ui/skeleton";
 import WordPullUp from "@/components/ui/word-pull-up";
-// import SEO from "../Seo";
 
-// Utility function
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 // Categories array
 const categories = [
   {
-    id: "33",
-    label: "Women’s Week @SSIM",
+    id: "51",
+    label: "Students at CII",
     icon: <Image />,
-    heading: "Women’s Week @SSIM",
+    heading: "Students at CII",
+    description: "SSIM students at CII Summit, showcasing their participation in industry events and learning experiences.",
+  },
+  {
+    id: "50",
+    label: "Student Club Tournament",
+    icon: <Image />,
+    heading: "Student Club Tournament",
+    description: "Inter-college sports and cultural tournament organized by SSIM student clubs.",
+  },
+  {
+    id: "49",
+    label: "Student Achievement at NISM",
+    icon: <Image />,
+    heading: "Student Achievement at NISM",
+    description: "SSIM students achieving recognition at National Institute of Securities Markets.",
+  },
+  {
+    id: "48",
+    label: "Sagnature Day",
+    icon: <Image />,
+    heading: "Sagnature Day",
+    description: "Celebration of signature day events at SSIM.",
+  },
+  {
+    id: "47",
+    label: "Poster Presentation at Shillong",
+    icon: <Image />,
+    heading: "Poster Presentation at Shillong",
+    description: "SSIM students presenting research posters at Shillong.",
+  },
+  {
+    id: "46",
+    label: "Marketing Club Activity",
+    icon: <Image />,
+    heading: "Marketing Club Activity",
+    description: "Various marketing activities and events conducted by the Marketing Club.",
+  },
+  {
+    id: "45",
+    label: "Marketing Club 2025-26",
+    icon: <Image />,
+    heading: "Marketing Club 2025-26",
+    description: "Marketing Club activities and events for the academic year 2025-26.",
+  },
+  {
+    id: "44",
+    label: "IIM Jammu Paper Presentation",
+    icon: <Image />,
+    heading: "IIM Jammu Paper Presentation",
+    description: "SSIM students presenting research papers at IIM Jammu.",
+  },
+  {
+    id: "43",
+    label: "HR Club Inaguration",
+    icon: <Image />,
+    heading: "HR Club Inaguration",
+    description: "Inaguration ceremony of the HR Club at SSIM.",
+  },
+  {
+    id: "42",
+    label: "Freshers Party 11-09-2025",
+    icon: <Image />,
+    heading: "Freshers Party 11-09-2025",
+    description: "Welcome party for freshers batch 2025-27 held on 11th September 2025.",
+  },
+  {
+    id: "41",
+    label: "Finance Club Inaguration",
+    icon: <Image />,
+    heading: "Finance Club Inaguration",
+    description: "Inaguration ceremony of the Finance Club at SSIM.",
+  },
+  {
+    id: "40",
+    label: "Farewell 2026",
+    icon: <Image />,
+    heading: "Farewell 2026",
+    description: "Farewell party for batch 2024-26 at SSIM.",
+  },
+  {
+    id: "39",
+    label: "ESG Club Inaguration",
+    icon: <Image />,
+    heading: "ESG Club Inaguration",
+    description: "Inaguration ceremony of the ESG Club at SSIM.",
+  },
+  {
+    id: "38",
+    label: "Data Science Club Inaguration",
+    icon: <Image />,
+    heading: "Data Science Club Inaguration",
+    description: "Inaguration ceremony of the Data Science Club at SSIM.",
+  },
+  {
+    id: "37",
+    label: "BS Casestudy Certificate Distribution",
+    icon: <Image />,
+    heading: "BS Casestudy Certificate Distribution",
+    description: "Certificate distribution ceremony for BS Casestudy competition.",
+  },
+  {
+    id: "36",
+    label: "Bmart Ad Competition",
+    icon: <Image />,
+    heading: "Bmart Ad Competition",
+    description: "Bmart advertisement competition at SSIM.",
+  },
+  {
+    id: "35",
+    label: "Analytics Club Quiz Session",
+    icon: <Image />,
+    heading: "Analytics Club Quiz Session",
+    description: "Quiz session organized by the Analytics Club.",
+  },
+  {
+    id: "34",
+    label: "30th Convocation",
+    icon: <Image />,
+    heading: "30th Convocation",
+    description: "30th Convocation ceremony of Siva Sivani Institute of Management.",
+  },
+  {
+    id: "33",
+    label: "Women's Week @SSIM",
+    icon: <Image />,
+    heading: "Women's Week @SSIM",
     description: `Siva Sivani Institute of Management celebrates Women and considers Women the power engine driving and propelling the growth of the institution. Headed by our Leader, Mrs. Aarathy Sampathy, President and Chief Executive, the institution celebrated a whole week dedicated to Women's day starting  March 2 to March 10, 2026.
 
-On the occasion of Women’s Week, SSIM Cultural Club in collaboration with SSIM ESG Club and Team Satakshi (Team of Women Employees), organized a Donation Drive inspired by this year’s International Women’s Day theme — “Give to Gain.” The initiative witnessed enthusiastic participation from the SSIM community. Faculty members, staff, and students came forward generously to contribute towards this meaningful cause. The collected donations primarily included groceries and clothing items.
+On the occasion of Women's Week, SSIM Cultural Club in collaboration with SSIM ESG Club and Team Satakshi (Team of Women Employees), organized a Donation Drive inspired by this year's International Women's Day theme — "Give to Gain." The initiative witnessed enthusiastic participation from the SSIM community. Faculty members, staff, and students came forward generously to contribute towards this meaningful cause. The collected donations primarily included groceries and clothing items.
 
-Adding to the spirit of giving, Non-Fire Cooking Challenge was conducted as part of the Women’s Week celebrations. The participants of this challenge contributed the proceeds towards purchasing additional groceries for donations. Individual donations also supported this effort, enabling the team to extend greater assistance to those in need.
+Adding to the spirit of giving, Non-Fire Cooking Challenge was conducted as part of the Women's Week celebrations. The participants of this challenge contributed the proceeds towards purchasing additional groceries for donations. Individual donations also supported this effort, enabling the team to extend greater assistance to those in need.
 
 On March 10, 2026, the collected items were donated to the 'Integrated Welfare Society', an NGO for the Aged Mentally Sick Persons located at Quthubullapur, Hyderabad, bringing smiles and support to the beneficiaries.
 `,
@@ -47,92 +171,85 @@ Experiences like these bridge the gap between management concepts and industry p
   },
   {
     id: "31",
-    label: "SAMAROH 2026 – Annual International Conference",
+    label: "SAMAROH 2026",
     icon: <Image />,
     heading: "SAMAROH 2026 – Annual International Conference",
-    description: `Siva Sivani Institute of Management hosted SAMAROH 2026 on February 11–12, 2026, themed “Digital Dharma – Responsible AI for a Sustainable Future.” The conference brought together academicians, researchers, industry experts, and students from across India to explore ethical and sustainable AI practices.
+    description: `Siva Sivani Institute of Management hosted SAMAROH 2026 on February 11–12, 2026, themed "Digital Dharma – Responsible AI for a Sustainable Future." The conference brought together academicians, researchers, industry experts, and students from across India to explore ethical and sustainable AI practices.
 With 114 research submissions, multiple presentation tracks, international keynote sessions, and industry panel discussions, the event promoted impactful academic dialogue and collaboration.
 SAMAROH 2026 recorded an Excellent NPS of +58.03 and a CSAT of 4.33/5, reflecting high participant satisfaction and strong academic engagement.`,
   },
-  // {
-  //   id: "31",
-  //   label: "National Mutual Fund Olympiad 2025",
-  //   icon: <Image />,
-  //   heading: "National Mutual Fund Olympiad 2025",
-  //   description: "",
-  // },
   {
     id: "27",
     label: "Medical Camp",
     icon: <Image />,
     heading: "Medical Camp",
-    description: "",
+    description: "Health awareness and medical checkup camp organized at SSIM.",
   },
   {
     id: "28",
     label: "ICMAI MOU",
     icon: <Image />,
     heading: "ICMAI MOU",
-    description: "",
+    description: "Memorandum of Understanding signing ceremony with ICMAI.",
   },
   {
     id: "29",
     label: "MOU with IBM",
     icon: <Image />,
     heading: "MOU with IBM",
-    description: "",
+    description: "Memorandum of Understanding signing ceremony with IBM to enhance academic and industry collaboration.",
   },
   {
     id: "30",
     label: <>27<sup style={{ marginLeft: "-0.4rem" }}>th</sup> Samanvay</>,
     icon: <Image />,
     heading: <>27<sup style={{ marginLeft: "0.05em" }}>th</sup> Samanvay</>,
-    description: "",
+    description: "27th Samanvay - Inter Collegiate Management Students' Meet.",
   },
   {
     id: "1",
     label: "Snatak-2025",
     icon: <Image />,
     heading: "Snatak-2025",
-    description: ``,
+    description: "Convocation ceremony for batch 2023-25.",
   },
   {
     id: "2",
     label: "Sanman-2025",
     icon: "",
-    heading: "Sanman-2025: Teacher’s Day Celebrations at SSIM",
-    description: `On September 4th, 2025, Siva Sivani Institute of Management (SSIM) celebrated Teacher’s Day to honor the birth anniversary of Dr. Sarvepalli Radhakrishnan, the second President and first Vice President of India, and an eminent teacher-philosopher.
+    heading: "Sanman-2025: Teacher's Day Celebrations at SSIM",
+    description: `On September 4th, 2025, Siva Sivani Institute of Management (SSIM) celebrated Teacher's Day to honor the birth anniversary of Dr. Sarvepalli Radhakrishnan, the second President and first Vice President of India, and an eminent teacher-philosopher.
 
-As part of its tradition, SSIM confers the Dr. S. Radhakrishnan Memorial ‘Teacher of Teachers Award’ each year to recognize and celebrate the contributions of distinguished academicians. This year (2025), the award was presented to Dr. Prof. Ch. S. Durga Prasad, Executive Director, Association of Indian Management Schools (AIMS), for his outstanding service to the teaching fraternity.
+As part of its tradition, SSIM confers the Dr. S. Radhakrishnan Memorial 'Teacher of Teachers Award' each year to recognize and celebrate the contributions of distinguished academicians. This year (2025), the award was presented to Dr. Prof. Ch. S. Durga Prasad, Executive Director, Association of Indian Management Schools (AIMS), for his outstanding service to the teaching fraternity.
 
-Adding to the significance of the occasion, the SSIM Placement Department released the Placement Brochure – Shreshta 2025, showcasing the institute’s commitment to academic excellence and industry readiness.`,
+Adding to the significance of the occasion, the SSIM Placement Department released the Placement Brochure – Shreshta 2025, showcasing the institute's commitment to academic excellence and industry readiness.`,
   },
   {
     id: "3",
     label: "Spandana-2025",
     icon: <Image />,
-    heading: "Spandana-2025 (Freshers’ Party) – PGDM Batch 2025–27",
-    description: `On 12th September 2025, the senior students of Siva Sivani Institute of Management (SSIM) warmly welcomed the PGDM Batch of 2025–27 by hosting a vibrant Freshers’ Party – Spandana 2025.
+    heading: "Spandana-2025 (Freshers' Party) – PGDM Batch 2025–27",
+    description: `On 12th September 2025, the senior students of Siva Sivani Institute of Management (SSIM) warmly welcomed the PGDM Batch of 2025–27 by hosting a vibrant Freshers' Party – Spandana 2025.
 
 The celebration was filled with energy, cultural performances, and fun activities, showcasing the talents of both seniors and juniors. A major highlight of the evening was the Mr. and Ms. Fresher 2025 contest, where participants competed with enthusiasm and confidence before the winners were crowned.
 
-Adding to the excitement, the SSIM Students’ Sports Club organized a cricket tournament for the new batch. After an intense competition, Section D emerged as the Winners, while Section A secured the Runners-up position.
+Adding to the excitement, the SSIM Students' Sports Club organized a cricket tournament for the new batch. After an intense competition, Section D emerged as the Winners, while Section A secured the Runners-up position.
 
-The entire SSIM fraternity—faculty, staff, and students—came together to celebrate, making the occasion a memorable day of joy, bonding, and new beginnings.`,
+The entire SSIM fraternity—faculty, staff, and students—came together to celebrate, making the occasion a memorable day of joy, bonding, and new beginnings.`,
   },
   {
     id: "4",
     label: "Leadership Talk",
     icon: "",
     heading: "Leadership Talk by Mr. Manish Muralidhar Conjeevaram",
-    description: `on 9th September 2025, Siva Sivani Institute of Management (SSIM) organized an engaging Leadership Talk by Mr. Manish Muralidhar Conjeevaram, Partner – Audit & Assurance, Deloitte, Hyderabad, for the students of the 2024–26 batch.  He shared his perspectives on the evolving role of finance and audit in today’s business landscape, highlighting the importance of integrity, critical thinking, and adaptability for aspiring managers.`,
+    description: `on 9th September 2025, Siva Sivani Institute of Management (SSIM) organized an engaging Leadership Talk by Mr. Manish Muralidhar Conjeevaram, Partner – Audit & Assurance, Deloitte, Hyderabad, for the students of the 2024–26 batch. He shared his perspectives on the evolving role of finance and audit in today's business landscape, highlighting the importance of integrity, critical thinking, and adaptability for aspiring managers.`,
   },
   {
     id: "5",
     label: "Ganesh Celebrations",
     icon: <Image />,
     heading: "Ganesh Celebrations",
-    description: "",
+    description: "Ganesh Chaturthi celebrations at SSIM campus.",
   },
   {
     id: "6",
@@ -140,14 +257,14 @@ The entire SSIM fraternity—faculty, staff, and students—came together to cel
     icon: <Image />,
     heading: "SMRITI – 2025 (Farewell Party)",
     description:
-      "On 22nd March 2025, SSIM organized ‘SMRITI-2025 (Farewell Party)’ at Swagath Grand, Suchithra. Junior students gave a nice treat to their Seniors Batch 2023-25. The students had fun while participating in various cultural activities and games.",
+      "On 22nd March 2025, SSIM organized 'SMRITI-2025 (Farewell Party)' at Swagath Grand, Suchithra. Junior students gave a nice treat to their Seniors Batch 2023-25. The students had fun while participating in various cultural activities and games.",
   },
   {
     id: "7",
     label: "Onam Festival",
     icon: <Image />,
     heading: "Onam Festival",
-    description: "",
+    description: "Onam celebration at SSIM with traditional activities and festivities.",
   },
   {
     id: "8",
@@ -155,25 +272,32 @@ The entire SSIM fraternity—faculty, staff, and students—came together to cel
     icon: <Image />,
     heading: "Leadership Talk by Mr. Gijo Mathew",
     description:
-      "Mr. Gijo Mathew, Head of Learning & Development at Auro Group, addressed the students on 08th September 2025 for the Batch 2026–27. In his session, he emphasized the importance of developing leadership through a growth mindset, highlighting how cultivating resilience, adaptability, and continuous learning can shape future leaders.",
+      "Mr. Gijo Mathew, Head of Learning & Development at Auro Group, addressed the students on 08th September 2025 for the Batch 2026–27. In his session, he emphasized the importance of developing leadership through a growth mindset, highlighting how cultivating resilience, adaptability, and continuous learning can shape future leaders.",
   },
   {
     id: "9",
+    label: "Onam Festival",
+    icon: <Image />,
+    heading: "Onam Festival",
+    description: "Onam celebration at SSIM with traditional activities and festivities.",
+  },
+  {
+    id: "10",
     label: "HR Conclave",
     icon: <Image />,
     heading: "HR Conclave",
     description: `🌟 HR Meet Sampark-2025 🌟
 SSIM proudly hosted this landmark event at Hotel Marigold, Begumpet, bringing together eminent leaders & HR professionals under one roof. 💼✨
 
-The discussions sparked new ideas, future-ready strategies, and collaborative pathways to redefine the evolving workforce landscape. 🚀`,
+The discussions sparked new ideas, future-ready strategies, and collaborative pathways to redefine the evolving workforce landscape. 🚀`,
   },
   {
-    id: "10",
+    id: "11",
     label: "Raksha Bandhan 2025",
     icon: <Image />,
     heading: "Raksha Bandhan with Our Soldiers",
     description:
-      "This Raksha Bandhan, Siva Sivani Institute of Management (SSIM) had the honor of celebrating with the brave soldiers at the Bollaram Army Campus. Tying rakhis was more than a tradition—it was a heartfelt tribute to the heroes who safeguard our nation. The warm interaction with officers and soldiers filled us with pride, gratitude, and inspiration",
+      "This Raksha Bandhan, Siva Sivani Institute of Management (SSIM) had the honor of celebrating with the brave soldiers at the Bollaram Army Campus. Tying rakhis was more than a tradition—it was a heartfelt tribute to the heroes who safeguard our nation. The warm interaction with officers and soldiers filled us with pride, gratitude, and inspiration",
   },
   {
     id: "11",
@@ -181,7 +305,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
     icon: <Image />,
     heading: "Selfie with Tiranga Campaign @ SSIM",
     description:
-      "Siva Sivani Institute of Management (SSIM) organized the “Selfie with Tiranga” campaign on campus to celebrate India’s Independence. The initiative aimed to encourage students and staff to bring the Tiranga home and proudly hoist it as a symbol of patriotism and unity. Both senior and junior students actively participated, capturing memorable moments with the national flag and showcasing their love and respect for the nation",
+      "Siva Sivani Institute of Management (SSIM) organized the \"Selfie with Tiranga\" campaign on campus to celebrate India's Independence. The initiative aimed to encourage students and staff to bring the Tiranga home and proudly hoist it as a symbol of patriotism and unity. Both senior and junior students actively participated, capturing memorable moments with the national flag and showcasing their love and respect for the nation",
   },
   {
     id: "12",
@@ -189,7 +313,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
     icon: <Image />,
     heading: "SAMVADA - A RESEARCH PLATFORM",
     description:
-      "On 20th August 2025, the Research & Publications Cell of SSIM inaugurated SAMVADA – a dedicated research platform designed to foster academic dialogue and collaboration among faculty at the SSIM campus.",
+      "On 20th August 2025, the Research & Publications Cell of SSIM inaugurated SAMVADA – a dedicated research platform designed to foster academic dialogue and collaboration among faculty at the SSIM campus.",
   },
   {
     id: "13",
@@ -216,6 +340,13 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "To bring out the innate talent of the students, various cultural activities, management games etc are conducted. One day in a term is earmarked for this activity.",
   },
   {
+    id: "19",
+    label: "Smriti",
+    icon: "",
+    heading: "SMRITI - A FOND REMEMBRANCE (FAREWELL PARTY)",
+    description: `Meeting and parting is a way of life. After the completion of the course, it is certain that the Seniors part with the Juniors. In order to express their feelings and the unwritten bonding between the Seniors and the Juniors, the Juniors bid a grand Farewell to the seniors in the 6th trimester. Various activities are organised in order to further strengthen the relationship even after leaving the portals of the Institute. The Juniors present mementos as a fond memory to the seniors.`,
+  },
+  {
     id: "16",
     label: "Samaroh",
     icon: <Image />,
@@ -240,13 +371,6 @@ Many business houses sponsor the events organised in Samanvay. This clearly mani
     description: `The Students organise Club Activities under HR, Finance, Marketing and Systems Club to bring out the innate latent talent. Students make various presentations, conduct formal and informal activities such as acquiesces, group discussions, Management related games etc in order to develop and nourish the creativity that is abundantly available in every one of us.
 
 Experts from the industry may chair the club sessions conducted by the students who will share their experiences with the students. These activities help students acquire the knowledge on contemporary issues in their respective specializations, improve their oral and written communication skills and participate effectively in the competitions conducted by various Business Schools.`,
-  },
-  {
-    id: "19",
-    label: "Smriti",
-    icon: "",
-    heading: "SMRITI - A FOND REMEMBRANCE (FAREWELL PARTY)",
-    description: `Meeting and parting is a way of life. After the completion of the course, it is certain that the Seniors part with the Juniors. In order to express their feelings and the unwritten bonding between the Seniors and the Juniors, the Juniors bid a grand Farewell to the seniors in the 6th trimester. Various activities are organised in order to further strengthen the relationship even after leaving the portals of the Institute. The Juniors present mementos as a fond memory to the seniors.`,
   },
   {
     id: "20",
@@ -301,8 +425,134 @@ Presence of institutes' representative gives them immense happiness; they look f
   },
 ];
 
-// Replace all individual samaroh imports with this
+// Image arrays for new categories (34-51)
+const convocation30thImages = Array.from({ length: 25 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/30th-convocation/${i + 1}.webp`,
+  category: "34",
+  alt: `30th convocation image ${i + 1}`,
+}));
 
+const analyticsClubQuizImages = Array.from({ length: 12 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/analytics-club-quiz-session/${i + 1}.webp`,
+  category: "35",
+  alt: `analytics club quiz image ${i + 1}`,
+}));
+
+const bmartAdCompetitionImages = Array.from({ length: 4 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/bmart-ad-competition/${i + 1}.webp`,
+  category: "36",
+  alt: `bmart ad competition image ${i + 1}`,
+}));
+
+const bsCasestudyImages = Array.from({ length: 10 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/bs-casestudy-certificate-distribution/${i + 1}.webp`,
+  category: "37",
+  alt: `bs casestudy image ${i + 1}`,
+}));
+
+const dataScienceClubImages = Array.from({ length: 3 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/data-science-club-inaguration/${i + 1}.webp`,
+  category: "38",
+  alt: `data science club image ${i + 1}`,
+}));
+
+const esgClubImages = Array.from({ length: 3 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/esg-club-inaguration/${i + 1}.webp`,
+  category: "39",
+  alt: `esg club image ${i + 1}`,
+}));
+
+const farewell2026Images = Array.from({ length: 13 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/farewell-2026/${i + 1}.webp`,
+  category: "40",
+  alt: `farewell 2026 image ${i + 1}`,
+}));
+
+const financeClubImages = Array.from({ length: 6 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/finance-club-inaguration/${i + 1}.webp`,
+  category: "41",
+  alt: `finance club image ${i + 1}`,
+}));
+
+const freshersParty2025Images = Array.from({ length: 18 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/freshers-party-11-09-2025/${i + 1}.webp`,
+  category: "42",
+  alt: `freshers party 2025 image ${i + 1}`,
+}));
+
+const hrClubImages = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/hr-club-inaguration/${i + 1}.webp`,
+  category: "43",
+  alt: `hr club image ${i + 1}`,
+}));
+
+const iimJammuImages = Array.from({ length: 9 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/iim-jammu-paper-presentation/${i + 1}.webp`,
+  category: "44",
+  alt: `iim jammu image ${i + 1}`,
+}));
+
+const marketingClub2025Images = Array.from({ length: 12 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/marketing-club-2025-26/${i + 1}.webp`,
+  category: "45",
+  alt: `marketing club 2025-26 image ${i + 1}`,
+}));
+
+const marketingClubActivityImages = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/marketing-club-activity/${i + 1}.webp`,
+  category: "46",
+  alt: `marketing club activity image ${i + 1}`,
+}));
+
+const posterPresentationImages = Array.from({ length: 3 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/poster-presentation-at-shillong/${i + 1}.webp`,
+  category: "47",
+  alt: `poster presentation image ${i + 1}`,
+}));
+
+const sagnatureDayImages = Array.from({ length: 7 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/sagnature-day/${i + 1}.webp`,
+  category: "48",
+  alt: `sagnature day image ${i + 1}`,
+}));
+
+const studentAchievmentNismImages = Array.from({ length: 6 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/student-achievemnt-at-nism/${i + 1}.webp`,
+  category: "49",
+  alt: `student achievement at nism image ${i + 1}`,
+}));
+
+const studentClubTournamentImages = Array.from({ length: 4 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/student-club-tournamnet/${i + 1}.webp`,
+  category: "50",
+  alt: `student club tournament image ${i + 1}`,
+}));
+
+const studentsAtCiiImages = Array.from({ length: 7 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/sudents-at-cii/${i + 1}.webp`,
+  category: "51",
+  alt: `students at cii image ${i + 1}`,
+}));
+
+// Existing image arrays
 const snatak2025Images = Array.from({ length: 32 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/snatak-2025/snatak-2025 (${i + 1}).webp`,
@@ -319,8 +569,7 @@ const spandana2025Images = Array.from({ length: 30 }, (_, i) => ({
 
 const ganeshCelebrationsImages = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/ganesh-celebrations/Ganesh Celebrations (${i + 1
-    }).webp`,
+  src: `/studentslife/life-at-ssim/ganesh-celebrations/Ganesh Celebrations (${i + 1}).webp`,
   category: "5",
   alt: `ganesh celebrations image ${i + 1}`,
 }));
@@ -334,54 +583,51 @@ const smriti2025Images = Array.from({ length: 37 }, (_, i) => ({
 
 const onamFestivalImages = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/onam-celebrations/Onam Celebrations (${i + 1
-    }).webp`,
+  src: `/studentslife/life-at-ssim/onam-celebrations/Onam Celebrations (${i + 1}).webp`,
   category: "7",
   alt: `onam festival image ${i + 1}`,
-}));
-
-const leadershipTalkImages = Array.from({ length: 4 }, (_, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${i + 1
-    }).webp`,
-  category: "8",
-  alt: `leadership talk image ${i + 1}`,
 }));
 
 const hrConclaveImages = Array.from({ length: 23 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/hr-conclave/hr-conclave (${i + 1}).jpg`,
-  category: "9",
+  category: "10",
   alt: `hr conclave image ${i + 1}`,
 }));
 
 const rakshaBandhanImages = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/raksha-bandhan/raksha-bandhan (${i + 1
-    }).jpg`,
-  category: "10",
+  src: `/studentslife/life-at-ssim/raksha-bandhan/raksha-bandhan (${i + 1}).jpg`,
+  category: "11",
   alt: `raksha bandhan image ${i + 1}`,
 }));
 
 const tirangaCampaignImages = Array.from({ length: 13 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/independence/independence (${i + 1}).webp`,
-  category: "11",
+  category: "12",
   alt: `tiranga campaign image ${i + 1}`,
 }));
 
 const samvadaImages = Array.from({ length: 3 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/samvada/samvada (${i + 1}).webp`,
-  category: "12",
+  category: "13",
   alt: `samvada image ${i + 1}`,
 }));
 
 const outboundTrainingImages = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/outbound/outbound (${i + 1}).webp`,
-  category: "13",
+  category: "14",
   alt: `outbound training image ${i + 1}`,
+}));
+
+const leadershipTalkImages = Array.from({ length: 4 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${i + 1}).webp`,
+  category: "8",
+  alt: `leadership talk image ${i + 1}`,
 }));
 
 const samarohImages = Array.from({ length: 21 }, (_, i) => ({
@@ -407,8 +653,7 @@ const sameekshaImages = Array.from({ length: 23 }, (_, i) => ({
 
 const snehaImages = Array.from({ length: 42 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sneha/sneha (${i + 1}).${i > 39 ? "png" : "webp"
-    }`,
+  src: `/studentslife/life-at-ssim/sneha/sneha (${i + 1}).${i > 39 ? "png" : "webp"}`,
   category: "20",
   alt: `sneha image ${i + 1}`,
 }));
@@ -456,22 +701,10 @@ const samskritiImages = Array.from({ length: 25 }, (_, i) => ({
 }));
 
 const medicalCampImageFilenames = [
-  "DSC_8986.webp",
-  "DSC_8990.webp",
-  "DSC_9013.webp",
-  "DSC_9018.webp",
-  "DSC_9022.webp",
-  "DSC_9026.webp",
-  "DSC_9029.webp",
-  "DSC_9037.webp",
-  "DSC_9068.webp",
-  "DSC_9072.webp",
-  "DSC_9075.webp",
-  "DSC_9090.webp",
-  "DSC_9092.webp",
-  "DSC_9101.webp",
-  "DSC_9104.webp",
-  "DSC_9105.webp",
+  "DSC_8986.webp", "DSC_8990.webp", "DSC_9013.webp", "DSC_9018.webp",
+  "DSC_9022.webp", "DSC_9026.webp", "DSC_9029.webp", "DSC_9037.webp",
+  "DSC_9068.webp", "DSC_9072.webp", "DSC_9075.webp", "DSC_9090.webp",
+  "DSC_9092.webp", "DSC_9101.webp", "DSC_9104.webp", "DSC_9105.webp",
 ];
 
 const medicalCampImages = medicalCampImageFilenames.map((filename, i) => ({
@@ -482,17 +715,9 @@ const medicalCampImages = medicalCampImageFilenames.map((filename, i) => ({
 }));
 
 const icmaiMouImageFilenames = [
-  "DSC_9274.webp",
-  "DSC_9323.webp",
-  "DSC_9340.webp",
-  "DSC_9356.webp",
-  "DSC_9371.webp",
-  "DSC_9380.webp",
-  "DSC_9439.webp",
-  "DSC_9445.webp",
-  "DSC_9452.webp",
-  "DSC_9458.webp",
-  "DSC_9493.webp",
+  "DSC_9274.webp", "DSC_9323.webp", "DSC_9340.webp", "DSC_9356.webp",
+  "DSC_9371.webp", "DSC_9380.webp", "DSC_9439.webp", "DSC_9445.webp",
+  "DSC_9452.webp", "DSC_9458.webp", "DSC_9493.webp",
 ];
 
 const icmaiMouImages = icmaiMouImageFilenames.map((filename, i) => ({
@@ -503,14 +728,10 @@ const icmaiMouImages = icmaiMouImageFilenames.map((filename, i) => ({
 }));
 
 const mouWithIbmImageFilenames = [
-  "DSC_8767_8_2026_10_2026.webp",
-  "DSC_8768_1_2026_13_2026.webp",
-  "DSC_8865_2_2026_14_2026.webp",
-  "DSC_8883_9_2026_11_2026.webp",
-  "DSC_8896_3_2026_15_2026.webp",
-  "DSC_8903_4_2026_16_2026.webp",
-  "DSC_8905_5_2026_17_2026.webp",
-  "DSC_8912_6_2026_18_2026.webp",
+  "DSC_8767_8_2026_10_2026.webp", "DSC_8768_1_2026_13_2026.webp",
+  "DSC_8865_2_2026_14_2026.webp", "DSC_8883_9_2026_11_2026.webp",
+  "DSC_8896_3_2026_15_2026.webp", "DSC_8903_4_2026_16_2026.webp",
+  "DSC_8905_5_2026_17_2026.webp", "DSC_8912_6_2026_18_2026.webp",
   "DSC_8919_7_2026_12_2026.webp",
 ];
 
@@ -522,76 +743,26 @@ const mouWithIbmImages = mouWithIbmImageFilenames.map((filename, i) => ({
 }));
 
 const samanvayEventPicsImageFilenames = [
-  "Day-1 Guests (2).webp",
-  "Day-1 Guests (3).webp",
-  "Day-1 Guests (4).webp",
-  "Day-1 Guests (5).webp",
-  "Day-1 Guests (6).webp",
-  "Day-1 Guests (7).webp",
-  "Day-2 Guest (1).webp",
-  "Day-2 Guest (2).webp",
-  "Day-2 Guest (3).webp",
-  "DSC_5149.webp",
-  "DSC_5262.webp",
-  "DSC_5270.webp",
-  "DSC_5324.webp",
-  "DSC_5329.webp",
-  "DSC_5357.webp",
-  "DSC_5396.webp",
-  "DSC_5458.webp",
-  "DSC_5479.webp",
-  "DSC_5539.webp",
-  "DSC_5736.webp",
-  "DSC_5800.webp",
-  "DSC_5810.webp",
-  "DSC_6049.webp",
-  "DSC_6055.webp",
-  "DSC_6070.webp",
-  "DSC_6076.webp",
-  "DSC_6085.webp",
-  "DSC_6096.webp",
-  "DSC_6100.webp",
-  "DSC_6106.webp",
-  "DSC_6118.webp",
-  "DSC_6124.webp",
-  "DSC_6126.webp",
-  "DSC_6130.webp",
-  "DSC_6133.webp",
-  "DSC_6135.webp",
-  "DSC_6138.webp",
-  "DSC_6141.webp",
-  "DSC_6178.webp",
-  "DSC_6185.webp",
-  "DSC_6299.webp",
-  "DSC_6376.webp",
-  "DSC_6391.webp",
-  "DSC_6396.webp",
-  "DSC_6536.webp",
-  "DSC_6538.webp",
-  "DSC_6629.webp",
-  "DSC_6644.webp",
-  "DSC_6801.webp",
-  "DSC_6842.webp",
-  "DSC_6850.webp",
-  "DSC_7236.webp",
-  "DSC_7548.webp",
-  "DSC_7843.webp",
-  "DSC_7929.webp",
-  "DSC_7935.webp",
-  "DSC_7937.webp",
-  "DSC_7965.webp",
-  "DSC_7977.webp",
-  "DSC_8002.webp",
-  "DSC_8244.webp",
-  "DSC_8255.webp",
-  "Other college Winners (1).webp",
-  "Other college Winners (3).webp",
-  "Other college Winners (4).webp",
-  "Other college Winners (5).webp",
-  "Other college Winners (6).webp",
-  "Other college Winners (7).webp",
-  "Other college Winners (8).webp",
-  "Other college Winners.webp",
+  "Day-1 Guests (2).webp", "Day-1 Guests (3).webp", "Day-1 Guests (4).webp",
+  "Day-1 Guests (5).webp", "Day-1 Guests (6).webp", "Day-1 Guests (7).webp",
+  "Day-2 Guest (1).webp", "Day-2 Guest (2).webp", "Day-2 Guest (3).webp",
+  "DSC_5149.webp", "DSC_5262.webp", "DSC_5270.webp", "DSC_5324.webp",
+  "DSC_5329.webp", "DSC_5357.webp", "DSC_5396.webp", "DSC_5458.webp",
+  "DSC_5479.webp", "DSC_5539.webp", "DSC_5736.webp", "DSC_5800.webp",
+  "DSC_5810.webp", "DSC_6049.webp", "DSC_6055.webp", "DSC_6070.webp",
+  "DSC_6076.webp", "DSC_6085.webp", "DSC_6096.webp", "DSC_6100.webp",
+  "DSC_6106.webp", "DSC_6118.webp", "DSC_6124.webp", "DSC_6126.webp",
+  "DSC_6130.webp", "DSC_6133.webp", "DSC_6135.webp", "DSC_6138.webp",
+  "DSC_6141.webp", "DSC_6178.webp", "DSC_6185.webp", "DSC_6299.webp",
+  "DSC_6376.webp", "DSC_6391.webp", "DSC_6396.webp", "DSC_6536.webp",
+  "DSC_6538.webp", "DSC_6629.webp", "DSC_6644.webp", "DSC_6801.webp",
+  "DSC_6842.webp", "DSC_6850.webp", "DSC_7236.webp", "DSC_7548.webp",
+  "DSC_7843.webp", "DSC_7929.webp", "DSC_7935.webp", "DSC_7937.webp",
+  "DSC_7965.webp", "DSC_7977.webp", "DSC_8002.webp", "DSC_8244.webp",
+  "DSC_8255.webp", "Other college Winners (1).webp", "Other college Winners (3).webp",
+  "Other college Winners (4).webp", "Other college Winners (5).webp",
+  "Other college Winners (6).webp", "Other college Winners (7).webp",
+  "Other college Winners (8).webp", "Other college Winners.webp",
 ];
 
 const samanvayEventPicsImages = samanvayEventPicsImageFilenames.map((filename, i) => ({
@@ -600,26 +771,6 @@ const samanvayEventPicsImages = samanvayEventPicsImageFilenames.map((filename, i
   category: "30",
   alt: `27th Samanvay image ${i + 1}`,
 }));
-
-const nationalMutualFundOlympiad2025ImageFilenames = [
-  "1770056962310.webp",
-  "UJ_04992.webp",
-  "UJ_05198.webp",
-  "UJ_05200.webp",
-  "UJ_05205.webp",
-  "UJ_05317.webp",
-  "UJ_05515.webp",
-  "UJ_05601.webp",
-  "UJ_05602.webp",
-  "UJ_05656.webp",
-];
-
-// const nationalMutualFundOlympiad2025Images = nationalMutualFundOlympiad2025ImageFilenames.map((filename, i) => ({
-//   id: i + 1,
-//   src: `/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/${filename}`,
-//   category: "31",
-//   alt: `National Mutual Fund Olympiad 2025 image ${i + 1}`,
-// }));
 
 const classroomImages = Array.from({ length: 3 }, (_, i) => ({
   id: i + 1,
@@ -630,9 +781,9 @@ const classroomImages = Array.from({ length: 3 }, (_, i) => ({
 
 const womensWeekImages = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/Women’sWeek/image${i + 2}.jpeg`,
+  src: `/studentslife/life-at-ssim/Women'sWeek/image${i + 2}.jpeg`,
   category: "33",
-  alt: `Women’sWeek image ${i + 1}`,
+  alt: `Women'sWeek image ${i + 1}`,
 }));
 
 const samaroh2026Images = Array.from({ length: 14 }, (_, i) => ({
@@ -642,26 +793,43 @@ const samaroh2026Images = Array.from({ length: 14 }, (_, i) => ({
   alt: `samaroh 2026 image ${i + 1}`,
 }));
 
-// Then modify your galleryItems array to use both image sets
+// Combined gallery items
 const galleryItems = [
+  ...studentsAtCiiImages,
+  ...studentClubTournamentImages,
+  ...studentAchievmentNismImages,
+  ...sagnatureDayImages,
+  ...posterPresentationImages,
+  ...marketingClubActivityImages,
+  ...marketingClub2025Images,
+  ...iimJammuImages,
+  ...hrClubImages,
+  ...freshersParty2025Images,
+  ...financeClubImages,
+  ...farewell2026Images,
+  ...esgClubImages,
+  ...dataScienceClubImages,
+  ...bsCasestudyImages,
+  ...bmartAdCompetitionImages,
+  ...analyticsClubQuizImages,
+  ...convocation30thImages,
+  ...womensWeekImages,
+  ...classroomImages,
   ...samaroh2026Images,
   ...medicalCampImages,
   ...icmaiMouImages,
   ...mouWithIbmImages,
   ...samanvayEventPicsImages,
-  ...classroomImages,
-  ...womensWeekImages,
-  // ...nationalMutualFundOlympiad2025Images,
   ...snatak2025Images,
   ...spandana2025Images,
   ...ganeshCelebrationsImages,
   ...smriti2025Images,
   ...onamFestivalImages,
-  ...leadershipTalkImages,
   ...hrConclaveImages,
   ...rakshaBandhanImages,
   ...tirangaCampaignImages,
   ...samvadaImages,
+  ...leadershipTalkImages,
   ...outboundTrainingImages,
   ...samarohImages,
   ...samanvayImages,
@@ -675,24 +843,12 @@ const galleryItems = [
   ...samskritiImages,
 ];
 
-const ImageDialog = ({
-  isOpen,
-  onOpenChange,
-  currentImage,
-  onPrevious,
-  onNext,
-}) => {
+const ImageDialog = ({ isOpen, onOpenChange, currentImage, onPrevious, onNext }) => {
   if (!currentImage) return null;
 
-  // Get total images for current category
-  const totalImages = galleryItems.filter(
-    (item) => item.category === currentImage.category
-  ).length;
-
-  // Get current image number within its category
+  const totalImages = galleryItems.filter((item) => item.category === currentImage.category).length;
   const currentNumber = galleryItems.filter(
-    (item) =>
-      item.category === currentImage.category && item.id <= currentImage.id
+    (item) => item.category === currentImage.category && item.id <= currentImage.id
   ).length;
 
   return (
@@ -737,7 +893,6 @@ const ImageDialog = ({
             <ChevronRight className="h-6 w-6" />
           </Button>
 
-          {/* Image counter */}
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
             {currentNumber} / {totalImages}
           </div>
@@ -748,7 +903,7 @@ const ImageDialog = ({
 };
 
 export default function LifeAtSsim() {
-  const [activeCategory, setActiveCategory] = useState("33");
+  const [activeCategory, setActiveCategory] = useState("51");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -763,10 +918,7 @@ export default function LifeAtSsim() {
   );
 
   const handlePrevious = useCallback(() => {
-    setCurrentImageIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + filteredItems.length) % filteredItems.length
-    );
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + filteredItems.length) % filteredItems.length);
   }, [filteredItems]);
 
   const handleNext = useCallback(() => {
@@ -791,37 +943,23 @@ export default function LifeAtSsim() {
 
   return (
     <main style={{ background: "#fafbfb" }}>
-      {/* <SEO
-        title="Life at SSIM"
-        description="Experience the vibrant student life at Siva Sivani Institute of Management (SSIM). Explore our campus, events, clubs, and the holistic development opportunities we offer."
-        keywords="SSIM student life, campus life, student clubs, college events, SSIM culture"
-        canonicalUrl="https://ssim.ac.in/students-life/life-at-ssim"
-      /> */}
       <div className="container mx-auto max-w-[90vw] px-4 py-8 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-7"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-7">
           <WordPullUp
             words="Explore Life at SSIM"
             className="text-4xl md:text-5xl text-left sm:text-center font-bold tracking-tight text-mainBlue mt-8 mb-4 md:mb-6"
           />
           <p className="text-base text-center max-w-7xl mx-auto text-gray-600">
-            Siva Sivani strongly believes in motivating the students to become
-            leaders by giving them ample opportunities to explore the talent
-            within them. In order to provide such opportunities SSIM has
-            designed various Extra Curricular Activities to enable the students
-            to understand the importance of co-ordination, teamwork, group
-            dynamics, oneness etc. To give a structure to these, SSIM has named
-            these activities uniquely starting the first letter of every
-            activity with an 'S' as in 'Siva Sivani'. The programmes are
-            detailed below
+            Siva Sivani strongly believes in motivating the students to become leaders by giving them ample
+            opportunities to explore the talent within them. In order to provide such opportunities SSIM has
+            designed various Extra Curricular Activities to enable the students to understand the importance of
+            co-ordination, teamwork, group dynamics, oneness etc. To give a structure to these, SSIM has named
+            these activities uniquely starting the first letter of every activity with an 'S' as in 'Siva Sivani'.
+            The programmes are detailed below
           </p>
         </motion.div>
 
         <div className="relative max-w-7xl mx-auto w-full mb-8 px-4">
-          {/* Navigation buttons */}
           <div className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 z-20">
             <Button
               variant="ghost"
@@ -829,15 +967,13 @@ export default function LifeAtSsim() {
               className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
               onClick={() => {
                 const container = document.querySelector(".filter-scroll");
-                if (container)
-                  container.scrollBy({ left: -200, behavior: "smooth" });
+                if (container) container.scrollBy({ left: -200, behavior: "smooth" });
               }}
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
           </div>
 
-          {/* Filter Scroll */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -847,22 +983,15 @@ export default function LifeAtSsim() {
               <motion.div
                 key={category.id}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: { delay: index * 0.1 },
-                }}
+                animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
                 className="flex-none first:ml-8 sm:first:ml-2 last:mr-8 sm:last:mr-2"
               >
                 <Button
-                  variant={
-                    activeCategory === category.id ? "default" : "outline"
-                  }
+                  variant={activeCategory === category.id ? "default" : "outline"}
                   onClick={() => setActiveCategory(category.id)}
                   className={cn(
                     "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
-                    activeCategory === category.id &&
-                    "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
+                    activeCategory === category.id && "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
                   )}
                 >
                   <span>{category.icon}</span>
@@ -879,8 +1008,7 @@ export default function LifeAtSsim() {
               className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
               onClick={() => {
                 const container = document.querySelector(".filter-scroll");
-                if (container)
-                  container.scrollBy({ left: 200, behavior: "smooth" });
+                if (container) container.scrollBy({ left: 200, behavior: "smooth" });
               }}
             >
               <ChevronRight className="h-4 w-4" />
@@ -904,54 +1032,40 @@ export default function LifeAtSsim() {
           </p>
         )}
 
-        {/* Gallery Items */}
-        <motion.div
-          layout
-          className="grid mx-auto max-w-7xl grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 mt-10"
-        >
+        <motion.div layout className="grid mx-auto max-w-7xl grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 mt-10">
           <AnimatePresence mode="wait">
             {isLoading
               ? Array.from({ length: 8 }, (_, i) => (
-                <motion.div
-                  key={`skeleton-${i}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Skeleton className="w-full aspect-[4/3] rounded-xl" />
-                </motion.div>
-              ))
+                  <motion.div key={`skeleton-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <Skeleton className="w-full aspect-[4/3] rounded-xl" />
+                  </motion.div>
+                ))
               : filteredItems.map((item, index) => (
-                <Dialog key={item.id}>
-                  <DialogTrigger asChild>
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      className="cursor-pointer group relative overflow-hidden rounded-sm shadow-lg bg-white"
-                      onClick={() => {
-                        setCurrentImageIndex(index);
-                        setIsDialogOpen(true);
-                      }}
-                    >
-                      <div className="aspect-[4/3] relative">
-                        <img
-                          src={item.src}
-                          alt={item.alt}
-                          loading="lazy"
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                        {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center text-white">
-                          <ImageIcon className="h-8 w-8" />
-                        </div> */}
-                      </div>
-                    </motion.div>
-                  </DialogTrigger>
-                </Dialog>
-              ))}
+                  <Dialog key={`${item.category}-${item.id}`}>
+                    <DialogTrigger asChild>
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        className="cursor-pointer group relative overflow-hidden rounded-sm shadow-lg bg-white"
+                        onClick={() => {
+                          setCurrentImageIndex(index);
+                          setIsDialogOpen(true);
+                        }}
+                      >
+                        <div className="aspect-[4/3] relative">
+                          <img
+                            src={item.src}
+                            alt={item.alt}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                      </motion.div>
+                    </DialogTrigger>
+                  </Dialog>
+                ))}
           </AnimatePresence>
         </motion.div>
 
-        {/* Image Dialog */}
         <ImageDialog
           isOpen={isDialogOpen}
           onOpenChange={setIsDialogOpen}
@@ -963,337 +1077,3 @@ export default function LifeAtSsim() {
     </main>
   );
 }
-
-// "use client";
-// import React, { useState, useEffect, useCallback } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-// // import SEO from "@/components/Seo";
-// import { ChevronLeft, ChevronRight, ImageIcon, Image } from "lucide-react";
-// import { Button } from "@/components/ui/button"; // Adjust path as needed
-// import {
-//   Dialog,
-//   DialogContent,
-//   DialogTrigger,
-//   DialogDescription,
-// } from "@/components/ui/dialog"; // Adjust path as needed
-// import { Skeleton } from "@/components/ui/skeleton"; // Adjust path as needed
-// import WordPullUp from "@/components/ui/word-pull-up";
-// import axios from "axios";
-
-// // Utility function
-// const cn = (...classes) => classes.filter(Boolean).join(" ");
-
-// // Fetch events from the server
-// const fetchEvents = async () => {
-//   try {
-//     const response = await axios.get("https://www.bfis.in/ssim_backend/api/events");
-//     return response.data; // Return the data
-//     console.log(response.data);
-//   } catch (error) {
-//     console.error("Error fetching events:", error);
-//     return []; // Return empty array on error
-//   }
-// };
-
-// const ImageDialog = ({
-//   isOpen,
-//   onOpenChange,
-//   currentImage,
-//   onPrevious,
-//   onNext,
-//   currentNumber,
-//   totalImages,
-// }) => {
-//   if (!currentImage) return null;
-
-//   return (
-//     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-//       <DialogContent className="max-w-7xl p-0 pt-6 bg-transparent border-none">
-//         <DialogDescription className="sr-only">
-//           Image gallery viewer showing {currentImage.alt}
-//         </DialogDescription>
-//         <div className="relative flex-1 flex flex-col items-center justify-center p-6 pb-14">
-//           <Button
-//             variant="ghost"
-//             size="icon"
-//             className="absolute left-4 z-50 rounded-full hover:bg-slate-100 bg-slate-200 text-black backdrop-blur-sm"
-//             onClick={onPrevious}
-//           >
-//             <ChevronLeft className="h-6 w-6" />
-//           </Button>
-
-//           <div className="w-full h-full flex items-center justify-center">
-//             <img
-//               src={currentImage.src}
-//               alt={currentImage.alt}
-//               loading="lazy"
-//               className="w-full h-full max-w-[750px] object-contain rounded-lg"
-//             />
-//           </div>
-
-//           <Button
-//             size="icon"
-//             className="absolute right-4 z-50 rounded-full bg-slate-200 hover:bg-slate-100 text-black backdrop-blur-sm"
-//             onClick={onNext}
-//           >
-//             <ChevronRight className="h-6 w-6" />
-//           </Button>
-
-//           {/* Image counter */}
-//           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-//             {currentNumber} / {totalImages}
-//           </div>
-//         </div>
-//       </DialogContent>
-//     </Dialog>
-//   );
-// };
-
-// export default function LifeAtSsim() {
-//   const [activeCategory, setActiveCategory] = useState(null);
-//   const [isDialogOpen, setIsDialogOpen] = useState(false);
-//   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-//   const [isLoading, setIsLoading] = useState(true);
-//   const [fetchedCategories, setFetchedCategories] = useState([]);
-
-//   useEffect(() => {
-//     const loadEvents = async () => {
-//       setIsLoading(true);
-//       const eventsData = await fetchEvents();
-//       setFetchedCategories(eventsData);
-//       if (eventsData && eventsData.length > 0) {
-//         setActiveCategory(eventsData[0].id.toString());
-//       } else {
-//         setActiveCategory(null);
-//       }
-//       setIsLoading(false);
-//     };
-//     loadEvents();
-//   }, []);
-
-//   const categories = fetchedCategories.map((event) => ({
-//     id: event.id.toString(),
-//     label: event.title.split(" - ")[0],
-//     icon: event.imagePaths && event.imagePaths.length > 0 ? <Image /> : null,
-//     heading: event.title,
-//     description: event.description,
-//   }));
-
-//   const galleryItems = fetchedCategories.flatMap((event) =>
-//     event.imagePaths.map((path, index) => ({
-//       id: index + 1,
-//       src: `https://www.bfis.in/ssim_backend/${path}`,
-//       category: event.id.toString(),
-//       alt: `${event.title.split(" - ")[0]} image ${index + 1}`,
-//     }))
-//   );
-
-//   const displayGalleryItems = galleryItems;
-
-//   const filteredItems = displayGalleryItems.filter(
-//     (item) => activeCategory === "all" || item.category === activeCategory
-//   );
-
-//   const currentImageForDialog = filteredItems[currentImageIndex];
-//   const totalImagesInCategory = currentImageForDialog
-//     ? displayGalleryItems.filter(
-//         (item) => item.category === currentImageForDialog.category
-//       ).length
-//     : 0;
-//   const currentImageNumberInCategory = currentImageForDialog
-//     ? displayGalleryItems
-//         .filter((item) => item.category === currentImageForDialog.category)
-//         .findIndex((item) => item.src === currentImageForDialog.src) + 1
-//     : 0;
-
-//   const handlePrevious = useCallback(() => {
-//     if (filteredItems.length === 0) return;
-//     setCurrentImageIndex(
-//       (prevIndex) =>
-//         (prevIndex - 1 + filteredItems.length) % filteredItems.length
-//     );
-//   }, [filteredItems]);
-
-//   const handleNext = useCallback(() => {
-//     if (filteredItems.length === 0) return;
-//     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % filteredItems.length);
-//   }, [filteredItems]);
-
-//   const handleKeyPress = useCallback(
-//     (e) => {
-//       if (isDialogOpen) {
-//         if (e.key === "ArrowLeft") handlePrevious();
-//         if (e.key === "ArrowRight") handleNext();
-//         if (e.key === "Escape") setIsDialogOpen(false);
-//       }
-//     },
-//     [isDialogOpen, handlePrevious, handleNext]
-//   );
-
-//   useEffect(() => {
-//     window.addEventListener("keydown", handleKeyPress);
-//     return () => window.removeEventListener("keydown", handleKeyPress);
-//   }, [handleKeyPress]);
-
-//   return (
-//     <>
-//       {/* <SEO
-//         title="Life at SSIM"
-//         description="Experience the vibrant student life at Siva Sivani Institute of Management (SSIM). Explore our campus, events, clubs, and the holistic development opportunities we offer."
-//         keywords="SSIM student life, campus life, student clubs, college events, SSIM culture"
-//         canonicalUrl="https://ssim.ac.in/students-life/life-at-ssim"
-//       /> */}
-//       <div className="container mx-auto px-4 py-8 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           className="mb-7"
-//         >
-//           <WordPullUp
-//             words="Explore Life at SSIM"
-//             className="text-4xl md:text-5xl text-left sm:text-center font-bold tracking-tight text-mainBlue mt-8 mb-4 md:mb-6"
-//           />
-//           <p className="text-base text-center max-w-7xl mx-auto text-gray-600">
-//             Siva Sivani strongly believes in motivating the students to become
-//             leaders by giving them ample opportunities to explore the talent
-//             within them. In order to provide such opportunities SSIM has designed
-//             various Extra Curricular Activities to enable the students to
-//             understand the importance of co-ordination, teamwork, group dynamics,
-//             oneness etc. To give a structure to these, SSIM has named these
-//             activities uniquely starting the first letter of every activity with
-//             an 'S' as in 'Siva Sivani'. The programmes are detailed below
-//           </p>
-//         </motion.div>
-
-//         <div className="relative max-w-7xl mx-auto w-full mb-8 px-4">
-//           <div className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 z-20">
-//             <Button
-//               variant="ghost"
-//               size="icon"
-//               className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
-//               onClick={() => {
-//                 const container = document.querySelector(".filter-scroll");
-//                 if (container)
-//                   container.scrollBy({ left: -200, behavior: "smooth" });
-//               }}
-//             >
-//               <ChevronLeft className="h-4 w-4" />
-//             </Button>
-//           </div>
-
-//           <motion.div
-//             initial={{ opacity: 0, x: -20 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             className="flex gap-2 max-w-7xl mx-auto overflow-x-auto hide-scrollbar filter-scroll py-2"
-//           >
-//             {categories.map((category, index) => (
-//               <motion.div
-//                 key={category.id}
-//                 initial={{ opacity: 0, y: 20 }}
-//                 animate={{
-//                   opacity: 1,
-//                   y: 0,
-//                   transition: { delay: index * 0.1 },
-//                 }}
-//                 className="flex-none first:ml-8 sm:first:ml-2 last:mr-8 sm:last:mr-2"
-//               >
-//                 <Button
-//                   variant={activeCategory === category.id ? "default" : "outline"}
-//                   onClick={() => setActiveCategory(category.id)}
-//                   className={cn(
-//                     "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
-//                     activeCategory === category.id &&
-//                       "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
-//                   )}
-//                 >
-//                   <span>{category.icon}</span>
-//                   {category.label}
-//                 </Button>
-//               </motion.div>
-//             ))}
-//           </motion.div>
-
-//           <div className="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 z-20">
-//             <Button
-//               variant="ghost"
-//               size="icon"
-//               className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
-//               onClick={() => {
-//                 const container = document.querySelector(".filter-scroll");
-//                 if (container)
-//                   container.scrollBy({ left: 200, behavior: "smooth" });
-//               }}
-//             >
-//               <ChevronRight className="h-4 w-4" />
-//             </Button>
-//           </div>
-//         </div>
-
-//         {categories.find((cat) => cat.id === activeCategory)?.heading && (
-//           <WordPullUp
-//             words={categories.find((cat) => cat.id === activeCategory)?.heading}
-//             className="text-2xl md:text-4xl text-left sm:text-center font-bold tracking-tight text-mainBlue mt-8 mb-4 md:mb-6"
-//           />
-//         )}
-//         {categories.find((cat) => cat.id === activeCategory)?.description && (
-//           <p className="text-base text-center max-w-7xl mx-auto text-gray-600">
-//             {categories.find((cat) => cat.id === activeCategory)?.description}
-//           </p>
-//         )}
-
-//         <motion.div
-//           layout
-//           className="grid mx-auto max-w-7xl grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 mt-10"
-//         >
-//           <AnimatePresence mode="wait">
-//             {isLoading
-//               ? Array.from({ length: 8 }, (_, i) => (
-//                   <motion.div
-//                     key={`skeleton-${i}`}
-//                     initial={{ opacity: 0 }}
-//                     animate={{ opacity: 1 }}
-//                     exit={{ opacity: 0 }}
-//                     transition={{ duration: 0.2 }}
-//                   >
-//                     <Skeleton className="w-full aspect-[4/3] rounded-xl" />
-//                   </motion.div>
-//                 ))
-//               : filteredItems.map((item, index) => (
-//                   <Dialog key={item.src}>
-//                     <DialogTrigger asChild>
-//                       <motion.div
-//                         whileHover={{ scale: 1.02 }}
-//                         className="cursor-pointer group relative overflow-hidden rounded-sm shadow-lg bg-white"
-//                         onClick={() => {
-//                           setCurrentImageIndex(index);
-//                           setIsDialogOpen(true);
-//                         }}
-//                       >
-//                         <div className="aspect-[4/3] relative">
-//                           <img
-//                             src={item.src}
-//                             alt={item.alt}
-//                             loading="lazy"
-//                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//                           />
-//                         </div>
-//                       </motion.div>
-//                     </DialogTrigger>
-//                   </Dialog>
-//                 ))}
-//           </AnimatePresence>
-//         </motion.div>
-
-//         <ImageDialog
-//           isOpen={isDialogOpen}
-//           onOpenChange={setIsDialogOpen}
-//           currentImage={currentImageForDialog}
-//           onPrevious={handlePrevious}
-//           onNext={handleNext}
-//           currentNumber={currentImageNumberInCategory}
-//           totalImages={totalImagesInCategory}
-//         />
-//       </div>
-//     </>
-//   );
-// }
