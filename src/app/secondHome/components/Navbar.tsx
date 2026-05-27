@@ -111,8 +111,10 @@ const navItems = [
   },
 ]
 
-const CollapsibleNavItem = ({ item }) => {
+const CollapsibleNavItem = ({ item, setMobileOpen }) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const children = item.dropdown || item.subDropdown
 
   return (
     <div className="border-b border-slate-100">
@@ -123,15 +125,18 @@ const CollapsibleNavItem = ({ item }) => {
         <span className="font-medium">{item.name}</span>
         {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
       </button>
-      {isOpen && (
+      {isOpen && children && (
         <div className="bg-slate-50">
-          {item.dropdown?.map((subItem, subIndex) => (
+          {children.map((subItem, subIndex) => (
             <div key={subIndex}>
               {subItem.subDropdown ? (
-                <CollapsibleNavItem item={subItem} />
+                <CollapsibleNavItem item={subItem} setMobileOpen={setMobileOpen} />
               ) : (
                 <Link
                   href={subItem.path}
+                  onClick={() => {
+                    if (setMobileOpen) setMobileOpen(false);
+                  }}
                   className="block py-2 px-8 text-sm text-slate-600 hover:text-purple-700 transition-colors"
                 >
                   {subItem.name}
@@ -200,13 +205,12 @@ export default function Navbar() {
                     <div key={subItem.name} className="relative group/sub">
                       {subItem.subDropdown ? (
                         <>
-                          <Link
-                            href={subItem.path || '#'}
-                            className={`nav-sub-trigger h-11 px-4 transition-colors text-sm flex items-center justify-between ${linkColor} ${dropdownHover}`}
+                          <div
+                            className={`nav-sub-trigger h-11 px-4 transition-colors text-sm flex items-center justify-between cursor-pointer ${linkColor} ${dropdownHover}`}
                           >
                             <span className="whitespace-nowrap">{subItem.name}</span>
                             <ChevronRight size={12} />
-                          </Link>
+                          </div>
                           <div
                             className={`submenu-flyout absolute hidden group-hover/sub:block top-0 bg-white border border-slate-200 shadow-[0_8px_24px_rgba(16,34,105,0.14)] rounded-lg py-2 min-w-[240px] z-[60] ${
                               item.name === "Student's Life" ? 'right-full' : 'left-full'
@@ -271,7 +275,7 @@ export default function Navbar() {
                 {navItems.map((item) => (
                   <li key={item.name}>
                     {item.dropdown ? (
-                      <CollapsibleNavItem item={item} />
+                      <CollapsibleNavItem item={item} setMobileOpen={setMobileOpen} />
                     ) : (
                       <Link
                         href={item.path}

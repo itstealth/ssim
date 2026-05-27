@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { secondHomeTheme } from '../theme'
 
-const AboutSSIM = "/Home/about.jpg"
+const AboutSSIM = "/Home/campus-image.webp"
 
 const stats = [
   { icon: '📅', value: '35', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
