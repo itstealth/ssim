@@ -807,6 +807,28 @@ const ProgramSection = ({ programId, activeSection }) => {
               </div>
             )}
             <KeyInformation info={program.keyInfo} />
+            {program.partners && program.partners.length > 0 && (
+              <div>
+                <h3 className="text-2xl font-semibold mb-6 text-red-600">
+                  Our Partners
+                </h3>
+                <div className="flex flex-wrap items-center gap-8">
+                  {program.partners.map((partner, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-2"
+                      style={{ minWidth: "220px", minHeight: "140px" }}
+                    >
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
+                        className="max-h-40 max-w-[300px] object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         );
       case "electives":

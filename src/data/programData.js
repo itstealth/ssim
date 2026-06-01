@@ -1241,6 +1241,16 @@ export const programData = {
         },
       },
     ],
+    partners: [
+      {
+        name: "IBM",
+        logo: "/IBM.jpg",
+      },
+      {
+        name: "World Data Science",
+        logo: "/World Data Science.jpeg",
+      },
+    ],
     eligibility: [
       "Bachelor's degree in any discipline",
       "Strong analytical and quantitative skills",
