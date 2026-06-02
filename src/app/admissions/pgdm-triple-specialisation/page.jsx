@@ -60,7 +60,32 @@ import AdmissionParameters from "@/app/admissions/AdmissionParameters";
 import EligibilityCriteria from "@/app/admissions/EligibilityCriteria";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
 import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
+import AdmissionFAQ from "@/app/admissions/AdmissionFAQ";
 const PGDMTPSBanner = "/admissions/admissions.webp";
+// FAQ Data
+const faqData = [
+  {
+    question: "What is the eligibility criteria for PGDM admission at SSIM Hyderabad?",
+    answer: "Candidates must hold a Bachelor's degree (minimum 3 years) from a recognized university with at least 50% aggregate marks.",
+  },
+  {
+    question: "What is the selection process for PGDM admissions at SSIM?",
+    answer: "Selection is based on entrance exam scores, academic performance, SOP & Video Introduction, Personal Interview, work experience, and extracurricular achievements.",
+  },
+  {
+    question: "How much weightage is given to the Personal Interview in admissions?",
+    answer: "The Personal Interview carries 25% weightage in the final selection process for PGDM admissions.",
+  },
+  {
+    question: "How can students apply for PGDM admission at SSIM Hyderabad?",
+    answer: "Apply online at apply.ssim.ac.in. The application process involves online registration, filling the form, paying the application fee, uploading documents, and final submission.",
+  },
+  {
+    question: "What is the admission cancellation and refund policy at SSIM Hyderabad?",
+    answer: "Admission cancellations are governed as per AICTE norms. The ₹25,000 caution deposit is refundable upon exit from the institute, subject to any applicable deductions.",
+  },
+];
+
 // Navigation Data
 const navigationSections = [
   { id: "overview", label: "Overview", icon: FileText },
@@ -73,6 +98,7 @@ const navigationSections = [
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },
   { id: "scholarships", label: "Scholarships", icon: Trophy },
+  { id: "faq", label: "FAQs", icon: BookOpen },
 ];
 
 // Section Data
@@ -810,6 +836,8 @@ const PGDMTPS = () => {
         return <Scholarships />;
       case "admission-process":
         return <AdmissionProcess />;
+      case "faq":
+        return <AdmissionFAQ faqs={faqData} />;
       default:
         return null;
     }

@@ -13,6 +13,7 @@ import SSIMStories from './secondHome/components/SSIMStories'
 import Testimonials from './secondHome/components/Testimonials'
 import CTASection from './secondHome/components/CTASection'
 import AlumniSection from "@/pages/Home/AlumniSection"
+import HomeFAQ from './secondHome/components/HomeFAQ'
 
 export default function SecondHome() {
   return (
@@ -31,6 +32,7 @@ export default function SecondHome() {
       <SSIMStories />
       {/* <Testimonials /> */}
       <AlumniSection/>
+      <HomeFAQ />
       <CTASection />
     </>
   )

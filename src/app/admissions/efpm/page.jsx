@@ -23,6 +23,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 // import { ScrollArea } from "@/components/ui/scroll-area";
 // import Scholarships from "@/app/admissions/Scholarships";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
+import AdmissionFAQ from "@/app/admissions/AdmissionFAQ";
 // import SEO from "@/components/Seo";
 
 import {
@@ -54,17 +55,35 @@ import EligibilityCriteria from "@/app/admissions/EligibilityCriteria";
 import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
 const FPMBanner = "/admissions/admissions.webp";
 
+// FAQ Data
+const faqData = [
+  {
+    question: "What is the eligibility criteria for EFPM admission at SSIM Hyderabad?",
+    answer: "Candidates must hold a First-Class Master's degree in Management, Engineering, Commerce, Economics, Humanities, or related disciplines with minimum 60% marks. CA, ICWA, and CS professionals are also eligible, along with a mandatory minimum of 3 years of relevant work experience in industry, teaching, or research.",
+  },
+  {
+    question: "Which entrance exams are accepted for SSIM EFPM admissions?",
+    answer: "SSIM accepts SRAT (institute-level exam) or UGC NET scores as primary qualifiers. CAT, XAT, MAT, CMAT, ATMA, GMAT, and State Government entrance exam scores are also considered during profile evaluation.",
+  },
+  {
+    question: "What is the selection process for EFPM at SSIM Hyderabad?",
+    answer: "Selection involves entrance exam evaluation, research proposal submission, Statement of Purpose (SOP), video introduction, personal interview, and a presentation of the tentative research proposal.",
+  },
+  {
+    question: "Can final-year postgraduate students apply for EFPM at SSIM?",
+    answer: "Yes. Final-year postgraduate students can apply, provided they complete their qualifying degree before the commencement of the EFPM program.",
+  },
+];
+
 // Navigation Data
 const navigationSections = [
   { id: "overview", label: "Overview", icon: FileText },
   { id: "process", label: "Selection Process", icon: GraduationCap },
   { id: "eligibility", label: "Eligibility Criteria", icon: ClipboardList },
   { id: "fees", label: "Fee Structure", icon: CreditCard },
-  // { id: "dates", label: "Important Dates", icon: Calendar },
-  // { id: "brochure", label: "Brochure", icon: BookOpen },
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },
-  // { id: "scholarships", label: "Scholarships", icon: Trophy },
+  { id: "faq", label: "FAQs", icon: BookOpen },
 ];
 
 // Section Data
@@ -636,6 +655,8 @@ export default function EFPM() {
         return <Apply />;
       case "admission-process":
         return <AdmissionProcess />;
+      case "faq":
+        return <AdmissionFAQ faqs={faqData} />;
       default:
         return null;
     }

@@ -23,6 +23,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 // import { ScrollArea } from "@/components/ui/scroll-area";
 import FPMScholarships from "@/app/admissions/FPMScholarships";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
+import AdmissionFAQ from "@/app/admissions/AdmissionFAQ";
 // import SEO from "@/components/Seo";
 
 import {
@@ -54,6 +55,34 @@ import EligibilityCriteria from "@/app/admissions/EligibilityCriteria";
 import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
 const FPMBanner = "/admissions/admissions.webp";
 
+// FAQ Data
+const faqData = [
+  {
+    question: "What is the admission process for FPM at SSIM Hyderabad?",
+    answer: "Admission is based on entrance exam scores (SRAT/UGC NET), research proposal presentation, and a personal interview.",
+  },
+  {
+    question: "What is the eligibility criteria for SSIM FPM admissions?",
+    answer: "Candidates must hold a Master's degree with First Class in Management, Engineering, Economics, Commerce, Humanities, or related disciplines. CA, ICWA, and CS professionals with 60% aggregate can also apply.",
+  },
+  {
+    question: "Is work experience mandatory for admission into the FPM program?",
+    answer: "Yes, applicants must have a minimum of 3 years of relevant teaching, research, or industry experience.",
+  },
+  {
+    question: "Which entrance exams are accepted for SSIM FPM admissions?",
+    answer: "SSIM accepts SRAT conducted by the institute or UGC NET scores for FPM admissions. Other aptitude scores like CAT, XAT, CMAT, MAT, ATMA, GMAT, and State Government entrance exams are also considered during profile evaluation.",
+  },
+  {
+    question: "What is the selection process for the FPM program at SSIM Hyderabad?",
+    answer: "The selection process includes submission of a research proposal, entrance exam evaluation, SOP, video introduction, research proposal presentation, and a personal interview.",
+  },
+  {
+    question: "Can final-year postgraduate students apply for the SSIM FPM program?",
+    answer: "Yes, final-year students can apply, provided they complete their qualifying degree before the commencement of the program.",
+  },
+];
+
 // Navigation Data
 const navigationSections = [
   { id: "overview", label: "Overview", icon: FileText },
@@ -65,6 +94,7 @@ const navigationSections = [
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },
   { id: "scholarships", label: "Scholarships", icon: Trophy },
+  { id: "faq", label: "FAQs", icon: BookOpen },
 ];
 
 // Section Data
@@ -633,6 +663,8 @@ export default function FPM_EFPM() {
         return <FPMScholarships />;
       case "admission-process":
         return <AdmissionProcess />;
+      case "faq":
+        return <AdmissionFAQ faqs={faqData} />;
       default:
         return null;
     }

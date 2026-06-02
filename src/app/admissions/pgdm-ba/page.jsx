@@ -56,7 +56,44 @@ import AdmissionParameters from "@/app/admissions/AdmissionParameters";
 import EligibilityCriteria from "@/app/admissions/EligibilityCriteria";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
 import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
+import AdmissionFAQ from "@/app/admissions/AdmissionFAQ";
 const PGDMBABanner = "/admissions/admissions.webp";
+
+// FAQ Data
+const faqData = [
+  {
+    question: "What is the eligibility criteria for PGDM-BA admission at SSIM?",
+    answer: "Candidates must hold a recognized bachelor's degree (any discipline) from a UGC-recognized university and a valid score from CAT, XAT, GMAT, CMAT, MAT, ATMA, or TS ICET. Final-year graduation students may apply provisionally. Work experience is not mandatory.",
+  },
+  {
+    question: "Which entrance exams are accepted for PGDM-BA admission at SSIM?",
+    answer: "SSIM accepts scores from CAT, XAT, GMAT, CMAT, MAT, ATMA, and TS ICET for PGDM-BA admissions. Candidates with a valid score from any one of these exams are eligible to apply.",
+  },
+  {
+    question: "Is work experience required to apply for PGDM-BA at SSIM?",
+    answer: "No. Work experience is not mandatory for the PGDM-BA program at SSIM. The program welcomes fresh graduates with strong analytical aptitude alongside working professionals looking to upskill into analytics leadership roles.",
+  },
+  {
+    question: "What is the selection process for PGDM-BA at SSIM?",
+    answer: "The selection process involves evaluation of the candidate's entrance exam score, followed by a Group Discussion (GD) and Personal Interview (PI). Academic performance, leadership potential, communication skills, and extracurricular achievements are also factored into the final merit list.",
+  },
+  {
+    question: "What is the fee structure for the PGDM-BA program at SSIM?",
+    answer: "The PGDM-BA program fee is structured across two academic years covering tuition, development charges, and other applicable fees. For the current and detailed fee breakup — including hostel, transport, and additional charges — candidates should visit ssim.ac.in/admissions/pgdm-ba or contact the admissions office at +91 93911 14948.",
+  },
+  {
+    question: "Does SSIM offer scholarships for PGDM-BA students?",
+    answer: "Yes. SSIM offers merit-based scholarships to eligible PGDM-BA candidates. Scholarships are typically awarded based on entrance exam scores, academic performance in graduation, and other criteria defined by the institute's scholarship policy.",
+  },
+  {
+    question: "Are education loans or EMI options available for PGDM-BA fees at SSIM?",
+    answer: "SSIM actively supports students in securing education loans through nationalized and private banks. The admissions team provides guidance through the loan application process.",
+  },
+  {
+    question: "Can NRI or international candidates apply for PGDM-BA at SSIM?",
+    answer: "Yes. SSIM, through its International Relations office, supports applications from NRI and international students. Specific eligibility norms, applicable fee structures, and documentation requirements for international applicants may vary.",
+  },
+];
 
 // Navigation Data
 const navigationSections = [
@@ -65,11 +102,10 @@ const navigationSections = [
   { id: "eligibility", label: "Eligibility Criteria", icon: ClipboardList },
   { id: "process", label: "Selection Process", icon: GraduationCap },
   { id: "fees", label: "Fee Structure", icon: CreditCard },
-  // { id: "dates", label: "Important Dates", icon: Calendar },
-  // { id: "brochure", label: "Brochure", icon: BookOpen },
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },
   { id: "scholarships", label: "Scholarships", icon: Trophy },
+  { id: "faq", label: "FAQs", icon: BookOpen },
 ];
 
 // Section Data
@@ -744,6 +780,8 @@ const PGDMBA = () => {
         return <Scholarships />;
       case "admission-process":
         return <AdmissionProcess />;
+      case "faq":
+        return <AdmissionFAQ faqs={faqData} />;
       default:
         return null;
     }

@@ -55,7 +55,32 @@ import SelectionProcess from "@/app/admissions/SelectionProcess";
 import AdmissionParameters from "@/app/admissions/AdmissionParameters";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
 import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
+import AdmissionFAQ from "@/app/admissions/AdmissionFAQ";
 const PGDMBIFSBanner = "/admissions/admissions.webp";
+// FAQ Data
+const faqData = [
+  {
+    question: "What is the eligibility criteria for PGDM-BIFS admission at SSIM Hyderabad?",
+    answer: "Candidates must hold a Bachelor's Degree of minimum 3 years duration from any recognized university with at least 50% aggregate marks. Final-year graduation students are also eligible to apply, provided they complete their degree within the institute's specified timeline.",
+  },
+  {
+    question: "Which entrance exams are accepted for PGDM-BIFS admissions?",
+    answer: "SSIM accepts CAT, XAT, CMAT, MAT, ATMA, GMAT, ICET, and other approved entrance exam scores for admissions.",
+  },
+  {
+    question: "What is the admission process for PGDM-BIFS at SSIM Hyderabad?",
+    answer: "The 2-year full-time PGDM-BIFS program (Batch 2026–28) requires a Bachelor's degree with minimum 50% aggregate marks and valid scores from CAT, XAT, MAT, CMAT, ATMA, or GMAT. Final selection is based on Entrance Exam Score (20%), Academic Performance (30%), SOP & Video Introduction (20%), Personal Interview (25%), and Work Experience/Certifications (5%). The admission process follows four steps — Merit List Announcement, Offer Letter Release, Acceptance of Offer, and Completion of Admission Formalities including payment of Admission Fee (₹50,000) and submission of required documents.",
+  },
+  {
+    question: "Does SSIM Hyderabad offer scholarships for PGDM-BIFS students?",
+    answer: "Yes. SSIM offers merit scholarships based on entrance exam percentile (up to ₹90,000 for 90+ percentile in CAT/XAT/GMAT), academic scores in Class X, XII & Graduation (up to ₹45,000), and special categories including an additional ₹40,000 for Siva Sivani Degree College alumni and ₹1,00,000 President Scholarship for children of Defence personnel.",
+  },
+  {
+    question: "Are additional charges applicable apart from tuition fees?",
+    answer: "Yes. Additional costs may include hostel fees, transportation charges, refundable caution deposit, and other applicable campus-related expenses.",
+  },
+];
+
 // Navigation Data
 const navigationSections = [
   { id: "overview", label: "Overview", icon: FileText },
@@ -68,6 +93,7 @@ const navigationSections = [
   { id: "admission-process", label: "Admission Process", icon: UserCheck },
   { id: "apply", label: "Apply Now", icon: School },
   { id: "scholarships", label: "Scholarships", icon: Trophy },
+  { id: "faq", label: "FAQs", icon: BookOpen },
 ];
 
 // Section Data
@@ -794,6 +820,8 @@ const PGDMBIFS = () => {
         return <Scholarships />;
       case "admission-process":
         return <AdmissionProcess />;
+      case "faq":
+        return <AdmissionFAQ faqs={faqData} />;
       default:
         return null;
     }

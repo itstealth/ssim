@@ -74,8 +74,8 @@ export default function Footer() {
         { name: "PGDM", path: "/programs/pgdm-triple-specialisation" },
         { name: "PGDM - BIFS", path: "/programs/pgdm-bifs" },
         { name: "PGDM - BA", path: "/programs/pgdm-ba" },
-        { name: "FPM", path: "/programs/fpm-efpm" },
-        { name: "EFPM", path: "/programs/fpm-efpm" },
+        { name: "FPM", path: "/programs/fpm" },
+        { name: "EFPM", path: "/programs/efpm" },
       ],
     },
     {
