@@ -49,7 +49,7 @@ const faqs = [
     a: (
       <div className="space-y-3">
         <p className="text-slate-600 text-[14px] leading-relaxed">
-          SSIM Hyderabad's 2025 placement season recorded outstanding results:
+          SSIM Hyderabad&apos;s 2025 placement season recorded outstanding results:
         </p>
         <div className="grid grid-cols-3 gap-3">
           {[
@@ -147,7 +147,7 @@ export default function HomeFAQ() {
           Frequently Asked Questions
         </h2>
         <p className={`${secondHomeTheme.lead} max-w-[540px] mx-auto`}>
-          Everything you need to know about SSIM's PGDM program — from
+          Everything you need to know about SSIM&apos;s PGDM program — from
           accreditation to admissions.
         </p>
       </div>
