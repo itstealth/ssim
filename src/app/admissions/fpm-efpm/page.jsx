@@ -145,7 +145,7 @@ const processData = [
     title: "Selection Round",
     description:
       "Submit Statement of Purpose, video introduction and attend personal interview",
-    details: "SOP | Video Introducon | Personal Interview",
+    details: "SOP | Video Introduction | Personal Interview",
   },
 ];
 
@@ -222,10 +222,9 @@ const NavContent = ({ activeSection, setActiveSection, sections }) => (
           whileTap={{ scale: 0.98 }}
           onClick={() => setActiveSection(section.id)}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors
-            ${
-              activeSection === section.id
-                ? "bg-mainBlue text-white"
-                : "hover:bg-muted text-red-600"
+            ${activeSection === section.id
+              ? "bg-mainBlue text-white"
+              : "hover:bg-muted text-red-600"
             }`}
         >
           <Icon className="w-5 h-5" />
