@@ -1,53 +1,161 @@
-export function OrganizationSchema({
-  name = "Siva Sivani Institute of Management",
-  url = "https://www.ssim.ac.in",
-  logo = "https://www.ssim.ac.in/ssimlogo.webp",
-  description = "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad.",
-  address = {
-    streetAddress: "NH 44, Kompally",
-    addressLocality: "Secunderabad",
-    addressRegion: "Telangana",
-    postalCode: "500100",
-    addressCountry: "IN",
-  },
-  contactPoint = {
-    telephone: "+91-9391114948",
-    contactType: "Admissions",
-    email: "admissions@ssim.ac.in",
-  },
-  sameAs = [
-    "https://www.facebook.com/ssimhyd",
-    "https://www.linkedin.com/school/ssim-hyderabad",
-    "https://twitter.com/ssimhyd",
+// Rich homepage @graph schema — CollegeOrUniversity + WebSite combined
+const homepageGraphSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "CollegeOrUniversity",
+        "EducationalOrganization",
+        "LocalBusiness",
+        "Organization",
+      ],
+      "@id": "https://ssim.ac.in/#organization",
+      name: "Siva Sivani Institute of Management",
+      alternateName: "SSIM Hyderabad",
+      url: "https://ssim.ac.in/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://ssim.ac.in/ssimlogo.webp",
+      },
+      image: ["https://ssim.ac.in/banner.png", "https://ssim.ac.in/ssimlogo.webp"],
+      description:
+        "Siva Sivani Institute of Management (SSIM) is an AICTE-approved autonomous business school in Hyderabad offering PGDM, PGDM BA, PGDM BIFS, FPM and EFPM programs with strong industry integration, placements, and management education excellence.",
+      telephone: "+91-9391114948",
+      email: "admissions@ssim.ac.in",
+      foundingDate: "1992",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "NH 44, Kompally",
+        addressLocality: "Secunderabad",
+        addressRegion: "Telangana",
+        postalCode: "500100",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "17.5457",
+        longitude: "78.4867",
+      },
+      areaServed: {
+        "@type": "State",
+        name: "Telangana",
+      },
+      sameAs: [
+        "https://www.facebook.com/",
+        "https://www.instagram.com/",
+        "https://www.linkedin.com/",
+      ],
+      parentOrganization: {
+        "@type": "Organization",
+        name: "S P Sampathys Siva Sivani Educational Society",
+      },
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "AICTE Approved",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "NBA Accredited",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "NAAC Accredited",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "SAQS Accredited",
+        },
+      ],
+      department: [
+        { "@type": "EducationalOrganization", name: "PGDM" },
+        { "@type": "EducationalOrganization", name: "PGDM Business Analytics" },
+        {
+          "@type": "EducationalOrganization",
+          name: "PGDM Banking Insurance and Financial Services",
+        },
+        { "@type": "EducationalOrganization", name: "FPM" },
+        { "@type": "EducationalOrganization", name: "EFPM" },
+      ],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "Admissions",
+          telephone: "+91-9391114948",
+          email: "admissions@ssim.ac.in",
+          areaServed: "IN",
+          availableLanguage: ["English", "Hindi", "Telugu"],
+        },
+        {
+          "@type": "ContactPoint",
+          contactType: "Placements",
+          telephone: "+91-9133305060",
+          email: "placements@ssim.ac.in",
+          areaServed: "IN",
+        },
+      ],
+      knowsAbout: [
+        "Management Education",
+        "PGDM",
+        "Business Analytics",
+        "Finance",
+        "Marketing",
+        "Human Resources",
+        "Banking and Financial Services",
+        "Leadership",
+        "Corporate Management",
+      ],
+      keywords: [
+        "Top B School Hyderabad",
+        "PGDM College Hyderabad",
+        "Business School Telangana",
+        "AICTE Approved PGDM",
+        "Management Institute Hyderabad",
+      ],
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        opens: "09:00",
+        closes: "17:00",
+      },
+      priceRange: "₹₹₹",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ssim.ac.in/#website",
+      url: "https://ssim.ac.in/",
+      name: "SSIM Hyderabad",
+      publisher: {
+        "@id": "https://ssim.ac.in/#organization",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://ssim.ac.in/?s={search_term_string}",
+        "query-input": "required name=search_term_string",
+      },
+    },
   ],
-}) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name,
-    url,
-    logo,
-    description,
-    address: {
-      "@type": "PostalAddress",
-      ...address,
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      ...contactPoint,
-    },
-    sameAs,
-    foundingDate: "1992",
-    legalName: "Siva Sivani Institute of Management",
-    alternateName: "SSIM",
-  };
+};
 
+export function HomepageSchema() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageGraphSchema) }}
     />
   );
+}
+
+// Backward-compat alias (kept so other pages importing OrganizationSchema don't break)
+export function OrganizationSchema() {
+  return <HomepageSchema />;
 }
 
 export function CourseSchema({

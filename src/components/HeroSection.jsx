@@ -1,9 +1,9 @@
 "use client";
 
-const HeroSection = ({ 
-  desktopImageSrc = "/banner.png", 
+const HeroSection = ({
+  desktopImageSrc = "/banner.png",
   mobileImageSrc = "/hero-sm.png",
-  altText = "Reach the PINNACLE of success WITH AICTE APPROVED 2nd TOP B-school by Outlook",
+  altText = "SSIM Hyderabad campus AICTE-approved PGDM ranked 2nd top B-school by Outlook India",
   className = ""
 }) => {
   return (

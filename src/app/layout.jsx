@@ -3,7 +3,7 @@ import "./globals.css";
 import QueryProvider from "@/components/QueryProvider";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "sonner";
-import { WebSiteSchema } from "@/components/Schema";
+import { HomepageSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
 import ConditionalLayout from "@/components/ConditionalLayout";
 
@@ -91,8 +91,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
-        {/* WebSite Schema */}
-        <WebSiteSchema />
+        {/* Homepage @graph Schema — Organization + WebSite */}
+        <HomepageSchema />
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
         <DynamicSchema />
       </head>
