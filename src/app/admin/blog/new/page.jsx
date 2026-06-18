@@ -87,7 +87,7 @@ const blogFormSchema = z.object({
 });
 
 export default function AddNewBlogPostPage() {
-  const [isSlugEditable, setIsSlugEditable] = useState(false);
+  const [isSlugManuallyEdited, setIsSlugManuallyEdited] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(blogFormSchema),
@@ -125,14 +125,10 @@ export default function AddNewBlogPostPage() {
   const handleTitleChange = (e) => {
     const title = e.target.value;
     form.setValue("title", title);
-    const generatedSlug = slugify(title);
-
-    if (generatedSlug.length > 70) {
-      setIsSlugEditable(true);
-    } else {
-      setIsSlugEditable(false);
+    
+    if (!isSlugManuallyEdited) {
+      form.setValue("slug", slugify(title));
     }
-    form.setValue("slug", generatedSlug);
   };
 
   async function onSubmit(values) {
@@ -268,12 +264,14 @@ export default function AddNewBlogPostPage() {
                     <Input
                       placeholder="this-will-be-your-blog-url"
                       {...field}
-                      disabled={!isSlugEditable}
+                      onChange={(e) => {
+                        field.onChange(e);
+                        setIsSlugManuallyEdited(true);
+                      }}
                     />
                   </FormControl>
                   <FormDescription>
-                    Slug is auto-generated. It becomes editable if longer than
-                    70 characters.
+                    Slug is auto-generated from title. You can manually edit it if needed.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

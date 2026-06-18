@@ -6,7 +6,7 @@ export async function GET() {
   try {
     connection = await dbPool.getConnection();
     const [rows] = await connection.query(
-      "SELECT name, company, designation, year, created_at FROM placements"
+      "SELECT id, roll, name, email, company, designation, year, created_at FROM placements"
     );
     return NextResponse.json(rows);
   } catch (error) {
@@ -26,7 +26,7 @@ export async function GET() {
 export async function POST(request) {
   let connection;
   try {
-    const { name, company, designation, year } = await request.json();
+    const { roll, name, email, company, designation, year } = await request.json();
 
     if (!name || !company) {
       return NextResponse.json(
@@ -37,9 +37,11 @@ export async function POST(request) {
 
     connection = await dbPool.getConnection();
     const query =
-      "INSERT INTO placements (name, company, designation, year) VALUES (?, ?, ?, ?)";
+      "INSERT INTO placements (roll, name, email, company, designation, year) VALUES (?, ?, ?, ?, ?, ?)";
     const [result] = await connection.execute(query, [
+      roll,
       name,
+      email,
       company,
       designation,
       year,
@@ -51,7 +53,9 @@ export async function POST(request) {
         placementId: result.insertId,
         record: {
           id: result.insertId,
+          roll,
           name,
+          email,
           company,
           designation,
           year,

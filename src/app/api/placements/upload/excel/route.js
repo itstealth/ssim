@@ -39,14 +39,23 @@ export async function POST(request) {
     }
 
     const placementsToInsert = jsonData
-      .map((row, index) => {
-        const name = row["Student Name"] || row["student name"];
-        const company = row["Placed in Company"] || row["placed in company"];
+      .map((originalRow, index) => {
+        // Trim spaces from all keys to fix trailing spaces in Excel headers (e.g. "Roll ")
+        const row = {};
+        for (let key in originalRow) {
+          row[key.trim()] = originalRow[key];
+        }
+
+        const roll = row["Roll"] || row["roll"] || row["Roll No"] || row["Roll No."] || null;
+        const name = row["Student Name"] || row["student name"] || row["Name of Student"];
+        const email = row["E Mail id"] || row["email id"] || row["Email"] || row["email"] || null;
+        const company = row["Placed in Company"] || row["placed in company"] || row["Company Placed - Final Placements"];
         const designation =
           row["Designation/Position"] ||
           row["designation/position"] ||
           row["Designation"] ||
           row["designation"] ||
+          row["Designation/ Role"] ||
           null;
         const year = row["Year"] || row["year"] || null;
 
@@ -60,7 +69,7 @@ export async function POST(request) {
           );
           return null;
         }
-        return { name, company, designation, year };
+        return { roll, name, email, company, designation, year };
       })
       .filter((p) => p !== null);
 
@@ -78,7 +87,7 @@ export async function POST(request) {
     await connection.beginTransaction();
 
     const query =
-      "INSERT INTO placements (name, company, designation, year) VALUES (?, ?, ?, ?)";
+      "INSERT INTO placements (roll, name, email, company, designation, year) VALUES (?, ?, ?, ?, ?, ?)";
     let successfulInserts = 0;
     const errors = [];
 
@@ -86,7 +95,9 @@ export async function POST(request) {
       const placement = placementsToInsert[i];
       try {
         await connection.execute(query, [
+          placement.roll,
           placement.name,
+          placement.email,
           placement.company,
           placement.designation,
           placement.year,

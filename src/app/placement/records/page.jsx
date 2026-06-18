@@ -149,8 +149,12 @@ export default function PlacementSection() {
     const filtered = apiStudentsData.filter((student) => {
       const searchFilter =
         normalizedSearchTerm === "" ||
+        (student.roll &&
+          student.roll.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.name &&
           student.name.toLowerCase().includes(normalizedSearchTerm)) ||
+        (student.email &&
+          student.email.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.company &&
           student.company.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.designation &&
@@ -450,12 +454,30 @@ export default function PlacementSection() {
               <TableHeader className="bg-gray-50 sticky top-0 z-10">
                 <TableRow>
                   <TableHead
+                    className="cursor-pointer hover:text-primary transition-colors whitespace-nowrap"
+                    onClick={() => handleSort("roll")}
+                  >
+                    <div className="flex items-center gap-1">
+                      Roll No
+                      <SortIcon columnKey="roll" />
+                    </div>
+                  </TableHead>
+                  <TableHead
                     className="cursor-pointer hover:text-primary transition-colors"
                     onClick={() => handleSort("name")}
                   >
                     <div className="flex items-center gap-1">
                       Student Name
                       <SortIcon columnKey="name" />
+                    </div>
+                  </TableHead>
+                  <TableHead
+                    className="cursor-pointer hover:text-primary transition-colors"
+                    onClick={() => handleSort("email")}
+                  >
+                    <div className="flex items-center gap-1">
+                      Email
+                      <SortIcon columnKey="email" />
                     </div>
                   </TableHead>
                   <TableHead
@@ -502,11 +524,13 @@ export default function PlacementSection() {
                       key={student.id}
                       className="hover:bg-muted/50 transition-colors cursor-default"
                     >
+                      <TableCell className="whitespace-nowrap">{student.roll || "-"}</TableCell>
                       <TableCell className="font-medium">
                         {student.name}
                       </TableCell>
+                      <TableCell>{student.email || "-"}</TableCell>
                       <TableCell>{student.company}</TableCell>
-                      <TableCell>{student.designation}</TableCell>
+                      <TableCell>{student.designation || "-"}</TableCell>
                     </TableRow>
                   ))
                 )}

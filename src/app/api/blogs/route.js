@@ -37,13 +37,13 @@ const blogFormSchema = z.object({
   tags: z.string().optional(),
   categories: z.string().optional(),
 
-  metaTitle: z.string().max(80, { message: "Meta Title cannot be longer than 80 characters." }).optional(),
-  metaDescription: z.string().max(160, { message: "Meta Description cannot be longer than 160 characters." }).optional(),
+  metaTitle: z.string().optional(),
+  metaDescription: z.string().optional(),
   keywords: z.string().optional(),
   canonicalUrl: z.string().url({ message: "Please enter a valid canonical URL." }).optional().or(z.literal("")),
 
-  ogTitle: z.string().max(80).optional(),
-  ogDescription: z.string().max(160).optional(),
+  ogTitle: z.string().optional(),
+  ogDescription: z.string().optional(),
   ogImageUrl: z.string().url({ message: "Please enter a valid URL for the Open Graph image." }).optional().or(z.literal("")),
 
   jsonLdSchema: z.string().optional(),
