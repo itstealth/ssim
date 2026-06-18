@@ -32,6 +32,9 @@ jobs:
 
       - name: Build (optional; Oryx can rebuild)
         run: pnpm run build
+        env:
+          NEXT_PUBLIC_BASE_URL: https://ssim.ac.in
+          NEXT_PUBLIC_SITE_URL: https://ssim.ac.in
 
       - name: Create deploy.zip with source
         run: |
