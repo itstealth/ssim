@@ -32,7 +32,7 @@ import {
   UsersIcon,
   Building2Icon as BuildingOffice2Icon,
   Rocket,
-  DollarSignIcon,
+  IndianRupee,
 } from "lucide-react";
 import {
   Select,
@@ -262,7 +262,7 @@ export default function PlacementSection() {
             <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
               <CardHeader className="pb-2 space-y-4">
                 <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <DollarSignIcon className="w-6 h-6 text-white" />
+                  <IndianRupee className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <CardTitle className="text-3xl font-bold text-red-600">
