@@ -447,8 +447,17 @@ function handlePatternRedirect(path) {
 export function middleware(request) {
   const { pathname, search, hostname } = request.nextUrl;
 
-  // 1. Skip excluded paths
+  // 1. Skip excluded paths (WordPress proxy paths)
   if (EXCLUDED_PATHS.some((path) => pathname.startsWith(path))) {
+    // Strip trailing slash via internal rewrite to prevent Next.js from
+    // 308-redirecting before the beforeFiles proxy rewrite can match.
+    // Without this, Gutenberg's POST /wp-json/wp/v2/posts/ gets a 308 whose
+    // body is a plain URL string (not JSON), breaking the block editor save.
+    if (pathname.length > 1 && pathname.endsWith("/")) {
+      const url = request.nextUrl.clone();
+      url.pathname = pathname.slice(0, -1);
+      return NextResponse.rewrite(url);
+    }
     return NextResponse.next();
   }
 
