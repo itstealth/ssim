@@ -2,6 +2,11 @@
 const nextConfig = {
   output: "standalone",
 
+  // Disable automatic trailing-slash 308 redirect so WordPress REST API calls
+  // like POST /wp-json/wp/v2/posts/ aren't intercepted before the proxy rewrite.
+  // Trailing-slash normalization for regular pages is handled in middleware.js.
+  skipTrailingSlashRedirect: true,
+
   outputFileTracingIncludes: {
     "/*": [
       "node_modules/@next/env/**",

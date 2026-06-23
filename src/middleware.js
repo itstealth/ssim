@@ -447,21 +447,23 @@ function handlePatternRedirect(path) {
 export function middleware(request) {
   const { pathname, search, hostname } = request.nextUrl;
 
-  // 1. Skip excluded paths (WordPress proxy paths)
+  // 1. Skip excluded paths (WordPress proxy paths) — let beforeFiles rewrites handle them.
+  // skipTrailingSlashRedirect: true in next.config.mjs ensures that WP API calls
+  // like POST /wp-json/wp/v2/posts/ are NOT 308-redirected before the proxy runs.
   if (EXCLUDED_PATHS.some((path) => pathname.startsWith(path))) {
-    // Strip trailing slash via internal rewrite to prevent Next.js from
-    // 308-redirecting before the beforeFiles proxy rewrite can match.
-    // Without this, Gutenberg's POST /wp-json/wp/v2/posts/ gets a 308 whose
-    // body is a plain URL string (not JSON), breaking the block editor save.
-    if (pathname.length > 1 && pathname.endsWith("/")) {
-      const url = request.nextUrl.clone();
-      url.pathname = pathname.slice(0, -1);
-      return NextResponse.rewrite(url);
-    }
     return NextResponse.next();
   }
 
-  // 1.5. Skip known valid Next.js routes — never redirect these
+  // 1.5. Redirect trailing slashes for regular Next.js pages.
+  // Because skipTrailingSlashRedirect: true disables Next.js's automatic 308 for
+  // all paths, we must handle it manually here so canonical URLs stay clean.
+  if (pathname.length > 1 && pathname.endsWith("/")) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.slice(0, -1);
+    return NextResponse.redirect(url, 308);
+  }
+
+  // 2. Skip known valid Next.js routes — never redirect these
   if (VALID_PATHS.includes(pathname)) {
     return NextResponse.next();
   }
