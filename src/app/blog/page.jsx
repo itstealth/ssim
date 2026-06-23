@@ -10,75 +10,39 @@ import Link from "next/link";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { ArticleSchema } from "@/components/Schema";
 
-// Separate API function for fetching posts from the new Next.js API
 const fetchBlogPosts = async () => {
-  // We fetch from our own API route now
-  const response = await fetch('/api/blogs/all');
-  
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    const errorMessage = errorData.message || errorData.error || `Failed to fetch blogs (Status: ${response.status})`;
-    console.error('Blog fetch error:', errorMessage, errorData);
-    throw new Error(errorMessage);
-  }
-
+  const response = await fetch('/wp-json/wp/v2/posts?per_page=100&_embed');
+  if (!response.ok) throw new Error(`Failed to fetch blogs (Status: ${response.status})`);
   const posts = await response.json();
+  if (!Array.isArray(posts)) throw new Error('Invalid response format from API');
 
-  console.log('Fetched posts:', posts.length);
-
-  // Ensure posts is an array
-  if (!Array.isArray(posts)) {
-    console.error('API did not return an array:', posts);
-    throw new Error('Invalid response format from API');
-  }
-
-  // The new API returns a flat array of posts, so we transform it
-  // and handle pagination on the client-side.
   return posts.map(post => {
-    // Safely parse categories
-    let categories = [];
-    try {
-      if (post.categories) {
-        categories = typeof post.categories === 'string' 
-          ? JSON.parse(post.categories) 
-          : post.categories;
-      }
-    } catch (e) {
-      console.warn('Failed to parse categories for post:', post.slug, e);
-    }
+    const meta = post.meta || {};
+    const terms = post._embedded?.['wp:term'] || [];
+    const categories = (terms[0] || []).map(t => t.name);
+    const authorName = meta.ssim_author_name || 'Siva Sivani Institute of Management';
 
     return {
       id: post.slug,
-      title: post.title,
-      description: post.metaDescription || '', // Use metaDescription for the excerpt
-      image: post.imageUrl || '/placeholder.svg',
-      imageAlt: post.imageAlt || post.title,
+      title: post.title?.rendered || '',
+      description: meta.ssim_meta_description || '',
+      image: meta.ssim_image_url || '/placeholder.svg',
+      imageAlt: meta.ssim_image_alt || '',
       author: {
-        name: post.authorName || 'Anonymous',
-        avatar: '/placeholder.svg', // Placeholder avatar
-        initials: (post.authorName || 'A').split(' ').map(n => n[0]).join(''),
+        name: authorName,
+        avatar: '/placeholder.svg',
+        initials: authorName.split(' ').map(n => n[0]).join('').substring(0, 2),
       },
-      date: new Date(post.publishDate).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
+      date: new Date(post.date).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'short', day: 'numeric',
       }),
-      // Use estimatedWordCount from API (based on metaDescription length)
-      readTime: `${Math.ceil((post.estimatedWordCount || 200) / 200)} min read`,
-      category: Array.isArray(categories) && categories.length > 0 ? categories[0] : 'Uncategorized',
-      // Keep original data for schema
-      publishDate: post.publishDate,
-      authorName: post.authorName || 'Siva Sivani Institute of Management',
-      imageUrl: post.imageUrl || post.featuredImage || post.image,
-      // Keep original post data for filtering
-      originalId: post.id,
+      readTime: '5 min read',
+      category: categories.length > 0 ? categories[0] : 'Uncategorized',
+      publishDate: post.date,
+      authorName,
+      imageUrl: meta.ssim_image_url || '',
       originalSlug: post.slug,
     };
-  }).filter(post => {
-    // Filter out blog with id 22 or slug matching the blocked post
-    const isBlockedId = post.originalId === 22 || post.originalId === '22';
-    const isBlockedSlug = post.originalSlug === 'cat-2025-results-out-your-complete-guide-to-next-steps';
-    return !isBlockedId && !isBlockedSlug;
   });
 };
 
