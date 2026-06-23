@@ -29,14 +29,19 @@ const nextConfig = {
 
   async rewrites() {
     const WP = "https://ssim-blog-b9egbrcnfccjbzee.centralindia-01.azurewebsites.net";
-    return [
-      { source: "/pdfs/:path*", destination: "https://raw.githack.com/Stealth-Rishabh/ssim-assets/main/:path*" },
-      { source: "/wp-json/:path*", destination: `${WP}/wp-json/:path*` },
-      { source: "/wp-admin/:path*", destination: `${WP}/wp-admin/:path*` },
-      { source: "/wp-login.php", destination: `${WP}/wp-login.php` },
-      { source: "/wp-content/:path*", destination: `${WP}/wp-content/:path*` },
-      { source: "/wp-includes/:path*", destination: `${WP}/wp-includes/:path*` },
-    ];
+    return {
+      // beforeFiles: run BEFORE static/prerendered pages so WP proxy is never cached as 404
+      beforeFiles: [
+        { source: "/wp-json/:path*", destination: `${WP}/wp-json/:path*` },
+        { source: "/wp-admin/:path*", destination: `${WP}/wp-admin/:path*` },
+        { source: "/wp-login.php", destination: `${WP}/wp-login.php` },
+        { source: "/wp-content/:path*", destination: `${WP}/wp-content/:path*` },
+        { source: "/wp-includes/:path*", destination: `${WP}/wp-includes/:path*` },
+      ],
+      afterFiles: [
+        { source: "/pdfs/:path*", destination: "https://raw.githack.com/Stealth-Rishabh/ssim-assets/main/:path*" },
+      ],
+    };
   },
 
   async redirects() {

@@ -16,6 +16,12 @@ const EXCLUDED_PATHS = [
   "/Employee_Hand_Book.pdf",
   "/Student_Hand_Book_Batch_2025_27.pdf",
   "/hr&facultyDevelopmentPolicies.pdf",
+  // WordPress headless proxy paths
+  "/wp-json",
+  "/wp-admin",
+  "/wp-login.php",
+  "/wp-content",
+  "/wp-includes",
 ];
 
 // ============================================================================
