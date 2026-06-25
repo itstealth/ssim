@@ -24,14 +24,35 @@ import { MidContentCTA } from "@/components/blog/MidContentCTA";
 import { AuthorBio } from "@/components/blog/AuthorBio";
 import { RecommendedPosts } from "@/components/blog/RecommendedPosts";
 
-// Helper function to fetch a single blog post from our API
 const fetchBlogPost = async (slug) => {
-  const response = await fetch(`/api/blogs/${slug}`);
-  if (!response.ok) {
-    if (response.status === 404) throw new Error("Blog post not found");
-    throw new Error("Failed to fetch blog post");
-  }
-  return response.json();
+  const response = await fetch(`/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_embed`);
+  if (!response.ok) throw new Error('Failed to fetch blog post');
+  const posts = await response.json();
+  if (!posts.length) throw new Error('Blog post not found');
+  const post = posts[0];
+  const meta = post.meta || {};
+  const terms = post._embedded?.['wp:term'] || [];
+
+  return {
+    id: post.id,
+    slug: post.slug,
+    title: post.title?.rendered || '',
+    content: post.content?.rendered || '',
+    imageUrl: meta.ssim_image_url || '',
+    imageAlt: meta.ssim_image_alt || '',
+    authorName: meta.ssim_author_name || 'SSIM Hyderabad',
+    publishDate: post.date,
+    metaTitle: meta.ssim_meta_title || '',
+    metaDescription: meta.ssim_meta_description || '',
+    keywords: meta.ssim_keywords || '',
+    canonicalUrl: meta.ssim_canonical_url || '',
+    jsonLdSchema: meta.ssim_json_ld || '',
+    ogTitle: meta.ssim_og_title || '',
+    ogDescription: meta.ssim_og_description || '',
+    ogImageUrl: meta.ssim_og_image_url || '',
+    categories: (terms[0] || []).map(t => t.name),
+    tags: (terms[1] || []).map(t => t.name),
+  };
 };
 
 // Safe JSON parse that NEVER throws

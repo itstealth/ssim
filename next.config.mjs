@@ -2,6 +2,11 @@
 const nextConfig = {
   output: "standalone",
 
+  // Disable automatic trailing-slash 308 redirect so WordPress REST API calls
+  // like POST /wp-json/wp/v2/posts/ aren't intercepted before the proxy rewrite.
+  // Trailing-slash normalization for regular pages is handled in middleware.js.
+  skipTrailingSlashRedirect: true,
+
   outputFileTracingIncludes: {
     "/*": [
       "node_modules/@next/env/**",
@@ -21,19 +26,27 @@ const nextConfig = {
       { protocol: "https", hostname: "ssim.ac.in", pathname: "/**" },
       { protocol: "https", hostname: "www.ssim.ac.in", pathname: "/**" },
       { protocol: "https", hostname: "www.searchurcollege.com", pathname: "/**" },
+      { protocol: "https", hostname: "ssimblogstorage.blob.core.windows.net", pathname: "/**" },
     ],
     minimumCacheTTL: 60,
     formats: ["image/webp", "image/avif"],
   },
 
   async rewrites() {
-    return [
-      {
-        source: "/pdfs/:path*",
-        destination:
-          "https://raw.githack.com/Stealth-Rishabh/ssim-assets/main/:path*",
-      },
-    ];
+    const WP = "https://ssim-blog-b9egbrcnfccjbzee.centralindia-01.azurewebsites.net";
+    return {
+      // beforeFiles: run BEFORE static/prerendered pages so WP proxy is never cached as 404
+      beforeFiles: [
+        { source: "/wp-json/:path*", destination: `${WP}/wp-json/:path*` },
+        { source: "/wp-admin/:path*", destination: `${WP}/wp-admin/:path*` },
+        { source: "/wp-login.php", destination: `${WP}/wp-login.php` },
+        { source: "/wp-content/:path*", destination: `${WP}/wp-content/:path*` },
+        { source: "/wp-includes/:path*", destination: `${WP}/wp-includes/:path*` },
+      ],
+      afterFiles: [
+        { source: "/pdfs/:path*", destination: "https://raw.githack.com/Stealth-Rishabh/ssim-assets/main/:path*" },
+      ],
+    };
   },
 
   async redirects() {
