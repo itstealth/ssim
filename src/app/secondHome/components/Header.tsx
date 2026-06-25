@@ -1,4 +1,4 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Mail, Phone } from 'lucide-react'
 import TopBar from './TopBar'
@@ -12,7 +12,7 @@ export default function Header() {
         <div className="mx-auto flex justify-between sm:items-center">
           <div className="flex items-center space-x-4">
             <Link href="/">
-              <Image
+              <img
                 src="/SSIM_Logo.png"
                 alt="SSIM Logo"
                 width={240}
