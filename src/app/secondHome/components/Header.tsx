@@ -8,6 +8,13 @@ export default function Header() {
   return (
     <header className="font-sans sticky top-0 z-[1000]">
       <TopBar />
+      {/* Top Bar */}
+
+
+
+
+
+      
       <div className="bg-white/95 backdrop-blur-md py-2 px-4 text-sm block shadow-[0_2px_20px_rgba(16,34,105,0.08)] border-b border-slate-100">
         <div className="mx-auto flex justify-between sm:items-center">
           <div className="flex items-center space-x-4">
