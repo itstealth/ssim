@@ -28,7 +28,7 @@ const TopBar = () => {
     },
     {
       icon: <Linkedin className="w-4 h-4" />,
-      url: "https://www.linkedin.com/school/siva-sivani-institute-of-management/",
+      url: "https://www.linkedin.com/company/ssim-siva-sivani-institute-of-management/",
     },
     {
       icon: <Youtube className="w-4 h-4" />,
