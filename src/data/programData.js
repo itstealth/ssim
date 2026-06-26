@@ -976,11 +976,6 @@ export const programData = {
     ],
     differentiators: [
       {
-        title: "Harvard Business School Certification",
-        description:
-          "Embedded with Harvard Business School Online Business Analytics certification",
-      },
-      {
         title: "Software Exposure",
         description:
           "Exposure to wide range of software, programming languages and big data processing tools",
@@ -1003,6 +998,21 @@ export const programData = {
       {
         title: "Paid Internships",
         description: "Earn-while-you-learn through paid summer internships",
+      },
+      {
+        title: "IBM is our Industry Partner",
+        description:
+          "Curriculum integrated with 5 IBM Certifications to build industry-ready analytics expertise.",
+      },
+      {
+        title: "PGDM Business Analytics Program Recognized by WDSAI",
+        description:
+          "PGDM Business Analytics recognized by WDSAI, a world-recognized body in AI and Analytics (Accreditation in progress).",
+      },
+      {
+        title: "Globally Valued Credentials",
+        description:
+          "Globally valued credentials designed to strengthen career opportunities in analytics and data-driven business functions.",
       },
     ],
     curriculum: [
@@ -1245,10 +1255,12 @@ export const programData = {
       {
         name: "IBM",
         logo: "/IBM.jpg",
+        label: "Industry Partner",
       },
       {
         name: "World Data Science",
         logo: "/World Data Science.jpeg",
+        label: "Recognised by",
       },
     ],
     eligibility: [

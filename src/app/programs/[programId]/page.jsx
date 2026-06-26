@@ -810,20 +810,24 @@ const ProgramSection = ({ programId, activeSection }) => {
             {program.partners && program.partners.length > 0 && (
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-red-600">
-                  Our Partners
+                  Industry Collaborations
                 </h3>
                 <div className="flex flex-wrap items-center gap-8">
                   {program.partners.map((partner, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-center bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-2"
-                      style={{ minWidth: "220px", minHeight: "140px" }}
-                    >
-                      <img
-                        src={partner.logo}
-                        alt={partner.name}
-                        className="max-h-40 max-w-[300px] object-contain"
-                      />
+                    <div key={index} className="flex flex-col items-center gap-3">
+                      {partner.label && (
+                        <h4 className="text-lg font-semibold text-gray-700 text-center">{partner.label}</h4>
+                      )}
+                      <div
+                        className="flex items-center justify-center bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-2"
+                        style={{ minWidth: "220px", minHeight: "140px" }}
+                      >
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          className="max-h-40 max-w-[300px] object-contain"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
