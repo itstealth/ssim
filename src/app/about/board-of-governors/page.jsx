@@ -2,20 +2,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const ArathySampathy = "/about/BoardOfGoverners/Smt_Arathy_Sampathy.jpg";
-const SaileshSampathy = "/about/BoardOfGoverners/Dr_Sailesh_Sampathy.jpg";
-const Ambuj = "/about/BoardOfGoverners/NRKS.jpeg";
-const Ramana = "/about/BoardOfGoverners/Dr. Ramana Rao.webp";
-const Deepika = "/about/BoardOfGoverners/Deepika-mam_pp.jpg";
-const Kalakar = "/about/BoardOfGoverners/Dr_Kalakar_PP.jpg";
-const MasoodAhmed = "/about/BoardOfGoverners/Md_Masood_Ahmed.jpg";
-const Chandra = "/about/BoardOfGoverners/SF Chandra.webp";
-const DrArijit = "/about/BoardOfGoverners/DR Arijit.webp";
-const Harish = "/about/BoardOfGoverners/Dr_Harish.jpg";
-const Jayalakshmi = "/about/BoardOfGoverners/Dr.-V.Jayalakshmi_b.jpg";
-const ThirumalReddy = "/about/BoardOfGoverners/THIRUMALREDDY.jpg";
-const VipulSingh = "/about/BoardOfGoverners/vipulsingh.jpg";
-
 export default function BoardOfGovernors() {
   const [hoveredMember, setHoveredMember] = useState(null);
 
@@ -23,96 +9,135 @@ export default function BoardOfGovernors() {
     {
       id: 1,
       name: "Smt. Arathy Sampathy",
-      role: "Chairperson",
-      description:
-        "Leading SSIM's vision and strategic direction with dedication and expertise.",
-      image: ArathySampathy,
+      role: "Chairman",
+      description: "Leading SSIM's vision and strategic direction with dedication and expertise.",
+      image: "/about/bog/1. Smt. Aaraty Sampathy_1_11zon.webp",
     },
     {
       id: 2,
       name: "Dr. Sailesh Sampathy",
       role: "Vice Chairman",
       description: "Driving innovation and academic excellence at SSIM.",
-      image: SaileshSampathy,
+      image: "/about/bog/2. Dr. Sailesh Sampathy_1_11zon.webp",
     },
     {
       id: 3,
       name: "Dr. S.V. Ramana Rao",
-      role: "Director",
-      description: "Director, Siva Sivani Institute of Management",
-      image: Ramana,
+      role: "Member-Secretary (Ex officio)",
+      description: "Empowering minds, inspiring leadership, and building a legacy of excellence",
+      image: "/about/bog/3. Ramana Rao_2_11zon.webp",
     },
     {
       id: 4,
-      name: "Dr. NRKS Chakravarthy",
-      role: "Board Member",
-      description:
-        "Contributing valuable insights to SSIM's governance and development.",
-      image: Ambuj,
+      name: "Smt. Deepika Sampathy",
+      role: "Member",
+      description: "Bringing expertise in academic leadership and management education.",
+      image: "/about/bog/4. Deepika-Sampathy_3_11zon.webp",
     },
     {
       id: 5,
-      name: "Dr. Deepika",
-      role: "Board Member",
-      description:
-        "Bringing expertise in academic leadership and management education.",
-      image: Deepika,
+      name: "Prof. M. Kamalakar",
+      role: "Member",
+      description: "Providing strategic guidance for institutional growth.",
+      image: "/about/bog/5. Kamalakar_4_11zon.webp",
     },
     {
       id: 6,
-      name: "Dr. Kalakar",
-      role: "Board Member",
-      description: "Providing strategic guidance for institutional growth.",
-      image: Kalakar,
+      name: "Prof. Mohammad Masood Ahmed",
+      role: "Member",
+      description: "Supporting SSIM's mission with industry expertise.",
+      image: "/about/bog/6. Masood_2_11zon.webp",
     },
     {
       id: 7,
-      name: "Md. Masood Ahmed",
-      role: "Board Member",
-      description: "Supporting SSIM's mission with industry expertise.",
-      image: MasoodAhmed,
+      name: "Dr. Vipul Singh",
+      role: "Member",
+      description: "Contributing to SSIM's continued success and development.",
+      image: "/about/BoardOfGoverners/vipulsingh.jpg",
     },
     {
       id: 8,
-      name: "Dr. S.F. Chandrasekhar",
-      role: "Board Member",
-      description: "Guiding academic and administrative excellence.",
-      image: Chandra,
+      name: "Prof Ravi Kumar Jain",
+      role: "Member",
+      description: "Transforming potential into performance through purposeful education",
+      image: "/about/bog/8. Ravi Kumar_3_11zon.webp",
     },
-    // {
-    //   id: 9,
-    //   name: "Dr. Arijit Santikary",
-    //   role: "Board Member",
-    //   description: "Contributing to research and academic development.",
-    //   image: DrArijit,
-    // },
+    {
+      id: 9,
+      name: "Dr. Harivansh Chaturvedi",
+      role: "Special Invitee",
+      description: "Guiding progress through experience, insight, and strategic foresight",
+      image: "/about/bog/9. Dr. Harivansh Chaturvedi_4_11zon.webp",
+    },
     {
       id: 10,
-      name: "Dr. Harish",
-      role: "Board Member",
-      description: "Fostering innovation in management education.",
-      image: Harish,
+      name: "Dr. Jagathy Raj V.P.",
+      role: "Nominee of the AICTE",
+      description: "Leading with vision, serving with integrity, and striving for excellence",
+      image: "/about/bog/10. Dr. Jagathy Raj V.P._5_11zon.webp",
     },
     {
       id: 11,
-      name: "Dr. V. Jayalakshmi",
-      role: "Board Member",
-      description: "Promoting excellence in teaching and research.",
-      image: Jayalakshmi,
+      name: "Dr. C. Srinath",
+      role: "Nominee of the State Government",
+      description: "Supporting the institution's growth through good governance and effective leadership",
+      image: "/about/bog/11. Dr. C. Srinath_5_11zon.webp",
     },
     {
       id: 12,
-      name: "T. Thirumal Reddy",
-      role: "Board Member",
-      description: "Supporting institutional development and growth.",
-      image: ThirumalReddy,
+      name: "DR. NRKS Chakravarthy",
+      role: "Deputy Director, SSIM",
+      description: "Contributing valuable insights to SSIM's governance and development.",
+      image: "/about/bog/12. Mr. N.R.K.S. Chakravarthy_6_11zon.webp",
     },
     {
       id: 13,
-      name: "Dr. Vipul Singh",
-      role: "Advisory Member",
-      description: "Contributing to SSIM's continued success and development.",
-      image: VipulSingh,
+      name: "Prof. S.F. Chandrasekhar",
+      role: "Member",
+      description: "Guiding academic and administrative excellence.",
+      image: "/about/bog/13. Dr. S.F. Chandra Sekhar_7_11zon.webp",
+    },
+    {
+      id: 14,
+      name: "Prof. K.S. Harish",
+      role: "Member",
+      description: "Fostering innovation in management education.",
+      image: "/about/bog/14. Dr. K.S. Harish_8_11zon.webp",
+    },
+    {
+      id: 15,
+      name: "Dr. Pavan Patel",
+      role: "Member",
+      description: "Building future-ready professionals through quality education.",
+      image: "/about/bog/15. Dr. Pavan Patel_9_11zon.webp",
+    },
+    {
+      id: 16,
+      name: "Prof. V. Jayalakshmi",
+      role: "Member",
+      description: "Promoting excellence in teaching and research.",
+      image: "/about/bog/16. Dr. V. Jayalakshmi_10_11zon.webp",
+    },
+    {
+      id: 17,
+      name: "Prof. V. Annapurna",
+      role: "Member",
+      description: "Building a culture of innovation, collaboration, and success.",
+      image: "/about/bog/17. Dr. V. Annapurna_11_11zon.webp",
+    },
+    {
+      id: 18,
+      name: "Prof. N.C. Rajyalakshmi",
+      role: "Member",
+      description: "Together, shaping futures and creating lasting value.",
+      image: "/about/bog/18. Rajyalakshmi_12_11zon.webp",
+    },
+    {
+      id: 19,
+      name: "Dr. T. Thirumal Reddy",
+      role: "Member",
+      description: "Supporting institutional development and growth.",
+      image: "/about/bog/19. Dr. T. Thirumal Reddy_13_11zon.webp",
     },
   ];
 
@@ -144,7 +169,7 @@ export default function BoardOfGovernors() {
               <motion.img
                 src={member.image}
                 alt={`${member.name} - ${member.role}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               />

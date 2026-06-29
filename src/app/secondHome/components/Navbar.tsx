@@ -18,7 +18,7 @@ const navItems = [
     name: 'About',
     path: '/about',
     dropdown: [
-      { name: 'Academic Advisory Board', path: '/about/academic-advisory-board' },
+
       { name: 'Accreditations & Rankings', path: '/about/accreditations-rankings' },
       { name: 'Board of Governors', path: '/about/board-of-governors' },
       { name: 'Board of Studies', path: '/about/board-of-studies' },

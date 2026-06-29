@@ -3,10 +3,7 @@ export const navlinks = [
   {
     name: "About",
     dropdown: [
-      {
-        name: "Academic Advisory Board",
-        path: "/about/academic-advisory-board",
-      },
+
       {
         name: "Accreditations & Rankings",
         path: "/about/accreditations-rankings",
