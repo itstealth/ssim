@@ -163,7 +163,7 @@ export default function Footer() {
                     icon: Linkedin,
                     bgColor: "bg-blue-700",
                     label: "LinkedIn",
-                    href: "https://www.linkedin.com/school/siva-sivani-institute-of-management/",
+                    href: "https://www.linkedin.com/company/ssim-siva-sivani-institute-of-management/",
                   },
                   {
                     icon: Youtube,

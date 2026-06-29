@@ -103,16 +103,14 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden ${
-        isPurpleHome
+      className={`relative pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden ${isPurpleHome
           ? "bg-gradient-to-br from-purple-950 via-purple-900 to-[#2E1065]"
           : secondHomeTheme.shellMuted
-      }`}
+        }`}
     >
       <div
-        className={`absolute inset-0 pointer-events-none ${
-          isPurpleHome ? "opacity-[0.08]" : "opacity-[0.05]"
-        }`}
+        className={`absolute inset-0 pointer-events-none ${isPurpleHome ? "opacity-[0.08]" : "opacity-[0.05]"
+          }`}
       >
         <div
           className="absolute inset-0"
@@ -171,7 +169,7 @@ export default function Footer() {
                     icon: Linkedin,
                     bgColor: "bg-white",
                     label: "LinkedIn",
-                    href: "https://www.linkedin.com/school/siva-sivani-institute-of-management/",
+                    href: "https://www.linkedin.com/company/ssim-siva-sivani-institute-of-management/",
                   },
                   {
                     icon: Youtube,
@@ -188,11 +186,10 @@ export default function Footer() {
                   >
                     <Button
                       size="icon"
-                      className={`rounded-full transition-all hover:scale-110 shadow-[0_8px_18px_rgba(16,34,105,0.08)] ${
-                        isPurpleHome
+                      className={`rounded-full transition-all hover:scale-110 shadow-[0_8px_18px_rgba(16,34,105,0.08)] ${isPurpleHome
                           ? "text-white bg-white/10 hover:bg-white/15 border border-white/15"
                           : "text-purple-700 bg-white hover:opacity-90"
-                      }`}
+                        }`}
                       aria-label={social.label}
                     >
                       <social.icon className="h-5 w-5" />
@@ -235,9 +232,8 @@ export default function Footer() {
             {footerSections.map((section) => (
               <div key={section.label} className="space-y-6">
                 <h3
-                    className={`text-lg font-semibold tracking-wide ${
-                    isPurpleHome ? "text-white" : "text-slate-900"
-                  }`}
+                  className={`text-lg font-semibold tracking-wide ${isPurpleHome ? "text-white" : "text-slate-900"
+                    }`}
                 >
                   {section.label}
                 </h3>
@@ -247,17 +243,16 @@ export default function Footer() {
                       {section.items.map((item) => (
                         <li key={item.name}>
                           {item.path.startsWith("https:") ||
-                          item.external ||
-                          item.path === aicteapprovals ? (
+                            item.external ||
+                            item.path === aicteapprovals ? (
                             <a
                               href={item.path}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`group inline-flex items-center gap-1 transition-colors duration-200 ${
-                                isPurpleHome
+                              className={`group inline-flex items-center gap-1 transition-colors duration-200 ${isPurpleHome
                                   ? "text-white/75 hover:text-white"
                                   : "text-slate-600 hover:text-purple-700"
-                              }`}
+                                }`}
                             >
                               {item.name}
                             </a>
@@ -265,11 +260,10 @@ export default function Footer() {
                             <Link
                               href={item.path}
                               onClick={scrollToTop}
-                              className={`group inline-flex items-center gap-1 transition-colors duration-200 ${
-                                isPurpleHome
+                              className={`group inline-flex items-center gap-1 transition-colors duration-200 ${isPurpleHome
                                   ? "text-white/75 hover:text-white"
                                   : "text-slate-600 hover:text-purple-700"
-                              }`}
+                                }`}
                             >
                               {item.name}
                             </Link>
@@ -300,17 +294,16 @@ export default function Footer() {
                     {section.items.map((item) => (
                       <li key={item.name}>
                         {item.path.startsWith("https:") ||
-                        item.external ||
-                        item.path === aicteapprovals ? (
+                          item.external ||
+                          item.path === aicteapprovals ? (
                           <a
                             href={item.path}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`group inline-flex items-center gap-1 transition-colors duration-200 ${
-                              isPurpleHome
+                            className={`group inline-flex items-center gap-1 transition-colors duration-200 ${isPurpleHome
                                 ? "text-white/80 hover:text-white"
                                 : "text-slate-600 hover:text-purple-700"
-                            }`}
+                              }`}
                           >
                             {item.name}
                           </a>
@@ -318,11 +311,10 @@ export default function Footer() {
                           <Link
                             href={item.path}
                             onClick={scrollToTop}
-                            className={`group inline-flex items-center gap-1 transition-colors duration-200 ${
-                              isPurpleHome
+                            className={`group inline-flex items-center gap-1 transition-colors duration-200 ${isPurpleHome
                                 ? "text-white/80 hover:text-white"
                                 : "text-slate-600 hover:text-purple-700"
-                            }`}
+                              }`}
                           >
                             {item.name}
                           </Link>
@@ -339,9 +331,8 @@ export default function Footer() {
         <Separator className={`my-12 ${isPurpleHome ? "bg-white/15" : "bg-slate-200/80"}`} />
 
         <div
-          className={`flex flex-col sm:flex-row justify-center items-center gap-4 text-base ${
-            isPurpleHome ? "text-white/75" : "text-slate-700"
-          }`}
+          className={`flex flex-col sm:flex-row justify-center items-center gap-4 text-base ${isPurpleHome ? "text-white/75" : "text-slate-700"
+            }`}
         >
           <p className={isPurpleHome ? "text-white/75" : "text-slate-700"}>
             Copyright © SSIM {new Date().getFullYear()}
