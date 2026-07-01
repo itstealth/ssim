@@ -237,6 +237,44 @@ export default function PlacementSection() {
     );
   };
 
+  const getStatsForYear = (year) => {
+    const statsMap = {
+      "2021 - 23": {
+        highest: "9.5 LPA",
+        average: "5.21 LPA",
+        placed: "96.29%",
+        companies: "100+",
+      },
+      "2022 - 24": {
+        highest: "10.92 LPA",
+        average: "4.87 LPA",
+        placed: "89.26%",
+        companies: "153+",
+      },
+      "2023 - 25": {
+        highest: "10.7 LPA",
+        average: "5.23 LPA",
+        placed: "97.54%",
+        companies: "172+",
+      },
+      "2024 - 26": {
+        highest: "12 LPA",
+        average: "6.55 LPA",
+        placed: "85.31%",
+        companies: "190+",
+      },
+      "all": {
+        highest: "12.7 LPA",
+        average: "7.25 LPA",
+        placed: "98.74%",
+        companies: "180+",
+      },
+    };
+    return statsMap[year] || statsMap["all"];
+  };
+
+  const currentStats = getStatsForYear(selectedYear);
+
   return (
     <>
       <OrganizationSchema />
@@ -256,84 +294,6 @@ export default function PlacementSection() {
               Explore our students' success stories and career achievements.
               Filter and sort to find specific placement details.
             </p>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <IndianRupee className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    12.7 LPA
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Highest Salary
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUpIcon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    7.25LPA
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Average Salary
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Rocket className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    98.74%
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Students Placed
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <BuildingOffice2Icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    180+
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Companies Hiring
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-            {/* <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-                  <CardHeader className="pb-2 space-y-4">
-                    <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <PercentIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-3xl font-bold text-red-600">
-                        {stats.placementRate}
-                      </CardTitle>
-                      <CardDescription className="text-base">
-                        Placement Rate
-                      </CardDescription>
-                    </div>
-                  </CardHeader>
-                </Card> */}
           </div>
 
           <div className="rounded-sm border bg-card p-5 space-y-4">
@@ -447,6 +407,84 @@ export default function PlacementSection() {
                 )}
               </div>
             )}
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
+              <CardHeader className="pb-2 space-y-4">
+                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <IndianRupee className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-3xl font-bold text-red-600">
+                    {currentStats.highest}
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Highest Salary
+                  </CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
+            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
+              <CardHeader className="pb-2 space-y-4">
+                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <TrendingUpIcon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-3xl font-bold text-red-600">
+                    {currentStats.average}
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Average Salary
+                  </CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
+            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
+              <CardHeader className="pb-2 space-y-4">
+                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Rocket className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-3xl font-bold text-red-600">
+                    {currentStats.placed}
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Students Placed
+                  </CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
+            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
+              <CardHeader className="pb-2 space-y-4">
+                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <BuildingOffice2Icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-3xl font-bold text-red-600">
+                    {currentStats.companies}
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Companies Hiring
+                  </CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
+            {/* <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
+                  <CardHeader className="pb-2 space-y-4">
+                    <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <PercentIcon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-3xl font-bold text-red-600">
+                        {stats.placementRate}
+                      </CardTitle>
+                      <CardDescription className="text-base">
+                        Placement Rate
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+                </Card> */}
           </div>
 
           <div className="border border-gray-200 rounded-lg overflow-hidden bg-white flex flex-col h-[calc(100vh-100px)] invisible-scrollbar">
