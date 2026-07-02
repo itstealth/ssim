@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Mail, Phone } from "lucide-react";
 import Drawer from "@/pages/Header/Drawer";
 
@@ -8,10 +9,14 @@ export default function BannerNav() {
       <div className="mx-auto flex justify-between sm:items-center">
         <div className="flex items-center space-x-4">
           <Link href="/">
-            <img
-              src="/logo ssim.png"
+            <Image
+              src="/SSIM_Logo.png"
               alt="SSIM Hyderabad"
-              className="h-12 sm:h-[72px] object-contain"
+              width={180}
+              height={72}
+              priority
+              className="h-12 sm:h-[72px] w-auto object-contain"
+              style={{ width: 'auto' }}
             />
           </Link>
         </div>
