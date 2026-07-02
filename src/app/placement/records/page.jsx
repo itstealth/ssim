@@ -260,7 +260,7 @@ export default function PlacementSection() {
       "2024 - 26": {
         highest: "12 LPA",
         average: "6.55 LPA",
-        placed: "85.31%",
+        placed: "98.74%",
         companies: "190+",
       },
       "all": {
