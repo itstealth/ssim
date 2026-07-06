@@ -47,10 +47,10 @@ const navItems = [
     name: 'Admissions',
     path: '/admissions',
     dropdown: [
-      { name: 'FPM/EFPM', path: '/admissions/fpm-efpm' },
-      { name: 'PGDM BA', path: '/admissions/pgdm-ba' },
-      { name: 'PGDM BIFS', path: '/admissions/pgdm-bifs' },
       { name: 'PGDM Triple Specialisation', path: '/admissions/pgdm-triple-specialisation' },
+      { name: 'PGDM BIFS', path: '/admissions/pgdm-bifs' },
+      { name: 'PGDM BA', path: '/admissions/pgdm-ba' },
+      { name: 'FPM/EFPM', path: '/admissions/fpm-efpm' },
     ],
   },
   {

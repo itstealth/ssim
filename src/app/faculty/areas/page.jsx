@@ -63,7 +63,7 @@ const teamMembers = [
   {
     name: "Dr. NRKS Chakravarthy",
     area: "Decision Science and Information System",
-    qualification: "MBA",
+    qualification: "Ph.D / MBA",
     experience: 29,
     image: NRKS,
     description:
