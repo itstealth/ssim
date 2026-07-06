@@ -7,7 +7,7 @@ import { secondHomeTheme } from '../theme'
 const programs = [
   {
     title: 'PGDM',
-    sub: 'Triple Specialisation · 35 Years Legacy · Global Immersion',
+    sub: 'Triple Specialisation · 34+ Years Legacy · Global Immersion',
     highlight: true,
     img: '/programs_assets/images/imageOne.jpeg',
     link: '/programs/pgdm-triple-specialisation',

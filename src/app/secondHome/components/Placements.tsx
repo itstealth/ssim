@@ -20,7 +20,7 @@ const placementCards = [
   { icon: '💰', num: '₹12.7L', title: 'Highest Salary', desc: 'Exceptional CTC by top-performing graduates' },
   { icon: '📊', num: '₹7.25L', title: 'Average Salary', desc: 'Consistent average package across all programs' },
   { icon: '📈', num: '98.74%', title: 'Students Placed', desc: 'Outstanding placement rate for eligible students' },
-  { icon: '🏢', num: '180+', title: 'Companies Hiring', desc: 'MNCs, Big 4, FMCG, BFSI & consulting firms' },
+  { icon: '🏢', num: '180+', title: 'Recruiters (2025 Batch)', desc: 'MNCs, Big 4, FMCG, BFSI & consulting firms' },
 ]
 
 export default function Placements() {

@@ -1,7 +1,7 @@
 import { secondHomeTheme } from '../theme'
 
 const stats = [
-  { num: '35', sup: '+', label: 'Years of Excellence' },
+  { num: '34', sup: '+', label: 'Years of Excellence' },
   { num: '350', sup: '+', label: 'Corporate Partners' },
   { num: '6,500', sup: '+', label: 'Alumni Network' },
   { num: '50', sup: '+', label: 'New-Age Specialisations' },

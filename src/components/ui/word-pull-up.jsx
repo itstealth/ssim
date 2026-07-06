@@ -55,7 +55,7 @@ export default function WordPullUp({
           variants={framerProps} // Animate each word separately
           style={{ display: "inline-block", paddingRight: "8px" }}
         >
-          {word === "" ? <span>&nbsp;</span> : word}
+          {word === "" ? <span>&nbsp;</span> : word}{" "}
         </motion.span>
       ))}
     </MotionComponent>

@@ -106,7 +106,7 @@ const AnimatedCounter = ({ value, shouldStart, delay = 0 }) => {
 const stats = [
   {
     icon: <Calendar className="w-6 h-6" />,
-    value: "35",
+    value: "34+",
     label: "Years of Excellence",
     description: "Academic excellence since 1992",
   },
@@ -124,15 +124,15 @@ const stats = [
   },
   {
     icon: <Award className="w-6 h-6" />,
-    value: "₹90000",
+    value: "Up to ₹1L",
     label: "Merit",
     description: "Scholarship",
   },
   {
     icon: <BrainCircuit className="w-6 h-6" />,
     value: "50+",
-    label: "New Age",
-    description: "Specializations",
+    label: "New-Age",
+    description: "Specialisations",
   },
   {
     icon: <BookCheck className="w-6 h-6" />,

@@ -47,7 +47,7 @@ const homepageGraphSchema = {
       ],
       parentOrganization: {
         "@type": "Organization",
-        name: "S P Sampathys Siva Sivani Educational Society",
+        name: "S. P. Sampathy's Siva Sivani Educational Society",
       },
       hasCredential: [
         {

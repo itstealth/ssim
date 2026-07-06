@@ -79,7 +79,7 @@ const faculty = [
   },
   {
     img: "/Faculty/17. Mr. T. Subash Tej.webp",
-    name: "Mr. Subash Tej Tumu",
+    name: "Mr. Subhash Tej Tumu",
     area: "Data Science",
     exp: "22 Years · MCA, MBA",
   },

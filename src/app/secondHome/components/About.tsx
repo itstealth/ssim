@@ -6,11 +6,11 @@ import { secondHomeTheme } from '../theme'
 const AboutSSIM = "/Home/campus-image.webp"
 
 const stats = [
-  { icon: '📅', value: '35', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
+  { icon: '📅', value: '34+', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
   { icon: '🤝', value: '350+', label: 'Corporate', desc: 'Partners' },
   { icon: '🎓', value: '6,500+', label: 'Alumni', desc: 'Network' },
-  { icon: '💰', value: '₹90,000', label: 'Merit', desc: 'Scholarship' },
-  { icon: '🧠', value: '50+', label: 'New Age', desc: 'Specializations' },
+  { icon: '💰', value: 'Up to ₹1L', label: 'Merit', desc: 'Scholarship' },
+  { icon: '🧠', value: '50+', label: 'New-Age', desc: 'Specialisations' },
   { icon: '📚', value: '9', label: 'Value Added', desc: 'Certification Programs' },
 ]
 
@@ -49,17 +49,17 @@ export default function About() {
 
           <div className="text-slate-600 text-[16px] leading-relaxed">
             <ul className="list-disc pl-5 space-y-3">
-              <li>A Premier Institution with over Three Decades of excellence in management education</li>
-              <li>Renowned for its Strong Ethical Foundation</li>
+              <li>A premier institution with over three decades of excellence in management education</li>
+              <li>Renowned for its strong ethical foundation</li>
               <li>
-                Delivers Industry-Relevant learning that blends academic and corporate insights
+                Delivers industry-relevant learning that blends academic and corporate insights
                 <ul className="list-[circle] pl-6 mt-2 space-y-1.5 text-[15px] text-slate-500">
-                  <li>Innovative Curriculum</li>
-                  <li>Experienced Faculty</li>
-                  <li>Rich Corporate Mentoring</li>
-                  <li>Practical On field Applicability</li>
-                  <li>Blended Learning Platforms</li>
-                  <li>Latest Technological Integration</li>
+                  <li>Innovative curriculum</li>
+                  <li>Experienced faculty</li>
+                  <li>Rich corporate mentoring</li>
+                  <li>Practical, on-field applicability</li>
+                  <li>Blended learning platforms</li>
+                  <li>Latest technological integration</li>
                 </ul>
               </li>
               <li>
@@ -78,7 +78,7 @@ export default function About() {
               </li>
             </ul>
             <p className="font-bold text-purple-700 mt-6 text-[16px]">
-              SSIM continues to shape future-ready leaders year-on-year................
+              SSIM continues to shape future-ready leaders year-on-year.
             </p>
           </div>
 

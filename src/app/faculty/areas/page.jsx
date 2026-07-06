@@ -168,7 +168,7 @@ const teamMembers = [
       "Specializes in marketing research and consumer psychology. Conducts studies on customer experience and service marketing.",
   },
   {
-    name: "Mr. Subash Tej Tumu",
+    name: "Mr. Subhash Tej Tumu",
     area: "Data Science",
     qualification: "MCA, MBA",
     experience: 22,
