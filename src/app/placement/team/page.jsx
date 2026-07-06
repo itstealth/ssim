@@ -15,7 +15,7 @@ const arijitImg = "/corporate-connect/arijit.png";
 const ramaraoImg = "/corporate-connect/ramarao.png";
 const rahulImg = "/corporate-connect/rahul.png";
 const sushmaImg = "/corporate-connect/sushma.png";
-const hrithikImg = "/corporate-connect/hrithik.jpg";
+const vishnuImg = "/corporate-connect/vishnu.jpeg";
 
 const features = [
   {
@@ -222,11 +222,11 @@ const TeamContactSection = () => {
       imageSrc: sushmaImg,
     },
     {
-      name: "K. HRITHIK",
+      name: "K. Vishnu",
       title: "Placement Executive",
-      phone: "+91-9010300134",
-      primaryEmail: "hrithik@ssim.ac.in",
-      imageSrc: hrithikImg,
+      phone: "+91-7386669012",
+      primaryEmail: "vishnu@ssim.ac.in",
+      imageSrc: vishnuImg,
     },
   ];
 

@@ -47,6 +47,7 @@ const Thirumal = "/faculty&research/faculty/THIRUMALREDDY.jpg";
 const Vallinayagam = "/faculty&research/faculty/Vallinayagam.webp";
 const Ambuj = "/about/dr-ambuj.jpeg";
 const ramana = "/about/director.jpeg";
+const RaviDasari = "/faculty&research/faculty/Ravi-Dasari.jpeg";
 
 const teamMembers = [
   {
@@ -319,6 +320,15 @@ const teamMembers = [
     image: Murali,
     description:
       "Expert in quantitative aptitude and logical reasoning. Helps students develop critical thinking and problem-solving skills.",
+  },
+  {
+    name: "Dr. Ravi Dasari",
+    area: "HR & Strategy",
+    qualification: "Ph.D, MBA",
+    experience: 30,
+    image: RaviDasari,
+    description:
+      "Expert in Human Resource Management with extensive experience in leadership development and organizational excellence.",
   },
 ];
 
