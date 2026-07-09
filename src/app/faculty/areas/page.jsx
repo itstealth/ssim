@@ -200,15 +200,15 @@ const teamMembers = [
     description:
       "Expert in financial modeling and risk assessment. Conducts research on emerging trends in corporate finance.",
   },
-  {
-    name: "Dr. Avudaiappan Dinesh",
-    area: "HR & Strategy",
-    qualification: "Ph.D, MA, M.Phil",
-    experience: 6,
-    image: DINES,
-    description:
-      "Specializes in business communication and personal development. Focuses on improving student presentation and leadership skills.",
-  },
+  // {
+  //   name: "Dr. Avudaiappan Dinesh",
+  //   area: "HR & Strategy",
+  //   qualification: "Ph.D, MA, M.Phil",
+  //   experience: 6,
+  //   image: DINES,
+  //   description:
+  //     "Specializes in business communication and personal development. Focuses on improving student presentation and leadership skills.",
+  // },
   {
     name: "Dr. Pushpa Machani",
     area: "HR & Strategy",
