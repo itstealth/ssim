@@ -10,7 +10,7 @@ export default function BannerNav() {
         <div className="flex items-center space-x-4">
           <Link href="/">
             <Image
-              src="/SSIM_Logo.png"
+              src="/logo.jpeg"
               alt="SSIM Hyderabad"
               width={180}
               height={72}

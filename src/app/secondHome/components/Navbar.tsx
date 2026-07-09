@@ -182,7 +182,7 @@ export default function Navbar() {
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
         <Image
-          src="/SSIM_Logo.png"
+          src="/logo.jpeg"
           alt="SSIM Logo"
           width={200}
           height={90}

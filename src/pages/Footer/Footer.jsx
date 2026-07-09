@@ -1,6 +1,6 @@
 "use client";
 
-const logo = "/SSIM_Logo.png";
+const logo = "/logo.jpeg";
 import {
   Facebook,
   Instagram,

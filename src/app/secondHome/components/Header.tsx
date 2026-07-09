@@ -20,7 +20,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <Link href="/">
               <Image
-                src="/SSIM_Logo.png"
+                src="/logo.jpeg"
                 alt="SSIM Logo"
                 width={240}
                 height={100}
