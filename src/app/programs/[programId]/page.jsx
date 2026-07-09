@@ -12,6 +12,10 @@ import {
   Briefcase,
   FlaskRoundIcon as Flask,
   Users,
+  Award,
+  Target,
+  TrendingUp,
+  Network,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CourseSchema, CustomSchema } from "@/components/Schema";
@@ -95,6 +99,9 @@ const sections = [
     icon: ChevronRight,
   },
   { id: "differentiators", name: "Differentiators", icon: ChevronRight },
+  { id: "programAdvantages", name: "Program Advantages", icon: ChevronRight },
+  { id: "industryConnect", name: "Industry Connect", icon: ChevronRight },
+  { id: "careerPathways", name: "Career Pathways", icon: ChevronRight },
   {
     id: "curriculum",
     name: "Program Structure",
@@ -466,6 +473,109 @@ const Differentiators = ({ differentiators, programId }) => {
   );
 };
 
+const ProgramContentSection = ({ section }) => {
+  if (!section) return null;
+
+  const iconMap = {
+    programAdvantages: Target,
+    industryConnect: Network,
+    careerPathways: TrendingUp,
+    default: Award,
+  };
+  const Icon = iconMap[section.id] || iconMap.default;
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-red-600">
+          {section.title}
+        </h3>
+        {section.description && (
+          <p className="text-gray-700 leading-relaxed">
+            {section.description}
+          </p>
+        )}
+      </div>
+
+      {section.stats && section.stats.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {section.stats.map((stat, index) => (
+            <Card key={index} className="overflow-hidden">
+              <CardContent className="p-5">
+                <p className="text-2xl font-bold text-mainBlue">
+                  {stat.value}
+                </p>
+                <p className="text-sm font-medium text-gray-700 mt-1">
+                  {stat.label}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+
+      {section.items && section.items.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {section.items.map((item, index) => (
+            <Card key={index} className="overflow-hidden">
+              <CardHeader className="flex flex-row items-center space-x-4 pb-2">
+                <div className="bg-mainBlue rounded-full p-2">
+                  <Icon className="h-6 w-6 text-primary-foreground" />
+                </div>
+                <CardTitle className="text-red-600">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {item.description && <p>{item.description}</p>}
+                {item.points && (
+                  <ul className="space-y-2">
+                    {item.points.map((point, pointIndex) => (
+                      <li
+                        key={pointIndex}
+                        className="flex items-start gap-2 text-sm text-gray-700"
+                      >
+                        <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+
+      {section.groups && section.groups.length > 0 && (
+        <div className="space-y-6">
+          {section.groups.map((group, index) => (
+            <Card key={index} className="overflow-hidden">
+              <CardHeader>
+                <CardTitle className="text-red-600">{group.title}</CardTitle>
+                {group.description && (
+                  <CardDescription>{group.description}</CardDescription>
+                )}
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {group.items.map((item, itemIndex) => (
+                    <div
+                      key={itemIndex}
+                      className="flex items-start gap-2 rounded-lg bg-slate-50 p-3 text-sm text-gray-700"
+                    >
+                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Curriculum = ({ curriculum }) => {
   // Find the detailed curriculum object, which contains module1, module2, etc.
   const detailedCurriculumData = curriculum?.find((item) => item.module1);
@@ -707,7 +817,6 @@ const ProgramFAQ = ({ faqs }) => {
 };
 
 const CourseElectives = ({ electives, programId }) => {
-  console.log(programId, electives?.major?.title);
   if (!electives) {
     return <div>No electives offered for this program.</div>;
   }
@@ -865,6 +974,14 @@ const ProgramSection = ({ programId, activeSection }) => {
             programId={programId}
           />
         );
+      case "programAdvantages":
+      case "industryConnect":
+      case "careerPathways":
+        return (
+          <ProgramContentSection
+            section={program.additionalSections?.[activeSection]}
+          />
+        );
       case "curriculum":
         return <Curriculum curriculum={program.curriculum} />;
       case "eligibility":
@@ -977,6 +1094,14 @@ const ProgramsOverview = ({ params }) => {
   const filteredSections = sections.filter((section) => {
     const program = programData[activeProgram];
     if (section.id === "electives" && !program.electives) {
+      return false;
+    }
+    if (
+      ["programAdvantages", "industryConnect", "careerPathways"].includes(
+        section.id
+      ) &&
+      !program.additionalSections?.[section.id]
+    ) {
       return false;
     }
     const matchesSearch = section.name

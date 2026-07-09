@@ -863,6 +863,8 @@ export const programData = {
       }
     },
     name: "PGDM BA",
+    about:
+      "The PGDM Business Analytics program blends management education with data science and technology skills for the digital business era. Built on core management, analytics, industry tools, and functional domain specialization, the program prepares students to solve real business problems using data-driven decision making.",
     keyInfo: {
       duration: "2 years",
       credits: "120",
@@ -976,43 +978,44 @@ export const programData = {
     ],
     differentiators: [
       {
-        title: "Software Exposure",
+        title: "Four-Pillar Learning Model",
         description:
-          "Exposure to wide range of software, programming languages and big data processing tools",
+          "The program combines core management, analytics and data science, technology platforms, and domain specialization in Marketing, HRM, Finance, or Operations.",
       },
       {
-        title: "Experiential Learning",
+        title: "Hands-on Analytics Tools",
         description:
-          "Learning through simulations, gamifications, and practical applications",
+          "Students work with Power BI, Python, SQL, Excel, Tableau, SPSS, Azure ML, and IBM analytics modules.",
       },
       {
-        title: "Expert Faculty",
+        title: "Microsoft-Certified Faculty",
         description:
-          "Eminent faculty members with industry, academia and research experience",
+          "Microsoft-trained and certified faculty bring current data analytics and AI tools into the classroom.",
       },
       {
-        title: "International Exchange",
+        title: "Application-Based Learning",
         description:
-          "Exchange programs for students with Herzing University, Atlanta (USA)",
+          "The learning model uses live case studies, industry projects, internships, guest sessions, and a balanced theory-practice-technology approach.",
       },
       {
-        title: "Paid Internships",
-        description: "Earn-while-you-learn through paid summer internships",
+        title: "IBM Co-branded Certification",
+        description:
+          "Students earn SSIM and IBM certification exposure through industry-aligned IBM modules and analytics platforms.",
       },
       {
-        title: "IBM is our Industry Partner",
+        title: "Global Analytics Recognition",
         description:
-          "Curriculum integrated with 5 IBM Certifications to build industry-ready analytics expertise.",
+          "The program connects students with WDSAI and the Analytics Society of India for broader professional exposure.",
       },
       {
-        title: "PGDM Business Analytics Program Recognized by WDSAI",
+        title: "Career-Ready Analytics Focus",
         description:
-          "PGDM Business Analytics recognized by WDSAI, a world-recognized body in AI and Analytics (Accreditation in progress).",
+          "Graduates are prepared for analytics-led roles across Marketing, Finance, Operations, HRM, and data-driven management functions.",
       },
       {
-        title: "Globally Valued Credentials",
+        title: "Future Leadership Pathway",
         description:
-          "Globally valued credentials designed to strengthen career opportunities in analytics and data-driven business functions.",
+          "The curriculum connects business strategy with analytics, AI, and technology exposure for future leadership roles.",
       },
     ],
     curriculum: [
@@ -1285,6 +1288,131 @@ export const programData = {
           "First institute in Telugu states offering specialized PGDM in Business Analytics",
       },
     },
+    additionalSections: {
+      programAdvantages: {
+        id: "programAdvantages",
+        title: "Program Advantages",
+        description:
+          "The client-approved BA deck positions this program as a digital-age management program for students who want business strategy, analytics, AI, and technology exposure in one pathway.",
+        items: [
+          {
+            title: "Core Management Foundation",
+            description:
+              "Covers Marketing, Finance, HRM, Operations, Strategy, Economics, Business Communication, and Research Methodology.",
+          },
+          {
+            title: "Analytics and Data Science Skills",
+            description:
+              "Builds capability in data analysis, statistics, predictive modelling, econometrics, machine learning, and social media analytics.",
+          },
+          {
+            title: "Technology Tools and Platforms",
+            description:
+              "Includes hands-on exposure to Power BI, Python, SQL, Excel, Tableau, SPSS, Azure ML, and IBM analytics modules.",
+          },
+          {
+            title: "Domain Specialization",
+            description:
+              "Students apply analytics to functional business problems by choosing Marketing, HRM, Finance, or Operations.",
+          },
+          {
+            title: "Essential Analytics Courses",
+            description:
+              "The program includes AI, large language models, machine learning, SQL, Tableau, Power BI, generative AI and prompt engineering, system thinking in AI, agentic AI, design thinking, and agile DevOps exposure.",
+          },
+          {
+            title: "2030 Skill Alignment",
+            description:
+              "The curriculum supports analytical thinking, AI and big data skills, digital literacy, critical thinking, creativity, leadership, lifelong learning, emotional intelligence, and sustainability awareness.",
+          },
+        ],
+      },
+      industryConnect: {
+        id: "industryConnect",
+        title: "Industry and Global Partnerships",
+        description:
+          "The program strengthens employability through recognized certification pathways, certified faculty, professional memberships, and industry-led learning.",
+        items: [
+          {
+            title: "IBM Co-branded Certification",
+            description:
+              "Students gain exposure to IBM-recognized analytics tools, platforms, and practical problem-solving methods.",
+          },
+          {
+            title: "Microsoft-Powered Analytics Learning",
+            description:
+              "Microsoft-certified faculty train students on Power BI, Azure ML, and Excel-based analytics for real business challenges.",
+          },
+          {
+            title: "Analytics Society of India",
+            description:
+              "Institutional membership helps students connect with analytics professionals, conferences, and emerging industry conversations.",
+          },
+          {
+            title: "WDSAI Recognition Opportunity",
+            description:
+              "Students can pursue international membership with World Data Science and AI for additional global exposure.",
+          },
+          {
+            title: "Expert-Led Learning Ecosystem",
+            description:
+              "Guest lectures, workshops, and masterclasses by analytics professionals bridge academic concepts with industry practice.",
+          },
+        ],
+      },
+      careerPathways: {
+        id: "careerPathways",
+        title: "Career Pathways",
+        description:
+          "Analytics-powered roles exist across every business function. The program prepares students for data-driven decision making in Marketing, Finance, Operations, HRM, and general management.",
+        groups: [
+          {
+            title: "Core Analytics Roles",
+            items: [
+              "Business Analyst",
+              "Data Analyst",
+              "Business Research Associate",
+              "Marketing Analyst",
+              "HR Analyst",
+              "Finance Analyst",
+              "Operations Analyst",
+              "Product Analyst",
+              "Data-driven management roles",
+            ],
+          },
+          {
+            title: "Marketing Analytics",
+            items: [
+              "Customer segmentation and churn prediction",
+              "Campaign ROI and A/B testing",
+              "Website traffic, attribution, and lead analytics",
+              "Demand forecasting and pricing optimization",
+              "Consumer sentiment and brand insight analytics",
+            ],
+          },
+          {
+            title: "Financial Analytics",
+            items: [
+              "Financial forecasting and scenario analysis",
+              "FP&A trend analysis and revenue modelling",
+              "Risk analysis and stress testing",
+              "Credit scoring and fraud detection",
+              "Investment research, valuation, and portfolio analytics",
+            ],
+          },
+          {
+            title: "Operations and HR Analytics",
+            items: [
+              "Supply chain and demand forecasting",
+              "Inventory, logistics, quality, and production analytics",
+              "Recruitment metrics and workforce planning",
+              "People analytics for performance, engagement, and retention",
+              "Compensation, benefits, learning, and development analytics",
+            ],
+          },
+        ],
+      },
+    },
     electives: {
       minor: {
         title: "Electives",
@@ -1405,7 +1533,7 @@ export const programData = {
       "educationalCredentialAwarded": "Post Graduate Diploma in Management (PGDM)",
       "courseMode": "Full-time",
       "timeRequired": "P2Y",
-      "numberOfCredits": 120,
+      "numberOfCredits": 125,
       "educationalLevel": "Postgraduate",
       "occupationalCategory": "Banking, Insurance, Financial Services, Finance",
       "inLanguage": "en",
@@ -1458,10 +1586,12 @@ export const programData = {
       }
     },
     name: "PGDM BIFS",
-    
+    about:
+      "SSIM pioneered a tailor-made PGDM program for the Banking, Financial Services and Insurance sector in 2008. The PGDM-BIFS program is designed for BFSI careers with banking, finance, insurance, analytics, and management orientation, supported by recognition from the Insurance Institute of India, Mumbai.",
+
     keyInfo: {
       duration: "2 years",
-      credits: "120",
+      credits: "125",
       "Sanctioned Intake": "60",
       location: "Full-time On-campus",
       degree:
@@ -1565,30 +1695,32 @@ export const programData = {
       {
         title: "III Accreditation",
         description:
-          "Program is accredited by Insurance Institute of India (III)",
+          "The program is recognized by Insurance Institute of India (III), Mumbai for prior learning credits and Licentiate Certificate eligibility on successful completion.",
       },
       {
-        title: "Advanced Labs",
+        title: "Pioneering BFSI Program",
         description:
-          "NSE Assisted Finance Lab, Equity Levers Certification, CESIM Simulations",
+          "Started in 2008, PGDM-BIFS has graduated 17 batches and continues with the 18th and 19th batches in progress.",
       },
       {
-        title: "Experiential Learning",
+        title: "Strong Placement Record",
         description:
-          "Corporate interviews, Industrial Visits, NGO Visits, and Simulations",
+          "Recent batches recorded 100%, 95.8%, and 96% placements according to the client deck.",
       },
       {
-        title: "International Exchange",
-        description: "Exchange programs with Herzing University, Atlanta (USA)",
-      },
-      {
-        title: "Industry Integration",
+        title: "Dedicated BFSI Structure",
         description:
-          "StratX simulations (Marketing), Equity Levers (Finance Lab), CESIM Simulations",
+          "The program framework includes core courses, skill-based courses, specialized courses, and managerial competency development components.",
       },
       {
-        title: "Outcome Based Education",
-        description: "Focus on practical skills and industry readiness",
+        title: "Emerging BFSI Career Alignment",
+        description:
+          "The curriculum aligns with banking, insurance, mutual fund, pension, risk, analytics, and customer-facing BFSI opportunities.",
+      },
+      {
+        title: "New Modules for 2026-28",
+        description:
+          "Additional modules have been integrated into the program for Batch 2026-28 as highlighted in the client deck.",
       },
     ],
     curriculum: [
@@ -1845,6 +1977,118 @@ export const programData = {
       ],
       placementRate: 100,
     },
+    additionalSections: {
+      programAdvantages: {
+        id: "programAdvantages",
+        title: "Program Highlights",
+        description:
+          "PGDM-BIFS is built around the Banking, Insurance and Financial Services sector with a long-running program history, specialized credits, and III recognition.",
+        stats: [
+          { label: "Program started", value: "2008" },
+          { label: "Graduated batches", value: "17" },
+          { label: "Total credits", value: "125" },
+          { label: "Sanctioned intake", value: "60" },
+        ],
+        items: [
+          {
+            title: "Program Legacy",
+            description:
+              "The program started in 2008 with an intake of 60 students. The 18th batch is in Trimester V for 2024-26 and the 19th batch is in Trimester III for 2025-27.",
+          },
+          {
+            title: "Program Structure",
+            description:
+              "The framework includes 14 core courses, 8 skill-based courses, 15 specialized courses, and 6 MCD components.",
+          },
+          {
+            title: "BFSI-Focused Preparation",
+            description:
+              "The deck emphasizes technical backgrounds, insurance domain training, banking and finance knowledge, and management trainee orientation.",
+          },
+        ],
+      },
+      industryConnect: {
+        id: "industryConnect",
+        title: "Recognition, Placements and Internships",
+        description:
+          "The BIFS deck highlights III recognition, recent placement outcomes, and current internship performance as core proof points.",
+        stats: [
+          { label: "2021-23 placement", value: "100%" },
+          { label: "2022-24 placement", value: "95.8%" },
+          { label: "2023-25 placement", value: "96%" },
+          { label: "2024-26 average internship stipend", value: "Rs.17,387" },
+        ],
+        items: [
+          {
+            title: "Insurance Institute of India Recognition",
+            description:
+              "SSIM is the only B-school in the twin states of Andhra Pradesh and Telangana recognized by III, Mumbai for prior learning credits and award of the Licentiate Certificate on successful completion of PGDM-BIFS.",
+          },
+          {
+            title: "Recognition Renewal",
+            description:
+              "Recognition of insurance courses for Licentiate Certification was awarded in 2016 and renewed in 2021 and 2023, valid for three years.",
+          },
+          {
+            title: "2023-25 Placement Snapshot",
+            description:
+              "Highest package: Rs.10.7 LPA, lowest package: Rs.4.75 LPA, average package: Rs.6.2 LPA.",
+          },
+          {
+            title: "2024-26 Internship Snapshot",
+            description:
+              "Highest stipend: Rs.35,000, lowest stipend: Rs.9,000, average stipend: Rs.17,387.",
+          },
+        ],
+      },
+      careerPathways: {
+        id: "careerPathways",
+        title: "BFSI Career Pathways",
+        description:
+          "The BFSI sector is projected to keep expanding, with stronger hiring across mutual funds, insurance, pension products, and technology-enabled financial services.",
+        items: [
+          {
+            title: "BFSI Hiring Outlook",
+            description:
+              "The deck cites an 8.7% hiring increase in 2025-26, a potential 10% rise by 2030, and 2,50,000 permanent jobs by 2030.",
+          },
+          {
+            title: "Local Market Advantage",
+            description:
+              "Candidates with local language skills and grassroots sales experience are described as 2.5 times more likely to be shortlisted and able to command 10-15% higher compensation.",
+          },
+          {
+            title: "Growing BFSI Domains",
+            description:
+              "Talent demand is rising in mutual funds, insurance, pension products, banking, finance, and allied financial services.",
+          },
+        ],
+        groups: [
+          {
+            title: "Emerging Job Roles",
+            items: [
+              "Actuary Assistants - Life, Casualty and Property",
+              "Underwriting Assistants",
+              "Claims Processing and Adjuster roles",
+              "Operations and Policy Servicing",
+              "Risk Managers",
+              "Investment Management",
+              "Insurance Broking",
+              "Insurance Surveyors",
+              "MIS and Content Development",
+              "Business Analysts in software companies",
+              "Domain and Subject Matter Experts",
+              "Bancassurance Unit Managers",
+              "Customer Relationship Management front-office roles",
+              "Marketing Unit and Agency Managers",
+              "Insurance Research and Training",
+              "TPA support services",
+              "POS roles",
+            ],
+          },
+        ],
+      },
+    },
     electives: {
       minor: {
         title: "Minor Electives",
@@ -1976,7 +2220,7 @@ export const programData = {
     faqs: [
       {
         question: "What is PGDM-BIFS at SSIM Hyderabad?",
-        answer: "PGDM-BIFS at SSIM is a 2-year full-time, on-campus Post Graduate Diploma in Management — Banking, Insurance and Financial Services. The program carries 120 credits with a sanctioned intake of 60 students per batch.",
+        answer: "PGDM-BIFS at SSIM is a 2-year full-time, on-campus Post Graduate Diploma in Management in Banking, Insurance and Financial Services. The program carries 125 credits with a sanctioned intake of 60 students per batch.",
       },
       {
         question: "Is PGDM-BIFS at SSIM approved by AICTE?",
@@ -2098,7 +2342,9 @@ export const programData = {
       }
     },
     name: "PGDM Triple Specialisation",
-    
+    about:
+      "The PGDM Triple Specialisation program at SSIM Hyderabad lets students choose three functional areas, gain multi-domain expertise, enhance employability, and build cross-functional management skills through an AICTE-approved PGDM framework.",
+
     keyInfo: {
       duration: "2 years",
       credits: "120",
@@ -2232,31 +2478,34 @@ export const programData = {
     ],
     differentiators: [
       {
-        title: "NBA & NAAC Accreditation",
-        description: "Program is accredited by NBA and NAAC",
+        title: "AICTE Approved PGDM",
+        description:
+          "The program is part of SSIM's AICTE-approved PGDM portfolio in Hyderabad.",
       },
       {
         title: "Triple Specialization",
         description:
-          "Unique opportunity to specialize in three different areas",
+          "Students choose three functional areas across major, minor, and sectoral specialization options.",
       },
       {
         title: "Cross Functional Skills",
-        description: "Develop skills across multiple business domains",
-      },
-      {
-        title: "Entrepreneurial Focus",
-        description: "Greater scope to develop entrepreneurial skills",
-      },
-      {
-        title: "Simulation Labs",
         description:
-          "StratX simulations (Marketing), Equity Levers (Finance Lab), CESIM Simulations",
+          "The framework develops cross-functional skills and multi-domain expertise for broader employability.",
       },
       {
-        title: "Global Immersion Program (International Exposure)",
+        title: "Industry-Oriented Curriculum",
         description:
-          "International learning experience that expose participants to global cultures, business and practices.",
+          "The pedagogy emphasizes industry-oriented curriculum, case-based learning, live projects, and certifications.",
+      },
+      {
+        title: "Summer Internship Program",
+        description:
+          "Students gain workplace exposure through the summer internship program and applied learning components.",
+      },
+      {
+        title: "Global Immersion Program",
+        description:
+          "The deck highlights global immersion, strong industry interface, excellent placement record, and alumni network as SSIM strengths.",
       },
     ],
     curriculum: [
@@ -2538,6 +2787,93 @@ export const programData = {
         "Event Organization",
       ],
     },
+    additionalSections: {
+      programAdvantages: {
+        id: "programAdvantages",
+        title: "Triple Specialisation Framework",
+        description:
+          "The program is designed for students who want structured exposure across three functional areas instead of a single narrow specialization.",
+        items: [
+          {
+            title: "Choose Three Functional Areas",
+            description:
+              "Students build a portfolio of major, minor, and sectoral learning choices across management domains.",
+          },
+          {
+            title: "Multi-Domain Expertise",
+            description:
+              "The framework helps students understand business problems from more than one function and improve cross-functional readiness.",
+          },
+          {
+            title: "Enhanced Employability",
+            description:
+              "Triple specialization improves role flexibility for careers in marketing, finance, HR, operations, business analytics, and allied sectors.",
+          },
+          {
+            title: "Capstone Research Project",
+            description:
+              "The deck identifies a capstone research project as an important program highlight.",
+          },
+        ],
+      },
+      industryConnect: {
+        id: "industryConnect",
+        title: "Learning Methodology",
+        description:
+          "The deck highlights a practical pedagogy model that connects classroom learning with industry expectations.",
+        items: [
+          {
+            title: "Industry-Oriented Curriculum",
+            description:
+              "Coursework is structured around current management and business requirements.",
+          },
+          {
+            title: "Case-Based Learning",
+            description:
+              "Students learn through cases that connect theory with management decision-making.",
+          },
+          {
+            title: "Live Projects and Certifications",
+            description:
+              "The program includes live projects and certifications to strengthen applied readiness.",
+          },
+          {
+            title: "Strong Industry Interface",
+            description:
+              "SSIM's industry interface, placement record, and alumni network support student exposure beyond the classroom.",
+          },
+        ],
+      },
+      careerPathways: {
+        id: "careerPathways",
+        title: "Career Opportunities",
+        description:
+          "The Triple Specialisation deck maps the program to core management career outcomes across multiple functions.",
+        groups: [
+          {
+            title: "Career Roles",
+            items: [
+              "Marketing Manager",
+              "Financial Analyst",
+              "HR Business Partner",
+              "Business Analyst",
+              "Operations Executive",
+            ],
+          },
+          {
+            title: "Core Course Focus",
+            items: [
+              "Advanced Excel for Managers",
+              "Strategic Financial Management",
+              "Project Management",
+              "Innovation and Design Thinking",
+              "Management Theory and Organizational Behaviour",
+              "Business Environment and Law",
+            ],
+          },
+        ],
+      },
+    },
     electives: {
       major: {
         title: "Major Electives",
@@ -2545,7 +2881,7 @@ export const programData = {
         headerColor: "bg-amber-500",
         specializations: [
           {
-            name: "Finance",
+            name: "Finance Management",
             courses: [
               "Investment Analysis and Portfolio Management",
               "Risk Management and Derivatives",
@@ -2556,7 +2892,7 @@ export const programData = {
             ],
           },
           {
-            name: "Agri-Business Management",
+            name: "Agribusiness",
             courses: [
               "Basics of Agriculture",
               "Agri-Business Marketing and Sales",
@@ -2567,7 +2903,7 @@ export const programData = {
             ],
           },
           {
-            name: "Marketing",
+            name: "Marketing Management",
             courses: [
               "Consumer Behaviour",
               "Sales Management",
@@ -2589,7 +2925,7 @@ export const programData = {
             ],
           },
           {
-            name: "Human Resource",
+            name: "Human Resource Management",
             courses: [
               "Human Resource Development",
               "Industrial Relations and Labor Laws",
@@ -2597,17 +2933,6 @@ export const programData = {
               "Human Resource Information Systems",
               "HR Analytics",
               "Managing Diversity",
-            ],
-          },
-          {
-            name: "Technology Management",
-            courses: [
-              "Managing Technological Innovation",
-              "Software Project and Quality Management",
-              "IT Project Management",
-              "Data Mining and Business Intelligence",
-              "Database Management Systems with SQL",
-              "E-Business Technologies and Digital Transformation",
             ],
           },
         ],
@@ -2618,7 +2943,7 @@ export const programData = {
         headerColor: "bg-blue-600",
         specializations: [
           {
-            name: "Finance",
+            name: "Finance Management",
             courses: [
               "Financial Products and Services",
               "Financial Planning & Wealth Management",
@@ -2626,7 +2951,7 @@ export const programData = {
             ],
           },
           {
-            name: "Marketing",
+            name: "Marketing Management",
             courses: [
               "Sales Management",
               "Services Marketing and CRM",
@@ -2642,15 +2967,7 @@ export const programData = {
             ],
           },
           {
-            name: "Technology Management",
-            courses: [
-              "Software Project and Quality Management",
-              "IT Project Management",
-              "E-Business Technologies and Digital Transformation",
-            ],
-          },
-          {
-            name: "Human Resource",
+            name: "Human Resource Management",
             courses: [
               "Performance and Compensation Management",
               "Human Resource Development",
@@ -2658,11 +2975,7 @@ export const programData = {
             ],
           },
           {
-            name: "Banking",
-            courses: ["Retail Banking", "Digital Banking"],
-          },
-          {
-            name: "Agri-Business Management",
+            name: "Agribusiness",
             courses: [
               "Basics of Agriculture",
               "Agri-Business Marketing and Sales",
@@ -2685,17 +2998,34 @@ export const programData = {
         headerColor: "bg-yellow-500",
         specializations: [
           {
+            name: "Marketing Management",
+            courses: [],
+          },
+          {
+            name: "Finance Management",
+            courses: [],
+          },
+          {
+            name: "Human Resource Management",
+            courses: [],
+          },
+          {
+            name: "Operations Management",
+            courses: [],
+          },
+          {
+            name: "Agribusiness",
+            courses: [],
+          },
+          {
+            name: "Business Analytics",
+            courses: ["Visual Analytics", "Predictive Analytics Using R"],
+          },
+          {
             name: "Digital Marketing",
             courses: [
               "Digital Marketing",
               "Social Media and Content Marketing",
-            ],
-          },
-          {
-            name: "Entrepreneurship",
-            courses: [
-              "Innovation Management and Entrepreneurship",
-              "Family, Small and Social Entrepreneur",
             ],
           },
           {
@@ -2710,30 +3040,8 @@ export const programData = {
             courses: ["Retail Management", "Visual Merchandising"],
           },
           {
-            name: "Hospitality and Tourism Management",
-            courses: ["Hospitality Management", "Tourism Marketing"],
-          },
-          {
-            name: "Insurance Management",
-            courses: [
-              "Insurance and Risk Management",
-              "Principles and Practice of Life and General Insurance",
-            ],
-          },
-          {
-            name: "Business Analytics",
-            courses: ["Visual Analytics", "Predictive Analytics Using R"],
-          },
-          {
             name: "Pharmaceutical Management",
             courses: ["Pharmaceutical Management", "Pharmaceutical Marketing"],
-          },
-          {
-            name: "Banking",
-            courses: [
-              "Principles and Practices of Banking",
-              "Bank Credit Management",
-            ],
           },
         ],
       },
@@ -2741,19 +3049,19 @@ export const programData = {
     faqs: [
       {
         question: "What is the duration and key details of the PGDM Triple Specialisation program at SSIM Hyderabad?",
-        answer: "PGDM Triple Specialisation at SSIM is a 2-year full-time on-campus Post Graduate Diploma in Management with 120 credits and a sanctioned intake of 180 students per batch. The program offers comprehensive management education with the flexibility to choose one Major, one Minor, and one Sectoral specialisation from 10+ domain options.",
+        answer: "PGDM Triple Specialisation at SSIM is a 2-year full-time on-campus Post Graduate Diploma in Management with 120 credits and a sanctioned intake of 180 students per batch. The program lets students choose three functional areas across Major, Minor, and Sectoral specialisation options.",
       },
       {
         question: "Why choose SSIM Hyderabad for PGDM Triple Specialisation?",
-        answer: "SSIM's NBA-accredited PGDM Triple Specialisation offers a unique combination of Major, Minor, and Sectoral electives across 10+ domains, with 180 student intake, Harvard Business School Online collaboration, and 30+ years of academic legacy — ranked 2nd in Telangana by Outlook 2025.",
+        answer: "SSIM's PGDM Triple Specialisation combines multi-domain expertise, cross-functional skill development, industry-oriented curriculum, case-based learning, summer internship, live projects, certifications, capstone research, global immersion, strong industry interface, and an active alumni network.",
       },
       {
         question: "What Major specialisations and electives are available in PGDM Triple Specialisation at SSIM Hyderabad?",
-        answer: "Students can choose from 7 major specialisations Finance, Marketing, Human Resource, Agri-Business Management, Operations Management, Technology Management and Banking — each offering 6 focused electives covering areas like Portfolio Management, Consumer Behaviour, HR Analytics, Supply Chain Management, and Digital Transformation.",
+        answer: "Major specialisations in the client-approved framework include Marketing Management, Finance Management, Human Resource Management, Operations Management, and Agribusiness.",
       },
       {
         question: "What Minor specialisations can students choose in the PGDM Triple Specialisation program at SSIM?",
-        answer: "Minor electives are available in Finance, Marketing, Operations Management, Technology Management, Human Resource, Banking, Agri-Business Management, and Business Analytics — covering subjects like Wealth Management, Digital Banking, Machine Learning, and Visual Analytics, allowing students to build cross-functional expertise.",
+        answer: "Minor specialisations include Marketing Management, Finance Management, Human Resource Management, Operations Management, Agribusiness, and Business Analytics.",
       },
       {
         question: "What is the eligibility for PGDM admissions 2026?",
