@@ -1,6 +1,6 @@
 "use client";
 
-const logo = "/logo.jpeg";
+const logo = "/logo-transparent.png";
 import {
   Facebook,
   Instagram,
@@ -136,7 +136,7 @@ export default function Footer() {
                 <img
                   src={logo || "/placeholder.svg"}
                   alt="SSIM Logo"
-                  className="h-24 sm:h-[120px] cursor-pointer w-auto transition-transform group-hover:scale-105"
+                  className="h-[56px] cursor-pointer w-auto transition-transform group-hover:scale-105"
                 />
               </Link>
               <div className="flex gap-3">

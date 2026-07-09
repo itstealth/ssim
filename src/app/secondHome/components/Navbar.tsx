@@ -182,11 +182,11 @@ export default function Navbar() {
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
         <Image
-          src="/logo.jpeg"
+          src="/logo-transparent.png"
           alt="SSIM Logo"
           width={200}
           height={90}
-          className="h-[80px] md:h-[90px] w-auto object-contain object-center"
+          className="h-16 md:h-[72px] w-auto object-contain object-center"
           style={{ width: 'auto' }}
         />
         <div className={`w-[52px] h-[52px] rounded-xl grid place-items-center text-white font-playfair text-xl font-extrabold flex-shrink-0 ${isSecondHome ? 'bg-gradient-to-br from-purple-700 to-[#1B50EC]' : isThirdHome ? 'bg-gradient-to-br from-purple-500 to-fuchsia-500' : 'bg-navy'}`} style={{ display: 'none' }}>

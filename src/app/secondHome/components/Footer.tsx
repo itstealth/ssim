@@ -1,6 +1,6 @@
 "use client";
 
-const logo = "/logo.jpeg";
+const logo = "/logo-transparent.png";
 import Image from "next/image";
 import {
   Facebook,

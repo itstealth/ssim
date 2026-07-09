@@ -10,12 +10,10 @@ export default function BannerNav() {
         <div className="flex items-center space-x-4">
           <Link href="/">
             <Image
-              src="/logo.jpeg"
+              src="/logo-transparent.png"
               alt="SSIM Hyderabad"
-              width={180}
-              height={72}
               priority
-              className="h-12 sm:h-[72px] w-auto object-contain"
+              className="h-8 w-auto object-contain"
               style={{ width: 'auto' }}
             />
           </Link>

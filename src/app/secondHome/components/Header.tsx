@@ -20,12 +20,10 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <Link href="/">
               <Image
-                src="/logo.jpeg"
+                src="/logo-transparent.png"
                 alt="SSIM Logo"
-                width={240}
-                height={100}
                 priority
-                className="h-20 sm:h-[100px] w-auto object-contain object-center"
+                className="h-8 sm:h-10 w-auto object-contain object-center"
                 style={{ width: 'auto' }}
               />
             </Link>
