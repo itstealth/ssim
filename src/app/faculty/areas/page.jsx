@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 // import SEO from "@/components/Seo";
 import {
   LinkedinIcon,
@@ -10,7 +11,11 @@ import {
   ExternalLinkIcon,
   SchoolIcon,
   GraduationCapIcon,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+
+const cn = (...classes) => classes.filter(Boolean).join(" ");
 import { motion } from "framer-motion";
 // import Ramana from "../../assets/faculty&research/faculty/Dr. Ramana Rao.webp";
 const ANNA = "/faculty&research/faculty/ANNAPURNA.webp";
@@ -334,6 +339,13 @@ const teamMembers = [
 
 export default function Areas() {
   const [hoveredMember, setHoveredMember] = useState(null);
+  const [activeArea, setActiveArea] = useState("All");
+
+  const uniqueAreas = ["All", ...Array.from(new Set(teamMembers.map((m) => m.area))).filter(Boolean)];
+
+  const filteredMembers = activeArea === "All" 
+    ? teamMembers 
+    : teamMembers.filter((m) => m.area === activeArea);
 
   return (
     <>
@@ -363,8 +375,64 @@ export default function Areas() {
             </p>
           </motion.div>
 
+          <div className="relative max-w-7xl mx-auto w-full mb-8 px-4">
+            <div className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 z-20">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
+                onClick={() => {
+                  const container = document.querySelector(".filter-scroll");
+                  if (container) container.scrollBy({ left: -200, behavior: "smooth" });
+                }}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex gap-2 max-w-7xl mx-auto overflow-x-auto hide-scrollbar filter-scroll py-2"
+            >
+              {uniqueAreas.map((area, index) => (
+                <motion.div
+                  key={area}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
+                  className="flex-none first:ml-8 sm:first:ml-2 last:mr-8 sm:last:mr-2"
+                >
+                  <Button
+                    variant={activeArea === area ? "default" : "outline"}
+                    onClick={() => setActiveArea(area)}
+                    className={cn(
+                      "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
+                      activeArea === area && "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
+                    )}
+                  >
+                    {area}
+                  </Button>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <div className="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 z-20">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
+                onClick={() => {
+                  const container = document.querySelector(".filter-scroll");
+                  if (container) container.scrollBy({ left: 200, behavior: "smooth" });
+                }}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            {teamMembers.map((member, index) => (
+            {filteredMembers.map((member, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

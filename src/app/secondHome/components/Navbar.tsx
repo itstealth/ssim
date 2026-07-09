@@ -82,11 +82,17 @@ const navItems = [
     ],
   },
   {
-    name: 'Corporate Connect',
+    name: 'Placements',
     path: '/placement',
     dropdown: [
       { name: 'Placement', path: '/placement/records' },
       { name: 'Placement Team', path: '/placement/team' },
+    ],
+  },
+  {
+    name: 'Corporate Connect',
+    path: '/placement',
+    dropdown: [
       { name: 'Internships', path: '/placement/internships' },
       { name: 'Guest lectures', path: '/placement/guest-lectures' },
     ],

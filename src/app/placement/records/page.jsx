@@ -28,6 +28,8 @@ import {
   XIcon,
   ChevronUpIcon,
   ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   TrendingUpIcon,
   UsersIcon,
   Building2Icon as BuildingOffice2Icon,
@@ -50,10 +52,16 @@ export default function PlacementSection() {
   const [error, setError] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState("all");
+  const [selectedYear, setSelectedYear] = useState("");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
   const [selectedCompany, setSelectedCompany] = useState("all");
   const [sortConfig, setSortConfig] = useState({ key: "name", direction: "asc" });
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 10;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedYear, selectedDesignation, selectedCompany, sortConfig]);
 
   useEffect(() => {
     const fetchPlacementData = async () => {
@@ -89,6 +97,12 @@ export default function PlacementSection() {
       ),
     [apiStudentsData]
   );
+
+  useEffect(() => {
+    if (years.length > 0 && selectedYear === "") {
+      setSelectedYear(years[0].toString());
+    }
+  }, [years, selectedYear]);
 
   const designations = useMemo(
     () =>
@@ -220,13 +234,21 @@ export default function PlacementSection() {
   };
 
   const clearFilters = () => {
-    setSelectedYear("all");
+    setSelectedYear(years.length > 0 ? years[0].toString() : "");
     setSelectedDesignation("all");
     setSelectedCompany("all");
     setSearchTerm("");
     // Keep name A-Z sort always active
     setSortConfig({ key: "name", direction: "asc" });
+    setCurrentPage(1);
   };
+
+  const totalPages = Math.ceil(filteredStudents.length / rowsPerPage);
+  
+  const paginatedStudents = useMemo(() => {
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    return filteredStudents.slice(startIndex, startIndex + rowsPerPage);
+  }, [filteredStudents, currentPage]);
 
   const SortIcon = ({ columnKey }) => {
     if (sortConfig?.key !== columnKey) return null;
@@ -487,7 +509,7 @@ export default function PlacementSection() {
                 </Card> */}
           </div>
 
-          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white flex flex-col h-[calc(100vh-100px)] invisible-scrollbar">
+          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white flex flex-col">
             <Table className="text-base relative">
               <TableHeader className="bg-gray-50 sticky top-0 z-10">
                 <TableRow>
@@ -539,7 +561,7 @@ export default function PlacementSection() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredStudents.length === 0 ? (
+                {paginatedStudents.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={5} className="h-32">
                       <div className="flex flex-col items-center justify-center text-center">
@@ -557,7 +579,7 @@ export default function PlacementSection() {
                     </TableCell>
                   </TableRow>
                 ) : (
-                  filteredStudents.map((student) => (
+                  paginatedStudents.map((student) => (
                     <TableRow
                       key={student.id}
                       className="hover:bg-muted/50 transition-colors cursor-default"
@@ -574,6 +596,37 @@ export default function PlacementSection() {
                 )}
               </TableBody>
             </Table>
+            
+            {totalPages > 1 && (
+              <div className="flex items-center justify-between px-4 py-3 border-t bg-gray-50/50">
+                <div className="text-sm text-muted-foreground">
+                  Showing {(currentPage - 1) * rowsPerPage + 1} to {Math.min(currentPage * rowsPerPage, filteredStudents.length)} of {filteredStudents.length} entries
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                  >
+                    <ChevronLeftIcon className="w-4 h-4 mr-1" />
+                    Previous
+                  </Button>
+                  <div className="flex items-center gap-1 text-sm font-medium px-2">
+                    Page {currentPage} of {totalPages}
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                    <ChevronRightIcon className="w-4 h-4 ml-1" />
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

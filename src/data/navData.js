@@ -110,10 +110,15 @@ export const navlinks = [
     path: "/international-relations",
   },
   {
-    name: "Corporate Connect",
+    name: "Placements",
     dropdown: [
       { name: "Placement", path: "/placement/records" },
       { name: "Placement Team", path: "/placement/team" },
+    ],
+  },
+  {
+    name: "Corporate Connect",
+    dropdown: [
       { name: "Internships", path: "/placement/internships" },
       { name: "Guest lectures", path: "/placement/guest-lectures" },
     ],
