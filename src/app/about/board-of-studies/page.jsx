@@ -32,152 +32,171 @@ export default function BoardOfStudies() {
       id: 1,
       name: "Dr. Sailesh Sampathy",
       role: "Chairman",
+      designation: "Vice President & Dy. Chief Executive, SSGI",
       description:
-        "Vice President & Dy. Chief Executive, SSGI. Leading SSIM's Board of Studies with strategic vision and academic excellence.",
+        "Leading SSIM's Board of Studies with strategic vision and academic excellence.",
       image: SaileshSampathy,
     },
     {
       id: 2,
       name: "Dr. M. Kamalakar",
       role: "Member",
+      designation: "Executive Vice President, SSGI",
       description:
-        "Executive Vice President, SSGI. Contributing expertise in academic planning and curriculum development.",
+        "Contributing expertise in academic planning and curriculum development.",
       image: Kamalakar,
     },
     {
       id: 3,
       name: "Dr. S.V. Ramana Rao",
       role: "Member-Secretary",
+      designation: "Director, SSIM",
       description:
-        "Director, SSIM. Providing valuable insights for academic growth and innovation.",
+        "Providing valuable insights for academic growth and innovation.",
       image: Ramana,
     },
     {
       id: 4,
       name: "Prof. S. Abhirama Krishna",
       role: "Member",
+      designation: "Director General, Badruka Group of Institutions, Hyderabad",
       description:
-        "Director General, Badruka Group of Institutions, Hyderabad. Guiding curriculum enhancement and academic standards.",
+        "Guiding curriculum enhancement and academic standards.",
       image: AbhiramaKrishna,
     },
     {
       id: 5,
       name: "Prof. V. Venkaiah",
       role: "Member",
+      designation: "Former Vice Chancellor, Krishna University, AP",
       description:
-        "Former Vice Chancellor, Krishna University, AP. Supporting academic excellence and program development.",
+        "Supporting academic excellence and program development.",
       image: Venkaiah,
     },
     {
       id: 6,
       name: "Sri. Srikanth Surampudi",
       role: "Member",
+      designation: "General Manager HR & Regional Head HR, TCS, Hyderabad",
       description:
-        "General Manager HR & Regional Head HR, TCS, Hyderabad. Connecting classroom learning with real-world industry practices.",
+        "Connecting classroom learning with real-world industry practices.",
       image: SrikanthSurampudi,
     },
     {
       id: 7,
       name: "Dr. Shailesh Kumar",
       role: "Member",
+      designation: "Chief Data Scientist, CoE AI/ML, Jio",
       description:
-        "Chief Data Scientist, CoE AI/ML, Jio. Bringing AI and Data Science expertise to strengthen management education.",
+        "Bringing AI and Data Science expertise to strengthen management education.",
       image: ShaileshKumar,
     },
     {
       id: 8,
       name: "Sri. G. Muralikrishna",
       role: "Member",
+      designation: "Director, G V Mall, Khammam",
       description:
-        "Director, G V Mall, Khammam. Helping students to understand today's business and retail environment.",
+        "Helping students to understand today's business and retail environment.",
       image: Muralikrishna,
     },
     {
       id: 9,
       name: "Dr. Kishore NK",
       role: "Member",
+      designation: "Chief Financial Officer, BEKEM Infra Projects Pvt. Ltd, Hyderabad",
       description:
-        "Chief Financial Officer, BEKEM Infra Projects Pvt. Ltd, Hyderabad. Bringing financial leadership and industry expertise to management education.",
+        "Bringing financial leadership and industry expertise to management education.",
       image: KishoreNK,
     },
     {
       id: 10,
       name: "Sri. Ravi Tanniru",
       role: "Member",
+      designation: "Founder & CEO, Profintech Technologies, Hyderabad",
       description:
-        "Founder & CEO, Profintech Technologies, Hyderabad. Bringing innovation and fintech expertise to management education.",
+        "Bringing innovation and fintech expertise to management education.",
       image: RaviTanniru,
     },
     {
       id: 11,
       name: "Dr. Durga Prasad M",
       role: "Member",
+      designation: "Dean-Administration & Professor of Finance, T A Pai Management Institute (TAPMI), Manipal",
       description:
-        "Dean-Administration & Professor of Finance, T A Pai Management Institute (TAPMI), Manipal. Advancing research and academic standards.",
+        "Advancing research and academic standards.",
       image: DurgaPrasadM,
     },
     {
       id: 12,
       name: "Dr. Anand S Upadhyaya",
       role: "Member",
+      designation: "Director of Postgraduate Studies, Research and Innovation College of Banking & Financial Studies, Muscat, Sultanate of Oman",
       description:
-        "Director of Postgraduate Studies, Research and Innovation College of Banking & Financial Studies, Muscat, Sultanate of Oman. Contributing to curriculum development and academic planning.",
+        "Contributing to curriculum development and academic planning.",
       image: AnandSUpadhyaya,
     },
     {
       id: 13,
       name: "Dr. Srinivas Gunta",
       role: "Member",
+      designation: "Assistant Professor, IIM-Indore",
       description:
-        "Assistant Professor, IIM-Indore. Contributing valuable insights for continuous academic improvement.",
+        "Contributing valuable insights for continuous academic improvement.",
       image: SrinivasGunta,
     },
     {
       id: 14,
       name: "Dr. S. Anand Reddy",
       role: "Member",
+      designation: "GM-L&D, Hetero Labs Limited, Hyderabad",
       description:
-        "GM-L&D, Hetero Labs Limited, Hyderabad. Guiding students with real-world expertise in learning and leadership development.",
+        "Guiding students with real-world expertise in learning and leadership development.",
       image: SAnandReddy,
     },
     {
       id: 15,
       name: "Sri. Lakshmi Pathi Itha",
       role: "Member",
+      designation: "Vice President-HR, Prodapt",
       description:
-        "Vice President-HR, Prodapt. Promoting talent development, leadership skills, and industry-ready management education.",
+        "Promoting talent development, leadership skills, and industry-ready management education.",
       image: LakshmiPathiItha,
     },
     {
       id: 16,
       name: "Dr. V.G. Chari",
       role: "Member",
+      designation: "Formerly Assistant Vice President, SSGI",
       description:
-        "Formerly Assistant Vice President, SSGI. Supporting academic planning and institutional development.",
+        "Supporting academic planning and institutional development.",
       image: VGChari,
     },
     {
       id: 17,
       name: "Sri. Praveen Nagamalla",
       role: "Member",
+      designation: "Founder & CEO, CRED FOODS (Fruitoholic)",
       description:
-        "Founder & CEO, CRED FOODS (Fruitoholic). Promoting innovation and startup learning among students.",
+        "Promoting innovation and startup learning among students.",
       image: PraveenNagamalla,
     },
     {
       id: 18,
       name: "Sri. Satyanarayana Vinjamoori",
       role: "Member",
+      designation: "Industry Expert",
       description:
-        "Industry Expert. Promoting analytical excellence and industry relevance in management education.",
+        "Promoting analytical excellence and industry relevance in management education.",
       image: SatyanarayanaVinjamoori,
     },
     {
       id: 19,
       name: "Sri. Kadambala Balajee Rao",
       role: "Member",
+      designation: "Senior Vice President - People Solutions, Lockton",
       description:
-        "Senior Vice President - People Solutions, Lockton. Supporting quality education through industry expertise and best practices.",
+        "Supporting quality education through industry expertise and best practices.",
       image: KadambalaBalajeeRao,
     },
   ];
@@ -233,6 +252,9 @@ export default function BoardOfStudies() {
                     {member.name}
                   </h3>
                   <p className="text-indigo-600 font-medium">{member.role}</p>
+                  {member.designation && (
+                    <p className="text-sm text-gray-500 font-medium mt-0.5">{member.designation}</p>
+                  )}
                   <p className="text-gray-600 mt-2 mb-4 leading-relaxed">
                     {member.description}
                   </p>
