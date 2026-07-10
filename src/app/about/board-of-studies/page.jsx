@@ -3,21 +3,26 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 // import SEO from "@/components/Seo";
 const SaileshSampathy = "/about/BoardOfStudies/Dr_Sailesh_Sampathy.jpg";
-const Ambuj = "/about/BoardOfGoverners/NRKS.jpeg";
-const Kalakar = "/about/BoardOfStudies/Dr_Kalakar_PP-1.jpg";
-const Ramana = "/about/BoardOfStudies/Dr. Ramana Rao.webp";
-const RKMishra = "/about/BoardOfStudies/R_K_Mishra.jpg";
-const JaganMohanReddy = "/about/BoardOfStudies/Jagan_Mohan_Reddy.jpg";
-const ChoudharyPrasad = "/about/BoardOfStudies/Dr_Choudhary_Prasad.jpg";
-const KumarChunduri = "/about/BoardOfStudies/Dr_Kumar-Chunduri.jpg";
-const YLakshmanKumar = "/about/BoardOfStudies/Prof_Y_Lakshman-Kumar.jpg";
-const KishoreNK = "/about/BoardOfStudies/Dr_Kishore-NK.jpg";
+const Kamalakar = "/about/BoardOfStudies/Dr_M_Kamalakar.jpg";
+const Ramana = "/about/BoardOfStudies/Dr_S_V_Ramana_Rao.jpg";
+const AbhiramaKrishna = "/about/BoardOfStudies/Prof_S_Abhirama_Krishna.jpg";
+const Venkaiah = "/about/BoardOfStudies/Prof_V_Venkaiah.jpg";
+const SrikanthSurampudi = "/about/BoardOfStudies/Sri_Srikanth_Surampudi.jpg";
+const ShaileshKumar = "/about/BoardOfStudies/Dr_Shailesh_Kumar.jpg";
+const Muralikrishna = "/about/BoardOfStudies/Sri_G_Muralikrishna.jpg";
+const KishoreNK = "/about/BoardOfStudies/Dr_Kishore_NK.jpg";
 const RaviTanniru = "/about/BoardOfStudies/Sri_Ravi_Tanniru.jpg";
-const ASudhakar = "/about/BoardOfStudies/Dr_A_Sudhakar-1.jpg";
+const DurgaPrasadM = "/about/BoardOfStudies/Dr_Durga_Prasad_M.jpg";
 const AnandSUpadhyaya = "/about/BoardOfStudies/1.-Dr.-Anand-S-Upadhyaya.jpg";
-const DurgaPrasadM = "/about/BoardOfStudies/2.-Dr.-Durga-Prasad-M.jpg";
+const SrinivasGunta = "/about/BoardOfStudies/Dr_Srinivas_Gunta.jpg";
 const SAnandReddy = "/about/BoardOfStudies/4.-Dr.-S.-Anand-Reddy.jpg";
-const MahanandaChalise = "/about/BoardOfStudies/5.-Prof.-Mahananda-Chalise.jpg";
+const LakshmiPathiItha = "/about/BoardOfStudies/Sri_Lakshmi_Pathi_Itha.jpg";
+const VGChari = "/about/BoardOfStudies/Dr_VG_Chari.jpg";
+const PraveenNagamalla = "/about/BoardOfStudies/Sri_Praveen_Nagamalla.jpg";
+const SatyanarayanaVinjamoori =
+  "/about/BoardOfStudies/Sri_Satyanarayana_Vinjamoori.jpg";
+const KadambalaBalajeeRao =
+  "/about/BoardOfStudies/Sri_Kadambala_Balajee_Rao.jpg";
 
 export default function BoardOfStudies() {
   const [hoveredMember, setHoveredMember] = useState(null);
@@ -28,116 +33,152 @@ export default function BoardOfStudies() {
       name: "Dr. Sailesh Sampathy",
       role: "Chairman",
       description:
-        "Leading SSIM's Board of Studies with strategic vision and academic excellence.",
+        "Vice President & Dy. Chief Executive, SSGI. Leading SSIM's Board of Studies with strategic vision and academic excellence.",
       image: SaileshSampathy,
     },
     {
       id: 2,
-      name: "Dr. S.V. Ramana Rao",
-      role: "Director",
-      description: "Director, Siva Sivani Institute of Management",
-      image: Ramana,
+      name: "Dr. M. Kamalakar",
+      role: "Member",
+      description:
+        "Executive Vice President, SSGI. Contributing expertise in academic planning and curriculum development.",
+      image: Kamalakar,
     },
     {
       id: 3,
-      name: "Dr. Kalakar",
-      role: "Member",
+      name: "Dr. S.V. Ramana Rao",
+      role: "Member-Secretary",
       description:
-        "Contributing expertise in academic planning and curriculum development.",
-      image: Kalakar,
+        "Director, SSIM. Providing valuable insights for academic growth and innovation.",
+      image: Ramana,
     },
     {
       id: 4,
-      name: "Dr. NRKS Chakravarthy",
+      name: "Prof. S. Abhirama Krishna",
       role: "Member",
       description:
-        "Providing valuable insights for academic growth and innovation.",
-      image: Ambuj,
+        "Director General, Badruka Group of Institutions, Hyderabad. Guiding curriculum enhancement and academic standards.",
+      image: AbhiramaKrishna,
     },
     {
       id: 5,
-      name: "Dr. R.K. Mishra",
+      name: "Prof. V. Venkaiah",
       role: "Member",
-      description: "Guiding curriculum enhancement and academic standards.",
-      image: RKMishra,
+      description:
+        "Former Vice Chancellor, Krishna University, AP. Supporting academic excellence and program development.",
+      image: Venkaiah,
     },
     {
       id: 6,
-      name: "Dr. Jagan Mohan Reddy",
+      name: "Sri. Srikanth Surampudi",
       role: "Member",
-      description: "Supporting academic excellence and program development.",
-      image: JaganMohanReddy,
+      description:
+        "General Manager HR & Regional Head HR, TCS, Hyderabad. Connecting classroom learning with real-world industry practices.",
+      image: SrikanthSurampudi,
     },
     {
       id: 7,
-      name: "Dr. Choudhary Prasad",
+      name: "Dr. Shailesh Kumar",
       role: "Member",
-      description: "Contributing to academic policy and quality assurance.",
-      image: ChoudharyPrasad,
+      description:
+        "Chief Data Scientist, CoE AI/ML, Jio. Bringing AI and Data Science expertise to strengthen management education.",
+      image: ShaileshKumar,
     },
     {
       id: 8,
-      name: "Dr. Kumar Chunduri",
+      name: "Sri. G. Muralikrishna",
       role: "Member",
-      description: "Advancing research initiatives and academic partnerships.",
-      image: KumarChunduri,
+      description:
+        "Director, G V Mall, Khammam. Helping students to understand today's business and retail environment.",
+      image: Muralikrishna,
     },
     {
       id: 9,
-      name: "Prof. Y. Lakshman Kumar",
-      role: "Member",
-      description: "Fostering innovation in teaching methodologies.",
-      image: YLakshmanKumar,
-    },
-    {
-      id: 10,
       name: "Dr. Kishore NK",
       role: "Member",
-      description: "Enhancing academic programs and student outcomes.",
+      description:
+        "Chief Financial Officer, BEKEM Infra Projects Pvt. Ltd, Hyderabad. Bringing financial leadership and industry expertise to management education.",
       image: KishoreNK,
     },
     {
-      id: 11,
-      name: "Sri Ravi Tanniru",
+      id: 10,
+      name: "Sri. Ravi Tanniru",
       role: "Member",
-      description: "Supporting industry-academia collaboration.",
+      description:
+        "Founder & CEO, Profintech Technologies, Hyderabad. Bringing innovation and fintech expertise to management education.",
       image: RaviTanniru,
     },
     {
-      id: 12,
-      name: "Dr. A. Sudhakar",
-      role: "Member",
-      description: "Driving academic excellence and innovation.",
-      image: ASudhakar,
-    },
-    {
-      id: 13,
-      name: "Dr. Anand S. Upadhyaya",
-      role: "Member",
-      description:
-        "Contributing to curriculum development and academic planning.",
-      image: AnandSUpadhyaya,
-    },
-    {
-      id: 14,
+      id: 11,
       name: "Dr. Durga Prasad M",
       role: "Member",
-      description: "Advancing research and academic standards.",
+      description:
+        "Dean-Administration & Professor of Finance, T A Pai Management Institute (TAPMI), Manipal. Advancing research and academic standards.",
       image: DurgaPrasadM,
     },
     {
-      id: 15,
+      id: 12,
+      name: "Dr. Anand S Upadhyaya",
+      role: "Member",
+      description:
+        "Director of Postgraduate Studies, Research and Innovation College of Banking & Financial Studies, Muscat, Sultanate of Oman. Contributing to curriculum development and academic planning.",
+      image: AnandSUpadhyaya,
+    },
+    {
+      id: 13,
+      name: "Dr. Srinivas Gunta",
+      role: "Member",
+      description:
+        "Assistant Professor, IIM-Indore. Contributing valuable insights for continuous academic improvement.",
+      image: SrinivasGunta,
+    },
+    {
+      id: 14,
       name: "Dr. S. Anand Reddy",
       role: "Member",
-      description: "Supporting program development and quality assurance.",
+      description:
+        "GM-L&D, Hetero Labs Limited, Hyderabad. Guiding students with real-world expertise in learning and leadership development.",
       image: SAnandReddy,
     },
     {
-      id: 16,
-      name: "Prof. Mahananda Chalise",
+      id: 15,
+      name: "Sri. Lakshmi Pathi Itha",
       role: "Member",
-      description: "Contributing to academic excellence and innovation.",
-      image: MahanandaChalise,
+      description:
+        "Vice President-HR, Prodapt. Promoting talent development, leadership skills, and industry-ready management education.",
+      image: LakshmiPathiItha,
+    },
+    {
+      id: 16,
+      name: "Dr. V.G. Chari",
+      role: "Member",
+      description:
+        "Formerly Assistant Vice President, SSGI. Supporting academic planning and institutional development.",
+      image: VGChari,
+    },
+    {
+      id: 17,
+      name: "Sri. Praveen Nagamalla",
+      role: "Member",
+      description:
+        "Founder & CEO, CRED FOODS (Fruitoholic). Promoting innovation and startup learning among students.",
+      image: PraveenNagamalla,
+    },
+    {
+      id: 18,
+      name: "Sri. Satyanarayana Vinjamoori",
+      role: "Member",
+      description:
+        "Industry Expert. Promoting analytical excellence and industry relevance in management education.",
+      image: SatyanarayanaVinjamoori,
+    },
+    {
+      id: 19,
+      name: "Sri. Kadambala Balajee Rao",
+      role: "Member",
+      description:
+        "Senior Vice President - People Solutions, Lockton. Supporting quality education through industry expertise and best practices.",
+      image: KadambalaBalajeeRao,
     },
   ];
 
