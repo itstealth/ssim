@@ -59,7 +59,7 @@ export default function BoardOfStudies() {
       id: 4,
       name: "Prof. S. Abhirama Krishna",
       role: "Member",
-      designation: "Director General, Badruka Group of Institutions, Hyderabad",
+      designation: "Director General, Badruka Group of Institutions, Hyderabad.",
       description:
         "Guiding curriculum enhancement and academic standards.",
       image: AbhiramaKrishna,
@@ -77,9 +77,9 @@ export default function BoardOfStudies() {
       id: 6,
       name: "Sri. Srikanth Surampudi",
       role: "Member",
-      designation: "General Manager HR & Regional Head HR, TCS, Hyderabad",
+      designation: "General Manager HR & Regional Head HR, TCS, Hyderabad.",
       description:
-        "Connecting classroom learning with real-world industry practices.",
+        "Contributing to academic policy and quality assurance.",
       image: SrikanthSurampudi,
     },
     {
@@ -88,25 +88,25 @@ export default function BoardOfStudies() {
       role: "Member",
       designation: "Chief Data Scientist, CoE AI/ML, Jio",
       description:
-        "Bringing AI and Data Science expertise to strengthen management education.",
+        "Contributing to academic excellence and management education.",
       image: ShaileshKumar,
     },
     {
       id: 8,
       name: "Sri. G. Muralikrishna",
       role: "Member",
-      designation: "Director, G V Mall, Khammam",
+      designation: "Director, G V Mall, Khammam.",
       description:
-        "Helping students to understand today's business and retail environment.",
+        "Advancing research initiatives and academic partnerships.",
       image: Muralikrishna,
     },
     {
       id: 9,
       name: "Dr. Kishore NK",
       role: "Member",
-      designation: "Chief Financial Officer, BEKEM Infra Projects Pvt. Ltd, Hyderabad",
+      designation: "Chief Financial Officer, BEKEM Infra Projects Pvt. Ltd, Hyderabad.",
       description:
-        "Bringing financial leadership and industry expertise to management education.",
+        "Enhancing academic programs and student outcomes.",
       image: KishoreNK,
     },
     {
@@ -115,14 +115,14 @@ export default function BoardOfStudies() {
       role: "Member",
       designation: "Founder & CEO, Profintech Technologies, Hyderabad",
       description:
-        "Bringing innovation and fintech expertise to management education.",
+        "Supporting industry-academia collaboration.",
       image: RaviTanniru,
     },
     {
       id: 11,
       name: "Dr. Durga Prasad M",
       role: "Member",
-      designation: "Dean-Administration & Professor of Finance, T A Pai Management Institute (TAPMI), Manipal",
+      designation: "Dean-Administration & Professor of Finance, T A Pai Management Institute (TAPMI), Manipal.",
       description:
         "Advancing research and academic standards.",
       image: DurgaPrasadM,
@@ -131,7 +131,7 @@ export default function BoardOfStudies() {
       id: 12,
       name: "Dr. Anand S Upadhyaya",
       role: "Member",
-      designation: "Director of Postgraduate Studies, Research and Innovation College of Banking & Financial Studies, Muscat, Sultanate of Oman",
+      designation: "Director of Postgraduate Studies, Research and Innovation College of Banking & Financial Studies, Muscat, Sultanate of Oman.",
       description:
         "Contributing to curriculum development and academic planning.",
       image: AnandSUpadhyaya,
@@ -140,27 +140,27 @@ export default function BoardOfStudies() {
       id: 13,
       name: "Dr. Srinivas Gunta",
       role: "Member",
-      designation: "Assistant Professor, IIM-Indore",
+      designation: "Assistant Professor, IIM-Indore.",
       description:
-        "Contributing valuable insights for continuous academic improvement.",
+        "Driving academic excellence and innovation.",
       image: SrinivasGunta,
     },
     {
       id: 14,
       name: "Dr. S. Anand Reddy",
       role: "Member",
-      designation: "GM-L&D, Hetero Labs Limited, Hyderabad",
+      designation: "GM-L&D, Hetero Labs Limited, Hyderabad.",
       description:
-        "Guiding students with real-world expertise in learning and leadership development.",
+        "Supporting program development and quality assurance.",
       image: SAnandReddy,
     },
     {
       id: 15,
-      name: "Sri. Lakshmi Pathi Itha",
+      name: "Lakshmi Pathi Itha",
       role: "Member",
       designation: "Vice President-HR, Prodapt",
       description:
-        "Promoting talent development, leadership skills, and industry-ready management education.",
+        "Strengthening industry-academia collaboration and talent development.",
       image: LakshmiPathiItha,
     },
     {
@@ -174,29 +174,29 @@ export default function BoardOfStudies() {
     },
     {
       id: 17,
-      name: "Sri. Praveen Nagamalla",
+      name: "Sri Praveen Nagamalla",
       role: "Member",
       designation: "Founder & CEO, CRED FOODS (Fruitoholic)",
       description:
-        "Promoting innovation and startup learning among students.",
+        "Encouraging innovation and technology-driven learning.",
       image: PraveenNagamalla,
     },
     {
       id: 18,
-      name: "Sri. Satyanarayana Vinjamoori",
+      name: "Sri Satyanarayana Vinjamoori",
       role: "Member",
       designation: "Industry Expert",
       description:
-        "Promoting analytical excellence and industry relevance in management education.",
+        "Strengthening analytical learning and research excellence.",
       image: SatyanarayanaVinjamoori,
     },
     {
       id: 19,
-      name: "Sri. Kadambala Balajee Rao",
+      name: "Sri Kadambala Balajee Rao",
       role: "Member",
       designation: "Senior Vice President - People Solutions, Lockton",
       description:
-        "Supporting quality education through industry expertise and best practices.",
+        "Promoting data-driven learning and industry-oriented education.",
       image: KadambalaBalajeeRao,
     },
   ];
