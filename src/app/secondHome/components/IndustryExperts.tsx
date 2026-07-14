@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 /**
  * IndustryExperts
@@ -182,7 +183,7 @@ function Icon({ name, className = "w-4 h-4" }: { name: string; className?: strin
 
 /* ---------------- Sub-components ---------------- */
 
-function ExpertCard({ expert, reverse = false }: { expert: any; reverse?: boolean }) {
+function ExpertCard({ expert, reverse = false }: { key?: React.Key; expert: any; reverse?: boolean }) {
   return (
     <div className="relative flex flex-col md:flex-row rounded-2xl border border-white/10 bg-gradient-to-br from-[#241653]/80 to-[#150c33]/80 overflow-hidden">
       {/* Photo */}
@@ -191,22 +192,14 @@ function ExpertCard({ expert, reverse = false }: { expert: any; reverse?: boolea
           reverse ? "md:order-2" : ""
         }`}
       >
-        <img
-          src={expert.image}
-          alt={expert.name}
-          className="absolute inset-0 h-full w-full object-cover"
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-            const nextEl = e.currentTarget.nextElementSibling as HTMLElement | null;
-            if (nextEl) nextEl.style.display = "flex";
-          }}
-        />
-        {/* fallback if image missing */}
-        <div
-          className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-[#3a2a7a] to-[#1a1140] text-white/40 text-sm"
-          style={{ display: "none" }}
-        >
-          Add photo
+        <div className="relative w-full h-full">
+          <Image
+            src={expert.image}
+            alt={expert.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 42vw"
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#150c33] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#150c33]/10" />
         <span
@@ -266,7 +259,7 @@ function ExpertCard({ expert, reverse = false }: { expert: any; reverse?: boolea
   );
 }
 
-function StatItem({ icon, value, label }: { icon: string; value: string; label: string }) {
+function StatItem({ icon, value, label }: { key?: React.Key; icon: string; value: string; label: string }) {
   return (
     <div className="flex items-center gap-3">
       <span className="flex items-center justify-center w-11 h-11 rounded-full bg-white/5 border border-white/10 text-amber-400 shrink-0">
