@@ -22,8 +22,8 @@ export default function CTASection() {
             Apply Now — 2026 Batch
           </a>
           <a
-            href="/SSIM-Brochure- 2026.pdf"
-            target="_blank"
+            href="/SSIM-Brochure-2026.pdf"
+            download="SSIM-Brochure-2026.pdf"
             className="bg-white/70 text-purple-700 px-9 py-[14px] rounded-[12px] font-bold text-[15px] no-underline border border-purple-700/15 backdrop-blur transition-all hover:bg-white hover:border-purple-700/25"
           >
             Download Brochure
