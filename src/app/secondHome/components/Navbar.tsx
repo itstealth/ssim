@@ -175,19 +175,16 @@ export default function Navbar() {
     ? 'bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(107,33,168,0.18)]'
     : isThirdHome
       ? 'bg-gradient-to-r from-purple-500 via-fuchsia-500 to-purple-300 text-white hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(168,85,247,0.18)]'
-    : 'bg-navy text-white hover:bg-navy-light hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,34,105,0.18)]'
+      : 'bg-navy text-white hover:bg-navy-light hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,34,105,0.18)]'
 
   return (
-    <nav className="sticky top-0 z-[1000] bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-4 md:px-10 flex items-center justify-between h-[76px]">
+    <nav className="sticky top-0 z-10 bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-4 md:px-10 flex items-center justify-between h-[76px]">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
-        <Image
+        <img
           src="/logo-transparent.png"
           alt="SSIM Logo"
-          width={200}
-          height={90}
-          className="h-16 md:h-[72px] w-auto object-contain object-center"
-          style={{ width: 'auto' }}
+          className="h-10 w-[200px]"
         />
         <div className={`w-[52px] h-[52px] rounded-xl grid place-items-center text-white font-playfair text-xl font-extrabold flex-shrink-0 ${isSecondHome ? 'bg-gradient-to-br from-purple-700 to-[#1B50EC]' : isThirdHome ? 'bg-gradient-to-br from-purple-500 to-fuchsia-500' : 'bg-navy'}`} style={{ display: 'none' }}>
           S
@@ -195,7 +192,7 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop Nav Links */}
-      <ul className="hidden xl:flex gap-1 list-none m-0 p-0">
+      <ul className="hidden sx:flex gap-1 list-none m-0 p-0">
         {navItems.map((item) => (
           <li key={item.name} className="nav-group relative group">
             {item.dropdown ? (
@@ -218,9 +215,8 @@ export default function Navbar() {
                             <ChevronRight size={12} />
                           </div>
                           <div
-                            className={`submenu-flyout absolute hidden group-hover/sub:block top-0 bg-white border border-slate-200 shadow-[0_8px_24px_rgba(16,34,105,0.14)] rounded-lg py-2 min-w-[240px] z-[60] ${
-                              item.name === "Student's Life" ? 'right-full' : 'left-full'
-                            }`}
+                            className={`submenu-flyout absolute hidden group-hover/sub:block top-0 bg-white border border-slate-200 shadow-[0_8px_24px_rgba(16,34,105,0.14)] rounded-lg py-2 min-w-[240px] z-[60] ${item.name === "Student's Life" ? 'right-full' : 'left-full'
+                              }`}
                           >
                             {subItem.subDropdown.map((sub) => (
                               <Link
@@ -267,7 +263,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-          <SheetTrigger className="xl:hidden flex items-center">
+          <SheetTrigger className="sx:hidden flex items-center">
             <Menu className={`w-6 h-6 ${isSecondHome || isThirdHome ? 'text-purple-700' : 'text-navy'}`} />
           </SheetTrigger>
           <SheetContent className="bg-white overflow-auto w-[300px]">

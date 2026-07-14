@@ -8,6 +8,7 @@ module.exports = {
 		extend: {
 			screens: {
 				'xs': { 'min': '370px' },
+				'sx': { 'min': '1367px' },
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
