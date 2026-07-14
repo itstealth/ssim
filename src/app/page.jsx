@@ -14,6 +14,7 @@ import Testimonials from './secondHome/components/Testimonials'
 import CTASection from './secondHome/components/CTASection'
 import AlumniSection from "@/pages/Home/AlumniSection"
 import HomeFAQ from './secondHome/components/HomeFAQ'
+import IndustryExperts from "./secondHome/components/IndustryExperts"
 
 export default function SecondHome() {
   return (
@@ -30,6 +31,7 @@ export default function SecondHome() {
       <WhySSIM />
       <Faculty />
       <SSIMStories />
+      <IndustryExperts/>
       {/* <Testimonials /> */}
       <AlumniSection/>
       <HomeFAQ />
