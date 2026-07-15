@@ -20,6 +20,7 @@ const navItems = [
     dropdown: [
 
       { name: 'Accreditations & Rankings', path: '/about/accreditations-rankings' },
+      { name: 'About SSGI', path: '/about-ssgi' },
       { name: 'Board of Governors', path: '/about/board-of-governors' },
       { name: 'Board of Studies', path: '/about/board-of-studies' },
       { name: 'Message from Leaders', path: '/about/message-from-leaders' },
