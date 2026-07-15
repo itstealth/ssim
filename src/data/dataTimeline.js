@@ -135,7 +135,7 @@ export const timelineData = [
     title: "GHRDC - CSR/Survey",
     cards: [
       {
-        title: "Top B-Schools Overall",
+        title: "Overall",
         rankings: [
           { 
             year: "2025", 
@@ -180,7 +180,7 @@ export const timelineData = [
         ],
       },
       {
-        title: "Top Private B-Schools - Telangana",
+        title: "Telangana",
         rankings: [
           { 
             year: "2025", 
