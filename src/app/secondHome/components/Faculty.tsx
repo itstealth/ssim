@@ -95,12 +95,12 @@ const faculty = [
     area: "Finance",
     exp: "16 Years · Ph.D, MBA",
   },
-  {
-    img: "/Faculty/20. Dr. A. Dinesh.webp",
-    name: "Dr. Avudaiappan Dinesh",
-    area: "HR & Strategy",
-    exp: "6 Years · Ph.D, MA, M.Phil",
-  },
+  // {
+  //   img: "/Faculty/20. Dr. A. Dinesh.webp",
+  //   name: "Dr. Avudaiappan Dinesh",
+  //   area: "HR & Strategy",
+  //   exp: "6 Years · Ph.D, MA, M.Phil",
+  // },
   {
     img: "/Faculty/21. Dr. M. Pushpa.webp",
     name: "Dr. Pushpa Machani",
