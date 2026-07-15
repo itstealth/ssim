@@ -5,6 +5,7 @@ export const timelineData = [
       {
         title: "Top Private B-Schools",
         rankings: [
+          { year: "2026", rank: 31 },
           { year: "2025", rank: 45 },
           { year: "2024", rank: 48 },
           { year: "2023", rank: 49 },
@@ -13,6 +14,7 @@ export const timelineData = [
       {
         title: "Top Private B-Schools - South Zone",
         rankings: [
+          { year: "2026", rank: 12 },
           { year: "2025", rank: 16 },
           { year: "2024", rank: 17 },
           { year: "2023", rank: 16 },
@@ -21,6 +23,7 @@ export const timelineData = [
       {
         title: "Top Private B-School - Hyderabad",
         rankings: [
+          { year: "2026", rank: 2 },
           { year: "2025", rank: 2 },
           { year: "2024", rank: 2 },
           { year: "2023", rank: 3 },
@@ -40,8 +43,9 @@ export const timelineData = [
     title: "The Week - Hansa Research Survey",
     cards: [
       {
-        title: "All India Rankings",
+        title: "Bschool All India",
         rankings: [
+          { year: "2025", rank: 72 },
           { year: "2024", rank: 79 },
           { year: "2023", rank: 79 },
           { year: "2022", rank: 81 },
@@ -50,14 +54,16 @@ export const timelineData = [
       {
         title: "Private B-Schools - All India",
         rankings: [
+          { year: "2025", rank: 55 },
           { year: "2024", rank: 64 },
           { year: "2023", rank: 64 },
           { year: "2022", rank: 66 },
         ],
       },
       {
-        title: "South Zone Rankings",
+        title: "Bschools South Zone",
         rankings: [
+          { year: "2025", rank: 20 },
           { year: "2024", rank: 21 },
           { year: "2023", rank: 21 },
           { year: "2022", rank: 22 },
@@ -66,14 +72,16 @@ export const timelineData = [
       {
         title: "Private B-Schools - South Zone",
         rankings: [
+          { year: "2025", rank: 15 },
           { year: "2024", rank: 17 },
           { year: "2023", rank: 17 },
           { year: "2022", rank: 18 },
         ],
       },
       {
-        title: "Hyderabad Rankings",
+        title: "Bschools Hyderabad",
         rankings: [
+          { year: "2025", rank: 6 },
           { year: "2024", rank: 6 },
           { year: "2023", rank: 5 },
           { year: "2022", rank: 6 },
@@ -82,6 +90,7 @@ export const timelineData = [
       {
         title: "Private B-Schools - Hyderabad",
         rankings: [
+          { year: "2025", rank: 5 },
           { year: "2024", rank: 5 },
           { year: "2023", rank: 4 },
           { year: "2022", rank: 5 },
@@ -89,45 +98,50 @@ export const timelineData = [
       },
     ],
   },
-  {
-    title: "Business World",
-    cards: [
-      {
-        title: "Top B-Schools Overall",
-        rankings: [
-          { year: "2024", rank: 71 },
-          { year: "2023", rank: 80 },
-          { year: "2022", rank: 113 },
-        ],
-      },
-      {
-        title: "Top Private B-Schools",
-        rankings: [
-          { year: "2024", rank: 52 },
-          { year: "2023", rank: 58 },
-          { year: "2022", rank: 92 },
-        ],
-      },
-      {
-        title: "Top B-Schools South Region",
-        rankings: [
-          { year: "2024", rank: 20 },
-          { year: "2023", rank: 22 },
-          { year: "2022", rank: 33 },
-        ],
-      },
-      {
-        title: "Top B-Schools West Region",
-        rankings: [{ year: "2023", rank: 22 }],
-      },
-    ],
-  },
+  // {
+  //   title: "Business World",
+  //   cards: [
+  //     {
+  //       title: "Top B-Schools Overall",
+  //       rankings: [
+  //         { year: "2024", rank: 71 },
+  //         { year: "2023", rank: 80 },
+  //         { year: "2022", rank: 113 },
+  //       ],
+  //     },
+  //     {
+  //       title: "Top Private B-Schools",
+  //       rankings: [
+  //         { year: "2024", rank: 52 },
+  //         { year: "2023", rank: 58 },
+  //         { year: "2022", rank: 92 },
+  //       ],
+  //     },
+  //     {
+  //       title: "Top B-Schools South Region",
+  //       rankings: [
+  //         { year: "2024", rank: 20 },
+  //         { year: "2023", rank: 22 },
+  //         { year: "2022", rank: 33 },
+  //       ],
+  //     },
+  //     {
+  //       title: "Top B-Schools West Region",
+  //       rankings: [{ year: "2023", rank: 22 }],
+  //     },
+  //   ],
+  // },
   {
     title: "GHRDC - CSR/Survey",
     cards: [
       {
         title: "Top B-Schools Overall",
         rankings: [
+          { 
+            year: "2025", 
+            rank: 5,
+            text: "Top Leading B-Schools of Super Excellence - 5th Rank"
+          },
           { 
             year: "2024", 
             rank: 15,
@@ -169,6 +183,11 @@ export const timelineData = [
         title: "Top Private B-Schools - Telangana",
         rankings: [
           { 
+            year: "2025", 
+            rank: 3,
+            text: "3rd Rank"
+          },
+          { 
             year: "2024", 
             rank: 2,
             text: "2nd Rank"
@@ -200,6 +219,16 @@ export const timelineData = [
           },
         ],
       },
+      {
+        title: "Top 20 B-Schools (Govt & Pvt)",
+        rankings: [
+          {
+            year: "2025",
+            rank: 11,
+            text: "11th Rank"
+          }
+        ],
+      },
     ],
   },
   {
@@ -221,6 +250,7 @@ export const timelineData = [
       {
         title: "South Zone- Telangana",
         rankings: [
+          { year: "2026", rank: "AAA+" },
           { year: "2025", rank: "AAA+" },
           { year: "2024", rank: "AAA+" },
           { year: "2023", rank: "AAA+" },
@@ -236,6 +266,9 @@ export const timelineData = [
       {
         title: "Overall Ranking",
         rankings: [
+          { year: "2025", rank: 157 },
+          { year: "2024", rank: 155 },
+          { year: "2023", rank: 155 },
           { year: "2022", rank: 167 },
           { year: "2021", rank: 193 },
         ],
@@ -338,9 +371,14 @@ export const timelineData = [
         title: "Best B-School Ranking (Private) Overall Category",
         rankings: [
           { 
+            year: "2026", 
+            rank: "28",
+            text: "Overall- 28, State Rank-4"
+          },
+          { 
             year: "2025", 
             rank: "27",
-            text: "27th Rank"
+            text: "27th Rank, 5 State Rank"
           },
           { 
             year: "2024", 
@@ -383,6 +421,11 @@ export const timelineData = [
         title: "Best Bschools (Pvt) for PGDM General",
         rankings: [
           { 
+            year: "2026", 
+            rank: "22",
+            text: "Overall - 22, State Rank-2"
+          },
+          { 
             year: "2025", 
             rank: "26",
             text: "26th Rank"
@@ -392,6 +435,11 @@ export const timelineData = [
       {
         title: "Top 25 Fastest Growing Bschools (Pvt)",
         rankings: [
+          { 
+            year: "2026", 
+            rank: "11",
+            text: "11th Rank"
+          },
           { 
             year: "2025", 
             rank: "11",
