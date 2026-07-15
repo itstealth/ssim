@@ -285,11 +285,11 @@ const timeline = [
 ];
 
 const institutions = [
-  { roman: "I", name: "Siva Sivani Institute of Management", short: "SSIM", desc: "One of the earliest AICTE-approved standalone PGDM institutions in the region, established 1992.", since: "1992" },
-  { roman: "II", name: "Siva Sivani Degree College (Autonomous)", short: "SSDC · Kompally", desc: "Autonomous undergraduate education at the Kompally campus.", since: "—" },
-  { roman: "III", name: "Siva Sivani Degree College", short: "Hyderabad", desc: "Undergraduate education extending the Group's reach across Hyderabad.", since: "—" },
-  { roman: "IV", name: "Siva Sivani Junior College", short: "SSJC", desc: "Bridging school and undergraduate education within the same ecosystem.", since: "—" },
-  { roman: "V", name: "SPS High School", short: "Siva Sivani Public School", desc: "The evolution of the original English Preparatory School, at the heart of Kompally.", since: "1961" },
+  { roman: "I", name: "Siva Sivani Institute of Management", short: "SSIM", desc: "One of the earliest AICTE-approved standalone PGDM institutions in the region, established 1992.", since: "1992", link: "https://ssim.ac.in/" },
+  { roman: "II", name: "Siva Sivani Degree College (Autonomous)", short: "SSDC · Kompally", desc: "Autonomous undergraduate education at the Kompally campus.", since: "—", link: "https://ssdc.ac.in/" },
+  { roman: "III", name: "Siva Sivani Degree College", short: "Hyderabad", desc: "Undergraduate education extending the Group's reach across Hyderabad.", since: "—", link: "https://ssdchyderabad.ac.in/" },
+  { roman: "IV", name: "Siva Sivani Junior College", short: "SSJC", desc: "Bridging school and undergraduate education within the same ecosystem.", since: "—", link: "https://www.ssjc.ac.in/" },
+  { roman: "V", name: "SPS High School", short: "Siva Sivani Public School", desc: "The evolution of the original English Preparatory School, at the heart of Kompally.", since: "1961", link: "https://www.spsschool.ac.in/" },
 ];
 
 const journey = [
@@ -510,8 +510,8 @@ export default function AboutSSGIPage() {
             <motion.div variants={fadeUp} {...reveal} className="relative mx-auto aspect-[4/5] w-full max-w-sm">
               <div className="absolute -inset-3 rounded-[2.2rem] border border-gold/20" />
               <div className="absolute inset-0 rounded-[2rem] border-2 border-gold/30 bg-gradient-to-br from-navy-light to-navy-deep" />
-              <div className="absolute inset-6 flex items-center justify-center rounded-[1.5rem] border border-gold/20 bg-navy-light/60">
-                <Seal size={110} />
+              <div className="absolute inset-6 overflow-hidden rounded-[1.5rem] border border-gold/20 bg-navy-light/60">
+                <SmartImage src="/about_ssim/sampathy.jpg" alt="Late Sri S. P. Sampathy" className="h-full w-full" overlay={false} />
               </div>
               <div className="absolute -bottom-5 left-1/2 w-[80%] -translate-x-1/2 rounded-xl border border-gold/25 bg-navy-deep px-4 py-3 text-center shadow-xl">
                 <p className="font-display text-[15px] font-medium text-gold-pale">Late Sri S. P. Sampathy</p>
@@ -577,7 +577,8 @@ export default function AboutSSGIPage() {
 
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {institutions.map((inst, i) => (
-              <motion.div
+              <motion.a
+                href={inst.link} target="_blank" rel="noopener noreferrer"
                 key={inst.name} variants={fadeUp} custom={i} {...reveal} whileHover={{ y: -6 }}
                 className="group relative flex flex-col overflow-hidden rounded-xl border border-navy/10 bg-white/70 p-7 shadow-[0_1px_0_rgba(0,0,0,0.03)] transition-all hover:border-ssred/30 hover:shadow-[0_24px_50px_-28px_rgba(7,19,42,0.4)]"
               >
@@ -590,10 +591,10 @@ export default function AboutSSGIPage() {
                 <h3 className="font-display relative mt-5 text-lg font-medium text-navy-deep">{inst.name}</h3>
                 <p className="relative mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-ssred">{inst.short}</p>
                 <p className="relative mt-3 flex-1 text-[13.5px] leading-relaxed text-gray">{inst.desc}</p>
-                <button className="relative mt-6 inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold text-navy-deep transition-colors group-hover:text-ssred">
+                <span className="relative mt-6 inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold text-navy-deep transition-colors group-hover:text-ssred">
                   Explore <ArrowUpRight className="h-3.5 w-3.5" />
-                </button>
-              </motion.div>
+                </span>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -729,9 +730,9 @@ export default function AboutSSGIPage() {
           <p className="font-display relative mt-6 text-[clamp(1.4rem,3vw,2.1rem)] italic leading-snug">
             Continuing the founder&apos;s vision, the Group remains committed to education that builds competent professionals, responsible citizens, and future leaders.
           </p>
-          <button className="relative mt-9 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-[14px] font-semibold text-navy-deep transition-colors hover:bg-gold-light">
+          <a href="https://ssim.ac.in/about/message-from-leaders" className="relative mt-9 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-[14px] font-semibold text-navy-deep transition-colors hover:bg-gold-light">
             Meet the Leadership <ArrowRight className="h-4 w-4" />
-          </button>
+          </a>
         </motion.div>
       </section>
 
