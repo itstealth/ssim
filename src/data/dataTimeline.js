@@ -232,18 +232,63 @@ export const timelineData = [
     ],
   },
   {
-    title: "Open - Best Bschools",
+    title: "GHRDC Ranking",
     cards: [
       {
-        title: "Top Standalone Bschool- South Zone",
-        rankings: [{ year: "2023", rank: 21 }],
+        title: "Top Private Bschool of India",
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "3",
+            text: "Overall Rank- 15th, Premier Bschool Rank- 3rd Rank"
+          },
+          { 
+            year: "2024", 
+            rank: "8",
+            text: "Overall Rank- 17th, Premier Bschool Rank- 8th Rank"
+          },
+        ],
       },
       {
-        title: "Top Standalone Bschool State Wise- Telanaga",
-        rankings: [{ year: "2023", rank: 3 }],
+        title: "State of Telangana (Private)",
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "2",
+            text: "2nd Rank"
+          },
+          { 
+            year: "2024", 
+            rank: "2",
+            text: "2nd Rank"
+          },
+        ],
+      },
+      {
+        title: "Regional Rank (South-Pvt)",
+        rankings: [
+          { 
+            year: "2025", 
+            rank: "6",
+            text: "6th Rank"
+          },
+        ],
       },
     ],
   },
+  // {
+  //   title: "Open - Best Bschools",
+  //   cards: [
+  //     {
+  //       title: "Top Standalone Bschool- South Zone",
+  //       rankings: [{ year: "2023", rank: 21 }],
+  //     },
+  //     {
+  //       title: "Top Standalone Bschool State Wise- Telanaga",
+  //       rankings: [{ year: "2023", rank: 3 }],
+  //     },
+  //   ],
+  // },
   {
     title: "Career360 India Best B-School",
     cards: [
@@ -283,36 +328,36 @@ export const timelineData = [
       },
     ],
   },
-  {
-    title: "Fortune India's Best B-School Ranking",
-    cards: [
-      {
-        title: "Overall Ranking",
-        rankings: [{ year: "2023", rank: 161 }],
-      },
-      {
-        title: "South Zone Rank",
-        rankings: [{ year: "2023", rank: 47 }],
-      },
-      {
-        title: "City Wise Ranking- Hyderabad",
-        rankings: [{ year: "2023", rank: 10 }],
-      },
-      {
-        title: "Private School Rank",
-        rankings: [{ year: "2023", rank: 120 }],
-      },
-    ],
-  },
-  {
-    title: "Time-India Best B-School",
-    cards: [
-      {
-        title: "Time-India Best B-School",
-        rankings: [{ year: "2022", rank: "B" }],
-      },
-    ],
-  },
+  // {
+  //   title: "Fortune India's Best B-School Ranking",
+  //   cards: [
+  //     {
+  //       title: "Overall Ranking",
+  //       rankings: [{ year: "2023", rank: 161 }],
+  //     },
+  //     {
+  //       title: "South Zone Rank",
+  //       rankings: [{ year: "2023", rank: 47 }],
+  //     },
+  //     {
+  //       title: "City Wise Ranking- Hyderabad",
+  //       rankings: [{ year: "2023", rank: 10 }],
+  //     },
+  //     {
+  //       title: "Private School Rank",
+  //       rankings: [{ year: "2023", rank: 120 }],
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "Time-India Best B-School",
+  //   cards: [
+  //     {
+  //       title: "Time-India Best B-School",
+  //       rankings: [{ year: "2022", rank: "B" }],
+  //     },
+  //   ],
+  // },
   {
     title: "Outcome Based Education",
     cards: [
@@ -368,7 +413,7 @@ export const timelineData = [
     title: "IIRF (Indian Institutional Ranking Framework)",
     cards: [
       {
-        title: "Best B-School Ranking (Private) Overall Category",
+        title: "Best B-School Ranking (Private) Overall Category & Sate Rank",
         rankings: [
           { 
             year: "2026", 
@@ -418,7 +463,7 @@ export const timelineData = [
         ],
       },
       {
-        title: "Best Bschools (Pvt) for PGDM General",
+        title: "Best Bschools (Pvt) for PGDM General & State Rank",
         rankings: [
           { 
             year: "2026", 
@@ -428,7 +473,7 @@ export const timelineData = [
           { 
             year: "2025", 
             rank: "26",
-            text: "26th Rank"
+            text: "Overall - 26, State Rank-2"
           },
         ],
       },
@@ -438,12 +483,12 @@ export const timelineData = [
           { 
             year: "2026", 
             rank: "11",
-            text: "11th Rank"
+            text: "Top 15 Fastest Growing Bschools (Pvt) - 11"
           },
           { 
             year: "2025", 
-            rank: "11",
-            text: "11th Rank"
+            rank: "12",
+            text: "12th Rank"
           },
         ],
       },
@@ -459,90 +504,46 @@ export const timelineData = [
       },
     ],
   },
-  {
-    title: "Chronicle All India Bschool Survey",
-    cards: [
-      {
-        title: "All - India Top B-Schools",
-        rankings: [
-          { year: "2024", rank: "56" },
-          { year: "2023", rank: "61" },
-        ],
-      },
-      {
-        title: "All - India Grade-wise Top B-Schools",
-        rankings: [{ year: "2023", rank: "B+++" }],
-      },
-      {
-        title: "All - India Region-wise Top B-Schools (South Zone)",
-        rankings: [{ year: "2024", rank: "10" }],
-      },
-    ],
-  },
-  {
-    title: "MBA UNIVERSE",
-    cards: [
-      {
-        title: "Top B-schools in India",
-        rankings: [
-          { year: "2024", rank: "56" },
-          { year: "2023", rank: "69" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "GHRDC Ranking",
-    cards: [
-      {
-        title: "Top Private Bschool of India",
-        rankings: [
-          { 
-            year: "2025", 
-            rank: "3",
-            text: "Overall Rank- 15th, Premier Bschool Rank- 3rd Rank"
-          },
-          { 
-            year: "2024", 
-            rank: "8",
-            text: "Overall Rank- 17th, Premier Bschool Rank- 8th Rank"
-          },
-        ],
-      },
-      {
-        title: "State of Telangana (Private)",
-        rankings: [
-          { 
-            year: "2025", 
-            rank: "2",
-            text: "2nd Rank"
-          },
-          { 
-            year: "2024", 
-            rank: "2",
-            text: "2nd Rank"
-          },
-        ],
-      },
-      {
-        title: "Regional Rank (South-Pvt)",
-        rankings: [
-          { 
-            year: "2025", 
-            rank: "6",
-            text: "6th Rank"
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Business India Best Bschool Survey",
-    cards: [
-      {
-        title: "Business India Best Bschool Survey",
-        rankings: [{ year: "2024", rank: "A+++" }],
-      },
-    ],
-  },
+  // {
+  //   title: "Chronicle All India Bschool Survey",
+  //   cards: [
+  //     {
+  //       title: "All - India Top B-Schools",
+  //       rankings: [
+  //         { year: "2024", rank: "56" },
+  //         { year: "2023", rank: "61" },
+  //       ],
+  //     },
+  //     {
+  //       title: "All - India Grade-wise Top B-Schools",
+  //       rankings: [{ year: "2023", rank: "B+++" }],
+  //     },
+  //     {
+  //       title: "All - India Region-wise Top B-Schools (South Zone)",
+  //       rankings: [{ year: "2024", rank: "10" }],
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "MBA UNIVERSE",
+  //   cards: [
+  //     {
+  //       title: "Top B-schools in India",
+  //       rankings: [
+  //         { year: "2024", rank: "56" },
+  //         { year: "2023", rank: "69" },
+  //       ],
+  //     },
+  //   ],
+  // },
+
+  // {
+  //   title: "Business India Best Bschool Survey",
+  //   cards: [
+  //     {
+  //       title: "Business India Best Bschool Survey",
+  //       rankings: [{ year: "2024", rank: "A+++" }],
+  //     },
+  //   ],
+  // },
 ];
