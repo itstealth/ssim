@@ -3,7 +3,7 @@
 import { teamMembers } from "../../../../data/facultyData";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ChevronLeft, GraduationCap, Briefcase, Sparkles, Linkedin } from "lucide-react";
+import { ChevronLeft, GraduationCap, Briefcase, Sparkles, Linkedin, Mail, Award, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function FacultyDetail({ params }) {
@@ -60,13 +60,13 @@ export default function FacultyDetail({ params }) {
               {/* Area pill */}
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold tracking-wide uppercase">
                 <Sparkles className="w-3.5 h-3.5" />
-                {member.area}
+                {member.department || member.area}
               </div>
-              
-              {member.linkedin && (
-                <a 
-                  href={member.linkedin.startsWith('http') ? member.linkedin : `https://${member.linkedin}`} 
-                  target="_blank" 
+
+              {member.linkedin && member.linkedin !== "NA" && (
+                <a
+                  href={member.linkedin.startsWith('http') ? member.linkedin : `https://${member.linkedin}`}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors text-xs font-semibold tracking-wide uppercase"
                 >
@@ -74,11 +74,26 @@ export default function FacultyDetail({ params }) {
                   Connect
                 </a>
               )}
+              {member.email && (
+                <a
+                  href={`mailto:${member.email}`}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors text-xs font-semibold tracking-wide uppercase"
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                  Email
+                </a>
+              )}
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-gray-900 tracking-tight leading-[1.05] mb-10">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-gray-900 tracking-tight leading-[1.05] mb-2">
               {member.name}
             </h1>
+
+            {member.designation && (
+              <p className="text-xl text-gray-500 font-medium mb-10">
+                {member.designation}
+              </p>
+            )}
 
             {/* Stats row */}
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 mb-12 pb-12 border-b border-gray-100">
@@ -111,18 +126,51 @@ export default function FacultyDetail({ params }) {
               </div>
             </div>
 
-            {/* About */}
-            <div>
-              <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">
-                About
-              </h3>
-              <div className="leading-relaxed text-[1.05rem] text-gray-600 font-normal max-w-2xl space-y-4">
-                {member.description.split('\n').map((paragraph, index) => (
-                  paragraph.trim() ? (
-                    <p key={index}>{paragraph}</p>
-                  ) : null
-                ))}
+            <div className="space-y-12">
+              {/* About */}
+              <div>
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">
+                  About
+                </h3>
+                <div className="leading-relaxed text-[1.05rem] text-gray-600 font-normal max-w-2xl space-y-4">
+                  {member.description.split('\n').map((paragraph, index) => (
+                    paragraph.trim() ? (
+                      <p key={index}>{paragraph}</p>
+                    ) : null
+                  ))}
+                </div>
               </div>
+
+              {/* Professional Memberships */}
+              {member.memberships && !['NA', 'NO', 'No', 'N/A'].includes(member.memberships.trim().toUpperCase()) && (
+                <div>
+                  <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5 flex items-center gap-2">
+                    <Users className="w-4 h-4" />
+                    Professional Memberships
+                  </h3>
+                  <div className="leading-relaxed text-[1.05rem] text-gray-600 font-normal max-w-2xl">
+                    <p>{member.memberships}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Awards & Achievements */}
+              {member.awards && !['NA', 'NO', 'No', 'N/A'].includes(member.awards.trim().toUpperCase()) && (
+                <div>
+                  <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5 flex items-center gap-2">
+                    <Award className="w-4 h-4" />
+                    Awards & Achievements
+                  </h3>
+                  <div className="leading-relaxed text-[1.05rem] text-gray-600 font-normal max-w-2xl space-y-4">
+                    {member.awards.split('•').filter(Boolean).map((award, index) => (
+                      <p key={index} className="flex items-start gap-2">
+                        <span className="text-blue-500 mt-1.5">•</span>
+                        <span>{award.trim()}</span>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
