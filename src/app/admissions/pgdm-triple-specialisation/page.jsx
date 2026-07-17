@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import IndustryExperts from "@/app/secondHome/components/IndustryExperts";
 import { motion, AnimatePresence } from "framer-motion";
 //  import SEO from "@/components/Seo";
 import { Button } from "@/components/ui/button";
@@ -851,7 +852,7 @@ const PGDMTPS = () => {
         keywords="PGDM Triple Specialization, PGDM TPS, dual specialization, business management program, SSIM PGDM"
         canonicalUrl="https://ssim.ac.in/admissions/pgdm-triple-specialisation"
       /> */}
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-10 sm:pb-16">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-white to-white border-b">
           <div className="container max-w-7xl mx-auto px-4 py-16 relative z-10">
@@ -969,6 +970,8 @@ const PGDMTPS = () => {
             </main>
           </div>
         </div>
+
+        <IndustryExperts />
 
         {/* Enquire Dialog */}
         <EnquireDialog isOpen={isEnquireOpen} setIsOpen={setIsEnquireOpen} />
