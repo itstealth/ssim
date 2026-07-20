@@ -42,9 +42,9 @@ const generateSlug = (name) => {
 };
 
 const rawTeamMembers = [
-  {
-    name: "Dr. S.V.Ramana Rao",
-    area: "Finance",
+{
+    name: "Dr. S.V. Ramana Rao",
+    area: "Accounting, Finance & Economics",
     qualification: "PhD",
     experience: 32,
     image: ramana,
@@ -58,19 +58,19 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/dr-s-v-ramana-rao-78a5a542/"
   },
   {
-    name: "Dr. NRKS Chakravarthy",
-    area: "Data Science & Information Systems",
+    name: "Dr. S.F. Chandra Sekhar",
+    area: "HR & Strategy",
     qualification: "Ph.D, MBA",
-    experience: 30,
-    image: NRKS,
-    shortDescription: "Specializes in strategic marketing and market research. Brings decades of industry experience to academic teaching.",
-    designation: "Professor & Dy. Director",
-    department: "Data Science & Information Systems",
-    email: "ramakrishna@ssim.ac.in",
-    memberships: "",
-    awards: "",
-    description: "Dr. N.R.K.S. Chakravarthy is a distinguished academic leader, corporate professional, and management trainer with nearly 30 years of rich experience spanning business excellence, leadership development, customer experience, consulting, project management, organizational transformation, and higher education. As the Deputy Director, he plays a strategic role in strengthening academic excellence, industry engagement, corporate relations, executive learning initiatives, and outcome-based management education.\n\nBefore transitioning into academia, Dr. Chakravarthy held several senior leadership positions with globally recognized organizations, contributing extensively to large-scale business transformation and operational excellence initiatives. He has been associated with leading organizations including Reliance Jio, Tata Docomo, Sistema Group (Russia), Ford Academy (MSXI), MTS India, Bharti Airtel, Amway India, Allergan, and Glaxo Pharmaceuticals.\n\nDuring his corporate journey, Dr. Chakravarthy has been a key member of the top management teams involved in launching and scaling major organizations and business initiatives, including Reliance Jio, Tata DoCoMo, Uninor (Telenor), MTS India, and Allergan. His expertise in business transformation, project management, and organizational excellence has enabled successful execution of complex, high-impact initiatives across diverse industries.\n\nHis notable leadership roles include:\n\nReliance Jio – Vice President & National Head – Service Excellence, where he contributed to building customer-centric service excellence frameworks and transformation initiatives during one of India’s largest digital telecom launches.\nTata Docomo – National Head – Business Excellence, driving process improvement, quality frameworks, operational excellence, and strategic performance initiatives.\nSistema Group (Russia) – Director – Business Excellence, Strategy & Project Management Office, leading strategic transformation, project governance, and enterprise excellence initiatives.\nFord Academy (MSXI) – Learning & Development Head – Asia Pacific, Middle East & Africa (APMEA) Regions, managing capability-building and leadership development initiatives across multiple geographies.\n\nA passionate mentor, executive coach, and corporate trainer, Dr. Chakravarthy has delivered high-impact leadership and capability-building programs for leading organizations such as Hetero, Larsen & Toubro (L&T), Godrej, and several other reputed enterprises. His training interventions focus on developing leadership capability, business agility, operational excellence, and future-ready managerial competencies.\n\nDr. Chakravarthy is a Six Sigma Master Black Belt, PMI Certified Project Management Professional (PMP), TBEM Assessor, and a certified professional in Quality and Organizational Excellence. He has extensive experience in applying global frameworks such as Six Sigma, Business Excellence Models, Project Management methodologies, and continuous improvement practices to enhance organizational performance.\n\nHis areas of expertise include:\n\nBusiness Excellence & Organizational Transformation\nLeadership Development & Executive Coaching\nCustomer Experience Management\nLearning & Development Strategy\nBusiness Analytics & Performance Management\nDigital Transformation\nProject & Program Management\nOperational Excellence & Six Sigma\nQuality Management & Continuous Improvement\nStrategic Planning and Change Management\n\nRecognized for his ability to integrate industry best practices with academic learning, Dr. Chakravarthy focuses on creating industry-ready professionals through experiential learning, corporate interactions, applied research, and outcome-driven pedagogy.\n\nWith a unique blend of corporate leadership experience, strategic transformation expertise, and academic vision, Dr. N.R.K.S. Chakravarthy continues to bridge the gap between management education and industry expectations, empowering students and professionals to become effective business leaders in a rapidly evolving global environment.",
-    linkedin: ""
+    experience: 37,
+    image: chandra,
+    shortDescription: "Specializes in organizational behavior and strategic management. Focuses on employee development and creating effective workplace cultures.",
+    designation: "Professor and Area Chair- Human Resource",
+    department: "HR & Strategy",
+    email: "chandra@ssim.ac.in",
+    memberships: "NHRD",
+    awards: "1.Life time achievement award by Mainstay consulting Pvt.Ltd.2018. 2.6. Academic Excellence Award by Sneha- Alumni Association, Siva Sivani Institute of Management, 2009.",
+    description: "Dr. S.F. Chandra Sekhar is Professor of HR and Strategy at Siva Sivani Institute of Management with 37 years of combined corporate and academic experience. He previously worked in hospitals and conducted research in hospital management. His PhD focused on work systems interdependence and quality of work experiences in large hospitals. A first-class triple postgraduate, he holds MSW, M.Div., and MBA degrees. His academic interests include services management, HR and OB, healthcare systems, HR research, data analytics, performance management, high-performance work systems, and workplace spirituality.\n\nUnder his guidance, 29 PhDs and one M.Phil. have been awarded. He has authored 19 books, including Transforming Rural Lives, Teens of Tomorrow, Mastering Research Methodology, NextGen Entrepreneurship, and Cases in HRM. He has published over 100 peer-reviewed papers and submitted seven project reports to the Government of India and three to corporate bodies. He has also presented 40+ papers at national and international seminars and served as a resource person for FDPs and MDPs in India and abroad. For the past 15 years, he has actively shared lectures online through podcasts.",
+    linkedin: "https://in.linkedin.com/in/sfchyd"
   },
   {
     name: "Dr. Pavan Patel",
@@ -88,21 +88,6 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/feed/"
   },
   {
-    name: "Dr. SREEPALLE FRANCIS CHANDRA SEKHAR",
-    area: "HR & Strategy",
-    qualification: "Ph.D, MBA",
-    experience: 37,
-    image: chandra,
-    shortDescription: "Specializes in organizational behavior and strategic management. Focuses on employee development and creating effective workplace cultures.",
-    designation: "Professor and Area Chair- Human Resource",
-    department: "HR & Strategy",
-    email: "chandra@ssim.ac.in",
-    memberships: "NHRD",
-    awards: "1.Life time achievement award by Mainstay consulting Pvt.Ltd.2018. 2.6. Academic Excellence Award by Sneha- Alumni Association, Siva Sivani Institute of Management, 2009.",
-    description: "Dr. S.F. Chandra Sekhar is Professor of HR and Strategy at Siva Sivani Institute of Management with 37 years of combined corporate and academic experience. He previously worked in hospitals and conducted research in hospital management. His PhD focused on work systems interdependence and quality of work experiences in large hospitals. A first-class triple postgraduate, he holds MSW, M.Div., and MBA degrees. His academic interests include services management, HR and OB, healthcare systems, HR research, data analytics, performance management, high-performance work systems, and workplace spirituality.\n\nUnder his guidance, 29 PhDs and one M.Phil. have been awarded. He has authored 19 books, including Transforming Rural Lives, Teens of Tomorrow, Mastering Research Methodology, NextGen Entrepreneurship, and Cases in HRM. He has published over 100 peer-reviewed papers and submitted seven project reports to the Government of India and three to corporate bodies. He has also presented 40+ papers at national and international seminars and served as a resource person for FDPs and MDPs in India and abroad. For the past 15 years, he has actively shared lectures online through podcasts.",
-    linkedin: "https://in.linkedin.com/in/sfchyd"
-  },
-  {
     name: "Dr. K.S. Harish",
     area: "Data Science & Information Systems",
     qualification: "Ph.D, M.Sc.",
@@ -113,7 +98,82 @@ const rawTeamMembers = [
     linkedin: ""
   },
   {
-    name: "Mr. karanam sreehari",
+    name: "Dr. V. Annapurna",
+    area: "Accounting, Finance & Economics",
+    qualification: "Ph.D, MBA, M.Com",
+    experience: 29,
+    image: ANNA,
+    shortDescription: "Expert in financial risk management and banking. Conducts research on emerging trends in global financial markets.",
+    designation: "Professor and Coordinator - FPM (Fellowship Program in Management)",
+    department: "Accounting, Finance & Economics",
+    email: "annapurna@ssim.ac.in",
+    memberships: "Commerce and Management Association of India (CMAOI),Indian Accounting Association (IAA), COWE",
+    awards: "",
+    description: "Dr. V. Annapurna is a Professor and Program Chair for the Fellow Program in Management (FPM) at Siva Sivani Institute of Management (SSIM), possessing over 29 years of distinguished teaching experience in finance and accounting. Holding an M.Com, MBA, and Ph.D., she is recognized for employing differentiated teaching methods to address various learning styles. At SSIM, she serves as the Chairperson of the FPM Research Committee and has played a pivotal role in coordinating institutional accreditation activities for the NBA, NAAC, and SAQS. She is the Single Point of Contact (SPOC) for the National Institute of Securities Market (NISM) and has been nominated as an NISM faculty ambassador. A prolific researcher, Dr. Annapurna has published extensively in Scopus and ABDC-indexed journals and has authored several textbooks and modules on insurance and business valuation. Beyond her academic roles, she is an accomplished corporate trainer, serving as a lead facilitator for professional development initiatives designed to drive impactful organizational growth",
+    linkedin: "https://www.linkedin.com/in/annapurna-valluripally-60a7b144/"
+  },
+  {
+    name: "Dr. V. Jayalakshmi",
+    area: "Accounting, Finance & Economics",
+    qualification: "Ph.D, M.Com",
+    experience: 29,
+    image: DrJaya,
+    shortDescription: "Specializes in investment analysis and portfolio management. Passionate about teaching financial planning and wealth management.",
+    designation: "Professor",
+    department: "Accounting, Finance & Economics",
+    email: "jayalakshmi@ssim.ac.in",
+    memberships: "Life Members in Indian Accounting Association (IAA), Life Member in Indian Commerce Association (ICA), Life Member in Insurance Institute of India, MUmbai.",
+    awards: "Awarded as Best teacher by Lioness Association in Hyderabad in 2023",
+    description: "Dr. V. Jayalakshmi is a Professor, Area Chair – Accounting and Finance, and Program Chair for the PGDM (Banking, Insurance & Financial Services) at Siva Sivani Institute of Management (SSIM), Hyderabad. She brings nearly 30 years of experience in teaching, research, academic leadership, and executive education. She holds a Ph.D. in Commerce from Osmania University with specialization in Health Insurance, along with an M.Phil., M.Com., LL.B., and is a Fellow of the Insurance Institute of India (FIII). Her academic and research interests include Insurance, Risk Management, Health Insurance, Banking, Financial Services, Financial Planning, and FinTech. She has published extensively in peer-reviewed journals, presented research papers at national and international conferences, and developed e-learning content for professional education. At SSIM, she has contributed significantly to curriculum innovation, Outcome-Based Education (OBE), NBA accreditation initiatives, and industry–academia collaboration. She is committed to fostering experiential learning, integrating emerging technologies into management education, and equipping students with the competencies required for successful careers in the BFSI sector.",
+    linkedin: ""
+  },
+  {
+    name: "Dr. N.C. Rajyalakshmi",
+    area: "Accounting, Finance & Economics",
+    qualification: "Ph.D.",
+    experience: 29,
+    image: DrRaj,
+    shortDescription: "Specializes in corporate finance and financial management. Conducts research on emerging financial technologies and markets.",
+    designation: "Professor and PGP Chair",
+    department: "Accounting, Finance & Economics",
+    email: "rajyalakshmi@ssim.ac.in",
+    memberships: "No",
+    awards: "",
+    description: "NC Rajyalakshmi is an MBA in Finance with Ph.D. in banking. She is having 29 years of academic experience. During these 29 years she served at SRTMU Nanded for 5 and half years, Badruka College PG Centre for 6 and half years, SSIM for 17 years, XIME Chennai for one year. She has worked under various capacities at SSIM as an administrator. \nHer fortay is in the areas of Fianncial Accounting, Corporate Finance, Management Accounting, Financial Services etc. She has contributed her might as an academcian at various institutions and also at various organisations as a resource person.",
+    linkedin: "https://www.linkedin.com/in/dr-rajyalakshmi-nc-5796b715"
+  },
+  {
+    name: "Dr. NRKS Chakravarthy",
+    area: "Data Science & Information Systems",
+    qualification: "Ph.D, MBA",
+    experience: 30,
+    image: NRKS,
+    shortDescription: "Specializes in strategic marketing and market research. Brings decades of industry experience to academic teaching.",
+    designation: "Professor & Dy. Director",
+    department: "Data Science & Information Systems",
+    email: "ramakrishna@ssim.ac.in",
+    memberships: "",
+    awards: "",
+    description: "Dr. N.R.K.S. Chakravarthy is a distinguished academic leader, corporate professional, and management trainer with nearly 30 years of rich experience spanning business excellence, leadership development, customer experience, consulting, project management, organizational transformation, and higher education. As the Deputy Director, he plays a strategic role in strengthening academic excellence, industry engagement, corporate relations, executive learning initiatives, and outcome-based management education.\n\nBefore transitioning into academia, Dr. Chakravarthy held several senior leadership positions with globally recognized organizations, contributing extensively to large-scale business transformation and operational excellence initiatives. He has been associated with leading organizations including Reliance Jio, Tata Docomo, Sistema Group (Russia), Ford Academy (MSXI), MTS India, Bharti Airtel, Amway India, Allergan, and Glaxo Pharmaceuticals.\n\nDuring his corporate journey, Dr. Chakravarthy has been a key member of the top management teams involved in launching and scaling major organizations and business initiatives, including Reliance Jio, Tata DoCoMo, Uninor (Telenor), MTS India, and Allergan. His expertise in business transformation, project management, and organizational excellence has enabled successful execution of complex, high-impact initiatives across diverse industries.\n\nHis notable leadership roles include:\n\nReliance Jio – Vice President & National Head – Service Excellence, where he contributed to building customer-centric service excellence frameworks and transformation initiatives during one of India’s largest digital telecom launches.\nTata Docomo – National Head – Business Excellence, driving process improvement, quality frameworks, operational excellence, and strategic performance initiatives.\nSistema Group (Russia) – Director – Business Excellence, Strategy & Project Management Office, leading strategic transformation, project governance, and enterprise excellence initiatives.\nFord Academy (MSXI) – Learning & Development Head – Asia Pacific, Middle East & Africa (APMEA) Regions, managing capability-building and leadership development initiatives across multiple geographies.\n\nA passionate mentor, executive coach, and corporate trainer, Dr. Chakravarthy has delivered high-impact leadership and capability-building programs for leading organizations such as Hetero, Larsen & Toubro (L&T), Godrej, and several other reputed enterprises. His training interventions focus on developing leadership capability, business agility, operational excellence, and future-ready managerial competencies.\n\nDr. Chakravarthy is a Six Sigma Master Black Belt, PMI Certified Project Management Professional (PMP), TBEM Assessor, and a certified professional in Quality and Organizational Excellence. He has extensive experience in applying global frameworks such as Six Sigma, Business Excellence Models, Project Management methodologies, and continuous improvement practices to enhance organizational performance.\n\nHis areas of expertise include:\n\nBusiness Excellence & Organizational Transformation\nLeadership Development & Executive Coaching\nCustomer Experience Management\nLearning & Development Strategy\nBusiness Analytics & Performance Management\nDigital Transformation\nProject & Program Management\nOperational Excellence & Six Sigma\nQuality Management & Continuous Improvement\nStrategic Planning and Change Management\n\nRecognized for his ability to integrate industry best practices with academic learning, Dr. Chakravarthy focuses on creating industry-ready professionals through experiential learning, corporate interactions, applied research, and outcome-driven pedagogy.\n\nWith a unique blend of corporate leadership experience, strategic transformation expertise, and academic vision, Dr. N.R.K.S. Chakravarthy continues to bridge the gap between management education and industry expectations, empowering students and professionals to become effective business leaders in a rapidly evolving global environment.",
+    linkedin: ""
+  },
+  {
+    name: "Dr. Ravi Dasari",
+    area: "HR & Strategy",
+    qualification: "PhD",
+    experience: 30,
+    image: RaviDasari,
+    shortDescription: "Expert in Human Resource Management with extensive experience in leadership development and organizational excellence.",
+    designation: "Professor",
+    department: "HR & Strategy",
+    email: "ravi.dasari@ssim.ac.in",
+    memberships: "National HRD Network, Secretary of Hyderabad Chapter and National Board Member",
+    awards: "",
+    description: "Profile – Ravi Dasari\n\nRavi Dasari holds a PhD in the area of Human Resource Management with a special focus on HR issues in Indian IT Industry. He has secured University First Rank in Personnel Management and Industrial Relations. \n\n He has worked with progressive business organizations like Nagarjuna Construction Company Ltd, IDBI Ltd, Lanco and business schools for more than 30 years in various capacities. He has worked he has President and Group Head-HR of Jasper Industries (P) Ltd before joining SSIM. \n\nRavi Dasari has been a passionate student of Human Behavior and a TEDX Speaker. He was Consulting Editor of HRM Review and published more than thirty research papers in national and international journals.\n\nRavi Dasari has conducted training and leadership development programmes for IIM-Kozikode, IIM Indore, ASCI, IDBI Bank, ESCI, National HRD Network, Deloitte, NFL, CII, NIA, GITAM, SBI, Andhra Bank etc.\n\n His areas of interest includes Leadership Development, Sustainable Development, Emotional Intelligence, Organizational Culture, Management of Knowledge Workers and People Management practices in IT Industry. He has been actively associated with National HRD Network and organized various programs on behalf of National HRD Network Hyderabad. He is a National Board Member of National HRD Network.\n\n Ravi Dasari has a distinction of assessing 10 large organizations in the capacity of an Assessor and Senior Assessor for CII Business Excellence Award based on European Foundation of Quality Management (EFQM). He is also a certified Executive Coach by Marshall Goldsmith Stakeholder Centered Coaching and ICF.",
+    linkedin: "https://www.linkedin.com/in/dr-ravi-dasari-7495b213"
+  },
+  {
+    name: "Mr. K. Sreehari",
     area: "Data Science & Information Systems",
     qualification: "MCA, M.Tech, M.Sc.",
     experience: 36,
@@ -128,38 +188,8 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/sreehari-karanam-aa25052b/"
   },
   {
-    name: "Dr. V.Annapurna",
-    area: "Finance",
-    qualification: "Ph.D, MBA, M.Com",
-    experience: 29,
-    image: ANNA,
-    shortDescription: "Expert in financial risk management and banking. Conducts research on emerging trends in global financial markets.",
-    designation: "Professor and Coordinator - FPM (Fellowship Program in Management)",
-    department: "Accounting, Finance & Economics",
-    email: "annapurna@ssim.ac.in",
-    memberships: "Commerce and Management Association of India (CMAOI),Indian Accounting Association (IAA), COWE",
-    awards: "",
-    description: "Dr. V. Annapurna is a Professor and Program Chair for the Fellow Program in Management (FPM) at Siva Sivani Institute of Management (SSIM), possessing over 29 years of distinguished teaching experience in finance and accounting. Holding an M.Com, MBA, and Ph.D., she is recognized for employing differentiated teaching methods to address various learning styles. At SSIM, she serves as the Chairperson of the FPM Research Committee and has played a pivotal role in coordinating institutional accreditation activities for the NBA, NAAC, and SAQS. She is the Single Point of Contact (SPOC) for the National Institute of Securities Market (NISM) and has been nominated as an NISM faculty ambassador. A prolific researcher, Dr. Annapurna has published extensively in Scopus and ABDC-indexed journals and has authored several textbooks and modules on insurance and business valuation. Beyond her academic roles, she is an accomplished corporate trainer, serving as a lead facilitator for professional development initiatives designed to drive impactful organizational growth",
-    linkedin: "https://www.linkedin.com/in/annapurna-valluripally-60a7b144/"
-  },
-  {
-    name: "Dr. VALLURI JAYALAKSHMI",
-    area: "Finance",
-    qualification: "Ph.D, M.Com",
-    experience: 29,
-    image: DrJaya,
-    shortDescription: "Specializes in investment analysis and portfolio management. Passionate about teaching financial planning and wealth management.",
-    designation: "Professor",
-    department: "Accounting, Finance & Economics",
-    email: "jayalakshmi@ssim.ac.in",
-    memberships: "Life Members in Indian Accounting Association (IAA), Life Member in Indian Commerce Association (ICA), Life Member in Insurance Institute of India, MUmbai.",
-    awards: "Awarded as Best teacher by Lioness Association in Hyderabad in 2023",
-    description: "Dr. V. Jayalakshmi is a Professor, Area Chair – Accounting and Finance, and Program Chair for the PGDM (Banking, Insurance & Financial Services) at Siva Sivani Institute of Management (SSIM), Hyderabad. She brings nearly 30 years of experience in teaching, research, academic leadership, and executive education. She holds a Ph.D. in Commerce from Osmania University with specialization in Health Insurance, along with an M.Phil., M.Com., LL.B., and is a Fellow of the Insurance Institute of India (FIII). Her academic and research interests include Insurance, Risk Management, Health Insurance, Banking, Financial Services, Financial Planning, and FinTech. She has published extensively in peer-reviewed journals, presented research papers at national and international conferences, and developed e-learning content for professional education. At SSIM, she has contributed significantly to curriculum innovation, Outcome-Based Education (OBE), NBA accreditation initiatives, and industry–academia collaboration. She is committed to fostering experiential learning, integrating emerging technologies into management education, and equipping students with the competencies required for successful careers in the BFSI sector.",
-    linkedin: ""
-  },
-  {
-    name: "Dr. Thirumal Reddy Thumukuntla",
-    area: "Marketing",
+    name: "Dr. T. Thirumal Reddy",
+    area: "Marketing Management",
     qualification: "Ph.D, PGDBA",
     experience: 23,
     image: Thirumal,
@@ -173,6 +203,36 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/thirumal-reddy-thumukuntla-b82167371/"
   },
   {
+    name: "Dr. K. Grace Mani",
+    area: "Marketing Management",
+    qualification: "Ph.D, MBA",
+    experience: 26,
+    image: Gracena,
+    shortDescription: "Specializes in marketing research and consumer psychology. Conducts studies on customer experience and service marketing.",
+    designation: "Associate Professor",
+    department: "Marketing Management",
+    email: "grace@ssim.ac.in",
+    memberships: "Indian Academy of Management (INDAM)",
+    awards: "",
+    description: "Dr. K. Grace Mani, has a rich blend of practical corporate experience and academic prowess. With a Ph.D. in Management and Master’s degree in Business Administration, her expertise lies in Marketing, with a primary focus on consumer behaviour and marketing communications. Her contributions to academics for the past 15 years include curriculum development, innovative pedagogy and research.\nHaving 11.5 years of work experience in client services, she demonstrates expertise in managing client relationships, ensuring customer satisfaction, and delivering high-quality service solutions. Certified by Carlton Advanced Management Institute as a Certified Trainer and Facilitator, she is adept at designing interactive and engaging training sessions to foster professional development and delivering training programs tailored to bridge skill gaps and enhance operational efficiency.\nAlong with an ardent interest in history, Dr. Grace exhibits commitment to excellence and continuous learning ensuring that she remains at the forefront of marketing education, personality development and practice.",
+    linkedin: "https://tinyurl.com/te6uapy4"
+  },
+  {
+    name: "Mr. T. Madhav Murthy",
+    area: "Accounting, Finance & Economics",
+    qualification: "MBA ( Finance & Marketing)",
+    experience: 27,
+    image: MrMa,
+    shortDescription: "Expert in financial planning and investment analysis. Focuses on practical applications of financial theories.",
+    designation: "Associate Professor",
+    department: "Accounting, Finance & Economics",
+    email: "madhav@ssim.ac.in",
+    memberships: "CAMS, JAIIB, CAIIB",
+    awards: "",
+    description: "A seasoned banker with 22 years of experience in Private Banks under the Retail and Corporate banking domain. Has wide experience in the Front and Back office of Banks, with exposure to all verticals of Banking. Certified Anti money laundering specialist (CAMS) and Associate of Indian Institute of Bankers. Having high competence in the areas of Banking laws, Compliance, Operations, Credit, Forex and Audit. Four years of experience in Academics. Passionate about teaching and mentoring students to face the rigours of corporate life. Has conducted training programs for employees working in banks and financial institutions. Teaching students in the fields of Banking, Investment analysis and Portfolio Management, Corporate Finance, Risk and Treasury Management, Global Financial Markets, Fintech, International Business , Economics for Managers & Corporate Governance",
+    linkedin: "https://www.linkedin.com/in/t-madhav-murthy/"
+  },
+  {
     name: "Mr. Rahul Jain",
     area: "HR & Strategy",
     qualification: "PGDBA",
@@ -183,7 +243,7 @@ const rawTeamMembers = [
     linkedin: ""
   },
   {
-    name: "Ms. Damandeep Johar",
+    name: "Mrs. Damandeep Johar",
     area: "HR & Strategy",
     qualification: "PGDBA, (Ph.D)",
     experience: 17,
@@ -198,22 +258,7 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/damandeep-johar-b1047765/"
   },
   {
-    name: "Dr. K. Grace Mani",
-    area: "Marketing",
-    qualification: "Ph.D, MBA",
-    experience: 26,
-    image: Gracena,
-    shortDescription: "Specializes in marketing research and consumer psychology. Conducts studies on customer experience and service marketing.",
-    designation: "Associate Professor",
-    department: "Marketing Management",
-    email: "grace@ssim.ac.in",
-    memberships: "Indian Academy of Management (INDAM)",
-    awards: "",
-    description: "Dr. K. Grace Mani, has a rich blend of practical corporate experience and academic prowess. With a Ph.D. in Management and Master’s degree in Business Administration, her expertise lies in Marketing, with a primary focus on consumer behaviour and marketing communications. Her contributions to academics for the past 15 years include curriculum development, innovative pedagogy and research.\nHaving 11.5 years of work experience in client services, she demonstrates expertise in managing client relationships, ensuring customer satisfaction, and delivering high-quality service solutions. Certified by Carlton Advanced Management Institute as a Certified Trainer and Facilitator, she is adept at designing interactive and engaging training sessions to foster professional development and delivering training programs tailored to bridge skill gaps and enhance operational efficiency.\nAlong with an ardent interest in history, Dr. Grace exhibits commitment to excellence and continuous learning ensuring that she remains at the forefront of marketing education, personality development and practice.",
-    linkedin: "https://tinyurl.com/te6uapy4"
-  },
-  {
-    name: "Mr. Subash Tej",
+    name: "Mr. T. Subash Tej",
     area: "Data Science & Information Systems",
     qualification: "MCA, MBA",
     experience: 23,
@@ -228,7 +273,7 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/subash-tej-ba899122/"
   },
   {
-    name: "Ms. KIRANMAYI PATEL",
+    name: "Mrs. Kiranmayi Patel",
     area: "Data Science & Information Systems",
     qualification: "MBA",
     experience: 14,
@@ -243,8 +288,8 @@ const rawTeamMembers = [
     linkedin: ""
   },
   {
-    name: "Dr. Balanji Reddy Mora",
-    area: "Finance",
+    name: "Dr. M. Balanji Reddy",
+    area: "Accounting, Finance & Economics",
     qualification: "Ph.D, MBA",
     experience: 17,
     image: Balani,
@@ -258,7 +303,7 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/dr-balanji-reddy-mora-4823553b/"
   },
   {
-    name: "Dr. Pushpa Machani",
+    name: "Dr. M. Pushpa",
     area: "HR & Strategy",
     qualification: "Ph.D, MBA",
     experience: 20,
@@ -273,8 +318,8 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/dr-pushpa-machani-b5815323/"
   },
   {
-    name: "Mr. Muppavarapu Chaithanya",
-    area: "Marketing",
+    name: "Mr. M. Chaithanya",
+    area: "Marketing Management",
     qualification: "PGDBA",
     experience: 21,
     image: Chaitha,
@@ -303,7 +348,7 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/dr-k-sr-sarma-3a8b68156/"
   },
   {
-    name: "Ms. Samarpita Roy",
+    name: "Mrs. Samarpita Roy",
     area: "HR & Strategy",
     qualification: "MBA",
     experience: "15+",
@@ -319,7 +364,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. Shubhra Johri",
-    area: "Finance",
+    area: "Accounting, Finance & Economics",
     qualification: "Ph.D, MBA",
     experience: 20,
     image: Shubhra,
@@ -333,7 +378,7 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/shubhra-johri-098075305/"
   },
   {
-    name: "Dr. PINJARLA GOWRI KUSUMA",
+    name: "Dr. P. Gowri Kusuma",
     area: "HR & Strategy",
     qualification: "PhD",
     experience: 20,
@@ -349,7 +394,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. Shambhavi Tamrakar",
-    area: "Marketing",
+    area: "Marketing Management",
     qualification: "Ph.D, MBA, MA",
     experience: 14,
     image: Shambhavi,
@@ -364,7 +409,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. Bipul Kumar",
-    area: "Marketing",
+    area: "Marketing Management",
     qualification: "Ph.D, MBA, UGC-NET",
     experience: 6,
     image: BinalK,
@@ -378,52 +423,7 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/dr-bipul-kumar-367856116/"
   },
   {
-    name: "Mr. T Madhav Murthy",
-    area: "Finance",
-    qualification: "MBA ( Finance & Marketing)",
-    experience: 27,
-    image: MrMa,
-    shortDescription: "Expert in financial planning and investment analysis. Focuses on practical applications of financial theories.",
-    designation: "Associate Professor",
-    department: "Accounting, Finance & Economics",
-    email: "madhav@ssim.ac.in",
-    memberships: "CAMS, JAIIB, CAIIB",
-    awards: "",
-    description: "A seasoned banker with 22 years of experience in Private Banks under the Retail and Corporate banking domain. Has wide experience in the Front and Back office of Banks, with exposure to all verticals of Banking. Certified Anti money laundering specialist (CAMS) and Associate of Indian Institute of Bankers. Having high competence in the areas of Banking laws, Compliance, Operations, Credit, Forex and Audit. Four years of experience in Academics. Passionate about teaching and mentoring students to face the rigours of corporate life. Has conducted training programs for employees working in banks and financial institutions. Teaching students in the fields of Banking, Investment analysis and Portfolio Management, Corporate Finance, Risk and Treasury Management, Global Financial Markets, Fintech, International Business , Economics for Managers & Corporate Governance",
-    linkedin: "https://www.linkedin.com/in/t-madhav-murthy/"
-  },
-  {
-    name: "Dr. NC Rajyalakshmi",
-    area: "Finance",
-    qualification: "Ph.D.",
-    experience: 29,
-    image: DrRaj,
-    shortDescription: "Specializes in corporate finance and financial management. Conducts research on emerging financial technologies and markets.",
-    designation: "Professor and PGP Chair",
-    department: "Accounting, Finance & Economics",
-    email: "rajyalakshmi@ssim.ac.in",
-    memberships: "No",
-    awards: "",
-    description: "NC Rajyalakshmi is an MBA in Finance with Ph.D. in banking. She is having 29 years of academic experience. During these 29 years she served at SRTMU Nanded for 5 and half years, Badruka College PG Centre for 6 and half years, SSIM for 17 years, XIME Chennai for one year. She has worked under various capacities at SSIM as an administrator. \nHer fortay is in the areas of Fianncial Accounting, Corporate Finance, Management Accounting, Financial Services etc. She has contributed her might as an academcian at various institutions and also at various organisations as a resource person.",
-    linkedin: "https://www.linkedin.com/in/dr-rajyalakshmi-nc-5796b715"
-  },
-  {
-    name: "Dr. Kameswari Jada",
-    area: "Data Science & Information Systems",
-    qualification: "Ph.D, MBA",
-    experience: 19,
-    image: JKame,
-    shortDescription: "Expert in statistical analysis and data modeling. Conducts research on predictive analytics and machine learning.",
-    designation: "Assistant. Professor",
-    department: "Data Science & Information Systems",
-    email: "kameswari@ssim.ac.in",
-    memberships: "",
-    awards: "",
-    description: "Dr. Kameswari Jada\nDr. Kameswari Jada is an accomplished academician and analytics practitioner serving as Assistant Professor in the Department of Decisional Sciences, where she channels over 19 years of cross-domain expertise into research-driven teaching. Her scholarship spans 12 rigorous publications in ABDC- and Scopus-indexed journals, and she has presented her research at some of India's most prestigious platforms — IIM Ahmedabad, IIM Kozhikode, IIM Bangalore, and NIT Calicut.\nDr. Jada holds a Doctor of Business Administration in Business Analytics from the Swiss School of Business and Management(SSBM), Geneva, and is a Certified HR Analyst from IIM Rohtak. She is presently advancing her expertise in Agentic AI at IIT Guwahati. Her eight years as a Technical Analyst at ICICI Bank, combined with more than ten years in academia, give her a rare dual fluency in both the boardroom and the classroom.\nHer technical expertise spans Python, Machine Learning, Deep Learning, Generative AI, and Agentic AI, complemented by strong proficiency in Tableau, Microsoft Power BI, and Microsoft Fabric. Driven by a singular mission to translate real-world industry practice into meaningful academic learning, she is deeply committed to fostering research excellence and nurturing the next generation of analytical thinkers.",
-    linkedin: "https://www.linkedin.com/in/dr-kameswari-jada-00a0a2a4"
-  },
-  {
-    name: "Dr. K Kiran Kumar",
+    name: "Dr. K. Kiran Kumar",
     area: "Data Science & Information Systems",
     qualification: "PhD",
     experience: 15,
@@ -438,8 +438,8 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/kiran-kumar-kema-a2328738/"
   },
   {
-    name: "Mr. G MURALI KRISHNA PATNAIK",
-    area: "HR & Strategy",
+    name: "Mr. G. Murali Krishna Patnaik",
+    area: "Data Science & Information Systems",
     qualification: "M.Sc",
     experience: 22,
     image: Murali,
@@ -453,19 +453,19 @@ const rawTeamMembers = [
     linkedin: "https://www.linkedin.com/in/murali-krishna-ab3068bb/"
   },
   {
-    name: "Dr. Ravi Dasari",
-    area: "HR & Strategy",
-    qualification: "PhD",
-    experience: 30,
-    image: RaviDasari,
-    shortDescription: "Expert in Human Resource Management with extensive experience in leadership development and organizational excellence.",
-    designation: "Professor",
-    department: "HR & Strategy",
-    email: "ravi.dasari@ssim.ac.in",
-    memberships: "National HRD Network, Secretary of Hyderabad Chapter and National Board Member",
+    name: "Dr. Jada Kameswari",
+    area: "Data Science & Information Systems",
+    qualification: "Ph.D, MBA",
+    experience: 19,
+    image: JKame,
+    shortDescription: "Expert in statistical analysis and data modeling. Conducts research on predictive analytics and machine learning.",
+    designation: "Assistant. Professor",
+    department: "Data Science & Information Systems",
+    email: "kameswari@ssim.ac.in",
+    memberships: "",
     awards: "",
-    description: "Profile – Ravi Dasari\n\nRavi Dasari holds a PhD in the area of Human Resource Management with a special focus on HR issues in Indian IT Industry. He has secured University First Rank in Personnel Management and Industrial Relations. \n\n He has worked with progressive business organizations like Nagarjuna Construction Company Ltd, IDBI Ltd, Lanco and business schools for more than 30 years in various capacities. He has worked he has President and Group Head-HR of Jasper Industries (P) Ltd before joining SSIM. \n\nRavi Dasari has been a passionate student of Human Behavior and a TEDX Speaker. He was Consulting Editor of HRM Review and published more than thirty research papers in national and international journals.\n\nRavi Dasari has conducted training and leadership development programmes for IIM-Kozikode, IIM Indore, ASCI, IDBI Bank, ESCI, National HRD Network, Deloitte, NFL, CII, NIA, GITAM, SBI, Andhra Bank etc.\n\n His areas of interest includes Leadership Development, Sustainable Development, Emotional Intelligence, Organizational Culture, Management of Knowledge Workers and People Management practices in IT Industry. He has been actively associated with National HRD Network and organized various programs on behalf of National HRD Network Hyderabad. He is a National Board Member of National HRD Network.\n\n Ravi Dasari has a distinction of assessing 10 large organizations in the capacity of an Assessor and Senior Assessor for CII Business Excellence Award based on European Foundation of Quality Management (EFQM). He is also a certified Executive Coach by Marshall Goldsmith Stakeholder Centered Coaching and ICF.",
-    linkedin: "https://www.linkedin.com/in/dr-ravi-dasari-7495b213"
+    description: "Dr. Kameswari Jada\nDr. Kameswari Jada is an accomplished academician and analytics practitioner serving as Assistant Professor in the Department of Decisional Sciences, where she channels over 19 years of cross-domain expertise into research-driven teaching. Her scholarship spans 12 rigorous publications in ABDC- and Scopus-indexed journals, and she has presented her research at some of India's most prestigious platforms — IIM Ahmedabad, IIM Kozhikode, IIM Bangalore, and NIT Calicut.\nDr. Jada holds a Doctor of Business Administration in Business Analytics from the Swiss School of Business and Management(SSBM), Geneva, and is a Certified HR Analyst from IIM Rohtak. She is presently advancing her expertise in Agentic AI at IIT Guwahati. Her eight years as a Technical Analyst at ICICI Bank, combined with more than ten years in academia, give her a rare dual fluency in both the boardroom and the classroom.\nHer technical expertise spans Python, Machine Learning, Deep Learning, Generative AI, and Agentic AI, complemented by strong proficiency in Tableau, Microsoft Power BI, and Microsoft Fabric. Driven by a singular mission to translate real-world industry practice into meaningful academic learning, she is deeply committed to fostering research excellence and nurturing the next generation of analytical thinkers.",
+    linkedin: "https://www.linkedin.com/in/dr-kameswari-jada-00a0a2a4"
   }
 ];
 

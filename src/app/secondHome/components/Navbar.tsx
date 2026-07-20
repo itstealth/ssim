@@ -68,16 +68,15 @@ const navItems = [
     path: '/faculty',
     dropdown: [
       {
-        name: 'Faculty',
-        subDropdown: [
-          { name: 'Areas', path: '/faculty/areas' },
-          { name: 'Faculty Publications', path: '/faculty/publications' },
-        ],
+        name: 'Faculty',path: '/faculty',
       },
       // {
       //   name: 'Research',
       //   subDropdown: [
-      //     { name: 'Case Research Center', path: '/research/case-research-center' },
+      //     { name: 'Research Paper Publications', path: '/research/research-paper-publications' },
+      //     { name: 'Books Published', path: '/research/books-published' },
+      //     { name: 'Conference Proceedings', path: '/research/conference-proceedings' },
+      //     { name: 'Sugyaan – Management Journal', path: '/research/sugyaan' },
       //   ],
       // },
     ],

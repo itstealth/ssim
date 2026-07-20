@@ -18,7 +18,7 @@ import {
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 import { motion } from "framer-motion";
-import { teamMembers } from "../../../data/facultyData";
+import { teamMembers } from "../../data/facultyData";
 
 export default function Areas() {
   const [hoveredMember, setHoveredMember] = useState(null);
@@ -26,8 +26,8 @@ export default function Areas() {
 
   const uniqueAreas = ["All", ...Array.from(new Set(teamMembers.map((m) => m.area))).filter(Boolean)];
 
-  const filteredMembers = activeArea === "All" 
-    ? teamMembers 
+  const filteredMembers = activeArea === "All"
+    ? teamMembers
     : teamMembers.filter((m) => m.area === activeArea);
 
   return (
@@ -125,10 +125,9 @@ export default function Areas() {
                 <Link href={`/faculty/details/${member.slug}`} className="block">
                   <Card
                     className={`group relative overflow-hidden bg-white/50 border-gray-200 backdrop-blur-sm transition-all duration-500
-                      ${
-                        hoveredMember === index
-                          ? "scale-105 shadow-2xl shadow-blue-500/20"
-                          : "hover:shadow-xl"
+                      ${hoveredMember === index
+                        ? "scale-105 shadow-2xl shadow-blue-500/20"
+                        : "hover:shadow-xl"
                       }`}
                     onMouseEnter={() => setHoveredMember(index)}
                     onMouseLeave={() => setHoveredMember(null)}
