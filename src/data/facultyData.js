@@ -1,37 +1,37 @@
-export const ANNA = "/faculty&research/faculty/ANNAPURNA.webp";
-export const Balani = "/faculty&research/faculty/balanji.webp";
-export const BinalK = "/faculty&research/faculty/Bipul-Kumar.jpg";
-export const Chaitha = "/faculty&research/faculty/chaithanya.webp";
-export const Damandeep = "/faculty&research/faculty/daman.webp";
+export const ANNA = "/faculty&research/Faculty photographs/5. Dr. V. Annapurna_5_11zon.webp";
+export const Balani = "/faculty&research/Faculty photographs/20. Dr. M. Balanji Reddy_8_11zon.webp";
+export const BinalK = "/faculty&research/Faculty photographs/28. Mr. Bipul Kumar_6_11zon.webp";
+export const Chaitha = "/faculty&research/Faculty photographs/22. Mr. M. Chaithanya_10_11zon.webp";
+export const Damandeep = "/faculty&research/Faculty photographs/16. Mrs. Damandeep Johar_5_11zon.webp";
 export const DINES = "/faculty&research/faculty/DINESH.webp";
 export const DrArij = "/faculty&research/faculty/DR-Arijit.webp";
-export const DrHari = "/faculty&research/faculty/Dr-Harish.webp";
-export const DrJaya = "/faculty&research/faculty/dr-jayalakshmi.webp";
-export const DrPAV = "/faculty&research/faculty/DR-PAVAN.jpg";
-export const DrRaj = "/faculty&research/faculty/Dr-Rajyalakshmi.webp";
-export const Gowri = "/faculty&research/faculty/Gowri-Kusuma.jpg";
-export const Gracena = "/faculty&research/faculty/gracemani.webp";
-export const JKame = "/faculty&research/faculty/J-Kameswari.jpg";
-export const KiranK = "/faculty&research/faculty/Kiran-Kumar.jpg";
-export const Kommu = "/faculty&research/faculty/kiranmayi.webp";
+export const DrHari = "/faculty&research/Faculty photographs/4. Dr. K.S. Harish_4_11zon.webp";
+export const DrJaya = "/faculty&research/Faculty photographs/6. Dr. V. Jayalakshmi_6_11zon.webp";
+export const DrPAV = "/faculty&research/Faculty photographs/3. Dr. Pavan Patel_3_11zon.webp";
+export const DrRaj = "/faculty&research/Faculty photographs/8. Dr. N.C. Rajyalakshmi_7_11zon.webp";
+export const Gowri = "/faculty&research/Faculty photographs/26. Dr. P. Gowri Kusuma_4_11zon.webp";
+export const Gracena = "/faculty&research/Faculty photographs/13. Dr. K. Grace Mani_2_11zon.webp";
+export const JKame = "/faculty&research/Faculty photographs/31. Dr. Jada Kameswari_9_11zon.webp";
+export const KiranK = "/faculty&research/Faculty photographs/29.  Dr. K. Kiran Kumar_7_11zon.webp";
+export const Kommu = "/faculty&research/Faculty photographs/18. Mrs. Kiranmayi Patel_7_11zon.webp";
 export const LOHIT = "/faculty&research/faculty/LOHIT.webp";
-export const MrMa = "/faculty&research/faculty/Mr-Madhava-Murthy.webp";
-export const Murali = "/faculty&research/faculty/Murali-Krishna.jpg";
-export const NRKS = "/about/BoardOfGoverners/NRKS.jpeg";
+export const MrMa = "/faculty&research/Faculty photographs/14. Mr. T. Madhav Murthy_3_11zon.webp";
+export const Murali = "/faculty&research/Faculty photographs/30. Mr. G. Murali Krishna Patnaik_8_11zon.webp";
+export const NRKS = "/faculty&research/Faculty photographs/9. Mr. N.R.K.S. Chakravarthy_8_11zon.webp";
 export const PARDH = "/faculty&research/faculty/PARDHASARADHI.webp";
-export const Pushpa = "/faculty&research/faculty/PUSHPA.webp";
-export const rahul = "/faculty&research/faculty/rahul.webp";
-export const chandra = "/faculty&research/faculty/SF-Chandra.webp";
-export const Shambhavi = "/faculty&research/faculty/Shambhavi.webp";
-export const Shubhra = "/faculty&research/faculty/Shubhra-Johri.webp";
-export const Smarpita = "/faculty&research/faculty/Smarpitaroy.jpg";
-export const SREEHARI = "/faculty&research/faculty/SREEHARI.webp";
-export const subba = "/faculty&research/faculty/subba.webp";
-export const Subhash = "/faculty&research/faculty/Subhash-Tej.webp";
-export const Thirumal = "/faculty&research/faculty/THIRUMALREDDY.jpg";
+export const Pushpa = "/faculty&research/Faculty photographs/21. Dr. M. Pushpa_9_11zon.webp";
+export const rahul = "/faculty&research/Faculty photographs/15. Mr. Rahul Jain_4_11zon.webp";
+export const chandra = "/faculty&research/Faculty photographs/2. Dr. S.F. Chandra Sekhar_2_11zon.webp";
+export const Shambhavi = "/faculty&research/Faculty photographs/27. Dr. Shambhavi Tamrakar_5_11zon.webp";
+export const Shubhra = "/faculty&research/Faculty photographs/25. Dr. Shubhra Johri_3_11zon.webp";
+export const Smarpita = "/faculty&research/Faculty photographs/24. Mrs. Samarpita Roy_2_11zon.webp";
+export const SREEHARI = "/faculty&research/Faculty photographs/10. Mr. K. Sreehari_9_11zon.webp";
+export const subba = "/faculty&research/Faculty photographs/23. Dr. K. Subba Rama Sarma_1_11zon.webp";
+export const Subhash = "/faculty&research/Faculty photographs/17. Mr. T. Subash Tej_6_11zon.webp";
+export const Thirumal = "/faculty&research/Faculty photographs/12. Dr. T. Thirumal Reddy_1_11zon.webp";
 export const Vallinayagam = "/faculty&research/faculty/Vallinayagam.webp";
 export const Ambuj = "/about/dr-ambuj.jpeg";
-export const ramana = "/about/director.jpeg";
+export const ramana = "/faculty&research/Faculty photographs/1. Ramana Rao_1_11zon.webp";
 export const RaviDasari = "/faculty&research/faculty/Ravi-Dasari.jpeg";
 
 const generateSlug = (name) => {
@@ -59,7 +59,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. NRKS Chakravarthy",
-    area: "Decision Science and Information System",
+    area: "Data Science & Information Systems",
     qualification: "Ph.D, MBA",
     experience: 30,
     image: NRKS,
@@ -104,7 +104,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. K.S. Harish",
-    area: "Data Science",
+    area: "Data Science & Information Systems",
     qualification: "Ph.D, M.Sc.",
     experience: 32,
     image: DrHari,
@@ -114,7 +114,7 @@ const rawTeamMembers = [
   },
   {
     name: "Mr. karanam sreehari",
-    area: "Data Science",
+    area: "Data Science & Information Systems",
     qualification: "MCA, M.Tech, M.Sc.",
     experience: 36,
     image: SREEHARI,
@@ -209,8 +209,8 @@ const rawTeamMembers = [
   },
   {
     name: "Mr. Subash Tej",
-    area: "Data Science",
-    qualification: "MCA, MBA, Certificate in Business Analytucs from HBSOnline, PG Diploma in Data Sciences from MIT",
+    area: "Data Science & Information Systems",
+    qualification: "MCA, MBA",
     experience: 23,
     image: Subhash,
     shortDescription: "Expert in data analytics and business intelligence. Develops innovative solutions for data-driven decision making.",
@@ -224,7 +224,7 @@ const rawTeamMembers = [
   },
   {
     name: "Ms. KIRANMAYI PATEL",
-    area: "Data Science",
+    area: "Data Science & Information Systems",
     qualification: "MBA",
     experience: 14,
     image: Kommu,
@@ -284,7 +284,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. K. Subba Rama Sarma",
-    area: "Data Science",
+    area: "Data Science & Information Systems",
     qualification: "Ph.D, MBA",
     experience: 23,
     image: subba,
@@ -404,7 +404,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. Kameswari Jada",
-    area: "Data Science",
+    area: "Data Science & Information Systems",
     qualification: "Ph.D, MBA",
     experience: 19,
     image: JKame,
@@ -419,7 +419,7 @@ const rawTeamMembers = [
   },
   {
     name: "Dr. K Kiran Kumar",
-    area: "Data Science",
+    area: "Data Science & Information Systems",
     qualification: "PhD",
     experience: 15,
     image: KiranK,
