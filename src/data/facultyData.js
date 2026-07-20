@@ -189,8 +189,13 @@ const rawTeamMembers = [
     experience: 17,
     image: Damandeep,
     shortDescription: "Expert in change management and organizational behavior. Researches workplace dynamics and employee motivation strategies.",
-    description: "Expert in change management and organizational behavior. Researches workplace dynamics and employee motivation strategies.",
-    linkedin: ""
+    designation: "Chief Admissions Officer & Assistant Professor",
+    department: "HR & Strategy",
+    email: "damanjohar@ssim.ac.in",
+    memberships: "",
+    awards: "",
+    description: "Damandeep Johar is the Chief Admissions Officer at Siva Sivani Institute of Management (SSIM), Hyderabad, with over 13 years of experience in higher education, admissions management, strategic marketing, branding, and student engagement. She has been instrumental in driving the institute's admissions growth by developing innovative marketing strategies, strengthening institutional partnerships, expanding outreach across India, and implementing digital transformation initiatives that have significantly enhanced the quality and diversity of the student intake.\n\nIn her leadership role, she oversees the complete admissions lifecycle, including student counselling, outreach programs, digital marketing campaigns, education fairs, institutional collaborations, scholarship initiatives, onboarding processes, accreditation support, and relationship management with educational partners. Her strategic vision has contributed to a substantial increase in admissions, the successful introduction of merit-based scholarships, the launch of an online application portal, and the revival of key recruitment markets across multiple states.\n\nAlongside her administrative responsibilities, Damandeep also serves as an Assistant Professor in Human Resources, where she teaches management courses and conducts training programs in leadership, communication, team building, organizational development, personal effectiveness, change management, and corporate readiness. She is passionate about mentoring students and helping them develop the skills required to succeed in the corporate world.\n\nA dedicated academic and researcher, she is currently pursuing her Ph.D. at GITAM Hyderabad Business School and has published several research papers in Scopus-indexed, ABDC, and UGC Care journals, along with book chapters and case studies. Her areas of interest include human resource management, organizational behavior, employee engagement, higher education, and strategic marketing. She remains committed to fostering academic excellence, innovation, and a student-centric approach that supports the holistic development of future management professionals.",
+    linkedin: "https://www.linkedin.com/in/damandeep-johar-b1047765/"
   },
   {
     name: "Dr. K. Grace Mani",
