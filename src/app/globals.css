@@ -1330,4 +1330,136 @@ img {
   animation: scroll 30s linear infinite;
 }
 
+/* =========================================
+   Easy Table of Contents Custom Styling
+   ========================================= */
+.blog-content #ez-toc-container {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 1.5rem !important;
+  margin: 2.5rem 0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.blog-content .ez-toc-title-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 1.25rem !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 2px solid #f1f5f9 !important;
+  width: 100% !important;
+}
+
+.blog-content .ez-toc-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #002F87 !important; /* Theme mainBlue */
+  margin: 0 !important;
+}
+
+.blog-content .ez-toc-title-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #f8fafc !important;
+  padding: 0.5rem !important;
+  border-radius: 8px !important;
+  transition: background 0.2s ease !important;
+}
+
+.blog-content .ez-toc-title-toggle:hover {
+  background: #f1f5f9 !important;
+}
+
+.blog-content .ez-toc-title-toggle svg {
+  fill: #002F87 !important;
+  color: #002F87 !important;
+}
+
+.blog-content ul.ez-toc-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+.blog-content ul.ez-toc-list li {
+  margin-bottom: 0.875rem !important;
+  line-height: 1.6 !important;
+  list-style: none !important;
+}
+
+.blog-content ul.ez-toc-list li::before {
+  display: none !important;
+}
+
+.blog-content ul.ez-toc-list li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.blog-content ul.ez-toc-list ul {
+  list-style: none !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.875rem !important;
+  position: relative !important;
+}
+
+.blog-content ul.ez-toc-list ul::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0.75rem !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 2px !important;
+  background-color: #e2e8f0 !important;
+}
+
+.blog-content .ez-toc-link {
+  display: inline-flex !important;
+  align-items: flex-start !important;
+  color: #475569 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.blog-content .ez-toc-link:hover {
+  color: #002F87 !important;
+  transform: translateX(6px) !important;
+}
+
+.blog-content .ez-toc-link:visited {
+  color: #475569 !important;
+}
+
+.blog-content .ez-toc-link:visited:hover {
+  color: #002F87 !important;
+}
+
+/* =========================================
+   TOC Two-Column Layout Helpers
+   ========================================= */
+
+.sidebar-toc-only #ez-toc-container {
+  margin: 0 !important; /* Remove top/bottom margin when in sidebar */
+}
+
+.sidebar-toc-only .ez-toc-link {
+  font-size: 0.875rem !important; /* text-sm equivalent */
+  line-height: 1.25rem !important;
+}
+
+/* Hide the TOC in main content only on desktop (where sidebar is visible) */
+@media (min-width: 1024px) {
+  .main-content-no-toc #ez-toc-container {
+    display: none !important;
+  }
+}
+
 

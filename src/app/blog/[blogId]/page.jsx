@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Table,
   TableBody,
@@ -311,10 +312,51 @@ export default function BlogDetail() {
     );
   };
 
-  const processedContent = useMemo(() => {
-    if (!blog?.content) return [];
+  const { tocHtml, contentWithoutToc } = useMemo(() => {
+    if (!blog?.content) return { tocHtml: null, contentWithoutToc: "" };
+    const html = blog.content;
+    const startStr = '<div id="ez-toc-container"';
+    const startIdx = html.indexOf(startStr);
+    if (startIdx === -1) return { tocHtml: null, contentWithoutToc: html };
 
-    const content = blog.content;
+    let divCount = 0;
+    let endIdx = -1;
+    const tagRegex = /<\/?div[^>]*>/gi;
+    tagRegex.lastIndex = startIdx;
+    
+    let match;
+    while ((match = tagRegex.exec(html)) !== null) {
+      if (match[0].toLowerCase().startsWith('</div')) {
+        divCount--;
+        if (divCount === 0) {
+          endIdx = match.index + match[0].length;
+          break;
+        }
+      } else if (match[0].toLowerCase().startsWith('<div')) {
+        divCount++;
+      }
+    }
+
+    if (endIdx !== -1) {
+      let extractedToc = html.substring(startIdx, endIdx);
+      
+      // Fix TOC links: The WP plugin generates absolute URLs like 
+      // href="https://ssim.ac.in/slug/#hash", which breaks Next.js routing.
+      // We convert them to purely relative anchor links href="#hash"
+      extractedToc = extractedToc.replace(/href="[^"]*#/g, 'href="#');
+
+      return {
+        tocHtml: extractedToc,
+        contentWithoutToc: html.substring(0, startIdx) + html.substring(endIdx)
+      };
+    }
+    return { tocHtml: null, contentWithoutToc: html };
+  }, [blog?.content]);
+
+  const processedContent = useMemo(() => {
+    if (!contentWithoutToc) return [];
+
+    const content = contentWithoutToc;
 
     // Find the position right after the 3rd </p> in the entire content
     const pCloseRegex = /<\/p>/gi;
@@ -468,7 +510,7 @@ export default function BlogDetail() {
       {blogSchema && <ArticleSchema {...blogSchema} />}
 
       <div className="min-h-screen bg-slate-50/50 py-16 sm:py-20">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="container mx-auto px-4 max-w-7xl">
           <Button
             variant="ghost"
             className="mb-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50 -ml-2"
@@ -524,7 +566,7 @@ export default function BlogDetail() {
               </div>
             </div>
 
-            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden">
+            <div className="relative aspect-[16/9 w-full rounded-2xl overflow-hidden">
               <img
                 src={blog.imageUrl}
                 alt={blog.imageAlt || blog.title}
@@ -532,10 +574,22 @@ export default function BlogDetail() {
               />
             </div>
 
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-6 sm:p-8 lg:p-12">
-                <div className="blog-content">
-                  {processedContent.map((part) => {
+            <div className="flex flex-col lg:flex-row gap-8 items-start">
+              {/* Left Sidebar - Sticky TOC */}
+              {tocHtml && (
+                <div className="hidden lg:block w-full lg:w-[320px] shrink-0 sticky top-24">
+                  <ScrollArea className="h-[calc(100vh-6rem)] w-full rounded-xl custom-scrollbar text-sm blog-content sidebar-toc-only">
+                    <div dangerouslySetInnerHTML={{ __html: tocHtml }} />
+                  </ScrollArea>
+                </div>
+              )}
+
+              {/* Right Main Content */}
+              <div className="w-full flex-1 min-w-0">
+                <Card className="border-none shadow-lg">
+                  <CardContent className="p-6 sm:p-8 lg:p-12">
+                    <div className="blog-content main-content-no-toc">
+                      {processedContent.map((part) => {
                     if (part.type === "cta") return <MidContentCTA key={part.key} />;
                     if (part.type === "table") {
                       if (typeof window === "undefined")
@@ -568,9 +622,11 @@ export default function BlogDetail() {
                       />
                     );
                   })}
-                </div>
-              </CardContent>
-            </Card>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </article>
 
           <AuthorBio />
