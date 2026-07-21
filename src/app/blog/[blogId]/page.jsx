@@ -577,8 +577,8 @@ export default function BlogDetail() {
             <div className="flex flex-col lg:flex-row gap-8 items-start">
               {/* Left Sidebar - Sticky TOC */}
               {tocHtml && (
-                <div className="hidden lg:block w-full lg:w-[320px] shrink-0 sticky top-24">
-                  <ScrollArea className="h-[calc(100vh-6rem)] w-full rounded-xl custom-scrollbar text-sm blog-content sidebar-toc-only">
+                <div className="hidden lg:block w-full lg:w-[320px] shrink-0 sticky top-6">
+                  <ScrollArea className="h-[calc(100vh-3rem)] w-full rounded-2xl bg-white border-none shadow-lg text-sm blog-content sidebar-toc-only">
                     <div dangerouslySetInnerHTML={{ __html: tocHtml }} />
                   </ScrollArea>
                 </div>

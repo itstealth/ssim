@@ -1448,6 +1448,9 @@ img {
 
 .sidebar-toc-only #ez-toc-container {
   margin: 0 !important; /* Remove top/bottom margin when in sidebar */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .sidebar-toc-only .ez-toc-link {
