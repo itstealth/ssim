@@ -399,6 +399,26 @@ const Overview = () => (
             "Specialization in 3 domains with choice of 50+ Elective subjects",
           icon: Globe,
         },
+        {
+          title: "IBM Professional Certifications",
+          description: "",
+          icon: Award,
+        },
+        {
+          title: "AI & Machine Learning Certifications",
+          description: "",
+          icon: Code,
+        },
+        {
+          title: "World Data Science & AI Certifications",
+          description: "",
+          icon: Globe,
+        },
+        {
+          title: "Hands-on Learning",
+          description: "With Tableau, Power BI, SQL & Python",
+          icon: Code,
+        },
       ].map((item, index) => (
         <motion.div
           key={index}

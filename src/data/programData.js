@@ -1722,6 +1722,21 @@ export const programData = {
         description:
           "Additional modules have been integrated into the program for Batch 2026-28 as highlighted in the client deck.",
       },
+      {
+        title: "NISM Immersion Program, Mumbai",
+        description:
+          "Gain first-hand exposure to India's premier securities market ecosystem through an exclusive industry immersion experience.",
+      },
+      {
+        title: "FinTech & Mortgage Banking Certifications",
+        description:
+          "Stay future-ready with specialized certifications aligned to the evolving BFSI industry.",
+      },
+      {
+        title: "Academic Collaboration with ICMAI",
+        description:
+          "Enhance your financial and management competencies through industry-recognized learning opportunities.",
+      },
     ],
     curriculum: [
       // {
@@ -2038,6 +2053,21 @@ export const programData = {
             title: "2024-26 Internship Snapshot",
             description:
               "Highest stipend: Rs.35,000, lowest stipend: Rs.9,000, average stipend: Rs.17,387.",
+          },
+          {
+            title: "NISM Immersion Program, Mumbai",
+            description:
+              "Gain first-hand exposure to India's premier securities market ecosystem through an exclusive industry immersion experience.",
+          },
+          {
+            title: "FinTech & Mortgage Banking Certifications",
+            description:
+              "Stay future-ready with specialized certifications aligned to the evolving BFSI industry.",
+          },
+          {
+            title: "Academic Collaboration with ICMAI",
+            description:
+              "Enhance your financial and management competencies through industry-recognized learning opportunities.",
           },
         ],
       },
