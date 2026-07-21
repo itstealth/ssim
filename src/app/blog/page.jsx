@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 // import SEO from "@/components/Seo";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ const fetchBlogPosts = async () => {
     const meta = post.meta || {};
     const terms = post._embedded?.['wp:term'] || [];
     const categories = (terms[0] || []).map(t => t.name);
+    const tags = (terms[1] || []).map(t => t.name);
     const authorName = meta.ssim_author_name || 'Siva Sivani Institute of Management';
 
     return {
@@ -38,6 +40,8 @@ const fetchBlogPosts = async () => {
       }),
       readTime: '5 min read',
       category: categories.length > 0 ? categories[0] : 'Uncategorized',
+      categories,
+      tags,
       publishDate: post.date,
       authorName,
       imageUrl: meta.ssim_image_url || '',
@@ -46,7 +50,10 @@ const fetchBlogPosts = async () => {
   });
 };
 
-export default function BlogSection() {
+function BlogContent() {
+  const searchParams = useSearchParams();
+  const filterCategory = searchParams.get('category');
+  const filterTag = searchParams.get('tag');
   const [isVisible, setIsVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
@@ -69,9 +76,23 @@ export default function BlogSection() {
   });
 
   // Client-side pagination logic
-  const totalPosts = allPosts?.length || 0;
+  const filteredPosts = useMemo(() => {
+    if (!allPosts) return [];
+    return allPosts.filter(post => {
+      if (filterCategory && !post.categories.includes(filterCategory)) return false;
+      if (filterTag && !post.tags.includes(filterTag)) return false;
+      return true;
+    });
+  }, [allPosts, filterCategory, filterTag]);
+
+  // Reset to page 1 when filter changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filterCategory, filterTag]);
+
+  const totalPosts = filteredPosts?.length || 0;
   const totalPages = Math.ceil(totalPosts / postsPerPage);
-  const currentPosts = allPosts?.slice(
+  const currentPosts = filteredPosts?.slice(
     (currentPage - 1) * postsPerPage,
     currentPage * postsPerPage
   );
@@ -175,12 +196,11 @@ export default function BlogSection() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-5xl font-bold mb-4 pb-2 bg-clip-text text-transparent bg-mainBlue inline-block">
-              Our recent blogs
+              {filterCategory ? `Category: ${filterCategory}` : filterTag ? `Tag: ${filterTag}` : 'Our recent blogs'}
             </h2>
             <div className="w-20 h-1 bg-mainBlue mx-auto mb-6"></div>
             <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-              Discover insights and knowledge from our expert contributors on
-              topics that matter to you.
+              {filterCategory || filterTag ? `Showing all articles related to ${filterCategory || filterTag}` : 'Discover insights and knowledge from our expert contributors on topics that matter to you.'}
             </p>
           </motion.div>
 
@@ -332,5 +352,14 @@ export default function BlogSection() {
         </div>
       </section>
     </>
+  );
+}
+
+
+export default function BlogSection() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-mainBlue"></div></div>}>
+      <BlogContent />
+    </Suspense>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { ArticleSchema } from "@/components/Schema";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -490,6 +491,10 @@ export default function BlogDetail() {
     ? blog.categories
     : parseJsonField(blog.categories, []);
 
+  const tags = Array.isArray(blog.tags)
+    ? blog.tags
+    : parseJsonField(blog.tags, []);
+
   const readTime = `${Math.ceil(
     ((blog.content || "").split(" ").length || 0) / 200
   )} min read`;
@@ -522,16 +527,38 @@ export default function BlogDetail() {
 
           <article className="space-y-8">
             <div className="space-y-6">
-              <div className="flex gap-2 flex-wrap">
-                {categories.map((category) => (
-                  <Badge
-                    key={category}
-                    variant="secondary"
-                    className="bg-blue-100 text-blue-700 hover:bg-blue-200"
-                  >
-                    {category}
-                  </Badge>
-                ))}
+              <div className="space-y-4">
+                {categories && categories.length > 0 && (
+                  <div className="flex gap-2 flex-wrap items-center">
+                    <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider mr-2">Categories:</span>
+                    {categories.map((category) => (
+                      <Link key={`cat-${category}`} href={`/blog?category=${encodeURIComponent(category)}`}>
+                        <Badge
+                          variant="secondary"
+                          className="bg-blue-100 text-blue-700 hover:bg-blue-200 cursor-pointer"
+                        >
+                          {category}
+                        </Badge>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+                
+                {tags && tags.length > 0 && (
+                  <div className="flex gap-2 flex-wrap items-center">
+                    <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider mr-2">Tags:</span>
+                    {tags.map((tag) => (
+                      <Link key={`tag-${tag}`} href={`/blog?tag=${encodeURIComponent(tag)}`}>
+                        <Badge
+                          variant="outline"
+                          className="text-slate-600 hover:bg-slate-100 hover:text-slate-900 cursor-pointer border-slate-300"
+                        >
+                          # {tag}
+                        </Badge>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <h1
