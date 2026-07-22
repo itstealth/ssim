@@ -105,12 +105,6 @@ function FacultyQuickNav({ items }) {
 function FacultyHero({ member }) {
   const deptLabel = member.department || member.area;
 
-  const stats = [
-    { label: "Experience", value: !isEmptyField(String(member.experience)) ? `${member.experience} Yrs` : null },
-    { label: "Qualification", value: !isEmptyField(member.qualification) ? member.qualification : null },
-    { label: "Department", value: !isEmptyField(deptLabel) ? deptLabel : null },
-  ].filter((s) => s.value);
-
   return (
     <section className="grid lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] gap-10 lg:gap-16 items-center py-10 lg:py-16">
       {/* Portrait */}
@@ -127,18 +121,7 @@ function FacultyHero({ member }) {
             className="w-full h-full object-cover object-top"
           />
         </div>
-        {!isEmptyField(String(member.experience)) && (
-          <div className="mt-4 flex items-center gap-2.5 justify-center lg:justify-start">
-            <span className={`${serif.className} text-2xl font-semibold text-gray-900`}>
-              {member.experience}+
-            </span>
-            <span className="text-[0.72rem] font-medium text-gray-500 leading-tight">
-              Years of
-              <br />
-              Teaching Experience
-            </span>
-          </div>
-        )}
+
       </motion.div>
 
       {/* Identity */}
@@ -168,7 +151,7 @@ function FacultyHero({ member }) {
           </p>
         )}
 
-        <div className="flex flex-wrap items-center gap-3 mb-9">
+        <div className="flex flex-wrap items-center gap-3">
           {!isEmptyField(member.linkedin) && (
             <a
               href={normalizedLink(member.linkedin)}
@@ -190,19 +173,6 @@ function FacultyHero({ member }) {
             </a>
           )}
         </div>
-
-        {stats.length > 0 && (
-          <div className="grid grid-cols-3 max-w-md rounded-xl border border-gray-100 divide-x divide-gray-100 overflow-hidden">
-            {stats.map((s) => (
-              <div key={s.label} className="px-4 py-3">
-                <p className="text-[0.62rem] font-semibold tracking-widest text-gray-400 uppercase mb-1">
-                  {s.label}
-                </p>
-                <p className="text-sm font-semibold text-gray-900 truncate">{s.value}</p>
-              </div>
-            ))}
-          </div>
-        )}
       </motion.div>
     </section>
   );

@@ -134,22 +134,22 @@ export default function Areas() {
                   >
                     <CardContent className="p-8">
                       <div className="flex flex-col md:flex-row items-center gap-8">
-                        <div className="relative">
+                        <div className="relative shrink-0">
                           <div
-                            className="w-40 h-40 rounded-full overflow-hidden ring-2 ring-blue-500/50 ring-offset-4 ring-offset-white
-                            transition-all duration-500 group-hover:ring-blue-500 group-hover:ring-offset-8"
+                            className="w-36 h-44 rounded-2xl overflow-hidden ring-2 ring-blue-500/50 ring-offset-4 ring-offset-white
+                            transition-all duration-500 group-hover:ring-blue-500 group-hover:ring-offset-8 shadow-md"
                           >
                             <img
                               alt={member.name}
                               src={member.image || "/placeholder.svg"}
-                              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                              className="object-cover object-top w-full h-full transition-transform duration-500 group-hover:scale-105"
                             />
                           </div>
                           <div
-                            className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1 text-sm text-gray-600 bg-white/90 
-                           whitespace-nowrap px-3 py-1 rounded-full border border-gray-200"
+                            className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 text-xs font-medium text-gray-700 bg-white/95 
+                           whitespace-nowrap px-3 py-1 rounded-full border border-gray-200 shadow-sm z-10"
                           >
-                            <SchoolIcon className="w-4 h-4" />
+                            <SchoolIcon className="w-3.5 h-3.5 text-blue-600" />
                             <span>{member.qualification}</span>
                           </div>
                         </div>
