@@ -27,7 +27,7 @@ export const metadata = {
         follow: true,
     },
     icons: {
-        icon: "/favicon.png",
+        icon: "/ssim-favicon.png",
     },
     manifest: "/manifest.json",
     category: "education",
