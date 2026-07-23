@@ -90,11 +90,16 @@ const rawTeamMembers = [
   {
     name: "Dr. K.S. Harish",
     area: "Data Science & Information Systems",
-    qualification: "Ph.D, M.Sc.",
-    experience: 32,
+    qualification: "Ph.D., M.Sc., MBA",
+    experience: 30,
     image: DrHari,
-    shortDescription: "Pioneering researcher in machine learning and artificial intelligence. Leads innovative projects in predictive analytics and data mining.",
-    description: "Pioneering researcher in machine learning and artificial intelligence. Leads innovative projects in predictive analytics and data mining.",
+    shortDescription: "Professor of Data Sciences and Program Chair for PGDM (Business Analytics) at SSIM with 30 years of experience.",
+    designation: "Program Chair – PGDM Business Analytics & Professor",
+    department: "Data Science & Information Systems",
+    email: "drharish@ssim.ac.in",
+    memberships: "",
+    awards: "",
+    description: "Dr. K. S. Harish is a Professor of Data Sciences and the Program Chair for the PGDM (Business Analytics) program at SSIM. He holds a Ph.D. from Osmania University, an M.Sc. from Sri Venkateswara University, Tirupati, and an MBA from Pondicherry Central University. His doctoral thesis, titled \"Circular, Quotients and Remainder Distributions for Specified Base Distributions,\" reflects his strong foundation in statistical research.\n\nWith over 30 years of academic and professional experience, Dr. Harish has extensive expertise in teaching and training in the areas of Business Statistics, Operations Research, Business Research Methodology, and Business Analytics. He has also conducted training programs for employees of BHEL and ECIL in the areas of Operations Management, Logistics Management, and Total Quality Management (TQM).\n\nDr. Harish has served as a resource person for several ICSSR-sponsored National Faculty Development Programs (FDPs) on Research Methodology in Social Sciences, organized by Kakatiya University, Rayalaseema University, Sri Krishnadevaraya University, Osmania University, and various Osmania University-affiliated colleges in Hyderabad.\n\nHe has presented research papers at national and international conferences. In addition, he has edited six books, attended various workshops, served as a resource person in Faculty Development Programs, and conducted numerous student development programs.\n\nHis research and teaching interests include Time Series Modelling, Marketing Analytics, Machine Learning, and Business Analytics.",
     linkedin: ""
   },
   {
@@ -175,16 +180,16 @@ const rawTeamMembers = [
   {
     name: "Mr. K. Sreehari",
     area: "Data Science & Information Systems",
-    qualification: "MCA, M.Tech, M.Sc.",
-    experience: 36,
+    qualification: "M.Sc, MCA, M.Tech (CSE)",
+    experience: 33,
     image: SREEHARI,
-    shortDescription: "Experienced in big data analytics and programming. Focuses on developing practical solutions for complex computational problems.",
-    designation: "Associate Professor and Alumni Incharge",
+    shortDescription: "Associate Professor, Controller of Examinations, and Alumni In-charge at SSIM with over 33 years of service.",
+    designation: "Associate Professor, Controller of Examinations & Alumni In-charge",
     department: "Data Science & Information Systems",
     email: "sreehari@ssim.ac.in",
     memberships: "",
     awards: "",
-    description: "Experienced in big data analytics and programming. Focuses on developing practical solutions for complex computational problems.",
+    description: "Mr. K. Sreehari is an Associate Professor, Controller of Examinations, and Alumni In-charge at SSIM, with over 33 years of dedicated service to the institute. He holds an M.Sc. from Gulbarga University, Gulbarga, an MCA from Indira Gandhi National Open University (IGNOU), New Delhi, and an M.Tech. from Jawaharlal Nehru Technological University (JNTU), Anantapur. He has also completed a Certification Program in Business Analytics from Harvard Business School Online (HBS Online).\n\nMr. Sreehari has extensive teaching experience in the areas of Information Systems, Data Management, and Business Analytics. As the Controller of Examinations, he plays a key role in overseeing the institute's examination processes and ensuring the smooth conduct of academic assessments. In his role as Alumni In-charge, he actively fosters strong relationships with SSIM's alumni network, promoting engagement and collaboration between alumni and the institute.\n\nHis current areas of interest include Databases, Computer Applications, Business Analytics, and Data Visualization.\n\nCourses Taught:\n• Advanced Excel for Managers\n• Management Information Systems (MIS)\n• Human Resource Information Systems (HRIS)\n• Visual Analytics using Tableau",
     linkedin: "https://www.linkedin.com/in/sreehari-karanam-aa25052b/"
   },
   {
@@ -238,8 +243,13 @@ const rawTeamMembers = [
     qualification: "PGDBA",
     experience: 22,
     image: rahul,
-    shortDescription: "Specializes in talent management and organizational development. Focuses on employee engagement and leadership development programs.",
-    description: "Specializes in talent management and organizational development. Focuses on employee engagement and leadership development programs.",
+    shortDescription: "Senior Manager – Corporate Relations & Placements and Assistant Professor – HRM at SSIM with 22 years of experience.",
+    designation: "Sr. Manager Corporate Relations and Placements, Asst. Prof. HR",
+    department: "HR & Strategy",
+    email: "rahul@ssim.ac.in",
+    memberships: "CII, NHRDN",
+    awards: "Unparalleled Dedication Award (Teachers' Day, 2015), Best Alumni Award (SNEHA – 2022)",
+    description: "Mr. Rahul Jain serves as Senior Manager – Corporate Relations and Placements and Assistant Professor – Human Resource Management at Siva Sivani Institute of Management (SSIM), Hyderabad. An alumnus of SSIM, he holds a Post Graduate Diploma in Business Administration (PGDBA) from the institute and a Bachelor of Commerce from Aurora's Degree College, Hyderabad.\n\nWith over 19 years of dedicated service at SSIM, Mr. Jain has played a significant role in strengthening industry–institute relationships, facilitating campus placements, and mentoring management students for successful careers. His expertise spans corporate relations, placement strategy, student development, and human resource management.\n\nA lifelong learner, Mr. Jain actively participates in professional forums such as CII and NHRDN and regularly pursues certifications to stay abreast of evolving industry practices and emerging trends. He is known for his adaptability, commitment to continuous improvement, and focus on enhancing institutional processes and student employability.\n\nBeyond his professional responsibilities, Mr. Jain has a keen interest in reading, drawing, painting, and creative writing. His dedication and contributions have been recognized with the Unparalleled Dedication Award (Teachers' Day, 2015) from the Siva Sivani Group of Institutions and the Best Alumni Award (SNEHA – 2022) from SSIM, reflecting his enduring commitment to the institution and its academic community.",
     linkedin: ""
   },
   {
