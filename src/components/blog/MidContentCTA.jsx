@@ -36,8 +36,15 @@ export function MidContentCTA() {
         <div className="flex gap-2 flex-shrink-0 self-start sm:self-center">
           <Link
             href="/admissions/pgdm-triple-specialisation"
-            className="inline-flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
-            style={{ border: "1px solid rgba(255,255,255,0.25)", color: "#e2e8f0" }}
+            className="mid-cta-btn"
+            style={{
+              background: "rgb(196, 154, 42)",
+              color: "rgb(0, 31, 63)",
+              textDecoration: "none",
+              padding: "10px 16px",
+              borderRadius: "5px",
+              display: "inline-flex",
+            }}
           >
             Explore Programmes
           </Link>
@@ -45,8 +52,15 @@ export function MidContentCTA() {
             href="https://apply.ssim.ac.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg transition-opacity hover:opacity-90 whitespace-nowrap"
-            style={{ background: "#C49A2A", color: "#001f3f" }}
+            className="mid-cta-btn"
+            style={{
+              background: "rgb(196, 154, 42)",
+              color: "rgb(0, 31, 63)",
+              textDecoration: "none",
+              padding: "10px 16px",
+              borderRadius: "5px",
+              display: "inline-flex",
+            }}
           >
             Apply Now →
           </a>

@@ -20,7 +20,7 @@ import {
   TableFooter,
   TableCaption,
 } from "@/components/ui/table";
-import { Clock, Calendar, ArrowLeft } from "lucide-react";
+import { Clock, Calendar, ArrowLeft, List, ChevronDown, ChevronUp } from "lucide-react";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 import { MidContentCTA } from "@/components/blog/MidContentCTA";
 import { AuthorBio } from "@/components/blog/AuthorBio";
@@ -75,6 +75,7 @@ export default function BlogDetail() {
 
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isMobileTocOpen, setIsMobileTocOpen] = useState(false);
 
   const {
     data: blog,
@@ -527,40 +528,6 @@ export default function BlogDetail() {
 
           <article className="space-y-8">
             <div className="space-y-6">
-              <div className="space-y-4">
-                {categories && categories.length > 0 && (
-                  <div className="flex gap-2 flex-wrap items-center">
-                    <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider mr-2">Categories:</span>
-                    {categories.map((category) => (
-                      <Link key={`cat-${category}`} href={`/blog?category=${encodeURIComponent(category)}`}>
-                        <Badge
-                          variant="secondary"
-                          className="bg-blue-100 text-blue-700 hover:bg-blue-200 cursor-pointer"
-                        >
-                          {category}
-                        </Badge>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-                
-                {tags && tags.length > 0 && (
-                  <div className="flex gap-2 flex-wrap items-center">
-                    <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider mr-2">Tags:</span>
-                    {tags.map((tag) => (
-                      <Link key={`tag-${tag}`} href={`/blog?tag=${encodeURIComponent(tag)}`}>
-                        <Badge
-                          variant="outline"
-                          className="text-slate-600 hover:bg-slate-100 hover:text-slate-900 cursor-pointer border-slate-300"
-                        >
-                          # {tag}
-                        </Badge>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
               <h1
                 className="text-3xl sm:text-5xl font-bold text-mainBlue leading-tight"
                 dangerouslySetInnerHTML={{ __html: blog.title }}
@@ -593,7 +560,7 @@ export default function BlogDetail() {
               </div>
             </div>
 
-            <div className="relative aspect-[16/9 w-full rounded-2xl overflow-hidden">
+            <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden">
               <img
                 src={blog.imageUrl}
                 alt={blog.imageAlt || blog.title}
@@ -602,7 +569,7 @@ export default function BlogDetail() {
             </div>
 
             <div className="flex flex-col lg:flex-row gap-8 items-start">
-              {/* Left Sidebar - Sticky TOC */}
+              {/* Left Sidebar - Sticky TOC (Desktop) */}
               {tocHtml && (
                 <div className="hidden lg:block w-full lg:w-[320px] shrink-0 sticky top-6">
                   <ScrollArea className="h-[calc(100vh-3rem)] w-full rounded-2xl bg-white border-none shadow-lg text-sm blog-content sidebar-toc-only">
@@ -613,48 +580,112 @@ export default function BlogDetail() {
 
               {/* Right Main Content */}
               <div className="w-full flex-1 min-w-0">
+                {/* Mobile / Tablet Collapsible TOC (< lg screens) */}
+                {tocHtml && (
+                  <div className="block lg:hidden w-full mb-6 rounded-2xl bg-white p-4 sm:p-5 shadow-md border border-slate-200/80 text-sm blog-content sidebar-toc-only mobile-toc-hide-title">
+                    <button
+                      type="button"
+                      onClick={() => setIsMobileTocOpen((prev) => !prev)}
+                      className="w-full flex items-center justify-between font-bold text-mainBlue text-base focus:outline-none cursor-pointer"
+                      aria-expanded={isMobileTocOpen}
+                    >
+                      <span className="flex items-center gap-2">
+                        <List className="w-5 h-5 text-blue-600" />
+                        <span>Table of Contents</span>
+                      </span>
+                      {isMobileTocOpen ? (
+                        <ChevronUp className="w-5 h-5 text-slate-500 transition-transform duration-200" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-slate-500 transition-transform duration-200" />
+                      )}
+                    </button>
+
+                    {isMobileTocOpen && (
+                      <div className="mt-3 pt-3 border-t border-slate-100 animate-in fade-in duration-200">
+                        <div dangerouslySetInnerHTML={{ __html: tocHtml }} />
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 <Card className="border-none shadow-lg">
                   <CardContent className="p-6 sm:p-8 lg:p-12">
                     <div className="blog-content main-content-no-toc">
                       {processedContent.map((part) => {
-                    if (part.type === "cta") return <MidContentCTA key={part.key} />;
-                    if (part.type === "table") {
-                      if (typeof window === "undefined")
-                        return <div key={part.key} dangerouslySetInnerHTML={{ __html: part.content }} />;
-                      try {
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(part.content, "text/html");
-                        const tableEl = doc.querySelector("table");
-                        if (!tableEl)
-                          return (
-                            <div
-                              key={part.key}
-                              dangerouslySetInnerHTML={{ __html: part.content }}
-                            />
-                          );
-                        return <div key={part.key}>{convertTableToComponent(tableEl)}</div>;
-                      } catch {
+                        if (part.type === "cta") return <MidContentCTA key={part.key} />;
+                        if (part.type === "table") {
+                          if (typeof window === "undefined")
+                            return <div key={part.key} dangerouslySetInnerHTML={{ __html: part.content }} />;
+                          try {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(part.content, "text/html");
+                            const tableEl = doc.querySelector("table");
+                            if (!tableEl)
+                              return (
+                                <div
+                                  key={part.key}
+                                  dangerouslySetInnerHTML={{ __html: part.content }}
+                                />
+                              );
+                            return <div key={part.key}>{convertTableToComponent(tableEl)}</div>;
+                          } catch {
+                            return (
+                              <div
+                                key={part.key}
+                                dangerouslySetInnerHTML={{ __html: part.content }}
+                              />
+                            );
+                          }
+                        }
                         return (
                           <div
                             key={part.key}
                             dangerouslySetInnerHTML={{ __html: part.content }}
                           />
                         );
-                      }
-                    }
-                    return (
-                      <div
-                        key={part.key}
-                        dangerouslySetInnerHTML={{ __html: part.content }}
-                      />
-                    );
-                  })}
+                      })}
                     </div>
                   </CardContent>
                 </Card>
               </div>
             </div>
           </article>
+
+          {((categories && categories.length > 0) || (tags && tags.length > 0)) && (
+            <div className="my-8 p-6 bg-white rounded-2xl shadow-sm border border-slate-200/80 space-y-4">
+              {categories && categories.length > 0 && (
+                <div className="flex gap-2 flex-wrap items-center">
+                  <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider mr-2">Categories:</span>
+                  {categories.map((category) => (
+                    <Link key={`cat-${category}`} href={`/blog?category=${encodeURIComponent(category)}`}>
+                      <Badge
+                        variant="secondary"
+                        className="bg-blue-100 text-blue-700 hover:bg-blue-200 cursor-pointer"
+                      >
+                        {category}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              )}
+              
+              {tags && tags.length > 0 && (
+                <div className="flex gap-2 flex-wrap items-center">
+                  <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider mr-2">Tags:</span>
+                  {tags.map((tag) => (
+                    <Link key={`tag-${tag}`} href={`/blog?tag=${encodeURIComponent(tag)}`}>
+                      <Badge
+                        variant="outline"
+                        className="text-slate-600 hover:bg-slate-100 hover:text-slate-900 cursor-pointer border-slate-300"
+                      >
+                        # {tag}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           <AuthorBio />
           <BlogCTA />

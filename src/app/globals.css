@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -38,10 +44,12 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -74,9 +82,12 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) scale(0.9);
   }
+
   50% {
     transform: translateY(-10px) scale(0.9);
   }
@@ -97,50 +108,57 @@
 }
 
 .hide-scrollbar {
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
+  display: none;
+  /* For Chrome, Safari, and Opera */
 }
 
 img {
-	max-width: 100%;
-	height: auto;
-	vertical-align: middle;
-	display: inline-block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 /* Main CSS */
-.grid-wrapper > div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.grid-wrapper>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.grid-wrapper > div > img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 5px;
+
+.grid-wrapper>div>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .grid-wrapper {
-	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-auto-rows: 200px;
-	grid-auto-flow: dense;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
 }
+
 .grid-wrapper .wide {
-	grid-column: span 2;
+  grid-column: span 2;
 }
+
 .grid-wrapper .tall {
-	grid-row: span 2;
+  grid-row: span 2;
 }
+
 .grid-wrapper .big {
-	grid-column: span 2;
-	grid-row: span 2;
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 /* Add this to your existing @index.css */
@@ -151,7 +169,7 @@ img {
 
 .invisible-scrollbar::-webkit-scrollbar {
   width: 0px;
-  
+
 }
 
 .invisible-scrollbar::-webkit-scrollbar-track {
@@ -174,7 +192,7 @@ img {
 }
 
 .alumni_network_count ul {
-  justify-content: center!important;
+  justify-content: center !important;
 }
 
 /* TipTap Editor Styles - REMOVED DUPLICATES (kept consolidated version below) */
@@ -388,7 +406,7 @@ img {
   counter-reset: item !important;
 }
 
-.ProseMirror ol > li {
+.ProseMirror ol>li {
   display: list-item !important;
   list-style-type: decimal !important;
   list-style-position: outside !important;
@@ -403,7 +421,7 @@ img {
   list-style-position: outside !important;
 }
 
-.ProseMirror ul > li {
+.ProseMirror ul>li {
   display: list-item !important;
   list-style-type: disc !important;
   list-style-position: outside !important;
@@ -416,41 +434,41 @@ img {
 }
 
 /* Support multiple paragraphs within list items */
-.ProseMirror li > p {
+.ProseMirror li>p {
   margin: 0 !important;
   margin-bottom: 0.5rem !important;
   display: block !important;
 }
 
-.ProseMirror li > p:first-child {
+.ProseMirror li>p:first-child {
   margin-top: 0 !important;
 }
 
-.ProseMirror li > p:last-child {
+.ProseMirror li>p:last-child {
   margin-bottom: 0 !important;
 }
 
 /* Style for list item titles (first paragraph, often bold) */
-.ProseMirror li > p:first-child:has(strong) {
+.ProseMirror li>p:first-child:has(strong) {
   font-weight: 600;
   margin-bottom: 0.5rem !important;
 }
 
 /* If list item has only one paragraph AND no nested lists, keep it inline */
-.ProseMirror li > p:only-child {
+.ProseMirror li>p:only-child {
   display: inline !important;
   margin: 0 !important;
 }
 
 /* If list item has paragraph(s) AND nested lists, ensure proper spacing */
-.ProseMirror li:has(ul) > p,
-.ProseMirror li:has(ol) > p {
+.ProseMirror li:has(ul)>p,
+.ProseMirror li:has(ol)>p {
   display: block !important;
   margin-bottom: 0.5rem !important;
 }
 
-.ProseMirror li:has(ul) > p:last-of-type,
-.ProseMirror li:has(ol) > p:last-of-type {
+.ProseMirror li:has(ul)>p:last-of-type,
+.ProseMirror li:has(ol)>p:last-of-type {
   margin-bottom: 0.5rem !important;
 }
 
@@ -504,21 +522,21 @@ img {
 }
 
 /* Ensure proper spacing between all elements */
-.blog-content > * + * {
+.blog-content>*+* {
   margin-top: 1rem;
 }
 
 /* Larger spacing after headings */
-.blog-content h1 + *,
-.blog-content h2 + *,
-.blog-content h3 + * {
+.blog-content h1+*,
+.blog-content h2+*,
+.blog-content h3+* {
   margin-top: 1.5rem !important;
 }
 
 /* Tighter spacing between heading and paragraph */
-.blog-content h4 + p,
-.blog-content h5 + p,
-.blog-content h6 + p {
+.blog-content h4+p,
+.blog-content h5+p,
+.blog-content h6+p {
   margin-top: 0.75rem !important;
 }
 
@@ -618,15 +636,15 @@ img {
 }
 
 /* Shadcn Table wrapper - ensure responsive scrolling */
-.blog-content > div > div[class*="overflow-x-auto"],
-.blog-content > div > div[class*="overflow-auto"] {
+.blog-content>div>div[class*="overflow-x-auto"],
+.blog-content>div>div[class*="overflow-auto"] {
   @apply w-full;
   max-width: 100%;
 }
 
 /* Ensure tables don't break layout */
-.blog-content > div > div[class*="overflow-x-auto"] > table,
-.blog-content > div > div[class*="overflow-auto"] > table {
+.blog-content>div>div[class*="overflow-x-auto"]>table,
+.blog-content>div>div[class*="overflow-auto"]>table {
   @apply min-w-full;
   @apply border border-slate-200 rounded-lg;
 }
@@ -836,8 +854,8 @@ img {
 }
 
 /* List Items - Ordered */
-.blog-content ol > li,
-.blog-content .prose ol > li {
+.blog-content ol>li,
+.blog-content .prose ol>li {
   display: list-item !important;
   list-style-type: decimal !important;
   list-style-position: outside !important;
@@ -847,8 +865,8 @@ img {
 }
 
 /* List Items - Unordered */
-.blog-content ul > li,
-.blog-content .prose ul > li {
+.blog-content ul>li,
+.blog-content .prose ul>li {
   display: list-item !important;
   list-style-type: disc !important;
   list-style-position: outside !important;
@@ -865,58 +883,58 @@ img {
 }
 
 /* List markers should be visible */
-.blog-content ul > li::marker,
-.blog-content ol > li::marker {
+.blog-content ul>li::marker,
+.blog-content ol>li::marker {
   @apply text-slate-500;
   font-weight: 600;
 }
 
 /* Support multiple paragraphs within list items on frontend */
-.blog-content li > p,
-.blog-content .prose li > p {
+.blog-content li>p,
+.blog-content .prose li>p {
   display: block !important;
   margin: 0 !important;
   margin-bottom: 0.5rem !important;
 }
 
-.blog-content li > p:first-child,
-.blog-content .prose li > p:first-child {
+.blog-content li>p:first-child,
+.blog-content .prose li>p:first-child {
   margin-top: 0 !important;
 }
 
-.blog-content li > p:last-child,
-.blog-content .prose li > p:last-child {
+.blog-content li>p:last-child,
+.blog-content .prose li>p:last-child {
   margin-bottom: 0 !important;
 }
 
 /* Style for list item titles (first paragraph with bold text) */
-.blog-content li > p:first-child strong,
-.blog-content .prose li > p:first-child strong {
+.blog-content li>p:first-child strong,
+.blog-content .prose li>p:first-child strong {
   font-weight: 700 !important;
   font-size: 1.05em;
   @apply text-slate-900;
 }
 
 /* If list item has only one paragraph AND no nested lists, keep it inline */
-.blog-content li > p:only-child,
-.blog-content .prose li > p:only-child {
+.blog-content li>p:only-child,
+.blog-content .prose li>p:only-child {
   display: inline !important;
   margin: 0 !important;
 }
 
 /* If list item has paragraph(s) AND nested lists, ensure proper spacing */
-.blog-content li:has(ul) > p,
-.blog-content li:has(ol) > p,
-.blog-content .prose li:has(ul) > p,
-.blog-content .prose li:has(ol) > p {
+.blog-content li:has(ul)>p,
+.blog-content li:has(ol)>p,
+.blog-content .prose li:has(ul)>p,
+.blog-content .prose li:has(ol)>p {
   display: block !important;
   margin-bottom: 0.5rem !important;
 }
 
-.blog-content li:has(ul) > p:last-of-type,
-.blog-content li:has(ol) > p:last-of-type,
-.blog-content .prose li:has(ul) > p:last-of-type,
-.blog-content .prose li:has(ol) > p:last-of-type {
+.blog-content li:has(ul)>p:last-of-type,
+.blog-content li:has(ol)>p:last-of-type,
+.blog-content .prose li:has(ul)>p:last-of-type,
+.blog-content .prose li:has(ol)>p:last-of-type {
   margin-bottom: 0.5rem !important;
 }
 
@@ -985,8 +1003,8 @@ img {
    =================================== */
 
 /* Regular text links */
-.blog-content a:not([download]):not([href*="/documents/"]),
-.blog-content .prose a:not([download]):not([href*="/documents/"]) {
+.blog-content a:not([download]):not([href*="/documents/"]):not(.mid-cta-btn),
+.blog-content .prose a:not([download]):not([href*="/documents/"]):not(.mid-cta-btn) {
   @apply text-blue-600;
   @apply hover:text-blue-700;
   @apply underline decoration-blue-300;
@@ -999,8 +1017,34 @@ img {
   display: inline !important;
 }
 
-.blog-content a:visited:not([download]):not([href*="/documents/"]) {
+.blog-content a:visited:not([download]):not([href*="/documents/"]):not(.mid-cta-btn) {
   @apply text-purple-600;
+}
+
+/* MidContentCTA Buttons */
+.blog-content a.mid-cta-btn,
+.blog-content .mid-cta-btn,
+.mid-cta-btn {
+  background: rgb(196, 154, 42) !important;
+  color: rgb(0, 31, 63) !important;
+  text-decoration: none !important;
+  padding: 10px 16px !important;
+  border-radius: 5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  border: none !important;
+}
+
+.blog-content a.mid-cta-btn:hover,
+.blog-content .mid-cta-btn:hover,
+.mid-cta-btn:hover {
+  opacity: 0.9 !important;
+  color: rgb(0, 31, 63) !important;
+  text-decoration: none !important;
 }
 
 /* Horizontal rules */
@@ -1115,7 +1159,7 @@ img {
 }
 
 /* First paragraph styling (optional - makes first para stand out) */
-.blog-content > p:first-of-type {
+.blog-content>p:first-of-type {
   @apply text-lg font-medium text-slate-800;
 }
 
@@ -1124,19 +1168,19 @@ img {
   .blog-content {
     @apply text-base;
   }
-  
+
   .blog-content img {
     @apply my-6;
   }
-  
+
   .blog-content pre {
     @apply p-4 text-sm;
   }
-  
+
   .blog-content table {
     @apply text-sm;
   }
-  
+
   .blog-content table th,
   .blog-content table td {
     @apply px-3 py-2;
@@ -1152,8 +1196,13 @@ img {
 }
 
 @keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* RECRUITER SCROLL */
@@ -1164,8 +1213,13 @@ img {
 }
 
 @keyframes scroll-logos {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* NAV UNDERLINE */
@@ -1182,7 +1236,11 @@ img {
   transition: color 0.2s;
   white-space: nowrap;
 }
-.nav-link-item:hover { color: var(--blue); }
+
+.nav-link-item:hover {
+  color: var(--blue);
+}
+
 .nav-link-item::after {
   content: '';
   position: absolute;
@@ -1195,7 +1253,10 @@ img {
   transform: scaleX(0);
   transition: transform 0.25s;
 }
-.nav-link-item:hover::after { transform: scaleX(1); }
+
+.nav-link-item:hover::after {
+  transform: scaleX(1);
+}
 
 .nav-link-trigger {
   display: inline-flex;
@@ -1204,6 +1265,7 @@ img {
   line-height: 1;
   vertical-align: middle;
 }
+
 .nav-link-trigger svg {
   flex-shrink: 0;
   margin-top: 1px;
@@ -1216,20 +1278,24 @@ img {
   gap: 10px;
   width: 100%;
 }
+
 .nav-sub-trigger svg {
   flex-shrink: 0;
   margin-top: 1px;
 }
 
 /* DROPDOWN */
-.nav-group { position: relative; }
+.nav-group {
+  position: relative;
+}
+
 .nav-group .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
   background: #fff;
   min-width: 220px;
-  box-shadow: 0 12px 40px rgba(16,34,105,.15);
+  box-shadow: 0 12px 40px rgba(16, 34, 105, .15);
   border-top: 3px solid var(--blue);
   border-radius: 0 0 10px 10px;
   opacity: 0;
@@ -1238,11 +1304,13 @@ img {
   transition: all 0.2s;
   z-index: 999;
 }
+
 .nav-group:hover .dropdown {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
 }
+
 .dropdown a {
   display: block;
   padding: 11px 20px;
@@ -1252,12 +1320,17 @@ img {
   border-bottom: 1px solid var(--border);
   transition: all 0.15s;
 }
-.dropdown a:last-child { border-bottom: none; }
+
+.dropdown a:last-child {
+  border-bottom: none;
+}
+
 .dropdown a:hover {
   background: var(--sky);
   color: var(--blue);
   padding-left: 26px;
 }
+
 .dropdown a.nav-sub-trigger {
   display: flex;
   align-items: center;
@@ -1274,6 +1347,7 @@ img {
   overflow: hidden;
   transition: all 0.3s;
 }
+
 .why-card::before {
   content: '';
   position: absolute;
@@ -1286,13 +1360,21 @@ img {
   transform-origin: left;
   transition: transform 0.3s;
 }
-.why-card:hover::before { transform: scaleX(1); }
-.why-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(16,34,105,.09); }
+
+.why-card:hover::before {
+  transform: scaleX(1);
+}
+
+.why-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(16, 34, 105, .09);
+}
 
 /* TEST CARD QUOTE */
 .test-card {
   position: relative;
 }
+
 .test-card::before {
   content: '"';
   position: absolute;
@@ -1314,6 +1396,7 @@ img {
   position: relative;
   padding-bottom: 10px;
 }
+
 .footer-heading::after {
   content: '';
   position: absolute;
@@ -1327,9 +1410,15 @@ img {
 
 /* Recruiter Logo Auto-Scroll Animation */
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
@@ -1349,6 +1438,12 @@ img {
   display: block !important;
 }
 
+@media (max-width: 640px) {
+  .blog-content #ez-toc-container {
+    padding: 0.5rem !important;
+  }
+}
+
 .blog-content .ez-toc-title-container {
   display: flex !important;
   align-items: center !important;
@@ -1362,7 +1457,8 @@ img {
 .blog-content .ez-toc-title {
   font-size: 1.25rem !important;
   font-weight: 700 !important;
-  color: #002F87 !important; /* Theme mainBlue */
+  color: #002F87 !important;
+  /* Theme mainBlue */
   margin: 0 !important;
 }
 
@@ -1451,14 +1547,20 @@ img {
    ========================================= */
 
 .sidebar-toc-only #ez-toc-container {
-  margin: 0 !important; /* Remove top/bottom margin when in sidebar */
+  margin: 0 !important;
+  /* Remove top/bottom margin when in sidebar */
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
+.mobile-toc-hide-title .ez-toc-title-container {
+  display: none !important;
+}
+
 .sidebar-toc-only .ez-toc-link {
-  font-size: 0.875rem !important; /* text-sm equivalent */
+  font-size: 0.875rem !important;
+  /* text-sm equivalent */
   line-height: 1.25rem !important;
 }
 
@@ -1468,5 +1570,3 @@ img {
     display: none !important;
   }
 }
-
-
