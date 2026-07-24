@@ -26,6 +26,7 @@ const cognizant = "/Home/cognizant.svg";
 const dabur = "/Home/dabur.png";
 const innova = "/Home/innova-logo.svg";
 import Link from "next/link";
+import Image from "next/image";
 
 // Testimonials data
 const testimonials = [
@@ -272,10 +273,13 @@ const AlumniSection = () => {
                   }}
                   onClick={() => !isActive && handleImageClick(index)}
                 >
-                  <img
+                  <Image
                     src={image}
                     alt={`Testimonial ${index + 1}`}
+                    width={144}
+                    height={144}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               );
@@ -314,10 +318,13 @@ const AlumniSection = () => {
                 {activeTestimonial.name}
               </p>
               <p className="text-sm text-gray-500">{activeTestimonial.role}</p>
-              <img
+              <Image
                 src={activeTestimonial.company}
                 alt="Company Logo"
-                className="mt-5 h-10"
+                width={120}
+                height={40}
+                className="mt-5 h-10 w-auto object-contain"
+                loading="lazy"
               />
             </div>
           </div>

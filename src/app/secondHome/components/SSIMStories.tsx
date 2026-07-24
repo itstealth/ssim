@@ -105,6 +105,7 @@ export default function SSIMStories() {
               src={slide.thumbnail}
               alt={slide.alt}
               fill
+              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover transform group-hover:scale-110 transition-transform duration-300"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />

@@ -181,10 +181,13 @@ export default function Navbar() {
     <nav className="sticky top-0 z-10 bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-4 md:px-10 flex items-center justify-between h-[76px]">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
-        <img
+        <Image
           src="/logo-transparent.png"
           alt="SSIM Logo"
-          className="h-10 w-[200px]"
+          width={200}
+          height={40}
+          priority
+          className="h-10 w-auto"
         />
         <div className={`w-[52px] h-[52px] rounded-xl grid place-items-center text-white font-playfair text-xl font-extrabold flex-shrink-0 ${isSecondHome ? 'bg-gradient-to-br from-purple-700 to-[#1B50EC]' : isThirdHome ? 'bg-gradient-to-br from-purple-500 to-fuchsia-500' : 'bg-navy'}`} style={{ display: 'none' }}>
           S

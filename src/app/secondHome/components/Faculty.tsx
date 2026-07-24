@@ -283,6 +283,7 @@ export default function Faculty() {
                       style={{ objectPosition: 'center 16%' }}
                       sizes="(max-width: 640px) 75vw, (max-width: 1024px) 28vw, 240px"
                       priority={false}
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-4">

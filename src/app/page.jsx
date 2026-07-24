@@ -1,20 +1,69 @@
+import dynamic from 'next/dynamic'
 import HeroSection from '@/components/HeroSection'
-import Recruiters from './secondHome/components/Recruiters'
-import About from './secondHome/components/About'
-import Timeline from './secondHome/components/Timeline'
-import Programs from './secondHome/components/Programs'
-import CampusLife from './secondHome/components/CampusLife'
-import Scholarship from './secondHome/components/Scholarship'
-import StatsBanner from './secondHome/components/StatsBanner'
-import Placements from './secondHome/components/Placements'
-import WhySSIM from './secondHome/components/WhySSIM'
-import Faculty from './secondHome/components/Faculty'
-import SSIMStories from './secondHome/components/SSIMStories'
-import Testimonials from './secondHome/components/Testimonials'
-import CTASection from './secondHome/components/CTASection'
-import AlumniSection from "@/pages/Home/AlumniSection"
-import HomeFAQ from './secondHome/components/HomeFAQ'
-import IndustryExperts from "./secondHome/components/IndustryExperts"
+
+const SectionLoader = ({ height = "min-h-[200px]" }) => (
+  <div className={`w-full ${height}`} />
+);
+
+const Recruiters = dynamic(() => import('./secondHome/components/Recruiters'), {
+  loading: () => <SectionLoader height="min-h-[120px]" />,
+});
+
+const About = dynamic(() => import('./secondHome/components/About'), {
+  loading: () => <SectionLoader height="min-h-[400px]" />,
+});
+
+const Timeline = dynamic(() => import('./secondHome/components/Timeline'), {
+  loading: () => <SectionLoader height="min-h-[300px]" />,
+});
+
+const Programs = dynamic(() => import('./secondHome/components/Programs'), {
+  loading: () => <SectionLoader height="min-h-[500px]" />,
+});
+
+const CampusLife = dynamic(() => import('./secondHome/components/CampusLife'), {
+  loading: () => <SectionLoader height="min-h-[400px]" />,
+});
+
+const Scholarship = dynamic(() => import('./secondHome/components/Scholarship'), {
+  loading: () => <SectionLoader height="min-h-[300px]" />,
+});
+
+const StatsBanner = dynamic(() => import('./secondHome/components/StatsBanner'), {
+  loading: () => <SectionLoader height="min-h-[150px]" />,
+});
+
+const Placements = dynamic(() => import('./secondHome/components/Placements'), {
+  loading: () => <SectionLoader height="min-h-[400px]" />,
+});
+
+const WhySSIM = dynamic(() => import('./secondHome/components/WhySSIM'), {
+  loading: () => <SectionLoader height="min-h-[350px]" />,
+});
+
+const Faculty = dynamic(() => import('./secondHome/components/Faculty'), {
+  loading: () => <SectionLoader height="min-h-[400px]" />,
+});
+
+const SSIMStories = dynamic(() => import('./secondHome/components/SSIMStories'), {
+  loading: () => <SectionLoader height="min-h-[350px]" />,
+});
+
+const IndustryExperts = dynamic(() => import('./secondHome/components/IndustryExperts'), {
+  loading: () => <SectionLoader height="min-h-[300px]" />,
+});
+
+const AlumniSection = dynamic(() => import('@/pages/Home/AlumniSection'), {
+  loading: () => <SectionLoader height="min-h-[350px]" />,
+});
+
+const HomeFAQ = dynamic(() => import('./secondHome/components/HomeFAQ'), {
+  loading: () => <SectionLoader height="min-h-[300px]" />,
+});
+
+const CTASection = dynamic(() => import('./secondHome/components/CTASection'), {
+  loading: () => <SectionLoader height="min-h-[250px]" />,
+});
 
 export default function SecondHome() {
   return (
@@ -31,11 +80,10 @@ export default function SecondHome() {
       <WhySSIM />
       <Faculty />
       <SSIMStories />
-      <IndustryExperts/>
-      {/* <Testimonials /> */}
-      <AlumniSection/>
+      <IndustryExperts />
+      <AlumniSection />
       <HomeFAQ />
       <CTASection />
     </>
-  )
+  );
 }

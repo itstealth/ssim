@@ -26,7 +26,14 @@ export default function Recruiters() {
           <div className="flex gap-12 animate-scroll">
             {[...recruiters, ...recruiters].map((r, i) => (
               <div key={i} className="flex-shrink-0 flex items-center justify-center">
-                <img src={r.logo} alt={r.name} className="h-12 w-auto object-contain" style={{ width: 'auto' }} />
+                <Image
+                  src={r.logo}
+                  alt={r.name}
+                  width={112}
+                  height={48}
+                  className="h-12 w-auto object-contain"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>

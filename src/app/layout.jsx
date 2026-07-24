@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import QueryProvider from "@/components/QueryProvider";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
@@ -10,11 +11,13 @@ import ConditionalLayout from "@/components/ConditionalLayout";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -80,23 +83,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-5LJR499N');`,
-          }}
-        />
-        {/* End Google Tag Manager */}
+        {/* Preload Hero Banner Images for LCP */}
+        <link rel="preload" as="image" href="/hero-sm.png" media="(max-width: 767px)" type="image/png" />
+        <link rel="preload" as="image" href="/banner.png" media="(min-width: 768px)" type="image/png" />
         {/* Homepage @graph Schema — Organization + WebSite */}
         <HomepageSchema />
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
         <DynamicSchema />
       </head>
-      <GoogleTagManager gtmId="GTM-TQZNQ47" />
+      <GoogleTagManager gtmId="GTM-5LJR499N" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -110,12 +105,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <script type="text/javascript">
-          var npf_d='https://apply.ssim.ac.in'; var npf_c='277'; var npf_m='1';
-          var s=document.createElement("script"); s.type="text/javascript";
-          s.async=true; s.src="https://track.nopaperforms.com/js/track.js";
-          document.body.appendChild(s);
-        </script>
+        <Script id="nopaperforms-config" strategy="lazyOnload">
+          {`var npf_d='https://apply.ssim.ac.in'; var npf_c='277'; var npf_m='1';`}
+        </Script>
+        <Script
+          src="https://track.nopaperforms.com/js/track.js"
+          strategy="lazyOnload"
+        />
         <QueryProvider>
           <ConditionalLayout>{children}</ConditionalLayout>
           <Toaster />

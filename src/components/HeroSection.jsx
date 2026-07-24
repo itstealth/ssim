@@ -1,4 +1,4 @@
-"use client";
+import Image from "next/image";
 
 const HeroSection = ({
   desktopImageSrc = "/banner.png",
@@ -9,18 +9,28 @@ const HeroSection = ({
   return (
     <section className={`relative w-full overflow-hidden flex flex-col ${className}`}>
       {/* Desktop Image */}
-      <img
-        src={desktopImageSrc}
-        alt={altText}
-        className="w-full h-auto object-cover object-center hidden md:block"
-      />
+      <div className="hidden md:block relative w-full aspect-[1920/600]">
+        <Image
+          src={desktopImageSrc}
+          alt={altText}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
       
-      {/* Mobile Image */}
-      <img
-        src={mobileImageSrc}
-        alt={altText}
-        className="w-full h-auto object-cover object-center block md:hidden"
-      />
+      {/* Mobile Image (Primary LCP Element) */}
+      <div className="block md:hidden relative w-full aspect-[768/1024]">
+        <Image
+          src={mobileImageSrc}
+          alt={altText}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
     </section>
   );
 };
