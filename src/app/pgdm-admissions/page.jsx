@@ -63,7 +63,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <title>PGDM Admissions 2026–2028 | SSIM Hyderabad | Top B-School in Telangana</title>
       <meta name="description" content="Apply for PGDM 2026-2028 at SSIM Hyderabad. NBA Accredited, AICTE Approved. Ranked 2nd in Telangana & 21st among Private B-Schools in India. 100% Placement Support." />
       <style dangerouslySetInnerHTML={{ __html: `
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
   body { font-family:'DM Sans',sans-serif; overflow-x:hidden; }
   .font-display { font-family:'Playfair Display',serif; }
   .faq-body { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .3s; }
