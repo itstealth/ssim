@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import QueryProvider from "@/components/QueryProvider";
@@ -16,6 +16,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
 });
@@ -84,8 +90,8 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Preload Hero Banner Images for LCP */}
-        <link rel="preload" as="image" href="/hero-sm.png" media="(max-width: 767px)" type="image/png" />
-        <link rel="preload" as="image" href="/banner.png" media="(min-width: 768px)" type="image/png" />
+        <link rel="preload" as="image" href="/hero-sm.webp" media="(max-width: 767px)" type="image/webp" />
+        <link rel="preload" as="image" href="/banner.webp" media="(min-width: 768px)" type="image/webp" />
         {/* Homepage @graph Schema — Organization + WebSite */}
         <HomepageSchema />
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
@@ -93,7 +99,7 @@ export default function RootLayout({ children }) {
       </head>
       <GoogleTagManager gtmId="GTM-5LJR499N" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>

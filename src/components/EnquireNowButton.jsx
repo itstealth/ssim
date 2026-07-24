@@ -19,19 +19,21 @@ import Image from "next/image";
 export default function EnquireNowButton() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Preload script on mount to improve initial load time
+  // Load widget script on demand when dialog opens
   useEffect(() => {
-    const scriptSrc = "https://widgets.nopaperforms.com/emwgts.js";
-    const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
-    
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.async = true;
-      script.src = scriptSrc;
-      document.body.appendChild(script);
+    if (isOpen) {
+      const scriptSrc = "https://widgets.nopaperforms.com/emwgts.js";
+      const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
+      
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.async = true;
+        script.src = scriptSrc;
+        document.body.appendChild(script);
+      }
     }
-  }, []);
+  }, [isOpen]);
 
   // Initialize widget when dialog opens
   useEffect(() => {
