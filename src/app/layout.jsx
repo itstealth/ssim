@@ -92,8 +92,8 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload Hero Banner Images for LCP */}
-        <link rel="preload" as="image" href="/hero-sm.webp" media="(max-width: 767px)" type="image/webp" />
-        <link rel="preload" as="image" href="/banner.webp" media="(min-width: 768px)" type="image/webp" />
+        <link rel="preload" as="image" href="/hero-sm.avif" media="(max-width: 767px)" type="image/avif" />
+        <link rel="preload" as="image" href="/banner.avif" media="(min-width: 768px)" type="image/avif" />
         {/* Homepage @graph Schema — Organization + WebSite */}
         <HomepageSchema />
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
