@@ -76,7 +76,7 @@ export default function Placements() {
                     fill
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                     sizes="(max-width: 1024px) 100vw, 420px"
-                    priority
+                    loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
                     <p className="text-white font-semibold text-sm">{students[activeIndex].name}</p>
