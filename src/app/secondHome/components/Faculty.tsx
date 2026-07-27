@@ -213,16 +213,30 @@ export default function Faculty() {
     }, 500)
   }, [])
 
+  const [isInView, setIsInView] = useState(false)
+  const sectionRef = useRef<HTMLElement | null>(null)
+
   useEffect(() => {
-    if (isPaused) return
+    const el = sectionRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsInView(entry.isIntersecting)
+    }, { threshold: 0.2 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (isPaused || !isInView) return
     const interval = setInterval(() => {
       scrollByCards('right')
-    }, 3000)
+    }, 4500)
     return () => clearInterval(interval)
-  }, [isPaused, scrollByCards])
+  }, [isPaused, isInView, scrollByCards])
 
   return (
     <section
+      ref={sectionRef}
       id="faculty"
       className={`px-4 py-[64px] sm:px-6 lg:px-4 lg:px-[60px] ${secondHomeTheme.shell}`}
       onMouseEnter={() => setIsPaused(true)}

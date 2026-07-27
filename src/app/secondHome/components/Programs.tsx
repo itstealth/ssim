@@ -33,28 +33,6 @@ const programs = [
 ]
 
 export default function Programs() {
-  const scrollRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    const interval = setInterval(() => {
-      // Only run auto-scroll if it's horizontally scrollable (mobile)
-      if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-        
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
-          scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          scrollContainer.scrollBy({ left: clientWidth / 2, behavior: 'smooth' });
-        }
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section id="programs" className={`px-4 lg:px-[60px] py-[64px] ${secondHomeTheme.shellMuted}`}>
       <div className="text-center">
@@ -70,7 +48,6 @@ export default function Programs() {
       </div>
 
       <div 
-        ref={scrollRef}
         className="flex sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-[22px] mt-[30px] overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory sm:snap-none pb-4 sm:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         {programs.map((p) => (
@@ -84,6 +61,8 @@ export default function Programs() {
               src={p.img}
               alt={p.title}
               fill
+              sizes="(max-width: 640px) 85vw, (max-width: 1280px) 50vw, 25vw"
+              loading="lazy"
               className="object-cover transition-transform duration-[400ms] group-hover:scale-[1.07]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#101a3a]/20 via-transparent to-transparent" />

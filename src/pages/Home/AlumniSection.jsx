@@ -125,9 +125,9 @@ const AlumniSection = () => {
 
   const totalTestimonials = testimonials.length;
 
-  // Auto-change testimonial effect
+  // Auto-change testimonial effect - run ONLY when visible in viewport
   useEffect(() => {
-    if (!isHovered) {
+    if (!isHovered && isVisible) {
       const timer = setInterval(() => {
         setIsAnimating(true);
         setTimeout(() => {
@@ -136,11 +136,11 @@ const AlumniSection = () => {
           );
           setIsAnimating(false);
         }, 500);
-      }, 3000);
+      }, 4500);
 
       return () => clearInterval(timer);
     }
-  }, [isHovered, totalTestimonials]);
+  }, [isHovered, isVisible, totalTestimonials]);
 
   // Intersection Observer for visibility animation
   useEffect(() => {
