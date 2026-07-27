@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import "../../app/globals.css";
+
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 
 const Page = () => {

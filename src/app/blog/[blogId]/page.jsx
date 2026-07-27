@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import "@/app/blog-content.css";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
