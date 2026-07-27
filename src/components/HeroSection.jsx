@@ -8,33 +8,32 @@ const HeroSection = ({
 }) => {
   return (
     <section className={`relative w-full overflow-hidden flex flex-col ${className}`}>
-      {/* Desktop Image */}
-      <div className="hidden md:block relative w-full h-screen min-h-[600px]">
-        <Image
-          src={desktopImageSrc}
-          alt={altText}
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover object-center"
+      <picture className="w-full">
+        {/* Desktop Banner Source */}
+        <source
+          media="(min-width: 768px)"
+          srcSet={desktopImageSrc}
+          type="image/avif"
         />
-      </div>
-      
-      {/* Mobile Image (Primary LCP Element) */}
-      <div className="block md:hidden relative w-full aspect-[768/1024]">
-        <Image
+        {/* Mobile Banner Source */}
+        <source
+          media="(max-width: 767px)"
+          srcSet={mobileImageSrc}
+          type="image/avif"
+        />
+        {/* Primary LCP Image Element */}
+        <img
           src={mobileImageSrc}
           alt={altText}
-          fill
-          priority
           fetchPriority="high"
-          sizes="100vw"
-          className="object-cover object-center"
+          decoding="async"
+          width={768}
+          height={1024}
+          className="w-full aspect-[768/1024] md:aspect-auto md:h-screen md:min-h-[600px] object-cover object-center"
         />
-      </div>
+      </picture>
     </section>
   );
 };
 
-export default HeroSection; 
+export default HeroSection;
