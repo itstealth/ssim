@@ -66,10 +66,10 @@ const PlacementStories = () => {
               className="group gap-0 text-white p-0 h-11 rounded-none border-none shadow-md hover:shadow-lg transition-all overflow-hidden"
               size="lg"
             >
-              <div className="bg-red-600 h-11 flex items-center px-6 font-medium text-sm hover:bg-red-700 transition-colors">
+              <div className="h-11 flex items-center px-6 font-medium text-sm bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white transition-colors">
                 View All Placement
               </div>
-              <div className="bg-[#102269] h-11 w-11 flex items-center justify-center">
+              <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white h-11 w-11 flex items-center justify-center">
                 <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
               </div>
             </Button>

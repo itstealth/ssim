@@ -80,11 +80,11 @@ export default function SecondHome() {
       <CampusLife />
       <Scholarship />
       <StatsBanner />
-      <Placements />
+      {/* <Placements /> */}
+      <PlacementStories/>
       <WhySSIM />
       <Faculty />
       <SSIMStories />
-      <PlacementStories/>
       <IndustryExperts />
       <AlumniSection />
       <HomeFAQ />
