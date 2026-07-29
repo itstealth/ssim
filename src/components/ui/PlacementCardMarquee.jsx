@@ -7,16 +7,14 @@ export default memo(function PlacementCardMarquee({ children }) {
       <Marquee
         reverse
         pauseOnHover
-        className="[--duration:40s] py-6 sm:py-12"
+        className="[--duration:40s] py-4 sm:py-8 [--gap:1.5rem]"
         style={{ transform: "translateZ(0)" }}
       >
         {children}
       </Marquee>
 
-      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-[5%] bg-gradient-to-r from-[#cfe1fc] z-10"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-[5%] bg-gradient-to-l from-[#cfe1fc] z-10"></div> */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-[5%] bg-gradient-to-r from-[#fff] z-10"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-[5%] bg-gradient-to-l from-[#fff] z-10"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-[12%] sm:w-[15%] bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-[12%] sm:w-[15%] bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
     </div>
   );
 });

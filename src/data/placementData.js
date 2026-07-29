@@ -1,133 +1,186 @@
-const alankar = "/placement_images/Alankar Chakraborty.webp";
-const aman = "/placement_images/AMAN KUMAR SINGH.webp";
-const ashita = "/placement_images/ASHITA SHARMA.webp";
-const ayesha = "/placement_images/AYESHA BEGUM.webp";
-const bhushi = "/placement_images/BHUSHI NIKHITHA REDDY.webp";
-const bondili = "/placement_images/BONDILI RENUKA BAI.webp";
-const chandan = "/placement_images/CHANDANA NAIKAL.webp";
-const khoosbu = "/placement_images/KHOOSBU GOSAI.webp";
-const mainak = "/placement_images/MAINAK SHYAM.webp";
-const mayank = "/placement_images/MAYANK SINGH SENGAR.webp";
-const nilesh = "/placement_images/NILESH KUMAR DEHERI.webp";
-const nomula = "/placement_images/NOMULA SAMEEKSHA.webp";
-const prakhar = "/placement_images/PRAKHAR SINGH.webp";
-const rohan = "/placement_images/Rohan Gotiwada.webp";
-const subhajeet = "/placement_images/SUBHAJEET PAN.webp";
+// Student Images
+const gayatriPandey = "/placement_images/33-015 Gayatri Pandey.jpg";
+const bodduManjunath = "/placement_images/33-010 Boddu Manjunath.jpg";
+const saitalaSaiShreya = "/placement_images/BA5-43 Saitala sai shreya.jpg";
+const pManasa = "/placement_images/B18-30 Manasa.jpg";
+const gagandeepSinghWahi = "/placement_images/BA5-11 Gagandeep Singh Wahi.jpg";
+const vivekVRathi = "/placement_images/33-179 Vivek Rati.jpg";
+const ponugotiSiddartha = "/placement_images/33-158  PONUGOTI SIDDARTHA.jpg";
+const pabbathiDeepakNagaSai = "/placement_images/33-036 P.Deepak naga sai.jpg";
+const bandariSahithi = "/placement_images/B18-48 Bandari Sahithi.jpg";
+const mohitTadla = "/placement_images/B18-33 Mohit Tadla.jpg";
+const khambhamChaitanya = "/placement_images/BA5-22 K CHAITANYA.jpg";
+const sujataSharma = "/placement_images/33-106 Sujata Sharma.jpg";
+const deviSrilalithaShahukaru = "/placement_images/33-026 Lalitha Shahukaru.jpg";
+const kuduruVaishnavi = "/placement_images/B18-59 Vaishnavi.jpg";
+const sureddyVamshidharReddy = "/placement_images/33-107 Sureddy Vamshidhar Reddy.jpg";
+const molliLokeshBhargav = "/placement_images/33-089 Lokesh bhargav.jpg";
+const nandivadaVenkataPhaniSriSarvani = "/placement_images/BA5-30 SARVANI NANDIVADA.jpg";
+const chingoundChandana = "/placement_images/33-074 Chingound Chandana.jpg";
+const macharlaRamyaSri = "/placement_images/33-151 Macharla Ramya Sri.jpg";
+const aninditoBhattacharya = "/placement_images/33-063 AninditoBhattacharya.jpg";
 
+// Company Logos
+const ubs = "/placement-logos/UBS_Logo_Semibold.svg";
+const spGlobal = "/placement-logos/sp-global.svg";
+const hsbc = "/placement-logos/hsbc.svg";
+const iciciBank = "/placement-logos/icici-bank.svg";
+const idfcFirstBank = "/placement-logos/idfc-first-bank.svg";
+const asianPaints = "/placement-logos/asian-paints.png";
+const saintGobain = "/placement-logos/saint-gobain.png";
+const nestle = "/placement-logos/nestle.png";
+const crisil = "/placement-logos/crisil.png";
+const massMutual = "/placement-logos/massmutual.svg";
+const newmarkGroup = "/placement-logos/newmark-group.svg";
+const berkadia = "/placement-logos/berkadia.png";
 const oxane = "/placement-logos/oxane.png";
-const asian = "/placement-logos/asian-paints.png";
-const praval = "/placement-logos/PRAVAL.webp";
-const itc = "/placement-logos/itc.png";
-const kpmg = "/placement-logos/kpmg.png";
-const lloyds = "/placement-logos/lloyds.webp";
-const deloitte = "/placement-logos/deloitte.png";
-const aditya = "/placement-logos/aditya-birla.png";
-const sneha = "/placement-logos/sneha.png";
+const medtronic = "/placement-logos/medtronic.svg";
+const relianceConsumerProducts = "/placement-logos/reliance-industries-logo.png";
+const medplus = "/placement-logos/me-plus.png";
+const heteroDrugs = "/placement-logos/hetero-drugs.png";
+const anandRathi = "/placement-logos/anand-rathi.jpg";
+const kantar = "/placement-logos/kantar.png";
+const hdfcLife = "/placement-logos/hdfc-life.svg";
 
 export const placementCards = [
   {
     id: 1,
-    image: alankar,
-    name: "Alankar Chakraborty",
-    company: "Oxane Partners",
-    logo: oxane,
+    image: gayatriPandey,
+    name: "Gayatri Pandey",
+    company: "UBS",
+    logo: ubs,
   },
   {
     id: 2,
-    image: aman,
-    name: "Aman Kumar Singh",
-    company: "Asian Paints",
-    logo: asian,
+    image: bodduManjunath,
+    name: "Boddu Manjunath",
+    company: "S&P Global",
+    logo: spGlobal,
   },
   {
     id: 3,
-    image: ashita,
-    name: "Ashita Sharma",
-    company: "Oxane Partners",
-    logo: oxane,
+    image: saitalaSaiShreya,
+    name: "Saitala Sai Shreya",
+    company: "HSBC",
+    logo: hsbc,
   },
   {
     id: 4,
-    image: ayesha,
-    name: "Ayesha Begum",
-    company: "Praval Infotech",
-    logo: praval,
+    image: pManasa,
+    name: "P Manasa",
+    company: "ICICI Bank",
+    logo: iciciBank,
   },
   {
     id: 5,
-    image: bhushi,
-    name: "Bhushi Nikhitha Reddy",
-    company: "ITC",
-    logo: itc,
+    image: gagandeepSinghWahi,
+    name: "Gagandeep Singh Wahi",
+    company: "IDFC First Bank",
+    logo: idfcFirstBank,
   },
   {
     id: 6,
-    image: bondili,
-    name: "Bondili Renuka Bai",
-    company: "KPMG",
-    logo: kpmg,
+    image: vivekVRathi,
+    name: "Vivek V Rathi",
+    company: "Asian Paints",
+    logo: asianPaints,
   },
   {
     id: 7,
-    image: chandan,
-    name: "Chandana Naikal",
-    company: "Lloyds Technology Center",
-    logo: lloyds,
+    image: ponugotiSiddartha,
+    name: "Ponugoti Siddartha",
+    company: "Saint Gobain",
+    logo: saintGobain,
   },
   {
     id: 8,
-    image: khoosbu,
-    name: "Khoosbu Gosai",
-    company: "Deloitte",
-    logo: deloitte,
+    image: pabbathiDeepakNagaSai,
+    name: "Pabbathi Deepak Naga Sai",
+    company: "Nestle",
+    logo: nestle,
   },
   {
     id: 9,
-    image: mainak,
-    name: "Mainak Shyam",
-    company: "Aditya Birla",
-    logo: aditya,
+    image: bandariSahithi,
+    name: "Bandari Sahithi",
+    company: "Crisil",
+    logo: crisil,
   },
   {
     id: 10,
-    image: mayank,
-    name: "Mayank Singh Sengar",
-    company: "Sneha Elevator",
-    logo: sneha,
+    image: mohitTadla,
+    name: "Mohit Tadla",
+    company: "MassMutual",
+    logo: massMutual,
   },
   {
     id: 11,
-    image: nilesh,
-    name: "Nilesh Kumar Dehri",
-    company: "KPMG",
-    logo: kpmg,
+    image: khambhamChaitanya,
+    name: "Khambham Chaitanya",
+    company: "Newmark Group",
+    logo: newmarkGroup,
   },
   {
     id: 12,
-    image: nomula,
-    name: "Nomula Sameeksha",
-    company: "Deloitte",
-    logo: deloitte,
+    image: sujataSharma,
+    name: "Sujata Sharma",
+    company: "Berkadia",
+    logo: berkadia,
   },
   {
     id: 13,
-    image: prakhar,
-    name: "Prakhar Singh",
+    image: deviSrilalithaShahukaru,
+    name: "Devi Srilalitha Shahukaru",
     company: "Oxane Partners",
     logo: oxane,
   },
   {
     id: 14,
-    image: rohan,
-    name: "Rohan Gotiwada",
-    company: "Asian Paints",
-    logo: asian,
+    image: kuduruVaishnavi,
+    name: "Kuduru Vaishnavi",
+    company: "Medtronic Engineering & Innovation Center",
+    logo: medtronic,
   },
   {
     id: 15,
-    image: subhajeet,
-    name: "Subhajeet Pan",
-    company: "Asian Paints",
-    logo: asian,
+    image: sureddyVamshidharReddy,
+    name: "Sureddy Vamshidhar Reddy",
+    company: "Reliance Consumer Products",
+    logo: relianceConsumerProducts,
+  },
+  {
+    id: 16,
+    image: molliLokeshBhargav,
+    name: "Molli Lokesh Bhargav",
+    company: "MedPlus",
+    logo: medplus,
+  },
+  {
+    id: 17,
+    image: nandivadaVenkataPhaniSriSarvani,
+    name: "Nandivada Venkata Phani Sri Sarvani",
+    company: "Hetero Drugs",
+    logo: heteroDrugs,
+  },
+  {
+    id: 18,
+    image: chingoundChandana,
+    name: "Chingound Chandana",
+    company: "Anand Rathi Investment Services",
+    logo: anandRathi,
+  },
+  {
+    id: 19,
+    image: macharlaRamyaSri,
+    name: "Macharla Ramya Sri",
+    company: "Kantar",
+    logo: kantar,
+  },
+  {
+    id: 20,
+    image: aninditoBhattacharya,
+    name: "Anindito Bhattacharya",
+    company: "HDFC Life",
+    logo: hdfcLife,
   },
 ];

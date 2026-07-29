@@ -23,21 +23,26 @@ const PlacementStories = () => {
   }, []);
 
   return (
-    <div
-      className="relative bg-cover bg-center transform-gpu"
-      style={{
-        // backgroundImage: `url(${bg})`,
-        willChange: "transform",
-      }}
-    >
-      <Container className="!py-0">
+    <section className="relative bg-white py-12 md:py-16 overflow-hidden">
+      {/* Subtle Grid Background Pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)`,
+            backgroundSize: "24px 24px",
+          }}
+        />
+      </div>
+
+      <Container className="!py-0 relative z-10">
         <div>
           <Heading
             title="SSIM Placement Stories"
-            titleClassName="!text-mainBlue text-left text-center"
-            subtitleClassName="text-gray-500 !mx-auto !max-w-2xl m-0 lg:text-lg lg:font-normal lg:max-w-full text-center !text-base sm:!text-lg lg:!text-xl"
+            titleClassName="!text-[#102269] text-center font-extrabold text-3xl sm:text-4xl lg:text-5xl"
+            subtitleClassName="text-slate-500 !mx-auto !max-w-2xl text-center text-base sm:text-lg mt-3"
             subtitle="Our students are successfully placed in top companies, gaining invaluable experience and insights that enhance their skills and career prospects."
-            className="lg:pb-10"
+            className="pb-6 md:pb-8"
           />
 
           <PlacementCardMarquee>
@@ -46,29 +51,32 @@ const PlacementStories = () => {
             ))}
           </PlacementCardMarquee>
         </div>
+
+        <div className="flex justify-center mt-6 md:mt-8 relative z-20">
+          <Link
+            href="/placement/records"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+          >
+            <Button
+              className="group gap-0 text-white p-0 h-11 rounded-none border-none shadow-md hover:shadow-lg transition-all overflow-hidden"
+              size="lg"
+            >
+              <div className="bg-red-600 h-11 flex items-center px-6 font-medium text-sm hover:bg-red-700 transition-colors">
+                View All Placement
+              </div>
+              <div className="bg-[#102269] h-11 w-11 flex items-center justify-center">
+                <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
+              </div>
+            </Button>
+          </Link>
+        </div>
       </Container>
-      <Link
-        href="/placement/records"
-        onClick={() => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }}
-      >
-        <Button
-          className="group gap-0 text-white px-0 py-0 h-0 rounded-none mt-8"
-          size="lg"
-        >
-          <div className="bg-red-600 mt-8 h-11 flex items-center pl-8 pr-4 hover:bg-red-700">
-            View All Placement
-          </div>
-          <div className="bg-mainBlue mt-8 h-11 flex items-center px-4">
-            <ArrowRight className="w-4 bg-mainBlue h-4 transition-transform group-hover:translate-x-1" />
-          </div>
-        </Button>
-      </Link>
-    </div>
+    </section>
   );
 };
 

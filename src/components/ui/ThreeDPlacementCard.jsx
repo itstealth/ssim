@@ -54,7 +54,7 @@ export default memo(function ThreeDPlacementCard({
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className="relative h-full w-full rounded-xl bg-background transition-all duration-300 ease-out shadow-md hover:shadow-2xl"
+        className="relative h-full w-full rounded-none overflow-hidden bg-[#7a0d0d] transition-all duration-300 ease-out shadow-lg hover:shadow-2xl"
         style={{
           transform: transform,
           transformStyle: "preserve-3d",
@@ -64,35 +64,39 @@ export default memo(function ThreeDPlacementCard({
         {/* Glowing highlight effect */}
         {isHovered && isMounted && (
           <div
-            className="pointer-events-none absolute -inset-2 z-[-10] opacity-70 blur-xl"
+            className="pointer-events-none absolute -inset-2 z-10 opacity-60 blur-xl"
             style={{
-              background: `radial-gradient(circle at ${glowPosition.x}px ${glowPosition.y}px, rgba(125, 39, 255, 0.8), transparent 40%)`,
+              background: `radial-gradient(circle at ${glowPosition.x}px ${glowPosition.y}px, rgba(255, 255, 255, 0.4), transparent 40%)`,
               transition: "opacity 0.3s ease",
             }}
           />
         )}
 
         {/* Optimized image container */}
-        <div className="absolute inset-0 overflow-hidden rounded-md">
+        <div className="absolute inset-0 overflow-hidden rounded-none">
           <img
             src={image}
             alt={name}
-            width={250}
-            height={350}
-            className="h-full w-full object-cover transform-gpu transition-transform duration-500 ease-out group-hover:scale-110"
+            width={260}
+            height={360}
+            className="h-full w-full object-cover object-top transform-gpu transition-transform duration-500 ease-out group-hover:scale-105"
             style={{ willChange: "transform" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex h-full flex-col justify-end p-2">
-          <div className="sm:mb- mt-auto">
-            <h3 className="mb-1 sm:text-xl  text-center   font-bold tracking-tight text-white">
+        <div className="relative z-20 flex h-full flex-col justify-end p-4 pb-5">
+          <div className="mt-auto text-center">
+            <h3 className="mb-2.5 text-base sm:text-lg font-bold tracking-tight text-white drop-shadow-md">
               {name}
             </h3>
-            <div className="mb flex items-center gap-2 scale-75 bg-white rounded">
-              <img src={logo} alt="logo" className="w-min mx-auto px-5 h-10" />
+            <div className="bg-white rounded-none py-1.5 px-3 mx-auto flex items-center justify-center shadow-sm w-[88%] h-10">
+              {logo ? (
+                <img src={logo} alt={company || "company logo"} className="max-h-6 max-w-full object-contain" />
+              ) : (
+                <span className="text-[11px] sm:text-xs font-extrabold text-navy text-center truncate uppercase leading-tight">{company}</span>
+              )}
             </div>
           </div>
         </div>
