@@ -91,6 +91,8 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://ssimblogstorage.blob.core.windows.net" />
+        <link rel="dns-prefetch" href="https://ssimblogstorage.blob.core.windows.net" />
         {/* Preload Hero Banner Images for LCP */}
         <link rel="preload" as="image" href="/hero-sm.avif" media="(max-width: 767px)" type="image/avif" fetchpriority="high" />
         <link rel="preload" as="image" href="/banner.avif" media="(min-width: 768px)" type="image/avif" fetchpriority="high" />

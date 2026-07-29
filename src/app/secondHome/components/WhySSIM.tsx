@@ -36,7 +36,7 @@ export default function WhySSIM() {
   }, []);
 
   return (
-    <section id="why" className={`px-4 lg:px-[60px] pt-[24px] pb-[36px] lg:pb-[72px] ${secondHomeTheme.shell}`}>
+    <section id="why" className={`px-4 lg:px-[60px] pt-[72px] pb-[36px] lg:pb-[72px] ${secondHomeTheme.shell}`}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-0">
         <div className="lg:sticky lg:top-20 lg:h-[calc(100vh-160px)] mb-2 lg:mb-0">
           <Image
@@ -44,6 +44,7 @@ export default function WhySSIM() {
             alt="Why SSIM"
             width={800}
             height={480}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-[240px] md:h-[360px] lg:h-full object-cover rounded-[24px] border border-white/60 shadow-[0_20px_50px_rgba(16,34,105,0.12)]"
           />
         </div>

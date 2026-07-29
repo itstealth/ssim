@@ -28,22 +28,20 @@ const nextConfig = {
       { protocol: "https", hostname: "www.searchurcollege.com", pathname: "/**" },
       { protocol: "https", hostname: "ssimblogstorage.blob.core.windows.net", pathname: "/**" },
     ],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000,
     formats: ["image/webp", "image/avif"],
   },
 
   async rewrites() {
     const WP = "https://ssim-blog-b9egbrcnfccjbzee.centralindia-01.azurewebsites.net";
     return {
-      // beforeFiles: run BEFORE static/prerendered pages so WP proxy is never cached as 404
-      beforeFiles: [
+      // afterFiles: run AFTER static/prerendered pages so Next.js routes and image optimization are never delayed by external WordPress HTTP responses
+      afterFiles: [
         { source: "/wp-json/:path*", destination: `${WP}/wp-json/:path*` },
         { source: "/wp-admin/:path*", destination: `${WP}/wp-admin/:path*` },
         { source: "/wp-login.php", destination: `${WP}/wp-login.php` },
         { source: "/wp-content/:path*", destination: `${WP}/wp-content/:path*` },
         { source: "/wp-includes/:path*", destination: `${WP}/wp-includes/:path*` },
-      ],
-      afterFiles: [
         { source: "/pdfs/:path*", destination: "https://raw.githack.com/Stealth-Rishabh/ssim-assets/main/:path*" },
       ],
     };

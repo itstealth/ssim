@@ -36,14 +36,14 @@ jobs:
           NEXT_PUBLIC_BASE_URL: https://ssim.ac.in
           NEXT_PUBLIC_SITE_URL: https://ssim.ac.in
 
-      - name: Create deploy.zip with source
+      - name: Create standalone deploy.zip
         run: |
           rm -f deploy.zip
-          # Include your source dir: replace "app" with "pages" if applicable
-          zip -r deploy.zip .next node_modules public package.json pnpm-lock.yaml next.config.* -q
-
-      - name: Delay to avoid SCM restart conflict
-        run: sleep 30
+          cp -r public .next/standalone/public
+          mkdir -p .next/standalone/.next
+          cp -r .next/static .next/standalone/.next/static
+          cd .next/standalone
+          zip -r ../../deploy.zip . -q
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
