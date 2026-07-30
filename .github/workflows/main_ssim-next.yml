@@ -51,8 +51,10 @@ jobs:
           npm install sharp@0.34.4 --no-save --omit=dev --platform=linux --arch=x64 --libc=glibc
           cd $GITHUB_WORKSPACE
 
-          cp -r /tmp/sharp-install/node_modules/sharp .next/standalone/node_modules/
-          cp -r /tmp/sharp-install/node_modules/@img .next/standalone/node_modules/
+          # Copy sharp's ENTIRE dependency tree (detect-libc, color, semver, etc.)
+          # Copying only sharp/ and @img/ leaves out sharp's own deps and
+          # causes "Cannot find module 'detect-libc'" at runtime.
+          cp -r /tmp/sharp-install/node_modules/. .next/standalone/node_modules/
 
           zip -r deploy.zip .next/standalone public package.json -q
 
