@@ -42,8 +42,7 @@ jobs:
           cp -r public .next/standalone/public
           mkdir -p .next/standalone/.next
           cp -r .next/static .next/standalone/.next/static
-          cd .next/standalone
-          zip -r ../../deploy.zip . -q
+          zip -r deploy.zip .next/standalone public package.json -q
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
