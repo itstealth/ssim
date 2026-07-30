@@ -12,6 +12,8 @@ const nextConfig = {
       "node_modules/@next/env/**",
       "node_modules/@swc/helpers/**",
       "node_modules/styled-jsx/**",
+      "node_modules/sharp/**",
+      "node_modules/@img/**",
     ],
   },
 
