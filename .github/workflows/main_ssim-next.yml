@@ -44,9 +44,6 @@ jobs:
           cp -r .next/static .next/standalone/.next/static
           mkdir -p .next/standalone/.next/cache
           mkdir -p .next/standalone/logs
-          cd .next/standalone
-          npm install sharp --no-save --omit=dev
-          cd ../..
           zip -r deploy.zip .next/standalone public package.json -q
 
       - name: Deploy to Azure Web App
