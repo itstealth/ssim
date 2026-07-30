@@ -37,14 +37,25 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://ssim.ac.in
 
       - name: Create standalone deploy.zip
-        run: |
-          rm -f deploy.zip
-          cp -r public .next/standalone/public
-          mkdir -p .next/standalone/.next
-          cp -r .next/static .next/standalone/.next/static
-          mkdir -p .next/standalone/.next/cache
-          mkdir -p .next/standalone/logs
-          zip -r deploy.zip .next/standalone public package.json -q
+  run: |
+    rm -f deploy.zip
+    cp -r public .next/standalone/public
+    mkdir -p .next/standalone/.next
+    cp -r .next/static .next/standalone/.next/static
+    mkdir -p .next/standalone/.next/cache
+    mkdir -p .next/standalone/logs
+
+    # Install sharp in isolation to avoid peer-dep conflicts with the app's own package.json
+    mkdir -p /tmp/sharp-install
+    cd /tmp/sharp-install
+    npm init -y --silent
+    npm install sharp@0.34.4 --no-save --omit=dev --platform=linux --arch=x64 --libc=glibc
+    cd $GITHUB_WORKSPACE
+
+    cp -r /tmp/sharp-install/node_modules/sharp .next/standalone/node_modules/
+    cp -r /tmp/sharp-install/node_modules/@img .next/standalone/node_modules/
+
+    zip -r deploy.zip .next/standalone public package.json -q
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
