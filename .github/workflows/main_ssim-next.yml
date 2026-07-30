@@ -39,7 +39,11 @@ jobs:
       - name: Create standalone deploy.zip
         run: |
           rm -f deploy.zip
-          cp -r public .next/standalone/public
+
+          # Copy public/ CONTENTS into standalone/public (not nested as public/public)
+          mkdir -p .next/standalone/public
+          cp -r public/. .next/standalone/public/
+
           mkdir -p .next/standalone/.next
           cp -r .next/static .next/standalone/.next/static
           mkdir -p .next/standalone/.next/cache
