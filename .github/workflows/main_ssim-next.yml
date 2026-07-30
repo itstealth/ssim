@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: "24.x"
           cache: "pnpm"
 
       - name: Install dependencies (CI)
@@ -42,6 +42,11 @@ jobs:
           cp -r public .next/standalone/public
           mkdir -p .next/standalone/.next
           cp -r .next/static .next/standalone/.next/static
+          mkdir -p .next/standalone/.next/cache
+          mkdir -p .next/standalone/logs
+          cd .next/standalone
+          npm install sharp --no-save --omit=dev
+          cd ../..
           zip -r deploy.zip .next/standalone public package.json -q
 
       - name: Deploy to Azure Web App
