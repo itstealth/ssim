@@ -45,12 +45,12 @@ import Heading from "@/components/wrappers/Heading";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
-const imageAAA = "/faculty&research/conferences/AAA.png";
-const image1 = "/faculty&research/conferences/1-1.png";
-const image2 = "/faculty&research/conferences/2-1.png";
-const image3 = "/faculty&research/conferences/3-1.png";
-const image5 = "/faculty&research/conferences/5.png";
-const image6 = "/faculty&research/conferences/6.png";
+const imageAAA = "/faculty-research/conferences/AAA.png";
+const image1 = "/faculty-research/conferences/1-1.png";
+const image2 = "/faculty-research/conferences/2-1.png";
+const image3 = "/faculty-research/conferences/3-1.png";
+const image5 = "/faculty-research/conferences/5.png";
+const image6 = "/faculty-research/conferences/6.png";
 // import SEO from "../Seo";
 
 // Navigation Data

@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-dir_path = "public/faculty&research/Faculty photographs"
+dir_path = "public/faculty-research/faculty-photos"
 
 for filename in os.listdir(dir_path):
     if filename.lower().endswith((".webp", ".jpg", ".jpeg", ".png")):
