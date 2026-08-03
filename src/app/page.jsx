@@ -49,7 +49,7 @@ const SSIMStories = dynamic(() => import('./secondHome/components/SSIMStories'),
   loading: () => <SectionLoader height="min-h-[350px]" />,
 });
 
-const PlacementStories = dynamic(() => import('@/pages/Home/PlacementStories'), {
+const PlacementStories = dynamic(() => import('@/sections/Home/PlacementStories'), {
   loading: () => <SectionLoader height="min-h-[350px]" />,
 });
 
@@ -57,7 +57,7 @@ const IndustryExperts = dynamic(() => import('./secondHome/components/IndustryEx
   loading: () => <SectionLoader height="min-h-[300px]" />,
 });
 
-const AlumniSection = dynamic(() => import('@/pages/Home/AlumniSection'), {
+const AlumniSection = dynamic(() => import('@/sections/Home/AlumniSection'), {
   loading: () => <SectionLoader height="min-h-[350px]" />,
 });
 

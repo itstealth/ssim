@@ -33,7 +33,7 @@
  *  - Institution cards are numbered I–V (a real 5-item founding roster,
  *    so ordinal numbering is earned content here, not decoration).
  *
- * Drop in as e.g. src/pages/AboutSSGI.tsx (Vite/React, not Next.js).
+ * Drop in as e.g. src/sections/AboutSSGI.tsx (Vite/React, not Next.js).
  * Requires: framer-motion, lucide-react (already used elsewhere in the app).
  * Run `node scripts/fetch-about-ssgi-images.mjs` once to populate images.
  */

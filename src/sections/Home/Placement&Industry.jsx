@@ -1,8 +1,8 @@
-import IndustryMarquee from "@/pages/Home/IndustryMarquee";
+import IndustryMarquee from "@/sections/Home/IndustryMarquee";
 // import ImageSlider from "./ImageSlider";
 // import StatsDashboard from "@/components/newMatrix/stats-dashboard";
 import WordPullUp from "@/components/ui/word-pull-up";
-import PlacementStories from "@/pages/Home/PlacementStories";
+import PlacementStories from "@/sections/Home/PlacementStories";
 // const images = [placement1, placement2, placement3, placement4, placement5];
 
 const PlacementIndustry = () => {

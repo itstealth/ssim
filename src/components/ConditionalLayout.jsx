@@ -1,9 +1,9 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import TopBar from "@/pages/Header/TopBar"
+import TopBar from "@/sections/Header/TopBar"
 import Navbar from "@/app/secondHome/components/Navbar"
-import Footer from "@/pages/Footer/Footer"
+import Footer from "@/sections/Footer/Footer"
 import ConditionalBanner from "@/components/ConditionalBanner"
 import { DockButtons } from "@/components/DockButtons"
 import EnquireNowButton from "@/components/EnquireNowButton"

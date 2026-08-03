@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import BannerNav from "@/pages/Header/BannerNav";
-import TopBar from "@/pages/Header/TopBar";
+import BannerNav from "@/sections/Header/BannerNav";
+import TopBar from "@/sections/Header/TopBar";
 
 export default function Header({ className }) {
   return (
