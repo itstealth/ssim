@@ -273,7 +273,7 @@ const AlumniSection = () => {
                   }}
                   onClick={() => !isActive && handleImageClick(index)}
                 >
-                  <Image
+                  <img
                     src={image}
                     alt={`Testimonial ${index + 1}`}
                     width={144}
@@ -318,7 +318,7 @@ const AlumniSection = () => {
                 {activeTestimonial.name}
               </p>
               <p className="text-sm text-gray-500">{activeTestimonial.role}</p>
-              <Image
+              <img
                 src={activeTestimonial.company}
                 alt="Company Logo"
                 width={120}

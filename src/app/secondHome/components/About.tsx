@@ -22,12 +22,10 @@ export default function About() {
         <div className="lg:sticky lg:top-20 hidden lg:block h-fit">
           <div className="overflow-hidden shadow-[0_20px_50px_rgba(16,34,105,0.12)] rounded-[24px] border border-white/60">
             <div className="relative aspect-[4/3]">
-              <Image
+              <img
                 alt="SSIM Campus Life"
                 src={AboutSSIM}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transform transition-transform hover:scale-105 duration-700"
+                className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
                 loading="lazy"
               />
               <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-[#101a3a]/75 px-4 py-2 text-sm font-semibold text-white backdrop-blur flex items-center gap-2 shadow-lg">
@@ -119,11 +117,10 @@ export default function About() {
           {/* Mobile Image */}
           <div className="lg:hidden overflow-hidden shadow-2xl rounded-none mt-8">
             <div className="relative w-full aspect-[4/3]">
-              <Image
+              <img
                 src={AboutSSIM}
                 alt="SSIM Campus Life"
-                fill
-                className="object-cover transform transition-transform hover:scale-105 duration-700"
+                className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
               />
               <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-[#101a3a]/75 px-4 py-2 text-sm font-semibold text-white backdrop-blur flex items-center gap-2 shadow-lg">
                 🎓 Excellence in Education

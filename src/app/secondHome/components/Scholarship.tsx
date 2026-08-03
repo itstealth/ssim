@@ -19,7 +19,7 @@ export default function Scholarship() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-[30px]">
         {/* Image Column */}
         <div className="relative lg:sticky lg:top-20 h-fit">
-          <Image
+          <img
             src="/campus.webp"
             alt="Scholarship Hero"
             width={800}

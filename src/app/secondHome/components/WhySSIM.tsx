@@ -39,7 +39,7 @@ export default function WhySSIM() {
     <section id="why" className={`px-4 lg:px-[60px] pt-[72px] pb-[36px] lg:pb-[72px] ${secondHomeTheme.shell}`}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-0">
         <div className="lg:sticky lg:top-20 lg:h-[calc(100vh-160px)] mb-2 lg:mb-0">
-          <Image
+          <img
             src="/about_ssim/aboutssim.webp"
             alt="Why SSIM"
             width={800}

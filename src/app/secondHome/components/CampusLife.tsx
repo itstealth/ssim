@@ -37,12 +37,11 @@ export default function CampusLife() {
                 : 'col-span-1 h-[150px] md:h-[230px]'
             }`}
           >
-            <Image
+            <img
               src={item.src}
               alt={item.caption}
-              fill
               sizes="(max-width: 768px) 50vw, 25vw"
-              className="object-contain transition-transform duration-[400ms] group-hover:scale-[1.05]"
+              className="object-cover w-full h-full transition-transform duration-[400ms] group-hover:scale-[1.05]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#101a3a]/28 via-transparent to-transparent" />
             <div

@@ -289,14 +289,12 @@ export default function Faculty() {
                   className={`overflow-hidden rounded-[20px] border border-slate-200/80 bg-white shadow-[0_10px_30px_rgba(16,34,105,0.08)] transition-transform duration-300 hover:-translate-y-1 w-[280px] sm:w-full ${secondHomeTheme.surfaceLift}`}
                 >
                   <div className="relative aspect-[3/4] bg-gradient-to-b from-[#edf4ff] to-white overflow-hidden">
-                    <Image
+                    <img
                       src={f.img}
                       alt={f.name}
-                      fill
-                      className="object-cover transition-transform duration-500 hover:scale-[1.02]"
+                      className="object-cover w-full h-full transition-transform duration-500 hover:scale-[1.02]"
                       style={{ objectPosition: 'center 16%' }}
                       sizes="(max-width: 640px) 75vw, (max-width: 1024px) 28vw, 240px"
-                      priority={false}
                       loading="lazy"
                     />
                   </div>

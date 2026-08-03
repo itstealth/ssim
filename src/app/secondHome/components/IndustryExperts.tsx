@@ -188,16 +188,14 @@ function ExpertCard({ expert, reverse = false }: { key?: React.Key; expert: any;
     <div className="relative flex flex-col md:flex-row rounded-2xl border border-white/10 bg-gradient-to-br from-[#241653]/80 to-[#150c33]/80 overflow-hidden">
       {/* Photo */}
       <div
-        className={`relative w-full md:w-[42%] shrink-0 aspect-[4/5] md:aspect-auto ${
-          reverse ? "md:order-2" : ""
-        }`}
+        className={`relative w-full md:w-[42%] shrink-0 aspect-[4/5] md:aspect-auto ${reverse ? "md:order-2" : ""
+          }`}
       >
         <div className="relative w-full h-full">
-          <Image
+          <img
             src={expert.image}
             alt={expert.name}
-            fill
-            className="object-cover"
+            className="object-cover w-full h-full"
             sizes="(max-width: 768px) 100vw, 42vw"
           />
         </div>

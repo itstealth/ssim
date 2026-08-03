@@ -69,12 +69,11 @@ export default function Placements() {
                   className="group relative aspect-[0.92] cursor-pointer overflow-hidden rounded-[18px] shadow-[0_10px_30px_rgba(11,31,59,0.08)]"
                   onClick={() => setActiveIndex((prev) => (prev + 1) % students.length)}
                 >
-                  <Image
+                  <img
                     key={students[activeIndex].src}
                     src={students[activeIndex].src}
                     alt={students[activeIndex].name}
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-cover w-full h-full object-top transition-transform duration-500 group-hover:scale-[1.03]"
                     sizes="(max-width: 1024px) 100vw, 420px"
                     loading="lazy"
                   />
@@ -97,11 +96,10 @@ export default function Placements() {
                       }`}
                       aria-label={`Show placement story for ${student.name}`}
                     >
-                      <Image
+                      <img
                         src={student.src}
                         alt={student.name}
-                        fill
-                        className="object-cover object-top"
+                        className="object-cover w-full h-full object-top"
                         sizes="(max-width: 1024px) 22vw, 120px"
                       />
                     </button>

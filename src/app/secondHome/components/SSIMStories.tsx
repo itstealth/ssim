@@ -82,12 +82,11 @@ export default function SSIMStories() {
             className="relative aspect-video rounded-lg overflow-hidden shadow-xl group cursor-pointer shrink-0 snap-center w-[85vw] md:w-auto"
             onClick={() => handleVideoClick(slide.videoId)}
           >
-            <Image
+            <img
               src={slide.thumbnail}
               alt={slide.alt}
-              fill
               sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transform group-hover:scale-110 transition-transform duration-300"
+              className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-300"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
