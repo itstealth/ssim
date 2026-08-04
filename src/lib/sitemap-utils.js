@@ -47,7 +47,7 @@ const ROUTE_METADATA_OVERRIDES = {
   "/careers": { priority: 0.6, changefreq: "monthly" },
   "/contact-us": { priority: 0.8, changefreq: "monthly" },
   "/faculty/areas": { priority: 0.7, changefreq: "monthly" },
-  "/faculty/publications": { priority: 0.7, changefreq: "monthly" },
+  "/research": { priority: 0.8, changefreq: "monthly" },
   "/grievance-redressal-mechanism": { priority: 0.6, changefreq: "monthly" },
   "/internal-complaints": { priority: 0.6, changefreq: "monthly" },
   "/international-relations": { priority: 0.7, changefreq: "monthly" },

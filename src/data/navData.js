@@ -89,12 +89,12 @@ export const navlinks = [
         name: "Faculty",
         subDropdown: [
           { name: "Areas", path: "/faculty/areas" },
-          { name: "Faculty Publications", path: "/faculty/publications" },
         ],
       },
       {
         name: "Research",
         subDropdown: [
+          { name: "Research & Publications", path: "/research" },
           {
             name: "Case Research Center",
             path: "/research/case-research-center",

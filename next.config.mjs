@@ -144,6 +144,13 @@ const nextConfig = {
       // FACULTY REDIRECTS
       // =====================================================================
       {
+        // Faculty publications moved into the consolidated Research hub, where
+        // papers sit alongside conferences, patents, awards and books.
+        source: "/faculty/publications",
+        destination: "/research?tab=papers",
+        permanent: true,
+      },
+      {
         // /faculty/areas is the real page (nav, canonical URLs, sitemap, and
         // all the legacy faculty-slug redirects below already point here).
         // /faculty itself was never a distinct page - it just used to serve
