@@ -122,6 +122,13 @@ const routeConfig = {
       { label: "Faculty Areas", href: "/faculty/areas", isActive: true },
     ],
   },
+  "/research": {
+    title: "Research & Publications",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "Research & Publications", href: "/research", isActive: true },
+    ],
+  },
   "/placement": {
     title: "Placement",
     breadcrumbs: [

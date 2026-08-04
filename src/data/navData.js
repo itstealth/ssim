@@ -94,7 +94,13 @@ export const navlinks = [
       {
         name: "Research",
         subDropdown: [
-          { name: "Research & Publications", path: "/research" },
+          { name: "All Research & Publications", path: "/research" },
+          { name: "Papers Published", path: "/research?tab=papers" },
+          { name: "Conferences Presented", path: "/research?tab=conferences" },
+          { name: "Patents Published", path: "/research?tab=patents" },
+          { name: "Faculty Awards", path: "/research?tab=awards" },
+          { name: "Books Published", path: "/research?tab=books" },
+          { name: "Sugyaan – Management Journal", path: "/research?tab=sugyaan" },
           {
             name: "Case Research Center",
             path: "/research/case-research-center",

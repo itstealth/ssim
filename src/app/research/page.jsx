@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { RESEARCH_TABS, RESEARCH_TAB_KEYS } from "@/data/researchTabs";
 
 /**
@@ -40,23 +40,31 @@ export default function ResearchPage() {
     return () => window.removeEventListener("popstate", applyFromUrl);
   }, []);
 
-  // Fetch the active tab's data once.
+  // Tracks which tabs have had a request started, so switching away and back
+  // doesn't refetch. Deliberately a ref, not state: keeping it in the effect's
+  // dependency list would make the effect re-run on its own setState and abort
+  // the very request it just started.
+  const requested = useRef({});
+
+  // Fetch the active tab's data once, the first time it is opened.
   useEffect(() => {
-    if (!tab.endpoint || cache[tab.key] || status[tab.key] === "loading") return;
-    let cancelled = false;
-    setStatus((s) => ({ ...s, [tab.key]: "loading" }));
-    fetch(tab.endpoint)
+    const { key, endpoint } = tab;
+    if (!endpoint || requested.current[key]) return;
+    requested.current[key] = true;
+
+    setStatus((s) => ({ ...s, [key]: "loading" }));
+    fetch(endpoint)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
       .then((rows) => {
-        if (cancelled) return;
-        setCache((c) => ({ ...c, [tab.key]: Array.isArray(rows) ? rows : [] }));
-        setStatus((s) => ({ ...s, [tab.key]: "done" }));
+        setCache((c) => ({ ...c, [key]: Array.isArray(rows) ? rows : [] }));
+        setStatus((s) => ({ ...s, [key]: "done" }));
       })
       .catch(() => {
-        if (!cancelled) setStatus((s) => ({ ...s, [tab.key]: "error" }));
+        // allow a retry on the next visit to this tab
+        requested.current[key] = false;
+        setStatus((s) => ({ ...s, [key]: "error" }));
       });
-    return () => { cancelled = true; };
-  }, [tab, cache, status]);
+  }, [tab]);
 
   function selectTab(key) {
     setActive(key);
@@ -87,22 +95,11 @@ export default function ResearchPage() {
   }, [rows, query, year, tab]);
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="border-b border-slate-200 bg-gradient-to-b from-purple-50/60 to-white px-4 py-14 sm:px-6 lg:px-[60px]">
-        <div className="mx-auto max-w-7xl text-center">
-          <span className="inline-flex items-center rounded-full border border-purple-700/10 bg-purple-700/5 px-4 py-[6px] text-[12px] font-semibold uppercase tracking-[0.14em] text-purple-800">
-            Research at SSIM
-          </span>
-          <h1 className="mt-4 font-playfair leading-[1.12] text-slate-900" style={{ fontSize: "clamp(28px,4vw,44px)" }}>
-            Research &amp; Publications
-          </h1>
-          <p className="mx-auto mt-3 max-w-[700px] text-[15px] leading-7 text-slate-600">
-            Peer-reviewed papers, conference presentations, patents, awards and books
-            from the SSIM faculty.
-          </p>
-        </div>
-      </section>
-
+    // No hero here on purpose: every inner page gets its title and breadcrumbs
+    // from ConditionalBanner (see the "/research" entry there), and a second
+    // custom hero made this page look off-brand next to the rest of the site.
+    // Also a <div>, not <main> - ConditionalLayout already wraps pages in <main>.
+    <div className="min-h-screen bg-white font-sans">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-[60px]">
         <div className="flex flex-wrap gap-2" role="tablist" aria-label="Research categories">
           {RESEARCH_TABS.map((t) => {
@@ -234,6 +231,6 @@ export default function ResearchPage() {
           </>
         )}
       </div>
-    </main>
+    </div>
   );
 }

@@ -70,15 +70,19 @@ const navItems = [
       {
         name: 'Faculty',path: '/faculty',
       },
-      // {
-      //   name: 'Research',
-      //   subDropdown: [
-      //     { name: 'Research Paper Publications', path: '/research/research-paper-publications' },
-      //     { name: 'Books Published', path: '/research/books-published' },
-      //     { name: 'Conference Proceedings', path: '/research/conference-proceedings' },
-      //     { name: 'Sugyaan – Management Journal', path: '/research/sugyaan' },
-      //   ],
-      // },
+      {
+        name: 'Research',
+        subDropdown: [
+          { name: 'All Research & Publications', path: '/research' },
+          { name: 'Papers Published', path: '/research?tab=papers' },
+          { name: 'Conferences Presented', path: '/research?tab=conferences' },
+          { name: 'Patents Published', path: '/research?tab=patents' },
+          { name: 'Faculty Awards', path: '/research?tab=awards' },
+          { name: 'Books Published', path: '/research?tab=books' },
+          { name: 'Sugyaan – Management Journal', path: '/research?tab=sugyaan' },
+          { name: 'Case Research Center', path: '/research/case-research-center' },
+        ],
+      },
     ],
   },
   {
