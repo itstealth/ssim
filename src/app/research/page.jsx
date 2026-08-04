@@ -1,7 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import { RESEARCH_TABS, RESEARCH_TAB_KEYS } from "@/data/researchTabs";
 
 /**
@@ -13,16 +12,16 @@ import { RESEARCH_TABS, RESEARCH_TAB_KEYS } from "@/data/researchTabs";
  *
  * The active tab is mirrored into ?tab= so the Home page previews can deep-link
  * straight to a category and the URL stays shareable.
+ *
+ * The ?tab= value is read from window.location rather than useSearchParams on
+ * purpose: useSearchParams opts the whole route out of prerendering, which left
+ * the page's heading, tab bar and copy absent from the served HTML. Reading it
+ * after mount keeps all of that server-rendered for crawlers, at the cost of
+ * deep links showing the first tab for one frame before switching.
  */
 
-function ResearchContent() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const requested = searchParams.get("tab");
-  const initial = RESEARCH_TAB_KEYS.includes(requested) ? requested : RESEARCH_TABS[0].key;
-
-  const [active, setActive] = useState(initial);
+export default function ResearchPage() {
+  const [active, setActive] = useState(RESEARCH_TABS[0].key);
   const [cache, setCache] = useState({});
   const [status, setStatus] = useState({});
   const [query, setQuery] = useState("");
@@ -30,13 +29,16 @@ function ResearchContent() {
 
   const tab = RESEARCH_TABS.find((t) => t.key === active) ?? RESEARCH_TABS[0];
 
-  // Follow browser back/forward between tabs.
+  // Apply ?tab= on mount, and follow browser back/forward between tabs.
   useEffect(() => {
-    if (RESEARCH_TAB_KEYS.includes(requested) && requested !== active) {
-      setActive(requested);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [requested]);
+    const applyFromUrl = () => {
+      const requested = new URLSearchParams(window.location.search).get("tab");
+      if (RESEARCH_TAB_KEYS.includes(requested)) setActive(requested);
+    };
+    applyFromUrl();
+    window.addEventListener("popstate", applyFromUrl);
+    return () => window.removeEventListener("popstate", applyFromUrl);
+  }, []);
 
   // Fetch the active tab's data once.
   useEffect(() => {
@@ -60,7 +62,9 @@ function ResearchContent() {
     setActive(key);
     setQuery("");
     setYear("All");
-    router.replace(`/research?tab=${key}`, { scroll: false });
+    // replaceState rather than the router: this only needs to keep the URL
+    // shareable, and avoids a re-render round trip through the router.
+    window.history.replaceState(null, "", `/research?tab=${key}`);
   }
 
   const rows = cache[tab.key] || [];
@@ -231,14 +235,5 @@ function ResearchContent() {
         )}
       </div>
     </main>
-  );
-}
-
-export default function ResearchPage() {
-  // useSearchParams needs a Suspense boundary during prerender.
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-white" />}>
-      <ResearchContent />
-    </Suspense>
   );
 }
