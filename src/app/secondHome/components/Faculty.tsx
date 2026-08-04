@@ -114,12 +114,6 @@ const faculty = [
     exp: "21 Years · PGDBA",
   },
   {
-    img: "/faculty-webp/23-Dr-K-Subba-Rama-Sarma.webp",
-    name: "Dr. K. Subba Rama Sarma",
-    area: "Data Science",
-    exp: "23 Years · Ph.D, MBA",
-  },
-  {
     img: "/faculty-webp/24-Mrs-Samarpita-Roy.webp",
     name: "Ms. Samarpita Roy",
     area: "HR & Strategy",
