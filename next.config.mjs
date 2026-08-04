@@ -144,6 +144,17 @@ const nextConfig = {
       // FACULTY REDIRECTS
       // =====================================================================
       {
+        // /faculty/areas is the real page (nav, canonical URLs, sitemap, and
+        // all the legacy faculty-slug redirects below already point here).
+        // /faculty itself was never a distinct page - it just used to serve
+        // this same content directly - so send it to the real one instead of
+        // 404ing. Also covers the breadcrumb "Faculty" link and the "back to
+        // faculty" link on /faculty/details/[slug].
+        source: "/faculty",
+        destination: "/faculty/areas",
+        permanent: true,
+      },
+      {
         source: "/program-wise-faculty",
         destination: "/faculty/areas",
         permanent: true,
