@@ -117,6 +117,7 @@ const bogJune2025 = `/pdfs/iqac/AabBog/BOG-JUNE-2025-MINUTES-OF-THE-MEETING.pdf`
 const bogMarch2025 = `/pdfs/iqac/AabBog/BOG-MARCH-2025-MINUTES-OF-THE-MEETING.pdf`;
 const bogMay2023 = `/pdfs/iqac/AabBog/BOG-MAY-2023-MINUTES-OF-THE-MEETING.pdf`;
 
+const pgdmNbaSar2026 = `/PGDM NBA SAR 2026.pdf`;
 const sss2122 = `/pdfs/iqac/SSS-21-22.pdf`;
 const aqar2021 = `/pdfs/iqac/AQAR-20-21.pdf`;
 const mandatoryDisclosure2025 = `/pdfs/iqac/Mandatory_Disclosures_2025_26.pdf`;
@@ -636,6 +637,10 @@ export default function IQAC() {
               <CardContent>
                 <div className="space-y-2">
                   {[
+                    {
+                      name: "PGDM NBA SAR 2026",
+                      link: pgdmNbaSar2026,
+                    },
                     {
                       name: "SSR 21-22",
                       link: sss2122,
