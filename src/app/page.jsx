@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic'
 import HeroSection from '@/components/HeroSection'
-import MobileDeferredSection from '@/components/MobileDeferredSection'
 
 const SectionLoader = ({ height = "min-h-[200px]" }) => (
   <div className={`w-full ${height}`} />
@@ -78,54 +77,22 @@ export default function SecondHome() {
   return (
     <>
       <HeroSection />
-      <MobileDeferredSection height="min-h-[120px]">
-        <Recruiters />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[400px]">
-        <About />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[300px]">
-        <Timeline />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[500px]">
-        <Programs />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[400px]">
-        <CampusLife />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[300px]">
-        <Scholarship />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[150px]">
-        <StatsBanner />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[350px]">
-        <PlacementStories />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[350px]">
-        <WhySSIM />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[400px]">
-        <Faculty />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[400px]">
-        <Research />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[350px]">
-        <SSIMStories />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[300px]">
-        <IndustryExperts />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[350px]">
-        <AlumniSection />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[300px]">
-        <HomeFAQ />
-      </MobileDeferredSection>
-      <MobileDeferredSection height="min-h-[250px]">
-        <CTASection />
-      </MobileDeferredSection>
+      <Recruiters />
+      <About />
+      <Timeline />
+      <Programs />
+      <CampusLife />
+      <Scholarship />
+      <StatsBanner />
+      <PlacementStories />
+      <WhySSIM />
+      <Faculty />
+      <Research />
+      <SSIMStories />
+      <IndustryExperts />
+      <AlumniSection />
+      <HomeFAQ />
+      <CTASection />
     </>
   );
 }
