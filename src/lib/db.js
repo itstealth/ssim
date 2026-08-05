@@ -143,6 +143,55 @@ async function initializeDatabaseSchema() {
             );
         `;
 
+    // Research section tables. Papers live in `publications` (above); these four
+    // cover the remaining Research tabs. Column shapes follow the source
+    // spreadsheet the institute maintains, so Excel uploads map straight across.
+    const createConferencesTableSQL = `
+            CREATE TABLE IF NOT EXISTS conferences (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                title VARCHAR(500) NOT NULL,
+                faculty VARCHAR(500) NOT NULL,
+                theme VARCHAR(500),
+                organized_by VARCHAR(500),
+                month_year VARCHAR(100),
+                academic_year VARCHAR(20),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
+    const createPatentsTableSQL = `
+            CREATE TABLE IF NOT EXISTS patents (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                title VARCHAR(500) NOT NULL,
+                faculty VARCHAR(500) NOT NULL,
+                patent_no VARCHAR(100),
+                published_date VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
+    const createAwardsTableSQL = `
+            CREATE TABLE IF NOT EXISTS awards (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                award VARCHAR(500) NOT NULL,
+                faculty VARCHAR(500) NOT NULL,
+                host_organization VARCHAR(500),
+                year VARCHAR(50),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
+    const createBooksTableSQL = `
+            CREATE TABLE IF NOT EXISTS books (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                book_name VARCHAR(500) NOT NULL,
+                faculty VARCHAR(500) NOT NULL,
+                publisher VARCHAR(500),
+                academic_year VARCHAR(20),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        `;
+
     const createBlogsTableSQL = `
             CREATE TABLE IF NOT EXISTS blogs (
                 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -185,6 +234,18 @@ async function initializeDatabaseSchema() {
 
     await connection.query(createPublicationsTableSQL);
     console.log('[DB] Table "publications" checked/created.');
+
+    await connection.query(createConferencesTableSQL);
+    console.log('[DB] Table "conferences" checked/created.');
+
+    await connection.query(createPatentsTableSQL);
+    console.log('[DB] Table "patents" checked/created.');
+
+    await connection.query(createAwardsTableSQL);
+    console.log('[DB] Table "awards" checked/created.');
+
+    await connection.query(createBooksTableSQL);
+    console.log('[DB] Table "books" checked/created.');
 
     await connection.query(createBlogsTableSQL);
     console.log('[DB] Table "blogs" checked/created.');

@@ -18,7 +18,7 @@ import {
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 import { motion } from "framer-motion";
-import { teamMembers } from "../../data/facultyData";
+import { teamMembers } from "../../../data/facultyData";
 
 export default function Areas() {
   const [hoveredMember, setHoveredMember] = useState(null);

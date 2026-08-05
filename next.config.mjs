@@ -38,10 +38,17 @@ const nextConfig = {
     const WP = "https://ssim-blog-b9egbrcnfccjbzee.centralindia-01.azurewebsites.net";
     return {
       // afterFiles: run AFTER static/prerendered pages so Next.js routes and image optimization are never delayed by external WordPress HTTP responses
+      //
+      // NOTE: /wp-admin and /wp-login.php are deliberately NOT proxied.
+      // Exposing the WordPress admin surface on the public marketing domain was
+      // the attack surface behind the July 2026 compromise, and proxied requests
+      // reach the backend as this app's outbound IP, so they all share a single
+      // rate-limit bucket and per-IP brute-force protection cannot work.
+      // Admin is served directly from the backend host instead:
+      //   https://ssim-blog-b9egbrcnfccjbzee.centralindia-01.azurewebsites.net/wp-admin
+      // (wp-config.php keeps that hostname for admin/logged-in requests.)
       afterFiles: [
         { source: "/wp-json/:path*", destination: `${WP}/wp-json/:path*` },
-        { source: "/wp-admin/:path*", destination: `${WP}/wp-admin/:path*` },
-        { source: "/wp-login.php", destination: `${WP}/wp-login.php` },
         { source: "/wp-content/:path*", destination: `${WP}/wp-content/:path*` },
         { source: "/wp-includes/:path*", destination: `${WP}/wp-includes/:path*` },
         { source: "/pdfs/:path*", destination: "https://raw.githack.com/Stealth-Rishabh/ssim-assets/main/:path*" },
@@ -136,6 +143,24 @@ const nextConfig = {
       // =====================================================================
       // FACULTY REDIRECTS
       // =====================================================================
+      {
+        // Faculty publications moved into the consolidated Research hub, where
+        // papers sit alongside conferences, patents, awards and books.
+        source: "/faculty/publications",
+        destination: "/research?tab=papers",
+        permanent: true,
+      },
+      {
+        // /faculty/areas is the real page (nav, canonical URLs, sitemap, and
+        // all the legacy faculty-slug redirects below already point here).
+        // /faculty itself was never a distinct page - it just used to serve
+        // this same content directly - so send it to the real one instead of
+        // 404ing. Also covers the breadcrumb "Faculty" link and the "back to
+        // faculty" link on /faculty/details/[slug].
+        source: "/faculty",
+        destination: "/faculty/areas",
+        permanent: true,
+      },
       {
         source: "/program-wise-faculty",
         destination: "/faculty/areas",

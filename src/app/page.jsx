@@ -45,6 +45,10 @@ const Faculty = dynamic(() => import('./secondHome/components/Faculty'), {
   loading: () => <SectionLoader height="min-h-[400px]" />,
 });
 
+const Research = dynamic(() => import('./secondHome/components/Research'), {
+  loading: () => <SectionLoader height="min-h-[400px]" />,
+});
+
 const SSIMStories = dynamic(() => import('./secondHome/components/SSIMStories'), {
   loading: () => <SectionLoader height="min-h-[350px]" />,
 });
@@ -84,6 +88,7 @@ export default function SecondHome() {
       <PlacementStories/>
       <WhySSIM />
       <Faculty />
+      <Research />
       <SSIMStories />
       <IndustryExperts />
       <AlumniSection />

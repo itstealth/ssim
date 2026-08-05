@@ -26,7 +26,6 @@ export const Shambhavi = "/faculty-research/faculty-photos/27-Dr-Shambhavi-Tamra
 export const Shubhra = "/faculty-research/faculty-photos/25-Dr-Shubhra-Johri.png";
 export const Smarpita = "/faculty-research/faculty-photos/24-Mrs-Samarpita-Roy.png";
 export const SREEHARI = "/faculty-research/faculty-photos/10-Mr-K-Sreehari.png";
-export const subba = "/faculty-research/faculty-photos/23-Dr-K-Subba-Rama-Sarma.png";
 export const Subhash = "/faculty-research/faculty-photos/17-Mr-T-Subash-Tej.png";
 export const Thirumal = "/faculty-research/faculty-photos/12-Dr-T-Thirumal-Reddy.png";
 export const Vallinayagam = "/faculty-research/faculty/Vallinayagam.webp";
@@ -341,21 +340,6 @@ const rawTeamMembers = [
     awards: "\"Distinguished Alumni Award\" from SSIM Alumni Association",
     description: "Mr. Muppavarapu Chaithanya is a distinguished management educator, corporate trainer, and learning strategist with over two decades of experience spanning industry, entrepreneurship, executive development, and management education. As Assistant Professor and PGP Co-Chair at Siva Sivani Institute of Management (SSIM), he is recognized for creating experiential learning environments that effectively connect academic concepts with real-world business challenges.\n\nHaving worked with leading organizations such as ICICI Bank, Sun Microsystems, and Dream Tekis Software Pvt. Ltd., he brings rich industry perspectives into the classroom. His expertise includes Marketing, Business Development, Sales Management, Strategic Operations, Customer Relationship Management, Leadership Development, Business Communication, Career Readiness and Organizational Behaviour. He has trained, mentored, and inspired a diverse cohort of students, managers and professionals through executive development programs, outbound learning interventions and high-impact workshops.\n\nA strong advocate of experiential and story-based learning, he integrates contemporary business practices, behavioural science, and leadership principles to develop future-ready professionals. His doctoral research on career preparedness, social media usage and psychological well-being reflects his commitment to understanding the evolving aspirations of young professionals and empowering them to build meaningful careers, lead with confidence, and create lasting organizational impact.",
     linkedin: "https://www.linkedin.com/in/chaithanya-muppavarapu-1787b12b5"
-  },
-  {
-    name: "Dr. K. Subba Rama Sarma",
-    area: "Data Science & Information Systems",
-    qualification: "Ph.D, MBA",
-    experience: 23,
-    image: subba,
-    shortDescription: "Expert in advanced analytics and machine learning. Conducts research on artificial intelligence applications in business.",
-    designation: "Assistant. Professor",
-    department: "Data Science & Information Systems",
-    email: "sarmaramam@ssim.ac.in",
-    memberships: "NO",
-    awards: "INSPIRING TEACHER AWARD- TEACHERS' ACADEMY, OSMANIA UNIVERSITY",
-    description: "Dr. K. Subba Rama Sarma\nAssistant Professor & Coordinator – Research & Publications\nSiva Sivani Institute of Management, Hyderabad\nDr. K. Subba Rama Sarma is a highly accomplished academician and corporate trainer with over 23 years of experience in business management education. He holds a Ph.D. in Supply Chain Management alongside MBAs in both Marketing and Human Resources. Currently serving as an Assistant Professor and the Coordinator for Research & Publications at SSIM, he also serves as the Editor for the peer-reviewed in-house journal, Sugyaan. \nDr. Sarma’s teaching and research expertise spans critical domains, including Supply Chain Analytics, Operations Management, Statistics, and Lean Manufacturing & Six Sigma. An avid researcher, he has published extensively in prestigious SCOPUS, ABDC and UGC-CARE indexed journals, exploring sustainable logistics, Humanitarian supply chain, green HRM, and organizational agility. \nIn addition to his academic contributions, Dr. Sarma is an impactful corporate trainer who has designed and delivered impactful training programs on Agile Decision-Making and Quality Management for industry leaders. Known for implementing innovative, technology-driven curriculum delivery and experiential assessment tools, he remains deeply committed to fostering long-term academic and professional success for his students.",
-    linkedin: "https://www.linkedin.com/in/dr-k-sr-sarma-3a8b68156/"
   },
   {
     name: "Mrs. Samarpita Roy",
