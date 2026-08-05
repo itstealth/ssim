@@ -1,14 +1,16 @@
 "use client"
 
 import { usePathname } from "next/navigation"
+import dynamic from "next/dynamic"
 import TopBar from "@/sections/Header/TopBar"
 import Navbar from "@/app/secondHome/components/Navbar"
 import Footer from "@/sections/Footer/Footer"
 import ConditionalBanner from "@/components/ConditionalBanner"
-import { DockButtons } from "@/components/DockButtons"
-import EnquireNowButton from "@/components/EnquireNowButton"
 import Image from "next/image"
 import SecondHomeFooter from "@/app/secondHome/components/Footer"
+
+const DockButtons = dynamic(() => import("@/components/DockButtons"), { ssr: false });
+const EnquireNowButton = dynamic(() => import("@/components/EnquireNowButton"), { ssr: false });
 
 export default function ConditionalLayout({ children }) {
   const pathname = usePathname()

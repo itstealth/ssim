@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import QueryProvider from "@/components/QueryProvider";
@@ -10,12 +10,6 @@ import ConditionalLayout from "@/components/ConditionalLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -89,13 +83,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://ssimblogstorage.blob.core.windows.net" />
-        <link rel="dns-prefetch" href="https://ssimblogstorage.blob.core.windows.net" />
-        {/* Preload Hero Banner Images for LCP */}
-        <link rel="preload" as="image" href="/hero-sm.avif" media="(max-width: 767px)" type="image/avif" fetchpriority="high" />
-        <link rel="preload" as="image" href="/banner.avif" media="(min-width: 768px)" type="image/avif" fetchpriority="high" />
+        {/* Preload Mobile LCP Hero Banner Image for minimal resource load delay */}
+        <link rel="preload" as="image" href="/hero-sm.avif" media="(max-width: 767px)" type="image/avif" fetchPriority="high" />
+        <link rel="preload" as="image" href="/banner.avif" media="(min-width: 768px)" type="image/avif" fetchPriority="high" />
         {/* Homepage @graph Schema — Organization + WebSite */}
         <HomepageSchema />
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
@@ -103,7 +93,7 @@ export default function RootLayout({ children }) {
       </head>
       <GoogleTagManager gtmId="GTM-5LJR499N" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
+        className={`${geistSans.variable} ${playfairDisplay.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
