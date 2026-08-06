@@ -2,7 +2,6 @@
 
 /* eslint-disable react/no-unknown-property */
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { Instagram, Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -55,27 +54,15 @@ const TopBar = () => {
           </span>
           <div className="flex gap-3">
             {socialIcons.map((item, index) => (
-              <motion.a
+              <a
                 key={index}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full p-2 transition-all duration-300 ease-in-out hover:rotate-12 hover:scale-110 text-white bg-white/10 hover:bg-white/15 border border-white/15"
-                initial={{ y: -50, opacity: 0 }}
-                animate={
-                  iconsLoaded[index]
-                    ? { y: 0, opacity: 1 }
-                    : { y: -50, opacity: 0 }
-                }
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                  delay: 0.1,
-                }}
               >
                 {item.icon}
-              </motion.a>
+              </a>
             ))}
           </div>
         </div>

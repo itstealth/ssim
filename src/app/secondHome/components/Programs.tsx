@@ -62,6 +62,7 @@ export default function Programs() {
               alt={p.title}
               sizes="(max-width: 640px) 85vw, (max-width: 1280px) 50vw, 25vw"
               loading="lazy"
+              decoding="async"
               className="object-cover w-full h-full transition-transform duration-[400ms] group-hover:scale-[1.07]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#101a3a]/20 via-transparent to-transparent" />

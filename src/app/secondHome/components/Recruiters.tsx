@@ -32,6 +32,7 @@ export default function Recruiters() {
                   height={48}
                   className="h-12 w-auto object-contain"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}

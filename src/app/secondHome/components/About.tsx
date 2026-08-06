@@ -27,6 +27,7 @@ export default function About() {
                 src={AboutSSIM}
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-[#101a3a]/75 px-4 py-2 text-sm font-semibold text-white backdrop-blur flex items-center gap-2 shadow-lg">
                 🎓 Excellence in Education
@@ -121,6 +122,8 @@ export default function About() {
                 src={AboutSSIM}
                 alt="SSIM Campus Life"
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-[#101a3a]/75 px-4 py-2 text-sm font-semibold text-white backdrop-blur flex items-center gap-2 shadow-lg">
                 🎓 Excellence in Education

@@ -197,6 +197,8 @@ function ExpertCard({ expert, reverse = false }: { key?: React.Key; expert: any;
             alt={expert.name}
             className="object-cover w-full h-full"
             sizes="(max-width: 768px) 100vw, 42vw"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#150c33] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#150c33]/10" />

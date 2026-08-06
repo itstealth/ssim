@@ -101,6 +101,8 @@ export default function Placements() {
                         alt={student.name}
                         className="object-cover w-full h-full object-top"
                         sizes="(max-width: 1024px) 22vw, 120px"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </button>
                   ))}

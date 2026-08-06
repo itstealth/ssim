@@ -24,6 +24,8 @@ export default function Scholarship() {
             alt="Scholarship Hero"
             width={800}
             height={400}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-contain rounded-[20px] block"
           />
           <div className="absolute -bottom-[18px] -right-[18px] bg-gradient-to-br from-purple-700 to-[#1B50EC] text-white rounded-2xl p-[20px_24px] text-center shadow-[0_10px_30px_rgba(27,80,236,0.32)]">

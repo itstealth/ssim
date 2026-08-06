@@ -45,6 +45,8 @@ export default function WhySSIM() {
             width={800}
             height={480}
             sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="lazy"
+            decoding="async"
             className="w-full h-[240px] md:h-[360px] lg:h-full object-cover rounded-[24px] border border-white/60 shadow-[0_20px_50px_rgba(16,34,105,0.12)]"
           />
         </div>
