@@ -1,14 +1,41 @@
 "use client"
 
+import dynamic from 'next/dynamic'
 import { usePathname } from "next/navigation"
 import TopBar from "@/sections/Header/TopBar"
 import Navbar from "@/app/secondHome/components/Navbar"
-import Footer from "@/sections/Footer/Footer"
-import ConditionalBanner from "@/components/ConditionalBanner"
-import { DockButtons } from "@/components/DockButtons"
-import EnquireNowButton from "@/components/EnquireNowButton"
 import Image from "next/image"
-import SecondHomeFooter from "@/app/secondHome/components/Footer"
+import ConditionalBanner from "@/components/ConditionalBanner"
+
+/**
+ * PERFORMANCE: DockButtons and EnquireNowButton are fixed-position UI elements
+ * that only become relevant after the user scrolls or clicks. They are:
+ *  - Not visible in the initial viewport
+ *  - Both import framer-motion (via magicui/dock) and Radix Dialog
+ *
+ * Lazy-loading with ssr:false means:
+ *  1. Their JS is split into a separate chunk, NOT in the initial bundle
+ *  2. They never block the hero/LCP paint
+ *  3. They hydrate asynchronously after the main content is interactive
+ */
+const DockButtons = dynamic(
+  () => import("@/components/DockButtons").then((m) => ({ default: m.DockButtons })),
+  { ssr: false }
+)
+
+const EnquireNowButton = dynamic(
+  () => import("@/components/EnquireNowButton"),
+  { ssr: false }
+)
+
+/**
+ * PERFORMANCE: Footer and SecondHomeFooter are large, below-fold components.
+ * Lazy-loading them removes their hydration cost from the critical path.
+ * ssr:true keeps them in the server HTML for SEO, but their client JS loads
+ * asynchronously after the hero is painted.
+ */
+const Footer = dynamic(() => import("@/sections/Footer/Footer"))
+const SecondHomeFooter = dynamic(() => import("@/app/secondHome/components/Footer"))
 
 export default function ConditionalLayout({ children }) {
   const pathname = usePathname()
@@ -30,6 +57,9 @@ export default function ConditionalLayout({ children }) {
       {!hideLayoutElements && (
         isSecondHome || isThirdHome ? <SecondHomeFooter /> : <Footer />
       )}
+      {/* DockButtons and EnquireNowButton: lazy-loaded, ssr:false
+          Their JS (framer-motion via magicui/dock + Radix Dialog) never
+          blocks the initial render. They appear after hydration completes. */}
       {!hideLayoutElements && <DockButtons />}
       {!hideLayoutElements && <EnquireNowButton />}
       {!hideLayoutElements && (
