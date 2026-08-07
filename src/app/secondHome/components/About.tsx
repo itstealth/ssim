@@ -1,7 +1,8 @@
-"use client";
-import Image from 'next/image'
-import Link from 'next/link'
+// Server Component — no "use client" needed.
+// The only interactive piece (scroll-to-top on click) is isolated in
+// ScrollToTopLink so this component ships zero client JS.
 import { secondHomeTheme } from '../theme'
+import ScrollToTopLink from '@/components/ScrollToTopLink'
 
 const AboutSSIM = "/Home/campus-image.webp"
 
@@ -100,11 +101,8 @@ export default function About() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <Link
-            href="/about/vision-mission"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
+          {/* CTA Button — uses ScrollToTopLink (client) to keep this component server-side */}
+          <ScrollToTopLink href="/about/vision-mission">
             <div className="inline-flex items-center gap-0 mt-6">
               <div className={`h-11 flex items-center px-8 text-white transition-colors rounded-l-[10px] ${secondHomeTheme.accentGradient}`}>
                 Learn More About SSIM
@@ -113,7 +111,7 @@ export default function About() {
                 →
               </div>
             </div>
-          </Link>
+          </ScrollToTopLink>
 
           {/* Mobile Image */}
           <div className="lg:hidden overflow-hidden shadow-2xl rounded-none mt-8">

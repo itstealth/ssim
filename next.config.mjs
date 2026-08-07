@@ -31,7 +31,34 @@ const nextConfig = {
       { protocol: "https", hostname: "ssimblogstorage.blob.core.windows.net", pathname: "/**" },
     ],
     minimumCacheTTL: 31536000,
-    formats: ["image/webp", "image/avif"],
+    // AVIF first: ~50% smaller than WebP on mobile. Next.js serves the first
+    // format in this array that the browser supports, so AVIF-capable browsers
+    // (Chrome, Firefox, Safari 16+) get significantly smaller hero images.
+    formats: ["image/avif", "image/webp"],
+  },
+
+  // Tree-shake large libraries so only the icons/components actually imported
+  // are included in the JS bundle. Without this, the full lucide-react and
+  // framer-motion libraries are shipped to every page.
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+      "motion",
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-collapsible",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-label",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-scroll-area",
+      "@radix-ui/react-select",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-toast",
+      "@radix-ui/react-tooltip",
+    ],
   },
 
   async rewrites() {

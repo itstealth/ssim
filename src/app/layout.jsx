@@ -2,7 +2,7 @@ import { Geist, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import QueryProvider from "@/components/QueryProvider";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "sonner";
 import { HomepageSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
@@ -12,18 +12,24 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
+  // Geist is the body font – preload it so text renders on first paint
+  preload: true,
 });
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
+  // Playfair is only used decoratively below the fold.
+  // Setting preload:false removes it from the critical rendering path entirely.
+  // The browser will still load it when first needed, just not block initial paint.
+  preload: false,
 });
 
 export const metadata = {
   title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
   description:
-    "Meta descriprion for home page	SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
+    "Meta descriprion for home page\tSSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
   canonical: "https://ssim.ac.in",
   alternates: {
     canonical: "https://ssim.ac.in",
@@ -31,7 +37,7 @@ export const metadata = {
   openGraph: {
     title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
     description:
-      "Meta descriprion for home page	SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
+      "Meta descriprion for home page\tSSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
     url: "https://www.ssim.ac.in",
     siteName: "SSIM Hyderabad",
     images: ["/ssimlogo.webp"],
@@ -40,19 +46,16 @@ export const metadata = {
     card: "summary_large_image",
     title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
     description:
-      "Meta descriprion for home page	SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
+      "Meta descriprion for home page\tSSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
     images: ["/ssimlogo.webp"],
   },
   robots: {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: "https://ssim.ac.in",
-  },
   icons: {
     icon: "/ssim-favicon.png",
-  },  
+  },
   manifest: "/manifest.json",
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://ssim.ac.in"),
   category: "education",
@@ -66,9 +69,6 @@ export const metadata = {
   formatDetection: {
     email: false,
     address: false,
-  },
-  alternates: {
-    canonical: "https://ssim.ac.in",
   },
 };
 
@@ -91,11 +91,10 @@ export default function RootLayout({ children }) {
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
         <DynamicSchema />
       </head>
-      <GoogleTagManager gtmId="GTM-5LJR499N" />
       <body
         className={`${geistSans.variable} ${playfairDisplay.variable} antialiased`}
       >
-        {/* Google Tag Manager (noscript) */}
+        {/* Google Tag Manager noscript fallback for no-JS environments */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5LJR499N"
@@ -104,7 +103,21 @@ export default function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
+
+        {/* GTM — afterInteractive: fires only after the page becomes interactive.
+            This ensures GTM never competes with LCP for network/CPU bandwidth. */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+        >{`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-5LJR499N');
+        `}</Script>
+
+        {/* NoPaperForms — lazyOnload fires only during browser idle time */}
         <Script id="nopaperforms-config" strategy="lazyOnload">
           {`var npf_d='https://apply.ssim.ac.in'; var npf_c='277'; var npf_m='1';`}
         </Script>
@@ -112,12 +125,16 @@ export default function RootLayout({ children }) {
           src="https://track.nopaperforms.com/js/track.js"
           strategy="lazyOnload"
         />
+
         <QueryProvider>
           <ConditionalLayout>{children}</ConditionalLayout>
           <Toaster />
         </QueryProvider>
+
+        {/* Google Analytics — afterInteractive, inside <body> (was incorrectly after </html>).
+            @next/third-parties/google already uses afterInteractive internally. */}
+        <GoogleAnalytics gaId="G-G3TY673HQG" />
       </body>
-      <GoogleAnalytics gaId="G-G3TY673HQG" />
     </html>
   );
 }
