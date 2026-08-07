@@ -88,7 +88,7 @@ export default function HomeClient() {
   return (
     <>
       <Timeline />
-      <Placements />
+      {/* <Placements /> */}
       <WhySSIM />
       <Faculty />
       <Research />
