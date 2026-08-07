@@ -162,7 +162,9 @@ export default function ResearchPage() {
                   aria-label="Filter by year"
                 >
                   {years.map((y) => (
-                    <option key={y} value={y}>{y === "All" ? "All years" : y}</option>
+                    <option key={y} value={y}>
+                      {y === "All" ? "All years" : `${y}-${String(Number(y) + 1).slice(-2)}`}
+                    </option>
                   ))}
                 </select>
               )}
@@ -215,11 +217,18 @@ export default function ResearchPage() {
                         {tab.columns.map((c) => (
                           <td
                             key={c.field}
-                            className={`border-b border-slate-100 px-4 py-3 text-[13.5px] leading-relaxed ${
+                            className={`border-b border-slate-100 px-4 py-3 text-[13.5px] leading-relaxed ${c.field === "year" ? "whitespace-nowrap" : ""} ${
                               c.wide ? "font-medium text-slate-900" : "text-slate-600"
                             }`}
                           >
-                            {r[c.field] || <span className="text-slate-300">&mdash;</span>}
+                            {c.field === "year"
+                              ? r[c.field]
+                                ? /^\d{4}$/.test(String(r[c.field]).trim())
+                                  ? `${r[c.field]}-${String(Number(r[c.field]) + 1).slice(-2)}`
+                                  : r[c.field]
+                                : <span className="text-slate-300">&mdash;</span>
+                              : r[c.field] || <span className="text-slate-300">&mdash;</span>
+                            }
                           </td>
                         ))}
                       </tr>
