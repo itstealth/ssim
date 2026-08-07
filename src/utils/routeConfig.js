@@ -89,10 +89,7 @@ export const routeConfigs = {
       baseTitle: "Research", 
       //  basePath: "/research",
       routes: {
-        "case-research-center": {
-          title: "Case Research Center",
-          breadcrumbLabel: "Case Research Center"
-        },
+
         "conferences": {
           title: "Conferences",
           breadcrumbLabel: "Conferences" 

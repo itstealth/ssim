@@ -50,7 +50,7 @@ const VALID_PATHS = [
   "/success-stories",
   "/faculty/areas",
   "/research",
-  "/research/case-research-center",
+
   "/international-relations",
   "/placement/records",
   "/placement/team",

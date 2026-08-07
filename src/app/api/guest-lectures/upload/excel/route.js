@@ -63,6 +63,16 @@ export async function POST(request) {
       );
     }
 
+    if (!dbPool) {
+      return NextResponse.json(
+        {
+          message:
+            "Database connection pool is not initialized. Please verify DB credentials in environment variables.",
+        },
+        { status: 500 }
+      );
+    }
+
     connection = await dbPool.getConnection();
     await connection.beginTransaction();
 

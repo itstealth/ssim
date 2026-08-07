@@ -249,6 +249,36 @@ async function initializeDatabaseSchema() {
 
     await connection.query(createBlogsTableSQL);
     console.log('[DB] Table "blogs" checked/created.');
+
+    // Ensure AUTO_INCREMENT on id columns and NULL permissions for optional fields
+    const autoIncrementTables = [
+      "placements",
+      "internships",
+      "guest_lectures",
+      "publications",
+      "conferences",
+      "patents",
+      "awards",
+      "books",
+      "blogs"
+    ];
+
+    for (const table of autoIncrementTables) {
+      try {
+        await connection.query(`ALTER TABLE ${table} MODIFY COLUMN id INT AUTO_INCREMENT`);
+        console.log(`[DB] Ensured AUTO_INCREMENT on table "${table}".`);
+      } catch (alterErr) {
+        // Ignore if already AUTO_INCREMENT or column type differs
+      }
+    }
+
+    try {
+      await connection.query("ALTER TABLE guest_lectures MODIFY COLUMN designation VARCHAR(255) NULL");
+      await connection.query("ALTER TABLE guest_lectures MODIFY COLUMN topic VARCHAR(255) NULL");
+      await connection.query("ALTER TABLE guest_lectures MODIFY COLUMN year VARCHAR(50) NULL");
+    } catch (alterErr) {
+      // Ignore if columns already allow NULL
+    }
   } catch (error) {
     console.error('[DB] Error initializing database schema:', error.message);
     console.error('[DB] Error details:', error);

@@ -80,7 +80,7 @@ const navItems = [
           { name: 'Faculty Awards', path: '/research?tab=awards' },
           { name: 'Books Published', path: '/research?tab=books' },
           { name: 'Sugyaan – Management Journal', path: '/research?tab=sugyaan' },
-          { name: 'Case Research Center', path: '/research/case-research-center' },
+
         ],
       },
     ],

@@ -64,7 +64,7 @@ const ROUTE_METADATA_OVERRIDES = {
     priority: 0.8,
     changefreq: "weekly",
   },
-  "/research/case-research-center": { priority: 0.6, changefreq: "monthly" },
+
   "/research/conferences": { priority: 0.6, changefreq: "monthly" },
   "/success-stories": { priority: 0.7, changefreq: "monthly" },
   "/students-life/life-at-ssim": { priority: 0.6, changefreq: "monthly" },
