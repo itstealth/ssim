@@ -56,9 +56,9 @@ export default function Research() {
           </p>
         </div>
 
-        {/* Tabs */}
+        {/* 'patents', 'awards', 'books' are hidden on the home page preview – they remain visible on /research */}
         <div className="mt-8 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Research categories">
-          {RESEARCH_TABS.map((t) => {
+          {RESEARCH_TABS.filter((t) => !['patents', 'awards', 'books'].includes(t.key)).map((t) => {
             const isActive = t.key === active
             const count = summary && !t.external ? summary[t.key]?.total : undefined
             return (
