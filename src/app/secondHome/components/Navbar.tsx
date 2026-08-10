@@ -36,9 +36,9 @@ const navItems = [
       {
         name: 'PGDM',
         subDropdown: [
-          { name: 'PGDM BA', path: '/programs/pgdm-ba' },
-          { name: 'PGDM BIFS', path: '/programs/pgdm-bifs' },
           { name: 'PGDM Triple Specialisation', path: '/programs/pgdm-triple-specialisation' },
+          { name: 'PGDM BIFS', path: '/programs/pgdm-bifs' },
+          { name: 'PGDM BA', path: '/programs/pgdm-ba' },
         ],
       },
       { name: 'FPM/EFPM', path: '/programs/fpm-efpm' },
