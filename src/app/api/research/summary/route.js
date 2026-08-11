@@ -1,4 +1,4 @@
-import { dbPool } from "@/lib/db";
+import { dbQuery } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 /**
@@ -49,16 +49,13 @@ const SECTIONS = [
 ];
 
 export async function GET() {
-  let connection;
   try {
-    connection = await dbPool.getConnection();
-
     const result = {};
     for (const s of SECTIONS) {
-      const [[{ total }]] = await connection.query(
+      const [[{ total }]] = await dbQuery(
         `SELECT COUNT(*) AS total FROM ${s.table}`
       );
-      const [items] = await connection.query(
+      const [items] = await dbQuery(
         `SELECT ${s.select} FROM ${s.table} ORDER BY ${s.order} LIMIT ${PREVIEW_LIMIT}`
       );
       result[s.key] = { total, items };
@@ -71,7 +68,5 @@ export async function GET() {
       { message: "Failed to build research summary.", error: error.message },
       { status: 500 }
     );
-  } finally {
-    if (connection) connection.release();
   }
 }

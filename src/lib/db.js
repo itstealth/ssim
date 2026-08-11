@@ -35,10 +35,10 @@ function getSSLOptions() {
   }
 }
 
-// Only log and create pool if we have database credentials
-let dbPool = null;
+// Global connection pool singleton for Next.js dev server HMR
+let dbPool = globalThis.dbPool || null;
 
-if (process.env.DB_HOST && process.env.DB_USER && process.env.DB_DATABASE) {
+if (!dbPool && process.env.DB_HOST && process.env.DB_USER && process.env.DB_DATABASE) {
   console.log('[DB] Creating database pool...');
   console.log('[DB] DB_HOST:', process.env.DB_HOST);
   console.log('[DB] DB_DATABASE:', process.env.DB_DATABASE);
@@ -51,18 +51,52 @@ if (process.env.DB_HOST && process.env.DB_USER && process.env.DB_DATABASE) {
     database: process.env.DB_DATABASE,
     waitForConnections: true,
     connectionLimit: 10,
+    maxIdle: 10,
+    idleTimeout: 30000,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 10000,
     queueLimit: 0,
     multipleStatements: true,
     ssl: getSSLOptions(),
-    connectTimeout: 60000, // Changed from 'timeout'
+    connectTimeout: 10000,
   });
 
+  if (process.env.NODE_ENV !== "production") {
+    globalThis.dbPool = dbPool;
+  }
+
   console.log('[DB] Database pool created successfully');
-} else {
+} else if (!dbPool) {
   console.log('[DB] Skipping database pool creation - no credentials provided (build time)');
 }
 
 export { dbPool };
+
+/**
+ * Execute a query with automatic retry on transient connection drops / timeouts.
+ */
+export async function dbQuery(sql, params = []) {
+  if (!dbPool) {
+    throw new Error("Database connection pool is not initialized.");
+  }
+  try {
+    return await dbPool.query(sql, params);
+  } catch (err) {
+    const isNetworkError =
+      err.code === "ETIMEDOUT" ||
+      err.code === "ECONNRESET" ||
+      err.code === "PROTOCOL_CONNECTION_LOST" ||
+      err.code === "EPIPE" ||
+      err.code === "ER_SOCKET_UNEXPECTED_CLOSE";
+    if (isNetworkError) {
+      console.warn(`[DB] Transient connection error (${err.code}), retrying query once...`);
+      return await dbPool.query(sql, params);
+    }
+    throw err;
+  }
+}
+
+let schemaInitialized = globalThis.schemaInitialized || false;
 
 async function initializeDatabaseSchema() {
   // Skip initialization during build or if no database credentials
@@ -122,8 +156,9 @@ async function initializeDatabaseSchema() {
     const createGuestLecturesTableSQL = `
             CREATE TABLE IF NOT EXISTS guest_lectures (
                 id INT AUTO_INCREMENT PRIMARY KEY,
+                date VARCHAR(50),
                 name VARCHAR(255) NOT NULL,
-                designation VARCHAR(255) NOT NULL,
+                designation VARCHAR(255),
                 company VARCHAR(255) NOT NULL,
                 topic VARCHAR(255),
                 year VARCHAR(10),
@@ -273,6 +308,12 @@ async function initializeDatabaseSchema() {
     }
 
     try {
+      await connection.query("ALTER TABLE guest_lectures ADD COLUMN date VARCHAR(50) NULL AFTER id");
+    } catch (alterErr) {
+      // Ignore if date column already exists
+    }
+
+    try {
       await connection.query("ALTER TABLE guest_lectures MODIFY COLUMN designation VARCHAR(255) NULL");
       await connection.query("ALTER TABLE guest_lectures MODIFY COLUMN topic VARCHAR(255) NULL");
       await connection.query("ALTER TABLE guest_lectures MODIFY COLUMN year VARCHAR(50) NULL");
@@ -297,7 +338,11 @@ const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build' ||
                     (typeof process.env.npm_lifecycle_event !== 'undefined' && 
                      process.env.npm_lifecycle_event.includes('build'));
 
-if (!isBuildTime && typeof window === 'undefined' && dbPool) {
+if (!isBuildTime && typeof window === 'undefined' && dbPool && !schemaInitialized) {
+  schemaInitialized = true;
+  if (process.env.NODE_ENV !== "production") {
+    globalThis.schemaInitialized = true;
+  }
   // Only run at runtime, not during build
   initializeDatabaseSchema().catch(error => {
     console.error('[DB] Failed to initialize database schema:', error);

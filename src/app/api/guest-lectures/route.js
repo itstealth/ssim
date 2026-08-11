@@ -1,12 +1,10 @@
-import { dbPool } from "@/lib/db";
+import { dbQuery } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  let connection;
   try {
-    connection = await dbPool.getConnection();
-    const [rows] = await connection.query(
-      "SELECT id, name, designation, company, topic, year, created_at FROM guest_lectures ORDER BY id"
+    const [rows] = await dbQuery(
+      "SELECT id, date, name, designation, company, topic, year, created_at FROM guest_lectures ORDER BY id"
     );
     return NextResponse.json(rows);
   } catch (error) {
@@ -18,15 +16,12 @@ export async function GET() {
       },
       { status: 500 }
     );
-  } finally {
-    if (connection) connection.release();
   }
 }
 
 export async function POST(request) {
-  let connection;
   try {
-    const { name, designation, company, topic, year } = await request.json();
+    const { date, name, designation, company, topic, year } = await request.json();
 
     if (!name || !company) {
       return NextResponse.json(
@@ -35,10 +30,10 @@ export async function POST(request) {
       );
     }
 
-    connection = await dbPool.getConnection();
     const query =
-      "INSERT INTO guest_lectures (name, designation, company, topic, year) VALUES (?, ?, ?, ?, ?)";
-    const [result] = await connection.execute(query, [
+      "INSERT INTO guest_lectures (date, name, designation, company, topic, year) VALUES (?, ?, ?, ?, ?, ?)";
+    const [result] = await dbQuery(query, [
+      date || null,
       name,
       designation,
       company,
@@ -52,6 +47,7 @@ export async function POST(request) {
         guestLectureId: result.insertId,
         record: {
           id: result.insertId,
+          date,
           name,
           designation,
           company,
@@ -70,7 +66,5 @@ export async function POST(request) {
       },
       { status: 500 }
     );
-  } finally {
-    if (connection) connection.release();
   }
 }

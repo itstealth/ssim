@@ -34,6 +34,7 @@ export async function POST(request) {
 
     const guestLecturesToInsert = jsonData
       .map((row, index) => {
+        const date = row["Date"] || row["date"] || null;
         const name = row["Name"] || row["name"];
         const designation = row["Designation"] || row["designation"] || null;
         const company = row["Company"] || row["company"];
@@ -49,7 +50,7 @@ export async function POST(request) {
           );
           return null;
         }
-        return { name, designation, company, topic, year };
+        return { date, name, designation, company, topic, year };
       })
       .filter((p) => p !== null);
 
@@ -77,7 +78,7 @@ export async function POST(request) {
     await connection.beginTransaction();
 
     const query =
-      "INSERT INTO guest_lectures (name, designation, company, topic, year) VALUES (?, ?, ?, ?, ?)";
+      "INSERT INTO guest_lectures (date, name, designation, company, topic, year) VALUES (?, ?, ?, ?, ?, ?)";
     let successfulInserts = 0;
     const errors = [];
 
@@ -85,6 +86,7 @@ export async function POST(request) {
       const guestLecture = guestLecturesToInsert[i];
       try {
         await connection.execute(query, [
+          guestLecture.date,
           guestLecture.name,
           guestLecture.designation,
           guestLecture.company,
