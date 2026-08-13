@@ -533,15 +533,6 @@ export default function PlacementSection() {
                   </TableHead>
                   <TableHead
                     className="cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("email")}
-                  >
-                    <div className="flex items-center gap-1">
-                      Email
-                      <SortIcon columnKey="email" />
-                    </div>
-                  </TableHead>
-                  <TableHead
-                    className="cursor-pointer hover:text-primary transition-colors"
                     onClick={() => handleSort("company")}
                   >
                     <div className="flex items-center gap-1">
@@ -563,7 +554,7 @@ export default function PlacementSection() {
               <TableBody>
                 {paginatedStudents.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={5} className="h-32">
+                    <TableCell colSpan={4} className="h-32">
                       <div className="flex flex-col items-center justify-center text-center">
                         <p className="text-muted-foreground">
                           No matching records found
@@ -588,7 +579,6 @@ export default function PlacementSection() {
                       <TableCell className="font-medium">
                         {student.name}
                       </TableCell>
-                      <TableCell>{student.email || "-"}</TableCell>
                       <TableCell>{student.company}</TableCell>
                       <TableCell>{student.designation || "-"}</TableCell>
                     </TableRow>

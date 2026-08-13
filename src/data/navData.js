@@ -87,24 +87,11 @@ export const navlinks = [
     dropdown: [
       {
         name: "Faculty",
-        subDropdown: [
-          { name: "Areas", path: "/faculty/areas" },
-        ],
+        path: "/faculty",
       },
       {
         name: "Research",
-        subDropdown: [
-          { name: "All Research & Publications", path: "/research" },
-          { name: "Papers Published", path: "/research?tab=papers" },
-          { name: "Conferences Presented", path: "/research?tab=conferences" },
-          { name: "Patents Published", path: "/research?tab=patents" },
-          { name: "Faculty Awards", path: "/research?tab=awards" },
-          { name: "Books Published", path: "/research?tab=books" },
-          { name: "Sugyaan – Management Journal", path: "/research?tab=sugyaan" },
-
-          // { name: "Conferences", path: "/research/conferences" },
-          // { name: "Ph.D. Scholars", path: "/research/phd-scholars" },
-        ],
+        path: "/research",
       },
     ],
   },

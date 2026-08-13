@@ -378,7 +378,7 @@ export default function Internships() {
             )}
           </div>
 
-          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white flex flex-col h-[calc(100vh-100px)] invisible-scrollbar">
+          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white flex flex-col">
             <Table className="text-base relative">
               <TableHeader className="bg-gray-50 sticky top-0 z-10">
                 <TableRow>
