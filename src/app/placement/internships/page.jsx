@@ -9,28 +9,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { OrganizationSchema } from "@/components/Schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  // LinkedinIcon,
-  // DownloadIcon,
   BuildingIcon,
   GraduationCapIcon,
-  // MapPinIcon,
+  BookOpenIcon,
+  BriefcaseIcon,
   XIcon,
   ChevronUpIcon,
   ChevronDownIcon,
-  TrendingUpIcon,
-  UsersIcon,
-  Building2Icon as BuildingOffice2Icon,
-  // PercentIcon,
 } from "lucide-react";
 import {
   Select,
@@ -39,8 +29,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Heading from "@/components/wrappers/Heading";
 
 export default function Internships() {
   const [apiStudentsData, setApiStudentsData] = useState([]);
@@ -48,9 +36,11 @@ export default function Internships() {
   const [error, setError] = useState(null);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState("all");
+  const [selectedYear, setSelectedYear] = useState("");
+  const [selectedProgram, setSelectedProgram] = useState("all");
   const [selectedCompany, setSelectedCompany] = useState("all");
-  const [sortConfig, setSortConfig] = useState(null);
+  const [selectedSpecialization, setSelectedSpecialization] = useState("all");
+  const [sortConfig, setSortConfig] = useState({ key: "name", direction: "asc" });
 
   useEffect(() => {
     const fetchPlacementData = async () => {
@@ -77,13 +67,29 @@ export default function Internships() {
 
   const years = useMemo(
     () =>
-      Array.from(new Set(apiStudentsData.map((student) => student.year))).sort(
-        (a, b) => {
-          const yearA = parseInt(a, 10) || 0;
-          const yearB = parseInt(b, 10) || 0;
-          return yearB - yearA;
-        }
-      ),
+      Array.from(
+        new Set(apiStudentsData.map((student) => student.year).filter(Boolean))
+      ).sort((a, b) => {
+        const yearA = parseInt(a, 10) || 0;
+        const yearB = parseInt(b, 10) || 0;
+        return yearB - yearA;
+      }),
+    [apiStudentsData]
+  );
+
+  useEffect(() => {
+    if (years.length > 0 && selectedYear === "") {
+      setSelectedYear(years[0].toString());
+    }
+  }, [years, selectedYear]);
+
+  const programs = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          apiStudentsData.map((student) => student.program).filter(Boolean)
+        )
+      ).sort(),
     [apiStudentsData]
   );
 
@@ -93,42 +99,21 @@ export default function Internships() {
         new Set(
           apiStudentsData.map((student) => student.company).filter(Boolean)
         )
-      ),
+      ).sort((a, b) => a.localeCompare(b)),
     [apiStudentsData]
   );
 
-  const stats = useMemo(() => {
-    if (!apiStudentsData || apiStudentsData.length === 0) {
-      return {
-        totalPlacements: 0,
-        averageSalary: "0K",
-        companiesHiring: 0,
-        placementRate: "0%",
-      };
-    }
-    const totalPlacements = apiStudentsData.length;
-    const totalSalary = apiStudentsData.reduce(
-      (acc, curr) =>
-        acc + Number(String(curr.salary).replace(/[^\d.-]/g, "") || 0),
-      0
-    );
-    const averageSalary = totalPlacements
-      ? `${(totalSalary / totalPlacements)
-          .toFixed(0)
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${
-          totalPlacements > 0 && totalSalary > 0 ? "" : "K"
-        }`
-      : "0K";
-    const companiesHiring = new Set(apiStudentsData.map((s) => s.company)).size;
-    const placementRate = "92%";
-
-    return {
-      totalPlacements,
-      averageSalary,
-      companiesHiring,
-      placementRate,
-    };
-  }, [apiStudentsData]);
+  const specializations = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          apiStudentsData
+            .map((student) => student.majorSpecialization)
+            .filter(Boolean)
+        )
+      ).sort((a, b) => a.localeCompare(b)),
+    [apiStudentsData]
+  );
 
   const filteredStudents = useMemo(() => {
     const normalizedSearchTerm = searchTerm.trim().toLowerCase();
@@ -136,25 +121,42 @@ export default function Internships() {
     const filtered = apiStudentsData.filter((student) => {
       const searchFilter =
         normalizedSearchTerm === "" ||
+        (student.roll &&
+          student.roll.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.name &&
           student.name.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.company &&
           student.company.toLowerCase().includes(normalizedSearchTerm)) ||
+        (student.program &&
+          student.program.toLowerCase().includes(normalizedSearchTerm)) ||
+        (student.majorSpecialization &&
+          student.majorSpecialization
+            .toLowerCase()
+            .includes(normalizedSearchTerm)) ||
         (student.year &&
-          student.year.toString().includes(normalizedSearchTerm)) ||
-        (student.salary &&
-          String(student.salary)
-            .replace(/[^\d.-]/g, "")
-            .includes(normalizedSearchTerm));
+          student.year.toString().includes(normalizedSearchTerm));
 
       const yearFilter =
         selectedYear === "all" ||
         (student.year && student.year.toString() === selectedYear);
+      const programFilter =
+        selectedProgram === "all" ||
+        (student.program && student.program === selectedProgram);
       const companyFilter =
         selectedCompany === "all" ||
         (student.company && student.company === selectedCompany);
+      const specializationFilter =
+        selectedSpecialization === "all" ||
+        (student.majorSpecialization &&
+          student.majorSpecialization === selectedSpecialization);
 
-      return searchFilter && yearFilter && companyFilter;
+      return (
+        searchFilter &&
+        yearFilter &&
+        programFilter &&
+        companyFilter &&
+        specializationFilter
+      );
     });
 
     if (sortConfig) {
@@ -162,16 +164,8 @@ export default function Internships() {
         let aValue = a[sortConfig.key];
         let bValue = b[sortConfig.key];
 
-        if (sortConfig.key === "salary") {
-          aValue = parseInt(String(aValue).replace(/[^\d.-]/g, "") || 0, 10);
-          bValue = parseInt(String(bValue).replace(/[^\d.-]/g, "") || 0, 10);
-        } else if (sortConfig.key === "year") {
-          aValue = Number(aValue) || 0;
-          bValue = Number(bValue) || 0;
-        } else {
-          aValue = (aValue || "").toString().toLowerCase();
-          bValue = (bValue || "").toString().toLowerCase();
-        }
+        aValue = (aValue || "").toString().toLowerCase();
+        bValue = (bValue || "").toString().toLowerCase();
 
         if (aValue < bValue) return sortConfig.direction === "asc" ? -1 : 1;
         if (aValue > bValue) return sortConfig.direction === "asc" ? 1 : -1;
@@ -180,7 +174,15 @@ export default function Internships() {
     }
 
     return filtered;
-  }, [searchTerm, selectedYear, selectedCompany, sortConfig, apiStudentsData]);
+  }, [
+    searchTerm,
+    selectedYear,
+    selectedProgram,
+    selectedCompany,
+    selectedSpecialization,
+    sortConfig,
+    apiStudentsData,
+  ]);
 
   const handleSort = (key) => {
     setSortConfig((current) => ({
@@ -191,10 +193,12 @@ export default function Internships() {
   };
 
   const clearFilters = () => {
-    setSelectedYear("all");
+    setSelectedYear(years.length > 0 ? years[0].toString() : "all");
+    setSelectedProgram("all");
     setSelectedCompany("all");
+    setSelectedSpecialization("all");
     setSearchTerm("");
-    setSortConfig(null);
+    setSortConfig({ key: "name", direction: "asc" });
   };
 
   const SortIcon = ({ columnKey }) => {
@@ -208,6 +212,7 @@ export default function Internships() {
 
   return (
     <>
+      <OrganizationSchema />
       {/* <SEO
         title="Internship Records"
         description="Discover the internship opportunities and records at Siva Sivani Institute of Management (SSIM). Our students gain valuable industry experience with top companies."
@@ -226,76 +231,13 @@ export default function Internships() {
             </p>
           </div>
 
-          {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <UsersIcon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    {stats.totalPlacements}
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Total Offers
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUpIcon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    {stats.averageSalary}
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Average Salary
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUpIcon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    {stats.averageSalary}
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Highest Salary
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-            <Card className="group hover:shadow-lg hover:translate-y-[-10px] transition-all duration-200 hover:border-primary/20">
-              <CardHeader className="pb-2 space-y-4">
-                <div className="w-12 h-12 rounded-lg bg-mainBlue flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <BuildingOffice2Icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle className="text-3xl font-bold text-red-600">
-                    {stats.companiesHiring}
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Companies Hiring
-                  </CardDescription>
-                </div>
-              </CardHeader>
-            </Card>
-          </div> */}
-
           <div className="rounded-sm border bg-card p-5 space-y-4">
             <h2 className="text-lg font-semibold mb-4">Filter Internships</h2>
             <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
               <div className="grid grid-cols-1 sm:flex w-full sm:w-auto sm:flex-row sm:flex-wrap gap-3 items-center">
                 <Select value={selectedYear} onValueChange={setSelectedYear}>
-                  <SelectTrigger className="w-full sm:w-[160px] bg-background">
-                    <GraduationCapIcon className="w-4 h-4 mr-2 text-red-600  text-muted-foreground" />
+                  <SelectTrigger className="w-full sm:w-[140px] bg-background">
+                    <GraduationCapIcon className="w-4 h-4 mr-2 text-red-600 text-muted-foreground" />
                     <SelectValue placeholder="Year" />
                   </SelectTrigger>
                   <SelectContent>
@@ -308,29 +250,71 @@ export default function Internships() {
                   </SelectContent>
                 </Select>
 
-                <Select
-                  value={selectedCompany}
-                  onValueChange={setSelectedCompany}
-                >
-                  <SelectTrigger className="w-full sm:w-[200px] bg-background">
-                    <BuildingIcon className="w-4 h-4 mr-2 text-red-600  text-muted-foreground" />
-                    <SelectValue placeholder="Company" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Companies</SelectItem>
-                    {companies.map((company) => (
-                      <SelectItem key={company} value={company}>
-                        {company}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                {programs.length > 0 && (
+                  <Select
+                    value={selectedProgram}
+                    onValueChange={setSelectedProgram}
+                  >
+                    <SelectTrigger className="w-full sm:w-[160px] bg-background">
+                      <BookOpenIcon className="w-4 h-4 mr-2 text-red-600 text-muted-foreground" />
+                      <SelectValue placeholder="Program" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Programs</SelectItem>
+                      {programs.map((prog) => (
+                        <SelectItem key={prog} value={prog}>
+                          {prog}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+
+                {companies.length > 0 && (
+                  <Select
+                    value={selectedCompany}
+                    onValueChange={setSelectedCompany}
+                  >
+                    <SelectTrigger className="w-full sm:w-[180px] bg-background">
+                      <BuildingIcon className="w-4 h-4 mr-2 text-red-600 text-muted-foreground" />
+                      <SelectValue placeholder="Company" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Companies</SelectItem>
+                      {companies.map((company) => (
+                        <SelectItem key={company} value={company}>
+                          {company}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+
+                {specializations.length > 0 && (
+                  <Select
+                    value={selectedSpecialization}
+                    onValueChange={setSelectedSpecialization}
+                  >
+                    <SelectTrigger className="w-full sm:w-[180px] bg-background">
+                      <BriefcaseIcon className="w-4 h-4 mr-2 text-red-600 text-muted-foreground" />
+                      <SelectValue placeholder="Specialization" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Specializations</SelectItem>
+                      {specializations.map((spec) => (
+                        <SelectItem key={spec} value={spec}>
+                          {spec}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
               </div>
 
               <div className="flex gap-2 w-full md:max-w-md">
                 <Input
                   type="text"
-                  placeholder="Search students..."
+                  placeholder="Search students, companies, roll no..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full bg-background"
@@ -339,7 +323,9 @@ export default function Internships() {
             </div>
 
             {(selectedYear !== "all" ||
+              selectedProgram !== "all" ||
               selectedCompany !== "all" ||
+              selectedSpecialization !== "all" ||
               searchTerm.trim() !== "") && (
               <div className="flex flex-wrap items-center gap-2 pt-4">
                 <span className="text-sm text-muted-foreground">
@@ -350,10 +336,19 @@ export default function Internships() {
                     Year: {selectedYear}
                   </Badge>
                 )}
-
+                {selectedProgram !== "all" && (
+                  <Badge variant="secondary" className="hover:bg-secondary/80">
+                    Program: {selectedProgram}
+                  </Badge>
+                )}
                 {selectedCompany !== "all" && (
                   <Badge variant="secondary" className="hover:bg-secondary/80">
                     Company: {selectedCompany}
+                  </Badge>
+                )}
+                {selectedSpecialization !== "all" && (
+                  <Badge variant="secondary" className="hover:bg-secondary/80">
+                    Specialization: {selectedSpecialization}
                   </Badge>
                 )}
                 {searchTerm.trim() !== "" && (
@@ -361,19 +356,15 @@ export default function Internships() {
                     Search: {searchTerm.trim()}
                   </Badge>
                 )}
-                {(selectedYear !== "all" ||
-                  selectedCompany !== "all" ||
-                  searchTerm.trim() !== "") && (
-                  <Button
-                    variant="ghost"
-                    onClick={clearFilters}
-                    size="sm"
-                    className="h-7 px-3"
-                  >
-                    <XIcon className="w-4 h-4 mr-1" />
-                    Clear all
-                  </Button>
-                )}
+                <Button
+                  variant="ghost"
+                  onClick={clearFilters}
+                  size="sm"
+                  className="h-7 px-3"
+                >
+                  <XIcon className="w-4 h-4 mr-1" />
+                  Clear all
+                </Button>
               </div>
             )}
           </div>
@@ -383,7 +374,16 @@ export default function Internships() {
               <TableHeader className="bg-gray-50 sticky top-0 z-10">
                 <TableRow>
                   <TableHead
-                    className="cursor-pointer hover:text-primary transition-colors"
+                    className="cursor-pointer hover:text-primary transition-colors whitespace-nowrap"
+                    onClick={() => handleSort("roll")}
+                  >
+                    <div className="flex items-center gap-1">
+                      Roll No
+                      <SortIcon columnKey="roll" />
+                    </div>
+                  </TableHead>
+                  <TableHead
+                    className="cursor-pointer hover:text-primary transition-colors whitespace-nowrap"
                     onClick={() => handleSort("name")}
                   >
                     <div className="flex items-center gap-1">
@@ -392,7 +392,7 @@ export default function Internships() {
                     </div>
                   </TableHead>
                   <TableHead
-                    className="cursor-pointer hover:text-primary transition-colors"
+                    className="cursor-pointer hover:text-primary transition-colors whitespace-nowrap"
                     onClick={() => handleSort("company")}
                   >
                     <div className="flex items-center gap-1">
@@ -401,18 +401,33 @@ export default function Internships() {
                     </div>
                   </TableHead>
                   <TableHead
-                    className="cursor-pointer hover:text-primary transition-colors"
-                    onClick={() => handleSort("designation")}
+                    className="cursor-pointer hover:text-primary transition-colors whitespace-nowrap"
+                    onClick={() => handleSort("program")}
+                  >
+                    <div className="flex items-center gap-1">
+                      Program
+                      <SortIcon columnKey="program" />
+                    </div>
+                  </TableHead>
+                  <TableHead
+                    className="cursor-pointer hover:text-primary transition-colors whitespace-nowrap"
+                    onClick={() => handleSort("majorSpecialization")}
                   >
                     <div className="flex items-center gap-1">
                       Major Specialization
-                      <SortIcon columnKey="designation" />
+                      <SortIcon columnKey="majorSpecialization" />
                     </div>
                   </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredStudents.length === 0 ? (
+                {loading ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="h-32 text-center text-muted-foreground">
+                      Loading internship records...
+                    </TableCell>
+                  </TableRow>
+                ) : filteredStudents.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={5} className="h-32">
                       <div className="flex flex-col items-center justify-center text-center">
@@ -435,11 +450,19 @@ export default function Internships() {
                       key={student.id}
                       className="hover:bg-muted/50 transition-colors cursor-default"
                     >
+                      <TableCell className="whitespace-nowrap font-mono text-sm">
+                        {student.roll || "-"}
+                      </TableCell>
                       <TableCell className="font-medium">
                         {student.name}
                       </TableCell>
                       <TableCell>{student.company}</TableCell>
-                      <TableCell>{student.majorSpecialization}</TableCell>
+                      <TableCell className="whitespace-nowrap">
+                        {student.program || "-"}
+                      </TableCell>
+                      <TableCell>
+                        {student.majorSpecialization || "-"}
+                      </TableCell>
                     </TableRow>
                   ))
                 )}

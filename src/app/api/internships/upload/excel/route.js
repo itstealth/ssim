@@ -34,10 +34,34 @@ export async function POST(request) {
 
     const internshipsToInsert = jsonData
       .map((row, index) => {
-        const name = row["Student Name"] || row["student name"];
-        const company = row["Placed in Company"] || row["placed in company"];
+        const roll =
+          row["Roll No"] ||
+          row["Roll.No"] ||
+          row["Roll No."] ||
+          row["roll no"] ||
+          row["roll"] ||
+          "";
+        const name =
+          row["Student Name"] ||
+          row["student name"] ||
+          row["Name"] ||
+          row["name"];
+        const company =
+          row["Internship Company"] ||
+          row["\tInternship Company"] ||
+          row["IIP Company"] ||
+          row["Placed in Company"] ||
+          row["placed in company"] ||
+          row["Company"] ||
+          row["company"];
+        const program =
+          row["Program"] || row["program"] || "";
         const majorSpecialization =
-          row["Major Specialization"] || row["major specialization"];
+          row["Major Specialization"] ||
+          row["major specialization"] ||
+          row["Specialization"] ||
+          row["specialization"] ||
+          "";
         const year = row["Year"] || row["year"] || null;
 
         if (!name || !company) {
@@ -50,7 +74,7 @@ export async function POST(request) {
           );
           return null;
         }
-        return { name, company, majorSpecialization, year };
+        return { roll, name, company, program, majorSpecialization, year };
       })
       .filter((p) => p !== null);
 
@@ -68,7 +92,7 @@ export async function POST(request) {
     await connection.beginTransaction();
 
     const query =
-      "INSERT INTO internships (name, company, majorSpecialization, year) VALUES (?, ?, ?, ?)";
+      "INSERT INTO internships (roll, name, company, program, majorSpecialization, year) VALUES (?, ?, ?, ?, ?, ?)";
     let successfulInserts = 0;
     const errors = [];
 
@@ -76,9 +100,11 @@ export async function POST(request) {
       const internship = internshipsToInsert[i];
       try {
         await connection.execute(query, [
+          internship.roll || null,
           internship.name,
           internship.company,
-          internship.majorSpecialization,
+          internship.program || null,
+          internship.majorSpecialization || null,
           internship.year,
         ]);
         successfulInserts++;

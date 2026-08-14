@@ -145,10 +145,12 @@ async function initializeDatabaseSchema() {
     const createInternshipsTableSQL = `
             CREATE TABLE IF NOT EXISTS internships (
                 id INT AUTO_INCREMENT PRIMARY KEY,
+                roll VARCHAR(100),
                 name VARCHAR(255) NOT NULL,
                 company VARCHAR(255) NOT NULL,
+                program VARCHAR(100),
                 majorSpecialization VARCHAR(255),
-                year VARCHAR(10),
+                year VARCHAR(20),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `;
