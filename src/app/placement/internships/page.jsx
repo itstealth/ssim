@@ -16,7 +16,6 @@ import { Badge } from "@/components/ui/badge";
 import {
   BuildingIcon,
   GraduationCapIcon,
-  BookOpenIcon,
   BriefcaseIcon,
   XIcon,
   ChevronUpIcon,
@@ -29,6 +28,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+const programTabs = [
+  { id: "PGDM-BA", name: "PGDM BA" },
+  { id: "PGDM-BIFS", name: "PGDM BIFS" },
+  { id: "PGDM", name: "PGDM Triple Specialisation" },
+];
 
 export default function Internships() {
   const [apiStudentsData, setApiStudentsData] = useState([]);
@@ -37,7 +43,7 @@ export default function Internships() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
-  const [selectedProgram, setSelectedProgram] = useState("all");
+  const [selectedProgram, setSelectedProgram] = useState("PGDM-BA");
   const [selectedCompany, setSelectedCompany] = useState("all");
   const [selectedSpecialization, setSelectedSpecialization] = useState("all");
   const [sortConfig, setSortConfig] = useState({ key: "name", direction: "asc" });
@@ -83,24 +89,22 @@ export default function Internships() {
     }
   }, [years, selectedYear]);
 
-  const programs = useMemo(
-    () =>
-      Array.from(
-        new Set(
-          apiStudentsData.map((student) => student.program).filter(Boolean)
-        )
-      ).sort(),
-    [apiStudentsData]
-  );
-
   const companies = useMemo(
     () =>
       Array.from(
         new Set(
-          apiStudentsData.map((student) => student.company).filter(Boolean)
+          apiStudentsData
+            .filter(
+              (student) =>
+                selectedProgram === "all" ||
+                (student.program &&
+                  student.program.toLowerCase() === selectedProgram.toLowerCase())
+            )
+            .map((student) => student.company)
+            .filter(Boolean)
         )
       ).sort((a, b) => a.localeCompare(b)),
-    [apiStudentsData]
+    [apiStudentsData, selectedProgram]
   );
 
   const specializations = useMemo(
@@ -108,11 +112,17 @@ export default function Internships() {
       Array.from(
         new Set(
           apiStudentsData
+            .filter(
+              (student) =>
+                selectedProgram === "all" ||
+                (student.program &&
+                  student.program.toLowerCase() === selectedProgram.toLowerCase())
+            )
             .map((student) => student.majorSpecialization)
             .filter(Boolean)
         )
       ).sort((a, b) => a.localeCompare(b)),
-    [apiStudentsData]
+    [apiStudentsData, selectedProgram]
   );
 
   const filteredStudents = useMemo(() => {
@@ -141,7 +151,8 @@ export default function Internships() {
         (student.year && student.year.toString() === selectedYear);
       const programFilter =
         selectedProgram === "all" ||
-        (student.program && student.program === selectedProgram);
+        (student.program &&
+          student.program.toLowerCase() === selectedProgram.toLowerCase());
       const companyFilter =
         selectedCompany === "all" ||
         (student.company && student.company === selectedCompany);
@@ -194,7 +205,6 @@ export default function Internships() {
 
   const clearFilters = () => {
     setSelectedYear(years.length > 0 ? years[0].toString() : "all");
-    setSelectedProgram("all");
     setSelectedCompany("all");
     setSelectedSpecialization("all");
     setSearchTerm("");
@@ -231,6 +241,31 @@ export default function Internships() {
             </p>
           </div>
 
+          {/* Program Tabs */}
+          <div className="w-full">
+            <Tabs
+              value={selectedProgram}
+              onValueChange={(val) => {
+                setSelectedProgram(val);
+                setSelectedSpecialization("all");
+                setSelectedCompany("all");
+              }}
+              className="w-full"
+            >
+              <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto rounded-lg">
+                {programTabs.map((program) => (
+                  <TabsTrigger
+                    key={program.id}
+                    value={program.id}
+                    className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300 font-medium"
+                  >
+                    {program.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+          </div>
+
           <div className="rounded-sm border bg-card p-5 space-y-4">
             <h2 className="text-lg font-semibold mb-4">Filter Internships</h2>
             <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
@@ -249,26 +284,6 @@ export default function Internships() {
                     ))}
                   </SelectContent>
                 </Select>
-
-                {programs.length > 0 && (
-                  <Select
-                    value={selectedProgram}
-                    onValueChange={setSelectedProgram}
-                  >
-                    <SelectTrigger className="w-full sm:w-[160px] bg-background">
-                      <BookOpenIcon className="w-4 h-4 mr-2 text-red-600 text-muted-foreground" />
-                      <SelectValue placeholder="Program" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Programs</SelectItem>
-                      {programs.map((prog) => (
-                        <SelectItem key={prog} value={prog}>
-                          {prog}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                )}
 
                 {companies.length > 0 && (
                   <Select
@@ -323,7 +338,6 @@ export default function Internships() {
             </div>
 
             {(selectedYear !== "all" ||
-              selectedProgram !== "all" ||
               selectedCompany !== "all" ||
               selectedSpecialization !== "all" ||
               searchTerm.trim() !== "") && (
@@ -334,11 +348,6 @@ export default function Internships() {
                 {selectedYear !== "all" && (
                   <Badge variant="secondary" className="hover:bg-secondary/80">
                     Year: {selectedYear}
-                  </Badge>
-                )}
-                {selectedProgram !== "all" && (
-                  <Badge variant="secondary" className="hover:bg-secondary/80">
-                    Program: {selectedProgram}
                   </Badge>
                 )}
                 {selectedCompany !== "all" && (
