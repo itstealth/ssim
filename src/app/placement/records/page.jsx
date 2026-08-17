@@ -46,6 +46,12 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Heading from "@/components/wrappers/Heading";
 
+const programTabs = [
+  { id: "PGDM-BA", name: "PGDM BA" },
+  { id: "PGDM-BIFS", name: "PGDM BIFS" },
+  { id: "PGDM", name: "PGDM Triple Specialisation" },
+];
+
 export default function PlacementSection() {
   const [apiStudentsData, setApiStudentsData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,6 +59,7 @@ export default function PlacementSection() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
+  const [selectedProgram, setSelectedProgram] = useState("PGDM-BA");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
   const [selectedCompany, setSelectedCompany] = useState("all");
   const [sortConfig, setSortConfig] = useState({ key: "name", direction: "asc" });
@@ -61,7 +68,7 @@ export default function PlacementSection() {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, selectedYear, selectedDesignation, selectedCompany, sortConfig]);
+  }, [searchTerm, selectedYear, selectedProgram, selectedDesignation, selectedCompany, sortConfig]);
 
   useEffect(() => {
     const fetchPlacementData = async () => {
@@ -108,20 +115,36 @@ export default function PlacementSection() {
     () =>
       Array.from(
         new Set(
-          apiStudentsData.map((student) => student.designation).filter(Boolean)
+          apiStudentsData
+            .filter(
+              (student) =>
+                selectedProgram === "all" ||
+                (student.program &&
+                  student.program.toLowerCase() === selectedProgram.toLowerCase())
+            )
+            .map((student) => student.designation)
+            .filter(Boolean)
         )
-      ),
-    [apiStudentsData]
+      ).sort((a, b) => a.localeCompare(b)),
+    [apiStudentsData, selectedProgram]
   );
 
   const companies = useMemo(
     () =>
       Array.from(
         new Set(
-          apiStudentsData.map((student) => student.company).filter(Boolean)
+          apiStudentsData
+            .filter(
+              (student) =>
+                selectedProgram === "all" ||
+                (student.program &&
+                  student.program.toLowerCase() === selectedProgram.toLowerCase())
+            )
+            .map((student) => student.company)
+            .filter(Boolean)
         )
-      ),
-    [apiStudentsData]
+      ).sort((a, b) => a.localeCompare(b)),
+    [apiStudentsData, selectedProgram]
   );
 
   const stats = useMemo(() => {
@@ -171,6 +194,8 @@ export default function PlacementSection() {
           student.email.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.company &&
           student.company.toLowerCase().includes(normalizedSearchTerm)) ||
+        (student.program &&
+          student.program.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.designation &&
           student.designation.toLowerCase().includes(normalizedSearchTerm)) ||
         (student.year &&
@@ -183,6 +208,10 @@ export default function PlacementSection() {
       const yearFilter =
         selectedYear === "all" ||
         (student.year && student.year.toString() === selectedYear);
+      const programFilter =
+        selectedProgram === "all" ||
+        (student.program &&
+          student.program.toLowerCase() === selectedProgram.toLowerCase());
       const DesignationFilter =
         selectedDesignation === "all" ||
         (student.designation && student.designation === selectedDesignation);
@@ -190,7 +219,7 @@ export default function PlacementSection() {
         selectedCompany === "all" ||
         (student.company && student.company === selectedCompany);
 
-      return searchFilter && yearFilter && DesignationFilter && companyFilter;
+      return searchFilter && yearFilter && programFilter && DesignationFilter && companyFilter;
     });
 
     if (sortConfig) {
@@ -219,6 +248,7 @@ export default function PlacementSection() {
   }, [
     searchTerm,
     selectedYear,
+    selectedProgram,
     selectedDesignation,
     selectedCompany,
     sortConfig,
@@ -316,6 +346,32 @@ export default function PlacementSection() {
               Explore our students' success stories and career achievements.
               Filter and sort to find specific placement details.
             </p>
+          </div>
+
+          {/* Program Tabs */}
+          <div className="w-full">
+            <Tabs
+              value={selectedProgram}
+              onValueChange={(val) => {
+                setSelectedProgram(val);
+                setSelectedDesignation("all");
+                setSelectedCompany("all");
+                setCurrentPage(1);
+              }}
+              className="w-full"
+            >
+              <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto rounded-lg">
+                {programTabs.map((program) => (
+                  <TabsTrigger
+                    key={program.id}
+                    value={program.id}
+                    className="flex-grow sm:flex-grow text-sm sm:text-base px-4 py-2 h-auto data-[state=active]:bg-mainBlue data-[state=active]:text-primary-foreground transition-all duration-300 font-medium"
+                  >
+                    {program.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
           </div>
 
           <div className="rounded-sm border bg-card p-5 space-y-4">
@@ -532,6 +588,15 @@ export default function PlacementSection() {
                     </div>
                   </TableHead>
                   <TableHead
+                    className="cursor-pointer hover:text-primary transition-colors whitespace-nowrap"
+                    onClick={() => handleSort("program")}
+                  >
+                    <div className="flex items-center gap-1">
+                      Program
+                      <SortIcon columnKey="program" />
+                    </div>
+                  </TableHead>
+                  <TableHead
                     className="cursor-pointer hover:text-primary transition-colors"
                     onClick={() => handleSort("company")}
                   >
@@ -554,7 +619,7 @@ export default function PlacementSection() {
               <TableBody>
                 {paginatedStudents.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={4} className="h-32">
+                    <TableCell colSpan={5} className="h-32">
                       <div className="flex flex-col items-center justify-center text-center">
                         <p className="text-muted-foreground">
                           No matching records found
@@ -578,6 +643,9 @@ export default function PlacementSection() {
                       <TableCell className="whitespace-nowrap">{student.roll || "-"}</TableCell>
                       <TableCell className="font-medium">
                         {student.name}
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap">
+                        {student.program || "-"}
                       </TableCell>
                       <TableCell>{student.company}</TableCell>
                       <TableCell>{student.designation || "-"}</TableCell>

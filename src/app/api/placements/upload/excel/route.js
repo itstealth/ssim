@@ -50,6 +50,7 @@ export async function POST(request) {
         const name = row["Student Name"] || row["student name"] || row["Name of Student"];
         const email = row["E Mail id"] || row["email id"] || row["Email"] || row["email"] || null;
         const company = row["Placed in Company"] || row["placed in company"] || row["Company Placed - Final Placements"];
+        const program = row["Program"] || row["program"] || row["Prgram"] || row["prgram"] || row["Course"] || null;
         const designation =
           row["Designation/Position"] ||
           row["designation/position"] ||
@@ -69,7 +70,7 @@ export async function POST(request) {
           );
           return null;
         }
-        return { roll, name, email, company, designation, year };
+        return { roll, name, email, company, program, designation, year };
       })
       .filter((p) => p !== null);
 
@@ -87,7 +88,7 @@ export async function POST(request) {
     await connection.beginTransaction();
 
     const query =
-      "INSERT INTO placements (roll, name, email, company, designation, year) VALUES (?, ?, ?, ?, ?, ?)";
+      "INSERT INTO placements (roll, name, email, company, program, designation, year) VALUES (?, ?, ?, ?, ?, ?, ?)";
     let successfulInserts = 0;
     const errors = [];
 
@@ -99,6 +100,7 @@ export async function POST(request) {
           placement.name,
           placement.email,
           placement.company,
+          placement.program,
           placement.designation,
           placement.year,
         ]);

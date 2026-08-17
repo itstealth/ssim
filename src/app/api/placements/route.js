@@ -6,7 +6,7 @@ export async function GET() {
   try {
     connection = await dbPool.getConnection();
     const [rows] = await connection.query(
-      "SELECT id, roll, name, email, company, designation, year, created_at FROM placements"
+      "SELECT id, roll, name, email, company, program, designation, year, created_at FROM placements"
     );
     return NextResponse.json(rows);
   } catch (error) {
@@ -26,7 +26,7 @@ export async function GET() {
 export async function POST(request) {
   let connection;
   try {
-    const { roll, name, email, company, designation, year } = await request.json();
+    const { roll, name, email, company, program, designation, year } = await request.json();
 
     if (!name || !company) {
       return NextResponse.json(
@@ -37,12 +37,13 @@ export async function POST(request) {
 
     connection = await dbPool.getConnection();
     const query =
-      "INSERT INTO placements (roll, name, email, company, designation, year) VALUES (?, ?, ?, ?, ?, ?)";
+      "INSERT INTO placements (roll, name, email, company, program, designation, year) VALUES (?, ?, ?, ?, ?, ?, ?)";
     const [result] = await connection.execute(query, [
       roll,
       name,
       email,
       company,
+      program || null,
       designation,
       year,
     ]);
@@ -57,6 +58,7 @@ export async function POST(request) {
           name,
           email,
           company,
+          program: program || null,
           designation,
           year,
         },

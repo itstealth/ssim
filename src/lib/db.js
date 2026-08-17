@@ -134,10 +134,13 @@ async function initializeDatabaseSchema() {
     const createPlacementsTableSQL = `
             CREATE TABLE IF NOT EXISTS placements (
                 id INT AUTO_INCREMENT PRIMARY KEY,
+                roll VARCHAR(100),
                 name VARCHAR(255) NOT NULL,
+                email VARCHAR(255),
                 company VARCHAR(255) NOT NULL,
+                program VARCHAR(100),
                 designation VARCHAR(255),
-                year VARCHAR(10),
+                year VARCHAR(20),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         `;
