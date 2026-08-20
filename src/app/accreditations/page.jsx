@@ -98,9 +98,9 @@ export default function Accreditations() {
       image: saqs,
     },
     {
-      title: "Accreditation by AACSB",
+      title: "Member of AACSB",
       description:
-        "Siva Sivani Institute of Management (SSIM) has been accredited by AACSB, one of the most prestigious business school accreditation bodies in the world. AACSB accreditation is a testament to SSIM's commitment to excellence in management education, ensuring that students receive a globally recognized and high-quality management education.",
+        "Siva Sivani Institute of Management (SSIM) is a member of AACSB, one of the most prestigious business school accreditation bodies in the world. AACSB membership is a testament to SSIM's commitment to excellence in management education, ensuring that students receive a globally recognized and high-quality management education.",
       image: aascb,
     },
     {

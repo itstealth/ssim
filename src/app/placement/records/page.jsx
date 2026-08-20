@@ -47,9 +47,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Heading from "@/components/wrappers/Heading";
 
 const programTabs = [
-  { id: "PGDM-BA", name: "PGDM BA" },
-  { id: "PGDM-BIFS", name: "PGDM BIFS" },
   { id: "PGDM", name: "PGDM Triple Specialisation" },
+  { id: "PGDM-BIFS", name: "PGDM BIFS" },
+  { id: "PGDM-BA", name: "PGDM BA" },
 ];
 
 export default function PlacementSection() {
