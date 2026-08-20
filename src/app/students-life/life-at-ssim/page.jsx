@@ -843,58 +843,68 @@ const galleryItems = [
   ...samskritiImages,
 ];
 
-const ImageDialog = ({ isOpen, onOpenChange, currentImage, onPrevious, onNext }) => {
-  if (!currentImage) return null;
-
-  const totalImages = galleryItems.filter((item) => item.category === currentImage.category).length;
-  const currentNumber = galleryItems.filter(
-    (item) => item.category === currentImage.category && item.id <= currentImage.id
-  ).length;
+const ImageDialog = ({ isOpen, onOpenChange, currentCategory, currentImage, onPrevious, onNext }) => {
+  if (!currentCategory) return null;
+  const imageToDisplay = currentImage || galleryItems.find(item => item.category === currentCategory.id);
+  
+  if (!imageToDisplay) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl p-0 pt-6 bg-transparent border-none [&>button]:hidden">
+      <DialogContent className="max-w-4xl p-0 overflow-hidden bg-white rounded-xl shadow-2xl border-none [&>button]:hidden">
         <DialogDescription className="sr-only">
-          Image gallery viewer showing {currentImage.title}
+          Image gallery viewer showing {currentCategory.heading}
         </DialogDescription>
-        <div className="relative flex-1 flex flex-col items-center justify-center p-6 pb-14">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute top-[-182px] right-5 z-[60] h-8 w-8 min-w-8 p-0 flex items-center justify-center rounded-full bg-slate-200 hover:bg-slate-100 text-black backdrop-blur-sm sm:right-[30px] sm:top-[30px]"
-            onClick={() => onOpenChange(false)}
-            aria-label="Close"
-          >
-            <X className="h-6 w-6 shrink-0" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute left-4 z-50 rounded-full hover:bg-slate-100 bg-slate-200 text-black backdrop-blur-sm"
-            onClick={onPrevious}
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
+        
+        {/* Close Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-4 right-4 z-[60] h-8 w-8 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm"
+          onClick={() => onOpenChange(false)}
+          aria-label="Close"
+        >
+          <X className="h-5 w-5" />
+        </Button>
+        
+        <div className="flex flex-col w-full max-h-[90vh]">
+          {/* Image Section */}
+          <div className="relative w-full aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute left-4 z-50 rounded-full hover:bg-white/90 bg-white/70 text-black shadow-md backdrop-blur-sm transition-all"
+              onClick={onPrevious}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
 
-          <div className="w-full h-full flex items-center justify-center">
             <img
-              src={currentImage.src}
-              alt={currentImage.alt}
+              src={imageToDisplay.src}
+              alt={imageToDisplay.alt || currentCategory.heading}
               loading="lazy"
-              className="w-full h-full max-w-[750px] object-contain rounded-lg"
+              className="w-full h-full object-cover"
             />
+
+            <Button
+              size="icon"
+              className="absolute right-4 z-50 rounded-full hover:bg-white/90 bg-white/70 text-black shadow-md backdrop-blur-sm transition-all"
+              onClick={onNext}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
           </div>
-
-          <Button
-            size="icon"
-            className="absolute right-4 z-50 rounded-full bg-slate-200 hover:bg-slate-100 text-black backdrop-blur-sm"
-            onClick={onNext}
-          >
-            <ChevronRight className="h-6 w-6" />
-          </Button>
-
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-            {currentNumber} / {totalImages}
+          
+          {/* Text Content Section */}
+          <div className="p-6 md:p-8 bg-white overflow-y-auto">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+              {currentCategory.heading}
+            </h2>
+            {currentCategory.description && (
+              <div className="text-gray-600 text-sm md:text-base leading-relaxed whitespace-pre-wrap">
+                {currentCategory.description}
+              </div>
+            )}
           </div>
         </div>
       </DialogContent>
@@ -903,27 +913,32 @@ const ImageDialog = ({ isOpen, onOpenChange, currentImage, onPrevious, onNext })
 };
 
 export default function LifeAtSsim() {
-  const [activeCategory, setActiveCategory] = useState("51");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1000);
+    const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
 
-  const filteredItems = galleryItems.filter(
-    (item) => activeCategory === "all" || item.category === activeCategory
+  // Filter out categories that have no images in galleryItems
+  const validCategories = categories.filter(category => 
+    galleryItems.some(img => img.category === category.id)
   );
 
+  const categoryImages = activeCategory ? galleryItems.filter(item => item.category === activeCategory.id) : [];
+
   const handlePrevious = useCallback(() => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + filteredItems.length) % filteredItems.length);
-  }, [filteredItems]);
+    if (!categoryImages.length) return;
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + categoryImages.length) % categoryImages.length);
+  }, [categoryImages]);
 
   const handleNext = useCallback(() => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % filteredItems.length);
-  }, [filteredItems]);
+    if (!categoryImages.length) return;
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % categoryImages.length);
+  }, [categoryImages]);
 
   const handleKeyPress = useCallback(
     (e) => {
@@ -941,135 +956,113 @@ export default function LifeAtSsim() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress]);
 
+  const openDialogForCategory = (category) => {
+    setActiveCategory(category);
+    setCurrentImageIndex(0); // Start with the first image
+    setIsDialogOpen(true);
+  };
+
   return (
-    <main style={{ background: "#fafbfb" }}>
-      <div className="container mx-auto max-w-[90vw] px-4 py-8 sm:pb-16 bg-gradient-to-b from-gray-50 to-white">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-7">
+    <main className="bg-white">
+      <div className="mx-auto max-w-[90vw] px-4 py-8 sm:pb-16">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
           <WordPullUp
             words="Explore Life at SSIM"
             className="text-4xl md:text-5xl text-left sm:text-center font-bold tracking-tight text-mainBlue mt-8 mb-4 md:mb-6"
           />
-          <p className="text-base text-center max-w-7xl mx-auto text-gray-600">
+          <p className="text-base text-center max-w-4xl mx-auto text-gray-600">
             Siva Sivani strongly believes in motivating the students to become leaders by giving them ample
             opportunities to explore the talent within them. In order to provide such opportunities SSIM has
             designed various Extra Curricular Activities to enable the students to understand the importance of
             co-ordination, teamwork, group dynamics, oneness etc. To give a structure to these, SSIM has named
             these activities uniquely starting the first letter of every activity with an 'S' as in 'Siva Sivani'.
-            The programmes are detailed below
           </p>
         </motion.div>
 
-        <div className="relative max-w-7xl mx-auto w-full mb-8 px-4">
-          <div className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 z-20">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
-              onClick={() => {
-                const container = document.querySelector(".filter-scroll");
-                if (container) container.scrollBy({ left: -200, behavior: "smooth" });
-              }}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex gap-2 max-w-7xl mx-auto overflow-x-auto hide-scrollbar filter-scroll py-2"
-          >
-            {categories.map((category, index) => (
-              <motion.div
-                key={category.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
-                className="flex-none first:ml-8 sm:first:ml-2 last:mr-8 sm:last:mr-2"
-              >
-                <Button
-                  variant={activeCategory === category.id ? "default" : "outline"}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={cn(
-                    "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
-                    activeCategory === category.id && "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
-                  )}
-                >
-                  <span>{category.icon}</span>
-                  {category.label}
-                </Button>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <div className="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 z-20">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
-              onClick={() => {
-                const container = document.querySelector(".filter-scroll");
-                if (container) container.scrollBy({ left: 200, behavior: "smooth" });
-              }}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-
-        {(() => {
-          const heading = categories.find((cat) => cat.id === activeCategory)?.heading;
-          if (!heading) return null;
-          const className = "text-2xl md:text-4xl text-left sm:text-center font-bold tracking-tight text-mainBlue mt-8 mb-4 md:mb-6";
-          return typeof heading === "string" ? (
-            <WordPullUp words={heading} className={className} />
-          ) : (
-            <div className={className}>{heading}</div>
-          );
-        })()}
-        {categories.find((cat) => cat.id === activeCategory)?.description && (
-          <p className="text-base text-center max-w-7xl mx-auto text-gray-600">
-            {categories.find((cat) => cat.id === activeCategory)?.description}
-          </p>
-        )}
-
-        <motion.div layout className="grid mx-auto max-w-7xl grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 mt-10">
+        <motion.div layout className="grid mx-auto max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-10">
           <AnimatePresence mode="wait">
             {isLoading
-              ? Array.from({ length: 8 }, (_, i) => (
+              ? Array.from({ length: 9 }, (_, i) => (
                   <motion.div key={`skeleton-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-                    <Skeleton className="w-full aspect-[4/3] rounded-xl" />
+                    <Skeleton className="w-full aspect-[4/3] rounded-2xl mb-4" />
+                    <Skeleton className="w-3/4 h-6 mb-2" />
+                    <Skeleton className="w-1/2 h-4" />
                   </motion.div>
                 ))
-              : filteredItems.map((item, index) => (
-                  <Dialog key={`${item.category}-${item.id}`}>
-                    <DialogTrigger asChild>
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="cursor-pointer group relative overflow-hidden rounded-sm shadow-lg bg-white"
-                        onClick={() => {
-                          setCurrentImageIndex(index);
-                          setIsDialogOpen(true);
-                        }}
-                      >
-                        <div className="aspect-[4/3] relative">
-                          <img
-                            src={item.src}
-                            alt={item.alt}
-                            loading="lazy"
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
+              : validCategories.map((category, index) => {
+                  const coverImage = galleryItems.find(img => img.category === category.id);
+                  
+                  return (
+                    <motion.div
+                      key={category.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: Math.min(index * 0.05, 0.5) }}
+                      className="group flex flex-col cursor-pointer overflow-visible mb-10"
+                      onClick={() => openDialogForCategory(category)}
+                    >
+                      {/* Card Image */}
+                      <div className="relative aspect-[3/2] w-full mb-6 z-10">
+                        <div className="absolute inset-0 bg-gray-100 rounded-[24px] overflow-hidden">
+                          {coverImage ? (
+                            <img
+                              src={coverImage.src}
+                              alt={category.heading}
+                              loading="lazy"
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center text-gray-400">
+                              <Image className="w-12 h-12 opacity-50" />
+                            </div>
+                          )}
                         </div>
-                      </motion.div>
-                    </DialogTrigger>
-                  </Dialog>
-                ))}
+                        
+                        {/* Cutout style Tag/Label at bottom-left */}
+                        <div className="absolute bottom-0 left-0 bg-white rounded-tr-3xl pt-3.5 pr-7 pl-6 pb-2 z-20">
+                          {/* Top-left inverted corner */}
+                          <svg width="24" height="24" className="absolute left-0 bottom-full text-white fill-current" viewBox="0 0 24 24">
+                            <path d="M 0,24 L 0,0 C 0,13.25 10.75,24 24,24 Z" />
+                          </svg>
+
+                          {/* Bottom-right inverted corner */}
+                          <svg width="24" height="24" className="absolute left-full bottom-0 text-white fill-current" viewBox="0 0 24 24">
+                            <path d="M 0,0 L 0,24 L 24,24 C 10.75,24 0,13.25 0,0 Z" />
+                          </svg>
+
+                          <div className="flex items-center text-[14px] font-medium text-gray-700 bg-white">
+                            <span className="tracking-wide">Event</span>
+                            <span className="mx-4 w-[1px] h-3.5 bg-gray-300"></span>
+                            <span className="tracking-wide">SSIM</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Card Content - Title and View More */}
+                      <div className="flex flex-col flex-grow px-2">
+                        <h3 className="text-[19px] md:text-[21px] font-medium text-[#2d2b52] group-hover:text-[#4239c4] transition-colors line-clamp-2 leading-[1.4]">
+                          {category.heading}
+                        </h3>
+                        
+                        <Button 
+                          variant="ghost" 
+                          className="w-fit p-0 h-auto text-gray-400 hover:text-[#4239c4] hover:bg-transparent font-medium group/btn flex items-center mt-3 text-sm transition-colors"
+                        >
+                          View More 
+                          <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
+                        </Button>
+                      </div>
+                    </motion.div>
+                  );
+                })}
           </AnimatePresence>
         </motion.div>
 
         <ImageDialog
           isOpen={isDialogOpen}
           onOpenChange={setIsDialogOpen}
-          currentImage={filteredItems[currentImageIndex]}
+          currentCategory={activeCategory}
+          currentImage={categoryImages[currentImageIndex]}
           onPrevious={handlePrevious}
           onNext={handleNext}
         />
