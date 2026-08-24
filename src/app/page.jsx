@@ -17,6 +17,7 @@
  */
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
+import HomepagePopup from "@/components/HomepagePopup";
 import HomeClient from "./HomeClient";
 
 const SectionLoader = ({ height = "min-h-[200px]" }) => (
@@ -55,6 +56,7 @@ const CTASection = dynamic(() => import("./secondHome/components/CTASection"), {
 export default function SecondHome() {
   return (
     <>
+      <HomepagePopup />
       {/* LCP element — rendered directly, no dynamic wrapper, no SSR delay */}
       <HeroSection />
 
