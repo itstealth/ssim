@@ -47,7 +47,7 @@ export default function ConditionalLayout({ children }) {
   return (
     <div className={homeVariantClass}>
       {!hideLayoutElements && (
-        <header>
+        <header className="relative z-50">
           <div className="hidden md:block"><TopBar /></div>
           <Navbar />
         </header>

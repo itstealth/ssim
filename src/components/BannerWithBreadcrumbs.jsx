@@ -17,7 +17,8 @@ const BannerWithBreadcrumbs = ({
   bannerImage = AboutBanner, 
   breadcrumbs = [],
   dropdownLinks = [],
-  showDropdown: showDropdownProp = false 
+  showDropdown: showDropdownProp = false,
+  hideText = false,
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -56,16 +57,15 @@ const BannerWithBreadcrumbs = ({
         backgroundPosition: "center",
       }}
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      {!hideText && <div className="absolute inset-0 bg-black opacity-50" />}
 
-      {/* Content */}
-      <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold z-20 text-center animate-fadeInUp text-white">
-        {title}
-      </h1>
+      {!hideText && (
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold z-20 text-center animate-fadeInUp text-white">
+          {title}
+        </h1>
+      )}
 
-      {/* Breadcrumb Wrapper */}
-      <div
+      {!hideText && <div
         className="absolute w-full sm:w-auto hidden sm:block z-20 -bottom-5 left-1/2 transform -translate-x-1/2 backdrop-blur-sm rounded-full shadow-lg border border-red-600 bg-red-600"
         style={{
           padding: "0.5rem 1rem",
@@ -135,7 +135,7 @@ const BannerWithBreadcrumbs = ({
             ))}
           </BreadcrumbList>
         </Breadcrumb>
-      </div>
+      </div>}
     </div>
   );
 };

@@ -100,6 +100,8 @@ const routeConfig = {
   //   },
   "/programs/fpm-efpm": {
     title: "FPM/EFPM",
+    bannerImage: "/banners/program-banner.jpeg",
+    hideBannerText: true,
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -108,6 +110,8 @@ const routeConfig = {
   },
   "/programs/fpm": {
     title: "FPM",
+    bannerImage: "/banners/program-banner.jpeg",
+    hideBannerText: true,
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -116,6 +120,8 @@ const routeConfig = {
   },
   "/programs/efpm": {
     title: "EFPM",
+    bannerImage: "/banners/program-banner.jpeg",
+    hideBannerText: true,
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -124,6 +130,8 @@ const routeConfig = {
   },
   "/programs/pgdm-ba": {
     title: "PGDM BA",
+    bannerImage: "/banners/program-banner.jpeg",
+    hideBannerText: true,
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -132,6 +140,8 @@ const routeConfig = {
   },
   "/programs/pgdm-bifs": {
     title: "PGDM BIFS",
+    bannerImage: "/banners/program-banner.jpeg",
+    hideBannerText: true,
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -140,6 +150,8 @@ const routeConfig = {
   },
   "/programs/pgdm-triple-specialisation": {
     title: "PGDM Triple Specialisation",
+    bannerImage: "/banners/program-banner.jpeg",
+    hideBannerText: true,
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -181,6 +193,7 @@ const routeConfig = {
   },
   "/placement": {
     title: "Placement",
+    bannerImage: "/banners/placement-banner.jpeg",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Placement", href: "/placement", isActive: true },
@@ -188,6 +201,7 @@ const routeConfig = {
   },
   "/placement/internships": {
     title: "Internships",
+    bannerImage: "/banners/placement-banner.jpeg",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Placement", href: "/placement" },
@@ -196,6 +210,7 @@ const routeConfig = {
   },
   "/placement/team": {
     title: "Placement Team",
+    bannerImage: "/banners/placement-banner.jpeg",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Placement", href: "/placement" },
@@ -204,6 +219,7 @@ const routeConfig = {
   },
   "/placement/guest-lectures": {
     title: "Guest Lectures",
+    bannerImage: "/banners/placement-banner.jpeg",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Placement", href: "/placement" },
@@ -216,6 +232,7 @@ const routeConfig = {
   },
   "/placement/records": {
     title: "Placement Records",
+    bannerImage: "/banners/placement-banner.jpeg",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Placement", href: "/placement" },
@@ -290,6 +307,7 @@ const routeConfig = {
   },
   "/alumni": {
     title: "Alumni",
+    bannerImage: "/banners/alumni-banner.jpeg",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Alumni", href: "/alumni", isActive: true },
@@ -383,8 +401,9 @@ export default function ConditionalBanner() {
   return (
     <BannerWithBreadcrumbs
       title={routeInfo.title}
-      bannerImage="/breadcrumb.png"
+      bannerImage={routeInfo.bannerImage || "/breadcrumb.png"}
       breadcrumbs={modifiedBreadcrumbs}
+      hideText={routeInfo.hideBannerText}
     />
   );
 }

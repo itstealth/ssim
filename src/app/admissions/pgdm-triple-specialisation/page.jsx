@@ -62,7 +62,7 @@ import EligibilityCriteria from "@/app/admissions/EligibilityCriteria";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
 import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
 import AdmissionFAQ from "@/app/admissions/AdmissionFAQ";
-const PGDMTPSBanner = "/admissions/admissions.webp";
+const PGDMTPSBanner = "/banners/admission-banner.jpeg";
 // FAQ Data
 const faqData = [
   {
@@ -854,30 +854,16 @@ const PGDMTPS = () => {
       /> */}
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         {/* Hero Section */}
-        <div className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-white to-white border-b">
-          <div className="container max-w-7xl mx-auto px-4 py-16 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="max-w-2xl"
-            >
-              <h1 className="text-4xl sm:text-5xl font-bold mb-4 pb-4 bg-gradient-to-r from-red-600 to-red-600/60 bg-clip-text text-transparent">
-                Begin Your Journey with PGDM Triple Specialisation Program
-              </h1>
-              <p className="text-xl text-gray-900">
-                Take the first step towards your future with our world-class
-                education programs.
-              </p>
-            </motion.div>
-          </div>
+        <div className="relative overflow-hidden border-b aspect-[1600/362] min-h-[16rem]">
+          <div className="container max-w-7xl mx-auto px-4 min-h-[16rem] relative z-10" />
           {/* Background image - only on large devices */}
           <div
-            className="absolute inset-0 z-0 bg-contain bg-no-repeat bg-right hidden lg:block"
+            className="absolute inset-0 z-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${PGDMTPSBanner})` }}
           />
 
           {/* Gradient and icon - only on smaller devices */}
-          <div className="absolute inset-0 z-0 block lg:hidden">
+          <div className="absolute inset-0 z-0 hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10 backdrop-blur-3xl" />
             <GraduationCap className="absolute right-10 top-10 w-96 h-96 text-primary/5 rotate-12" />
           </div>
