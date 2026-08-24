@@ -13,6 +13,7 @@ const routeConfig = {
   //   },
   "/about/vision-mission": {
     title: "Vision & Mission",
+    bannerImage: "/banners/02.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -25,6 +26,7 @@ const routeConfig = {
   },
   "/about/leadership": {
     title: "Leadership",
+    bannerImage: "/banners/04.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -33,6 +35,7 @@ const routeConfig = {
   },
   "/about/message-from-leaders": {
     title: "Leadership",
+    bannerImage: "/banners/04.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -45,6 +48,7 @@ const routeConfig = {
   },
   "/about/board-of-governors": {
     title: "Board of Governors",
+    bannerImage: "/banners/04.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -57,6 +61,7 @@ const routeConfig = {
   },
   "/about/board-of-studies": {
     title: "Board of Studies",
+    bannerImage: "/banners/04.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -69,6 +74,7 @@ const routeConfig = {
   },
   "/about/academic-advisory-board": {
     title: "Academic Advisory Board",
+    bannerImage: "/banners/04.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -81,6 +87,7 @@ const routeConfig = {
   },
   "/about/accreditations-rankings": {
     title: "Accreditations & Rankings",
+    bannerImage: "/banners/02.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -178,6 +185,7 @@ const routeConfig = {
   //   },
   "/faculty/areas": {
     title: "Faculty Areas",
+    bannerImage: "/banners/04.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Faculty", href: "/faculty" },
@@ -186,6 +194,7 @@ const routeConfig = {
   },
   "/research": {
     title: "Research & Publications",
+    bannerImage: "/banners/06.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Research & Publications", href: "/research", isActive: true },
@@ -245,6 +254,7 @@ const routeConfig = {
   },
   "/students-life": {
     title: "Student Life",
+    bannerImage: "/banners/03.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Student Life", href: "/students-life", isActive: true },
@@ -252,6 +262,7 @@ const routeConfig = {
   },
   "/students-life/students-feedback": {
     title: "Student Feedback",
+    bannerImage: "/banners/07.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Student Life", href: "/students-life" },
@@ -264,6 +275,7 @@ const routeConfig = {
   },
   "/students-life/life-at-ssim": {
     title: "Life at SSIM",
+    bannerImage: "/banners/03.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Student Life", href: "/students-life" },
@@ -276,6 +288,7 @@ const routeConfig = {
   },
   "/students-life/students-achievements": {
     title: "Student Achievements",
+    bannerImage: "/banners/05.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Student Life", href: "/students-life" },
@@ -288,6 +301,7 @@ const routeConfig = {
   },
   "/students-life/news": {
     title: "News & Announcements",
+    bannerImage: "/banners/05.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Student Life", href: "/students-life" },
@@ -300,6 +314,7 @@ const routeConfig = {
   },
   "/blog": {
     title: "Blog",
+    bannerImage: "/banners/02.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Blog", href: "/blog", isActive: true },
@@ -322,6 +337,7 @@ const routeConfig = {
   //   },
   "/international-relations": {
     title: "International Relations",
+    bannerImage: "/banners/05.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       {
@@ -333,6 +349,7 @@ const routeConfig = {
   },
   "/accreditations": {
     title: "Accreditations",
+    bannerImage: "/banners/02.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Accreditations", href: "/accreditations", isActive: true },
@@ -340,6 +357,7 @@ const routeConfig = {
   },
   "/contact-us": {
     title: "Contact Us",
+    bannerImage: "/banners/07.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Contact Us", href: "/contact-us", isActive: true },
@@ -347,6 +365,7 @@ const routeConfig = {
   },
   "/iqac": {
     title: "IQAC",
+    bannerImage: "/banners/06.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "IQAC", href: "/iqac", isActive: true },
