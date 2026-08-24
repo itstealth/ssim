@@ -66,15 +66,13 @@ const nextConfig = {
     return {
       // afterFiles: run AFTER static/prerendered pages so Next.js routes and image optimization are never delayed by external WordPress HTTP responses
       //
-      // NOTE: /wp-admin and /wp-login.php are deliberately NOT proxied.
-      // Exposing the WordPress admin surface on the public marketing domain was
-      // the attack surface behind the July 2026 compromise, and proxied requests
-      // reach the backend as this app's outbound IP, so they all share a single
-      // rate-limit bucket and per-IP brute-force protection cannot work.
-      // Admin is served directly from the backend host instead:
-      //   https://ssim-blog-b9egbrcnfccjbzee.centralindia-01.azurewebsites.net/wp-admin
-      // (wp-config.php keeps that hostname for admin/logged-in requests.)
+      // NOTE: /wp-admin and /wp-login.php were previously disabled due to security concerns
+      // (July 2026 compromise), but are now re-enabled per user request.
+      // Proxied requests reach the backend as this app's outbound IP, so they all share
+      // a single rate-limit bucket and per-IP brute-force protection cannot work.
       afterFiles: [
+        { source: "/wp-login.php", destination: `${WP}/wp-login.php` },
+        { source: "/wp-admin/:path*", destination: `${WP}/wp-admin/:path*` },
         { source: "/wp-json/:path*", destination: `${WP}/wp-json/:path*` },
         { source: "/wp-content/:path*", destination: `${WP}/wp-content/:path*` },
         { source: "/wp-includes/:path*", destination: `${WP}/wp-includes/:path*` },
