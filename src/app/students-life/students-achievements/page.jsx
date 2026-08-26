@@ -2,11 +2,8 @@
 "use client";
 import { useState, useMemo } from "react";
 // import SEO from "@/components/Seo";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Search, BookOpen, BookOpenCheck } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -61,42 +58,52 @@ const StudentsAchievements = () => {
         <Heading title="Student Achievements" />
         <div className="container max-w-7xl mx-auto grid gap-14 relative">
           <div className="col-span-1" style={{paddingLeft: "1.4rem", paddingRight: "1.4rem"}}>
-            <div className="events grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="events grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {events.map((event) => (
-                <Card
+                <div
                   key={event.id}
-                  className="p-0 hover:-translate-y-2 transition-all duration-300 hover:shadow-lg shadow rounded-lg flex flex-col justify-between overflow-hidden"
+                  className="group flex flex-col cursor-pointer overflow-visible mb-10"
+                  onClick={() => handleImageClick(event)}
                 >
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-auto aspect-video object-contain"
-                  />
-                  <CardContent className="p-4 mt-4 space-y-3">
-                    <h3 className="text-2xl font-bold line-clamp-2">
+                  <div className="relative aspect-[3/2] w-full mb-6 z-10">
+                    <div className="absolute inset-0 bg-gray-100 rounded-[24px] overflow-hidden">
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 bg-white rounded-tr-3xl pt-3.5 pr-7 pl-6 pb-2 z-20">
+                      <svg width="24" height="24" className="absolute left-0 bottom-full text-white fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M 0,24 L 0,0 C 0,13.25 10.75,24 24,24 Z" />
+                      </svg>
+                      <svg width="24" height="24" className="absolute left-full bottom-0 text-white fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M 0,0 L 0,24 L 24,24 C 10.75,24 0,13.25 0,0 Z" />
+                      </svg>
+                      <div className="flex items-center text-[14px] font-medium text-gray-700 bg-white">
+                        <span className="tracking-wide">Achievement</span>
+                        <span className="mx-4 w-[1px] h-3.5 bg-gray-300" />
+                        <span className="tracking-wide">SSIM</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col flex-grow px-2">
+                    <h3 className="text-[19px] md:text-[21px] font-medium text-[#2d2b52] group-hover:text-[#4239c4] transition-colors line-clamp-2 leading-[1.4]">
                       {event.title}
                     </h3>
-                    {/* <p className="text-gray-500 text-xs">{event.date}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {event.tags.map((tag) => (
-                        <Badge
-                          key={tag}
-                          className="bg-gray-200 text-gray-700 hover:bg-gray-300"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div> */}
                     <Button
-                      className="!mt-5 w-full bg-red-600/90 hover:bg-red-600 text-white group"
+                      variant="ghost"
+                      className="w-fit p-0 h-auto text-gray-400 hover:text-[#4239c4] hover:bg-transparent font-medium group/btn flex items-center mt-3 text-sm transition-colors"
                       onClick={() => handleImageClick(event)}
                     >
-                      Read More{" "}
-                      <BookOpen className="w-4 h-4 ml-2 mt-1 group-hover:hidden" />{" "}
-                      <BookOpenCheck className="w-4 h-4 ml-2 mt-1 group-hover:block hidden" />
+                      View More
+                      <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
                     </Button>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

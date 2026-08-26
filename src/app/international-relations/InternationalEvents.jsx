@@ -1,5 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -61,64 +60,48 @@ The program not only broadens students' professional outlook but also enriches t
   },
 ];
 
-// Helper function to create short description from full description
-const createShortDescription = (fullDescription, maxLength = 156) => {
-  if (fullDescription.length <= maxLength) return fullDescription;
-  return fullDescription.substring(0, maxLength).trim() + "...";
-};
-
 // Event Card Component
 const EventCard = ({ event }) => {
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 border-0 shadow bg-white">
-      <CardHeader className="p-0">
-        <div className="relative overflow-hidden rounded-t-lg">
-          <img
-            src={event.images[0] || "/placeholder.svg"}
-            alt={event.title}
-            width={400}
-            height={240}
-            className="w-full h-48 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-          />
-          {/* <div className="absolute top-3 left-3">
-            <Badge variant="secondary" className="bg-white/90 text-gray-700">
-              {event.category}
-            </Badge>
-          </div> */}
-        </div>
-      </CardHeader>
-      <CardContent className="p-6">
-        <div className="space-y-4">
-          <div>
-            <CardTitle
-              className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2"
-              dangerouslySetInnerHTML={{ __html: event.title }}
-            ></CardTitle>
-            <p
-              className="text-gray-600 text-sm leading-relaxed"
-              dangerouslySetInnerHTML={{
-                __html: createShortDescription(event.fullDescription),
-              }}
-            ></p>
+    <Dialog>
+      <DialogTrigger asChild>
+        <button type="button" className="group flex w-full flex-col cursor-pointer overflow-visible mb-10 text-left">
+          <div className="relative aspect-[3/2] w-full mb-6 z-10">
+            <div className="absolute inset-0 bg-gray-100 rounded-[24px] overflow-hidden">
+              <img
+                src={event.images[0] || "/placeholder.svg"}
+                alt={event.title}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+
+            <div className="absolute bottom-0 left-0 bg-white rounded-tr-3xl pt-3.5 pr-7 pl-6 pb-2 z-20">
+              <svg width="24" height="24" className="absolute left-0 bottom-full text-white fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M 0,24 L 0,0 C 0,13.25 10.75,24 24,24 Z" />
+              </svg>
+              <svg width="24" height="24" className="absolute left-full bottom-0 text-white fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M 0,0 L 0,24 L 24,24 C 10.75,24 0,13.25 0,0 Z" />
+              </svg>
+              <div className="flex items-center text-[14px] font-medium text-gray-700 bg-white">
+                <span className="tracking-wide">Event</span>
+                <span className="mx-4 w-[1px] h-3.5 bg-gray-300" />
+                <span className="tracking-wide">SSIM</span>
+              </div>
+            </div>
           </div>
 
-          {/* <div className="flex flex-col gap-2 text-sm text-gray-500">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              <span>{event.date}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              <span>{event.location}</span>
-            </div>
-          </div> */}
-
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white">
-                View More
-              </Button>
-            </DialogTrigger>
+          <div className="flex flex-col flex-grow px-2">
+            <h3 className="text-[19px] md:text-[21px] font-medium text-[#2d2b52] group-hover:text-[#4239c4] transition-colors line-clamp-2 leading-[1.4]">
+              {event.title}
+            </h3>
+            <span className="w-fit text-gray-400 group-hover:text-[#4239c4] font-medium flex items-center mt-3 text-sm transition-colors">
+              View More
+              <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+            </span>
+          </div>
+        </button>
+      </DialogTrigger>
             <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold text-gray-900 mb-4">
@@ -182,10 +165,7 @@ const EventCard = ({ event }) => {
                 </div>
               </div>
             </DialogContent>
-          </Dialog>
-        </div>
-      </CardContent>
-    </Card>
+    </Dialog>
   );
 };
 
