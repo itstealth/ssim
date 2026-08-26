@@ -9,6 +9,11 @@ export default function HomepagePopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // Fetch the banner while the homepage is hydrating, rather than only after
+    // the dialog opens. This prevents an empty popup on slower live networks.
+    const popupImage = new window.Image();
+    popupImage.src = "/popup-image.webp";
+
     const timer = window.setTimeout(() => setIsOpen(true), 3000);
     return () => window.clearTimeout(timer);
   }, []);
@@ -24,10 +29,12 @@ export default function HomepagePopup() {
             <X className="h-5 w-5" />
           </DialogClose>
           <Image
-            src="/popup-image.jpeg"
+            src="/popup-image.webp"
             alt="SSIM announcement"
             width={1080}
             height={1350}
+            priority
+            unoptimized
             className="block h-auto w-full rounded-[1.3rem]"
           />
         </div>
