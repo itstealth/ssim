@@ -16,6 +16,54 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 // Categories array
 const categories = [
+  {
+    id: "57",
+    label: "PGDM Programmes Inauguration 2026-28",
+    icon: <Image />,
+    heading: "PGDM Programmes Inauguration – Batch 2026–28",
+    description:
+      "On 16 July 2026, SSIM inaugurated the PGDM Programmes for the Batch 2026–28. Ms. Salini S. Pillai, Associate Director, Deloitte Consulting India Pvt. Ltd., joined as Chief Guest, and Mr. Ravi Tanniru, Founder & CEO, ProFintech (Finteract AI), attended as Guest of Honour. Presided over by Smt. Aarathy Sampathy, President & Chief Executive, SSGI, the programme marked the beginning of an enriching academic journey for the new batch.",
+  },
+  {
+    id: "56",
+    label: "Sanghosti 2026: Campus to Corporate",
+    icon: <Image />,
+    heading: "Sanghosti 2026 – Panel Discussion on Campus to Corporate",
+    description:
+      "On 30 July 2026, SSIM organized Sanghosti 2026, a panel discussion on Campus to Corporate, moderated by Dr. Ravi Dasari, Professor, SSIM. Industry leaders and SSIM alumni shared practical guidance on career readiness, communication, adaptability, leadership, teamwork, networking, and continuous learning, helping students bridge the gap between academics and professional life.",
+  },
+  {
+    id: "55",
+    label: "Outbound Training 2026",
+    icon: <Image />,
+    heading: "Outbound Training for PGDM Students",
+    description:
+      "On 31 July 2026, SSIM organized a two-day Outbound Training programme for PGDM students. Through activities including Toxic Waste, Battle Field, Mountain Trekking, Mission Impossible, and Shepherd and Pen, students developed leadership, coordination, teamwork, resilience, and the ability to accept criticism and handle negative feedback effectively.",
+  },
+  {
+    id: "54",
+    label: "Alumni Workshop: Seven Habits",
+    icon: <Image />,
+    heading: "Alumni Workshop: The Seven Habits of Highly Effective People",
+    description:
+      "As part of the Alumni Connect Series, SSIM held an interactive workshop on The Seven Habits of Highly Effective People on 16 May 2026. Dr. Ravi Dasari, President – HR, Jasper Industries Pvt. Ltd., shared practical insights on effective habits, leadership, and personal and professional success, inspiring students to build a positive mindset.",
+  },
+  {
+    id: "52",
+    label: "Industrial Visit to Mayora India",
+    icon: <Image />,
+    heading: "Industrial Visit to Mayora India Pvt. Ltd.",
+    description:
+      "From 17–18 March 2026, SSIM students of Batch 2025–27 visited the Mayora India Pvt. Ltd. manufacturing facility. The experiential learning visit offered insights into FMCG production, automation, quality control, supply-chain management, and the manufacturing and packaging of Kopiko coffee candies.",
+  },
+  {
+    id: "51",
+    label: "Sangosti 2026: Classroom to Corporate",
+    icon: <Image />,
+    heading: "Sangosti 2026 – Panel Discussion: From Classroom to Corporate",
+    description:
+      "On 28 March 2026, SSIM hosted Sangosti 2026, a panel discussion on From Classroom to Corporate. Distinguished alumni shared insights from their professional journeys, highlighting perseverance, adaptability, networking, and continuous learning as pillars for corporate success and offering students practical guidance for their career journeys.",
+  },
 
   {
     id: "50",
@@ -568,6 +616,48 @@ const outboundTrainingImages = Array.from({ length: 10 }, (_, i) => ({
   alt: `outbound training image ${i + 1}`,
 }));
 
+const sangosti2026ClassroomToCorporateImages = Array.from({ length: 22 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/sangosti-2026-classroom-to-corporate/sangosti-2026-classroom-to-corporate (${i + 1}).webp`,
+  category: "51",
+  alt: `Sangosti 2026 classroom to corporate image ${i + 1}`,
+}));
+
+const mayoraIndustrialVisitImages = Array.from({ length: 16 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/industrial-visit-mayora-2026/industrial-visit-mayora-2026 (${i + 1}).webp`,
+  category: "52",
+  alt: `Mayora industrial visit image ${i + 1}`,
+}));
+
+const alumniSevenHabitsWorkshopImages = Array.from({ length: 31 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/alumni-workshop-seven-habits-2026/alumni-workshop-seven-habits-2026 (${i + 1}).webp`,
+  category: "54",
+  alt: `Seven Habits alumni workshop image ${i + 1}`,
+}));
+
+const outboundTraining2026Images = Array.from({ length: 32 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/outbound-training-2026/outbound-training-2026 (${i + 1}).webp`,
+  category: "55",
+  alt: `Outbound training 2026 image ${i + 1}`,
+}));
+
+const sanghosti2026CampusToCorporateImages = Array.from({ length: 11 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/sanghosti-2026-campus-to-corporate/sanghosti-2026-campus-to-corporate (${i + 1}).webp`,
+  category: "56",
+  alt: `Sanghosti 2026 campus to corporate image ${i + 1}`,
+}));
+
+const pgdmInauguration202628Images = Array.from({ length: 6 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/pgdm-inauguration-2026-28/pgdm-inauguration-2026-28 (${i + 1}).webp`,
+  category: "57",
+  alt: `PGDM Batch 2026–28 inauguration image ${i + 1}`,
+}));
+
 const leadershipTalkImages = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${i + 1}).webp`,
@@ -771,6 +861,12 @@ const galleryItems = [
   ...samvadaImages,
   ...leadershipTalkImages,
   ...outboundTrainingImages,
+  ...sangosti2026ClassroomToCorporateImages,
+  ...mayoraIndustrialVisitImages,
+  ...alumniSevenHabitsWorkshopImages,
+  ...outboundTraining2026Images,
+  ...sanghosti2026CampusToCorporateImages,
+  ...pgdmInauguration202628Images,
   ...samarohImages,
   ...samanvayImages,
   ...sameekshaImages,
