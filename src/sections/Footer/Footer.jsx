@@ -289,6 +289,10 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base text-muted-foreground">
           <p className="text-mainBlue">
+            Copyright © SSIM {new Date().getFullYear()}
+          </p>
+          <span className="hidden sm:block text-mainBlue">|</span>
+          <p className="text-mainBlue">
             Designed & Developed By{" "}
             <a
               href="https://www.stealthdigital.in/"
@@ -298,10 +302,6 @@ export default function Footer() {
             >
               Stealth Digital
             </a>
-          </p>
-          <span className="hidden sm:block text-mainBlue">|</span>
-          <p className="text-mainBlue">
-            Copyright © SSIM {new Date().getFullYear()}
           </p>
           {/* <div className="flex gap-6">
             <Link
