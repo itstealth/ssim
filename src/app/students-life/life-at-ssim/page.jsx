@@ -16,13 +16,7 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 // Categories array
 const categories = [
-  {
-    id: "51",
-    label: "Students at CII",
-    icon: <Image />,
-    heading: "Students at CII",
-    description: "SSIM students at CII Summit, showcasing their participation in industry events and learning experiences.",
-  },
+
   {
     id: "50",
     label: "Student Club Tournament",
@@ -30,13 +24,7 @@ const categories = [
     heading: "Student Club Tournament",
     description: "Inter-college sports and cultural tournament organized by SSIM student clubs.",
   },
-  {
-    id: "49",
-    label: "Student Achievement at NISM",
-    icon: <Image />,
-    heading: "Student Achievement at NISM",
-    description: "SSIM students achieving recognition at National Institute of Securities Markets.",
-  },
+
   {
     id: "48",
     label: "Sagnature Day",
@@ -44,13 +32,7 @@ const categories = [
     heading: "Sagnature Day",
     description: "Celebration of signature day events at SSIM.",
   },
-  {
-    id: "47",
-    label: "Poster Presentation at Shillong",
-    icon: <Image />,
-    heading: "Poster Presentation at Shillong",
-    description: "SSIM students presenting research posters at Shillong.",
-  },
+
   {
     id: "46",
     label: "Marketing Club Activity",
@@ -65,13 +47,7 @@ const categories = [
     heading: "Marketing Club 2025-26",
     description: "Marketing Club activities and events for the academic year 2025-26.",
   },
-  {
-    id: "44",
-    label: "IIM Jammu Paper Presentation",
-    icon: <Image />,
-    heading: "IIM Jammu Paper Presentation",
-    description: "SSIM students presenting research papers at IIM Jammu.",
-  },
+
   {
     id: "43",
     label: "HR Club Inaguration",
@@ -114,13 +90,7 @@ const categories = [
     heading: "Data Science Club Inaguration",
     description: "Inaguration ceremony of the Data Science Club at SSIM.",
   },
-  {
-    id: "37",
-    label: "BS Casestudy Certificate Distribution",
-    icon: <Image />,
-    heading: "BS Casestudy Certificate Distribution",
-    description: "Certificate distribution ceremony for BS Casestudy competition.",
-  },
+
   {
     id: "36",
     label: "Bmart Ad Competition",
@@ -300,7 +270,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "This Raksha Bandhan, Siva Sivani Institute of Management (SSIM) had the honor of celebrating with the brave soldiers at the Bollaram Army Campus. Tying rakhis was more than a tradition—it was a heartfelt tribute to the heroes who safeguard our nation. The warm interaction with officers and soldiers filled us with pride, gratitude, and inspiration",
   },
   {
-    id: "11",
+    id: "12",
     label: "Tiranga Campaign",
     icon: <Image />,
     heading: "Selfie with Tiranga Campaign @ SSIM",
@@ -308,7 +278,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "Siva Sivani Institute of Management (SSIM) organized the \"Selfie with Tiranga\" campaign on campus to celebrate India's Independence. The initiative aimed to encourage students and staff to bring the Tiranga home and proudly hoist it as a symbol of patriotism and unity. Both senior and junior students actively participated, capturing memorable moments with the national flag and showcasing their love and respect for the nation",
   },
   {
-    id: "12",
+    id: "13",
     label: "SAMVADA",
     icon: <Image />,
     heading: "SAMVADA - A RESEARCH PLATFORM",
@@ -316,7 +286,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "On 20th August 2025, the Research & Publications Cell of SSIM inaugurated SAMVADA – a dedicated research platform designed to foster academic dialogue and collaboration among faculty at the SSIM campus.",
   },
   {
-    id: "13",
+    id: "14",
     label: "Outbound Training",
     icon: <Image />,
     heading: "Outbound Training for PGDM Students",
@@ -324,7 +294,7 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
       "On 1st and 2nd August 2025, SSIM organized Outbound Training (OBT) for PGDM students. This training was organized to help the students learn practical lessons of Leadership, Coordination, and teamwork while accepting criticism and handling negative feedback effectively. Some of the training activities arranged for the students included Toxic Waste, Battle Field, Mountain Trekking, Mission Impossible, and Shepherd and Pen. This event was organized for two days and the students were divided into two batches.",
   },
   {
-    id: "14",
+    id: "53",
     label: "Spandana",
     icon: "",
     heading: "SPANDANA - A SPONTANEOUS RESPONSE (FRESHERS' PARTY)",
@@ -447,12 +417,7 @@ const bmartAdCompetitionImages = Array.from({ length: 4 }, (_, i) => ({
   alt: `bmart ad competition image ${i + 1}`,
 }));
 
-const bsCasestudyImages = Array.from({ length: 10 }, (_, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/bs-casestudy-certificate-distribution/${i + 1}.webp`,
-  category: "37",
-  alt: `bs casestudy image ${i + 1}`,
-}));
+
 
 const dataScienceClubImages = Array.from({ length: 3 }, (_, i) => ({
   id: i + 1,
@@ -496,12 +461,7 @@ const hrClubImages = Array.from({ length: 5 }, (_, i) => ({
   alt: `hr club image ${i + 1}`,
 }));
 
-const iimJammuImages = Array.from({ length: 9 }, (_, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/iim-jammu-paper-presentation/${i + 1}.webp`,
-  category: "44",
-  alt: `iim jammu image ${i + 1}`,
-}));
+
 
 const marketingClub2025Images = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
@@ -517,12 +477,7 @@ const marketingClubActivityImages = Array.from({ length: 5 }, (_, i) => ({
   alt: `marketing club activity image ${i + 1}`,
 }));
 
-const posterPresentationImages = Array.from({ length: 3 }, (_, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/poster-presentation-at-shillong/${i + 1}.webp`,
-  category: "47",
-  alt: `poster presentation image ${i + 1}`,
-}));
+
 
 const sagnatureDayImages = Array.from({ length: 7 }, (_, i) => ({
   id: i + 1,
@@ -531,12 +486,7 @@ const sagnatureDayImages = Array.from({ length: 7 }, (_, i) => ({
   alt: `sagnature day image ${i + 1}`,
 }));
 
-const studentAchievmentNismImages = Array.from({ length: 6 }, (_, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/student-achievemnt-at-nism/${i + 1}.webp`,
-  category: "49",
-  alt: `student achievement at nism image ${i + 1}`,
-}));
+
 
 const studentClubTournamentImages = Array.from({ length: 4 }, (_, i) => ({
   id: i + 1,
@@ -545,12 +495,7 @@ const studentClubTournamentImages = Array.from({ length: 4 }, (_, i) => ({
   alt: `student club tournament image ${i + 1}`,
 }));
 
-const studentsAtCiiImages = Array.from({ length: 7 }, (_, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/sudents-at-cii/${i + 1}.webp`,
-  category: "51",
-  alt: `students at cii image ${i + 1}`,
-}));
+
 
 // Existing image arrays
 const snatak2025Images = Array.from({ length: 32 }, (_, i) => ({
@@ -795,21 +740,16 @@ const samaroh2026Images = Array.from({ length: 14 }, (_, i) => ({
 
 // Combined gallery items
 const galleryItems = [
-  ...studentsAtCiiImages,
   ...studentClubTournamentImages,
-  ...studentAchievmentNismImages,
   ...sagnatureDayImages,
-  ...posterPresentationImages,
   ...marketingClubActivityImages,
   ...marketingClub2025Images,
-  ...iimJammuImages,
   ...hrClubImages,
   ...freshersParty2025Images,
   ...financeClubImages,
   ...farewell2026Images,
   ...esgClubImages,
   ...dataScienceClubImages,
-  ...bsCasestudyImages,
   ...bmartAdCompetitionImages,
   ...analyticsClubQuizImages,
   ...convocation30thImages,
@@ -843,11 +783,8 @@ const galleryItems = [
   ...samskritiImages,
 ];
 
-const ImageDialog = ({ isOpen, onOpenChange, currentCategory, currentImage, onPrevious, onNext }) => {
+const ImageDialog = ({ isOpen, onOpenChange, currentCategory, currentImage, onPrevious, onNext, hasImages }) => {
   if (!currentCategory) return null;
-  const imageToDisplay = currentImage || galleryItems.find(item => item.category === currentCategory.id);
-  
-  if (!imageToDisplay) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -868,32 +805,40 @@ const ImageDialog = ({ isOpen, onOpenChange, currentCategory, currentImage, onPr
         </Button>
         
         <div className="flex flex-col w-full max-h-[90vh]">
-          {/* Image Section */}
-          <div className="relative w-full aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-4 z-50 rounded-full hover:bg-white/90 bg-white/70 text-black shadow-md backdrop-blur-sm transition-all"
-              onClick={onPrevious}
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
+          {/* Image Section — only rendered when images exist */}
+          {hasImages && currentImage ? (
+            <div className="relative w-full aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute left-4 z-50 rounded-full hover:bg-white/90 bg-white/70 text-black shadow-md backdrop-blur-sm transition-all"
+                onClick={onPrevious}
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
 
-            <img
-              src={imageToDisplay.src}
-              alt={imageToDisplay.alt || currentCategory.heading}
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt || currentCategory.heading}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
 
-            <Button
-              size="icon"
-              className="absolute right-4 z-50 rounded-full hover:bg-white/90 bg-white/70 text-black shadow-md backdrop-blur-sm transition-all"
-              onClick={onNext}
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
-          </div>
+              <Button
+                size="icon"
+                className="absolute right-4 z-50 rounded-full hover:bg-white/90 bg-white/70 text-black shadow-md backdrop-blur-sm transition-all"
+                onClick={onNext}
+              >
+                <ChevronRight className="h-6 w-6" />
+              </Button>
+            </div>
+          ) : !hasImages ? (
+            /* Text-only placeholder banner */
+            <div className="w-full aspect-video bg-gradient-to-br from-[#1a1a5e] to-[#4239c4] flex flex-col items-center justify-center">
+              <span className="text-white/30 text-[72px] font-bold select-none leading-none">SSIM</span>
+              <span className="text-white/60 text-sm mt-2 tracking-widest uppercase">Life at SSIM</span>
+            </div>
+          ) : null}
           
           {/* Text Content Section */}
           <div className="p-6 md:p-8 bg-white overflow-y-auto">
@@ -923,10 +868,8 @@ export default function LifeAtSsim() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Filter out categories that have no images in galleryItems
-  const validCategories = categories.filter(category => 
-    galleryItems.some(img => img.category === category.id)
-  );
+  // Show all categories; images are optional (text-only events still display)
+  const validCategories = categories;
 
   const categoryImages = activeCategory ? galleryItems.filter(item => item.category === activeCategory.id) : [];
 
@@ -991,10 +934,11 @@ export default function LifeAtSsim() {
                 ))
               : validCategories.map((category, index) => {
                   const coverImage = galleryItems.find(img => img.category === category.id);
+                  const hasImages = galleryItems.some(img => img.category === category.id);
                   
                   return (
                     <motion.div
-                      key={category.id}
+                      key={`${category.id}-${index}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: Math.min(index * 0.05, 0.5) }}
@@ -1065,6 +1009,7 @@ export default function LifeAtSsim() {
           currentImage={categoryImages[currentImageIndex]}
           onPrevious={handlePrevious}
           onNext={handleNext}
+          hasImages={categoryImages.length > 0}
         />
       </div>
     </main>
