@@ -47,8 +47,48 @@ const nmfoImg7 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/
 const nmfoImg8 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05601.webp";
 const nmfoImg9 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05602.webp";
 const nmfoImg10 = "/studentslife/life-at-ssim/National Mutual Fund Olympiad 2025/UJ_05656.webp";
+const eurekaMainImage = "/studentslife/student'sAchievements/Eureka!-2026/main image.jpeg";
+const eurekaGallery = [
+  eurekaMainImage,
+  "/studentslife/student'sAchievements/Eureka!-2026/Amboru Yaswita.jpeg",
+  "/studentslife/student'sAchievements/Eureka!-2026/Gauravaraj Kamsmaran.jpeg",
+  "/studentslife/student'sAchievements/Eureka!-2026/Indukuri Shuba Priya.jpeg",
+  "/studentslife/student'sAchievements/Eureka!-2026/Iroyasree Basu.jpeg",
+  "/studentslife/student'sAchievements/Eureka!-2026/Katyani Gupta.jpeg",
+  "/studentslife/student'sAchievements/Eureka!-2026/Salem Hruthik Sai Kumar.jpeg",
+  "/studentslife/student'sAchievements/Eureka!-2026/Sri Vidya Maddineni.jpeg",
+  "/studentslife/student'sAchievements/Eureka!-2026/WhatsApp Image 2026-08-23 at 8.59.02 AM.jpeg",
+];
 
 export const industryData = [
+  {
+    id: 10,
+    image: eurekaMainImage,
+    date: "August 2026",
+    category: "education",
+    title: "SSIM Students Secure 2nd Place at Eureka! 2026 – Road to Enterprise",
+    tags: ["Entrepreneurship", "Startup Pitching", "IIT Bombay", "Achievement"],
+    description: `SSIM is proud to announce that a team of students from the PGDM Batch 2026–27 secured Second Place in the Startup Pitching Competition – Eureka! 2026: Road to Enterprise.
+
+The competition was conducted as part of the National Entrepreneurship Challenge (NEC) 2026, organized by the E-Cell, IIT Bombay, in association with the Entrepreneurship Cell, Avinash College of Commerce, LB Nagar. The competition provided students with an opportunity to showcase their entrepreneurial ideas, innovation, business acumen, and pitching skills.
+
+The SSIM team, Citro Bio, comprising Ram Smaran, Yaswita, Shubha Priya, and Hruthik Sai Kumar, demonstrated strong entrepreneurial thinking and teamwork, earning Second Place in the competition.
+
+Key Achievements
+• Second Place in Eureka! 2026 – Road to Enterprise
+• ₹5,000 Prize Money
+• Qualification/Pass to the IIT Bombay Zonal Level
+
+The achievement is a testament to the students’ creativity, entrepreneurial spirit, innovative thinking, and ability to present impactful business ideas. Their success reflects SSIM’s continued emphasis on experiential learning, entrepreneurship, innovation, and industry-oriented opportunities for students.
+
+SSIM also congratulates all the other students who participated in the competition and received certificates for their enthusiastic participation.
+
+Team Citro Bio:
+Ram Smaran | Yaswita | Shubha Priya | Hruthik Sai Kumar
+
+The institute extends its best wishes to Team Citro Bio for the upcoming IIT Bombay Zonal Level and looks forward to their continued success.`,
+    gallery: eurekaGallery,
+  },
   {
     id: 9,
     image: nmfoImg1,
