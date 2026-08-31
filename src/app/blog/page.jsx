@@ -23,13 +23,15 @@ const fetchBlogPosts = async () => {
     const categories = (terms[0] || []).map(t => t.name);
     const tags = (terms[1] || []).map(t => t.name);
     const authorName = meta.ssim_author_name || 'Siva Sivani Institute of Management';
+    const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
+    const featuredImageUrl = featuredMedia?.source_url || '';
 
     return {
       id: post.slug,
       title: post.title?.rendered || '',
       description: meta.ssim_meta_description || '',
-      image: meta.ssim_image_url || '/placeholder.svg',
-      imageAlt: meta.ssim_image_alt || '',
+      image: meta.ssim_image_url || featuredImageUrl || '/placeholder.svg',
+      imageAlt: meta.ssim_image_alt || featuredMedia?.alt_text || '',
       author: {
         name: authorName,
         avatar: '/placeholder.svg',
@@ -44,7 +46,7 @@ const fetchBlogPosts = async () => {
       tags,
       publishDate: post.date,
       authorName,
-      imageUrl: meta.ssim_image_url || '',
+      imageUrl: meta.ssim_image_url || featuredImageUrl || '',
       originalSlug: post.slug,
     };
   });
