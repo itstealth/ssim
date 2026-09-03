@@ -269,14 +269,14 @@ The entire SSIM fraternity—faculty, staff, and students—came together to cel
     heading: "Ganesh Celebrations",
     description: "Ganesh Chaturthi celebrations at SSIM campus.",
   },
-  {
-    id: "6",
-    label: "SMRITI – 2025",
-    icon: <Image />,
-    heading: "SMRITI – 2025 (Farewell Party)",
-    description:
-      "On 22nd March 2025, SSIM organized 'SMRITI-2025 (Farewell Party)' at Swagath Grand, Suchithra. Junior students gave a nice treat to their Seniors Batch 2023-25. The students had fun while participating in various cultural activities and games.",
-  },
+  // {
+  //   id: "6",
+  //   label: "SMRITI – 2025",
+  //   icon: <Image />,
+  //   heading: "SMRITI – 2025 (Farewell Party)",
+  //   description:
+  //     "On 22nd March 2025, SSIM organized 'SMRITI-2025 (Farewell Party)' at Swagath Grand, Suchithra. Junior students gave a nice treat to their Seniors Batch 2023-25. The students had fun while participating in various cultural activities and games.",
+  // },
   {
     id: "7",
     label: "Onam Festival",
@@ -284,14 +284,14 @@ The entire SSIM fraternity—faculty, staff, and students—came together to cel
     heading: "Onam Festival",
     description: "Onam celebration at SSIM with traditional activities and festivities.",
   },
-  {
-    id: "8",
-    label: "Leadership Talk",
-    icon: <Image />,
-    heading: "Leadership Talk by Mr. Gijo Mathew",
-    description:
-      "Mr. Gijo Mathew, Head of Learning & Development at Auro Group, addressed the students on 08th September 2025 for the Batch 2026–27. In his session, he emphasized the importance of developing leadership through a growth mindset, highlighting how cultivating resilience, adaptability, and continuous learning can shape future leaders.",
-  },
+  // {
+  //   id: "8",
+  //   label: "Leadership Talk",
+  //   icon: <Image />,
+  //   heading: "Leadership Talk by Mr. Gijo Mathew",
+  //   description:
+  //     "Mr. Gijo Mathew, Head of Learning & Development at Auro Group, addressed the students on 08th September 2025 for the Batch 2026–27. In his session, he emphasized the importance of developing leadership through a growth mindset, highlighting how cultivating resilience, adaptability, and continuous learning can shape future leaders.",
+  // },
   // {
   //   id: "9",
   //   label: "Onam Festival",
@@ -333,14 +333,14 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
     description:
       "On 20th August 2025, the Research & Publications Cell of SSIM inaugurated SAMVADA – a dedicated research platform designed to foster academic dialogue and collaboration among faculty at the SSIM campus.",
   },
-  {
-    id: "14",
-    label: "Outbound Training",
-    icon: <Image />,
-    heading: "Outbound Training for PGDM Students",
-    description:
-      "On 1st and 2nd August 2025, SSIM organized Outbound Training (OBT) for PGDM students. This training was organized to help the students learn practical lessons of Leadership, Coordination, and teamwork while accepting criticism and handling negative feedback effectively. Some of the training activities arranged for the students included Toxic Waste, Battle Field, Mountain Trekking, Mission Impossible, and Shepherd and Pen. This event was organized for two days and the students were divided into two batches.",
-  },
+  // {
+  //   id: "14",
+  //   label: "Outbound Training",
+  //   icon: <Image />,
+  //   heading: "Outbound Training for PGDM Students",
+  //   description:
+  //     "On 1st and 2nd August 2025, SSIM organized Outbound Training (OBT) for PGDM students. This training was organized to help the students learn practical lessons of Leadership, Coordination, and teamwork while accepting criticism and handling negative feedback effectively. Some of the training activities arranged for the students included Toxic Waste, Battle Field, Mountain Trekking, Mission Impossible, and Shepherd and Pen. This event was organized for two days and the students were divided into two batches.",
+  // },
   // {
   //   id: "53",
   //   label: "Spandana",
@@ -364,32 +364,32 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
   //   heading: "SMRITI - A FOND REMEMBRANCE (FAREWELL PARTY)",
   //   description: `Meeting and parting is a way of life. After the completion of the course, it is certain that the Seniors part with the Juniors. In order to express their feelings and the unwritten bonding between the Seniors and the Juniors, the Juniors bid a grand Farewell to the seniors in the 6th trimester. Various activities are organised in order to further strengthen the relationship even after leaving the portals of the Institute. The Juniors present mementos as a fond memory to the seniors.`,
   // },
-  {
-    id: "16",
-    label: "Samaroh",
-    icon: <Image />,
-    heading: "SAMAROH - IT IS INTERNATIONAL RESEARCH CONFERENCE AT SSIM",
-    description: `The SAMAROH is conducted to commemorate the death anniversary of the founder of Siva Sivani Group of Institutions.
-Samaroh is an international conference which is aimed to offer a knowledge sharing platform for academicians, researchers and corporate professionals for exchange of new body of knowledge. This conference will also have key note address from renowned management experts and research paper presentations of conference participants.`,
-  },
-  {
-    id: "17",
-    label: "Samanvay",
-    icon: <Image />,
-    heading: "SAMANVAY - THE ESSENCE OF CO-ORDINATION",
-    description: `An Inter Collegiate Management Students' Meet organised by the students of Siva Sivani. This event brings together the students of various Business Schools across the state. They participate in various management related competitive events. This is an opportunity for the students of Siva Sivani to organise and show their leadership qualities in managing such a big event.
+//   {
+//     id: "16",
+//     label: "Samaroh",
+//     icon: <Image />,
+//     heading: "SAMAROH - IT IS INTERNATIONAL RESEARCH CONFERENCE AT SSIM",
+//     description: `The SAMAROH is conducted to commemorate the death anniversary of the founder of Siva Sivani Group of Institutions.
+// Samaroh is an international conference which is aimed to offer a knowledge sharing platform for academicians, researchers and corporate professionals for exchange of new body of knowledge. This conference will also have key note address from renowned management experts and research paper presentations of conference participants.`,
+//   },
+//   {
+//     id: "17",
+//     label: "Samanvay",
+//     icon: <Image />,
+//     heading: "SAMANVAY - THE ESSENCE OF CO-ORDINATION",
+//     description: `An Inter Collegiate Management Students' Meet organised by the students of Siva Sivani. This event brings together the students of various Business Schools across the state. They participate in various management related competitive events. This is an opportunity for the students of Siva Sivani to organise and show their leadership qualities in managing such a big event.
 
-Many business houses sponsor the events organised in Samanvay. This clearly manifests the Industry- Institute-Interaction of Siva Sivani Institute of Management.`,
-  },
-  {
-    id: "18",
-    label: "Sameeksha",
-    icon: <Image />,
-    heading: "SAMEEKSHA",
-    description: `The Students organise Club Activities under HR, Finance, Marketing and Systems Club to bring out the innate latent talent. Students make various presentations, conduct formal and informal activities such as acquiesces, group discussions, Management related games etc in order to develop and nourish the creativity that is abundantly available in every one of us.
+// Many business houses sponsor the events organised in Samanvay. This clearly manifests the Industry- Institute-Interaction of Siva Sivani Institute of Management.`,
+//   },
+//   {
+//     id: "18",
+//     label: "Sameeksha",
+//     icon: <Image />,
+//     heading: "SAMEEKSHA",
+//     description: `The Students organise Club Activities under HR, Finance, Marketing and Systems Club to bring out the innate latent talent. Students make various presentations, conduct formal and informal activities such as acquiesces, group discussions, Management related games etc in order to develop and nourish the creativity that is abundantly available in every one of us.
 
-Experts from the industry may chair the club sessions conducted by the students who will share their experiences with the students. These activities help students acquire the knowledge on contemporary issues in their respective specializations, improve their oral and written communication skills and participate effectively in the competitions conducted by various Business Schools.`,
-  },
+// Experts from the industry may chair the club sessions conducted by the students who will share their experiences with the students. These activities help students acquire the knowledge on contemporary issues in their respective specializations, improve their oral and written communication skills and participate effectively in the competitions conducted by various Business Schools.`,
+//   },
   {
     id: "20",
     label: "Sneha",
@@ -397,20 +397,20 @@ Experts from the industry may chair the club sessions conducted by the students 
     heading: "SNEHA - THE ALUMNI ASSOCIATION OF SSIM",
     description: `We at SSIM strongly believe that the Alumni Association has a great role to play in the developmental activities of the Institute. To strengthen our relationship with the Alumni, we conduct various activities and invite them to the campus. This gives a feeling to every student of SSIM that they are always a part of the Siva Sivani family.`,
   },
-  {
-    id: "21",
-    label: "Sadhana",
-    icon: <Image />,
-    heading: "SADHANA - STUDENT RESEARCH CONFERENCE",
-    description: `SADHANA is a Student Research Conference introduced in 2022. The aim of the conference is to bring Bachelor's / Master's research into spotlight and to increase the enthusiasm among students for academic research. This conference gives UG / PG students a unique opportunity to present their research among the learned audiences. Participating in this conference enables the students to experience academic practice.`,
-  },
-  {
-    id: "22",
-    label: "Snatak",
-    icon: <Image />,
-    heading: "SNATAK - CONVOCATION",
-    description: `Snatak – Convocation of every batch will be held on 22nd October on every year to conform the degrees of the passed students.`,
-  },
+  // {
+  //   id: "21",
+  //   label: "Sadhana",
+  //   icon: <Image />,
+  //   heading: "SADHANA - STUDENT RESEARCH CONFERENCE",
+  //   description: `SADHANA is a Student Research Conference introduced in 2022. The aim of the conference is to bring Bachelor's / Master's research into spotlight and to increase the enthusiasm among students for academic research. This conference gives UG / PG students a unique opportunity to present their research among the learned audiences. Participating in this conference enables the students to experience academic practice.`,
+  // },
+  // {
+  //   id: "22",
+  //   label: "Snatak",
+  //   icon: <Image />,
+  //   heading: "SNATAK - CONVOCATION",
+  //   description: `Snatak – Convocation of every batch will be held on 22nd October on every year to conform the degrees of the passed students.`,
+  // },
   {
     id: "23",
     label: "Sanman",
