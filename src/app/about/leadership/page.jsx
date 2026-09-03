@@ -119,7 +119,7 @@ function LeaderCard({ leader }) {
               <Separator className="bg-primary/20" />
               {leader.quote && (
                 <motion.div
-                  className="relative mt-4 pl-6 border-l-4 border-primary/20"
+                  className="relative mt-4 pl-6"
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
@@ -162,7 +162,7 @@ function LeaderCard({ leader }) {
           </DialogHeader>
           <div className="flex flex-col space-y-4 h-[calc(80vh-120px)]">
             {leader.quote && (
-              <div className="relative pl-6 border-l-4 border-primary/20">
+              <div className="relative pl-6 border-primary/20">
                 <Quote className="absolute -left-[17px] -top-1 w-6 h-6 text-primary/40" />
                 <p className="italic text-lg">{leader.quote}</p>
                 {leader.quoteAuthor && (
