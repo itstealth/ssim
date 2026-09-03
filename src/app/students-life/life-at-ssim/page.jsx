@@ -58,11 +58,11 @@ const categories = [
   },
   {
     id: "51",
-    label: "Sangosti 2026: Classroom to Corporate",
+    label: "Sanghosti 2026: Classroom to Corporate",
     icon: <Image />,
-    heading: "Sangosti 2026 – Panel Discussion: From Classroom to Corporate",
+    heading: "SANGHOSTI–2026 Panel Discussion: From Classroom to Corporate",
     description:
-      "On 28 March 2026, SSIM hosted Sangosti 2026, a panel discussion on From Classroom to Corporate. Distinguished alumni shared insights from their professional journeys, highlighting perseverance, adaptability, networking, and continuous learning as pillars for corporate success and offering students practical guidance for their career journeys.",
+      "On 28 March 2026, SSIM successfully hosted Sanghosti–2026, a thought-provoking panel discussion on “Classroom to Corporate.” Distinguished alumni, including Rochit Abbi – National Vice President, FITIG Bharat (1992–1994), Ram Kandarpa – Sr. Delivery Manager, SAP, Technoval (1994–1996), Amar Pasapula – Vice President, Conneqt Business Solutions Ltd. (1996–1998), Prashanth Gubba – Founder & Design Head, Gubba Cold Infra (1998–2000), and Bala Nagendar Singh – Sr. Project Manager, xcubelabs (2013–2015), shared valuable insights from their professional journeys. The session highlighted perseverance, adaptability, networking, and continuous learning as key pillars for success in the corporate world. Students gained practical guidance and inspiration for their career journeys.",
   },
 
   {
@@ -390,13 +390,13 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
 
 // Experts from the industry may chair the club sessions conducted by the students who will share their experiences with the students. These activities help students acquire the knowledge on contemporary issues in their respective specializations, improve their oral and written communication skills and participate effectively in the competitions conducted by various Business Schools.`,
 //   },
-  {
-    id: "20",
-    label: "Sneha",
-    icon: <Image />,
-    heading: "SNEHA - THE ALUMNI ASSOCIATION OF SSIM",
-    description: `We at SSIM strongly believe that the Alumni Association has a great role to play in the developmental activities of the Institute. To strengthen our relationship with the Alumni, we conduct various activities and invite them to the campus. This gives a feeling to every student of SSIM that they are always a part of the Siva Sivani family.`,
-  },
+  // {
+  //   id: "20",
+  //   label: "Sneha",
+  //   icon: <Image />,
+  //   heading: "SNEHA - THE ALUMNI ASSOCIATION OF SSIM",
+  //   description: `We at SSIM strongly believe that the Alumni Association has a great role to play in the developmental activities of the Institute. To strengthen our relationship with the Alumni, we conduct various activities and invite them to the campus. This gives a feeling to every student of SSIM that they are always a part of the Siva Sivani family.`,
+  // },
   // {
   //   id: "21",
   //   label: "Sadhana",
@@ -444,101 +444,173 @@ Presence of institutes' representative gives them immense happiness; they look f
 ];
 
 // Image arrays for new categories (34-51)
-const convocation30thImages = Array.from({ length: 25 }, (_, i) => ({
+const convocation30thImages = [
+  "12.webp",
+  "23.webp",
+  "13.webp",
+  "9.webp",
+  "24.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/30th-convocation/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/30th-convocation/${filename}`,
   category: "34",
   alt: `30th convocation image ${i + 1}`,
 }));
 
-const analyticsClubQuizImages = Array.from({ length: 12 }, (_, i) => ({
+const analyticsClubQuizImages = [
+  "7.webp",
+  "10.webp",
+  "8.webp",
+  "2.webp",
+  "4.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/analytics-club-quiz-session/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/analytics-club-quiz-session/${filename}`,
   category: "35",
   alt: `analytics club quiz image ${i + 1}`,
 }));
 
-const bmartAdCompetitionImages = Array.from({ length: 4 }, (_, i) => ({
+const bmartAdCompetitionImages = [
+  "1.webp",
+  "2.webp",
+  "4.webp",
+  "3.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/bmart-ad-competition/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/bmart-ad-competition/${filename}`,
   category: "36",
   alt: `bmart ad competition image ${i + 1}`,
 }));
 
 
 
-const dataScienceClubImages = Array.from({ length: 3 }, (_, i) => ({
+const dataScienceClubImages = [
+  "1.webp",
+  "3.webp",
+  "2.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/data-science-club-inaguration/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/data-science-club-inaguration/${filename}`,
   category: "38",
   alt: `data science club image ${i + 1}`,
 }));
 
-const esgClubImages = Array.from({ length: 3 }, (_, i) => ({
+const esgClubImages = [
+  "2.webp",
+  "1.webp",
+  "3.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/esg-club-inaguration/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/esg-club-inaguration/${filename}`,
   category: "39",
   alt: `esg club image ${i + 1}`,
 }));
 
-const farewell2026Images = Array.from({ length: 13 }, (_, i) => ({
+const farewell2026Images = [
+  "10.webp",
+  "7.webp",
+  "5.webp",
+  "6.webp",
+  "13.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/farewell-2026/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/farewell-2026/${filename}`,
   category: "40",
   alt: `farewell 2026 image ${i + 1}`,
 }));
 
-const financeClubImages = Array.from({ length: 6 }, (_, i) => ({
+const financeClubImages = [
+  "5.webp",
+  "3.webp",
+  "6.webp",
+  "4.webp",
+  "1.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/finance-club-inaguration/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/finance-club-inaguration/${filename}`,
   category: "41",
   alt: `finance club image ${i + 1}`,
 }));
 
-const freshersParty2025Images = Array.from({ length: 18 }, (_, i) => ({
+const freshersParty2025Images = [
+  "10.webp",
+  "12.webp",
+  "16.webp",
+  "6.webp",
+  "17.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/freshers-party-11-09-2025/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/freshers-party-11-09-2025/${filename}`,
   category: "42",
   alt: `freshers party 2025 image ${i + 1}`,
 }));
 
-const hrClubImages = Array.from({ length: 5 }, (_, i) => ({
+const hrClubImages = [
+  "1.webp",
+  "3.webp",
+  "2.webp",
+  "5.webp",
+  "4.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/hr-club-inaguration/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/hr-club-inaguration/${filename}`,
   category: "43",
   alt: `hr club image ${i + 1}`,
 }));
 
 
 
-const marketingClub2025Images = Array.from({ length: 12 }, (_, i) => ({
+const marketingClub2025Images = [
+  "11.webp",
+  "8.webp",
+  "7.webp",
+  "1.webp",
+  "2.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/marketing-club-2025-26/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/marketing-club-2025-26/${filename}`,
   category: "45",
   alt: `marketing club 2025-26 image ${i + 1}`,
 }));
 
-const marketingClubActivityImages = Array.from({ length: 5 }, (_, i) => ({
+const marketingClubActivityImages = [
+  "2.webp",
+  "1.webp",
+  "3.webp",
+  "5.webp",
+  "4.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/marketing-club-activity/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/marketing-club-activity/${filename}`,
   category: "46",
   alt: `marketing club activity image ${i + 1}`,
 }));
 
 
 
-const sagnatureDayImages = Array.from({ length: 7 }, (_, i) => ({
+const sagnatureDayImages = [
+  "2.webp",
+  "7.webp",
+  "4.webp",
+  "3.webp",
+  "1.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sagnature-day/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/sagnature-day/${filename}`,
   category: "48",
   alt: `sagnature day image ${i + 1}`,
 }));
 
 
 
-const studentClubTournamentImages = Array.from({ length: 4 }, (_, i) => ({
+const studentClubTournamentImages = [
+  "4.webp",
+  "1.webp",
+  "2.webp",
+  "3.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/student-club-tournamnet/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/student-club-tournamnet/${filename}`,
   category: "50",
   alt: `student club tournament image ${i + 1}`,
 }));
@@ -546,284 +618,435 @@ const studentClubTournamentImages = Array.from({ length: 4 }, (_, i) => ({
 
 
 // Existing image arrays
-const snatak2025Images = Array.from({ length: 32 }, (_, i) => ({
+const snatak2025Images = [
+  "snatak-2025 (15).webp",
+  "snatak-2025 (31).webp",
+  "snatak-2025 (17).webp",
+  "snatak-2025 (32).webp",
+  "snatak-2025 (11).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/snatak-2025/snatak-2025 (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/snatak-2025/${filename}`,
   category: "1",
   alt: `snatak 2025 image ${i + 1}`,
 }));
 
-const spandana2025Images = Array.from({ length: 30 }, (_, i) => ({
+const spandana2025Images = [
+  "spandana (11).jpg",
+  "spandana (7).jpg",
+  "spandana (21).jpg",
+  "spandana (14).jpg",
+  "spandana (27).jpg"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/spandana-2025/spandana (${i + 1}).jpg`,
+  src: `/studentslife/life-at-ssim/spandana-2025/${filename}`,
   category: "3",
   alt: `spandana 2025 image ${i + 1}`,
 }));
 
-const ganeshCelebrationsImages = Array.from({ length: 10 }, (_, i) => ({
+const ganeshCelebrationsImages = [
+  "Ganesh Celebrations (4).webp",
+  "Ganesh Celebrations (6).webp",
+  "Ganesh Celebrations (2).webp",
+  "Ganesh Celebrations (8).webp",
+  "Ganesh Celebrations (7).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/ganesh-celebrations/Ganesh Celebrations (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/ganesh-celebrations/${filename}`,
   category: "5",
   alt: `ganesh celebrations image ${i + 1}`,
 }));
 
-const smriti2025Images = Array.from({ length: 37 }, (_, i) => ({
+const smriti2025Images = [
+  "smriti 2025 (6).jpg",
+  "smriti 2025 (15).jpg",
+  "smriti 2025 (10).jpg",
+  "smriti 2025 (14).jpg",
+  "smriti 2025 (23).jpg"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/smriti-2025/smriti 2025 (${i + 1}).jpg`,
+  src: `/studentslife/life-at-ssim/smriti-2025/${filename}`,
   category: "6",
   alt: `smriti 2025 image ${i + 1}`,
 }));
 
-const onamFestivalImages = Array.from({ length: 4 }, (_, i) => ({
+const onamFestivalImages = [
+  "Onam Celebrations (2).webp",
+  "Onam Celebrations (1).webp",
+  "Onam Celebrations (3).webp",
+  "Onam Celebrations (4).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/onam-celebrations/Onam Celebrations (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/onam-celebrations/${filename}`,
   category: "7",
   alt: `onam festival image ${i + 1}`,
 }));
 
-const hrConclaveImages = Array.from({ length: 23 }, (_, i) => ({
+const hrConclaveImages = [
+  "hr-conclave (11).jpg",
+  "hr-conclave (9).jpg",
+  "hr-conclave (5).jpg",
+  "hr-conclave (17).jpg",
+  "hr-conclave (23).jpg"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/hr-conclave/hr-conclave (${i + 1}).jpg`,
+  src: `/studentslife/life-at-ssim/hr-conclave/${filename}`,
   category: "10",
   alt: `hr conclave image ${i + 1}`,
 }));
 
-const rakshaBandhanImages = Array.from({ length: 8 }, (_, i) => ({
+const rakshaBandhanImages = [
+  "raksha-bandhan (4).jpg",
+  "raksha-bandhan (7).jpg",
+  "raksha-bandhan (6).jpg",
+  "raksha-bandhan (8).jpg",
+  "raksha-bandhan (1).jpg"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/raksha-bandhan/raksha-bandhan (${i + 1}).jpg`,
+  src: `/studentslife/life-at-ssim/raksha-bandhan/${filename}`,
   category: "11",
   alt: `raksha bandhan image ${i + 1}`,
 }));
 
-const tirangaCampaignImages = Array.from({ length: 13 }, (_, i) => ({
+const tirangaCampaignImages = [
+  "independence (11).webp",
+  "independence (4).webp",
+  "independence (3).webp",
+  "independence (5).webp",
+  "independence (6).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/independence/independence (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/independence/${filename}`,
   category: "12",
   alt: `tiranga campaign image ${i + 1}`,
 }));
 
-const samvadaImages = Array.from({ length: 3 }, (_, i) => ({
+const samvadaImages = [
+  "samvada (1).webp",
+  "samvada (3).webp",
+  "samvada (2).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/samvada/samvada (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/samvada/${filename}`,
   category: "13",
   alt: `samvada image ${i + 1}`,
 }));
 
-const outboundTrainingImages = Array.from({ length: 10 }, (_, i) => ({
+const outboundTrainingImages = [
+  "outbound (5).webp",
+  "outbound (7).webp",
+  "outbound (3).webp",
+  "outbound (6).webp",
+  "outbound (4).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/outbound/outbound (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/outbound/${filename}`,
   category: "14",
   alt: `outbound training image ${i + 1}`,
 }));
 
-const sangosti2026ClassroomToCorporateImages = Array.from({ length: 22 }, (_, i) => ({
+const sangosti2026ClassroomToCorporateImages = [
+  "sangosti-2026-classroom-to-corporate (16).webp",
+  "sangosti-2026-classroom-to-corporate (17).webp",
+  "sangosti-2026-classroom-to-corporate (8).webp",
+  "sangosti-2026-classroom-to-corporate (3).webp",
+  "sangosti-2026-classroom-to-corporate (4).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sangosti-2026-classroom-to-corporate/sangosti-2026-classroom-to-corporate (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/sangosti-2026-classroom-to-corporate/${filename}`,
   category: "51",
   alt: `Sangosti 2026 classroom to corporate image ${i + 1}`,
 }));
 
-const mayoraIndustrialVisitImages = Array.from({ length: 16 }, (_, i) => ({
+const mayoraIndustrialVisitImages = [
+  "industrial-visit-mayora-2026 (4).webp",
+  "industrial-visit-mayora-2026 (1).webp",
+  "industrial-visit-mayora-2026 (15).webp",
+  "industrial-visit-mayora-2026 (14).webp",
+  "industrial-visit-mayora-2026 (3).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/industrial-visit-mayora-2026/industrial-visit-mayora-2026 (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/industrial-visit-mayora-2026/${filename}`,
   category: "52",
   alt: `Mayora industrial visit image ${i + 1}`,
 }));
 
-const alumniSevenHabitsWorkshopImages = Array.from({ length: 31 }, (_, i) => ({
+const alumniSevenHabitsWorkshopImages = [
+  "alumni-workshop-seven-habits-2026 (29).webp",
+  "alumni-workshop-seven-habits-2026 (1).webp",
+  "alumni-workshop-seven-habits-2026 (6).webp",
+  "alumni-workshop-seven-habits-2026 (4).webp",
+  "alumni-workshop-seven-habits-2026 (21).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/alumni-workshop-seven-habits-2026/alumni-workshop-seven-habits-2026 (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/alumni-workshop-seven-habits-2026/${filename}`,
   category: "54",
   alt: `Seven Habits alumni workshop image ${i + 1}`,
 }));
 
-const outboundTraining2026Images = Array.from({ length: 32 }, (_, i) => ({
+const outboundTraining2026Images = [
+  "outbound-training-2026 (31).webp",
+  "outbound-training-2026 (22).webp",
+  "outbound-training-2026 (30).webp",
+  "outbound-training-2026 (3).webp",
+  "outbound-training-2026 (5).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/outbound-training-2026/outbound-training-2026 (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/outbound-training-2026/${filename}`,
   category: "55",
   alt: `Outbound training 2026 image ${i + 1}`,
 }));
 
-const sanghosti2026CampusToCorporateImages = Array.from({ length: 11 }, (_, i) => ({
+const sanghosti2026CampusToCorporateImages = [
+  "sanghosti-2026-campus-to-corporate (4).webp",
+  "sanghosti-2026-campus-to-corporate (3).webp",
+  "sanghosti-2026-campus-to-corporate (10).webp",
+  "sanghosti-2026-campus-to-corporate (5).webp",
+  "sanghosti-2026-campus-to-corporate (6).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sanghosti-2026-campus-to-corporate/sanghosti-2026-campus-to-corporate (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/sanghosti-2026-campus-to-corporate/${filename}`,
   category: "56",
   alt: `Sanghosti 2026 campus to corporate image ${i + 1}`,
 }));
 
-const pgdmInauguration202628Images = Array.from({ length: 6 }, (_, i) => ({
+const pgdmInauguration202628Images = [
+  "pgdm-inauguration-2026-28 (3).webp",
+  "pgdm-inauguration-2026-28 (1).webp",
+  "pgdm-inauguration-2026-28 (5).webp",
+  "pgdm-inauguration-2026-28 (2).webp",
+  "pgdm-inauguration-2026-28 (6).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/pgdm-inauguration-2026-28/pgdm-inauguration-2026-28 (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/pgdm-inauguration-2026-28/${filename}`,
   category: "57",
   alt: `PGDM Batch 2026–28 inauguration image ${i + 1}`,
 }));
 
-const leadershipTalkImages = Array.from({ length: 4 }, (_, i) => ({
+const leadershipTalkImages = [
+  "Leadership Talk (1).webp",
+  "Leadership Talk (2).webp",
+  "Leadership Talk (4).webp",
+  "Leadership Talk (3).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/leadership-talk/Leadership Talk (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/leadership-talk/${filename}`,
   category: "8",
   alt: `leadership talk image ${i + 1}`,
 }));
 
-const samarohImages = Array.from({ length: 21 }, (_, i) => ({
+const samarohImages = [
+  "samaroh (12).webp",
+  "samaroh (5).webp",
+  "samaroh (15).webp",
+  "samaroh (4).webp",
+  "samaroh (6).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/samaroh/samaroh (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/samaroh/${filename}`,
   category: "16",
   alt: `samaroh image ${i + 1}`,
 }));
 
-const samanvayImages = Array.from({ length: 12 }, (_, i) => ({
+const samanvayImages = [
+  "samanvay (12).webp",
+  "samanvay (8).webp",
+  "samanvay (9).webp",
+  "samanvay (11).webp",
+  "samanvay (3).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/samanvay/samanvay (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/samanvay/${filename}`,
   category: "17",
   alt: `samanvay image ${i + 1}`,
 }));
 
-const sameekshaImages = Array.from({ length: 23 }, (_, i) => ({
+const sameekshaImages = [
+  "sameeksha (9).webp",
+  "sameeksha (6).webp",
+  "sameeksha (8).webp",
+  "sameeksha (5).webp",
+  "sameeksha (7).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sameeksha/sameeksha (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/sameeksha/${filename}`,
   category: "18",
   alt: `sameeksha image ${i + 1}`,
 }));
 
-const snehaImages = Array.from({ length: 42 }, (_, i) => ({
+const snehaImages = [
+  "sneha (10).webp",
+  "sneha (9).webp",
+  "sneha (14).webp",
+  "sneha (32).webp",
+  "sneha (11).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sneha/sneha (${i + 1}).${i > 39 ? "png" : "webp"}`,
+  src: `/studentslife/life-at-ssim/sneha/${filename}`,
   category: "20",
   alt: `sneha image ${i + 1}`,
 }));
 
-const sadhanaImages = Array.from({ length: 14 }, (_, i) => ({
+const sadhanaImages = [
+  "sadhana (13).webp",
+  "sadhana (6).webp",
+  "sadhana (7).webp",
+  "sadhana (5).webp",
+  "sadhana (14).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sadhana/sadhana (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/sadhana/${filename}`,
   category: "21",
   alt: `sadhana image ${i + 1}`,
 }));
 
-const snatakImages = Array.from({ length: 21 }, (_, i) => ({
+const snatakImages = [
+  "snatak (2).webp",
+  "snatak (16).webp",
+  "snatak (5).webp",
+  "snatak (8).webp",
+  "snatak (6).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/snatak/snatak (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/snatak/${filename}`,
   category: "22",
   alt: `snatak image ${i + 1}`,
 }));
 
-const sanmanImages = Array.from({ length: 2 }, (_, i) => ({
+const sanmanImages = [
+  "sanman (2).webp",
+  "sanman (1).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sanman/sanman (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/sanman/${filename}`,
   category: "23",
   alt: `sanman image ${i + 1}`,
 }));
 
-const satakshiImages = Array.from({ length: 9 }, (_, i) => ({
+const satakshiImages = [
+  "satakshi (3).webp",
+  "satakshi (6).webp",
+  "satakshi (7).webp",
+  "satakshi (2).webp",
+  "satakshi (4).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/satakshi/satakshi (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/satakshi/${filename}`,
   category: "24",
   alt: `satakshi image ${i + 1}`,
 }));
 
-const sanghibhavImages = Array.from({ length: 11 }, (_, i) => ({
+const sanghibhavImages = [
+  "sanghibhav (2).webp",
+  "sanghibhav (8).webp",
+  "sanghibhav (9).webp",
+  "sanghibhav (10).webp",
+  "sanghibhav (7).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/sanghibhav/sanghibhav (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/sanghibhav/${filename}`,
   category: "25",
   alt: `sanghibhav image ${i + 1}`,
 }));
 
-const samskritiImages = Array.from({ length: 25 }, (_, i) => ({
+const samskritiImages = [
+  "samskriti (12).webp",
+  "samskriti (25).webp",
+  "samskriti (14).webp",
+  "samskriti (22).webp",
+  "samskriti (23).webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/samskriti/samskriti (${i + 1}).webp`,
+  src: `/studentslife/life-at-ssim/samskriti/${filename}`,
   category: "26",
   alt: `samskriti image ${i + 1}`,
 }));
 
-const medicalCampImageFilenames = [
-  "DSC_8986.webp", "DSC_8990.webp", "DSC_9013.webp", "DSC_9018.webp",
-  "DSC_9022.webp", "DSC_9026.webp", "DSC_9029.webp", "DSC_9037.webp",
-  "DSC_9068.webp", "DSC_9072.webp", "DSC_9075.webp", "DSC_9090.webp",
-  "DSC_9092.webp", "DSC_9101.webp", "DSC_9104.webp", "DSC_9105.webp",
-];
-
-const medicalCampImages = medicalCampImageFilenames.map((filename, i) => ({
+const medicalCampImages = [
+  "DSC_9072.webp",
+  "DSC_9013.webp",
+  "DSC_9029.webp",
+  "DSC_9068.webp",
+  "DSC_9101.webp"
+].map((filename, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/Medical Camp/${filename}`,
   category: "27",
   alt: `medical camp image ${i + 1}`,
 }));
 
-const icmaiMouImageFilenames = [
-  "DSC_9274.webp", "DSC_9323.webp", "DSC_9340.webp", "DSC_9356.webp",
-  "DSC_9371.webp", "DSC_9380.webp", "DSC_9439.webp", "DSC_9445.webp",
-  "DSC_9452.webp", "DSC_9458.webp", "DSC_9493.webp",
-];
-
-const icmaiMouImages = icmaiMouImageFilenames.map((filename, i) => ({
+const icmaiMouImages = [
+  "DSC_9274.webp",
+  "DSC_9356.webp",
+  "DSC_9458.webp",
+  "DSC_9371.webp",
+  "DSC_9439.webp"
+].map((filename, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/ICMAI MOU/${filename}`,
   category: "28",
   alt: `ICMAI MOU image ${i + 1}`,
 }));
 
-const mouWithIbmImageFilenames = [
-  "DSC_8767_8_2026_10_2026.webp", "DSC_8768_1_2026_13_2026.webp",
-  "DSC_8865_2_2026_14_2026.webp", "DSC_8883_9_2026_11_2026.webp",
-  "DSC_8896_3_2026_15_2026.webp", "DSC_8903_4_2026_16_2026.webp",
-  "DSC_8905_5_2026_17_2026.webp", "DSC_8912_6_2026_18_2026.webp",
+const mouWithIbmImages = [
+  "DSC_8865_2_2026_14_2026.webp",
+  "DSC_8767_8_2026_10_2026.webp",
   "DSC_8919_7_2026_12_2026.webp",
-];
-
-const mouWithIbmImages = mouWithIbmImageFilenames.map((filename, i) => ({
+  "DSC_8912_6_2026_18_2026.webp",
+  "DSC_8903_4_2026_16_2026.webp"
+].map((filename, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/MOU with  IBM/${filename}`,
   category: "29",
   alt: `MOU with IBM image ${i + 1}`,
 }));
 
-const samanvayEventPicsImageFilenames = [
-  "Day-1 Guests (2).webp", "Day-1 Guests (3).webp", "Day-1 Guests (4).webp",
-  "Day-1 Guests (5).webp", "Day-1 Guests (6).webp", "Day-1 Guests (7).webp",
-  "Day-2 Guest (1).webp", "Day-2 Guest (2).webp", "Day-2 Guest (3).webp",
-  "DSC_5149.webp", "DSC_5262.webp", "DSC_5270.webp", "DSC_5324.webp",
-  "DSC_5329.webp", "DSC_5357.webp", "DSC_5396.webp", "DSC_5458.webp",
-  "DSC_5479.webp", "DSC_5539.webp", "DSC_5736.webp", "DSC_5800.webp",
-  "DSC_5810.webp", "DSC_6049.webp", "DSC_6055.webp", "DSC_6070.webp",
-  "DSC_6076.webp", "DSC_6085.webp", "DSC_6096.webp", "DSC_6100.webp",
-  "DSC_6106.webp", "DSC_6118.webp", "DSC_6124.webp", "DSC_6126.webp",
-  "DSC_6130.webp", "DSC_6133.webp", "DSC_6135.webp", "DSC_6138.webp",
-  "DSC_6141.webp", "DSC_6178.webp", "DSC_6185.webp", "DSC_6299.webp",
-  "DSC_6376.webp", "DSC_6391.webp", "DSC_6396.webp", "DSC_6536.webp",
-  "DSC_6538.webp", "DSC_6629.webp", "DSC_6644.webp", "DSC_6801.webp",
-  "DSC_6842.webp", "DSC_6850.webp", "DSC_7236.webp", "DSC_7548.webp",
-  "DSC_7843.webp", "DSC_7929.webp", "DSC_7935.webp", "DSC_7937.webp",
-  "DSC_7965.webp", "DSC_7977.webp", "DSC_8002.webp", "DSC_8244.webp",
-  "DSC_8255.webp", "Other college Winners (1).webp", "Other college Winners (3).webp",
-  "Other college Winners (4).webp", "Other college Winners (5).webp",
-  "Other college Winners (6).webp", "Other college Winners (7).webp",
-  "Other college Winners (8).webp", "Other college Winners.webp",
-];
-
-const samanvayEventPicsImages = samanvayEventPicsImageFilenames.map((filename, i) => ({
+const samanvayEventPicsImages = [
+  "Other college Winners (5).webp",
+  "DSC_6629.webp",
+  "DSC_6299.webp",
+  "Other college Winners (6).webp",
+  "DSC_8255.webp"
+].map((filename, i) => ({
   id: i + 1,
   src: `/studentslife/life-at-ssim/Samanvay Event Pics/${filename}`,
   category: "30",
   alt: `27th Samanvay image ${i + 1}`,
 }));
 
-const classroomImages = Array.from({ length: 3 }, (_, i) => ({
+const classroomImages = [
+  "Classroom1.jpeg",
+  "Classroom3.jpeg",
+  "Classroom2.jpeg"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/Classroom/Classroom${i + 1}.jpeg`,
+  src: `/studentslife/life-at-ssim/Classroom/${filename}`,
   category: "32",
   alt: `Classroom image ${i + 1}`,
 }));
 
-const womensWeekImages = Array.from({ length: 8 }, (_, i) => ({
+const womensWeekImages = [
+  "image6.jpeg",
+  "image3.jpeg",
+  "image2.jpeg",
+  "image4.jpeg",
+  "image8.jpeg"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/Women'sWeek/image${i + 2}.jpeg`,
+  src: `/studentslife/life-at-ssim/Women'sWeek/${filename}`,
   category: "33",
   alt: `Women'sWeek image ${i + 1}`,
 }));
 
-const samaroh2026Images = Array.from({ length: 14 }, (_, i) => ({
+const samaroh2026Images = [
+  "9.webp",
+  "1.webp",
+  "12.webp",
+  "5.webp",
+  "3.webp"
+].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/samaroh-2026/${i + 1}.webp`,
+  src: `/studentslife/life-at-ssim/samaroh-2026/${filename}`,
   category: "31",
   alt: `samaroh 2026 image ${i + 1}`,
 }));
@@ -917,7 +1140,7 @@ const ImageDialog = ({ isOpen, onOpenChange, currentCategory, currentImage, onPr
                 src={currentImage.src}
                 alt={currentImage.alt || currentCategory.heading}
                 loading="lazy"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
 
               <Button
@@ -1049,7 +1272,7 @@ export default function LifeAtSsim() {
                               src={coverImage.src}
                               alt={category.heading}
                               loading="lazy"
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                              className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                             />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-gray-400">
