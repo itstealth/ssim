@@ -82,7 +82,7 @@ export default function GuestLectures() {
   const [selectedYear, setSelectedYear] = useState("all");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
   const [selectedCompany, setSelectedCompany] = useState("all");
-  const [sortConfig, setSortConfig] = useState(null);
+  const [sortConfig, setSortConfig] = useState({ key: "date", direction: "desc" });
 
   useEffect(() => {
     const fetchGuestLectureData = async () => {
@@ -220,7 +220,7 @@ export default function GuestLectures() {
     setSelectedDesignation("all");
     setSelectedCompany("all");
     setSearchTerm("");
-    setSortConfig(null);
+    setSortConfig({ key: "date", direction: "desc" });
   };
 
   const SortIcon = ({ columnKey }) => {
