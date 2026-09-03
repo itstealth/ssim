@@ -231,17 +231,17 @@ SAMAROH 2026 recorded an Excellent NPS of +58.03 and a CSAT of 4.33/5, reflectin
     heading: "Snatak-2025",
     description: "Convocation ceremony for batch 2023-25.",
   },
-  {
-    id: "2",
-    label: "Sanman-2025",
-    icon: "",
-    heading: "Sanman-2025: Teacher's Day Celebrations at SSIM",
-    description: `On September 4th, 2025, Siva Sivani Institute of Management (SSIM) celebrated Teacher's Day to honor the birth anniversary of Dr. Sarvepalli Radhakrishnan, the second President and first Vice President of India, and an eminent teacher-philosopher.
+//   {
+//     id: "2",
+//     label: "Sanman-2025",
+//     icon: "",
+//     heading: "Sanman-2025: Teacher's Day Celebrations at SSIM",
+//     description: `On September 4th, 2025, Siva Sivani Institute of Management (SSIM) celebrated Teacher's Day to honor the birth anniversary of Dr. Sarvepalli Radhakrishnan, the second President and first Vice President of India, and an eminent teacher-philosopher.
 
-As part of its tradition, SSIM confers the Dr. S. Radhakrishnan Memorial 'Teacher of Teachers Award' each year to recognize and celebrate the contributions of distinguished academicians. This year (2025), the award was presented to Dr. Prof. Ch. S. Durga Prasad, Executive Director, Association of Indian Management Schools (AIMS), for his outstanding service to the teaching fraternity.
+// As part of its tradition, SSIM confers the Dr. S. Radhakrishnan Memorial 'Teacher of Teachers Award' each year to recognize and celebrate the contributions of distinguished academicians. This year (2025), the award was presented to Dr. Prof. Ch. S. Durga Prasad, Executive Director, Association of Indian Management Schools (AIMS), for his outstanding service to the teaching fraternity.
 
-Adding to the significance of the occasion, the SSIM Placement Department released the Placement Brochure – Shreshta 2025, showcasing the institute's commitment to academic excellence and industry readiness.`,
-  },
+// Adding to the significance of the occasion, the SSIM Placement Department released the Placement Brochure – Shreshta 2025, showcasing the institute's commitment to academic excellence and industry readiness.`,
+//   },
   {
     id: "3",
     label: "Spandana-2025",
@@ -255,13 +255,13 @@ Adding to the excitement, the SSIM Students' Sports Club organized a cricket tou
 
 The entire SSIM fraternity—faculty, staff, and students—came together to celebrate, making the occasion a memorable day of joy, bonding, and new beginnings.`,
   },
-  {
-    id: "4",
-    label: "Leadership Talk",
-    icon: "",
-    heading: "Leadership Talk by Mr. Manish Muralidhar Conjeevaram",
-    description: `on 9th September 2025, Siva Sivani Institute of Management (SSIM) organized an engaging Leadership Talk by Mr. Manish Muralidhar Conjeevaram, Partner – Audit & Assurance, Deloitte, Hyderabad, for the students of the 2024–26 batch. He shared his perspectives on the evolving role of finance and audit in today's business landscape, highlighting the importance of integrity, critical thinking, and adaptability for aspiring managers.`,
-  },
+  // {
+  //   id: "4",
+  //   label: "Leadership Talk",
+  //   icon: "",
+  //   heading: "Leadership Talk by Mr. Manish Muralidhar Conjeevaram",
+  //   description: `on 9th September 2025, Siva Sivani Institute of Management (SSIM) organized an engaging Leadership Talk by Mr. Manish Muralidhar Conjeevaram, Partner – Audit & Assurance, Deloitte, Hyderabad, for the students of the 2024–26 batch. He shared his perspectives on the evolving role of finance and audit in today's business landscape, highlighting the importance of integrity, critical thinking, and adaptability for aspiring managers.`,
+  // },
   {
     id: "5",
     label: "Ganesh Celebrations",
@@ -292,13 +292,13 @@ The entire SSIM fraternity—faculty, staff, and students—came together to cel
     description:
       "Mr. Gijo Mathew, Head of Learning & Development at Auro Group, addressed the students on 08th September 2025 for the Batch 2026–27. In his session, he emphasized the importance of developing leadership through a growth mindset, highlighting how cultivating resilience, adaptability, and continuous learning can shape future leaders.",
   },
-  {
-    id: "9",
-    label: "Onam Festival",
-    icon: <Image />,
-    heading: "Onam Festival",
-    description: "Onam celebration at SSIM with traditional activities and festivities.",
-  },
+  // {
+  //   id: "9",
+  //   label: "Onam Festival",
+  //   icon: <Image />,
+  //   heading: "Onam Festival",
+  //   description: "Onam celebration at SSIM with traditional activities and festivities.",
+  // },
   {
     id: "10",
     label: "HR Conclave",
@@ -341,29 +341,29 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
     description:
       "On 1st and 2nd August 2025, SSIM organized Outbound Training (OBT) for PGDM students. This training was organized to help the students learn practical lessons of Leadership, Coordination, and teamwork while accepting criticism and handling negative feedback effectively. Some of the training activities arranged for the students included Toxic Waste, Battle Field, Mountain Trekking, Mission Impossible, and Shepherd and Pen. This event was organized for two days and the students were divided into two batches.",
   },
-  {
-    id: "53",
-    label: "Spandana",
-    icon: "",
-    heading: "SPANDANA - A SPONTANEOUS RESPONSE (FRESHERS' PARTY)",
-    description:
-      "The institute strongly believes in inter personnel relations and teamwork. In order to give a feeling of oneness to the freshers, the Seniors conduct 'Spandana' to warmly and formally welcome their Juniors into the family of Siva Sivani.",
-  },
-  {
-    id: "15",
-    label: "Sammelan",
-    icon: "",
-    heading: "SAMMELAN - AN INTRA COLLEGIATE MEET",
-    description:
-      "To bring out the innate talent of the students, various cultural activities, management games etc are conducted. One day in a term is earmarked for this activity.",
-  },
-  {
-    id: "19",
-    label: "Smriti",
-    icon: "",
-    heading: "SMRITI - A FOND REMEMBRANCE (FAREWELL PARTY)",
-    description: `Meeting and parting is a way of life. After the completion of the course, it is certain that the Seniors part with the Juniors. In order to express their feelings and the unwritten bonding between the Seniors and the Juniors, the Juniors bid a grand Farewell to the seniors in the 6th trimester. Various activities are organised in order to further strengthen the relationship even after leaving the portals of the Institute. The Juniors present mementos as a fond memory to the seniors.`,
-  },
+  // {
+  //   id: "53",
+  //   label: "Spandana",
+  //   icon: "",
+  //   heading: "SPANDANA - A SPONTANEOUS RESPONSE (FRESHERS' PARTY)",
+  //   description:
+  //     "The institute strongly believes in inter personnel relations and teamwork. In order to give a feeling of oneness to the freshers, the Seniors conduct 'Spandana' to warmly and formally welcome their Juniors into the family of Siva Sivani.",
+  // },
+  // {
+  //   id: "15",
+  //   label: "Sammelan",
+  //   icon: "",
+  //   heading: "SAMMELAN - AN INTRA COLLEGIATE MEET",
+  //   description:
+  //     "To bring out the innate talent of the students, various cultural activities, management games etc are conducted. One day in a term is earmarked for this activity.",
+  // },
+  // {
+  //   id: "19",
+  //   label: "Smriti",
+  //   icon: "",
+  //   heading: "SMRITI - A FOND REMEMBRANCE (FAREWELL PARTY)",
+  //   description: `Meeting and parting is a way of life. After the completion of the course, it is certain that the Seniors part with the Juniors. In order to express their feelings and the unwritten bonding between the Seniors and the Juniors, the Juniors bid a grand Farewell to the seniors in the 6th trimester. Various activities are organised in order to further strengthen the relationship even after leaving the portals of the Institute. The Juniors present mementos as a fond memory to the seniors.`,
+  // },
   {
     id: "16",
     label: "Samaroh",
