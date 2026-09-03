@@ -55,9 +55,9 @@ import { programData } from "@/data/programData";
 
 const programs = [
   {
-    id: "pgdm-ba",
-    name: "PGDM BA",
-    link: "/programs/pgdm-ba",
+    id: "pgdm-triple-specialisation",
+    name: "PGDM Triple Specialisation",
+    link: "/programs/pgdm-triple-specialisation",
     category: "PGDM",
   },
   {
@@ -67,9 +67,9 @@ const programs = [
     category: "PGDM",
   },
   {
-    id: "pgdm-triple-specialisation",
-    name: "PGDM Triple Specialisation",
-    link: "/programs/pgdm-triple-specialisation",
+    id: "pgdm-ba",
+    name: "PGDM BA",
+    link: "/programs/pgdm-ba",
     category: "PGDM",
   },
   { id: "fpm", name: "FPM", link: "/programs/fpm", category: "FPM/EFPM" },

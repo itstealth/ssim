@@ -6,14 +6,14 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Admission program data - using existing static routes
 const admissionPrograms = [
-  { id: "pgdm-ba", name: "PGDM BA", path: "/admissions/pgdm-ba", category: "PGDM" },
-  { id: "pgdm-bifs", name: "PGDM BIFS", path: "/admissions/pgdm-bifs", category: "PGDM" },
   {
     id: "pgdm-triple-specialisation",
     name: "PGDM Triple Specialisation",
     path: "/admissions/pgdm-triple-specialisation",
     category: "PGDM",
   },
+  { id: "pgdm-bifs", name: "PGDM BIFS", path: "/admissions/pgdm-bifs", category: "PGDM" },
+  { id: "pgdm-ba", name: "PGDM BA", path: "/admissions/pgdm-ba", category: "PGDM" },
   // FPM and EFPM routes
   { id: "fpm", name: "FPM", path: "/admissions/fpm-efpm", category: "FPM/EFPM" },
   { id: "efpm", name: "EFPM", path: "/admissions/efpm", category: "FPM/EFPM" },
