@@ -61,7 +61,7 @@ export default function JobDetails() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white py-16 shadow-inner">
+      <section className="bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900 text-white py-16 shadow-inner">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <Badge className="mb-4 bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm">
@@ -70,23 +70,23 @@ export default function JobDetails() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
               Professor of Marketing
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-6 font-light">
+            <p className="text-xl md:text-2xl text-purple-100 mb-6 font-light">
               Siva Sivani Institute of Management
             </p>
             <div className="flex flex-wrap gap-6 mb-8 text-sm md:text-base opacity-90">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-blue-300" />
+                <MapPin className="w-5 h-5 text-purple-300" />
                 <span>Kompally, Secunderabad, Telangana</span>
               </div>
               <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-blue-300" />
+                <Calendar className="w-5 h-5 text-purple-300" />
                 <span>Ref: SSIM/Recruit/Faculty/Marketing/2025-26</span>
               </div>
             </div>
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-white text-blue-900 hover:bg-blue-50 font-semibold shadow-lg transition-all active:scale-95"
+                className="bg-white text-purple-900 hover:bg-purple-50 font-semibold shadow-lg transition-all active:scale-95"
                 asChild
                 onClick={(e) => handleEmailClick(e, contactEmail, mailSubject)}
               >
@@ -118,8 +118,8 @@ export default function JobDetails() {
               <Card className="border-none shadow-sm bg-white hover:shadow-md transition-shadow">
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="p-2 bg-blue-50 rounded-lg">
-                      <Award className="w-6 h-6 text-blue-600" />
+                    <div className="p-2 bg-purple-50 rounded-lg">
+                      <Award className="w-6 h-6 text-purple-600" />
                     </div>
                     <CardTitle className="text-2xl font-bold text-slate-800">About SSIM</CardTitle>
                   </div>
@@ -166,8 +166,8 @@ export default function JobDetails() {
               <Card className="border-none shadow-sm bg-white overflow-hidden">
                 <CardHeader className="bg-slate-50/50 border-b border-slate-100 pb-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="p-2 bg-blue-50 rounded-lg">
-                      <BookOpen className="w-6 h-6 text-blue-600" />
+                    <div className="p-2 bg-purple-50 rounded-lg">
+                      <BookOpen className="w-6 h-6 text-purple-600" />
                     </div>
                     <CardTitle className="text-xl font-bold text-slate-800">Minimum Essential Qualifications</CardTitle>
                   </div>
@@ -206,24 +206,24 @@ export default function JobDetails() {
               </Card>
 
               {/* Application Details */}
-              <Card className="border-2 border-blue-100 bg-blue-50/30 ring-4 ring-blue-50/10">
+              <Card className="border-2 border-purple-100 bg-purple-50/30 ring-4 ring-purple-50/10">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-blue-900">How to Apply</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-purple-900">How to Apply</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-4">
-                    <h4 className="font-bold text-blue-800 text-lg">Send your application to:</h4>
-                    <div className="bg-white p-6 rounded-2xl border border-blue-100 shadow-sm group hover:border-blue-300 transition-all flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <h4 className="font-bold text-purple-800 text-lg">Send your application to:</h4>
+                    <div className="bg-white p-6 rounded-2xl border border-purple-100 shadow-sm group hover:border-purple-300 transition-all flex flex-col sm:flex-row items-center justify-between gap-4">
                       <div className="flex items-center gap-4">
-                        <div className="p-3 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
-                          <Mail className="w-8 h-8 text-blue-600" />
+                        <div className="p-3 bg-purple-50 rounded-xl group-hover:bg-purple-100 transition-colors">
+                          <Mail className="w-8 h-8 text-purple-600" />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-slate-500">Director's Email</p>
                           <a 
                             href={`mailto:${contactEmail}?subject=${encodeURIComponent(mailSubject)}`} 
                             onClick={(e) => handleEmailClick(e, contactEmail, mailSubject)}
-                            className="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors break-all"
+                            className="text-xl font-bold text-purple-600 hover:text-purple-700 transition-colors break-all"
                           >
                             {contactEmail}
                           </a>
@@ -233,10 +233,10 @@ export default function JobDetails() {
                         variant="secondary" 
                         size="icon" 
                         onClick={() => copyToClipboard(contactEmail)}
-                        className="rounded-xl h-12 w-12 shrink-0 hover:bg-blue-50 transition-colors group-hover:scale-110"
+                        className="rounded-xl h-12 w-12 shrink-0 hover:bg-purple-50 transition-colors group-hover:scale-110"
                         title="Copy Email"
                       >
-                        {isCopied ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5 text-blue-600" />}
+                        {isCopied ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5 text-purple-600" />}
                       </Button>
                     </div>
                     <p className="text-sm text-slate-500 italic">
@@ -244,15 +244,15 @@ export default function JobDetails() {
                     </p>
                   </div>
 
-                  <Separator className="bg-blue-100" />
+                  <Separator className="bg-purple-100" />
 
                   <div className="space-y-3">
-                    <h4 className="font-bold text-blue-800">Review Process:</h4>
+                    <h4 className="font-bold text-purple-800">Review Process:</h4>
                     <p className="text-slate-700">
                       Applications are reviewed on a rolling basis. Ensure your CV includes full academic history and list of publications.
                     </p>
                     <Button 
-                      className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 shadow-md hover:shadow-lg transition-all"
+                      className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 shadow-md hover:shadow-lg transition-all"
                       size="lg"
                       onClick={(e) => handleEmailClick(e, contactEmail, mailSubject)}
                       asChild
@@ -270,17 +270,17 @@ export default function JobDetails() {
             <div className="md:col-span-1 space-y-6">
               <div className="sticky top-6 space-y-6">
                 {/* Quick Action Card */}
-                <Card className="bg-gradient-to-br from-blue-700 to-indigo-800 text-white border-none shadow-xl overflow-hidden group">
+                <Card className="bg-gradient-to-br from-purple-700 to-indigo-800 text-white border-none shadow-xl overflow-hidden group">
                   <div className="absolute top-0 right-0 -m-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all duration-700"></div>
                   <CardHeader className="relative z-10">
                     <CardTitle className="text-white text-xl">Ready to Apply?</CardTitle>
-                    <CardDescription className="text-blue-100">
+                    <CardDescription className="text-purple-100">
                       Join our prestigious faculty team at SSIM
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 relative z-10">
                     <Button 
-                      className="w-full bg-white text-blue-900 hover:bg-blue-50 font-bold py-6 text-lg rounded-xl shadow-lg transition-transform active:scale-95"
+                      className="w-full bg-white text-purple-900 hover:bg-purple-50 font-bold py-6 text-lg rounded-xl shadow-lg transition-transform active:scale-95"
                       onClick={(e) => handleEmailClick(e, contactEmail, mailSubject)}
                       asChild
                     >
@@ -309,7 +309,7 @@ export default function JobDetails() {
                   <CardContent className="pt-4 space-y-4">
                     <div className="flex justify-between items-center group">
                       <p className="font-medium text-slate-500">Posted</p>
-                      <p className="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">Dec 14, 2025</p>
+                      <p className="font-bold text-slate-800 group-hover:text-purple-600 transition-colors">Dec 14, 2025</p>
                     </div>
                     <Separator className="bg-slate-50" />
                     <div className="flex justify-between items-center group">
@@ -324,7 +324,7 @@ export default function JobDetails() {
                     <Separator className="bg-slate-50" />
                     <div className="flex justify-between items-center group">
                       <p className="font-medium text-slate-500">Min. Exp</p>
-                      <p className="font-bold text-slate-800 uppercase px-2 py-0.5 bg-blue-50 text-blue-700 rounded text-xs">15 Years</p>
+                      <p className="font-bold text-slate-800 uppercase px-2 py-0.5 bg-purple-50 text-purple-700 rounded text-xs">15 Years</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -333,7 +333,7 @@ export default function JobDetails() {
                 <Card className="border-none shadow-sm shadow-slate-200 bg-slate-50/50">
                   <CardHeader className="pb-3 px-4">
                     <CardTitle className="text-base font-bold text-slate-800 flex items-center gap-2">
-                       <Mail className="w-4 h-4 text-blue-600" />
+                       <Mail className="w-4 h-4 text-purple-600" />
                        Contact Info
                     </CardTitle>
                   </CardHeader>
@@ -344,15 +344,15 @@ export default function JobDetails() {
                         <a 
                           href={`mailto:${contactEmail}`} 
                           onClick={(e) => handleEmailClick(e, contactEmail)}
-                          className="font-bold text-blue-600 hover:text-blue-700 text-sm truncate"
+                          className="font-bold text-purple-600 hover:text-purple-700 text-sm truncate"
                         >
                           {contactEmail}
                         </a>
                         <button 
                           onClick={() => copyToClipboard(contactEmail)}
-                          className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-blue-100 rounded"
+                          className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-purple-100 rounded"
                         >
-                          <Copy className="w-3 h-3 text-blue-600" />
+                          <Copy className="w-3 h-3 text-purple-600" />
                         </button>
                       </div>
                     </div>

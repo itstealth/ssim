@@ -31,7 +31,7 @@ export function DockButtons() {
         isVisible ? "md:opacity-100" : "md:opacity-0 md:pointer-events-none"
       }`}
     >
-      <Dock className="bg-gradient-to-r from-blue-200 via-blue-200 to-blue-200 h-full">
+      <Dock className="bg-gradient-to-r from-purple-200 via-purple-200 to-purple-200 h-full">
         <DockIcon size="full" className="bg-black/10 animate-pulse">
           <Link href="https://apply.ssim.ac.in/" target="_blank">
             <Button className="bg-red-600 text-white hover:bg-red-600/80">

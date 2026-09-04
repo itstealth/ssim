@@ -21,7 +21,7 @@ const admissionSteps = [
     id: 2,
     title: "Submission of Required Documents",
     icon: Files,
-    bgColor: "bg-blue-500",
+    bgColor: "bg-purple-500",
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ const fpmSelectionSteps = [
     title: "Application Form and Research Interest",
     description: "Submit abstract (5,000 words) on area of research interest (tentative research proposal) along with FPM application",
     icon: FileSignature,
-    bgColor: "bg-blue-500",
+    bgColor: "bg-purple-500",
   },
   {
     id: 2,
@@ -263,7 +263,7 @@ export default function SelectionProcess({ programType = "general" }) {
 
         {/* FPM/EFPM Selection Summary */}
         {programType === "fpm-efpm" && (
-          <div className="mt-12 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+          <div className="mt-12 p-6 bg-purple-50 rounded-lg border-l-4 border-purple-500">
             <h3 className="text-lg font-semibold text-gray-800 mb-3">
               Final Selection Criteria
             </h3>

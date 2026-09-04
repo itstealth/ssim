@@ -551,7 +551,7 @@
 .blog-content blockquote,
 .blog-content .prose blockquote {
   @apply border-l-4 border-[#1B50EC] pl-6 pr-4 py-4 my-8;
-  @apply bg-blue-50;
+  @apply bg-purple-50;
   @apply italic text-slate-700 text-lg;
   @apply rounded-r-lg shadow-sm;
   font-style: italic !important;
@@ -716,8 +716,8 @@
 
 .blog-content a:not([download]):not([href*="/documents/"]):not(.mid-cta-btn),
 .blog-content .prose a:not([download]):not([href*="/documents/"]):not(.mid-cta-btn) {
-  @apply text-blue-600;
-  @apply hover:text-blue-700;
+  @apply text-purple-600;
+  @apply hover:text-purple-700;
   @apply underline decoration-blue-300;
   @apply hover:decoration-blue-600;
   @apply transition-all duration-200;

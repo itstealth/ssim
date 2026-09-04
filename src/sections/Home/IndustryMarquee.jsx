@@ -50,7 +50,7 @@ const LogoCard = ({ img }) => {
 
 const IndustryMarquee = () => {
   return (
-    <div className="relative w-full overflow-hidden py-8 rounded-sm bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
+    <div className="relative w-full overflow-hidden py-8 rounded-sm bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200">
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.8))]"></div>
       <Marquee className="py-8" gradientWidth={100} speed={100} pauseOnHover>
         {logos.map((logo, index) => (

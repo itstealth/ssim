@@ -59,7 +59,7 @@ const faqs = [
           ].map((stat) => (
             <div
               key={stat.label}
-              className="rounded-xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100 p-3 text-center"
+              className="rounded-xl bg-gradient-to-br from-purple-50 to-purple-50 border border-purple-100 p-3 text-center"
             >
               <p className="text-[18px] font-bold text-[#1B50EC] leading-tight">
                 {stat.value}
@@ -162,7 +162,7 @@ export default function HomeFAQ() {
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
               className={`group flex items-center gap-3 rounded-2xl border px-5 py-4 text-left transition-all duration-300 ${
                 openIndex === i
-                  ? "border-purple-300 bg-gradient-to-r from-purple-50 to-blue-50 shadow-[0_8px_24px_rgba(107,33,168,0.12)]"
+                  ? "border-purple-300 bg-gradient-to-r from-purple-50 to-purple-50 shadow-[0_8px_24px_rgba(107,33,168,0.12)]"
                   : "border-slate-200 bg-white hover:border-purple-200 hover:bg-purple-50/40"
               }`}
             >
@@ -210,7 +210,7 @@ export default function HomeFAQ() {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className={`w-full flex items-center gap-4 px-5 py-5 text-left transition-colors duration-200 ${
                   openIndex === i
-                    ? "bg-gradient-to-r from-purple-50 to-blue-50"
+                    ? "bg-gradient-to-r from-purple-50 to-purple-50"
                     : "bg-white"
                 }`}
               >

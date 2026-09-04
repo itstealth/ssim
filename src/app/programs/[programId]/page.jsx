@@ -177,11 +177,11 @@ const ProgramComparison = ({ programs }) => {
         Program Comparison
       </h2>
       <Table>
-        <TableHeader className="bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
+        <TableHeader className="bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200">
           <TableRow>
-            <TableHead className="text-[#293794]">Feature</TableHead>
+            <TableHead className="text-navy">Feature</TableHead>
             {programs.map((program) => (
-              <TableHead className="text-[#293794]" key={program.id}>
+              <TableHead className="text-navy" key={program.id}>
                 {program.name}
               </TableHead>
             ))}
@@ -360,7 +360,7 @@ const Differentiators = ({ differentiators, programId }) => {
             programId === "efpm" ||
             programId === "fpm/efpm") && (
             <div className="mb-8">
-              <div className="rounded-2xl border border-mainBlue bg-blue-50/40 shadow-md p-6 md:p-8">
+              <div className="rounded-2xl border border-mainBlue bg-purple-50/40 shadow-md p-6 md:p-8">
                 <h4 className="text-xl md:text-2xl text-mainBlue font-extrabold flex items-center gap-2 mb-3">
                   <Briefcase className="w-7 h-7 text-mainBlue mr-1" /> Financial
                   Support (Full-time Researchers & Freshers)
@@ -1229,10 +1229,10 @@ const ProgramsOverview = ({ params }) => {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="space-y-3"
                 >
-                  {/* <h2 className="text-xl font-semibold text-[#293794] px-2">
+                  {/* <h2 className="text-xl font-semibold text-navy px-2">
                   Post Graduate Courses
                 </h2> */}
-                  <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+                  <TabsList className="w-full flex flex-wrap text-navy bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 justify-center gap-2 p-1 h-auto">
                     {pgdmPrograms.map((program) => (
                       <TabsTrigger
                         key={program.id}
@@ -1256,10 +1256,10 @@ const ProgramsOverview = ({ params }) => {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="space-y-3"
                 >
-                  <h2 className="text-xl font-semibold text-[#293794] px-2">
+                  <h2 className="text-xl font-semibold text-navy px-2">
                     FPM/EFPM
                   </h2>
-                  <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+                  <TabsList className="w-full flex flex-wrap text-navy bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 justify-center gap-2 p-1 h-auto">
                     {fpmEfpmPrograms.map((program) => (
                       <TabsTrigger
                         key={program.id}

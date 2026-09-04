@@ -163,7 +163,7 @@ const HeroSlider = () => {
                   🔔 <hr className="h-4 mx-2 w-" />{" "}
                   <span
                     className={cn(
-                      `inline animate-gradient bg- text-sm sm:text-xl bg-gradient-to-r from-[#fff] via-blue-900 to-[#fff] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+                      `inline animate-gradient bg- text-sm sm:text-xl bg-gradient-to-r from-[#fff] via-purple-900 to-[#fff] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
                     )}
                   >
                     Enroll now

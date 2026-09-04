@@ -141,8 +141,8 @@ export default function Convocation2024Page() {
           {/* Venue */}
           <Card className="text-center p-6 bg-white shadow-lg border-0">
             <CardHeader className="pb-2">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-6 h-6 text-purple-600" />
               </div>
               <CardTitle className="text-lg">Venue</CardTitle>
             </CardHeader>
@@ -203,12 +203,12 @@ export default function Convocation2024Page() {
             </Card>
 
             {/* Guest of Honour */}
-            <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+            <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
               <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-blue-800 text-xl">
+                <CardTitle className="text-purple-800 text-xl">
                   Guest of Honour
                 </CardTitle>
               </CardHeader>
@@ -274,7 +274,7 @@ export default function Convocation2024Page() {
 
         {/* RSVP Section */}
         <div className="mt-12 text-center">
-          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-red-50 to-blue-50 border-2 border-red-200">
+          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-red-50 to-purple-50 border-2 border-red-200">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">RSVP</h3>
               <p className="text-gray-600 mb-6">

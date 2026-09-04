@@ -16,12 +16,12 @@ module.exports = {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			colors: {
-				navy:  { DEFAULT:'#102269', light:'#1B3A7A', deep:'#07132A' },
+				navy:  { DEFAULT:'#6B21A8', light:'#9333ea', deep:'#4A1D6E' },
 				gold:  { DEFAULT:'#C9971A', light:'#E8B931', pale:'#FDF8EE' },
 				ssred: { DEFAULT:'#C0392B', dark:'#A93226' },
 				mist:  '#F4F6FB',
-				mainBlue: '#002F87',
-				'brand-blue': '#2196f3',
+				mainBlue: '#7e22ce',
+				'brand-blue': '#1B50EC',
 				// Second Home Purple Color Scheme
 				purple: {
 					DEFAULT: '#6B21A8',

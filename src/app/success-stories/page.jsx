@@ -42,7 +42,7 @@ const Banner = () => {
 
   return (
     <>
-      <div className="bg-[#2A3A8A] text-white py-12 sm:py-16">
+      <div className="bg-mainBlue text-white py-12 sm:py-16">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
             <div className="text-center md:w-[320px] md:ml-auto md:text-left">
@@ -393,7 +393,7 @@ const successStoriesData = [
 
 const SuccessStories = () => {
   return (
-    <div className="bg-[#EFF3FF] py-12 sm:py-20">
+    <div className="bg-purple-50 py-12 sm:py-20">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold">Success Stories</h2>
@@ -474,7 +474,7 @@ const SuccessStories = () => {
                             />
                           </svg>
                         </div>
-                        <span className="text-sm text-[#D8BB35] font-medium">
+                        <span className="text-sm text-gold-light font-medium">
                           {story.position}
                         </span>
                       </div>
@@ -495,7 +495,7 @@ const SuccessStories = () => {
 const TopCareers = () => {
   const isMobile = useIsMobile();
   return (
-    <div className="bg-[#293794] py-12 sm:py-20">
+    <div className="bg-navy py-12 sm:py-20">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-5">
           <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -869,7 +869,7 @@ const AlumniMentors = () => {
                             />
                           </svg>
                         </div>
-                        <span className="text-sm text-[#D8BB35] font-medium">
+                        <span className="text-sm text-gold-light font-medium">
                           {story.position}
                         </span>
                       </div>

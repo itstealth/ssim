@@ -8,7 +8,7 @@ import PlacementStories from "@/sections/Home/PlacementStories";
 const PlacementIndustry = () => {
   return (
     <>
-      {/* <div className="py-16 relative bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 text-gray-900"> */}
+      {/* <div className="py-16 relative bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 text-gray-900"> */}
       <div className="py-16 relative bg-white text-gray-900">
         <div className="absolute inset-0 opacity-5">
           <div

@@ -73,9 +73,9 @@ export default function AdmissionProcess() {
         };
       case "current":
         return {
-          iconBg: "bg-blue-100 text-blue-600",
+          iconBg: "bg-purple-100 text-purple-600",
           line: "bg-gray-200",
-          badge: "bg-blue-100 text-blue-700",
+          badge: "bg-purple-100 text-purple-700",
         };
       case "purple":
         return {
@@ -183,16 +183,16 @@ export default function AdmissionProcess() {
         </div>
 
         {/* Footer Note */}
-        <div className="p-6 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="p-6 bg-purple-50 rounded-lg border border-purple-200">
           <div className="flex items-start space-x-3">
             <div className="flex-shrink-0">
-              <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                <Clock className="w-4 h-4 text-blue-600" />
+              <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                <Clock className="w-4 h-4 text-purple-600" />
               </div>
             </div>
             <div>
-              <h4 className="font-medium text-blue-900 mb-1">Important Note</h4>
-              <p className="text-blue-800 text-sm">
+              <h4 className="font-medium text-purple-900 mb-1">Important Note</h4>
+              <p className="text-purple-800 text-sm">
                 Please ensure you complete each step within the specified
                 deadlines. For any queries or assistance, contact our admissions
                 office at{" "}

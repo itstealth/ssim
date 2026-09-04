@@ -126,7 +126,7 @@ export default function IQAC() {
   const [showOlder, setShowOlder] = useState(false);
 
   return (
-    <div className="min-h-screen bg-blue-50">
+    <div className="min-h-screen bg-purple-50">
       {/* <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -443,7 +443,7 @@ export default function IQAC() {
                 {olderYears.length > 0 && (
                   <button
                     onClick={() => setShowOlder(!showOlder)}
-                    className="absolute bottom-2 right-2 px-3 py-1.5 text-xs font-medium text-blue-600 bg-transparent hover:bg-blue-600 hover:text-white rounded-lg transition-colors border border-blue-200"
+                    className="absolute bottom-2 right-2 px-3 py-1.5 text-xs font-medium text-purple-600 bg-transparent hover:bg-purple-600 hover:text-white rounded-lg transition-colors border border-purple-200"
                   >
                     {showOlder ? "Show Less" : "Show Older"}
                   </button>

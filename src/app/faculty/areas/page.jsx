@@ -46,7 +46,7 @@ export default function Areas() {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center justify-center space-y-4 text-center mb-16"
           >
-            {/* <Badge variant="outline" className="border-blue-500 text-blue-600">
+            {/* <Badge variant="outline" className="border-purple-500 text-purple-600">
               Our Amazing Team
             </Badge> */}
             <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900">
@@ -126,7 +126,7 @@ export default function Areas() {
                   <Card
                     className={`group relative overflow-hidden bg-white/50 border-gray-200 backdrop-blur-sm transition-all duration-500
                       ${hoveredMember === index
-                        ? "scale-105 shadow-2xl shadow-blue-500/20"
+                        ? "scale-105 shadow-2xl shadow-purple-500/20"
                         : "hover:shadow-xl"
                       }`}
                     onMouseEnter={() => setHoveredMember(index)}
@@ -136,8 +136,8 @@ export default function Areas() {
                       <div className="flex flex-col md:flex-row items-center gap-8">
                         <div className="relative shrink-0">
                           <div
-                            className="w-36 h-44 rounded-2xl overflow-hidden ring-2 ring-blue-500/50 ring-offset-4 ring-offset-white
-                            transition-all duration-500 group-hover:ring-blue-500 group-hover:ring-offset-8 shadow-md"
+                            className="w-36 h-44 rounded-2xl overflow-hidden ring-2 ring-purple-500/50 ring-offset-4 ring-offset-white
+                            transition-all duration-500 group-hover:ring-purple-500 group-hover:ring-offset-8 shadow-md"
                           >
                             <img
                               alt={member.name}
@@ -149,21 +149,21 @@ export default function Areas() {
                             className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 text-xs font-medium text-gray-700 bg-white/95 
                            whitespace-nowrap px-3 py-1 rounded-full border border-gray-200 shadow-sm z-10"
                           >
-                            <SchoolIcon className="w-3.5 h-3.5 text-blue-600" />
+                            <SchoolIcon className="w-3.5 h-3.5 text-purple-600" />
                             <span>{member.qualification}</span>
                           </div>
                         </div>
 
                         <div className="flex-1 text-center md:text-left space-y-6">
                           <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
                               {member.name}
                             </h3>
-                            <p className="text-blue-600 font-medium inline-flex items-center gap-2">
+                            <p className="text-purple-600 font-medium inline-flex items-center gap-2">
                               {member.area}
-                              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                              <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
                               <Badge
-                                className="flex items-center gap-1 text-sm text-gray-600 hover:bg-blue-100 bg-white/90 
+                                className="flex items-center gap-1 text-sm text-gray-600 hover:bg-purple-100 bg-white/90 
                                whitespace-nowrap px-3 pb-1 rounded-full border border-gray-200"
                               >
                                 <GraduationCapIcon className="w-4 h-4 mr-2" />

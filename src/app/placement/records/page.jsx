@@ -360,7 +360,7 @@ export default function PlacementSection() {
               }}
               className="w-full"
             >
-              <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto rounded-lg">
+              <TabsList className="w-full flex flex-wrap text-navy bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 justify-center gap-2 p-1 h-auto rounded-lg">
                 {programTabs.map((program) => (
                   <TabsTrigger
                     key={program.id}

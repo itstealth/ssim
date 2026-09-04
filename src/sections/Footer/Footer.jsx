@@ -110,7 +110,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 pt-10 md:pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden">
+    <footer className="relative bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 pt-10 md:pt-16 pb-10 px-4 md:px-6 lg:px-8 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div
@@ -143,7 +143,7 @@ export default function Footer() {
                 {[
                   {
                     icon: Facebook,
-                    bgColor: "bg-blue-600",
+                    bgColor: "bg-purple-600",
                     label: "Facebook",
                     href: "https://www.facebook.com/SivaSivaniInstituteofManagementHyderabad/",
                   },
@@ -161,7 +161,7 @@ export default function Footer() {
                   },
                   {
                     icon: Linkedin,
-                    bgColor: "bg-blue-700",
+                    bgColor: "bg-purple-700",
                     label: "LinkedIn",
                     href: "https://www.linkedin.com/company/ssim-siva-sivani-institute-of-management/",
                   },
@@ -199,9 +199,9 @@ export default function Footer() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="group flex items-start gap-3 text-sm text-[#293794] transition-colors hover:text-primary"
+                    className="group flex items-start gap-3 text-sm text-navy transition-colors hover:text-primary"
                   >
-                    <span className="mt-0.5 rounded-full bg-white/80 p-2 shadow-sm ring-1 ring-blue-100">
+                    <span className="mt-0.5 rounded-full bg-white/80 p-2 shadow-sm ring-1 ring-purple-100">
                       <item.icon className="h-4 w-4 text-mainBlue" />
                     </span>
                     <span className="leading-6">{item.value}</span>
@@ -239,7 +239,7 @@ export default function Footer() {
                           href={item.path}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group inline-flex items-center gap-1 text-[#293794] hover:text-primary transition-colors duration-200"
+                          className="group inline-flex items-center gap-1 text-navy hover:text-primary transition-colors duration-200"
                         >
                           {item.name}
                         </a>
@@ -247,7 +247,7 @@ export default function Footer() {
                         <Link
                           href={item.path}
                           onClick={scrollToTop}
-                          className="group inline-flex items-center gap-1 text-[#293794] hover:text-primary transition-colors duration-200"
+                          className="group inline-flex items-center gap-1 text-navy hover:text-primary transition-colors duration-200"
                         >
                           {item.name}
                         </Link>
@@ -261,11 +261,11 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        {/* <div className="mt-12 p-6 bg-white/50 backdrop-blur-sm rounded-xl border border-blue-100 shadow-sm">
+        {/* <div className="mt-12 p-6 bg-white/50 backdrop-blur-sm rounded-xl border border-purple-100 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-8">
               <h3 className="text-xl font-semibold text-mainBlue mb-2">Stay Updated with SSIM</h3>
-              <p className="text-[#293794]/80">
+              <p className="text-navy/80">
               Stay updated with our latest news and events
               </p>
             </div>
@@ -274,7 +274,7 @@ export default function Footer() {
                 <Input
                   type="email"
                   placeholder="Your email address"
-                  className="flex-1 border-blue-200 focus:border-mainBlue focus:ring-mainBlue"
+                  className="flex-1 border-purple-200 focus:border-mainBlue focus:ring-mainBlue"
                   required
                 />
                 <Button type="submit" className="bg-mainBlue hover:bg-mainBlue/90 text-white font-medium">
@@ -285,7 +285,7 @@ export default function Footer() {
           </div>
         </div> */}
 
-        <Separator className="my-12 bg-[#293794]" />
+        <Separator className="my-12 bg-navy" />
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base text-muted-foreground">
           <p className="text-mainBlue">

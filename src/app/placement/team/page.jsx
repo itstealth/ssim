@@ -56,7 +56,7 @@ export default function PlacementTeams() {
         keywords="SSIM placement team, corporate relations, career services, placement officers"
         canonicalUrl="https://ssim.ac.in/placement/team"
       /> */}
-      <section className="py-10 md:py-20 bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 text-black relative overflow-hidden z-10">
+      <section className="py-10 md:py-20 bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 text-black relative overflow-hidden z-10">
         <div className="container max-w-7xl px-4 mx-auto">
           <div className="grid grid-cols-2 gap-6 items-start">
             <div className="col-span-2 md:col-span-1 md:order-2">
@@ -95,13 +95,13 @@ const ContactItem = ({ icon, value, href, label }) => {
   return (
     <a
       href={href}
-      className="group flex items-center gap-2.5 rounded-lg p-2 transition-all hover:bg-blue-50"
+      className="group flex items-center gap-2.5 rounded-lg p-2 transition-all hover:bg-purple-50"
       aria-label={label}
     >
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100/50">
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100/50">
         {icon}
       </div>
-      <span className="text-sm text-gray-600 transition-colors group-hover:text-blue-600">
+      <span className="text-sm text-gray-600 transition-colors group-hover:text-purple-600">
         {value}
       </span>
     </a>
@@ -127,9 +127,9 @@ const TeamMember = ({
       <CardContent className="p-6">
         <div className="mb-6 flex flex-col items-center">
           <div className="mb-4">
-            <Avatar className="h-36 w-36 border-4 border-blue-100 transition-transform duration-300 group-hover:scale-105">
+            <Avatar className="h-36 w-36 border-4 border-purple-100 transition-transform duration-300 group-hover:scale-105">
               <AvatarImage className="scale-[1.13]" src={imageSrc} alt={name} />
-              <AvatarFallback className="bg-blue-50 text-lg font-bold text-blue-600">
+              <AvatarFallback className="bg-purple-50 text-lg font-bold text-purple-600">
                 {initials}
               </AvatarFallback>
             </Avatar>
@@ -142,21 +142,21 @@ const TeamMember = ({
           <div className="px-4 pt-1.5">
             <span
               dangerouslySetInnerHTML={{ __html: title }}
-              className="block text-center text-base font-semibold text-blue-600"
+              className="block text-center text-base font-semibold text-purple-600"
             />
           </div>
         </div>
 
         <div className="space-y-1.5">
           <ContactItem
-            icon={<Phone className="h-4 w-4 text-blue-600" />}
+            icon={<Phone className="h-4 w-4 text-purple-600" />}
             value={phone}
             href={`tel:${phone}`}
             label={`Call ${name}`}
           />
 
           <ContactItem
-            icon={<Mail className="h-4 w-4 text-blue-600" />}
+            icon={<Mail className="h-4 w-4 text-purple-600" />}
             value={primaryEmail}
             href={`mailto:${primaryEmail}`}
             label={`Email ${name}`}
@@ -164,7 +164,7 @@ const TeamMember = ({
 
           {secondaryEmail && (
             <ContactItem
-              icon={<Building className="h-4 w-4 text-blue-600" />}
+              icon={<Building className="h-4 w-4 text-purple-600" />}
               value={secondaryEmail}
               href={`mailto:${secondaryEmail}`}
               label="Department email"
@@ -173,7 +173,7 @@ const TeamMember = ({
 
           {tertiaryEmail && (
             <ContactItem
-              icon={<Mail className="h-4 w-4 text-blue-600/70" />}
+              icon={<Mail className="h-4 w-4 text-purple-600/70" />}
               value={tertiaryEmail}
               href={`mailto:${tertiaryEmail}`}
               label="Alternative email"
@@ -234,8 +234,8 @@ const TeamContactSection = () => {
     <section className="w-full px-4 py-10 sm:py-24">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
-          <div className="mb-4 inline-block rounded-full bg-blue-100 px-4 py-1.5">
-            <span className="text-sm font-semibold text-blue-700">
+          <div className="mb-4 inline-block rounded-full bg-purple-100 px-4 py-1.5">
+            <span className="text-sm font-semibold text-purple-700">
               Meet Our Team
             </span>
           </div>
@@ -256,7 +256,7 @@ const TeamContactSection = () => {
         </div>
 
         {/* <div className="mt-12 flex justify-center">
-          <Button className="group bg-blue-600 px-6 py-5 text-base font-medium text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl">
+          <Button className="group bg-purple-600 px-6 py-5 text-base font-medium text-white shadow-lg transition-all hover:bg-purple-700 hover:shadow-xl">
             <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             Schedule a Meeting
           </Button>

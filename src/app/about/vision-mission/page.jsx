@@ -67,13 +67,13 @@ export default function VisionMission() {
                     Our Vision
                   </h2>
                 </div>
-                <div className="relative bg-gradient-to-br from-blue-50 via-blue-100/50 to-blue-50 rounded-2xl p-6 md:p-8 border-2 border-blue-200/50 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="relative bg-gradient-to-br from-purple-50 via-purple-100/50 to-purple-50 rounded-2xl p-6 md:p-8 border-2 border-purple-200/50 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-mainBlue/5 to-transparent rounded-2xl"></div>
                   <p className="relative text-mainBlue text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed text-center lg:text-left italic">
                     "To be a Premier Management Institute significantly contributing to Corporate World and Society."
                   </p>
-                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-blue-500/10 rounded-full blur-2xl"></div>
-                  <div className="absolute -bottom-2 -left-2 w-20 h-20 bg-blue-400/10 rounded-full blur-2xl"></div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 bg-purple-500/10 rounded-full blur-2xl"></div>
+                  <div className="absolute -bottom-2 -left-2 w-20 h-20 bg-purple-400/10 rounded-full blur-2xl"></div>
                 </div>
               </div>
 
@@ -86,9 +86,9 @@ export default function VisionMission() {
                   </h2>
                 </div>
                 <div className="space-y-4 md:space-y-5">
-                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-purple-600 hover:-translate-x-1">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                      <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
                         <span className="text-mainBlue group-hover:text-white font-bold text-lg">1</span>
                       </div>
                       <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">
@@ -96,9 +96,9 @@ export default function VisionMission() {
                       </p>
                     </div>
                   </div>
-                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-purple-600 hover:-translate-x-1">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                      <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
                         <span className="text-mainBlue group-hover:text-white font-bold text-lg">2</span>
                       </div>
                       <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">
@@ -106,9 +106,9 @@ export default function VisionMission() {
                       </p>
                     </div>
                   </div>
-                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-purple-600 hover:-translate-x-1">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                      <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
                         <span className="text-mainBlue group-hover:text-white font-bold text-lg">3</span>
                       </div>
                       <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">
@@ -116,9 +116,9 @@ export default function VisionMission() {
                       </p>
                     </div>
                   </div>
-                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-blue-600 hover:-translate-x-1">
+                  <div className="group bg-white border-l-4 border-mainBlue rounded-r-lg p-5 md:p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-purple-600 hover:-translate-x-1">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
+                      <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-mainBlue transition-colors duration-300">
                         <span className="text-mainBlue group-hover:text-white font-bold text-lg">4</span>
                       </div>
                       <p className="text-zinc-700 text-base sm:text-lg leading-relaxed font-medium pt-1">

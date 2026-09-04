@@ -175,7 +175,7 @@ const categoryInfo = {
   academic: {
     title: 'Academic Facilities',
     description: 'Explore our modern classrooms, library, and learning spaces',
-    color: 'bg-blue-600'
+    color: 'bg-purple-600'
   },
   administration: {
     title: 'Administration & Support',
@@ -384,7 +384,7 @@ export default function VirtualTourPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900 text-white py-20">
+      <section className="bg-gradient-to-r from-purple-900 via-indigo-800 to-purple-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 bg-white/20 text-white border-white/30 hover:bg-white/30">
@@ -393,7 +393,7 @@ export default function VirtualTourPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Virtual Tour of SSIM
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
+            <p className="text-xl md:text-2xl text-purple-100 mb-8">
               Explore our world-class campus from anywhere in the world. Take an immersive 360° tour of our academic buildings, facilities, and student life spaces.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base">

@@ -16,7 +16,7 @@ const examData = {
       { range: "85 – 89.99 percentile", amount: 80000, tier: "Gold", color: "from-orange-400 to-orange-600" },
       { range: "80 – 84.99 percentile", amount: 70000, tier: "Silver", color: "from-gray-400 to-gray-600" },
       { range: "70 – 79.99 percentile", amount: 60000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "60 – 69.99 percentile", amount: 50000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "60 – 69.99 percentile", amount: 50000, tier: "Merit", color: "from-purple-400 to-purple-600" },
       { range: "50 – 59.99 percentile", amount: 40000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
@@ -31,7 +31,7 @@ const examData = {
       { range: "Rank 5001 – 10000", amount: 80000, tier: "Gold", color: "from-orange-400 to-orange-600" },
       { range: "Rank 10001 – 15000", amount: 70000, tier: "Silver", color: "from-gray-400 to-gray-600" },
       { range: "Rank 15001 – 20000", amount: 60000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "Rank 20001 – 25000", amount: 50000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Rank 20001 – 25000", amount: 50000, tier: "Merit", color: "from-purple-400 to-purple-600" },
       { range: "Rank 25001 – 30000", amount: 40000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
@@ -46,7 +46,7 @@ const examData = {
       { range: "Composite Score 700 – 749", amount: 70000, tier: "Gold", color: "from-orange-400 to-orange-600" },
       { range: "Composite Score 650 – 699", amount: 60000, tier: "Silver", color: "from-gray-400 to-gray-600" },
       { range: "Composite Score 600 – 649", amount: 50000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "Composite Score 550 – 599", amount: 45000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Composite Score 550 – 599", amount: 45000, tier: "Merit", color: "from-purple-400 to-purple-600" },
       { range: "Composite Score 500 – 549", amount: 40000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
@@ -54,14 +54,14 @@ const examData = {
     title: "ICET 2026",
     subtitle: "Based on Rank",
     icon: GraduationCap,
-    color: "from-cyan-500 to-blue-600",
-    bgGradient: "from-cyan-50 to-blue-50",
+    color: "from-cyan-500 to-purple-600",
+    bgGradient: "from-cyan-50 to-purple-50",
     tiers: [
       { range: "Rank 2000 & below", amount: 70000, tier: "Platinum", color: "from-yellow-400 to-yellow-600" },
       { range: "Rank 2001 – 5000", amount: 60000, tier: "Gold", color: "from-orange-400 to-orange-600" },
       { range: "Rank 5001 – 10000", amount: 50000, tier: "Silver", color: "from-gray-400 to-gray-600" },
       { range: "Rank 10001 – 15000", amount: 40000, tier: "Bronze", color: "from-amber-600 to-amber-800" },
-      { range: "Rank 15001 – 20000", amount: 30000, tier: "Merit", color: "from-blue-400 to-blue-600" },
+      { range: "Rank 15001 – 20000", amount: 30000, tier: "Merit", color: "from-purple-400 to-purple-600" },
       { range: "Rank 20001 – 29999", amount: 25000, tier: "Standard", color: "from-green-400 to-green-600" },
     ],
   },
@@ -186,10 +186,10 @@ export default function EntranceScholarships() {
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-4">
-            {/* <div className="p-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full shadow-lg">
+            {/* <div className="p-4 bg-gradient-to-r from-purple-500 via-purple-500 to-pink-500 rounded-full shadow-lg">
               <BookOpen className="w-8 h-8 text-white" />
             </div> */}
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Criteria-1: Scholarship based on Entrance Exam Score/Rank Percentile
             </h1>
           </div>
@@ -221,7 +221,7 @@ export default function EntranceScholarships() {
             </TabsTrigger>
             <TabsTrigger
               value="icet"
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-600 data-[state=active]:text-white font-semibold rounded-lg transition-all duration-300"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-purple-600 data-[state=active]:text-white font-semibold rounded-lg transition-all duration-300"
             >
               ICET
             </TabsTrigger>
@@ -243,7 +243,7 @@ export default function EntranceScholarships() {
         >
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-slate-200 max-w-4xl mx-auto">
             <div className="flex items-center gap-2 mb-3">
-              <TrendingUp className="w-5 h-5 text-blue-500" />
+              <TrendingUp className="w-5 h-5 text-purple-500" />
               <h3 className="font-semibold text-slate-800">Important Information</h3>
             </div>
             <p className="text-slate-600 text-sm leading-relaxed">

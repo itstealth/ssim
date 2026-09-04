@@ -276,7 +276,7 @@ export default function AcademicAdvisoryBoard() {
                   {member.name}
                 </h3>
                 <hr className="w-[180px] sm:w-full mx-auto border-gray-200 border-[1.5px] my-4" />
-                <span className="text-blue-600 mb-4">{member.role}</span>
+                <span className="text-purple-600 mb-4">{member.role}</span>
                 <p className="text-gray-500">{member.bio}</p>
               </div>
             </div>

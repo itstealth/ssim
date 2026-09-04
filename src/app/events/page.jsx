@@ -87,7 +87,7 @@ export default function EventsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50">
       <div className="container mx-auto px-4 py-8">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -103,7 +103,7 @@ export default function EventsPage() {
         {/* Upcoming Events Section */}
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
-            <Calendar className="w-8 h-8 text-blue-600" />
+            <Calendar className="w-8 h-8 text-purple-600" />
             <h2 className="text-3xl font-bold text-gray-900">
               Upcoming Events
             </h2>
@@ -220,7 +220,7 @@ export default function EventsPage() {
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200">
+          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-purple-50 to-purple-50 border-2 border-purple-200">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Stay Updated with SSIM Events
@@ -230,7 +230,7 @@ export default function EventsPage() {
                 events, convocations, and important announcements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-blue-600 hover:bg-blue-700">
+                <Button className="bg-purple-600 hover:bg-purple-700">
                   Subscribe to Newsletter
                 </Button>
                 <Button variant="outline">Contact Event Coordinator</Button>

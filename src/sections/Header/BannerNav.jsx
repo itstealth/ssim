@@ -26,20 +26,20 @@ export default function BannerNav() {
               target="_blank"
               className="flex items-center"
             >
-              <MapPin size={16} className="text-blue-800 mr-1" />
+              <MapPin size={16} className="text-purple-800 mr-1" />
               <span>NH 44, Kompally,Secunderabad, Telangana - 500100.</span>
             </a>
             <a href="mailto:info@ssim.ac.in" className="flex items-center">
-              <Mail size={16} className="text-blue-800 mr-1" />
+              <Mail size={16} className="text-purple-800 mr-1" />
               <span>admissions@ssim.ac.in</span>
             </a>
             <div className="flex flex-row gap-2">
               <a href="tel:+91-040-27165451" className="flex items-center">
-                <Phone size={16} className="text-blue-800 mr-1" />
+                <Phone size={16} className="text-purple-800 mr-1" />
                 <span>040-2716 5451/53/54</span>
               </a>
               <a href="tel:+919391114948" className="flex items-center">
-                <Phone size={16} className="text-blue-800 mr-1" />
+                <Phone size={16} className="text-purple-800 mr-1" />
                 <span>+91 9391114948</span>
               </a>
             </div>

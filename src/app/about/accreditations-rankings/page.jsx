@@ -90,7 +90,7 @@ export default function AccreditationsRankings() {
             className="px-5 !pt-10 !pb-0 sm:py-20"
             defaultValue="accreditations"
           >
-            <TabsList className="grid w-full grid-cols-2 text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200">
+            <TabsList className="grid w-full grid-cols-2 text-navy bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200">
               <TabsTrigger
                 value="accreditations"
                 className="data-[state=active]:bg-mainBlue data-[state=active]:text-white"

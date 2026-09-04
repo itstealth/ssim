@@ -412,7 +412,7 @@ const ContactUs = () => {
         keywords="SSIM contact, contact siva sivani, ssim hyderabad address, ssim phone number"
         canonicalUrl="https://ssim.ac.in/contact-us"
       /> */}    
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Success Alert */}
           {submitSuccess && (
@@ -426,11 +426,11 @@ const ContactUs = () => {
           )}
 
           <Card className="border-none shadow-xl overflow-hidden bg-white/80 backdrop-blur-sm">
-            <CardHeader className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white p-8 md:p-12">
+            <CardHeader className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 text-white p-8 md:p-12">
               <CardTitle className="text-4xl md:text-5xl font-bold tracking-tight">
                 Contact Us
               </CardTitle>
-              <CardDescription className="text-xl text-blue-100 mt-3">
+              <CardDescription className="text-xl text-purple-100 mt-3">
                 We'd love to hear from you! Get in touch with us today.
               </CardDescription>
             </CardHeader>
@@ -451,7 +451,7 @@ const ContactUs = () => {
                       >
                         <CardContent className="flex items-start space-x-4 p-4">
                           <div className="flex-shrink-0">
-                            <IconComponent className="h-6 w-6 text-blue-600" />
+                            <IconComponent className="h-6 w-6 text-purple-600" />
                           </div>
                           <div className="flex-1">
                             <h4 className="font-semibold text-gray-800 mb-2">
@@ -474,7 +474,7 @@ const ContactUs = () => {
                 {/* Contact Form */}
                 <Card className="lg:col-span-2 border border-gray-200 shadow-lg">
                   <CardHeader className="pb-6">
-                    <CardTitle className="text-2xl font-semibold text-blue-700 flex items-center gap-2">
+                    <CardTitle className="text-2xl font-semibold text-purple-700 flex items-center gap-2">
                       <Send className="h-6 w-6" />
                       Send us a message
                     </CardTitle>
@@ -558,7 +558,7 @@ const ContactUs = () => {
 
                       <Button
                         type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? (
@@ -584,7 +584,7 @@ const ContactUs = () => {
           <Card className="mt-8 border-none shadow-xl overflow-hidden bg-white/80 backdrop-blur-sm">
             <CardHeader className="p-6">
               <CardTitle className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
-                <MapPin className="h-6 w-6 text-blue-600" />
+                <MapPin className="h-6 w-6 text-purple-600" />
                 Find Us Here
               </CardTitle>
               <CardDescription className="text-gray-600">

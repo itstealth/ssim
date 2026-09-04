@@ -64,17 +64,17 @@ export default function AdmissionParameters() {
                           ease: "easeOut",
                           delay: 0.4 + index * 0.1,
                         }}
-                        className="group hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 border-b border-gray-100 last:border-b-0"
+                        className="group hover:bg-gradient-to-r hover:from-purple-50 hover:to-indigo-50 transition-all duration-300 border-b border-gray-100 last:border-b-0"
                       >
                         <TableCell className="py-5 px-6 text-gray-700 font-medium group-hover:text-gray-900 transition-colors duration-300">
                           {item.parameter}
                         </TableCell>
                         <TableCell className="py-5 px-6 text-center">
                           <div className="inline-flex items-center justify-center">
-                            <span className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                            <span className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
                               {item.weightage}
                             </span>
-                            <span className="text-sm text-gray-500 ml-1 group-hover:text-blue-500 transition-colors duration-300">
+                            <span className="text-sm text-gray-500 ml-1 group-hover:text-purple-500 transition-colors duration-300">
                               %
                             </span>
                           </div>

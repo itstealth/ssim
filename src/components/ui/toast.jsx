@@ -14,7 +14,7 @@ export function Toast({ message, type = 'success', duration = 3000, onClose }) {
     success: "bg-green-500 text-white",
     error: "bg-red-500 text-white",
     warning: "bg-yellow-500 text-white",
-    info: "bg-blue-500 text-white"
+    info: "bg-purple-500 text-white"
   }
 
   return (

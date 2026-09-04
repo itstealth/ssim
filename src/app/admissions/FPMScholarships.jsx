@@ -27,9 +27,9 @@ const stipendData = [
     year: "First Year",
     amount: 20000,
     total: 240000,
-    color: "from-blue-400 to-blue-600",
-    bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
-    borderColor: "border-blue-200",
+    color: "from-purple-400 to-purple-600",
+    bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
+    borderColor: "border-purple-200",
     icon: Trophy,
   },
   {
@@ -91,10 +91,10 @@ export default function FPMScholarships() {
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full">
+            <div className="p-3 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full">
               <DollarSign className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">
               Financial Support (Full-time Researchers and Freshers)
             </h1>
           </div>
@@ -199,7 +199,7 @@ export default function FPMScholarships() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Users className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <Users className="w-6 h-6 text-purple-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-slate-800 mb-1">
                       Teaching/Research Assistant
@@ -278,7 +278,7 @@ export default function FPMScholarships() {
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">
               Fee Structure for Stipend-Eligible Students
             </h2>
           </div>
@@ -339,7 +339,7 @@ export default function FPMScholarships() {
                         ₹10,000
                       </TableCell>
                     </TableRow>
-                    <TableRow className="bg-blue-50">
+                    <TableRow className="bg-purple-50">
                       <TableCell className="font-medium text-black text-lg">
                         Total Fees Payable
                       </TableCell>

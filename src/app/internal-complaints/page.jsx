@@ -27,13 +27,13 @@ import {
           keywords="SSIM internal complaints, complaints committee, sexual harassment, workplace environment, SSIM committee"
           canonicalUrl="https://www.ssim.ac.in/internal-complaints"
         /> */}
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Header Section */}
           <div className="text-center space-y-4">
             <div className="flex justify-center">
-              <div className="p-3 bg-blue-100 rounded-full">
-                <Shield className="h-8 w-8 text-blue-600" />
+              <div className="p-3 bg-purple-100 rounded-full">
+                <Shield className="h-8 w-8 text-purple-600" />
               </div>
             </div>
             <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
@@ -52,12 +52,12 @@ import {
   
           {/* Main Content */}
           <Card className="shadow-lg border-0">
-            <CardHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-t-lg">
+            <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-t-lg">
               <CardTitle className="text-2xl flex items-center gap-2">
                 <Users className="h-6 w-6" />
                 Committee Establishment
               </CardTitle>
-              <CardDescription className="text-blue-100">
+              <CardDescription className="text-purple-100">
                 Year 2021-2022 Initiative
               </CardDescription>
             </CardHeader>
@@ -130,8 +130,8 @@ import {
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-2">
-                  <div className="p-2 bg-blue-100 rounded-full">
-                    <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <div className="p-2 bg-purple-100 rounded-full">
+                    <CheckCircle className="h-4 w-4 text-purple-600" />
                   </div>
                   <CardTitle className="text-lg">Type C</CardTitle>
                 </div>
@@ -163,7 +163,7 @@ import {
                 <div className="space-y-4">
                   <h4 className="font-semibold text-lg">Email Contact</h4>
                   <div className="flex flex-col items-start gap-3 p-4 bg-white/10 rounded-lg">
-                    <Mail className="h-5 w-5 text-blue-400" />
+                    <Mail className="h-5 w-5 text-purple-400" />
                     <div>
                       <p className="font-medium">internalcomplaints@ssim.ac.in</p>
                       <p className="text-sm text-gray-300">
@@ -194,7 +194,7 @@ import {
               </div>
   
               {/* <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 flex-1">
+                <Button className="bg-purple-600 hover:bg-purple-700 flex-1">
                   <Mail className="h-4 w-4 mr-2" />
                   Send Email
                 </Button>
@@ -217,7 +217,7 @@ import {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <p className="text-blue-100 text-lg leading-relaxed">
+              <p className="text-purple-100 text-lg leading-relaxed">
                 The grievance can be sent through the following channels:
               </p>
   
@@ -225,10 +225,10 @@ import {
                 {/* Email Contact */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 space-y-3">
                   <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-blue-600" />
+                    <Mail className="w-5 h-5 text-purple-600" />
                     <h4 className="font-semibold text-white">Email</h4>
                   </div>
-                  <p className="text-blue-100">
+                  <p className="text-purple-100">
                     <a
                       href="mailto:internalcomplaints@ssim.ac.in"
                       className="hover:text-white transition-colors underline"
@@ -244,7 +244,7 @@ import {
                     <MapPin className="w-5 h-5 text-green-600" />
                     <h4 className="font-semibold text-white">Postal Address</h4>
                   </div>
-                  <p className="text-blue-100 leading-relaxed">
+                  <p className="text-purple-100 leading-relaxed">
                     The Director, Grievance Redressal Committee
                     <br />
                     SSIM, NH-44, Kompally

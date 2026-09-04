@@ -26,13 +26,13 @@ import {
           keywords="SSIM grievance redressal, grievance mechanism, student grievances, complaint process, SSIM committee"
           canonicalUrl="https://www.ssim.ac.in/grievance-redressal-mechanism"
         /> */}
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Header Section */}
             <div className="text-center space-y-4">
               <Badge
                 variant="outline"
-                className="text-blue-700 border-blue-200 bg-blue-50"
+                className="text-purple-700 border-purple-200 bg-purple-50"
               >
                 Student Support Services
               </Badge>
@@ -49,8 +49,8 @@ import {
             <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
               <CardHeader className="pb-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-100 rounded-lg">
-                    <FileText className="h-6 w-6 text-blue-600" />
+                  <div className="p-2 bg-purple-100 rounded-lg">
+                    <FileText className="h-6 w-6 text-purple-600" />
                   </div>
                   <div>
                     <CardTitle className="text-2xl text-gray-900">
@@ -90,17 +90,17 @@ import {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      <Mail className="h-5 w-5 text-blue-600" />
+                      <Mail className="h-5 w-5 text-purple-600" />
                       Submit Your Grievance
                     </h3>
                     <div className="space-y-3">
-                      <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                        <Mail className="h-5 w-5 text-blue-600 mt-0.5" />
+                      <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
+                        <Mail className="h-5 w-5 text-purple-600 mt-0.5" />
                         <div>
                           <p className="font-medium text-gray-900">Email</p>
                           <a
                             href="mailto:grievances@ssim.ac.in"
-                            className="text-blue-600 hover:text-blue-800 transition-colors"
+                            className="text-purple-600 hover:text-purple-800 transition-colors"
                           >
                             grievances@ssim.ac.in
                           </a>
@@ -171,9 +171,9 @@ import {
               </CardHeader>
               <CardContent>
                 <div className="grid gap-4">
-                  <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-100">
-                    <div className="p-2 bg-blue-100 rounded-full">
-                      <Clock className="h-4 w-4 text-blue-600" />
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg border border-purple-100">
+                    <div className="p-2 bg-purple-100 rounded-full">
+                      <Clock className="h-4 w-4 text-purple-600" />
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 mb-2">
@@ -182,7 +182,7 @@ import {
                       <p className="text-gray-700 text-sm">
                         The Committee shall study, analysis and submit its
                         recommendations to the Director within
-                        <span className="font-semibold text-blue-700">
+                        <span className="font-semibold text-purple-700">
                           {" "}
                           15 days
                         </span>{" "}

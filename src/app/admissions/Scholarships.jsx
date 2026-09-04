@@ -75,9 +75,9 @@ const scholarshipData = [
     classXII: 6250,
     graduation: 12500,
     total: 25000,
-    color: "from-blue-400 to-blue-600",
-    bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
-    borderColor: "border-blue-200",
+    color: "from-purple-400 to-purple-600",
+    bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
+    borderColor: "border-purple-200",
     icon: GraduationCap,
   },
 ];
@@ -129,10 +129,10 @@ export default function Scholarships() {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              {/* <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full">
+              {/* <div className="p-3 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full">
               <GraduationCap className="w-8 h-8 text-white" />
             </div> */}
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">
                 Criteria-2: Scholarship based on Academic Background (X, XII &
                 Graduation)
               </h1>
@@ -258,7 +258,7 @@ export default function Scholarships() {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">
                 Criteria-3: Late Sri S P Sampathy Memorial Scholarship
               </h1>
             </div>

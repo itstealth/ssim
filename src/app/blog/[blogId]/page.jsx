@@ -520,7 +520,7 @@ export default function BlogDetail() {
         <div className="container mx-auto px-4 max-w-7xl">
           <Button
             variant="ghost"
-            className="mb-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50 -ml-2"
+            className="mb-8 text-purple-600 hover:text-purple-700 hover:bg-purple-50 -ml-2"
             onClick={() => window.history.back()}
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -536,7 +536,7 @@ export default function BlogDetail() {
 
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center space-x-4">
-                  <Avatar className="h-12 w-12 border-2 border-blue-100">
+                  <Avatar className="h-12 w-12 border-2 border-purple-100">
                     <AvatarImage src="/placeholder.svg" alt={blog.authorName} />
                     <AvatarFallback>{authorInitials}</AvatarFallback>
                   </Avatar>
@@ -591,7 +591,7 @@ export default function BlogDetail() {
                       aria-expanded={isMobileTocOpen}
                     >
                       <span className="flex items-center gap-2">
-                        <List className="w-5 h-5 text-blue-600" />
+                        <List className="w-5 h-5 text-purple-600" />
                         <span>Table of Contents</span>
                       </span>
                       {isMobileTocOpen ? (
@@ -661,7 +661,7 @@ export default function BlogDetail() {
                     <Link key={`cat-${category}`} href={`/blog?category=${encodeURIComponent(category)}`}>
                       <Badge
                         variant="secondary"
-                        className="bg-blue-100 text-blue-700 hover:bg-blue-200 cursor-pointer"
+                        className="bg-purple-100 text-purple-700 hover:bg-purple-200 cursor-pointer"
                       >
                         {category}
                       </Badge>

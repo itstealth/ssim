@@ -500,7 +500,7 @@ const OnlineRegistration = () => (
       <h3 className="text-2xl !mt-10 font-bold text-mainBlue">
         IMPORTANT DATES
       </h3>
-      <Table className="bg-blue-50 border border-gray-300">
+      <Table className="bg-purple-50 border border-gray-300">
         <TableBody>
           <TableRow>
             <TableCell width="301" className="border border-gray-300">
@@ -545,14 +545,14 @@ const OnlineRegistration = () => (
         </TableBody>
       </Table>
       <h3 className="text-2xl !mt-10 font-bold text-mainBlue">PRIZES</h3>
-      <Table className="bg-blue-50 border border-gray-300">
+      <Table className="bg-purple-50 border border-gray-300">
         <TableBody>
           <TableRow>
             <TableCell width="330" className="border border-gray-300">
               <p className="text-base text-gray-700 mb-5">
                 <strong>AWARDS FOR BEST PAPERS</strong>
               </p>
-              <Table className="bg-blue-50 border border-gray-300">
+              <Table className="bg-purple-50 border border-gray-300">
                 <TableBody>
                   <TableRow>
                     <TableCell width="301" className="border border-gray-300">
@@ -590,7 +590,7 @@ const OnlineRegistration = () => (
       <p className="text-base text-gray-700">
         <strong>The registration fee is non-refundable.</strong>
       </p>
-      <Table className="bg-blue-50 border border-gray-300">
+      <Table className="bg-purple-50 border border-gray-300">
         <TableBody>
           <TableRow>
             <TableCell width="301" className="border border-gray-300">
@@ -913,7 +913,7 @@ const TeamSection = () => {
   // Function to generate a consistent color based on name
   const getAvatarColor = (name) => {
     const colors = [
-      "border border-blue-500",
+      "border border-purple-500",
       "border border-green-500",
       "border border-purple-500",
       "border border-amber-500",
@@ -932,10 +932,10 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="w-full py-16 md:py-20 bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 overflow-hidden">
+    <section className="w-full py-16 md:py-20 bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative">
         {/* Background decorative elements */}
-        <div className="absolute top-0 left-0 w-32 h-32 bg-blue-100 rounded-full opacity-30 blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute top-0 left-0 w-32 h-32 bg-purple-100 rounded-full opacity-30 blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-100 rounded-full opacity-30 blur-3xl translate-x-1/3 translate-y-1/3"></div>
 
         <motion.div
@@ -1013,7 +1013,7 @@ const TeamSection = () => {
                       {/* {member.bio.length > 80 && (
                         <motion.button
                           onClick={() => toggleBio(member.id)}
-                          className="mt-1 text-xs font-medium text-blue-600 hover:text-blue-800 flex items-center"
+                          className="mt-1 text-xs font-medium text-purple-600 hover:text-purple-800 flex items-center"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
@@ -1185,7 +1185,7 @@ const TeamSection = () => {
                     >
                       <motion.a
                         href={`mailto:${member.email}`}
-                        className="flex items-center text-sm text-slate-600 hover:text-blue-600 transition-colors"
+                        className="flex items-center text-sm text-slate-600 hover:text-purple-600 transition-colors"
                         whileHover={{ x: 2 }}
                       >
                         <Mail className="h-4 w-4 mr-2 text-slate-400" />
@@ -1194,7 +1194,7 @@ const TeamSection = () => {
 
                       <motion.a
                         href={`tel:${member.phone.replace(/\D/g, "")}`}
-                        className="flex items-center text-sm text-slate-600 hover:text-blue-600 transition-colors"
+                        className="flex items-center text-sm text-slate-600 hover:text-purple-600 transition-colors"
                         whileHover={{ x: 2 }}
                       >
                         <Phone className="h-4 w-4 mr-2 text-slate-400" />
@@ -1272,7 +1272,7 @@ function Tourists() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center justify-center space-y-4 text-center mb-16"
         >
-          <Badge variant="outline" className="border-blue-500 text-blue-600">
+          <Badge variant="outline" className="border-purple-500 text-purple-600">
             Our Amazing Team
           </Badge>
           <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl text-gray-900">
@@ -1296,7 +1296,7 @@ function Tourists() {
                 className={`group relative overflow-hidden bg-white/50 border-gray-200 backdrop-blur-sm transition-all duration-500
                   ${
                     hoveredMember === index
-                      ? "scale-105 shadow-2xl shadow-blue-500/20"
+                      ? "scale-105 shadow-2xl shadow-purple-500/20"
                       : "hover:shadow-xl"
                   }`}
                 onMouseEnter={() => setHoveredMember(index)}
@@ -1306,8 +1306,8 @@ function Tourists() {
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="relative">
                       <div
-                        className="w-40 h-40 rounded-full overflow-hidden ring-2 ring-blue-500/50 ring-offset-4 ring-offset-white
-                        transition-all duration-500 group-hover:ring-blue-500 group-hover:ring-offset-8"
+                        className="w-40 h-40 rounded-full overflow-hidden ring-2 ring-purple-500/50 ring-offset-4 ring-offset-white
+                        transition-all duration-500 group-hover:ring-purple-500 group-hover:ring-offset-8"
                       >
                         <img
                           alt={member.name}
@@ -1319,7 +1319,7 @@ function Tourists() {
 
                     <div className="flex-1 text-center md:text-left space-y-6">
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
                           {member.name}
                         </h3>
                       </div>

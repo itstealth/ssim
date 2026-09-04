@@ -92,7 +92,7 @@ const AdmissionProgramTabs = () => {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="space-y-3"
             >
-              <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+              <TabsList className="w-full flex flex-wrap text-navy bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 justify-center gap-2 p-1 h-auto">
                 {pgdmPrograms.map((program) => (
                   <TabsTrigger
                     key={program.id}
@@ -116,7 +116,7 @@ const AdmissionProgramTabs = () => {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="space-y-3"
             >
-              <TabsList className="w-full flex flex-wrap text-[#293794] bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 justify-center gap-2 p-1 h-auto">
+              <TabsList className="w-full flex flex-wrap text-navy bg-gradient-to-r from-purple-200 via-purple-50 to-purple-200 justify-center gap-2 p-1 h-auto">
                 {fpmEfpmPrograms.filter(p => !p.redirectTo).map((program) => (
                   <TabsTrigger
                     key={program.id}

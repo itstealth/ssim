@@ -89,7 +89,7 @@ export default function EligibilityCriteria({ programType = "general" }) {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Basic Degree Requirement */}
-                  <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                  <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
                     <h3 className="font-semibold text-gray-800 mb-2">
                       Academic Qualification
                     </h3>
@@ -232,7 +232,7 @@ export default function EligibilityCriteria({ programType = "general" }) {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Academic Qualifications */}
-                <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
                   <h3 className="font-semibold text-gray-800 mb-3">
                     Academic Qualifications
                   </h3>

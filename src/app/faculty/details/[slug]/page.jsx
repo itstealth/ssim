@@ -88,7 +88,7 @@ function FacultyQuickNav({ items }) {
           <a
             key={item.id}
             href={`#${item.id}`}
-            className="shrink-0 px-3.5 py-1.5 rounded-full text-[0.8rem] font-medium text-gray-500 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+            className="shrink-0 px-3.5 py-1.5 rounded-full text-[0.8rem] font-medium text-gray-500 hover:text-purple-600 hover:bg-purple-50 transition-colors"
           >
             {item.label}
           </a>
@@ -131,8 +131,8 @@ function FacultyHero({ member }) {
         transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
       >
         {!isEmptyField(deptLabel) && (
-          <span className="inline-flex items-center gap-1.5 text-[0.7rem] font-semibold tracking-[0.16em] text-blue-600 uppercase mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+          <span className="inline-flex items-center gap-1.5 text-[0.7rem] font-semibold tracking-[0.16em] text-purple-600 uppercase mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-600" />
             {deptLabel}
           </span>
         )}
@@ -157,7 +157,7 @@ function FacultyHero({ member }) {
               href={normalizedLink(member.linkedin)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gray-900 text-white px-5 py-2.5 text-sm font-medium hover:bg-blue-600 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-gray-900 text-white px-5 py-2.5 text-sm font-medium hover:bg-purple-600 transition-colors"
             >
               <Linkedin className="w-4 h-4" />
               Connect on LinkedIn
@@ -166,7 +166,7 @@ function FacultyHero({ member }) {
           {member.email && (
             <a
               href={`mailto:${member.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-white text-gray-700 ring-1 ring-gray-200 px-5 py-2.5 text-sm font-medium hover:border-blue-200 hover:text-blue-600 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-gray-700 ring-1 ring-gray-200 px-5 py-2.5 text-sm font-medium hover:border-purple-200 hover:text-purple-600 transition-colors"
             >
               <Mail className="w-4 h-4" />
               Email
@@ -186,11 +186,11 @@ function DashboardCard({ icon: Icon, label, value, href, external }) {
   const content = (
     <>
       <div className="flex items-center justify-between mb-3.5">
-        <div className="p-2 rounded-lg bg-gray-50 text-gray-500 ring-1 ring-gray-100 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+        <div className="p-2 rounded-lg bg-gray-50 text-gray-500 ring-1 ring-gray-100 group-hover:bg-purple-50 group-hover:text-purple-600 transition-colors">
           <Icon className="w-4 h-4" />
         </div>
         {href && (
-          <ArrowUpRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-blue-600 transition-colors" />
+          <ArrowUpRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-purple-600 transition-colors" />
         )}
       </div>
       <p className="text-[0.62rem] font-semibold tracking-[0.14em] text-gray-400 uppercase mb-1">
@@ -203,7 +203,7 @@ function DashboardCard({ icon: Icon, label, value, href, external }) {
   );
 
   const cardClass =
-    "group rounded-xl bg-white ring-1 ring-gray-100 p-4 transition-colors duration-200 hover:ring-blue-200 hover:bg-blue-50/30";
+    "group rounded-xl bg-white ring-1 ring-gray-100 p-4 transition-colors duration-200 hover:ring-purple-200 hover:bg-purple-50/30";
 
   if (href) {
     return (
@@ -317,7 +317,7 @@ function FacultySummarySidebar({ member }) {
                 href={normalizedLink(member.linkedin)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 text-white px-4 py-2.5 text-sm font-medium hover:bg-blue-600 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 text-white px-4 py-2.5 text-sm font-medium hover:bg-purple-600 transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
                 Connect
@@ -326,7 +326,7 @@ function FacultySummarySidebar({ member }) {
             {member.email && (
               <a
                 href={`mailto:${member.email}`}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-gray-700 ring-1 ring-gray-200 px-4 py-2.5 text-sm font-medium hover:border-blue-200 hover:text-blue-600 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-gray-700 ring-1 ring-gray-200 px-4 py-2.5 text-sm font-medium hover:border-purple-200 hover:text-purple-600 transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 Quick Contact
@@ -398,9 +398,9 @@ function FacultyAwards({ awards, id }) {
           <motion.div
             key={index}
             variants={fadeUp}
-            className="group relative rounded-xl bg-white ring-1 ring-gray-100 p-5 transition-all duration-200 hover:ring-blue-200 hover:shadow-[0_12px_28px_-16px_rgba(37,99,235,0.22)]"
+            className="group relative rounded-xl bg-white ring-1 ring-gray-100 p-5 transition-all duration-200 hover:ring-purple-200 hover:shadow-[0_12px_28px_-16px_rgba(37,99,235,0.22)]"
           >
-            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-blue-50 text-blue-600 ring-1 ring-blue-100 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-purple-50 text-purple-600 ring-1 ring-purple-100 mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
               <Award className="w-4 h-4" />
             </div>
             <p className="text-[0.95rem] font-semibold text-gray-900 leading-snug">{award}</p>
@@ -432,7 +432,7 @@ function FacultyMemberships({ memberships, id }) {
         {items.map((item, index) => (
           <span
             key={index}
-            className="inline-flex items-center gap-1.5 rounded-full bg-white text-gray-700 ring-1 ring-gray-200 px-3.5 py-1.5 text-sm font-medium hover:ring-blue-200 hover:text-blue-600 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full bg-white text-gray-700 ring-1 ring-gray-200 px-3.5 py-1.5 text-sm font-medium hover:ring-purple-200 hover:text-purple-600 transition-colors"
           >
             <Users className="w-3.5 h-3.5 text-gray-400" />
             {item}
@@ -481,7 +481,7 @@ function FacultyContact({ member, id }) {
               href={normalizedLink(member.linkedin)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 text-white px-4 py-2.5 text-sm font-medium hover:bg-blue-600 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 text-white px-4 py-2.5 text-sm font-medium hover:bg-purple-600 transition-colors"
             >
               <Linkedin className="w-4 h-4" />
               Connect on LinkedIn
@@ -490,7 +490,7 @@ function FacultyContact({ member, id }) {
           {member.email && (
             <a
               href={`mailto:${member.email}`}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-gray-700 ring-1 ring-gray-200 px-4 py-2.5 text-sm font-medium hover:border-blue-200 hover:text-blue-600 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-gray-700 ring-1 ring-gray-200 px-4 py-2.5 text-sm font-medium hover:border-purple-200 hover:text-purple-600 transition-colors"
             >
               <Mail className="w-4 h-4" />
               Send an Email
@@ -522,14 +522,14 @@ export default function FacultyDetail({ params }) {
   ].filter(Boolean);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100 scroll-smooth">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-purple-100 scroll-smooth">
       {/* Top Navigation */}
       <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-8">
         <Link
           href="/faculty"
-          className="group inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors"
+          className="group inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-purple-600 transition-colors"
         >
-          <span className="p-1 rounded-full bg-gray-50 group-hover:bg-blue-50 transition-colors">
+          <span className="p-1 rounded-full bg-gray-50 group-hover:bg-purple-50 transition-colors">
             <ChevronLeft className="w-4 h-4" />
           </span>
           Back to Faculty List

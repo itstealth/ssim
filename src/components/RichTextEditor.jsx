@@ -687,7 +687,7 @@ export const RichTextEditor = ({ value, onChange }) => {
         openOnClick: false,
         autolink: true,
         HTMLAttributes: {
-          class: "text-blue-500 underline cursor-pointer",
+          class: "text-purple-500 underline cursor-pointer",
         },
       }),
       Highlight.configure({
@@ -737,12 +737,12 @@ export const RichTextEditor = ({ value, onChange }) => {
       
       {/* Helper Banner for Lists */}
       {(editor.isActive('bulletList') || editor.isActive('orderedList')) && (
-        <div className="bg-blue-50 border-b border-blue-200 px-4 py-2 text-sm text-blue-700">
+        <div className="bg-purple-50 border-b border-purple-200 px-4 py-2 text-sm text-purple-700">
           <span className="font-semibold">💡 List Tips:</span>{" "}
-          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Enter</kbd> = new item | {" "}
-          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Shift+Enter</kbd> = add paragraph | {" "}
-          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Tab</kbd> = indent/nest | {" "}
-          <kbd className="px-2 py-0.5 bg-white border border-blue-300 rounded text-xs">Shift+Tab</kbd> = outdent
+          <kbd className="px-2 py-0.5 bg-white border border-purple-300 rounded text-xs">Enter</kbd> = new item | {" "}
+          <kbd className="px-2 py-0.5 bg-white border border-purple-300 rounded text-xs">Shift+Enter</kbd> = add paragraph | {" "}
+          <kbd className="px-2 py-0.5 bg-white border border-purple-300 rounded text-xs">Tab</kbd> = indent/nest | {" "}
+          <kbd className="px-2 py-0.5 bg-white border border-purple-300 rounded text-xs">Shift+Tab</kbd> = outdent
         </div>
       )}
       

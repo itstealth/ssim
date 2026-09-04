@@ -11,14 +11,7 @@ const Page = () => {
 
   return (
     <>
-      <div className="relative z-10 h-full sm:h-[560px] sm:pt-20 py-12 text-white">
-        <Image
-          src="/alumni-guidance/bg.png"
-          alt="background"
-          layout="fill"
-          objectFit="cover"
-          className="absolute inset-0"
-        />
+      <div className="relative z-10 h-full sm:h-[560px] sm:pt-20 py-12 text-white bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC]">
         <div className="relative z-10 mx-auto max-w-7xl text-center">
           <h1 className="text-4xl font-bold md:text-5xl max-w-[678px] mx-auto">
             SSIM Student-Alumni Community
@@ -29,7 +22,7 @@ const Page = () => {
           <button
             type="button"
             onClick={() => setIsIntroOpen(true)}
-            className="mt-8 inline-block rounded-full bg-yellow-500 px-6 py-3 text-white"
+            className="mt-8 inline-block rounded-full bg-mainBlue px-6 py-3 text-white"
           >
             <span className="flex items-center">
               <svg
@@ -206,7 +199,7 @@ const AddingValues = () => {
             <a
               key={item.title}
               href={`#${item.title}`}
-              className="pb-2 text-sm md:text-base text-gray-500 hover:text-yellow-500 transition-colors"
+              className="pb-2 text-sm md:text-base text-gray-500 hover:text-mainBlue transition-colors"
             >
               {item.title}
             </a>
@@ -242,7 +235,7 @@ const AddingValues = () => {
                 {item.points.map((point) => (
                   <li key={point} className="flex items-start">
                     <svg
-                      className="w-5 h-5 text-yellow-500 mr-2 flex-shrink-0"
+                      className="w-5 h-5 text-mainBlue mr-2 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -261,7 +254,7 @@ const AddingValues = () => {
               </ul>
               <a
                 href="https://ags.univariety.com/user/SSIM/login"
-                className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 inline-block transition-colors"
+                className="mt-6 bg-mainBlue text-white px-6 py-2 rounded-full hover:bg-purple-800 inline-block transition-colors"
               >
                 Sign Up
               </a>
@@ -328,7 +321,7 @@ const GivingBack = () => {
               <p className="mt-4 text-gray-600">{item.description}</p>
               <a
                 href="https://ags.univariety.com/user/SSIM/login"
-                className="mt-6 bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-500 inline-block transition-colors"
+                className="mt-6 bg-mainBlue text-white px-6 py-2 rounded-full hover:bg-mainBlue inline-block transition-colors"
               >
                 I am Interested
               </a>

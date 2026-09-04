@@ -1416,8 +1416,8 @@ export const programData = {
     electives: {
       minor: {
         title: "Electives",
-        color: "bg-blue-50 border-blue-200",
-        headerColor: "bg-blue-600",
+        color: "bg-purple-50 border-purple-200",
+        headerColor: "bg-purple-600",
         specializations: [
           {
             name: "Finance",
@@ -2122,8 +2122,8 @@ export const programData = {
     electives: {
       minor: {
         title: "Minor Electives",
-        color: "bg-blue-50 border-blue-200",
-        headerColor: "bg-blue-600",
+        color: "bg-purple-50 border-purple-200",
+        headerColor: "bg-purple-600",
         specializations: [
           {
             name: "Banking",
@@ -2969,8 +2969,8 @@ export const programData = {
       },
       minor: {
         title: "Minor Electives",
-        color: "bg-blue-50 border-blue-200",
-        headerColor: "bg-blue-600",
+        color: "bg-purple-50 border-purple-200",
+        headerColor: "bg-purple-600",
         specializations: [
           {
             name: "Finance Management",
