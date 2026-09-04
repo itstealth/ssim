@@ -192,12 +192,12 @@ const routeConfig = {
       { label: "Faculty Areas", href: "/faculty/areas", isActive: true },
     ],
   },
-  "/research": {
+  "/research-publications": {
     title: "Research & Publications",
     bannerImage: "/banners/06.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
-      { label: "Research & Publications", href: "/research", isActive: true },
+      { label: "Research & Publications", href: "/research-publications", isActive: true },
     ],
   },
   "/placement": {

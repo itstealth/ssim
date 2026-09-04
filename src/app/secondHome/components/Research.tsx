@@ -109,7 +109,7 @@ export default function Research() {
           ) : failed ? (
             <p className="py-6 text-[14px] text-slate-500">
               Research records are unavailable right now. Please{' '}
-              <Link href="/research" className="font-semibold text-purple-800 underline">
+              <Link href="/research-publications" className="font-semibold text-purple-800 underline">
                 view the research page
               </Link>
               .
