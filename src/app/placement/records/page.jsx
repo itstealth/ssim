@@ -59,7 +59,7 @@ export default function PlacementSection() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
-  const [selectedProgram, setSelectedProgram] = useState("PGDM-BA");
+  const [selectedProgram, setSelectedProgram] = useState("PGDM");
   const [selectedDesignation, setSelectedDesignation] = useState("all");
   const [selectedCompany, setSelectedCompany] = useState("all");
   const [sortConfig, setSortConfig] = useState({ key: "name", direction: "asc" });

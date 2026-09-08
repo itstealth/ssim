@@ -130,6 +130,68 @@ export default function VisionMission() {
               </div>
             </div>
           </div>
+
+          {/* Core Values Section */}
+          <div className="mt-20 md:mt-28">
+            <div className="flex items-center justify-center gap-2 mb-10">
+              <div className="h-1 w-12 bg-mainBlue" />
+              <h2 className="text-3xl md:text-4xl font-bold">Core Values</h2>
+              <div className="h-1 w-12 bg-mainBlue" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+              {[
+                {
+                  icon: "🏆",
+                  title: "Recognition and Encouragement of Merit",
+                  desc: "Celebrating excellence and nurturing talent at every level.",
+                },
+                {
+                  icon: "⚖️",
+                  title: "Equal Opportunities to All",
+                  desc: "Fostering an inclusive environment where everyone can thrive.",
+                },
+                {
+                  icon: "🔍",
+                  title: "Openness and Transparency",
+                  desc: "Building trust through honest communication and clear processes.",
+                },
+                {
+                  icon: "📚",
+                  title: "Quality Education",
+                  desc: "Delivering world-class learning experiences that shape future leaders.",
+                },
+                {
+                  icon: "🤝",
+                  title: "Sensitivity to Social Issues",
+                  desc: "Developing responsible citizens aware of their role in society.",
+                },
+                {
+                  icon: "🌿",
+                  title: "Respect for Environment",
+                  desc: "Committed to sustainable practices and environmental stewardship.",
+                },
+              ].map(({ icon, title, desc }) => (
+                <div
+                  key={title}
+                  className="group relative bg-white rounded-2xl p-6 md:p-7 border border-purple-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-50/60 via-transparent to-mainBlue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                  <div className="relative flex flex-col gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-purple-100 group-hover:bg-mainBlue flex items-center justify-center text-2xl transition-colors duration-300">
+                      {icon}
+                    </div>
+                    <h3 className="text-base md:text-lg font-semibold text-zinc-800 group-hover:text-mainBlue transition-colors duration-300 leading-snug">
+                      {title}
+                    </h3>
+                    <p className="text-sm md:text-base text-zinc-500 leading-relaxed">
+                      {desc}
+                    </p>
+                  </div>
+                  <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full bg-mainBlue transition-all duration-500 rounded-b-2xl" />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </>

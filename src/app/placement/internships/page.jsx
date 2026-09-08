@@ -43,7 +43,7 @@ export default function Internships() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
-  const [selectedProgram, setSelectedProgram] = useState("PGDM-BA");
+  const [selectedProgram, setSelectedProgram] = useState("PGDM");
   const [selectedCompany, setSelectedCompany] = useState("all");
   const [selectedSpecialization, setSelectedSpecialization] = useState("all");
   const [sortConfig, setSortConfig] = useState({ key: "name", direction: "asc" });
