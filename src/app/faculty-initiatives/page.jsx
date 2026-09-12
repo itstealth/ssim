@@ -9,7 +9,6 @@ import {
   BookOpen,
   BrainCircuit,
   Globe2,
-  GraduationCap,
   Handshake,
   Laptop,
   Lightbulb,
@@ -78,20 +77,18 @@ const nptelResources = [
 function Section({ icon: Icon, eyebrow, title, children }) {
   return (
     <section className="scroll-mt-24">
-      <div className="flex items-start gap-4 mb-6">
-        <div className="p-3 bg-purple-100 rounded-full shrink-0">
-          <Icon className="h-6 w-6 text-purple-600" />
-        </div>
-        <div>
-          {eyebrow ? (
-            <p className="text-xs font-semibold uppercase tracking-wider text-purple-600">
-              {eyebrow}
-            </p>
-          ) : null}
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-            {title}
-          </h2>
-        </div>
+      {/* The icon sits inline with the eyebrow rather than in a left gutter, so
+          the heading starts on the same line as the prose below it. */}
+      <div className="mb-6">
+        {eyebrow ? (
+          <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-purple-600">
+            <Icon className="h-4 w-4" />
+            {eyebrow}
+          </p>
+        ) : null}
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+          {title}
+        </h2>
       </div>
       <div className="space-y-6">{children}</div>
     </section>
@@ -110,7 +107,9 @@ function Bullets({ items, title }) {
       {title ? (
         <h3 className="text-base font-semibold text-gray-900 mb-3">{title}</h3>
       ) : null}
-      <ul className="grid gap-2 sm:grid-cols-2">
+      {/* Two columns only once there are enough items to fill them; below that
+          a second column just leaves an orphan stranded on its own. */}
+      <ul className={`grid gap-2 ${items.length >= 4 ? "sm:grid-cols-2" : ""}`}>
         {items.map((item) => (
           <li key={item} className="flex items-start gap-2 text-gray-700">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500" />
@@ -145,8 +144,12 @@ function Gallery({ images, caption }) {
             loading="lazy"
             decoding="async"
             className={[
-              "w-full rounded-xl border border-gray-200 shadow-sm bg-gray-50",
-              image.full ? "col-span-full max-h-80 object-contain" : "h-56 sm:h-60",
+              "rounded-xl border border-gray-200 shadow-sm bg-gray-50",
+              // A contained image keeps its own width and centres, instead of
+              // being stretched across the row with dead space either side.
+              image.full
+                ? "col-span-full mx-auto w-auto max-w-full max-h-96 object-contain"
+                : "w-full h-56 sm:h-60",
               image.full
                 ? ""
                 : image.fit === "contain"
@@ -172,16 +175,14 @@ export default function FacultyInitiatives() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-16">
         {/* Header */}
-        <header className="text-center space-y-4">
-          <div className="flex justify-center">
-            <div className="p-3 bg-purple-100 rounded-full">
-              <GraduationCap className="h-8 w-8 text-purple-600" />
-            </div>
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-            Faculty Initiatives on Teaching and Learning
+        {/* The banner above already shows the page title twice (hero and
+            breadcrumb), so the h1 is kept for document structure but sized as
+            a standfirst rather than repeating it a third time at display size. */}
+        <header className="text-center space-y-3">
+          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            Faculty Initiatives on Teaching &amp; Learning
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             A student-centric, outcome-based and blended teaching-learning
             approach aligned with NAAC Criterion II
           </p>
@@ -189,7 +190,7 @@ export default function FacultyInitiatives() {
 
         {/* Overview */}
         <Card className="shadow-lg border-0">
-          <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-t-lg">
+          <CardHeader className="bg-purple-600 text-white rounded-t-lg">
             <CardTitle className="text-2xl flex items-center gap-2">
               <Sparkles className="h-6 w-6" />
               Overview
@@ -821,7 +822,7 @@ export default function FacultyInitiatives() {
 
         {/* Closing */}
         <Card className="shadow-lg border-0">
-          <CardHeader className="bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-t-lg">
+          <CardHeader className="bg-purple-600 text-white rounded-t-lg">
             <CardTitle className="text-2xl flex items-center gap-2">
               <BrainCircuit className="h-6 w-6" />
               An Outcome-Oriented Ecosystem

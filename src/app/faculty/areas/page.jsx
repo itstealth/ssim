@@ -12,8 +12,6 @@ import {
   ExternalLinkIcon,
   SchoolIcon,
   GraduationCapIcon,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
@@ -21,6 +19,41 @@ import { motion } from "framer-motion";
 import { teamMembers } from "../../../data/facultyData";
 
 const PROGRAM_ORDER = ["PGDM", "PGDM - BIFS", "PGDM - BA"];
+
+/**
+ * One filter row: a label and a wrapping set of pills. Program and area both
+ * use this so the two rows stay visually identical.
+ */
+function FilterRow({ label, options, active, onSelect }) {
+  return (
+    <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-baseline sm:gap-4">
+      <span className="shrink-0 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:w-40 sm:text-right">
+        {label}
+      </span>
+      <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
+        {options.map((option) => {
+          const isActive = active === option;
+          return (
+            <button
+              key={option}
+              type="button"
+              onClick={() => onSelect(option)}
+              aria-pressed={isActive}
+              className={cn(
+                "rounded-full border px-4 py-1.5 text-sm transition-colors",
+                isActive
+                  ? "border-primary bg-primary font-medium text-primary-foreground"
+                  : "border-gray-200 bg-white text-gray-700 hover:border-gray-300 hover:bg-gray-50"
+              )}
+            >
+              {option}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function Areas() {
   const [hoveredMember, setHoveredMember] = useState(null);
@@ -50,6 +83,13 @@ export default function Areas() {
     ? membersInProgram
     : membersInProgram.filter((m) => m.area === activeArea);
 
+  const isFiltered = activeProgram !== "All" || activeArea !== "All";
+
+  const clearFilters = () => {
+    setActiveProgram("All");
+    setActiveArea("All");
+  };
+
   const handleProgramChange = (program) => {
     setActiveProgram(program);
     // The previously selected area may not exist inside the new program.
@@ -71,13 +111,13 @@ export default function Areas() {
         keywords="SSIM faculty, faculty expertise, business school professors, academic areas"
         canonicalUrl="https://ssim.ac.in/faculty/areas"
       /> */}
-      <section className="w-full py-16">
+      <section className="w-full py-12">
         <div className="px-4 md:px-6 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center space-y-4 text-center mb-16"
+            className="flex flex-col items-center justify-center space-y-4 text-center mb-10"
           >
             {/* <Badge variant="outline" className="border-purple-500 text-purple-600">
               Our Amazing Team
@@ -91,103 +131,40 @@ export default function Areas() {
             </p>
           </motion.div>
 
-          {/* Program filter */}
-          <div className="max-w-7xl mx-auto w-full mb-6 px-4">
-            <p className="text-center text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
-              Filter by Program
+          {/* Filters. Program and area use one shared pill pattern and one
+              shared container width so the two rows read as a single control.
+              Both wrap rather than scroll - there are few enough options that
+              the old arrow carousel only ever rendered dead buttons. */}
+          <div className="max-w-5xl mx-auto w-full space-y-5">
+            <FilterRow
+              label="Program"
+              options={uniquePrograms}
+              active={activeProgram}
+              onSelect={handleProgramChange}
+            />
+            <FilterRow
+              label="Area of expertise"
+              options={uniqueAreas}
+              active={activeArea}
+              onSelect={setActiveArea}
+            />
+          </div>
+
+          {isFiltered && (
+            <p className="text-center text-sm text-gray-500 mt-6">
+              Showing {filteredMembers.length} of {teamMembers.length} faculty members
+              {" · "}
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="underline underline-offset-2 hover:text-gray-900"
+              >
+                Clear filters
+              </button>
             </p>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex flex-wrap justify-center gap-2"
-            >
-              {uniquePrograms.map((program, index) => (
-                <motion.div
-                  key={program}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
-                >
-                  <Button
-                    variant={activeProgram === program ? "default" : "outline"}
-                    onClick={() => handleProgramChange(program)}
-                    aria-pressed={activeProgram === program}
-                    className={cn(
-                      "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
-                      activeProgram === program && "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
-                    )}
-                  >
-                    {program}
-                  </Button>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          )}
 
-          {/* Area filter */}
-          <p className="text-center text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
-            Filter by Area of Expertise
-          </p>
-          <div className="relative max-w-7xl mx-auto w-full mb-8 px-4">
-            <div className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 z-20">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
-                onClick={() => {
-                  const container = document.querySelector(".filter-scroll");
-                  if (container) container.scrollBy({ left: -200, behavior: "smooth" });
-                }}
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex gap-2 max-w-7xl mx-auto overflow-x-auto hide-scrollbar filter-scroll py-2"
-            >
-              {uniqueAreas.map((area, index) => (
-                <motion.div
-                  key={area}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
-                  className="flex-none first:ml-8 sm:first:ml-2 last:mr-8 sm:last:mr-2"
-                >
-                  <Button
-                    variant={activeArea === area ? "default" : "outline"}
-                    onClick={() => setActiveArea(area)}
-                    className={cn(
-                      "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
-                      activeArea === area && "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
-                    )}
-                  >
-                    {area}
-                  </Button>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <div className="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 z-20">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:bg-background"
-                onClick={() => {
-                  const container = document.querySelector(".filter-scroll");
-                  if (container) container.scrollBy({ left: 200, behavior: "smooth" });
-                }}
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-
-          <p className="text-center text-sm text-gray-500 mt-8">
-            Showing {filteredMembers.length} of {teamMembers.length} faculty members
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
             {filteredMembers.map((member, index) => (
               <motion.div
                 key={member.slug}
@@ -232,7 +209,10 @@ export default function Areas() {
                             <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
                               {member.name}
                             </h3>
-                            <p className="text-purple-600 font-medium inline-flex items-center gap-2">
+                            {/* A div, not a p: the Badge below renders a div,
+                                which is invalid inside a p and caused a React
+                                hydration error. */}
+                            <div className="text-purple-600 font-medium inline-flex items-center gap-2">
                               {member.area}
                               <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
                               <Badge
@@ -242,7 +222,7 @@ export default function Areas() {
                                 <GraduationCapIcon className="w-4 h-4 mr-2" />
                                 <span>{member.experience} years</span>
                               </Badge>
-                            </p>
+                            </div>
                           </div>
 
                           <p className="text-gray-600 text-sm leading-relaxed">
