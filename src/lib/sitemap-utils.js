@@ -47,7 +47,7 @@ const ROUTE_METADATA_OVERRIDES = {
   "/careers": { priority: 0.6, changefreq: "monthly" },
   "/contact-us": { priority: 0.8, changefreq: "monthly" },
   "/faculty/areas": { priority: 0.7, changefreq: "monthly" },
-  "/research": { priority: 0.8, changefreq: "monthly" },
+  "/research-publications": { priority: 0.8, changefreq: "monthly" },
   "/grievance-redressal-mechanism": { priority: 0.6, changefreq: "monthly" },
   "/internal-complaints": { priority: 0.6, changefreq: "monthly" },
   "/international-relations": { priority: 0.7, changefreq: "monthly" },
@@ -65,7 +65,7 @@ const ROUTE_METADATA_OVERRIDES = {
     changefreq: "weekly",
   },
 
-  "/research/conferences": { priority: 0.6, changefreq: "monthly" },
+  "/research-publications/conferences": { priority: 0.6, changefreq: "monthly" },
   "/success-stories": { priority: 0.7, changefreq: "monthly" },
   "/students-life/life-at-ssim": { priority: 0.6, changefreq: "monthly" },
   "/students-life/news": { priority: 0.6, changefreq: "weekly" },

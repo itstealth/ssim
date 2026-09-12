@@ -146,7 +146,7 @@ export default function Research() {
               {!!data?.total && (
                 <div className="mt-6 text-center">
                   <Link
-                    href={`/research?tab=${tab.key}`}
+                    href={`/research-publications?tab=${tab.key}`}
                     className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white px-6 py-3 text-[14px] font-semibold text-purple-800 transition-transform hover:-translate-y-0.5 hover:border-purple-400"
                   >
                     View all {data.total} {tab.label.toLowerCase()} &rarr;

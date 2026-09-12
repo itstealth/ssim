@@ -32,7 +32,7 @@ Allow: /admissions/
 Allow: /about/
 Allow: /faculty/
 Allow: /placement/
-Allow: /research/
+Allow: /research-publications/
 Allow: /students-life/
 Allow: /events/
 Allow: /success-stories/

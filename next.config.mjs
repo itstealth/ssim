@@ -172,7 +172,24 @@ const nextConfig = {
         // Faculty publications moved into the consolidated Research hub, where
         // papers sit alongside conferences, patents, awards and books.
         source: "/faculty/publications",
-        destination: "/research?tab=papers",
+        destination: "/research-publications?tab=papers",
+        permanent: true,
+      },
+
+      // =====================================================================
+      // RESEARCH REDIRECTS
+      // =====================================================================
+      {
+        // The Research hub was renamed /research -> /research-publications.
+        // /research was live and in the sitemap, so keep the old URL working
+        // for anything already indexed or linked externally.
+        source: "/research",
+        destination: "/research-publications",
+        permanent: true,
+      },
+      {
+        source: "/research/conferences",
+        destination: "/research-publications/conferences",
         permanent: true,
       },
       {

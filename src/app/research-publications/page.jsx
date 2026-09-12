@@ -72,7 +72,7 @@ export default function ResearchPage() {
     setYear("All");
     // replaceState rather than the router: this only needs to keep the URL
     // shareable, and avoids a re-render round trip through the router.
-    window.history.replaceState(null, "", `/research?tab=${key}`);
+    window.history.replaceState(null, "", `/research-publications?tab=${key}`);
   }
 
   const rows = cache[tab.key] || [];

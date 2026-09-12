@@ -91,7 +91,7 @@ export const navlinks = [
       },
       {
         name: "Research",
-        path: "/research",
+        path: "/research-publications",
       },
     ],
   },

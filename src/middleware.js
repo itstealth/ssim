@@ -49,7 +49,8 @@ const VALID_PATHS = [
   "/alumni-guidance",
   "/success-stories",
   "/faculty/areas",
-  "/research",
+  "/research-publications",
+  "/research-publications/conferences",
 
   "/international-relations",
   "/placement/records",
