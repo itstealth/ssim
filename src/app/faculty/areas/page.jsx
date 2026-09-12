@@ -20,15 +20,48 @@ const cn = (...classes) => classes.filter(Boolean).join(" ");
 import { motion } from "framer-motion";
 import { teamMembers } from "../../../data/facultyData";
 
+const PROGRAM_ORDER = ["PGDM", "PGDM - BIFS", "PGDM - BA"];
+
 export default function Areas() {
   const [hoveredMember, setHoveredMember] = useState(null);
   const [activeArea, setActiveArea] = useState("All");
+  const [activeProgram, setActiveProgram] = useState("All");
 
-  const uniqueAreas = ["All", ...Array.from(new Set(teamMembers.map((m) => m.area))).filter(Boolean)];
+  const uniquePrograms = [
+    "All",
+    ...PROGRAM_ORDER.filter((p) =>
+      teamMembers.some((m) => (m.programs || []).includes(p))
+    ),
+    ...Array.from(new Set(teamMembers.flatMap((m) => m.programs || [])))
+      .filter(Boolean)
+      .filter((p) => !PROGRAM_ORDER.includes(p)),
+  ];
+
+  // Areas are derived from the current program so the area row never offers a
+  // combination that would come back empty.
+  const membersInProgram =
+    activeProgram === "All"
+      ? teamMembers
+      : teamMembers.filter((m) => (m.programs || []).includes(activeProgram));
+
+  const uniqueAreas = ["All", ...Array.from(new Set(membersInProgram.map((m) => m.area))).filter(Boolean)];
 
   const filteredMembers = activeArea === "All"
-    ? teamMembers
-    : teamMembers.filter((m) => m.area === activeArea);
+    ? membersInProgram
+    : membersInProgram.filter((m) => m.area === activeArea);
+
+  const handleProgramChange = (program) => {
+    setActiveProgram(program);
+    // The previously selected area may not exist inside the new program.
+    if (activeArea !== "All") {
+      const stillAvailable = teamMembers.some(
+        (m) =>
+          m.area === activeArea &&
+          (program === "All" || (m.programs || []).includes(program))
+      );
+      if (!stillAvailable) setActiveArea("All");
+    }
+  };
 
   return (
     <>
@@ -58,6 +91,42 @@ export default function Areas() {
             </p>
           </motion.div>
 
+          {/* Program filter */}
+          <div className="max-w-7xl mx-auto w-full mb-6 px-4">
+            <p className="text-center text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
+              Filter by Program
+            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex flex-wrap justify-center gap-2"
+            >
+              {uniquePrograms.map((program, index) => (
+                <motion.div
+                  key={program}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
+                >
+                  <Button
+                    variant={activeProgram === program ? "default" : "outline"}
+                    onClick={() => handleProgramChange(program)}
+                    aria-pressed={activeProgram === program}
+                    className={cn(
+                      "transition-all duration-200 hover:scale-105 whitespace-nowrap shadow-sm hover:shadow-md",
+                      activeProgram === program && "ring-2 ring-primary/20 bg-primary text-primary-foreground font-medium"
+                    )}
+                  >
+                    {program}
+                  </Button>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Area filter */}
+          <p className="text-center text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
+            Filter by Area of Expertise
+          </p>
           <div className="relative max-w-7xl mx-auto w-full mb-8 px-4">
             <div className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 z-20">
               <Button
@@ -114,10 +183,14 @@ export default function Areas() {
             </div>
           </div>
 
+          <p className="text-center text-sm text-gray-500 mt-8">
+            Showing {filteredMembers.length} of {teamMembers.length} faculty members
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             {filteredMembers.map((member, index) => (
               <motion.div
-                key={index}
+                key={member.slug}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}

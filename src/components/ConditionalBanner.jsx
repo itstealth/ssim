@@ -393,6 +393,17 @@ const routeConfig = {
       },
     ],
   },
+  "/faculty-initiatives": {
+    title: "Faculty Initiatives on Teaching & Learning",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      {
+        label: "Faculty Initiatives on Teaching & Learning",
+        href: "/faculty-initiatives",
+        isActive: true,
+      },
+    ],
+  },
 };
 
 export default function ConditionalBanner() {

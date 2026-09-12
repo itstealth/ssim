@@ -44,6 +44,7 @@ const rawTeamMembers = [
 {
     name: "Dr. S.V. Ramana Rao",
     area: "Accounting, Finance & Economics",
+    programs: ["PGDM - BIFS"],
     qualification: "PhD",
     experience: 32,
     image: ramana,
@@ -59,6 +60,7 @@ const rawTeamMembers = [
   {
     name: "Dr. S.F. Chandra Sekhar",
     area: "HR & Strategy",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA",
     experience: 37,
     image: chandra,
@@ -74,6 +76,7 @@ const rawTeamMembers = [
   {
     name: "Dr. Pavan Patel",
     area: "HR & Strategy",
+    programs: ["PGDM"],
     qualification: "Ph.D, MIRPM",
     experience: 32,
     image: DrPAV,
@@ -89,6 +92,7 @@ const rawTeamMembers = [
   {
     name: "Dr. K.S. Harish",
     area: "Data Science & Information Systems",
+    programs: ["PGDM - BA"],
     qualification: "Ph.D., M.Sc., MBA",
     experience: 30,
     image: DrHari,
@@ -104,6 +108,7 @@ const rawTeamMembers = [
   {
     name: "Dr. V. Annapurna",
     area: "Accounting, Finance & Economics",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA, M.Com",
     experience: 29,
     image: ANNA,
@@ -119,6 +124,7 @@ const rawTeamMembers = [
   {
     name: "Dr. V. Jayalakshmi",
     area: "Accounting, Finance & Economics",
+    programs: ["PGDM - BIFS"],
     qualification: "Ph.D, M.Com",
     experience: 29,
     image: DrJaya,
@@ -134,6 +140,7 @@ const rawTeamMembers = [
   {
     name: "Dr. N.C. Rajyalakshmi",
     area: "Accounting, Finance & Economics",
+    programs: ["PGDM"],
     qualification: "Ph.D.",
     experience: 29,
     image: DrRaj,
@@ -149,6 +156,7 @@ const rawTeamMembers = [
   {
     name: "Dr. NRKS Chakravarthy",
     area: "Data Science & Information Systems",
+    programs: ["PGDM - BA"],
     qualification: "Ph.D, MBA",
     experience: 30,
     image: NRKS,
@@ -164,6 +172,7 @@ const rawTeamMembers = [
   {
     name: "Dr. Ravi Dasari",
     area: "HR & Strategy",
+    programs: ["PGDM - BA"],
     qualification: "PhD",
     experience: 30,
     image: RaviDasari,
@@ -179,6 +188,7 @@ const rawTeamMembers = [
   {
     name: "Mr. K. Sreehari",
     area: "Data Science & Information Systems",
+    programs: ["PGDM - BA"],
     qualification: "M.Sc, MCA, M.Tech (CSE)",
     experience: 33,
     image: SREEHARI,
@@ -194,6 +204,7 @@ const rawTeamMembers = [
   {
     name: "Dr. T. Thirumal Reddy",
     area: "Marketing Management",
+    programs: ["PGDM"],
     qualification: "Ph.D, PGDBA",
     experience: 23,
     image: Thirumal,
@@ -209,6 +220,7 @@ const rawTeamMembers = [
   {
     name: "Dr. K. Grace Mani",
     area: "Marketing Management",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA",
     experience: 26,
     image: Gracena,
@@ -224,6 +236,7 @@ const rawTeamMembers = [
   {
     name: "Mr. T. Madhav Murthy",
     area: "Accounting, Finance & Economics",
+    programs: ["PGDM - BIFS"],
     qualification: "MBA ( Finance & Marketing)",
     experience: 27,
     image: MrMa,
@@ -239,6 +252,7 @@ const rawTeamMembers = [
   {
     name: "Mr. Rahul Jain",
     area: "HR & Strategy",
+    programs: ["PGDM - BIFS"],
     qualification: "PGDBA",
     experience: 22,
     image: rahul,
@@ -254,6 +268,7 @@ const rawTeamMembers = [
   {
     name: "Mrs. Damandeep Johar",
     area: "HR & Strategy",
+    programs: ["PGDM"],
     qualification: "PGDBA, (Ph.D)",
     experience: 17,
     image: Damandeep,
@@ -269,6 +284,7 @@ const rawTeamMembers = [
   {
     name: "Mr. T. Subash Tej",
     area: "Data Science & Information Systems",
+    programs: ["PGDM"],
     qualification: "MCA, MBA",
     experience: 23,
     image: Subhash,
@@ -284,6 +300,7 @@ const rawTeamMembers = [
   {
     name: "Mrs. Kiranmayi Patel",
     area: "Data Science & Information Systems",
+    programs: ["PGDM - BIFS"],
     qualification: "MBA",
     experience: 14,
     image: Kommu,
@@ -299,6 +316,7 @@ const rawTeamMembers = [
   {
     name: "Dr. M. Balanji Reddy",
     area: "Accounting, Finance & Economics",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA",
     experience: 17,
     image: Balani,
@@ -314,6 +332,7 @@ const rawTeamMembers = [
   {
     name: "Dr. M. Pushpa",
     area: "HR & Strategy",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA",
     experience: 20,
     image: Pushpa,
@@ -329,6 +348,7 @@ const rawTeamMembers = [
   {
     name: "Mr. M. Chaithanya",
     area: "Marketing Management",
+    programs: ["PGDM - BIFS"],
     qualification: "PGDBA",
     experience: 21,
     image: Chaitha,
@@ -344,6 +364,7 @@ const rawTeamMembers = [
   {
     name: "Mrs. Samarpita Roy",
     area: "HR & Strategy",
+    programs: ["PGDM - BA"],
     qualification: "MBA",
     experience: "15+",
     image: Smarpita,
@@ -359,6 +380,7 @@ const rawTeamMembers = [
   {
     name: "Dr. Shubhra Johri",
     area: "Accounting, Finance & Economics",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA",
     experience: 20,
     image: Shubhra,
@@ -374,6 +396,7 @@ const rawTeamMembers = [
   {
     name: "Dr. P. Gowri Kusuma",
     area: "HR & Strategy",
+    programs: ["PGDM"],
     qualification: "PhD",
     experience: 20,
     image: Gowri,
@@ -389,6 +412,7 @@ const rawTeamMembers = [
   {
     name: "Dr. Shambhavi Tamrakar",
     area: "Marketing Management",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA, MA",
     experience: 14,
     image: Shambhavi,
@@ -404,6 +428,7 @@ const rawTeamMembers = [
   {
     name: "Dr. Bipul Kumar",
     area: "Marketing Management",
+    programs: ["PGDM"],
     qualification: "Ph.D, MBA, UGC-NET",
     experience: 6,
     image: BinalK,
@@ -419,6 +444,7 @@ const rawTeamMembers = [
   {
     name: "Dr. K. Kiran Kumar",
     area: "Data Science & Information Systems",
+    programs: ["PGDM"],
     qualification: "PhD",
     experience: 15,
     image: KiranK,
@@ -434,6 +460,7 @@ const rawTeamMembers = [
   {
     name: "Mr. G. Murali Krishna Patnaik",
     area: "Data Science & Information Systems",
+    programs: ["PGDM - BA"],
     qualification: "M.Sc",
     experience: 22,
     image: Murali,
@@ -449,6 +476,7 @@ const rawTeamMembers = [
   {
     name: "Dr. Jada Kameswari",
     area: "Data Science & Information Systems",
+    programs: ["PGDM - BA"],
     qualification: "Ph.D, MBA",
     experience: 19,
     image: JKame,

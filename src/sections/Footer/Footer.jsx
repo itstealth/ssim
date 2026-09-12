@@ -89,6 +89,10 @@ export default function Footer() {
         { name: "Employee Handbook", path: "/pdfs/footer/Employee_Hand_Book.pdf", external: true },
         { name: "Student Handbook", path: "/pdfs/footer/Student_Hand_Book_Batch_2025_27.pdf", external: true },
         { name: "HR & Faculty Development Policies", path: "/pdfs/footer/hr&facultyDevelopmentPolicies.pdf", external: true },
+        {
+          name: "Faculty Initiatives on Teaching & Learning",
+          path: "/faculty-initiatives",
+        },
       ],
     },
     {
