@@ -126,6 +126,7 @@ function Bullets({ items, title }) {
 // `full` (span the whole row) and `fit: "contain"` (letterbox instead of crop).
 function Gallery({ images, caption }) {
   const tiles = images.filter((image) => !image.full);
+  const solo = tiles.length === 1;
   const gridCols =
     tiles.length <= 1
       ? "grid-cols-1"
@@ -145,12 +146,14 @@ function Gallery({ images, caption }) {
             decoding="async"
             className={[
               "rounded-xl border border-gray-200 shadow-sm bg-gray-50",
-              // A contained image keeps its own width and centres, instead of
-              // being stretched across the row with dead space either side.
-              image.full
-                ? "col-span-full mx-auto w-auto max-w-full max-h-96 object-contain"
+              // Fixed-height tiles only work when several sit side by side and
+              // a shared height is what makes the row read as a row. A full
+              // image, or a lone tile with nothing to line up against, keeps
+              // its own proportions instead of being cropped to a letterbox.
+              image.full || solo
+                ? "col-span-full mx-auto w-auto max-w-full max-h-[28rem] object-contain"
                 : "w-full h-56 sm:h-60",
-              image.full
+              image.full || solo
                 ? ""
                 : image.fit === "contain"
                   ? "object-contain p-2"
