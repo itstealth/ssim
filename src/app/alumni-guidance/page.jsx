@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+import AlumniSpeak from "@/app/secondHome/components/AlumniSpeak";
 
 const Page = () => {
   const isMobile = useIsMobile();
@@ -91,6 +92,7 @@ const Page = () => {
       </Dialog>
       <AlumniNetwork />
       <GuidingAlumni />
+      <AlumniSpeak />
       <AddingValues />
       <GivingBack />
     </>
