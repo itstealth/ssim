@@ -94,6 +94,8 @@ const olderYears = allAicteYears.filter((item) => item.year < 2017);
 const insurance2023 = `/pdfs/iqac/Accreditations/Insurance-Institute-of-India-of-Siva-Sivani-Inst.of-Management-Exemption-Letter-2023.pdf`;
 const insurance2021 = `/pdfs/iqac/Accreditations/Insurance-Institute-of-India-of-Siva-Sivani-Inst.of-Management-Exemption-Letter-2021.pdf`;
 const insurance2016 = `/pdfs/iqac/Accreditations/Insurance-Institute-of-India-of-Siva-Sivani-Inst.-of-Management-2016.pdf`;
+const insurance2025 = `/pdfs/iqac/Accreditations/Insurance-Institute-of-India-of-Siva-Sivani-Inst.-of-Management-2025.pdf`;
+const accreditationLetter2024 = `/pdfs/iqac/Accreditations/Accreditation-Letter-of-SSIM-2024-with-Electives-2024.pdf`;
 const aiuEquivalent = `/pdfs/iqac/Accreditations/5.-Siva-Sivani-PGDM-Letters-PGDM-PGDM-BA-PGDM-BIFS.pdf`;
 const naacAccreditation = `/pdfs/iqac/Accreditations/NAAC_Accreditation.pdf`;
 const nbaAccreditation = `/pdfs/iqac/Accreditations/NBA-Accreditation.pdf`;
@@ -116,6 +118,7 @@ const bogAug2024 = `/pdfs/iqac/AabBog/BOG-AUGUST-2024-MINUTES-OF-THE-MEETING.pdf
 const bogJune2025 = `/pdfs/iqac/AabBog/BOG-JUNE-2025-MINUTES-OF-THE-MEETING.pdf`;
 const bogMarch2025 = `/pdfs/iqac/AabBog/BOG-MARCH-2025-MINUTES-OF-THE-MEETING.pdf`;
 const bogMay2023 = `/pdfs/iqac/AabBog/BOG-MAY-2023-MINUTES-OF-THE-MEETING.pdf`;
+const bogMay2026 = `/pdfs/iqac/AabBog/BOG-MAY-2026-MINUTES-OF-THE-MEETING.pdf`;
 
 const pgdmNbaSar2026 = `/PGDM-NBA-SAR-2026.pdf`;
 const sss2122 = `/pdfs/iqac/SSS-21-22.pdf`;
@@ -463,6 +466,14 @@ export default function IQAC() {
                 <div className="space-y-2">
                   {[
                     {
+                      name: "Insurance Institute of India of Siva Sivani Inst.of Management (2025)",
+                      link: insurance2025,
+                    },
+                    {
+                      name: "Accreditation Letter of SSIM with Electives (2024)",
+                      link: accreditationLetter2024,
+                    },
+                    {
                       name: "Insurance Institute of India of Siva Sivani Inst.of Management Exemption Letter (2023)",
                       link: insurance2023,
                     },
@@ -574,6 +585,10 @@ export default function IQAC() {
               <CardContent>
                 <div className="space-y-2">
                   {[
+                    {
+                      name: "BOG MAY 2026 MINUTES OF THE MEETING",
+                      link: bogMay2026,
+                    },
                     {
                       name: "BOG JUNE 2025 MINUTES OF THE MEETING",
                       link: bogJune2025,

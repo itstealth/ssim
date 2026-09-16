@@ -139,5 +139,6 @@ export const navlinks = [
     name: "Virtual Tour",
     path: "/virtual-tour",
   },
+  { name: "IQAC", path: "/iqac" },
   { name: "Contact Us", path: "/contact-us" }, // Added Contact Us link
 ];

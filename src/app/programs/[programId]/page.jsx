@@ -108,6 +108,12 @@ const sections = [
     icon: ChevronRight,
     hidden: ["fpm", "efpm", "fpm/efpm"],
   },
+  {
+    id: "peo",
+    name: "PEO, PO & PSO",
+    icon: ChevronRight,
+    hidden: ["fpm", "efpm", "fpm/efpm"],
+  },
   { id: "eligibility", name: "Admissions", icon: ChevronRight },
   { id: "faq", name: "FAQs", icon: ChevronRight },
 ];
@@ -576,6 +582,108 @@ const ProgramContentSection = ({ section }) => {
   );
 };
 
+const PEOSection = ({ peo }) => {
+  if (!peo) return null;
+
+  return (
+    <div className="space-y-10">
+      {peo.peoStatements && peo.peoStatements.length > 0 && (
+        <div>
+          <h3 className="text-2xl font-semibold mb-2 text-red-600">
+            Program Educational Objective (PEO)
+          </h3>
+          <p className="text-gray-700 mb-4">
+            SSIM PEOs Statements ({peo.peoStatements.length})
+          </p>
+          <div className="overflow-x-auto rounded-lg border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>PEO No.</TableHead>
+                  <TableHead>Keywords</TableHead>
+                  <TableHead>PEO Statement (Graduates will...)</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {peo.peoStatements.map((item, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium text-mainBlue whitespace-nowrap align-top">
+                      {item.no}
+                    </TableCell>
+                    <TableCell className="font-medium align-top">
+                      {item.keyword}
+                    </TableCell>
+                    <TableCell>{item.statement}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      )}
+
+      {peo.programOutcomes && peo.programOutcomes.length > 0 && (
+        <div>
+          <h3 className="text-2xl font-semibold mb-4 text-red-600">
+            Program Outcomes (POs)
+          </h3>
+          <div className="overflow-x-auto rounded-lg border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>POs</TableHead>
+                  <TableHead>Statement</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {peo.programOutcomes.map((item, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium text-mainBlue whitespace-nowrap align-top">
+                      {item.no}
+                    </TableCell>
+                    <TableCell>{item.statement}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      )}
+
+      {peo.programSpecificOutcomes && peo.programSpecificOutcomes.length > 0 && (
+        <div>
+          <h3 className="text-2xl font-semibold mb-2 text-red-600">
+            Program Specific Outcomes (PSOs)
+          </h3>
+          <p className="text-gray-700 mb-4">
+            On successful completion of the program, graduates will:
+          </p>
+          <div className="overflow-x-auto rounded-lg border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>PSOs</TableHead>
+                  <TableHead>Statement</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {peo.programSpecificOutcomes.map((item, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium text-mainBlue whitespace-nowrap align-top">
+                      {item.no}
+                    </TableCell>
+                    <TableCell>{item.statement}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Curriculum = ({ curriculum }) => {
   // Find the detailed curriculum object, which contains module1, module2, etc.
   const detailedCurriculumData = curriculum?.find((item) => item.module1);
@@ -984,6 +1092,8 @@ const ProgramSection = ({ programId, activeSection }) => {
         );
       case "curriculum":
         return <Curriculum curriculum={program.curriculum} />;
+      case "peo":
+        return <PEOSection peo={program.peo} />;
       case "eligibility":
         return (
           <EligibilityAdmission

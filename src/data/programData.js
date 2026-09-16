@@ -1266,6 +1266,76 @@ export const programData = {
         label: "Recognised by",
       },
     ],
+    peo: {
+      peoStatements: [
+        {
+          no: "PEO-1",
+          keyword: "Management Knowledge",
+          statement:
+            "Continuously learn and adapt to a dynamic environment, exhibit analytical skills and effective decision making.",
+        },
+        {
+          no: "PEO-2",
+          keyword: "Contribution",
+          statement:
+            "Collaborate network and act as a catalyst of change for business and society.",
+        },
+        {
+          no: "PEO-3",
+          keyword: "Social Values, Ethics",
+          statement:
+            "Champion social values and ethical behaviour in pursuit of sustainable development.",
+        },
+        {
+          no: "PEO-4",
+          keyword: "Critical Thinking and Entrepreneurship",
+          statement:
+            "Demonstrate critical thinking, creativity and innovation to emerge as business leaders and entrepreneurs.",
+        },
+      ],
+      programOutcomes: [
+        {
+          no: "PO 1",
+          statement:
+            "Apply integrated knowledge of management to business decisions.",
+        },
+        {
+          no: "PO 2",
+          statement:
+            "Demonstrate analytical, critical thinking and problem-solving abilities.",
+        },
+        { no: "PO 3", statement: "Able to work individually and lead teams." },
+        {
+          no: "PO 4",
+          statement: "Communicate effectively with all stakeholders.",
+        },
+        { no: "PO 5", statement: "Demonstrate entrepreneurial competencies." },
+        {
+          no: "PO 6",
+          statement: "Apply ethical principles in making decisions.",
+        },
+        {
+          no: "PO 7",
+          statement: "Engage in independent and life-long learning.",
+        },
+      ],
+      programSpecificOutcomes: [
+        {
+          no: "PSO 1",
+          statement: "Exhibit the functional knowledge of Business Analytics.",
+        },
+        {
+          no: "PSO 2",
+          statement:
+            "Analyze various aspects of business scenarios using business analytics tools and techniques.",
+        },
+        {
+          no: "PSO 3",
+          statement:
+            "Generate solutions to different challenges in business and societal scenarios using business analytics techniques.",
+        },
+      ],
+    },
     eligibility: [
       "Bachelor's degree in any discipline",
       "Strong analytical and quantitative skills",
@@ -1954,6 +2024,60 @@ export const programData = {
         },
       },
     ],
+    peo: {
+      peoStatements: [
+        {
+          no: "PEO-1",
+          keyword: "Management Knowledge",
+          statement:
+            "Continuously learn and adapt to a dynamic environment, exhibit analytical skills and effective decision making.",
+        },
+        {
+          no: "PEO-2",
+          keyword: "Contribution",
+          statement:
+            "Collaborate network and act as a catalyst of change for business and society.",
+        },
+        {
+          no: "PEO-3",
+          keyword: "Social Values, Ethics",
+          statement:
+            "Champion social values and ethical behaviour in pursuit of sustainable development.",
+        },
+        {
+          no: "PEO-4",
+          keyword: "Critical Thinking and Entrepreneurship",
+          statement:
+            "Demonstrate critical thinking, creativity and innovation to emerge as business leaders and entrepreneurs.",
+        },
+      ],
+      programOutcomes: [
+        {
+          no: "PO 1",
+          statement:
+            "Apply integrated knowledge of management to business decisions.",
+        },
+        {
+          no: "PO 2",
+          statement:
+            "Demonstrate analytical, critical thinking and problem-solving abilities.",
+        },
+        { no: "PO 3", statement: "Able to work individually and lead teams." },
+        {
+          no: "PO 4",
+          statement: "Communicate effectively with all stakeholders.",
+        },
+        { no: "PO 5", statement: "Demonstrate entrepreneurial competencies." },
+        {
+          no: "PO 6",
+          statement: "Apply ethical principles in making decisions.",
+        },
+        {
+          no: "PO 7",
+          statement: "Engage in independent and life-long learning.",
+        },
+      ],
+    },
     eligibility: [
       "Bachelor's degree in any discipline",
       "Strong interest in Banking, Insurance and Financial Services",
@@ -2778,6 +2902,77 @@ export const programData = {
         },
       },
     ],
+    peo: {
+      peoStatements: [
+        {
+          no: "PEO-1",
+          keyword: "Management Knowledge",
+          statement:
+            "Continuously learn and adapt to a dynamic environment, exhibit analytical skills and effective decision-making.",
+        },
+        {
+          no: "PEO-2",
+          keyword: "Contribution",
+          statement:
+            "Collaborate network and act as a catalyst of change for business and society.",
+        },
+        {
+          no: "PEO-3",
+          keyword: "Social Values, Ethics",
+          statement:
+            "Champion social values and ethical behaviour in pursuit of sustainable development.",
+        },
+        {
+          no: "PEO-4",
+          keyword: "Critical Thinking and Entrepreneurship",
+          statement:
+            "Demonstrate critical thinking, creativity and innovation to emerge as business leaders and entrepreneurs.",
+        },
+      ],
+      programOutcomes: [
+        {
+          no: "PO 1",
+          statement:
+            "Apply integrated knowledge of management to business decisions.",
+        },
+        {
+          no: "PO 2",
+          statement:
+            "Demonstrate analytical, critical thinking and problem-solving abilities.",
+        },
+        { no: "PO 3", statement: "Able to work individually and lead teams." },
+        {
+          no: "PO 4",
+          statement: "Communicate effectively with all stakeholders.",
+        },
+        { no: "PO 5", statement: "Demonstrate entrepreneurial competencies." },
+        {
+          no: "PO 6",
+          statement: "Apply ethical principles in making decisions.",
+        },
+        {
+          no: "PO 7",
+          statement: "Engage in independent and life-long learning.",
+        },
+      ],
+      programSpecificOutcomes: [
+        {
+          no: "PSO 1",
+          statement:
+            "Understand, analyse and apply management concepts in the multi-functional areas of business like marketing, human resources, finance etc. for efficient conduct of business organisations.",
+        },
+        {
+          no: "PSO 2",
+          statement:
+            "Apply the advanced tools of business analysis for providing solutions in a multi-disciplinary environment.",
+        },
+        {
+          no: "PSO 3",
+          statement:
+            "Integrate the knowledge of global business environment in business decision making.",
+        },
+      ],
+    },
     eligibility: [
       "Bachelor's degree in any discipline",
       "Strong academic background",

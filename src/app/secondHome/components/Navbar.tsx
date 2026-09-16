@@ -102,6 +102,10 @@ const navItems = [
     ],
   },
   {
+    name: 'IQAC',
+    path: '/iqac',
+  },
+  {
     name: 'Contact Us',
     path: '/contact-us',
   },

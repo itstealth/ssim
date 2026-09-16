@@ -30,35 +30,35 @@ const pillars = [
 const nptelResources = [
   {
     topic: "Entrepreneurship — Introductory video",
-    url: "https://nptel.ac.in/courses/110/106/110106141/",
+    url: "https://nptel.ac.in/courses/127105007",
   },
   {
     topic: "Financial Accounting",
-    url: "https://nptel.ac.in/courses/110/101/110101131/",
+    url: "https://nptel.ac.in/courses/110101131",
   },
   {
     topic: "Introduction to Cost Accounting",
-    url: "https://nptel.ac.in/courses/110/101/110101132/",
+    url: "https://nptel.ac.in/courses/110106511",
   },
   {
     topic: "Financial Derivatives and Risk Management",
-    url: "https://nptel.ac.in/courses/110/107/110107128/",
+    url: "https://nptel.ac.in/courses/110105071",
   },
   {
     topic: "Introduction to Financial System",
-    url: "https://nptel.ac.in/courses/110/105/110105121/",
+    url: "https://nptel.ac.in/courses/110104437",
   },
   {
     topic: "Principles of Human Resource Management",
-    url: "https://nptel.ac.in/courses/110/105/110105069/",
+    url: "https://nptel.ac.in/courses/110105069",
   },
   {
     topic: "Marketing Management – I",
-    url: "https://nptel.ac.in/courses/110/104/110104068/",
+    url: "https://nptel.ac.in/courses/110104070",
   },
   {
     topic: "Marketing Management – II",
-    url: "https://nptel.ac.in/courses/110/105/110105121/",
+    url: "https://nptel.ac.in/courses/110104070",
   },
   {
     topic: "Organizational Behaviour",
@@ -66,11 +66,11 @@ const nptelResources = [
   },
   {
     topic: "Total Quality Management - I",
-    url: "https://nptel.ac.in/courses/110/104/110104080/",
+    url: "https://nptel.ac.in/courses/110104080",
   },
   {
     topic: "Security Analysis and Portfolio Management",
-    url: "https://nptel.ac.in/courses/110/105/110105035/",
+    url: "https://nptel.ac.in/courses/110105035",
   },
 ];
 

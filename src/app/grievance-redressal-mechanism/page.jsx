@@ -16,7 +16,78 @@ import {
     AlertCircle,
   } from "lucide-react";
   // import SEO from "../Seo";
-  
+
+  const studentGrievanceCommittee = [
+    { name: "Dr. S.V. Ramana Rao", designation: "Director", position: "Chairperson" },
+    { name: "Dr. NRKS Chakravarthy", designation: "Dy. Director", position: "Member" },
+    { name: "Prof. K.S. Harish", designation: "Professor & Program Chair-Business Analytics", position: "Member" },
+    { name: "Prof. S.F. Chandrasekhar", designation: "Professor & Chairperson- Research & Publications", position: "Member" },
+    { name: "Dr. Pavan Patel", designation: "Professor & PGDM Program Chair", position: "Member" },
+    { name: "Dr. V. Annapurna", designation: "Associate Professor & Program Chair-FPM", position: "Member" },
+    { name: "Sri. K. Sreehari", designation: "Associate Professor & Controller of Examinations", position: "Member" },
+    { name: "Prof. N.C. Rajyalakshmi", designation: "Professor & PGP Chair", position: "Member" },
+    { name: "Sri. M. Chaithanya", designation: "Assistant Professor & PGP Co-Chair", position: "Member" },
+    { name: "Sri. Arunava Guha", designation: "Student (Senior)", position: "Member" },
+    { name: "Ms. Chitkoori Srujana", designation: "Student (Senior)", position: "Member" },
+    { name: "Ms. Srinidhi", designation: "Student (Senior)", position: "Member" },
+    { name: "Ms. Markani Ishita", designation: "Student (Junior)", position: "Member" },
+    { name: "Mr. T Ramgopal Reddy", designation: "Student (Junior)", position: "Member" },
+    { name: "Mr. Adari Balaji", designation: "Student (Junior)", position: "Member" },
+  ];
+
+  const facultyStaffGrievanceCommittee = [
+    { name: "Dr. S.V. Ramana Rao", designation: "Director", position: "Chairperson" },
+    { name: "Dr. NRKS Chakravarthy", designation: "Dy. Director", position: "Member" },
+    { name: "Prof. K.S. Harish", designation: "Professor & Program Chair-Business Analytics", position: "Member" },
+    { name: "Prof. S.F. Chandrasekhar", designation: "Professor & Chairperson- Research & Publications", position: "Member" },
+    { name: "Dr. Pavan Patel", designation: "Professor & PGDM Program Chair", position: "Member" },
+    { name: "Dr. V. Annapurna", designation: "Associate Professor & Program Chair-FPM", position: "Member" },
+    { name: "Sri. K. Sreehari", designation: "Associate Professor & Controller of Examinations", position: "Member" },
+    { name: "Prof. N.C. Rajyalakshmi", designation: "Professor & PGP Chair", position: "Member" },
+    { name: "Sri. M. Chaithanya", designation: "Assistant Professor & PGP Co-Chair", position: "Member" },
+    { name: "CA Sri Dosapati Kiran", designation: "Chief Financial Officer", position: "Member" },
+  ];
+
+  function CommitteeTable({ members }) {
+    return (
+      <div className="overflow-x-auto rounded-lg border border-slate-200">
+        <table className="w-full min-w-[640px] border-collapse text-left">
+          <thead>
+            <tr className="bg-purple-50">
+              <th className="p-3 text-sm font-semibold text-gray-900">S.No</th>
+              <th className="p-3 text-sm font-semibold text-gray-900">Name</th>
+              <th className="p-3 text-sm font-semibold text-gray-900">
+                Designation
+              </th>
+              <th className="p-3 text-sm font-semibold text-gray-900">
+                Position
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((member, index) => (
+              <tr
+                key={index}
+                className="align-top odd:bg-white even:bg-slate-50/50"
+              >
+                <td className="p-3 text-sm text-gray-700">{index + 1}</td>
+                <td className="p-3 text-sm text-gray-900 font-medium">
+                  {member.name}
+                </td>
+                <td className="p-3 text-sm text-gray-700">
+                  {member.designation}
+                </td>
+                <td className="p-3 text-sm text-gray-700">
+                  {member.position}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
   export default function GrievanceRedressalMechanism() {
     return (
       <>
@@ -152,6 +223,51 @@ import {
               </CardContent>
             </Card>
   
+            {/* Committee Members Section */}
+            <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+              <CardHeader className="pb-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-purple-100 rounded-lg">
+                    <Users className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl text-gray-900">
+                      Grievance Redressal Committee for Students (2026 - 2027)
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 mt-1">
+                      Committee members responsible for resolving student
+                      grievances
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CommitteeTable members={studentGrievanceCommittee} />
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+              <CardHeader className="pb-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-purple-100 rounded-lg">
+                    <Users className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl text-gray-900">
+                      Grievance Redressal Committee (for Faculty and Staff)
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 mt-1">
+                      Committee members responsible for resolving faculty and
+                      staff grievances
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CommitteeTable members={facultyStaffGrievanceCommittee} />
+              </CardContent>
+            </Card>
+
             {/* Responsibilities Section */}
             <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
               <CardHeader className="pb-6">
