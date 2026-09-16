@@ -152,8 +152,8 @@ export default function IQAC() {
       </header> */}
 
       <main className="container max-w-7xl mx-auto px-4 py-10 sm:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:items-start">
+          <div className="lg:col-span-2 space-y-8 lg:sticky lg:top-24">
             <section className="bg-white rounded-xl shadow p-6">
               <div className="flex items-center gap-2 mb-2">
                 <Info className="h-5 min-w-5 text-red-500" />
