@@ -59,6 +59,12 @@ const Faculty = dynamic(() => import("./secondHome/components/Faculty"), {
   ssr: false,
 });
 
+// AlumniSpeak: embla-carousel + Radix Dialog for video testimonials
+const AlumniSpeak = dynamic(() => import("./secondHome/components/AlumniSpeak"), {
+  loading: () => <SectionLoader height="min-h-[500px]" />,
+  ssr: false,
+});
+
 // Research: useEffect for API data fetching
 const Research = dynamic(() => import("./secondHome/components/Research"), {
   loading: () => <SectionLoader height="min-h-[400px]" />,
@@ -291,6 +297,7 @@ export default function HomeClient() {
       <WhySSIM />
       <Faculty />
       <GuidingAlumni />
+      <AlumniSpeak />
       <Research />
       <SSIMStories />
       <PlacementStories />
