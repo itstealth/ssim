@@ -42,40 +42,31 @@ const Banner = () => {
 
   return (
     <>
-      <div className="bg-mainBlue text-white py-12 sm:py-16">
+      <div className="bg-gradient-to-r from-[#6B21A8] via-[#7C3AED] to-[#2563EB] text-white py-12 sm:py-16">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
             <div className="text-center md:w-[320px] md:ml-auto md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold md:!leading-[1.575] md:w-min">
+              <h1 className="font-playfair text-4xl md:text-5xl font-bold md:!leading-[1.2] md:w-min">
                 Creating Student Successes, Always!
               </h1>
-              <button
-                type="button"
-                onClick={() => setIsIntroOpen(true)}
-                className="mt-8 rounded-full max-w-fit bg-yellow-500 px-6 py-3 text-white font-semibold flex items-center mx-auto md:mx-0"
-              >
-                <svg
-                  className="mr-2 h-6 w-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+              <div className="mt-8 flex items-center justify-center md:justify-start gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsIntroOpen(true)}
+                  className="rounded-full max-w-fit bg-[#6C3EAA] border-2 border-white px-6 py-2.5 text-white font-semibold flex items-center gap-3 text-sm tracking-wide shadow-[0_10px_28px_rgba(0,0,0,0.35)] hover:bg-[#5A3390] transition-colors"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  ></path>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-                WATCH INTRO
-              </button>
+                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white flex-shrink-0">
+                    <span className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-purple-700 border-b-[6px] border-b-transparent ml-0.5" />
+                  </span>
+                  WATCH INTRO
+                </button>
+                <img
+                  src="/success-stories/watch-intro-arrow.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-6 w-auto hidden sm:block"
+                />
+              </div>
             </div>
             <div className="relative">
               <img
