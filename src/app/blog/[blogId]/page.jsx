@@ -35,14 +35,16 @@ const fetchBlogPost = async (slug) => {
   const post = posts[0];
   const meta = post.meta || {};
   const terms = post._embedded?.['wp:term'] || [];
+  const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
+  const featuredImageUrl = featuredMedia?.source_url || '';
 
   return {
     id: post.id,
     slug: post.slug,
     title: post.title?.rendered || '',
     content: post.content?.rendered || '',
-    imageUrl: meta.ssim_image_url || '',
-    imageAlt: meta.ssim_image_alt || '',
+    imageUrl: meta.ssim_image_url || featuredImageUrl || '',
+    imageAlt: meta.ssim_image_alt || featuredMedia?.alt_text || '',
     authorName: meta.ssim_author_name || 'SSIM Hyderabad',
     publishDate: post.date,
     metaTitle: meta.ssim_meta_title || '',

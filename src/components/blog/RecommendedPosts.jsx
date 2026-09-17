@@ -8,13 +8,17 @@ const fetchAllBlogs = async () => {
   const res = await fetch("/wp-json/wp/v2/posts?per_page=100&_embed");
   if (!res.ok) throw new Error("Failed to fetch blogs");
   const posts = await res.json();
-  return posts.map(post => ({
-    slug: post.slug,
-    title: post.title?.rendered || '',
-    imageUrl: post.meta?.ssim_image_url || '/placeholder.svg',
-    imageAlt: post.meta?.ssim_image_alt || '',
-    publishDate: post.date,
-  }));
+  return posts.map(post => {
+    const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
+    const featuredImageUrl = featuredMedia?.source_url || '';
+    return {
+      slug: post.slug,
+      title: post.title?.rendered || '',
+      imageUrl: post.meta?.ssim_image_url || featuredImageUrl || '/placeholder.svg',
+      imageAlt: post.meta?.ssim_image_alt || featuredMedia?.alt_text || '',
+      publishDate: post.date,
+    };
+  });
 };
 
 export function RecommendedPosts({ currentSlug }) {

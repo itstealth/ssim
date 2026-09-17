@@ -20,11 +20,13 @@ export async function generateMetadata({ params }) {
 
     const post = posts[0];
     const meta = post.meta || {};
+    const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
+    const featuredMediaUrl = featuredMedia?.source_url || '';
 
     const title = meta.ssim_meta_title || post.title?.rendered || '';
     const description = meta.ssim_meta_description
       || (post.content?.rendered || '').replace(/<[^>]*>/g, '').substring(0, 157) + '...';
-    const featuredImage = meta.ssim_image_url || meta.ssim_og_image_url || '';
+    const featuredImage = meta.ssim_image_url || meta.ssim_og_image_url || featuredMediaUrl || '';
     const authorName = meta.ssim_author_name || 'SSIM';
     const canonicalUrl = meta.ssim_canonical_url || `https://ssim.ac.in/blog/${blogId}`;
 

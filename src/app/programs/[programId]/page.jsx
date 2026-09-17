@@ -1239,32 +1239,47 @@ const ProgramsOverview = ({ params }) => {
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
       </div> */}
       {/* <ScrollArea className="h-[calc(100vh-200px)] lg:h-auto"> */}
-      <ul className="space-y-2">
-        {filteredSections.map((section) => (
-          <li key={section.id}>
-            <button
-              onClick={() => {
-                handleSectionChange(section.id);
-                if (!isDesktop) setSidebarOpen(false);
-              }}
-              className={`w-full text-left px-4 py-2 rounded-sm transition-colors ${
-                activeSection === section.id
-                  ? "bg-gradient-to-r from-red-600 via-red-400 to-red-600 text-primary-foreground"
-                  : "hover:bg-secondary"
-              }`}
-            >
-              <span className="flex items-center">
-                {section.name}
-                {activeSection === section.id ? (
-                  <ChevronDown className="ml-auto min-w-6" />
-                ) : (
-                  <ChevronRight className="ml-auto min-w-6" />
-                )}
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="rounded-xl border border-slate-200 bg-white shadow-[0_10px_30px_rgba(16,34,105,0.06)] p-3">
+        <p className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-wider text-slate-400">
+          On this page
+        </p>
+        <ul className="space-y-1">
+          {filteredSections.map((section) => {
+            const isActive = activeSection === section.id;
+            return (
+              <li key={section.id}>
+                <button
+                  onClick={() => {
+                    handleSectionChange(section.id);
+                    if (!isDesktop) setSidebarOpen(false);
+                  }}
+                  className={`group relative w-full text-left pl-4 pr-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? "bg-purple-50 text-purple-800"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-purple-700"
+                  }`}
+                >
+                  <span
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-5 w-[3px] rounded-full transition-colors ${
+                      isActive
+                        ? "bg-purple-700"
+                        : "bg-transparent group-hover:bg-purple-200"
+                    }`}
+                  />
+                  <span className="flex items-center">
+                    {section.name}
+                    {isActive ? (
+                      <ChevronDown className="ml-auto min-w-5 h-4 w-4 text-purple-700" />
+                    ) : (
+                      <ChevronRight className="ml-auto min-w-5 h-4 w-4 text-slate-400 group-hover:text-purple-500" />
+                    )}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       {/* </ScrollArea> */}
       <div className="flex flex-col sm:flex-row gap-2 mt-4">
         {/* <Button
@@ -1385,9 +1400,9 @@ const ProgramsOverview = ({ params }) => {
             </AnimatePresence>
           </Tabs>
         </div>
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-8">
           {isDesktop ? (
-            <nav className="lg:w-1/4">
+            <nav className="lg:w-1/4 lg:sticky lg:top-24 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <SidebarContent />
             </nav>
           ) : (
