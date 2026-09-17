@@ -16,6 +16,7 @@ const Heading = ({
     >
       {title && (
         <WordPullUp
+          tag="h2"
           className={`text-center text-3xl font-bold sm:font-bold md:font-extrabold sm:text-5xl max-w-5xl mx-auto ${titleClassName}`}
           words={title}
         />

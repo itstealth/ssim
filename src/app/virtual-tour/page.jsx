@@ -414,7 +414,7 @@ export default function VirtualTourPage() {
       <section className="container mx-auto sm:px-4 py-12">
         <div className="max-w-7xl mx-auto">
           {/* Introduction Card */}
-          <Card className="mb-12 border-t-4 border-t-blue-600">
+          <Card className="mb-12 border-t-4 border-t-purple-600">
             <CardHeader>
               <CardTitle className="text-2xl">Experience SSIM Campus Virtually</CardTitle>
               <CardDescription className="text-base">

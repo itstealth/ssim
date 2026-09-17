@@ -1,8 +1,8 @@
 /**
  * About Siva Sivani Group of Institutions (SSGI) — v2
  * ------------------------------------------------------
- * Built against the project's real tailwind.config.js — navy / gold /
- * ssred / mist, Playfair Display (font-display) + DM Sans (font-body).
+ * Built against the project's real tailwind.config.js — navy / purple-400 /
+ * purple-600 / mist, Playfair Display (font-display) + DM Sans (font-body).
  *
  * WHY IMAGES WEREN'T SHOWING (v1):
  * They were hotlinked directly from ssim.ac.in's Next.js image-optimizer
@@ -41,6 +41,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
+import WordPullUp from "@/components/ui/word-pull-up";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -125,7 +126,7 @@ function SmartImage({
   if (broken) {
     return (
       <div className={`${className} flex items-center justify-center bg-gradient-to-br from-navy-light to-navy-deep`}>
-        <FallbackIcon className="h-10 w-10 text-gold/30" strokeWidth={1} />
+        <FallbackIcon className="h-10 w-10 text-purple-400/30" strokeWidth={1} />
       </div>
     );
   }
@@ -149,8 +150,8 @@ function SmartImage({
 /*  callback to the seal motif. Wrap any relatively-positioned box.        */
 /* ---------------------------------------------------------------------- */
 
-function Corners({ tone = "gold" }: { tone?: "gold" | "pale" }) {
-  const c = tone === "gold" ? "border-gold/60" : "border-gold-pale/40";
+function Corners({ tone = "purple-400" }: { tone?: "purple-400" | "pale" }) {
+  const c = tone === "purple-400" ? "border-purple-400/60" : "border-purple-50/40";
   return (
     <>
       <span className={`pointer-events-none absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 ${c} rounded-tl-md`} />
@@ -166,7 +167,7 @@ function DotTexture() {
   return (
     <div
       className="pointer-events-none absolute inset-0 opacity-[0.07]"
-      style={{ backgroundImage: "radial-gradient(circle, #C9971A 1px, transparent 1px)", backgroundSize: "26px 26px" }}
+      style={{ backgroundImage: "radial-gradient(circle, #C084FC 1px, transparent 1px)", backgroundSize: "26px 26px" }}
     />
   );
 }
@@ -186,9 +187,9 @@ function DiagonalDivider({ fromColor, flip = false }: { fromColor: string; flip?
 /*  The Seal — signature medallion motif                                   */
 /* ---------------------------------------------------------------------- */
 
-function Seal({ size = 56, tone = "gold" }: { size?: number; tone?: "gold" | "pale" }) {
-  const ring = tone === "gold" ? "#C9971A" : "#FDF8EE";
-  const fill = tone === "gold" ? "#07132A" : "#1B3A7A";
+function Seal({ size = 56, tone = "purple-400" }: { size?: number; tone?: "purple-400" | "pale" }) {
+  const ring = tone === "purple-400" ? "#C084FC" : "#FAF5FF";
+  const fill = tone === "purple-400" ? "#4A1D6E" : "#581C87";
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true" className="shrink-0">
       <circle cx="50" cy="50" r="47" fill={fill} stroke={ring} strokeWidth="2" />
@@ -202,10 +203,10 @@ function Seal({ size = 56, tone = "gold" }: { size?: number; tone?: "gold" | "pa
 /*  Reusable pieces                                                        */
 /* ---------------------------------------------------------------------- */
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
+function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
   return (
-    <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.28em] uppercase text-gold">
-      <span className="h-px w-6 bg-gold/70" />
+    <span className={`inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.28em] uppercase ${dark ? "text-purple-300" : "text-purple-700"}`}>
+      <span className={`h-px w-6 ${dark ? "bg-purple-300/70" : "bg-purple-700/70"}`} />
       {children}
     </span>
   );
@@ -215,14 +216,21 @@ function SectionHeading({
   eyebrow, title, accent, sub, dark = false,
 }: { eyebrow: string; title: string; accent?: string; sub?: string; dark?: boolean }) {
   return (
-    <motion.div variants={fadeUp} {...reveal} className="max-w-2xl">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className={`font-display mt-4 text-[clamp(1.9rem,4vw,3.1rem)] leading-[1.08] font-medium ${dark ? "text-gold-pale" : "text-navy-deep"}`}>
-        {title}
-        {accent && <span className="text-ssred"> {accent}</span>}
-      </h2>
-      {sub && <p className={`font-body mt-4 text-[15px] leading-relaxed ${dark ? "text-gold-pale/70" : "text-gray"}`}>{sub}</p>}
-    </motion.div>
+    <div className="max-w-2xl">
+      <motion.div variants={fadeUp} {...reveal}>
+        <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
+      </motion.div>
+      <WordPullUp
+        tag="h2"
+        words={accent ? `${title} ${accent}` : title}
+        className={`mt-4 text-left text-[clamp(1.9rem,4vw,3.1rem)] font-medium normal-case leading-[1.08] tracking-normal drop-shadow-none ${dark ? "text-purple-50" : "text-black"}`}
+      />
+      {sub && (
+        <motion.p variants={fadeUp} {...reveal} className={`font-body mt-4 text-[15px] leading-relaxed ${dark ? "text-purple-50/70" : "text-gray"}`}>
+          {sub}
+        </motion.p>
+      )}
+    </div>
   );
 }
 
@@ -230,15 +238,15 @@ function StatCard({ value, label, icon: Icon, i }: { value: string; label: strin
   return (
     <motion.div
       variants={fadeUp} custom={i} {...reveal} whileHover={{ y: -6 }}
-      className="group relative overflow-hidden rounded-xl border border-gold/40 bg-navy-deep p-6"
+      className="group relative overflow-hidden rounded-xl border border-purple-400/40 bg-navy-deep p-6"
     >
       <Corners />
-      <span className="font-display pointer-events-none absolute -bottom-4 -right-2 text-7xl font-bold text-gold/[0.08]">
+      <span className="font-display pointer-events-none absolute -bottom-4 -right-2 text-7xl font-bold text-purple-400/[0.08]">
         {value.replace(/[^0-9]/g, "") || "★"}
       </span>
-      <Icon className="relative h-6 w-6 text-gold" strokeWidth={1.5} />
-      <div className="relative mt-5 text-3xl font-semibold text-gold-pale">{value}</div>
-      <div className="relative mt-1 text-[13px] text-gold-pale/80">{label}</div>
+      <Icon className="relative h-6 w-6 text-purple-400" strokeWidth={1.5} />
+      <div className="relative mt-5 text-3xl font-semibold text-purple-50">{value}</div>
+      <div className="relative mt-1 text-[13px] text-purple-50/80">{label}</div>
     </motion.div>
   );
 }
@@ -247,9 +255,9 @@ function ValueCard({ icon: Icon, label, i }: { icon: any; label: string; i: numb
   return (
     <motion.div
       variants={fadeUp} custom={i} {...reveal}
-      className="flex items-center gap-3 rounded-xl border border-navy/10 bg-white/60 px-5 py-4 backdrop-blur-sm transition-colors hover:border-ssred/30 hover:bg-white"
+      className="flex items-center gap-3 rounded-xl border border-navy/10 bg-white/60 px-5 py-4 backdrop-blur-sm transition-colors hover:border-purple-600/30 hover:bg-white"
     >
-      <Icon className="h-5 w-5 shrink-0 text-ssred" strokeWidth={1.5} />
+      <Icon className="h-5 w-5 shrink-0 text-purple-600" strokeWidth={1.5} />
       <span className="text-[14px] font-medium text-navy-deep">{label}</span>
     </motion.div>
   );
@@ -259,13 +267,13 @@ function FeatureCard({ icon: Icon, title, desc, i }: { icon: any; title: string;
   return (
     <motion.div
       variants={fadeUp} custom={i} {...reveal} whileHover={{ y: -4 }}
-      className="relative rounded-xl border border-navy/10 bg-gold-pale p-6 shadow-[0_1px_0_rgba(0,0,0,0.03)] transition-all hover:shadow-[0_18px_40px_-20px_rgba(7,19,42,0.35)] hover:border-ssred/25"
+      className="relative rounded-xl border border-navy/10 bg-purple-50 p-6 shadow-[0_1px_0_rgba(0,0,0,0.03)] transition-all hover:shadow-[0_18px_40px_-20px_rgba(7,19,42,0.35)] hover:border-purple-600/25"
     >
-      <Corners tone="gold" />
-      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-navy-deep to-navy-light text-gold ring-1 ring-gold/30">
+      <Corners tone="purple-400" />
+      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-navy-deep to-navy-light text-purple-400 ring-1 ring-purple-400/30">
         <Icon className="h-5 w-5" strokeWidth={1.5} />
       </div>
-      <h3 className="font-display mt-4 text-lg font-medium text-navy-deep">{title}</h3>
+      <h3 className="font-display mt-4 text-lg font-medium text-black">{title}</h3>
       <p className="mt-2 text-[13.5px] leading-relaxed text-gray">{desc}</p>
     </motion.div>
   );
@@ -366,22 +374,22 @@ export default function AboutSSGIPage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <main className="font-body bg-gold-pale text-navy-deep">
+    <main className="font-body bg-purple-50 text-navy-deep">
       {/* ============================== HERO ============================== */}
-      <section ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-navy-deep text-gold-pale">
+      <section ref={heroRef} className="relative flex min-h-[100svh] flex-col overflow-hidden bg-navy-deep text-purple-50">
         <div className="absolute inset-0">
           <SmartImage src={IMG.heroCampus} alt="SSGI campus" className="h-full w-full opacity-45" overlay={false} fallbackIcon={Building2} />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/90 via-navy-deep/85 to-navy-deep" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(201,151,26,0.16),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(192,57,43,0.22),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(168,85,247,0.16),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(124,58,237,0.22),transparent_55%)]" />
           <DotTexture />
-          <motion.div style={{ y: heroY }} className="absolute right-[8%] top-[16%] h-40 w-40 animate-float rounded-full border border-gold/20" />
-          <motion.div style={{ y: heroY }} className="absolute left-[6%] top-[55%] h-24 w-24 rotate-12 border border-gold-pale/10" />
+          <motion.div style={{ y: heroY }} className="absolute right-[8%] top-[16%] h-40 w-40 animate-float rounded-full border border-purple-400/20" />
+          <motion.div style={{ y: heroY }} className="absolute left-[6%] top-[55%] h-24 w-24 rotate-12 border border-purple-50/10" />
         </div>
 
         {/* announcement ribbon, echoes the real site's top bar */}
-        <div className="relative border-b border-gold/10 bg-black/20 py-2 text-center backdrop-blur-sm">
-          <span className="text-[11px] font-semibold tracking-[0.2em] text-gold-light">
+        <div className="relative border-b border-purple-400/10 bg-black/20 py-2 text-center backdrop-blur-sm">
+          <span className="text-[11px] font-semibold tracking-[0.2em] text-purple-300">
             S. P. SAMPATHY&apos;S SIVA SIVANI EDUCATIONAL SOCIETY &nbsp;·&nbsp; ESTABLISHED 1961
           </span>
         </div>
@@ -391,31 +399,31 @@ export default function AboutSSGIPage() {
           className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 pb-16 pt-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:pt-28"
         >
           <div>
-            <motion.div variants={fadeUp} {...reveal} className="inline-flex items-center gap-3 rounded-full border border-gold/30 bg-white/5 px-4 py-2 backdrop-blur-sm">
+            <motion.div variants={fadeUp} {...reveal} className="inline-flex items-center gap-3 rounded-full border border-purple-400/30 bg-white/5 px-4 py-2 backdrop-blur-sm">
               <Seal size={22} />
-              <span className="text-[11px] font-semibold tracking-[0.24em] uppercase text-gold">About SSGI</span>
+              <span className="text-[11px] font-semibold tracking-[0.24em] uppercase text-purple-400">About SSGI</span>
             </motion.div>
 
-            <motion.h1 variants={fadeUp} custom={1} {...reveal} className="font-display mt-8 text-[clamp(2.4rem,6vw,4.6rem)] font-medium leading-[1.04]">
-              Siva Sivani Group
-              <br />
-              of Institutions
-            </motion.h1>
+            <WordPullUp
+              tag="h1"
+              words="Siva Sivani Group of Institutions"
+              className="mt-8 text-left text-[clamp(2.4rem,6vw,4.6rem)] font-medium normal-case leading-[1.04] tracking-normal drop-shadow-none"
+            />
 
-            <motion.p variants={fadeUp} custom={2} {...reveal} className="mt-5 text-[15px] font-semibold tracking-wide text-gold-light">
-              Shaping futures since <span className="text-gold font-bold">1961</span>
+            <motion.p variants={fadeUp} custom={2} {...reveal} className="mt-5 text-[15px] font-semibold tracking-wide text-purple-300">
+              Shaping futures since <span className="text-purple-400 font-bold">1961</span>
             </motion.p>
 
-            <motion.p variants={fadeUp} custom={3} {...reveal} className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-gold-pale/70">
+            <motion.p variants={fadeUp} custom={3} {...reveal} className="mt-6 max-w-xl text-[15.5px] leading-relaxed text-purple-50/70">
               For more than six decades, SSGI has built a single, continuous educational ecosystem — from nursery to PhD — guided by one founding belief: education exists to serve. What began as a preparatory school in a rented Sanathnagar building is today a Group of institutions shaping students across business, government, academia and public life.
             </motion.p>
 
             <motion.div variants={fadeUp} custom={4} {...reveal} className="mt-9 flex flex-wrap gap-4">
-              <button className="group inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-[14px] font-semibold text-navy-deep transition-colors hover:bg-gold-light">
+              <button className="group inline-flex items-center gap-2 rounded-full bg-purple-600 px-6 py-3.5 text-[14px] font-semibold text-white transition-colors hover:bg-purple-700">
                 Explore Institutions
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
-              <button className="inline-flex items-center gap-2 rounded-full border border-gold-pale/25 px-6 py-3.5 text-[14px] font-semibold text-gold-pale transition-colors hover:border-gold/60 hover:text-gold-light">
+              <button className="inline-flex items-center gap-2 rounded-full border border-purple-50/25 px-6 py-3.5 text-[14px] font-semibold text-purple-50 transition-colors hover:border-purple-400/60 hover:text-purple-300">
                 Our Legacy
               </button>
             </motion.div>
@@ -424,19 +432,19 @@ export default function AboutSSGIPage() {
           {/* collage — curated campus portfolio for the About page */}
           <motion.div variants={fadeUp} custom={2} {...reveal} className="relative h-[440px] lg:h-[540px]">
             {/* Largest tile — campus aerial, establishes place */}
-            <div className="absolute left-0 top-0 h-[60%] w-[60%] -rotate-2 rounded-2xl border-2 border-gold/40 bg-navy-light p-1.5 shadow-2xl">
+            <div className="absolute left-0 top-0 h-[60%] w-[60%] -rotate-2 rounded-2xl border-2 border-purple-400/40 bg-navy-light p-1.5 shadow-2xl">
               <SmartImage src={IMG.campusWide} alt="SSIM campus" className="h-full w-full rounded-xl" fallbackIcon={Building2} />
             </div>
             {/* Top-right — SSIM's own About photo (official campus shot) */}
-            <div className="absolute right-0 top-[4%] h-[42%] w-[44%] rotate-3 rounded-2xl border-2 border-gold/50 bg-navy-light p-1.5 shadow-2xl">
+            <div className="absolute right-0 top-[4%] h-[42%] w-[44%] rotate-3 rounded-2xl border-2 border-purple-400/50 bg-navy-light p-1.5 shadow-2xl">
               <SmartImage src={IMG.aboutSsim} alt="SSIM Institute" className="h-full w-full rounded-xl" fallbackIcon={GraduationCap} />
             </div>
             {/* Bottom-left — classrooms, academic life */}
-            <div className="absolute bottom-[6%] left-[6%] h-[38%] w-[40%] rotate-2 rounded-2xl border-2 border-gold/40 bg-navy-light p-1.5 shadow-2xl">
+            <div className="absolute bottom-[6%] left-[6%] h-[38%] w-[40%] rotate-2 rounded-2xl border-2 border-purple-400/40 bg-navy-light p-1.5 shadow-2xl">
               <SmartImage src={IMG.education} alt="Classrooms" className="h-full w-full rounded-xl" fallbackIcon={Users} />
             </div>
             {/* Bottom-right — memorable campus life moments */}
-            <div className="absolute bottom-0 right-[2%] h-[34%] w-[50%] -rotate-1 rounded-2xl border-2 border-gold/40 bg-navy-light p-1.5 shadow-2xl">
+            <div className="absolute bottom-0 right-[2%] h-[34%] w-[50%] -rotate-1 rounded-2xl border-2 border-purple-400/40 bg-navy-light p-1.5 shadow-2xl">
               <SmartImage src={IMG.moments} alt="Campus Life" className="h-full w-full rounded-xl" fallbackIcon={Award} />
             </div>
             {/* floating seal accent */}
@@ -446,13 +454,13 @@ export default function AboutSSGIPage() {
           </motion.div>
         </motion.div>
 
-        {/* fact ticker — reuses the project's own animate-ticker keyframe */}
-        <div className="relative overflow-hidden border-t border-gold/15 bg-black/30 py-3">
-          <div className="flex w-max animate-ticker gap-10">
-            {[...tickerFacts, ...tickerFacts, ...tickerFacts].map((f, i) => (
-              <span key={i} className="flex items-center gap-3 text-[12px] font-semibold tracking-[0.18em] text-gold-pale/70">
+        {/* fact strip */}
+        <div className="relative mt-auto border-t border-purple-400/15 bg-black/30 py-3">
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 px-6">
+            {tickerFacts.map((f, i) => (
+              <span key={i} className="flex items-center gap-3 text-[12px] font-semibold tracking-[0.18em] text-purple-50/70">
                 {f}
-                <span className="text-gold/40">✦</span>
+                {i < tickerFacts.length - 1 && <span className="text-purple-400/40">✦</span>}
               </span>
             ))}
           </div>
@@ -460,12 +468,12 @@ export default function AboutSSGIPage() {
       </section>
 
       {/* ============================ TIMELINE ============================ */}
-      <section className="relative bg-gold-pale px-6 py-28 lg:px-10">
+      <section className="relative bg-purple-50 px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow="The Legacy" title="Six decades, one" accent="unbroken story" sub="From a rented preparatory school to a full educational Group — every milestone built on the one before it." />
 
           <div className="relative mt-20">
-            <div className="absolute left-[27px] top-0 hidden h-full w-px bg-gradient-to-b from-gold/60 via-ssred/40 to-gold/10 md:block lg:left-1/2" />
+            <div className="absolute left-[27px] top-0 hidden h-full w-px bg-gradient-to-b from-purple-400/60 via-purple-600/40 to-purple-400/10 md:block lg:left-1/2" />
             <div className="space-y-14">
               {timeline.map((item, i) => (
                 <motion.div
@@ -473,7 +481,7 @@ export default function AboutSSGIPage() {
                   className={`relative flex flex-col gap-6 md:flex-row md:items-start ${i % 2 === 1 ? "lg:flex-row-reverse lg:text-right" : ""}`}
                 >
                   <div className="flex items-center gap-4 md:w-14 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-2 border-gold bg-navy-deep text-gold shadow-[0_0_0_6px_rgba(253,248,238,1)]">
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-2 border-purple-400 bg-navy-deep text-purple-400 shadow-[0_0_0_6px_rgba(250,245,255,1)]">
                       <item.icon className="h-6 w-6" strokeWidth={1.5} />
                     </div>
                   </div>
@@ -486,8 +494,8 @@ export default function AboutSSGIPage() {
                     <span className={`font-display pointer-events-none absolute -top-6 text-6xl font-bold text-navy-deep/[0.05] ${i % 2 === 1 ? "lg:right-2" : "right-2"}`}>
                       {item.year.replace(/\D/g, "").slice(0, 4) || "★"}
                     </span>
-                    <span className="text-xs font-semibold tracking-[0.2em] uppercase text-ssred">{item.year}</span>
-                    <h3 className="font-display mt-2 text-xl font-medium text-navy-deep">{item.title}</h3>
+                    <span className="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600">{item.year}</span>
+                    <h3 className="font-display mt-2 text-xl font-medium text-black">{item.title}</h3>
                     <p className="mt-2 text-[13.5px] leading-relaxed text-gray">{item.desc}</p>
                   </motion.div>
                 </motion.div>
@@ -497,46 +505,46 @@ export default function AboutSSGIPage() {
         </div>
       </section>
 
-      <DiagonalDivider fromColor="#07132A" />
+      <DiagonalDivider fromColor="#4A1D6E" />
 
       {/* ============================ FOUNDER ============================= */}
-      <section className="relative overflow-hidden bg-navy-deep px-6 py-28 text-gold-pale lg:px-10">
+      <section className="relative overflow-hidden bg-navy-deep px-6 py-28 text-purple-50 lg:px-10">
         <DotTexture />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,151,26,0.08),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.08),transparent_60%)]" />
         <div className="relative mx-auto max-w-6xl">
-          <Eyebrow>Visionary Founder</Eyebrow>
+          <Eyebrow dark>Visionary Founder</Eyebrow>
 
           <div className="mt-8 grid grid-cols-1 gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <motion.div variants={fadeUp} {...reveal} className="relative mx-auto aspect-[4/5] w-full max-w-sm">
-              <div className="absolute -inset-3 rounded-[2.2rem] border border-gold/20" />
-              <div className="absolute inset-0 rounded-[2rem] border-2 border-gold/30 bg-gradient-to-br from-navy-light to-navy-deep" />
-              <div className="absolute inset-6 overflow-hidden rounded-[1.5rem] border border-gold/20 bg-navy-light/60">
+              <div className="absolute -inset-3 rounded-[2.2rem] border border-purple-400/20" />
+              <div className="absolute inset-0 rounded-[2rem] border-2 border-purple-400/30 bg-gradient-to-br from-navy-light to-navy-deep" />
+              <div className="absolute inset-6 overflow-hidden rounded-[1.5rem] border border-purple-400/20 bg-navy-light/60">
                 <SmartImage src="/about_ssim/sampathy.jpg" alt="Late Sri S. P. Sampathy" className="h-full w-full" overlay={false} />
               </div>
-              <div className="absolute -bottom-5 left-1/2 w-[80%] -translate-x-1/2 rounded-xl border border-gold/25 bg-navy-deep px-4 py-3 text-center shadow-xl">
-                <p className="font-display text-[15px] font-medium text-gold-pale">Late Sri S. P. Sampathy</p>
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">Founder, 1961</p>
+              <div className="absolute -bottom-5 left-1/2 w-[80%] -translate-x-1/2 rounded-xl border border-purple-400/25 bg-navy-deep px-4 py-3 text-center shadow-xl">
+                <p className="font-display text-[15px] font-medium text-purple-50">Late Sri S. P. Sampathy</p>
+                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-400">Founder, 1961</p>
               </div>
             </motion.div>
 
             <div>
-              <motion.p variants={fadeUp} custom={1} {...reveal} className="text-[15px] leading-relaxed text-gold-pale/70">
+              <motion.p variants={fadeUp} custom={1} {...reveal} className="text-[15px] leading-relaxed text-purple-50/70">
                 Late Sri S. P. Sampathy built the Group from a single rented classroom into an institution trusted by generations of families. His belief in discipline, teamwork, innovation and excellence still shapes how SSGI teaches today.
               </motion.p>
 
-              <motion.blockquote variants={fadeUp} custom={2} {...reveal} className="relative mt-8 overflow-hidden rounded-xl border border-gold/25 bg-white/5 p-8 backdrop-blur-sm">
-                <Quote className="pointer-events-none absolute -right-4 -top-6 h-32 w-32 text-gold/[0.06]" fill="currentColor" strokeWidth={0} />
-                <Quote className="relative h-8 w-8 text-gold" fill="currentColor" strokeWidth={0} />
-                <p className="font-display relative mt-3 text-[clamp(1.3rem,2.4vw,1.8rem)] italic leading-snug text-gold-pale">
+              <motion.blockquote variants={fadeUp} custom={2} {...reveal} className="relative mt-8 overflow-hidden rounded-xl border border-purple-400/25 bg-white/5 p-8 backdrop-blur-sm">
+                <Quote className="pointer-events-none absolute -right-4 -top-6 h-32 w-32 text-purple-400/[0.06]" fill="currentColor" strokeWidth={0} />
+                <Quote className="relative h-8 w-8 text-purple-400" fill="currentColor" strokeWidth={0} />
+                <p className="font-display relative mt-3 text-[clamp(1.3rem,2.4vw,1.8rem)] italic leading-snug text-purple-50">
                   &ldquo;Nothing is impossible for those who think they can.&rdquo;
                 </p>
               </motion.blockquote>
 
               <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {values.map((v, i) => (
-                  <motion.div key={v.label} variants={fadeUp} custom={i} {...reveal} className="flex items-center gap-2 rounded-xl border border-gold/20 bg-white/[0.04] px-4 py-3 transition-colors hover:border-gold/50">
-                    <v.icon className="h-4 w-4 text-gold" strokeWidth={1.5} />
-                    <span className="text-[13px] font-medium text-gold-pale/90">{v.label}</span>
+                  <motion.div key={v.label} variants={fadeUp} custom={i} {...reveal} className="flex items-center gap-2 rounded-xl border border-purple-400/20 bg-white/[0.04] px-4 py-3 transition-colors hover:border-purple-400/50">
+                    <v.icon className="h-4 w-4 text-purple-400" strokeWidth={1.5} />
+                    <span className="text-[13px] font-medium text-purple-50/90">{v.label}</span>
                   </motion.div>
                 ))}
               </div>
@@ -549,14 +557,14 @@ export default function AboutSSGIPage() {
       <section className="bg-mist px-6 py-28 lg:px-10">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
           <motion.div variants={fadeUp} {...reveal} className="relative mx-auto aspect-square w-full max-w-md">
-            <div className="absolute -inset-4 rounded-full border border-gold/15" />
-            <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-gold/30 shadow-2xl">
+            <div className="absolute -inset-4 rounded-full border border-purple-400/15" />
+            <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-purple-400/30 shadow-2xl">
               <SmartImage src={IMG.auditorium} alt="SSGI Auditorium" className="h-full w-full" fallbackIcon={Compass} overlay={false} />
               <div className="absolute inset-0 bg-navy-deep/25" />
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-navy-deep/85 shadow-xl backdrop-blur-sm ring-2 ring-gold/30">
-                <Compass className="h-10 w-10 text-gold" strokeWidth={1} />
+              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-navy-deep/85 shadow-xl backdrop-blur-sm ring-2 ring-purple-400/30">
+                <Compass className="h-10 w-10 text-purple-400" strokeWidth={1} />
               </div>
             </div>
           </motion.div>
@@ -571,7 +579,7 @@ export default function AboutSSGIPage() {
       </section>
 
       {/* ============================ SSGI TODAY =========================== */}
-      <section className="bg-gold-pale px-6 py-28 lg:px-10">
+      <section className="bg-purple-50 px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow="SSGI Today" title="Five institutions," accent="one ecosystem" sub="Together, these institutions carry a student from their earliest years to postgraduate management education and doctoral study." />
 
@@ -580,18 +588,18 @@ export default function AboutSSGIPage() {
               <motion.a
                 href={inst.link} target="_blank" rel="noopener noreferrer"
                 key={inst.name} variants={fadeUp} custom={i} {...reveal} whileHover={{ y: -6 }}
-                className="group relative flex flex-col overflow-hidden rounded-xl border border-navy/10 bg-white/70 p-7 shadow-[0_1px_0_rgba(0,0,0,0.03)] transition-all hover:border-ssred/30 hover:shadow-[0_24px_50px_-28px_rgba(7,19,42,0.4)]"
+                className="group relative flex flex-col overflow-hidden rounded-xl border border-navy/10 bg-white/70 p-7 shadow-[0_1px_0_rgba(0,0,0,0.03)] transition-all hover:border-purple-600/30 hover:shadow-[0_24px_50px_-28px_rgba(7,19,42,0.4)]"
               >
                 <Corners />
                 <span className="font-display pointer-events-none absolute -bottom-3 -right-1 text-8xl font-bold text-navy-deep/[0.04]">{inst.roman}</span>
                 <div className="relative flex items-start justify-between">
                   <Seal size={44} />
-                  <span className="text-[11px] font-semibold text-ssred">{inst.since}</span>
+                  <span className="text-[11px] font-semibold text-purple-600">{inst.since}</span>
                 </div>
-                <h3 className="font-display relative mt-5 text-lg font-medium text-navy-deep">{inst.name}</h3>
-                <p className="relative mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-ssred">{inst.short}</p>
+                <h3 className="font-display relative mt-5 text-lg font-medium text-black">{inst.name}</h3>
+                <p className="relative mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-purple-600">{inst.short}</p>
                 <p className="relative mt-3 flex-1 text-[13.5px] leading-relaxed text-gray">{inst.desc}</p>
-                <span className="relative mt-6 inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold text-navy-deep transition-colors group-hover:text-ssred">
+                <span className="relative mt-6 inline-flex w-fit items-center gap-1.5 text-[13px] font-semibold text-navy-deep transition-colors group-hover:text-purple-600">
                   Explore <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </motion.a>
@@ -601,7 +609,7 @@ export default function AboutSSGIPage() {
       </section>
 
       {/* ========================= EDUCATION JOURNEY ======================= */}
-      <section className="relative overflow-hidden bg-navy-deep px-6 py-28 text-gold-pale lg:px-10">
+      <section className="relative overflow-hidden bg-navy-deep px-6 py-28 text-purple-50 lg:px-10">
         <DotTexture />
         <div className="relative mx-auto max-w-6xl">
           <SectionHeading dark eyebrow="One Ecosystem" title="A complete educational" accent="journey" sub="A student can move through every stage of their education without ever leaving the ecosystem the Group has built." />
@@ -609,12 +617,12 @@ export default function AboutSSGIPage() {
           <div className="mt-16 flex flex-col items-stretch gap-3 lg:flex-row lg:items-center">
             {journey.map((step, i) => (
               <div key={step.label} className="flex flex-1 items-center gap-3">
-                <motion.div variants={fadeUp} custom={i} {...reveal} className="relative flex flex-1 flex-col items-center gap-3 overflow-hidden rounded-xl border border-gold/20 bg-white/[0.03] px-5 py-7 text-center transition-colors hover:border-gold/50">
+                <motion.div variants={fadeUp} custom={i} {...reveal} className="relative flex flex-1 flex-col items-center gap-3 overflow-hidden rounded-xl border border-purple-400/20 bg-white/[0.03] px-5 py-7 text-center transition-colors hover:border-purple-400/50">
                   <Corners tone="pale" />
-                  <step.icon className="relative h-6 w-6 text-gold" strokeWidth={1.5} />
+                  <step.icon className="relative h-6 w-6 text-purple-400" strokeWidth={1.5} />
                   <span className="relative text-[15px] font-bold text-white">{step.label}</span>
                 </motion.div>
-                {i < journey.length - 1 && <ChevronRight className="hidden h-5 w-5 shrink-0 text-gold/50 lg:block" />}
+                {i < journey.length - 1 && <ChevronRight className="hidden h-5 w-5 shrink-0 text-purple-400/50 lg:block" />}
               </div>
             ))}
           </div>
@@ -626,9 +634,9 @@ export default function AboutSSGIPage() {
       {/* ========================== KEY HIGHLIGHTS ========================= */}
       <section className="relative overflow-hidden bg-navy px-6 py-24 lg:px-10">
         <DotTexture />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,151,26,0.12),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(168,85,247,0.12),transparent_55%)]" />
         <div className="relative mx-auto max-w-6xl">
-          <Eyebrow>By the numbers</Eyebrow>
+          <Eyebrow dark>By the numbers</Eyebrow>
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {highlights.map((h, i) => <StatCard key={h.label} value={h.value} label={h.label} icon={h.icon} i={i} />)}
           </div>
@@ -636,7 +644,7 @@ export default function AboutSSGIPage() {
       </section>
 
       {/* ============================= WHY SSGI ============================ */}
-      <section className="bg-gold-pale px-6 py-28 lg:px-10">
+      <section className="bg-purple-50 px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow="Why SSGI" title="Built for the" accent="whole student" />
           <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -658,12 +666,12 @@ export default function AboutSSGIPage() {
             ].map((item, i) => (
               <motion.div key={item.title} variants={fadeUp} custom={i} {...reveal} whileHover={{ y: -4 }} className="relative flex gap-5 overflow-hidden rounded-xl border border-navy/10 bg-white/70 p-6 transition-shadow hover:shadow-[0_20px_45px_-26px_rgba(7,19,42,0.4)]">
                 <Corners />
-                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-navy-deep to-navy-light text-gold ring-1 ring-gold/30">
+                <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-navy-deep to-navy-light text-purple-400 ring-1 ring-purple-400/30">
                   <item.icon className="h-5 w-5" strokeWidth={1.5} />
                 </div>
                 <div className="relative">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ssred">{item.year}</span>
-                  <h3 className="font-display mt-1 text-lg font-medium text-navy-deep">{item.title}</h3>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-purple-600">{item.year}</span>
+                  <h3 className="font-display mt-1 text-lg font-medium text-black">{item.title}</h3>
                   <p className="mt-2 text-[13.5px] leading-relaxed text-gray">{item.desc}</p>
                 </div>
               </motion.div>
@@ -673,24 +681,24 @@ export default function AboutSSGIPage() {
       </section>
 
       {/* ============================ ALUMNI IMPACT ======================== */}
-      <section className="relative overflow-hidden bg-navy-deep px-6 py-28 text-gold-pale lg:px-10">
+      <section className="relative overflow-hidden bg-navy-deep px-6 py-28 text-purple-50 lg:px-10">
         <DotTexture />
         <div className="relative mx-auto max-w-6xl">
           <SectionHeading dark eyebrow="Alumni Impact" title="Carrying the Group's name" accent="across the world" sub="Six decades of graduates have gone on to lead in business, government, academia, entrepreneurship, technology, healthcare and public service." />
 
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {alumniStats.map((s, i) => (
-              <motion.div key={s.label} variants={fadeUp} custom={i} {...reveal} className="relative overflow-hidden rounded-xl border border-gold/20 bg-white/[0.04] p-8 text-center">
+              <motion.div key={s.label} variants={fadeUp} custom={i} {...reveal} className="relative overflow-hidden rounded-xl border border-purple-400/20 bg-white/[0.04] p-8 text-center">
                 <Corners tone="pale" />
-                <div className="font-display text-4xl font-medium text-gold-light">{s.value}</div>
-                <div className="mt-2 text-[13px] text-gold-pale/60">{s.label}</div>
+                <div className="font-display text-4xl font-medium text-purple-300">{s.value}</div>
+                <div className="mt-2 text-[13px] text-purple-50/60">{s.label}</div>
               </motion.div>
             ))}
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
             {alumniIndustries.map((tag, i) => (
-              <motion.span key={tag} variants={fadeUp} custom={i} {...reveal} whileHover={{ scale: 1.04 }} className="rounded-full border border-gold/25 bg-white/[0.03] px-4 py-2 text-[13px] text-gold-pale/80">
+              <motion.span key={tag} variants={fadeUp} custom={i} {...reveal} whileHover={{ scale: 1.04 }} className="rounded-full border border-purple-400/25 bg-white/[0.03] px-4 py-2 text-[13px] text-purple-50/80">
                 {tag}
               </motion.span>
             ))}
@@ -699,7 +707,7 @@ export default function AboutSSGIPage() {
       </section>
 
       {/* ========================= CAMPUS EXPERIENCE ======================= */}
-      <section className="bg-gold-pale px-6 py-28 lg:px-10">
+      <section className="bg-purple-50 px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow="Campus Experience" title="Life across the" accent="ecosystem" sub="Every corner of the campus tells a different part of the SSGI story." />
           <div className="mt-14 grid auto-rows-[150px] grid-cols-2 gap-4 sm:grid-cols-4">
@@ -726,34 +734,34 @@ export default function AboutSSGIPage() {
       </section>
 
       {/* ========================= LEADERSHIP MESSAGE ====================== */}
-      <section className="relative overflow-hidden bg-ssred px-6 py-28 text-gold-pale lg:px-10">
+      <section className="relative overflow-hidden bg-purple-600 px-6 py-28 text-purple-50 lg:px-10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_60%)]" />
-        <motion.div variants={fadeUp} {...reveal} className="relative mx-auto max-w-3xl overflow-hidden rounded-[2rem] border border-gold-pale/15 bg-white/[0.06] p-10 text-center backdrop-blur-md sm:p-14">
+        <motion.div variants={fadeUp} {...reveal} className="relative mx-auto max-w-3xl overflow-hidden rounded-[2rem] border border-purple-50/15 bg-white/[0.06] p-10 text-center backdrop-blur-md sm:p-14">
           <Quote className="pointer-events-none absolute -left-6 -top-8 h-40 w-40 text-white/[0.05]" fill="currentColor" strokeWidth={0} />
-          <Quote className="relative mx-auto h-10 w-10 text-gold-light" fill="currentColor" strokeWidth={0} />
+          <Quote className="relative mx-auto h-10 w-10 text-purple-300" fill="currentColor" strokeWidth={0} />
           <p className="font-display relative mt-6 text-[clamp(1.4rem,3vw,2.1rem)] italic leading-snug">
             Continuing the founder&apos;s vision, the Group remains committed to education that builds competent professionals, responsible citizens, and future leaders.
           </p>
-          <a href="https://ssim.ac.in/about/message-from-leaders" className="relative mt-9 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-[14px] font-semibold text-navy-deep transition-colors hover:bg-gold-light">
+          <a href="https://ssim.ac.in/about/message-from-leaders" className="relative mt-9 inline-flex items-center gap-2 rounded-full bg-purple-600 px-6 py-3.5 text-[14px] font-semibold text-white transition-colors hover:bg-purple-700">
             Meet the Leadership <ArrowRight className="h-4 w-4" />
           </a>
         </motion.div>
       </section>
 
       {/* ================================ CTA ============================== */}
-      <section className="relative overflow-hidden bg-navy-deep px-6 py-20 text-center text-gold-pale lg:px-10">
+      <section className="relative overflow-hidden bg-navy-deep px-6 py-20 text-center text-purple-50 lg:px-10">
         <DotTexture />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,151,26,0.15),transparent_60%)]" />
-        <div className="absolute left-1/2 top-10 h-32 w-32 -translate-x-1/2 rounded-full border border-gold/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(168,85,247,0.15),transparent_60%)]" />
+        <div className="absolute left-1/2 top-10 h-32 w-32 -translate-x-1/2 rounded-full border border-purple-400/20" />
         <motion.div variants={fadeUp} {...reveal} className="relative mx-auto max-w-3xl">
           <Seal size={48} />
           <h2 className="font-display mx-auto mt-6 max-w-2xl text-[clamp(1.8rem,4.4vw,3rem)] font-medium leading-tight">
-            Become part of a legacy that has been inspiring generations since <span className="text-gold">1961</span>
+            Become part of a legacy that has been inspiring generations since <span className="text-purple-400">1961</span>
           </h2>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <button className="rounded-full bg-gold px-6 py-3.5 text-[14px] font-semibold text-navy-deep transition-colors hover:bg-gold-light">Explore Institutions</button>
-            <button className="rounded-full border border-gold-pale/25 px-6 py-3.5 text-[14px] font-semibold transition-colors hover:border-gold/60 hover:text-gold-light">Apply Now</button>
-            <button className="inline-flex items-center gap-2 rounded-full border border-gold-pale/25 px-6 py-3.5 text-[14px] font-semibold transition-colors hover:border-gold/60 hover:text-gold-light">
+            <button className="rounded-full bg-purple-600 px-6 py-3.5 text-[14px] font-semibold text-white transition-colors hover:bg-purple-700">Explore Institutions</button>
+            <button className="rounded-full border border-purple-50/25 px-6 py-3.5 text-[14px] font-semibold transition-colors hover:border-purple-400/60 hover:text-purple-300">Apply Now</button>
+            <button className="inline-flex items-center gap-2 rounded-full border border-purple-50/25 px-6 py-3.5 text-[14px] font-semibold transition-colors hover:border-purple-400/60 hover:text-purple-300">
               <MapPin className="h-4 w-4" /> Visit Campus
             </button>
           </div>

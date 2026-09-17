@@ -39,7 +39,7 @@ const PlacementStories = () => {
         <div>
           <Heading
             title="SSIM Placement Stories"
-            titleClassName="!text-[#102269] text-center font-extrabold text-3xl sm:text-4xl lg:text-5xl"
+            titleClassName="text-center font-extrabold text-3xl sm:text-4xl lg:text-5xl"
             subtitleClassName="text-slate-500 !mx-auto !max-w-2xl text-center text-base sm:text-lg mt-3"
             subtitle="Our students are successfully placed in top companies, gaining invaluable experience and insights that enhance their skills and career prospects."
             className="pb-6 md:pb-8"

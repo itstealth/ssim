@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { HomepageSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
 import ConditionalLayout from "@/components/ConditionalLayout";
+import HeadingStyleManager from "@/components/HeadingStyleManager";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,10 +21,8 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
-  // Playfair is only used decoratively below the fold.
-  // Setting preload:false removes it from the critical rendering path entirely.
-  // The browser will still load it when first needed, just not block initial paint.
-  preload: false,
+  // Playfair is the site-wide heading font, so preload it for above-the-fold headings.
+  preload: true,
 });
 
 export const metadata = {
@@ -127,6 +126,7 @@ export default function RootLayout({ children }) {
         />
 
         <QueryProvider>
+          <HeadingStyleManager />
           <ConditionalLayout>{children}</ConditionalLayout>
           <Toaster />
         </QueryProvider>

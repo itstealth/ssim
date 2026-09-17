@@ -40,11 +40,13 @@ export default function WordPullUp({
   return (
     <MotionComponent
       ref={ref} // Attach ref to the element to track its visibility
+      data-site-heading="true"
+      data-word-pull-up="true"
       variants={wrapperFramerProps}
       initial="hidden"
       animate={inView ? "show" : "hidden"} // Animate only when the component is in view
       className={cn(
-        "font-display text-center text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm",
+        "site-heading-theme font-playfair text-center text-4xl font-bold leading-[5rem] tracking-normal drop-shadow-sm",
         className
       )}
       {...props}
