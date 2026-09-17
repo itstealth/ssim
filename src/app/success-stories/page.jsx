@@ -482,6 +482,7 @@ const SuccessStories = () => {
   );
 };
 
+// Static snapshot from the Univariety alumni API, replacing the old outdated iframe widget.
 const educationBackgroundData = {
   ug: [
     { label: "Others", percentage: 73.18 },
