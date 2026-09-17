@@ -230,15 +230,15 @@ function StatCard({ value, label, icon: Icon, i }: { value: string; label: strin
   return (
     <motion.div
       variants={fadeUp} custom={i} {...reveal} whileHover={{ y: -6 }}
-      className="group relative overflow-hidden rounded-xl border border-gold/20 bg-navy-light p-6"
+      className="group relative overflow-hidden rounded-xl border border-gold/40 bg-navy-deep p-6"
     >
       <Corners />
-      <span className="font-display pointer-events-none absolute -bottom-4 -right-2 text-7xl font-bold text-white/[0.03]">
+      <span className="font-display pointer-events-none absolute -bottom-4 -right-2 text-7xl font-bold text-gold/[0.08]">
         {value.replace(/[^0-9]/g, "") || "★"}
       </span>
       <Icon className="relative h-6 w-6 text-gold" strokeWidth={1.5} />
       <div className="relative mt-5 text-3xl font-semibold text-gold-pale">{value}</div>
-      <div className="relative mt-1 text-[13px] text-gold-pale/60">{label}</div>
+      <div className="relative mt-1 text-[13px] text-gold-pale/80">{label}</div>
     </motion.div>
   );
 }
@@ -612,7 +612,7 @@ export default function AboutSSGIPage() {
                 <motion.div variants={fadeUp} custom={i} {...reveal} className="relative flex flex-1 flex-col items-center gap-3 overflow-hidden rounded-xl border border-gold/20 bg-white/[0.03] px-5 py-7 text-center transition-colors hover:border-gold/50">
                   <Corners tone="pale" />
                   <step.icon className="relative h-6 w-6 text-gold" strokeWidth={1.5} />
-                  <span className="relative text-[13px] font-medium text-gold-pale/90">{step.label}</span>
+                  <span className="relative text-[15px] font-bold text-white">{step.label}</span>
                 </motion.div>
                 {i < journey.length - 1 && <ChevronRight className="hidden h-5 w-5 shrink-0 text-gold/50 lg:block" />}
               </div>
@@ -621,9 +621,13 @@ export default function AboutSSGIPage() {
         </div>
       </section>
 
+      <DiagonalDivider fromColor="#6B21A8" />
+
       {/* ========================== KEY HIGHLIGHTS ========================= */}
-      <section className="bg-navy-light px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative overflow-hidden bg-navy px-6 py-24 lg:px-10">
+        <DotTexture />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,151,26,0.12),transparent_55%)]" />
+        <div className="relative mx-auto max-w-6xl">
           <Eyebrow>By the numbers</Eyebrow>
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {highlights.map((h, i) => <StatCard key={h.label} value={h.value} label={h.label} icon={h.icon} i={i} />)}
