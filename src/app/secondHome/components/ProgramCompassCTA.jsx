@@ -64,16 +64,23 @@ export default function ProgramCompassCTA() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 lg:gap-4">
+          {/* Stacked rows at every width rather than a 3-across grid: in the
+              narrow right-hand column this sits in at lg, a tile is only ~96px
+              wide, which is narrower than the unbreakable word
+              "Specializations" — so the label spilled past the tile edge.
+              A row gives the label the full column width at any breakpoint. */}
+          <div className="flex flex-col gap-3 lg:gap-4">
             {STEPS.map((step) => (
               <div
                 key={step.label}
-                className="rounded-[16px] border border-white/15 bg-white/10 p-4 text-center backdrop-blur"
+                className="flex items-center gap-4 rounded-[16px] border border-white/15 bg-white/10 px-5 py-4 backdrop-blur"
               >
-                <div className="font-playfair text-[32px] font-bold leading-none text-white lg:text-[38px]">
+                <div className="font-playfair w-12 flex-none text-center text-[32px] font-bold leading-none text-white">
                   {step.value}
                 </div>
-                <p className="mt-2 text-[11.5px] leading-4 text-white/75">{step.label}</p>
+                <p className="min-w-0 break-words text-[13.5px] leading-5 text-white/75">
+                  {step.label}
+                </p>
               </div>
             ))}
           </div>
