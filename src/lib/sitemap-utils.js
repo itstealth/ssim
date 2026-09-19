@@ -52,6 +52,7 @@ const ROUTE_METADATA_OVERRIDES = {
   "/internal-complaints": { priority: 0.6, changefreq: "monthly" },
   "/international-relations": { priority: 0.7, changefreq: "monthly" },
   "/iqac": { priority: 0.7, changefreq: "monthly" },
+  "/program-compass": { priority: 0.8, changefreq: "monthly" },
   "/placement/guest-lectures": { priority: 0.7, changefreq: "monthly" },
   "/placement/internships": { priority: 0.7, changefreq: "monthly" },
   "/placement/records": { priority: 0.7, changefreq: "monthly" },

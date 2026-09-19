@@ -37,6 +37,11 @@ const Programs = dynamic(() => import("./secondHome/components/Programs"), {
   loading: () => <SectionLoader height="min-h-[500px]" />,
 });
 
+const ProgramCompassCTA = dynamic(
+  () => import("./secondHome/components/ProgramCompassCTA"),
+  { loading: () => <SectionLoader height="min-h-[300px]" /> }
+);
+
 const CampusLife = dynamic(() => import("./secondHome/components/CampusLife"), {
   loading: () => <SectionLoader height="min-h-[400px]" />,
 });
@@ -71,6 +76,7 @@ export default function SecondHome() {
 
       {/* Server sections that appear after client sections in the flow */}
       <Programs />
+      <ProgramCompassCTA />
       <CampusLife />
       <Scholarship />
       <StatsBanner />

@@ -48,6 +48,7 @@ const navItems = [
     name: 'Admissions',
     path: '/admissions',
     dropdown: [
+      { name: 'Program Compass — Free Assessment', path: '/program-compass' },
       { name: 'PGDM Triple Specialisation', path: '/admissions/pgdm-triple-specialisation' },
       { name: 'PGDM BIFS', path: '/admissions/pgdm-bifs' },
       { name: 'PGDM BA', path: '/admissions/pgdm-ba' },

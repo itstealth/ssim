@@ -1,12 +1,18 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Configure email transporter
+// Configure email transporter.
+// Credentials come from the environment (Azure App Service application settings
+// in production, .env.local for development) — they are deliberately not
+// committed to the repository.
+const MAIL_USER = process.env.EMAIL_USER || process.env.GMAIL_USER;
+const MAIL_PASS = process.env.EMAIL_PASS || process.env.GMAIL_PASS;
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: "info@ssim.ac.in", // Your Gmail address
-    pass: "xmqh lotl fiqt pobj", // Your Gmail app password
+    user: MAIL_USER,
+    pass: MAIL_PASS,
   },
 });
 
@@ -88,7 +94,7 @@ export async function POST(request) {
 
     // Email configuration
     const mailOptions = {
-      from: process.env.EMAIL_USER, // Your Gmail address
+      from: MAIL_USER,
       to: 'info@ssim.ac.in', // Your target email
       subject: `Contact Form Submission: ${subject} - SSIM Website`,
       html: emailContent,
