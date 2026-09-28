@@ -77,7 +77,7 @@ const categories = [
     id: "48",
     label: "Sagnature Day",
     icon: <Image />,
-    heading: "Sagnature Day",
+    heading: "Signature Day",
     description: "Celebration of signature day events at SSIM.",
   },
 
