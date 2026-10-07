@@ -41,11 +41,11 @@ const leaders = [
   },
   {
     role: "President & Chief Executive, SSGI.",
-    name: "SMT. S. AARATHY",
+    name: "Smt. S. Aarathy",
     image: ArathySampathy,
     quote:
       "Learn to Serve - Shaping tomorrow's leaders through innovation, resilience, and excellence",
-    quoteAuthor: "SMT. S. AARATHY's Vision",
+    quoteAuthor: "Smt. S. Aarathy's Vision",
     content: [
       "The Founder of our great institution, Sri S.P. Sampathy started the Siva Sivani Institute of Management with a purpose and had set clear goals. In our path of achieving success, we have been producing successful batches of young managers and we proudly admit that each batch has become better than the previous one. The industry has been readily accepting our students year after year. The alumni of this institute have risen to great heights in terms of glory and career and are seen as role models by successive batches of students.",
       "SSIM since its inception (1992) has been championing the development of management education and shaping its students in line with the latest industry practices through unique programs and intensive industry interface, using state-of-the-art technologies and pedagogies. SSIM has been crafting the careers of management aspirants with the right skills and attitude.",
@@ -56,16 +56,16 @@ const leaders = [
   },
   {
     role: "Vice President & Dy. Chief Executive, SSGI.",
-    name: "DR. SAILESH SAMPATHY",
+    name: "Dr. Sailesh Sampathy",
     image: SaileshSampathy,
     quote:
       "Building bridges across borders through quality education, creating global leaders of tomorrow",
-    quoteAuthor: "DR. SAILESH SAMPATHY's Vision",
+    quoteAuthor: "Dr. Sailesh Sampathy's Vision",
     content: [
-      "Greetings from SSIM, a dynamic, progressive and ever expanding institution, relentlessly surging ahead on our chosen path, excelling in providing quality education. SSIM has been the hall mark and an integral part of the more than six decades old Siva Sivani Group for three decades.",
-      "In the quest of its dream, SSIM has been successful in foraging ties in domestic and global arenas at individual and institutional levels. Faculty exchanges, Student exchanges, Joint Certification Programmes, Research, Training and Allied activities at these levels are now routine at SSIM.",
-      `In order to help our students seeking additional qualifications at institutions outside the country become easier, agreements of credit transfers, joint certification courses, acquiring foreign degrees and thereby creating opportunities of seeking employment in Europe, America and the rest of the globe are already in place.`,
-      "Arrangements for accomplished personalities both from the industry and academia inEurope and America, in addition to people with similar calibre in India, to handle courses in various programmes, thereby, enabling students of SSIM, to have ample global exposure at the campus itself have been made. Over a period of time, SSIM acquired many awards and recognitions. Few notable are Best Education brand 2022 from Economic Times, CSR awarded TOP Eminent B-School of Super Excellence 2022 etc. SSIM is NAAC accredited and PGDM Program is NBA accredited with AIU certification.",
+      "Greetings from SSIM, a dynamic, progressive and ever expanding institution, relentlessly surging ahead on our chosen path, excelling in providing quality education. SSIM has been the hallmark and an integral part of the more than six decades old Siva Sivani Group for three decades.",
+      "In the quest of its dream, SSIM has been successful in forging ties in domestic and global arenas at individual and institutional levels. Faculty exchanges, Student exchanges, Joint Certification Programmes, Research, Training and Allied activities at these levels are now routine at SSIM.",
+      "In order to help our students seeking additional qualifications at institutions outside the country become easier, agreements of credit transfers, joint certification courses, acquiring foreign degrees and thereby creating opportunities of seeking employment in Europe, America and the rest of the globe are already in place.",
+      "Arrangements for accomplished personalities both from the industry and academia in Europe and America, in addition to people with similar calibre in India, to handle courses in various programmes, thereby, enabling students of SSIM, to have ample global exposure at the campus itself have been made. Over the years, SSIM has earned numerous awards, recognitions, and prestigious accreditations. Some notable achievements include the IIRF Education Impact Award 2026 and the CSR Educational Excellence Award 2025. SSIM is NAAC and SAQS accredited and AIU recognized, while its PGDM Programme is NBA accredited. SSIM is also a member of AACSB, further strengthening its commitment to global standards in management education.",
       "Goals are achieved at a rapid pace if more and more like minded people come together. With many initiatives undertaken and hundreds of like minded people being added each year to the already vast Siva Sivani family, we have moved that much closer to achieving our goals.",
       "I invite you to become an integral part of this saga.",
     ],
