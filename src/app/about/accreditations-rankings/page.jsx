@@ -156,7 +156,8 @@ const RankingCard = ({ title, description, rankings }) => {
                 : "same";
 
             // Determine if this is a top 3 ranking
-            const isTopThree = item.rank <= 3;
+            const isNumericRank = typeof item.rank === "number";
+            const isTopThree = isNumericRank && item.rank <= 3;
 
             return (
               <div
@@ -191,8 +192,8 @@ const RankingCard = ({ title, description, rankings }) => {
                           : ""
                       }`}
                     >
-                      {isTopThree && <Medal className="mr-1 h-3.5 w-3.5" />}#
-                      {item.rank}
+                      {isTopThree && <Medal className="mr-1 h-3.5 w-3.5" />}
+                      {isNumericRank ? `#${item.rank}` : item.rank}
                     </Badge>
 
                     {trend === "up" && (
