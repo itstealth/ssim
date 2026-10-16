@@ -2,7 +2,6 @@ import { Geist, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import QueryProvider from "@/components/QueryProvider";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "sonner";
 import { HomepageSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
@@ -82,7 +81,7 @@ export default function RootLayout({ children }) {
       <head>
         {/* Preload Mobile LCP Hero Banner Image for minimal resource load delay */}
         <link rel="preload" as="image" href="/hero-sm.avif" media="(max-width: 767px)" type="image/avif" fetchPriority="high" />
-        <link rel="preload" as="image" href="/banner.avif" media="(min-width: 768px)" type="image/avif" fetchPriority="high" />
+        <link rel="preload" as="image" href="/banner-home-v2.avif" media="(min-width: 768px)" type="image/avif" fetchPriority="high" />
         {/* Homepage @graph Schema — Organization + WebSite */}
         <HomepageSchema />
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
@@ -129,9 +128,6 @@ export default function RootLayout({ children }) {
           <Toaster />
         </QueryProvider>
 
-        {/* Google Analytics — afterInteractive, inside <body> (was incorrectly after </html>).
-            @next/third-parties/google already uses afterInteractive internally. */}
-        <GoogleAnalytics gaId="G-G3TY673HQG" />
       </body>
     </html>
   );

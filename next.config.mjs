@@ -37,10 +37,27 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  async headers() {
+    return [
+      {
+        source: "/banner-home-v2.avif",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
+
   // Tree-shake large libraries so only the icons/components actually imported
   // are included in the JS bundle. Without this, the full lucide-react and
   // framer-motion libraries are shipped to every page.
   experimental: {
+    // Inline imported CSS in production to remove the global stylesheet request
+    // from the homepage's render-blocking path.
+    inlineCss: true,
     optimizePackageImports: [
       "lucide-react",
       "framer-motion",

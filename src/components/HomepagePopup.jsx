@@ -28,8 +28,8 @@ export default function HomepagePopup() {
             alt="SSIM announcement"
             width={1080}
             height={1350}
-            priority
-            unoptimized
+            sizes="(max-width: 640px) 90vw, 544px"
+            loading="lazy"
             className="block h-auto w-full rounded-[1.3rem]"
           />
         </div>

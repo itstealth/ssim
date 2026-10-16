@@ -1,7 +1,5 @@
-import Image from "next/image";
-
 const HeroSection = ({
-  desktopImageSrc = "/banner.avif",
+  desktopImageSrc = "/banner-home-v2.avif",
   mobileImageSrc = "/hero-sm.avif",
   altText = "SSIM Hyderabad campus AICTE-approved PGDM ranked 2nd top B-school by Outlook India",
   className = ""
