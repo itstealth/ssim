@@ -9,11 +9,6 @@ export default function HomepagePopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Fetch the banner while the homepage is hydrating, rather than only after
-    // the dialog opens. This prevents an empty popup on slower live networks.
-    const popupImage = new window.Image();
-    popupImage.src = "/popup-image.webp";
-
     const timer = window.setTimeout(() => setIsOpen(true), 3000);
     return () => window.clearTimeout(timer);
   }, []);

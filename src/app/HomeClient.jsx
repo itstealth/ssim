@@ -19,7 +19,7 @@
  * the first paint.
  */
 import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -34,6 +34,40 @@ import {
 const SectionLoader = ({ height = "min-h-[200px]" }) => (
   <div className={`w-full ${height}`} />
 );
+
+// Delay below-the-fold bundles until they are close to the viewport. The
+// placeholder keeps each section's approximate space in the page layout.
+function DeferredSection({ children, height }) {
+  const sectionRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    if (shouldLoad || !sectionRef.current) return;
+    if (!("IntersectionObserver" in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "700px 0px" }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [shouldLoad]);
+
+  return (
+    <div ref={sectionRef} className="w-full">
+      {shouldLoad ? children : <SectionLoader height={height} />}
+    </div>
+  );
+}
 
 // Timeline: framer-motion (motion + useInView)
 const Timeline = dynamic(() => import("./secondHome/components/Timeline"), {
@@ -292,18 +326,18 @@ const GuidingAlumni = () => {
 export default function HomeClient() {
   return (
     <>
-      <Timeline />
+      <DeferredSection height="min-h-[300px]"><Timeline /></DeferredSection>
       {/* <Placements /> */}
-      <WhySSIM />
-      <Faculty />
-      <GuidingAlumni />
-      <AlumniSpeak />
-      <Research />
-      <SSIMStories />
-      <PlacementStories />
-      <IndustryExperts />
-      <AlumniSection />
-      <HomeFAQ />
+      <DeferredSection height="min-h-[350px]"><WhySSIM /></DeferredSection>
+      <DeferredSection height="min-h-[400px]"><Faculty /></DeferredSection>
+      <DeferredSection height="min-h-[400px]"><GuidingAlumni /></DeferredSection>
+      <DeferredSection height="min-h-[500px]"><AlumniSpeak /></DeferredSection>
+      <DeferredSection height="min-h-[400px]"><Research /></DeferredSection>
+      <DeferredSection height="min-h-[350px]"><SSIMStories /></DeferredSection>
+      <DeferredSection height="min-h-[350px]"><PlacementStories /></DeferredSection>
+      <DeferredSection height="min-h-[300px]"><IndustryExperts /></DeferredSection>
+      <DeferredSection height="min-h-[350px]"><AlumniSection /></DeferredSection>
+      <DeferredSection height="min-h-[300px]"><HomeFAQ /></DeferredSection>
     </>
   );
 }

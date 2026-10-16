@@ -21,8 +21,8 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
-  // Playfair is the site-wide heading font, so preload it for above-the-fold headings.
-  preload: true,
+  // Keep this secondary heading font out of the initial critical request chain.
+  preload: false,
 });
 
 export const metadata = {
@@ -74,8 +74,6 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export default function RootLayout({ children }) {
@@ -107,7 +105,7 @@ export default function RootLayout({ children }) {
             This ensures GTM never competes with LCP for network/CPU bandwidth. */}
         <Script
           id="gtm-script"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         >{`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

@@ -7,21 +7,11 @@ import PlacementCardMarquee from "@/components/ui/PlacementCardMarquee";
 import { placementCards } from "@/data/placementData";
 import { Button } from "@/components/ui/button";
 
-import { useEffect, memo } from "react";
+import { memo } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const PlacementStories = () => {
-  // Preload images
-  useEffect(() => {
-    placementCards.forEach((card) => {
-      const img = new Image();
-      img.src = card.image;
-      const logo = new Image();
-      logo.src = card.logo;
-    });
-  }, []);
-
   return (
     <section className="relative bg-white py-12 md:py-16 overflow-hidden">
       {/* Subtle Grid Background Pattern */}
