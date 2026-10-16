@@ -100,18 +100,40 @@ export default function RootLayout({ children }) {
           ></iframe>
         </noscript>
 
-        {/* GTM — afterInteractive: fires only after the page becomes interactive.
-            This ensures GTM never competes with LCP for network/CPU bandwidth. */}
-        <Script
-          id="gtm-script"
-          strategy="lazyOnload"
-        >{`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-5LJR499N');
-        `}</Script>
+        {/* Load GTM after the first interaction or after the page has settled.
+            Analytics and ad tags then stay off the initial main-thread path. */}
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`
+            (function(w,d){
+              var loaded=false;
+              var fallback;
+              var events=['pointerdown','keydown','touchstart','scroll'];
+              function boot(){
+                if(loaded)return;
+                loaded=true;
+                w.clearTimeout(fallback);
+                events.forEach(function(name){w.removeEventListener(name,onInteraction)});
+                w.dataLayer=w.dataLayer||[];
+                w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+                var first=d.getElementsByTagName('script')[0];
+                var script=d.createElement('script');
+                script.async=true;
+                script.src='https://www.googletagmanager.com/gtm.js?id=GTM-5LJR499N';
+                first.parentNode.insertBefore(script,first);
+              }
+              var interactionScheduled=false;
+              function onInteraction(){
+                if(loaded||interactionScheduled)return;
+                interactionScheduled=true;
+                w.setTimeout(boot,1000);
+              }
+              events.forEach(function(name){
+                w.addEventListener(name,onInteraction,{once:true,passive:true});
+              });
+              fallback=w.setTimeout(boot,10000);
+            })(window,document);
+          `}
+        </Script>
 
         {/* NoPaperForms — lazyOnload fires only during browser idle time */}
         <Script id="nopaperforms-config" strategy="lazyOnload">

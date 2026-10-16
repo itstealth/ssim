@@ -1,25 +1,10 @@
 "use client";
 
 /* eslint-disable react/no-unknown-property */
-import { useEffect, useState } from "react";
 import { Instagram, Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const TopBar = () => {
-  const [iconsLoaded, setIconsLoaded] = useState([false, false, false, false, false]);
-
-  useEffect(() => {
-    iconsLoaded.forEach((_, index) => {
-      setTimeout(() => {
-        setIconsLoaded((prev) => {
-          const next = [...prev];
-          next[index] = true;
-          return next;
-        });
-      }, index * 150);
-    });
-  }, []);
-
   const socialIcons = [
     {
       icon: <Instagram className="w-4 h-4" />,

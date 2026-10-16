@@ -227,13 +227,11 @@ function wrapHeadingWords(heading) {
   }
 }
 
-function styleHeading(heading) {
+function styleHeading(heading, useWhiteText) {
   if (!(heading instanceof HTMLElement)) return;
   if (heading.closest(SKIP_SELECTOR) || heading.dataset.headingStyle === "off") {
     return;
   }
-
-  const useWhiteText = shouldUseWhiteText(heading);
 
   heading.classList.add("site-heading-theme");
   heading.style.setProperty(
@@ -242,6 +240,16 @@ function styleHeading(heading) {
   );
 
   wrapHeadingWords(heading);
+  heading.dataset.siteHeadingStyled = "true";
+}
+
+function collectHeadings(node) {
+  if (!(node instanceof Element)) return [];
+
+  const headings = [];
+  if (node.matches(HEADING_SELECTOR)) headings.push(node);
+  headings.push(...node.querySelectorAll(HEADING_SELECTOR));
+  return headings;
 }
 
 export default function HeadingStyleManager() {
@@ -252,7 +260,6 @@ export default function HeadingStyleManager() {
     let observer;
 
     const observeHeading = (heading) => {
-      styleHeading(heading);
       headings.add(heading);
 
       if (
@@ -278,24 +285,53 @@ export default function HeadingStyleManager() {
       { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
     );
 
-    const enhanceHeadings = () => {
-      document.querySelectorAll(HEADING_SELECTOR).forEach(observeHeading);
+    const enhanceHeadings = (candidates) => {
+      // Read computed styles for all new headings before changing any DOM.
+      // This avoids a forced style/layout flush for each heading in the batch.
+      const unstyled = candidates
+        .filter(
+          (heading) =>
+            heading instanceof HTMLElement &&
+            heading.dataset.siteHeadingStyled !== "true" &&
+            !heading.closest(SKIP_SELECTOR) &&
+            heading.dataset.headingStyle !== "off"
+        )
+        .map((heading) => [heading, shouldUseWhiteText(heading)]);
+
+      unstyled.forEach(([heading, useWhiteText]) => {
+        styleHeading(heading, useWhiteText);
+      });
+
+      candidates.forEach(observeHeading);
     };
 
     // Deferred even for the initial pass: touching headings synchronously
     // inside this effect can race React's own commit for lazy/Suspense
     // subtrees that resolve just after mount, producing a spurious
     // "hydration mismatch" warning on the next render.
-    const initialId = setTimeout(enhanceHeadings, 120);
+    const initialId = setTimeout(() => {
+      enhanceHeadings([...document.querySelectorAll(HEADING_SELECTOR)]);
+    }, 120);
 
     // Debounce (rather than a single rAF) so we don't touch headings while
     // React is still mid-commit for a lazy/Suspense-loaded subtree — racing
     // that produces a spurious "hydration mismatch" warning as React's next
     // reconciliation pass finds DOM we already mutated out from under it.
     let debounceId = null;
-    const scheduleEnhance = () => {
+    const pendingHeadings = new Set();
+    const scheduleEnhance = (mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          collectHeadings(node).forEach((heading) => pendingHeadings.add(heading));
+        });
+      });
+
+      if (pendingHeadings.size === 0) return;
       if (debounceId) clearTimeout(debounceId);
-      debounceId = setTimeout(enhanceHeadings, 120);
+      debounceId = setTimeout(() => {
+        enhanceHeadings([...pendingHeadings]);
+        pendingHeadings.clear();
+      }, 120);
     };
 
     const mutationObserver = new MutationObserver(scheduleEnhance);
