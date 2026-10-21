@@ -3,7 +3,6 @@
 import { teamMembers } from "../../../../data/facultyData";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Source_Serif_4 } from "next/font/google";
 import {
   ChevronLeft,
   GraduationCap,
@@ -19,12 +18,6 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
-
-const serif = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
 
 /* ---------------------------------------------------------------- */
 /* Shared motion presets                                             */
@@ -137,7 +130,7 @@ function FacultyHero({ member }) {
           </span>
         )}
 
-        <h1 className={`${serif.className} text-4xl md:text-[3.2rem] font-medium text-gray-900 tracking-tight leading-[1.05] mb-3`}>
+        <h1 className={`font-playfair text-4xl md:text-[3.2rem] font-medium text-gray-900 tracking-tight leading-[1.05] mb-3`}>
           {member.name}
         </h1>
 
@@ -290,7 +283,7 @@ function FacultySummarySidebar({ member }) {
         </div>
 
         <div className="p-5">
-          <p className={`${serif.className} text-gray-900 text-base font-medium leading-tight`}>
+          <p className={`font-playfair text-gray-900 text-base font-medium leading-tight`}>
             {member.name}
           </p>
           {!isEmptyField(member.designation) && (
@@ -360,7 +353,7 @@ function FacultyBiography({ member, id }) {
         {paragraphs.map((paragraph, index) => (
           <p
             key={index}
-            className={`leading-[1.8] text-[1.02rem] text-gray-600 ${serif.className}`}
+            className={`font-playfair leading-[1.8] text-[1.02rem] text-gray-600`}
           >
             {paragraph}
           </p>
