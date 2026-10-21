@@ -12,19 +12,19 @@ export async function generateMetadata({ params }) {
     },
     "pgdm-bifs": {
       title: "PGDM in Banking, Insurance & Financial Services | SSIM Hyderabad",
-      description: "Join SSIM's 2-year PGDM BIFS – a full-time program in Banking, Insurance & Financial Services. AICTE-approved | 120 Credits | 60 Seats | Hyderabad. Apply now!",
+      description: "Join SSIM's 2-year PGDM BIFS – a full-time program in Banking, Insurance & Financial Services. AICTE-approved | 125 Credits | 60 Seats | Hyderabad. Apply now!",
     },
     "pgdm-triple-specialisation": {
       title: "PGDM Triple Specialisation Hyderabad – SSIM | 3-in-1 Skill Set",
       description: "Explore the PGDM with Triple Specialisation at SSIM: two-year on-campus program with Major, Minor & Sector choices, 120 credits, strong industry alignment.",
     },
     "fpm": {
-      title: "FPM & EFPM Program | Fellow Program in Management | SSIM Hyderabad",
-      description: "Pursue SSIM's FPM & EFPM – Fellow Program in Management. 3-year full-time doctoral program with 45 credits & 20 seats. AICTE-approved | Hyderabad. Apply now!",
+      title: "FPM Program | Fellow Program in Management | SSIM Hyderabad",
+      description: "Pursue SSIM's FPM – Fellow Program in Management. 3-year full-time doctoral program with 45 credits & 20 seats. AICTE-approved | Hyderabad. Apply now!",
     },
     "efpm": {
-      title: "FPM & EFPM Program | Fellow Program in Management | SSIM Hyderabad",
-      description: "Pursue SSIM's FPM & EFPM – Fellow Program in Management. 3-year full-time doctoral program with 45 credits & 20 seats. AICTE-approved | Hyderabad. Apply now!",
+      title: "EFPM Program at SSIM Hyderabad",
+      description: "Explore SSIM Hyderabad's EFPM program. 3-year full-time doctoral program with 36 credits & 20 seats. AICTE-approved | Hyderabad. Apply now!",
     },
   };
 
