@@ -402,11 +402,11 @@ export default function Samaroh2027Page() {
           <div>
             <SectionEyebrow light>Pre-conference research forum</SectionEyebrow>
             <div className="mt-6 flex items-end gap-4">
-              <span className="font-playfair text-7xl font-bold leading-none text-white/10 sm:text-8xl" aria-hidden="true">
+              <span className="font-playfair text-7xl font-bold leading-none text-white sm:text-8xl" aria-hidden="true">
                 01
               </span>
-              <div className="mb-1 border-l border-violet-300/70 pl-4">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-violet-200">
+              <div className="mb-1 border-l border-white/60 pl-4">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white">
                   11 February 2027
                 </p>
                 <h2 className="mt-2 font-playfair text-3xl font-bold leading-tight sm:text-4xl">
