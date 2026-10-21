@@ -8,7 +8,7 @@ export const metadata = {
     title: "Research & Publications - SSIM Hyderabad",
     description:
       "Peer-reviewed papers, conference presentations, patents, faculty awards and books from the SSIM faculty.",
-    url: "https://www.ssim.ac.in/research",
+    url: "https://ssim.ac.in/research",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

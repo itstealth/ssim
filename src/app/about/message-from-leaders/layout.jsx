@@ -7,7 +7,7 @@ export const metadata = {
     title: "Message from Leaders - SSIM Hyderabad | Top PGDM College in Hyderabad",
     description:
       "Discover the leadership team at SSIM Hyderabad — visionary academicians and industry experts guiding one of the best PGDM colleges in Hyderabad.",
-    url: "https://www.ssim.ac.in/about/message-from-leaders",
+    url: "https://ssim.ac.in/about/message-from-leaders",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://ssim.ac.in/about/leadership",
+    canonical: "https://ssim.ac.in/about/message-from-leaders",
   },
 };
 

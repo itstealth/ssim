@@ -8,6 +8,9 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: {
+    canonical: "https://ssim.ac.in/about-ssgi",
+  },
   openGraph: {
     title,
     description,

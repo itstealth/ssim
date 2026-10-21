@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "SSIM Hyderabad International Relations | Global Partnerships",
     description: "Explore SSIM Hyderabad's international relations initiatives, global collaborations, student exchange programs, and worldwide academic partnerships.",
-    url: "https://www.ssim.ac.in/international-relations",
+    url: "https://ssim.ac.in/international-relations",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/international-relations",
+    canonical: "https://ssim.ac.in/international-relations",
   },
 };
 
