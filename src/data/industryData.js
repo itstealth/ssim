@@ -59,8 +59,50 @@ const eurekaGallery = [
   "/studentslife/student'sAchievements/Eureka!-2026/Sri Vidya Maddineni.jpeg",
   "/studentslife/student'sAchievements/Eureka!-2026/WhatsApp Image 2026-08-23 at 8.59.02 AM.jpeg",
 ];
+const yuvaSammelanMainImage = "/studentslife/student-achievements/yuva-sammelan-01.jpeg";
+const yuvaSammelanGallery = [
+  yuvaSammelanMainImage,
+  ...[2, 3, 4, 5, 6].map(
+    (number) => `/studentslife/student-achievements/yuva-sammelan/yuva-sammelan-0${number}.jpeg`,
+  ),
+];
+const ubsFinanceGallery = [1, 2, 3, 4, 5].map(
+  (number) => `/studentslife/student-achievements/ubs-finance-challenge/ubs-finance-challenge-0${number}.jpeg`,
+);
+const bsmartCanvasGallery = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(
+  (number) => `/studentslife/student-achievements/bsmart-canvas/bsmart-canvas-${String(number).padStart(2, "0")}.jpeg`,
+);
 
 export const industryData = [
+  {
+    id: 13,
+    image: yuvaSammelanMainImage,
+    category: "education",
+    title: "SSIM Students Secure Second Prize at Yuva Sammelan",
+    tags: ["Yuva Sammelan", "Mind Spark", "Student Achievement"],
+    description: `Siva Sivani Institute of Management (SSIM) congratulates Kausher and Harshini of the PGDM Batch 2026–28 for securing Second Prize in Mind Spark at Yuva Sammelan, organised by Avinash College, KPHB. The students were awarded a cash prize of ₹2,000 in recognition of their achievement.\n\nSSIM students also participated in the IPL Mock Bidding and Mind Spark events, demonstrating their strategic thinking, creativity, teamwork, and competitive spirit.`,
+    gallery: yuvaSammelanGallery,
+  },
+  {
+    id: 12,
+    image: ubsFinanceGallery[0],
+    date: "September 7, 2026",
+    category: "education",
+    title: "SSIM Students Participated in the UBS Finance Challenge – Final Round",
+    tags: ["UBS", "Finance Challenge", "Corporate Exposure"],
+    description: `On 7 September 2026, SSIM students participated in the final round of the UBS Finance Challenge held at the UBS office. The event provided students with an opportunity to demonstrate their financial knowledge and gain exposure to the corporate environment. All participants received certificates of participation and kits from UBS, recognising their involvement and encouraging their continued learning and professional development.\n\nSSIM PGDM student participants:\nAshrita Kasturi, D. Manogna, K. Sreenidhi, N. Anurup Reddy, K. Vamshi Krishna, Sachin Yadav, H. K. Sneha, Kirtan Kumar Mishra, and B. Nivas.`,
+    gallery: ubsFinanceGallery,
+  },
+  {
+    id: 11,
+    image: bsmartCanvasGallery[0],
+    date: "May 30, 2026",
+    category: "education",
+    title: "SSIM Students Excel in Smart Brand Canvas Ad Campaign Contest",
+    tags: ["Brand Management", "BSmart", "Student Achievement"],
+    description: `SSIM PGDM students Vishu Vardhan, Rohan, Aaradhya, Jaisree, Narender, Naga Ramakrishna, Sahith, and Fayaz from Team Trikali-X and Plan B secured the First Runner-Up position in the BSmart Brand Canvas Ad Campaign Reel Contest for the South and East Region campus rounds.\n\nThe teams later participated in the Brand Canvas National Qualifier Round for Milky Mist and PFRDA on 30 May 2026, competing with shortlisted teams from 13 B-schools across India. The students showcased their creativity, teamwork, and brand management skills.\n\nBusiness Standard (BSmart) officials visited the SSIM campus to felicitate the students, present certificates, and encourage them in future competitions. The achievement highlights SSIM’s focus on experiential learning and industry exposure.`,
+    gallery: bsmartCanvasGallery,
+  },
   {
     id: 10,
     image: eurekaMainImage,

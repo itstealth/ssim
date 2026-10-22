@@ -135,7 +135,7 @@ const StudentsAchievements = () => {
                             <div className="w-full max-h-[60vh] flex justify-center">
                               <img
                                 src={image}
-                                alt={`Gallery image ${index + 1}`}
+                                alt={`${selectedEvent.title} image ${index + 1}`}
                                 className="max-w-full max-h-full object-contain rounded-md"
                                 style={{
                                   maxWidth: "100%",
@@ -154,7 +154,7 @@ const StudentsAchievements = () => {
                     <div className="w-full max-h-[60vh] flex justify-center">
                       <img
                         src={selectedEvent.image}
-                        alt={`Event ${selectedEvent.id}`}
+                        alt={selectedEvent.title}
                         className="max-w-full max-h-full object-contain rounded-md"
                         style={{
                           maxWidth: "100%",
