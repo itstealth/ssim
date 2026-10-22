@@ -8,7 +8,7 @@ export const metadata = {
     title: "Research & Publications - SSIM Hyderabad",
     description:
       "Peer-reviewed papers, conference presentations, patents, faculty awards and books from the SSIM faculty.",
-    url: "https://ssim.ac.in/research",
+    url: "https://ssim.ac.in/research-publications",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     images: ["/ssimlogo.webp"],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://ssim.ac.in/research" },
+  alternates: { canonical: "https://ssim.ac.in/research-publications" },
 };
 
 export default function ResearchLayout({ children }) {
