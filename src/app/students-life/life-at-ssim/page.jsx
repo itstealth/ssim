@@ -25,6 +25,68 @@ const categories = [
       "On 16 July 2026, SSIM inaugurated the PGDM Programmes for the Batch 2026–28. Ms. Salini S. Pillai, Associate Director, Deloitte Consulting India Pvt. Ltd., joined as Chief Guest, and Mr. Ravi Tanniru, Founder & CEO, ProFintech (Finteract AI), attended as Guest of Honour. Presided over by Smt. Aarathy Sampathy, President & Chief Executive, SSGI, the programme marked the beginning of an enriching academic journey for the new batch.",
   },
   {
+    id: "63",
+    label: "Spandana-2026 (Freshers' Party)",
+    icon: <Image />,
+    heading: "Spandana-2026 (Freshers' Party) – PGDM Batch 2026–28",
+    description: `Siva Sivani Institute of Management (SSIM) organized Fresher’s Day for the PGDM Batch 2026–28, welcoming the new students into the SSIM family with joy, enthusiasm, and vibrant celebrations.
+
+The event was filled with fun, talent, laughter, and memorable moments, fostering friendship, togetherness, and a sense of belonging among the new batch.
+
+SSIM extends a warm welcome to the PGDM Batch 2026–28 and wishes all students a successful, enriching, and exciting journey ahead!`,
+  },
+  {
+    id: "62",
+    label: "FinTech Certificate Award Ceremony",
+    icon: <Image />,
+    heading: "Advanced Certificate Course on FinTech – Certificate Award Ceremony",
+    description: `Siva Sivani Institute of Management (SSIM), in collaboration with the Institute of Cost Accountants of India (ICMAI), organised the Certificate Award Ceremony for the Advanced Certificate Course on FinTech.
+
+The event was graced by eminent representatives from ICMAI, celebrating the achievement of 105 students and faculty members who successfully qualified for the certification.
+
+The ceremony highlighted the evolving FinTech and BFSI landscape, emerging career opportunities, and the growing importance of integrating financial expertise with technology.`,
+  },
+  {
+    id: "61",
+    label: "From Classroom to Corporate",
+    icon: <Image />,
+    heading: "From Classroom to Corporate | Building Skills for a Successful Career",
+    description: `Siva Sivani Institute of Management (SSIM) hosted an engaging session for the PGDM Batch 2026–27, led by Mr. Vinod Sharma, Chief Operating Officer, Education Services Pvt. Ltd., and SSIM alumnus, 3rd Batch (1996–98).
+
+Drawing from his corporate journey and leadership experience, Mr. Sharma shared valuable perspectives on career readiness, professional skills, workplace expectations and the transition from campus to corporate life.`,
+  },
+  {
+    id: "60",
+    label: "SANMAAN - Teacher's Day",
+    icon: <Image />,
+    heading: "SANMAAN - TEACHER'S DAY",
+    description: `Teachers' Day is celebrated every year on 5th September at SSIM. On this day SSIM felicitates a distinguished teacher with a citation highlighting the accomplishments and contributions made by the teacher. This sends a strong message to students about our tradition of respecting teachers, which is part of our culture and society.
+
+As part of the celebrations, SSIM conferred the Dr. S. Radhakrishnan Memorial “Teacher of Teachers” Award on Prof. Abhirama Krishna, Director General, Badruka Group of Institutions, in recognition of his distinguished contribution to education. The students of SPS School presented a vibrant array of cultural programmes, adding colour and spirit to the celebrations.
+
+On the occasion, the Management felicitated employees of the Siva Sivani Group of Institutions (SSGI) in appreciation of their dedicated service and contribution to the cause of education.`,
+  },
+  {
+    id: "59",
+    label: "SAMPARK 2026",
+    icon: <Image />,
+    heading: "SAMPARK 2026 | An Evening of Meaningful Connections & Conversations",
+    description: `100+ HR Professionals | 6 Distinguished HR Leaders | One Powerful Platform
+
+SSIM, in association with NHRD Network, organized SAMPARK 2026 on 28 August 2026 at T-Hub, Hyderabad, bringing together 100+ HR professionals, industry leaders, recruiters and academicians for an engaging evening of connections, conversations and collaboration.
+
+The theme, “AI FOR HR: From Hype to Impact,” sparked insightful discussions on how Artificial Intelligence is transforming HR practices, talent, careers and the future of work.`,
+  },
+  {
+    id: "58",
+    label: "Hustle Smart: The New Rules of Business",
+    icon: <Image />,
+    heading: "Hustle Smart: The New Rules of Business",
+    description: `On the occasion of World Entrepreneurs’ Day, SHURUAAT – Entrepreneurship & Innovation Cell, in collaboration with IIC – Institution’s Innovation Council, brought together inspiring entrepreneurs and industry leaders for an insightful panel discussion on entrepreneurship, innovation, and the future of business.
+
+The conversation featured real experiences, fresh perspectives, and smart business lessons, offering valuable takeaways for aspiring entrepreneurs and future business leaders.`,
+  },
+  {
     id: "56",
     label: "Sanghosti 2026: Campus to Corporate",
     icon: <Image />,
@@ -657,6 +719,55 @@ const ganeshCelebrationsImages = [
   alt: `ganesh celebrations image ${i + 1}`,
 }));
 
+const spandana2026Images = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/spandana-2026/spandana-2026-0${i + 1}.webp`,
+  category: "63",
+  alt: `Spandana 2026 freshers' party image ${i + 1}`,
+}));
+
+const fintechCertificateImages = Array.from({ length: 6 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/fintech-certificate-ceremony/fintech-0${i + 1}.webp`,
+  category: "62",
+  alt: `FinTech certificate ceremony image ${i + 1}`,
+}));
+
+const classroomToCorporateCareerImages = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/classroom-to-corporate-career/classroom-corporate-0${i + 1}.webp`,
+  category: "61",
+  alt: `From Classroom to Corporate session image ${i + 1}`,
+}));
+
+const visarjanImages = Array.from({ length: 6 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/visarjan/visarjan-0${i + 1}.webp`,
+  category: "5",
+  alt: `Ganesh visarjan image ${i + 1}`,
+}));
+
+const sanmaan2026Images = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/sanmaan-2026/sanmaan-0${i + 1}.webp`,
+  category: "60",
+  alt: `Sanmaan 2026 Teachers' Day image ${i + 1}`,
+}));
+
+const sampark2026Images = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/sampark-2026/sampark-0${i + 1}.webp`,
+  category: "59",
+  alt: `Sampark 2026 image ${i + 1}`,
+}));
+
+const hustleSmartImages = Array.from({ length: 5 }, (_, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/hustle-smart/hustle-smart-0${i + 1}.webp`,
+  category: "58",
+  alt: `Hustle Smart entrepreneurship panel image ${i + 1}`,
+}));
+
 const smriti2025Images = [
   "smriti 2025 (6).jpg",
   "smriti 2025 (15).jpg",
@@ -1090,6 +1201,12 @@ const galleryItems = [
   ...outboundTraining2026Images,
   ...sanghosti2026CampusToCorporateImages,
   ...pgdmInauguration202628Images,
+  ...spandana2026Images,
+  ...fintechCertificateImages,
+  ...classroomToCorporateCareerImages,
+  ...sanmaan2026Images,
+  ...sampark2026Images,
+  ...hustleSmartImages,
   ...samarohImages,
   ...samanvayImages,
   ...sameekshaImages,
@@ -1097,6 +1214,7 @@ const galleryItems = [
   ...sadhanaImages,
   ...snatakImages,
   ...sanmanImages,
+  ...visarjanImages,
   ...satakshiImages,
   ...sanghibhavImages,
   ...samskritiImages,
