@@ -81,7 +81,7 @@ The theme, “AI FOR HR: From Hype to Impact,” sparked insightful discussions 
     id: "58",
     label: "Hustle Smart: The New Rules of Business",
     icon: <Image />,
-    heading: "Hustle Smart: The New Rules of Business",
+    heading: "On the occasion of World Entrepreneurs’ Day, SSIM hosted: Hustle Smart: The New Rules of Business",
     description: `On the occasion of World Entrepreneurs’ Day, SHURUAAT – Entrepreneurship & Innovation Cell, in collaboration with IIC – Institution’s Innovation Council, brought together inspiring entrepreneurs and industry leaders for an insightful panel discussion on entrepreneurship, innovation, and the future of business.
 
 The conversation featured real experiences, fresh perspectives, and smart business lessons, offering valuable takeaways for aspiring entrepreneurs and future business leaders.`,
