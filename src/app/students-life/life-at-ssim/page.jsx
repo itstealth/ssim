@@ -39,7 +39,7 @@ SSIM extends a warm welcome to the PGDM Batch 2026–28 and wishes all students 
     id: "62",
     label: "FinTech Certificate Award Ceremony",
     icon: <Image />,
-    heading: "Advanced Certificate Course on FinTech – Certificate Award Ceremony",
+    heading: "Certificate Award Ceremony for the Advanced Certificate Course on FinTech",
     description: `Siva Sivani Institute of Management (SSIM), in collaboration with the Institute of Cost Accountants of India (ICMAI), organised the Certificate Award Ceremony for the Advanced Certificate Course on FinTech.
 
 The event was graced by eminent representatives from ICMAI, celebrating the achievement of 105 students and faculty members who successfully qualified for the certification.
@@ -1294,7 +1294,7 @@ export default function LifeAtSsim() {
                       
                       {/* Card Content - Title and View More */}
                       <div className="flex flex-col flex-grow px-2">
-                        <h3 className="text-[19px] md:text-[21px] font-medium text-[#2d2b52] group-hover:text-[#4239c4] transition-colors line-clamp-2 leading-[1.4]">
+                        <h3 className="text-[19px] md:text-[21px] font-medium text-[#2d2b52] group-hover:text-[#4239c4] transition-colors leading-[1.4]">
                           {category.heading}
                         </h3>
                         
