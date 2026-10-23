@@ -166,13 +166,6 @@ The conversation featured real experiences, fresh perspectives, and smart busine
     description: "Inaguration ceremony of the HR Club at SSIM.",
   },
   {
-    id: "42",
-    label: "Freshers Party 11-09-2025",
-    icon: <Image />,
-    heading: "Freshers Party 11-09-2025",
-    description: "Welcome party for freshers batch 2025-27 held on 11th September 2025.",
-  },
-  {
     id: "41",
     label: "Finance Club Inaguration",
     icon: <Image />,
@@ -201,13 +194,6 @@ The conversation featured real experiences, fresh perspectives, and smart busine
     description: "Inaguration ceremony of the Data Science Club at SSIM.",
   },
 
-  {
-    id: "36",
-    label: "Bmart Ad Competition",
-    icon: <Image />,
-    heading: "Bmart Ad Competition",
-    description: "Bmart advertisement competition at SSIM.",
-  },
   {
     id: "35",
     label: "Analytics Club Quiz Session",
@@ -286,13 +272,6 @@ SAMAROH 2026 recorded an Excellent NPS of +58.03 and a CSAT of 4.33/5, reflectin
     heading: <>27<sup style={{ marginLeft: "0.05em" }}>th</sup> Samanvay</>,
     description: "27th Samanvay - Inter Collegiate Management Students' Meet.",
   },
-  {
-    id: "1",
-    label: "Snatak-2025",
-    icon: <Image />,
-    heading: "Snatak-2025",
-    description: "Convocation ceremony for batch 2023-25.",
-  },
 //   {
 //     id: "2",
 //     label: "Sanman-2025",
@@ -304,19 +283,6 @@ SAMAROH 2026 recorded an Excellent NPS of +58.03 and a CSAT of 4.33/5, reflectin
 
 // Adding to the significance of the occasion, the SSIM Placement Department released the Placement Brochure – Shreshta 2025, showcasing the institute's commitment to academic excellence and industry readiness.`,
 //   },
-  {
-    id: "3",
-    label: "Spandana-2025",
-    icon: <Image />,
-    heading: "Spandana-2025 (Freshers' Party) – PGDM Batch 2025–27",
-    description: `On 12th September 2025, the senior students of Siva Sivani Institute of Management (SSIM) warmly welcomed the PGDM Batch of 2025–27 by hosting a vibrant Freshers' Party – Spandana 2025.
-
-The celebration was filled with energy, cultural performances, and fun activities, showcasing the talents of both seniors and juniors. A major highlight of the evening was the Mr. and Ms. Fresher 2025 contest, where participants competed with enthusiasm and confidence before the winners were crowned.
-
-Adding to the excitement, the SSIM Students' Sports Club organized a cricket tournament for the new batch. After an intense competition, Section D emerged as the Winners, while Section A secured the Runners-up position.
-
-The entire SSIM fraternity—faculty, staff, and students—came together to celebrate, making the occasion a memorable day of joy, bonding, and new beginnings.`,
-  },
   // {
   //   id: "4",
   //   label: "Leadership Talk",
@@ -362,16 +328,6 @@ The entire SSIM fraternity—faculty, staff, and students—came together to cel
   //   description: "Onam celebration at SSIM with traditional activities and festivities.",
   // },
   {
-    id: "10",
-    label: "HR Conclave",
-    icon: <Image />,
-    heading: "HR Conclave",
-    description: `🌟 HR Meet Sampark-2025 🌟
-SSIM proudly hosted this landmark event at Hotel Marigold, Begumpet, bringing together eminent leaders & HR professionals under one roof. 💼✨
-
-The discussions sparked new ideas, future-ready strategies, and collaborative pathways to redefine the evolving workforce landscape. 🚀`,
-  },
-  {
     id: "11",
     label: "Raksha Bandhan 2025",
     icon: <Image />,
@@ -386,14 +342,6 @@ The discussions sparked new ideas, future-ready strategies, and collaborative pa
     heading: "Selfie with Tiranga Campaign @ SSIM",
     description:
       "Siva Sivani Institute of Management (SSIM) organized the \"Selfie with Tiranga\" campaign on campus to celebrate India's Independence. The initiative aimed to encourage students and staff to bring the Tiranga home and proudly hoist it as a symbol of patriotism and unity. Both senior and junior students actively participated, capturing memorable moments with the national flag and showcasing their love and respect for the nation",
-  },
-  {
-    id: "13",
-    label: "SAMVADA",
-    icon: <Image />,
-    heading: "SAMVADA - A RESEARCH PLATFORM",
-    description:
-      "On 20th August 2025, the Research & Publications Cell of SSIM inaugurated SAMVADA – a dedicated research platform designed to foster academic dialogue and collaboration among faculty at the SSIM campus.",
   },
   // {
   //   id: "14",
@@ -532,17 +480,6 @@ const analyticsClubQuizImages = [
   alt: `analytics club quiz image ${i + 1}`,
 }));
 
-const bmartAdCompetitionImages = [
-  "1.webp",
-  "2.webp",
-  "4.webp",
-  "3.webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/bmart-ad-competition/${filename}`,
-  category: "36",
-  alt: `bmart ad competition image ${i + 1}`,
-}));
 
 
 
@@ -594,18 +531,6 @@ const financeClubImages = [
   alt: `finance club image ${i + 1}`,
 }));
 
-const freshersParty2025Images = [
-  "10.webp",
-  "12.webp",
-  "16.webp",
-  "6.webp",
-  "17.webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/freshers-party-11-09-2025/${filename}`,
-  category: "42",
-  alt: `freshers party 2025 image ${i + 1}`,
-}));
 
 const hrClubImages = [
   "1.webp",
@@ -680,31 +605,7 @@ const studentClubTournamentImages = [
 
 
 // Existing image arrays
-const snatak2025Images = [
-  "snatak-2025 (15).webp",
-  "snatak-2025 (31).webp",
-  "snatak-2025 (17).webp",
-  "snatak-2025 (32).webp",
-  "snatak-2025 (11).webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/snatak-2025/${filename}`,
-  category: "1",
-  alt: `snatak 2025 image ${i + 1}`,
-}));
 
-const spandana2025Images = [
-  "spandana (11).jpg",
-  "spandana (7).jpg",
-  "spandana (21).jpg",
-  "spandana (14).jpg",
-  "spandana (27).jpg"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/spandana-2025/${filename}`,
-  category: "3",
-  alt: `spandana 2025 image ${i + 1}`,
-}));
 
 const ganeshCelebrationsImages = [
   "Ganesh Celebrations (4).webp",
@@ -793,18 +694,6 @@ const onamFestivalImages = [
   alt: `onam festival image ${i + 1}`,
 }));
 
-const hrConclaveImages = [
-  "hr-conclave (11).jpg",
-  "hr-conclave (9).jpg",
-  "hr-conclave (5).jpg",
-  "hr-conclave (17).jpg",
-  "hr-conclave (23).jpg"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/hr-conclave/${filename}`,
-  category: "10",
-  alt: `hr conclave image ${i + 1}`,
-}));
 
 const rakshaBandhanImages = [
   "raksha-bandhan (4).jpg",
@@ -832,16 +721,6 @@ const tirangaCampaignImages = [
   alt: `tiranga campaign image ${i + 1}`,
 }));
 
-const samvadaImages = [
-  "samvada (1).webp",
-  "samvada (3).webp",
-  "samvada (2).webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/samvada/${filename}`,
-  category: "13",
-  alt: `samvada image ${i + 1}`,
-}));
 
 const outboundTrainingImages = [
   "outbound (5).webp",
@@ -1169,12 +1048,10 @@ const galleryItems = [
   ...marketingClubActivityImages,
   ...marketingClub2025Images,
   ...hrClubImages,
-  ...freshersParty2025Images,
   ...financeClubImages,
   ...farewell2026Images,
   ...esgClubImages,
   ...dataScienceClubImages,
-  ...bmartAdCompetitionImages,
   ...analyticsClubQuizImages,
   ...convocation30thImages,
   ...womensWeekImages,
@@ -1184,15 +1061,11 @@ const galleryItems = [
   ...icmaiMouImages,
   ...mouWithIbmImages,
   ...samanvayEventPicsImages,
-  ...snatak2025Images,
-  ...spandana2025Images,
   ...ganeshCelebrationsImages,
   ...smriti2025Images,
   ...onamFestivalImages,
-  ...hrConclaveImages,
   ...rakshaBandhanImages,
   ...tirangaCampaignImages,
-  ...samvadaImages,
   ...leadershipTalkImages,
   ...outboundTrainingImages,
   ...sangosti2026ClassroomToCorporateImages,
