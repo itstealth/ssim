@@ -8,16 +8,16 @@ import nodemailer from 'nodemailer';
 const MAIL_USER = process.env.EMAIL_USER || process.env.GMAIL_USER;
 const MAIL_PASS = process.env.EMAIL_PASS || process.env.GMAIL_PASS;
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: MAIL_USER,
-    pass: MAIL_PASS,
-  },
-});
-
 export async function POST(request) {
   try {
+    if (!MAIL_USER || !MAIL_PASS) {
+      console.error('Contact form email credentials are not configured');
+      return NextResponse.json(
+        { error: 'Contact form email is not configured. Please try again later.' },
+        { status: 503 }
+      );
+    }
+
     // Parse the request body
     const body = await request.json();
     const { firstName, lastName, email, phone, subject, message } = body;
@@ -102,6 +102,14 @@ export async function POST(request) {
     };
 
     // Send email
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: MAIL_USER,
+        pass: MAIL_PASS,
+      },
+    });
+
     await transporter.sendMail(mailOptions);
 
     // Return success response

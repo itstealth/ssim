@@ -71,7 +71,7 @@ const TopBar = () => {
           <div className={`justify-center items-center p-3 gap-2 rounded-full shadow-sm flex max-w-lg ${isPurpleHome ? 'text-white bg-white/10 border border-white/15' : 'text-purple-700 bg-white/10 border border-white/20'}`}>
             <div className={`h-2 w-2 rounded-full animate-ping ${isPurpleHome ? 'bg-purple-300' : 'bg-purple-400'}`}></div>
             <marquee className="font-bold text-xs" behavior="scroll" direction="left">
-              Admissions Open for the academic year 2026-2028. Apply Now!
+              Admissions Open for the academic year 2027-2029. Apply Now!
             </marquee>
           </div>
 

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 // import SEO from "@/components/Seo";
 import {
   Card,
@@ -12,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   MapPin,
   Phone,
@@ -140,6 +140,7 @@ const TextareaField = ({
 };
 
 const ContactUs = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -152,7 +153,7 @@ const ContactUs = () => {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   const validateField = (name, value) => {
     let errorMsg = "";
@@ -245,6 +246,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmissionError("");
 
     // Validate all fields
     const newErrors = {};
@@ -278,7 +280,7 @@ const ContactUs = () => {
         if (response.ok) {
           // Success
           console.log('Form submitted successfully:', result);
-          setSubmitSuccess(true);
+          router.push("/thank-you");
 
           // Reset form
           setFormData({
@@ -292,8 +294,6 @@ const ContactUs = () => {
           setErrors({});
           setTouched({});
 
-          // Hide success message after 5 seconds
-          setTimeout(() => setSubmitSuccess(false), 5000);
         } else {
           // API error
           console.error('API Error:', result.error);
@@ -302,6 +302,7 @@ const ContactUs = () => {
         }
       } catch (error) {
         console.error("Submission failed:", error);
+        setSubmissionError(error.message || "Your message could not be sent. Please try again later.");
         // You can add error handling here if needed
         // For example, show an error message to the user
       } finally {
@@ -414,17 +415,6 @@ const ContactUs = () => {
       /> */}    
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Success Alert */}
-          {submitSuccess && (
-            <Alert className="mb-6 border-green-200 bg-green-50">
-              <CheckCircle className="h-4 w-4 text-green-600" />
-              <AlertDescription className="text-green-800">
-                Thank you for your message! We'll get back to you as soon as
-                possible.
-              </AlertDescription>
-            </Alert>
-          )}
-
           <Card className="border-none shadow-xl overflow-hidden bg-white/80 backdrop-blur-sm">
             <CardHeader className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 text-white p-8 md:p-12">
               <CardTitle className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -486,6 +476,11 @@ const ContactUs = () => {
 
                   <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-5">
+                      {submissionError && (
+                        <div role="alert" className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                          {submissionError}
+                        </div>
+                      )}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <InputField
                           name="firstName"
