@@ -2773,6 +2773,9 @@ export const programData = {
             {
               title: "Major - III",
             },
+            {
+              title: "Entrepreneurship Development",
+            },
           ],
           mdevelopment: [
             {
