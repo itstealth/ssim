@@ -141,28 +141,29 @@ const programsOffered = [
   },
   {
     major: "Agri Business Management",
-    minor: "Agri Business Management",
+    minor: "Banking",
     sectoral: "Entrepreneurship",
   },
   {
     major: "Operations Management",
-    minor: "Operations Management",
+    minor: "Insurance",
     sectoral: "Hospitality & Tourism Management",
   },
   {
     major: "Technology Management",
-    minor: "Technology Management",
+    minor: "Business Analytics",
     sectoral: "Pharmaceutical Management",
   },
   {
-    minor: "Banking",
+    minor: "Agri Business Management",
     sectoral: "Real Estate Management",
   },
   {
-    minor: "Business Analytics",
+    minor: "Operations Management",
     sectoral: "Insurance Management",
   },
   {
+    minor: "Technology Management",
     sectoral: "Banking",
   },
 ];

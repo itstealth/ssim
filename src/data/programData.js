@@ -2679,22 +2679,19 @@ export const programData = {
             "Build a solid foundation in programming, statistics, and data manipulation",
           topics: [
             {
-              title: "Mgmt. Theory and Organizational Behaviour",
+              title: "Management Theory and Organizational Behaviour",
             },
             {
               title: "Managerial Economics",
             },
             {
-              title: "Managerial Accounting",
+              title: "Financial Reporting and Statement Analysis",
             },
             {
               title: "Statistics for Decision Making",
             },
             {
               title: "Advanced Excel for Managers",
-            },
-            {
-              title: "Entrepreneurship Development - I",
             },
           ],
           mdevelopment: [
@@ -2734,13 +2731,7 @@ export const programData = {
               title: "Operations Research",
             },
             {
-              title: "Mgmt. Information System & Emerging Technologies",
-            },
-            {
-              title: "Entrepreneurship Development - II",
-            },
-            {
-              title: "Art of Business Communication in Digital Era",
+              title: "AI For Managers",
             },
           ],
           mdevelopment: [
@@ -2768,9 +2759,6 @@ export const programData = {
             "Explore cutting-edge techniques in deep learning and specialized domains",
           topics: [
             {
-              title: "Business Environment and Law",
-            },
-            {
               title: "Operations Management",
             },
             {
@@ -2784,12 +2772,6 @@ export const programData = {
             },
             {
               title: "Major - III",
-            },
-            {
-              title: "Entrepreneurship Development - III",
-            },
-            {
-              title: "Technology Enabled Managerial Communication",
             },
           ],
           mdevelopment: [
@@ -2814,16 +2796,10 @@ export const programData = {
             "Apply your skills to real-world problems and prepare for industry",
           topics: [
             {
-              title: "Project Management",
-            },
-            {
               title: "Major - IV",
             },
             {
               title: "Major - V",
-            },
-            {
-              title: "Major - VI",
             },
             {
               title: "Minor - I",
@@ -2835,7 +2811,7 @@ export const programData = {
               title: "Sectoral - I",
             },
             {
-              title: "Organisational Communication for Industry 4.0",
+              title: "Strategic Management",
             },
           ],
           mdevelopment: [
@@ -2860,12 +2836,6 @@ export const programData = {
             "Explore cutting-edge techniques in deep learning and specialized domains",
           topics: [
             {
-              title: "Strategic Management",
-            },
-            {
-              title: "International Business",
-            },
-            {
               title: "Design Thinking and Innovation",
             },
             {
@@ -2873,6 +2843,9 @@ export const programData = {
             },
             {
               title: "Sectoral - II",
+            },
+            {
+              title: "Essentials of Project Management",
             },
           ],
           mdevelopment: [
@@ -2892,6 +2865,9 @@ export const programData = {
           topics: [
             {
               title: "Corporate Governance and Sustainability",
+            },
+            {
+              title: "International Business",
             },
           ],
           mdevelopment: [
@@ -3106,36 +3082,43 @@ export const programData = {
         headerColor: "bg-amber-500",
         specializations: [
           {
-            name: "Finance Management",
+            name: "Finance",
             courses: [
               "Investment Analysis and Portfolio Management",
               "Risk Management and Derivatives",
               "Management of Financial Services",
               "Fixed Income Securities",
               "Corporate Valuation",
-              "Strategic Financial Management",
             ],
           },
           {
-            name: "Agribusiness",
-            courses: [
-              "Basics of Agriculture",
-              "Agri-Business Marketing and Sales",
-              "Agri-Business Environment and Agri Tech",
-              "Rural Banking and Micro Finance Institution",
-              "Agri Ware Housing and Supply Chain Management",
-              "Agri-Input Marketing/Post Harvest Mgmt./Procurement Mgmt. (Any 1)",
-            ],
-          },
-          {
-            name: "Marketing Management",
+            name: "Marketing",
             courses: [
               "Consumer Behaviour",
               "Sales Management",
               "Services Marketing and CRM",
-              "Integrated Marketing Communication",
+              "Brand Management & Marketing Communications",
               "Business to Business Marketing",
-              "Strategic Brand Management",
+            ],
+          },
+          {
+            name: "Human Resource",
+            courses: [
+              "Human Resource Development",
+              "Employee Relations and Labor codes",
+              "Performance and Compensation Management",
+              "Human Resource Information Systems",
+              "Talent and workforce analytics",
+            ],
+          },
+          {
+            name: "Agri-Business Management",
+            courses: [
+              "Basics of Agriculture",
+              "Agri-Business Marketing and Sales",
+              "Agri-Business Environment and Agri-Tech",
+              "Rural Banking and Micro Finance Institutions",
+              "Agri-Warehousing and Supply Chain Management",
             ],
           },
           {
@@ -3145,19 +3128,17 @@ export const programData = {
               "Service Operations Management",
               "Total Quality Management",
               "Logistic Management",
-              "Lean Operations and Manufacturing",
-              "Technology and Innovation in Operation",
+              "Six Sigma and Lean Manufacturing",
             ],
           },
           {
-            name: "Human Resource Management",
+            name: "Technology Management",
             courses: [
-              "Human Resource Development",
-              "Industrial Relations and Labor Laws",
-              "Performance and Compensation Management",
-              "Human Resource Information Systems",
-              "HR Analytics",
-              "Managing Diversity",
+              "Managing Technological Innovation",
+              "Software Project and Quality Management",
+              "IT Project Management",
+              "Cloud Computing for Managers",
+              "Relational Database Management system (RDBMS)",
             ],
           },
         ],
@@ -3282,11 +3263,11 @@ export const programData = {
       },
       {
         question: "What Major specialisations and electives are available in PGDM Triple Specialisation at SSIM Hyderabad?",
-        answer: "Major specialisations in the client-approved framework include Marketing Management, Finance Management, Human Resource Management, Operations Management, and Agribusiness.",
+        answer: "Major specialisations are Finance, Marketing, Human Resource, Agri-Business Management, Operations Management, and Technology Management. Major electives include Investment Analysis and Portfolio Management, Risk Management and Derivatives, Management of Financial Services, Fixed Income Securities, Corporate Valuation, Consumer Behaviour, Sales Management, Services Marketing and CRM, Brand Management & Marketing Communications, Business to Business Marketing, Human Resource Development, Employee Relations and Labor codes, Performance and Compensation Management, Human Resource Information Systems, Talent and workforce analytics, Basics of Agriculture, Agri-Business Marketing and Sales, Agri-Business Environment and Agri-Tech, Rural Banking and Micro Finance Institutions, Agri-Warehousing and Supply Chain Management, Supply Chain Management, Service Operations Management, Total Quality Management, Logistic Management, Six Sigma and Lean Manufacturing, Managing Technological Innovation, Software Project and Quality Management, IT Project Management, Cloud Computing for Managers, and Relational Database Management system (RDBMS).",
       },
       {
         question: "What Minor specialisations can students choose in the PGDM Triple Specialisation program at SSIM?",
-        answer: "Minor specialisations include Marketing Management, Finance Management, Human Resource Management, Operations Management, Agribusiness, and Business Analytics.",
+        answer: "Minor specialisations are Finance, Marketing, Human Resource, Banking, Insurance, Business Analytics, Agri Business Management, Operations Management, and Technology Management. Sectoral options include Digital Marketing, Retail Management, Business Analytics, Entrepreneurship, Hospitality & Tourism Management, Pharmaceutical Management, Real Estate Management, Insurance Management, and Banking.",
       },
       {
         question: "What is the eligibility for PGDM admissions 2026?",
