@@ -85,7 +85,6 @@ const faqData = [
 // Navigation Data
 const navigationSections = [
   { id: "overview", label: "Overview", icon: FileText },
-  { id: "programs", label: "Areas Of Specialization", icon: BriefcaseBusiness },
   { id: "eligibility", label: "Eligibility Criteria", icon: ClipboardList },
   { id: "process", label: "Selection Process", icon: GraduationCap },
   { id: "fees", label: "Fee Structure", icon: CreditCard },
@@ -115,40 +114,6 @@ const overviewData = [
     description:
       "Publication of 2 research papers in SCOPUS / ABDC Indexed Journals",
     icon: BookOpen, // Changed to BookOpen for research paper publications
-  },
-];
-
-const programsOffered = [
-  {
-    minor: "Banking",
-    sectoral: "Entrepreneurship",
-  },
-  {
-    minor: "Human Resource",
-    sectoral: "Digital Marketing",
-  },
-  {
-    minor: "Insurance",
-    sectoral: "Analytics",
-  },
-  {
-    minor: "Analytics",
-    sectoral: "Pharma Management",
-  },
-  {
-    minor: "Operations",
-    sectoral: "Hospitality & Tourism Marketing",
-  },
-  {
-    minor: "Agri Business Management",
-    sectoral: "Retail Management",
-  },
-  {
-    minor: "Marketing",
-    sectoral: "Real Estate Management",
-  },
-  {
-    minor: "Technology Management",
   },
 ];
 
@@ -377,22 +342,6 @@ const Overview = () => (
       </li>
     </ul>
 
-    <h3 className="font-bold text-mainBlue text-2xl">Specialization Streams</h3>
-    <ul className="list-disc ml-4 list-inside text-gray-700 text-lg">
-      <li>
-        Banking Stream: Retail banking, digital banking, risk and treasury
-        management, mortgage banking, trade finance, AML & KYC
-      </li>
-      <li>
-        Insurance Stream: Insure-tech, fraud risk management, reinsurance
-        management, pensions and annuities, group insurance
-      </li>
-      <li>
-        Analytical Stream: Fraud risk analytics, financial analytics, algo
-        trading with Python, Blockchain and AI applications
-      </li>
-    </ul>
-
     <h3 className="font-bold text-mainBlue text-2xl">Program Highlights</h3>
     <div className="grid md:grid-cols-3 !my-8 gap-6 h-full">
       {[
@@ -410,7 +359,7 @@ const Overview = () => (
         {
           title: "Global Exposure",
           description:
-            "Specialization in 3 domains with choice of 50+ Elective subjects",
+            "Build a global perspective through international business learning and industry exposure.",
           icon: Globe,
         },
         {
@@ -471,44 +420,6 @@ const Overview = () => (
       including Deloitte, Accenture, Aditya Birla, ICICI, Asian Paints, ITC,
       Factset Systems, Franklin Templeton, and InfoEdge.
     </p>
-  </div>
-);
-
-const ProgramsOffered = () => (
-  <div className="space-y-8">
-    <h3 className="font-bold text-mainBlue text-2xl">
-      Areas Of Specialization
-    </h3>
-    <p className="text-gray-700 text-lg !my-8">
-      <strong>Note:</strong> Student need to choose One Minor and One Sectoral
-      Sectoral
-    </p>
-    <div className="rounded-lg overflow-hidden border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="bg-[#002f87] text-white text-lg">
-              Minor
-            </TableHead>
-            <TableHead className="bg-[#002f87] text-white text-lg">
-              Sectoral
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {programsOffered.map((program, index) => (
-            <TableRow key={index}>
-              <TableCell className="text-red-600 text-lg">
-                {program.minor}
-              </TableCell>
-              <TableCell className="text-black text-lg">
-                {program.sectoral}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
   </div>
 );
 
@@ -822,8 +733,6 @@ const PGDMBIFS = () => {
     switch (activeSection) {
       case "overview":
         return <Overview />;
-      case "programs":
-        return <ProgramsOffered />;
       case "process":
         return <Process />;
       case "eligibility":

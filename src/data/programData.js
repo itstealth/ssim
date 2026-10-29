@@ -1667,26 +1667,6 @@ export const programData = {
       degree:
         "Post Graduate Diploma in Management - Banking, Insurance and Financial Services",
     },
-    specializations: [
-      {
-        title: "Banking Stream",
-        icon: "🏦",
-        description:
-          "Retail banking, Digital banking, Risk and Treasury management in banks",
-      },
-      {
-        title: "Insurance Stream",
-        icon: "🛡️",
-        description:
-          "Insure-tech, Fraud risk management in insurance reinsurance management",
-      },
-      {
-        title: "Analytical Stream",
-        icon: "📊",
-        description:
-          "Fraud risk analytics, Financial analytics and Algo trading with Python",
-      },
-    ],
     managerialCompetency: [
       {
         title: "Experiential Learning",
@@ -1760,6 +1740,36 @@ export const programData = {
         description:
           "Each term ends with a viva conducted by industry professionals. These interactions serve as checkpoints to assess student learning, provide corporate feedback, and enhance professional grooming and confidence.",
       },
+      {
+        title: "Corporate alignment",
+        icon: industry,
+        description:
+          "Builds understanding of how business functions, priorities, and decisions align with organizational goals.",
+      },
+      {
+        title: "Basics of Business Communication",
+        icon: presentation,
+        description:
+          "Develops clear professional writing, speaking, listening, and workplace communication skills.",
+      },
+      {
+        title: "Technology Enabled Managerial Communication",
+        icon: experiential,
+        description:
+          "Develops the ability to communicate managerial ideas effectively using digital tools and technology-enabled channels.",
+      },
+      {
+        title: "Business Simulation & Storytelling",
+        icon: project,
+        description:
+          "Uses business simulations and storytelling to strengthen decision-making, analysis, and presentation skills.",
+      },
+      {
+        title: "Capstone Project",
+        icon: internship,
+        description:
+          "Integrates program learning in a practical project focused on a relevant business problem.",
+      },
     ],
     differentiators: [
       {
@@ -1809,216 +1819,74 @@ export const programData = {
       },
     ],
     curriculum: [
-      // {
-      //   name: "PGDM BIFS",
-      //   link: pgdmbifs,
-      // },
       {
         module1: {
           title: "Term Thematic: Corporate Impellent",
           duration: "3 months",
-          description:
-            "Build a solid foundation in management theory, economics, banking principles, and business communication",
           topics: [
-            {
-              title: "Management Theory and Organizational Behaviour",
-            },
-            {
-              title: "Managerial Economics",
-            },
-            {
-              title: "Financial Reporting, Statements & Analysis",
-            },
-            {
-              title: "Statistics for Decision Making",
-            },
-            {
-              title: "Principles and Practices of Banking",
-            },
-            {
-              title: "Basics of Business Communication (BBC)",
-            },
+            { title: "Management Theory and Organizational Behaviour" },
+            { title: "Managerial Economics" },
+            { title: "Financial Reporting and Statement Analysis" },
+            { title: "Statistics for Decision Making" },
+            { title: "Advanced Excel for Managers" },
           ],
-          mdevelopment: [
-            {
-              title: "Industry Review Session [1]",
-            },
-            {
-              title: "Industry Readiness - I [1]",
-            },
-            {
-              title: "Experiential Learning [1]",
-            },
-            {
-              title: "Term End Viva - I",
-            },
-          ],
+          mdevelopment: [],
         },
         module2: {
           title: "Term Thematic: Corporate Intrinsic",
           duration: "3 months",
-          description:
-            "Master retail banking, insurance, corporate finance, and advanced analytics",
           topics: [
-            {
-              title: "Retail Banking and Wealth management",
-            },
-            {
-              title: "Insurance and Risk Management",
-            },
-            {
-              title: "Corporate Finance",
-            },
-            {
-              title: "Marketing of Financial Services",
-            },
-            {
-              title: "Advanced Excel for Managers",
-            },
-            {
-              title: "Operations Research",
-            },
-            {
-              title: "Art of Business Communication in Digital Era (ABCDE)",
-            },
-            {
-              title: "Research Methodology",
-            },
+            { title: "Principles and Practice of Banking" },
+            { title: "Marketing Management" },
+            { title: "Corporate Finance" },
+            { title: "Insurance and Risk Management" },
+            { title: "AI For Managers" },
           ],
-          mdevelopment: [
-            {
-              title: "Book Review Session [1]",
-            },
-            {
-              title: "Industry Readiness - II [1]",
-            },
-            {
-              title: "Social Project [1]",
-            },
-            {
-              title: "Term End Viva - II",
-            },
-          ],
+          mdevelopment: [],
         },
         module3: {
           title: "Term Thematic: Corporate Integral",
           duration: "3 months",
-          description:
-            "Explore corporate credit analysis, investment management, derivatives, and financial modeling",
           topics: [
-            {
-              title: "Corporate & Retail Credit Analysis",
-            },
-            {
-              title: "Principles and Practice of Life and General Insurance",
-            },
-            {
-              title: "Investment Analysis & Portfolio Management",
-            },
-            {
-              title: "Derivatives and Structured Products",
-            },
-            {
-              title: "Financial Modelling",
-            },
-            {
-              title: "Introduction to Econometrics",
-            },
-            {
-              title: "Technology Enabled Managerial Communication (TEMC)",
-            },
-            {
-              title: "Management Accounting",
-            },
+            { title: "Credit Appraisal and Monitoring" },
+            { title: "Research Methodology" },
+            { title: "Investment Analysis and Portfolio Management" },
+            { title: "Principles and Practices of Life and General Insurance" },
+            { title: "Financial Derivatives" },
+            { title: "Fixed Income Securities" },
           ],
-          mdevelopment: [
-            {
-              title: "Company Review Session [1]",
-            },
-            {
-              title: "Industry Readiness - III [1]",
-            },
-            {
-              title: "Term End Viva - III",
-            },
-          ],
+          mdevelopment: [],
         },
         module4: {
           title: "Term Thematic: Corporate Adept",
           duration: "3 months",
-          description:
-            "Apply your skills to investment banking, fintech, wealth management, and industry projects",
           topics: [
-            {
-              title: "Project Management",
-            },
-            {
-              title: "Investment Banking",
-            },
-            {
-              title: "Financial Planning and Wealth Management",
-            },
-            {
-              title: "AML & KYC in Banks",
-            },
-            {
-              title: "Fintech",
-            },
-            {
-              title: "Reinsurance Management",
-            },
-            {
-              title: "Corporate Communication for Industry 5.0 (CCI)",
-            },
-            {
-              title: "Industry Internship Project",
-            },
-            {
-              title: "Course of Independent Study/ MOOCS/ Certificate Course",
-            },
+            { title: "Management of Financial Services" },
+            { title: "Financial Modelling" },
+            { title: "Investment Banking" },
+            { title: "Reinsurance Management" },
+            { title: "Wealth Management" },
+            { title: "Retail Banking" },
           ],
-          mdevelopment: [
-            {
-              title: "Term End Viva - IV",
-            },
-          ],
+          mdevelopment: [],
         },
         module5: {
           title: "Term Thematic: Corporate Astute",
           duration: "3 months",
-          description:
-            "Master strategic management, fixed income securities, trade finance, and group insurance",
           topics: [
-            {
-              title: "Fixed Income Securities",
-            },
-            {
-              title: "Strategic Management",
-            },
-            {
-              title: "Trade Finance & Mortgage Banking",
-            },
-            {
-              title: "Group Insurance and Retirement Benefits",
-            },
+            { title: "Design Thinking and Innovation" },
+            { title: "Group Insurance & Retirement Plan" },
+            { title: "Fintech and Digital Banking" },
+            { title: "Essentials of Project Management" },
           ],
-          mdevelopment: [
-            {
-              title: "Term End Viva - V",
-            },
-          ],
+          mdevelopment: [],
         },
         module6: {
           title: "Term Thematic: Corporate Ace",
           duration: "3 months",
-          description: "Complete dissertation and corporate governance studies",
           topics: [
-            {
-              title: "Corporate Governance and Sustainability",
-            },
-            {
-              title: "Dissertation",
-            },
+            { title: "Corporate Governance and Sustainability" },
+            { title: "International Business" },
           ],
           mdevelopment: [],
         },
@@ -2243,134 +2111,6 @@ export const programData = {
         ],
       },
     },
-    electives: {
-      minor: {
-        title: "Minor Electives",
-        color: "bg-purple-50 border-purple-200",
-        headerColor: "bg-purple-600",
-        specializations: [
-          {
-            name: "Banking",
-            courses: [
-              "Retail Banking",
-              "AML & KYC",
-              "Risk & Treasury Management in Banks",
-            ],
-          },
-          {
-            name: "Insurance",
-            courses: [
-              "InsureTech",
-              "Fraud Risk Management in Insurance",
-              "Liability Insurance",
-            ],
-          },
-          {
-            name: "Operations",
-            courses: [
-              "Supply Chain Management",
-              "Total Quality Management",
-              "Service Operations Management",
-            ],
-          },
-          {
-            name: "Marketing",
-            courses: [
-              "Sales Management",
-              "Services Marketing and CRM",
-              "Strategic Brand Management",
-            ],
-          },
-          {
-            name: "Human Resource",
-            courses: [
-              "Human Resource Development",
-              "Performance and Compensation Management",
-              "Managing Diversity",
-            ],
-          },
-          {
-            name: "Analytics",
-            courses: [
-              "Fraud and Risk Analytics",
-              "Financial Analysis and Algo-Trading with Python",
-              "Blockchain and AI-Applications in Banking",
-            ],
-          },
-          {
-            name: "Agri Business Management",
-            courses: [
-              "Basics of Agriculture",
-              "Agri Business Marketing and Sales",
-              "Agri Warehousing and Supply Chain Management",
-            ],
-          },
-          {
-            name: "Technology Management",
-            courses: [
-              "Software Project and Quality Management",
-              "IT Project Management",
-              "E-business Technologies and Digital Transformation",
-            ],
-          },
-        ],
-      },
-      sectoral: {
-        title: "Sectoral Electives",
-        color: "bg-yellow-50 border-yellow-200",
-        headerColor: "bg-yellow-500",
-        specializations: [
-          {
-            name: "Entrepreneurship",
-            courses: [
-              "Innovation Management and Entrepreneurship",
-              "Family, Small and Social Entrepreneurship",
-            ],
-          },
-          {
-            name: "Digital Marketing",
-            courses: ["Digital Marketing", "Social Media & Content Marketing"],
-          },
-          {
-            name: "Analytics",
-            courses: [
-              "Fintech & Digital Banking",
-              "Predictive Analytics using R",
-            ],
-          },
-          {
-            name: "Pharma Management",
-            courses: ["Pharmaceutical Management", "Pharmaceutical Marketing"],
-          },
-          {
-            name: "Hospitality & Tourism Marketing",
-            courses: ["Hospitality Marketing", "Tourism Marketing"],
-          },
-          {
-            name: "Retail Management",
-            courses: ["Retail Management", "Visual Merchandising"],
-          },
-          {
-            name: "Real Estate Management",
-            courses: [
-              "Strategic Real Estate Marketing",
-              "Advance Real Estate Investment & Development",
-            ],
-          },
-          {
-            name: "Banking",
-            courses: ["Mortgage Banking & Trade Finance", "AML & KYC"],
-          },
-          {
-            name: "Insurance",
-            courses: [
-              "Reinsurance Management",
-              "Group Insurance & Retirement Benefits",
-            ],
-          },
-        ],
-      },
-    },
     faqs: [
       {
         question: "What is PGDM-BIFS at SSIM Hyderabad?",
@@ -2381,8 +2121,8 @@ export const programData = {
         answer: "Yes. PGDM-BIFS at SSIM is AICTE, NBA & NAAC approved, AIU affiliated, and SAQS accredited with outcome-based education.",
       },
       {
-        question: "What are the key specializations offered in the PGDM-BIFS program?",
-        answer: "Students can choose electives in Banking, Insurance, Analytics, Marketing, Operations, Human Resource, Technology Management, Agri Business Management, Digital Marketing, and FinTech.",
+        question: "What are the main academic areas covered in the PGDM-BIFS program?",
+        answer: "The program focuses on banking, insurance, and financial services through a structured six-term curriculum.",
       },
       {
         question: "What practical learning opportunities are included in the PGDM-BIFS program?",

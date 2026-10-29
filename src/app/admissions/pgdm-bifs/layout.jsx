@@ -153,10 +153,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What specialisations are available in PGDM-BIFS at SSIM Hyderabad?",
+      name: "What are the main academic areas covered in PGDM-BIFS at SSIM Hyderabad?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "PGDM-BIFS at SSIM offers specialisations in Banking, Human Resource, Insurance, Analytics, Operations, Agri Business Management, Marketing, and Technology Management. Sectoral electives include Entrepreneurship, Digital Marketing, Pharma Management, Hospitality and Tourism Marketing, Retail Management, and Real Estate Management.",
+        text: "The program focuses on banking, insurance, and financial services through a structured six-term curriculum.",
       },
     },
     {
