@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import IndustryExperts from "@/app/secondHome/components/IndustryExperts";
+// import IndustryExperts from "@/app/secondHome/components/IndustryExperts";
 import { motion, AnimatePresence } from "framer-motion";
 // import SEO from "@/components/Seo";
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,6 @@ import EligibilityCriteria from "@/app/admissions/EligibilityCriteria";
 import AdmissionProcess from "@/app/admissions/AdmissionProcess";
 import AdmissionProgramTabs from "@/components/admissions/AdmissionProgramTabs";
 import AdmissionFAQ from "@/app/admissions/AdmissionFAQ";
-const PGDMBABanner = "/banners/admission-banner.jpeg";
 
 // FAQ Data
 const faqData = [
@@ -814,21 +813,7 @@ const PGDMBA = () => {
         canonicalUrl="https://ssim.ac.in/admissions/pgdm-ba"
       /> */}
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        {/* Hero Section */}
-        <div className="relative overflow-hidden border-b aspect-[1600/362] min-h-[16rem]">
-          <div className="container max-w-7xl mx-auto px-4 min-h-[16rem] relative z-10" />
-          {/* Background image - only on large devices */}
-          <div
-            className="absolute inset-0 z-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${PGDMBABanner})` }}
-          />
 
-          {/* Gradient and icon - only on smaller devices */}
-          <div className="absolute inset-0 z-0 hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10 backdrop-blur-3xl" />
-            <GraduationCap className="absolute right-10 top-10 w-96 h-96 text-primary/5 rotate-12" />
-          </div>
-        </div>
 
         {/* Main Content */}
         <div className="container max-w-7xl mx-auto px-4 py-8">
@@ -918,7 +903,7 @@ const PGDMBA = () => {
           </div>
         </div>
 
-        <IndustryExperts />
+        {/* <IndustryExperts /> */}
 
         {/* Enquire Dialog */}
         <EnquireDialog isOpen={isEnquireOpen} setIsOpen={setIsEnquireOpen} />

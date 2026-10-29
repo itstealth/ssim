@@ -107,8 +107,7 @@ const routeConfig = {
   //   },
   "/programs/fpm-efpm": {
     title: "FPM/EFPM",
-    bannerImage: "/banners/program-banner.jpeg",
-    hideBannerText: true,
+    bannerImage: "/banners/02.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -117,8 +116,7 @@ const routeConfig = {
   },
   "/programs/fpm": {
     title: "FPM",
-    bannerImage: "/banners/program-banner.jpeg",
-    hideBannerText: true,
+    bannerImage: "/banners/03.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -127,8 +125,7 @@ const routeConfig = {
   },
   "/programs/efpm": {
     title: "EFPM",
-    bannerImage: "/banners/program-banner.jpeg",
-    hideBannerText: true,
+    bannerImage: "/banners/04.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -137,8 +134,7 @@ const routeConfig = {
   },
   "/programs/pgdm-ba": {
     title: "PGDM BA",
-    bannerImage: "/banners/program-banner.jpeg",
-    hideBannerText: true,
+    bannerImage: "/banners/06.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -147,8 +143,7 @@ const routeConfig = {
   },
   "/programs/pgdm-bifs": {
     title: "PGDM BIFS",
-    bannerImage: "/banners/program-banner.jpeg",
-    hideBannerText: true,
+    bannerImage: "/banners/07.png",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -157,8 +152,7 @@ const routeConfig = {
   },
   "/programs/pgdm-triple-specialisation": {
     title: "PGDM Triple Specialisation",
-    bannerImage: "/banners/program-banner.jpeg",
-    hideBannerText: true,
+    bannerImage: "/banners/placement-banner.jpeg",
     breadcrumbs: [
       { label: "Home", href: "/" },
       { label: "Programs", href: "/programs" },
@@ -167,6 +161,51 @@ const routeConfig = {
         href: "/programs/pgdm-triple-specialisation",
         isActive: true,
       },
+    ],
+  },
+  "/admissions/fpm-efpm": {
+    title: "FPM/EFPM Admissions",
+    bannerImage: "/banners/02.png",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "Admissions", href: "/admissions" },
+      { label: "FPM/EFPM", href: "/admissions/fpm-efpm", isActive: true },
+    ],
+  },
+  "/admissions/efpm": {
+    title: "EFPM Admissions",
+    bannerImage: "/banners/03.png",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "Admissions", href: "/admissions" },
+      { label: "EFPM", href: "/admissions/efpm", isActive: true },
+    ],
+  },
+  "/admissions/pgdm-ba": {
+    title: "PGDM Business Analytics Admissions",
+    bannerImage: "/banners/04.png",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "Admissions", href: "/admissions" },
+      { label: "PGDM BA", href: "/admissions/pgdm-ba", isActive: true },
+    ],
+  },
+  "/admissions/pgdm-bifs": {
+    title: "PGDM BIFS Admissions",
+    bannerImage: "/banners/06.png",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "Admissions", href: "/admissions" },
+      { label: "PGDM BIFS", href: "/admissions/pgdm-bifs", isActive: true },
+    ],
+  },
+  "/admissions/pgdm-triple-specialisation": {
+    title: "PGDM Triple Specialisation Admissions",
+    bannerImage: "/banners/07.png",
+    breadcrumbs: [
+      { label: "Home", href: "/" },
+      { label: "Admissions", href: "/admissions" },
+      { label: "PGDM Triple Specialisation", href: "/admissions/pgdm-triple-specialisation", isActive: true },
     ],
   },
   //   "/admissions": {

@@ -112,11 +112,11 @@ const PlacementStories = dynamic(() => import("@/sections/Home/PlacementStories"
   ssr: false,
 });
 
-// IndustryExperts: heavy image grid with lazy loading
-const IndustryExperts = dynamic(() => import("./secondHome/components/IndustryExperts"), {
-  loading: () => <SectionLoader height="min-h-[300px]" />,
-  ssr: false,
-});
+// IndustryExperts section hidden per request.
+// const IndustryExperts = dynamic(() => import("./secondHome/components/IndustryExperts"), {
+//   loading: () => <SectionLoader height="min-h-[300px]" />,
+//   ssr: false,
+// });
 
 // AlumniSection: embla-carousel autoplay
 const AlumniSection = dynamic(() => import("@/sections/Home/AlumniSection"), {
@@ -142,7 +142,7 @@ export default function HomeClient() {
       <DeferredSection height="min-h-[400px]"><Research /></DeferredSection>
       <DeferredSection height="min-h-[350px]"><SSIMStories /></DeferredSection>
       <DeferredSection height="min-h-[350px]"><PlacementStories /></DeferredSection>
-      <DeferredSection height="min-h-[300px]"><IndustryExperts /></DeferredSection>
+      {/* <DeferredSection height="min-h-[300px]"><IndustryExperts /></DeferredSection> */}
       <DeferredSection height="min-h-[350px]"><AlumniSection /></DeferredSection>
       <DeferredSection height="min-h-[300px]"><HomeFAQ /></DeferredSection>
     </>
