@@ -1019,238 +1019,76 @@ export const programData = {
       },
     ],
     curriculum: [
-      // {
-      //   name: "PGDM BA",
-      //   link: pgdmba,
-      // },
       {
         module1: {
-          title: "Term Thematic: Corporate Impellent pgdm-ba",
+          title: "Term Thematic: Corporate Impellent",
           duration: "3 months",
-          description:
-            "Build a solid foundation in programming, statistics, and data manipulation",
           topics: [
-            {
-              title: "Mgmt. Theory and Organizational Behaviour",
-            },
-            {
-              title: "Managerial Economics",
-            },
-            {
-              title: "Managerial Accounting",
-            },
-            {
-              title: "Statistics for Decision Making",
-            },
-            {
-              title: "Advanced Excel for Managers",
-            },
-            {
-              title: "Entrepreneurship Development - I",
-            },
+            { title: "Management Theory and Organizational Behaviour" },
+            { title: "Managerial Economics" },
+            { title: "Financial Reporting and Statement Analysis" },
+            { title: "Statistics for Decision Making" },
+            { title: "Advanced Excel for Managers" },
           ],
-          mdevelopment: [
-            {
-              title: "Company Fact Presentation",
-            },
-            {
-              title: "Industry Readiness - I",
-            },
-            {
-              title: "Experiential Learning",
-            },
-            {
-              title: "Market Pulse - I",
-            },
-            {
-              title: "Term End Viva - I",
-            },
-          ],
+          mdevelopment: [],
         },
         module2: {
           title: "Term Thematic: Corporate Intrinsic",
           duration: "3 months",
-          description:
-            "Master the core concepts and algorithms of machine learning",
           topics: [
-            {
-              title: "Python for Analytics",
-            },
-            {
-              title: "SQL for Business Intelligence",
-            },
-            {
-              title: "Corporate Finance",
-            },
-            {
-              title: "Operations Research",
-            },
-            {
-              title: "Marketing Management",
-            },
-            {
-              title: "Entrepreneurship Development - II",
-            },
-            {
-              title: "Art of Business Communication in Digital Era",
-            },
+            { title: "Human Resource Management" },
+            { title: "Marketing Management" },
+            { title: "Corporate Finance" },
+            { title: "Operations Research" },
+            { title: "AI for Business Managers" },
           ],
-          mdevelopment: [
-            {
-              title: "Book Review Session",
-            },
-            {
-              title: "Industry Readiness - II",
-            },
-            {
-              title: "Social Project",
-            },
-            {
-              title: "Market Pulse - II",
-            },
-            {
-              title: "Term End Viva - II",
-            },
-          ],
+          mdevelopment: [],
         },
         module3: {
           title: "Term Thematic: Corporate Integral",
           duration: "3 months",
-          description:
-            "Explore cutting-edge techniques in deep learning and specialized domains",
           topics: [
-            {
-              title: "Financial Analytics",
-            },
-            {
-              title: "Marketing Analytics",
-            },
-            {
-              title: "Multivariate Data Analysis",
-            },
-            {
-              title: "Human Resource Management",
-            },
-            {
-              title: "Operations Management",
-            },
-            {
-              title: "Research Methodology",
-            },
-            {
-              title: "Entrepreneurship Development - III",
-            },
-            {
-              title: "Technology Enabled Managerial Communication",
-            },
+            { title: "Operations Management" },
+            { title: "Research Methodology" },
+            { title: "Major-I" },
+            { title: "Major-II" },
+            { title: "Major-III" },
+            { title: "Machine Learning for Managers (IBM Predictive Analytics Modeller)" },
           ],
-          mdevelopment: [
-            {
-              title: "Industry Review Session",
-            },
-            {
-              title: "Industry Readiness - III",
-            },
-            {
-              title: "Market Pulse - III",
-            },
-            {
-              title: "Term End Viva - III",
-            },
-          ],
+          mdevelopment: [],
         },
         module4: {
           title: "Term Thematic: Corporate Adept",
           duration: "3 months",
-          description:
-            "Apply your skills to real-world problems and prepare for industry",
           topics: [
-            {
-              title: "Project Management",
-            },
-            {
-              title: "Elective - I",
-            },
-            {
-              title: "Elective - I",
-            },
-            {
-              title: "Elective - II",
-            },
-            {
-              title: "Elective - II",
-            },
-            {
-              title: "HR Analytics",
-            },
-            {
-              title: "Machine Learning - I",
-            },
-            {
-              title: "Organisational Communication for Industry 4.0",
-            },
+            { title: "Major -III" },
+            { title: "Major -IV" },
+            { title: "Gen AI & Prompt Engineering" },
+            { title: "Planning Analytics (IBM Certification)" },
+            { title: "Agentic AI" },
+            { title: "Strategic Decisions & Competitive Analytics" },
           ],
-          mdevelopment: [
-            {
-              title: "Company Review Session",
-            },
-            {
-              title: "Industry Internship Project",
-            },
-            {
-              title: "Course of Independent Study/MOOC/Certificate Course",
-            },
-            {
-              title: "Term End Viva - IV",
-            },
-          ],
+          mdevelopment: [],
         },
         module5: {
           title: "Term Thematic: Corporate Astute",
           duration: "3 months",
-          description:
-            "Explore cutting-edge techniques in deep learning and specialized domains",
           topics: [
-            {
-              title: "Strategic Management",
-            },
-            {
-              title: "Business Analysis Using Case Studies",
-            },
-            {
-              title: "Design Thinking and Innovation",
-            },
-            {
-              title: "Elective - I",
-            },
-            {
-              title: "Elective - II",
-            },
+            { title: "Design Thinking and Innovation" },
+            { title: "AI-powered Content & Automation" },
+            { title: "Natural Language Processing (NLP) (IBM certification)" },
+            { title: "Essentials of Project Management" },
           ],
-          mdevelopment: [
-            {
-              title: "Article Review Session",
-            },
-            {
-              title: "Term End Viva - V",
-            },
-          ],
+          mdevelopment: [],
         },
         module6: {
           title: "Term Thematic: Corporate Ace",
           duration: "3 months",
-          description:
-            "Apply your skills to real-world problems and prepare for industry",
           topics: [
-            {
-              title: "Corporate Governance and Sustainability",
-            },
+            { title: "Cloud Analytics and Data Ecosystems" },
+            { title: "Analytics Governance, Ethics & Cyber Risk/Cyber security/TPS Courses" },
           ],
-          mdevelopment: [
-            {
-              title: "Specialization Project",
-            },
-          ],
+          mdevelopment: [],
         },
       },
     ],
@@ -1484,17 +1322,19 @@ export const programData = {
       },
     },
     electives: {
-      minor: {
-        title: "Electives",
+      major: {
+        title: "Major Electives",
         color: "bg-purple-50 border-purple-200",
         headerColor: "bg-purple-600",
         specializations: [
           {
             name: "Finance",
             courses: [
-              "Investment Analysis & Portfolio Management",
-              "Financial Modelling",
-              "Financial Market",
+              "Investment Analysis and Portfolio Management",
+              "Risk Management and Derivatives",
+              "Fintech",
+              "Fixed Income Securities",
+              "Financial Analytics",
             ],
           },
           {
@@ -1502,23 +1342,49 @@ export const programData = {
             courses: [
               "Consumer Behaviour",
               "Sales Management",
-              "Digital & Social Media Marketing",
+              "Services Marketing and CRM",
+              "Digital and Social Media Marketing",
+              "Business-to-Business Marketing",
             ],
           },
           {
             name: "Human Resource",
             courses: [
-              "Workforce Planning & Talent Acquisition Analytics",
-              "Competency Mapping with Compensation",
-              "Performance Management Analytics",
+              "Human Resource Development",
+              "Employee Relations and Labour Codes",
+              "Performance and Compensation Management",
+              "Human Resource Information Systems",
+              "Talent and workforce analytics",
+            ],
+          },
+          {
+            name: "Agri-Business Management",
+            courses: [
+              "Basics of Agriculture",
+              "Agri-Business Marketing and Sales",
+              "Agri-Business Environment and Agri-Tech",
+              "Rural Banking and Micro Finance Institutions",
+              "Agri-Warehousing and Supply Chain Management",
             ],
           },
           {
             name: "Operations Management",
             courses: [
               "Supply Chain Management",
+              "Service Operations Management",
               "Total Quality Management",
-              "Strategic Operations Management",
+              "Logistics Management",
+              "Six Sigma and Lean Manufacturing",
+            ],
+          },
+          {
+            name: "Technology Management",
+            courses: [
+              "Managing Technological Innovation",
+              "Software Project and Quality Management",
+              "IT Project Management",
+              "Cloud Computing for Managers",
+              "Relational Database Management System (RDBMS)",
             ],
           },
         ],
@@ -1531,7 +1397,7 @@ export const programData = {
       },
       {
         question: "What subjects and specialization areas are covered in the PGDM-BA at SSIM?",
-        answer: "The curriculum covers Marketing Analytics, Financial Analytics, HR Analytics, Operational Analytics, Artificial Intelligence and Neural Networks, Advanced Machine Learning, Big Data Analytics, and Cloud Computing Techniques. Students choose from 50+ elective subjects across 3 specialization domains, ensuring industry-aligned depth and breadth.",
+        answer: "The curriculum covers business analytics, artificial intelligence, machine learning, data ecosystems, and cyber risk. Students may choose a major in Finance, Marketing, Human Resource, Agri-Business Management, Operations Management, or Technology Management.",
       },
       {
         question: "Is the SSIM PGDM-BA program approved by AICTE and accredited?",
@@ -1539,7 +1405,7 @@ export const programData = {
       },
       {
         question: "How is PGDM-BA at SSIM different from a regular MBA in Analytics?",
-        answer: "Unlike a conventional MBA, the PGDM-BA uniquely blends management breadth with data science rigour — integrating Analytical Mathematics, Statistics, and Computer Science as core pillars. Students benefit from 50+ elective choices, 3 specialization domains, paid internships (Earn-While-You-Learn), gamification-based learning, and direct corporate interface — producing practitioners ready for real-world analytics roles from Day 1.",
+        answer: "Unlike a conventional MBA, the PGDM-BA uniquely blends management breadth with data science rigour — integrating Analytical Mathematics, Statistics, and Computer Science as core pillars. Students benefit from major electives across six functional areas, paid internships (Earn-While-You-Learn), gamification-based learning, and direct corporate interface — producing practitioners ready for real-world analytics roles from Day 1.",
       },
       {
         question: "What is the teaching methodology followed in the PGDM-BA program at SSIM?",

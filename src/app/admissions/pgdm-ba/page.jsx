@@ -131,14 +131,12 @@ const overviewData = [
 ];
 
 const programsOffered = [
-  "Python for Analytics",
-  "Business Intelligence with Tableau & SQL",
-  "Financial Analytics",
-  "Marketing Analytics",
-  "HR Analytics",
-  "Machine Learning",
-  "Design Thinking & Innovation",
-  "Multivariate Data Analysis",
+  "Finance",
+  "Marketing",
+  "Human Resource",
+  "Agri Business Management",
+  "Operations Management",
+  "Technology Management",
 ];
 
 const processData = [
@@ -469,14 +467,14 @@ const ProgramsOffered = () => (
       Areas Of Specialization
     </h3>
     <p className="text-gray-700 text-lg !my-8">
-      <strong>Note:</strong> Student need to choose any Two Electives Sectoral
+      <strong>Note:</strong> Students need to choose any one Major.
     </p>
     <div className="rounded-lg overflow-hidden border">
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead className="bg-[#002f87] text-white text-lg">
-              Core Courses
+              Major
             </TableHead>
           </TableRow>
         </TableHeader>
