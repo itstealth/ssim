@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Conferences at SSIM | Knowledge & Innovation Hub",
-  description: "Discover conferences at SSIM Hyderabad, featuring expert talks, research presentations, and interactive sessions fostering innovation and academic excellence.",
-  keywords: "SSIM conferences, academic conferences, management conferences, research events",
+  title: "International Conference 2027 | SSIM Hyderabad",
+  description: "Join the SSIM and AIMS international conference on reimagining business and management in the age of AI, with a focus on innovation, sustainability, and human-centric transformation.",
+  keywords: "SSIM international conference 2027, AI in management, research conference, AIMS",
   openGraph: {
-    title: "Conferences at SSIM | Knowledge & Innovation Hub",
-    description: "Discover conferences at SSIM Hyderabad, featuring expert talks, research presentations, and interactive sessions fostering innovation and academic excellence.",
+    title: "International Conference 2027 | SSIM Hyderabad",
+    description: "Join the SSIM and AIMS international conference on reimagining business and management in the age of AI, with a focus on innovation, sustainability, and human-centric transformation.",
     url: "https://www.ssim.ac.in/research/conferences",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -20,8 +20,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conferences at SSIM",
-    description: "Discover conferences at SSIM Hyderabad, featuring expert talks, research presentations, and interactive sessions fostering innovation and academic excellence.",
+    title: "International Conference 2027 | SSIM Hyderabad",
+    description: "Join the SSIM and AIMS international conference on reimagining business and management in the age of AI, with a focus on innovation, sustainability, and human-centric transformation.",
     images: ["/ssimlogo.webp"],
   },
   robots: {
