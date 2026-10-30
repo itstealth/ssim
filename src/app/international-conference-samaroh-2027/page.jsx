@@ -20,6 +20,7 @@ import {
   Menu,
   Trophy,
   Users,
+  ListTodo,
   FormInput,
 } from "lucide-react";
 import {
@@ -35,6 +36,9 @@ import { ArrowDown, ArrowRight, CalendarDays, MapPin } from "lucide-react";
 
 // Navigation Data
 const navigationSections = [
+  { id: "about-conference", label: "ABOUT THE CONFERENCE", icon: Users },
+  { id: "research-forum", label: "PRE-CONFERENCE RESEARCH FORUM", icon: BookOpen },
+  { id: "conference-themes", label: "CONFERENCE THEMES", icon: ListTodo },
   { id: "highlights", label: "CONFERENCE HIGHLIGHTS", icon: Trophy },
   { id: "why-participate", label: "WHY PARTICIPATE?", icon: GraduationCap },
   { id: "participants", label: "WHO CAN PARTICIPATE?", icon: Users },
@@ -43,6 +47,7 @@ const navigationSections = [
   { id: "publishing-opportunities", label: "PUBLICATION OPPORTUNITIES", icon: BookOpen },
   { id: "submission-guidelines", label: "SUBMISSION GUIDELINES", icon: FileText },
   { id: "online-registration", label: "ONLINE REGISTRATION", icon: FormInput },
+  { id: "samaroh-overview", label: "SAMAROH-2027", icon: ArrowRight },
 ];
 const conferenceTitle = "Reimagining Business and Management in the Age of AI: Innovation, Sustainability and Human-Centric Transformation";
 const registrationUrl = "https://forms.gle/8XdJyvfCbHW2yit69";
@@ -188,7 +193,7 @@ const ConferenceBanner2027 = () => (
             </div>
           </div>
           <a
-            href="#about-conference"
+            href="#conference-navigation"
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-violet-300 px-5 py-3 text-sm font-bold text-[#241039] shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-violet-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#241039]"
           >
             Explore the conference
@@ -226,7 +231,7 @@ const ConferenceBanner2027 = () => (
       </div>
     </div>
 
-    <a href="#about-conference" aria-label="Continue to conference information" className="mx-auto mb-6 flex w-fit items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300">
+    <a href="#conference-navigation" aria-label="Continue to conference information" className="mx-auto mb-6 flex w-fit items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300">
       Discover Samaroh
       <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
     </a>
@@ -234,56 +239,51 @@ const ConferenceBanner2027 = () => (
 );
 
 const AboutConference2027 = () => (
-  <section id="about-conference" className="scroll-mt-24 bg-[#fbf9fe] px-5 py-16 text-[#26183b] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-    <div className="mx-auto max-w-7xl">
-      <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700">Welcome to Samaroh-2027</p>
-          <h2 className="mt-4 max-w-3xl font-playfair text-4xl font-bold leading-tight tracking-tight sm:text-5xl">About the conference</h2>
-          <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
-            The International Conference brings together academicians, researchers, industry leaders, entrepreneurs, policymakers and emerging scholars to examine how Artificial Intelligence, emerging technologies, innovation and sustainability are transforming business, organizations and society.
-          </p>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
-            The conference seeks to advance contemporary management thought, rigorous research and evidence-based practice by creating a platform for interdisciplinary dialogue, knowledge exchange and academic–industry collaboration.
-          </p>
-        </div>
-        <aside className="relative self-center rounded-2xl border border-[#e8e3da] bg-white p-6 shadow-[0_18px_55px_-38px_rgba(23,33,59,0.45)] sm:p-8">
-          <div aria-hidden="true" className="absolute right-0 top-0 h-24 w-24 rounded-bl-[5rem] bg-violet-50" />
-          <div className="relative">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-700">A platform for</p>
-            <ul className="mt-5 space-y-3">
-              {["Academicians and researchers", "Industry leaders and entrepreneurs", "Policymakers and emerging scholars"].map((audience, index) => (
-                <li key={audience} className="flex items-start gap-3 text-sm leading-6 text-slate-700 sm:text-base">
-                  <span className="mt-0.5 font-playfair text-lg font-bold text-purple-600" aria-hidden="true">0{index + 1}</span>
-                  <span>{audience}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-7 border-t border-slate-100 pt-5">
-              <div className="flex items-center gap-3">
-                <CalendarDays className="h-5 w-5 text-purple-700" aria-hidden="true" />
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">International Conference</p>
-                  <p className="mt-0.5 text-sm font-semibold text-[#26183b] sm:text-base">11–12 February 2027</p>
-                </div>
-              </div>
+  <div id="about-conference" className="space-y-8 text-[#26183b]">
+    <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700">Welcome to Samaroh-2027</p>
+        <h3 className="mt-3 font-playfair text-3xl font-bold leading-tight tracking-tight sm:text-4xl">About the conference</h3>
+        <p className="mt-5 text-base leading-8 text-slate-600">
+          The International Conference brings together academicians, researchers, industry leaders, entrepreneurs, policymakers and emerging scholars to examine how Artificial Intelligence, emerging technologies, innovation and sustainability are transforming business, organizations and society.
+        </p>
+        <p className="mt-4 text-base leading-8 text-slate-600">
+          The conference seeks to advance contemporary management thought, rigorous research and evidence-based practice by creating a platform for interdisciplinary dialogue, knowledge exchange and academic–industry collaboration.
+        </p>
+      </div>
+      <aside className="relative self-center rounded-2xl border border-[#e8e3da] bg-[#fbf9fe] p-6 sm:p-8">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-700">A platform for</p>
+        <ul className="mt-5 space-y-3">
+          {["Academicians and researchers", "Industry leaders and entrepreneurs", "Policymakers and emerging scholars"].map((audience, index) => (
+            <li key={audience} className="flex items-start gap-3 text-sm leading-6 text-slate-700 sm:text-base">
+              <span className="mt-0.5 font-playfair text-lg font-bold text-purple-600" aria-hidden="true">0{index + 1}</span>
+              <span>{audience}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-7 border-t border-slate-200 pt-5">
+          <div className="flex items-center gap-3">
+            <CalendarDays className="h-5 w-5 text-purple-700" aria-hidden="true" />
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">International Conference</p>
+              <p className="mt-0.5 text-sm font-semibold text-[#26183b] sm:text-base">11–12 February 2027</p>
             </div>
           </div>
-        </aside>
-      </div>
-      <div className="mt-14">
-        <div className="mb-5 flex items-center gap-3">
-          <FormInput className="h-7 w-7 text-red-600" aria-hidden="true" />
-          <h3 className="font-playfair text-3xl font-bold uppercase tracking-wide text-[#26183b]">Online Registration</h3>
         </div>
-        <Card className="border-slate-200 bg-white">
-          <CardContent className="p-6 sm:p-8">
-            <OnlineRegistration2027 />
-          </CardContent>
-        </Card>
-      </div>
+      </aside>
     </div>
-  </section>
+    <div className="border-t border-slate-200 pt-8">
+      <div className="mb-4 flex items-center gap-3">
+        <FormInput className="h-6 w-6 text-red-600" aria-hidden="true" />
+        <h4 className="font-playfair text-2xl font-bold uppercase tracking-wide">Online Registration</h4>
+      </div>
+      <Card className="border-slate-200 bg-white">
+        <CardContent className="p-5 sm:p-6">
+          <OnlineRegistration2027 />
+        </CardContent>
+      </Card>
+    </div>
+  </div>
 );
 
 const PreConferenceResearchForum2027 = () => {
@@ -297,10 +297,10 @@ const PreConferenceResearchForum2027 = () => {
   ];
 
   return (
-    <section id="research-forum" className="relative scroll-mt-24 overflow-hidden bg-[#321052] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-12">
+    <div id="research-forum" className="relative overflow-hidden rounded-xl bg-[#321052] p-6 text-white sm:p-8">
       <div aria-hidden="true" className="absolute -right-20 -top-20 h-80 w-80 rounded-full border border-white/[0.07] sm:h-[30rem] sm:w-[30rem]" />
       <div aria-hidden="true" className="absolute -right-4 -top-4 h-48 w-48 rounded-full border border-violet-300/25 sm:h-72 sm:w-72" />
-      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-20">
+      <div className="relative grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-300">Pre-conference research forum</p>
           <div className="mt-6 flex items-end gap-4">
@@ -325,14 +325,14 @@ const PreConferenceResearchForum2027 = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
 const ConferenceThemes2027 = () => {
   return (
-    <section id="themes" className="scroll-mt-24 bg-[#fbf9fe] px-5 py-20 text-[#26183b] sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-      <div className="mx-auto max-w-7xl">
+    <div id="themes" className="rounded-xl bg-[#fbf9fe] p-5 text-[#26183b] sm:p-6">
+      <div className="max-w-7xl">
         <div className="flex flex-col gap-5 border-b border-slate-200 pb-8 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700">Explore the scope</p>
@@ -357,13 +357,12 @@ const ConferenceThemes2027 = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-const SamarohClosingBanner2027 = () => (
-  <section className="bg-[#fbf9fe] px-5 pb-20 text-white sm:px-8 sm:pb-24 lg:px-12">
-    <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] bg-[#4a1d6e] px-6 py-10 shadow-xl shadow-purple-950/10 sm:px-10 sm:py-12 lg:px-14">
+const SamarohClosingBanner2027 = ({ onExploreThemes }) => (
+    <div className="relative overflow-hidden rounded-xl bg-[#4a1d6e] p-6 text-white shadow-xl shadow-purple-950/10 sm:p-8">
       <div aria-hidden="true" className="absolute -right-10 -top-24 h-64 w-64 rounded-full border border-white/10 sm:-right-4 sm:-top-32 sm:h-96 sm:w-96" />
       <div aria-hidden="true" className="absolute -right-20 -top-12 h-52 w-52 rounded-full border border-violet-200/30 sm:right-12 sm:-top-16 sm:h-72 sm:w-72" />
       <div className="relative flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
@@ -371,13 +370,12 @@ const SamarohClosingBanner2027 = () => (
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-200">Samaroh-2027 · 11–12 February 2027</p>
           <h2 className="mt-4 max-w-2xl font-playfair text-3xl font-bold leading-tight sm:text-4xl">Reimagine business and management in the age of AI.</h2>
         </div>
-        <a href="#themes" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-purple-900 transition hover:-translate-y-0.5 hover:bg-violet-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-purple-900">
+        <button type="button" onClick={onExploreThemes} className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-purple-900 transition hover:-translate-y-0.5 hover:bg-violet-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-purple-900">
           Explore the themes
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </a>
+        </button>
       </div>
     </div>
-  </section>
 );
 
 const ConferenceHighlights2027 = () => {
@@ -449,16 +447,13 @@ const OnlineRegistration2027 = () => (
 );
 
 const Conferences = () => {
-  const [activeSection, setActiveSection] = useState("highlights");
+  const [activeSection, setActiveSection] = useState("about-conference");
 
   return (
     <>
       <ConferenceBanner2027 />
-      <AboutConference2027 />
-      <PreConferenceResearchForum2027 />
-      <ConferenceThemes2027 />
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-10 sm:py-16">
+      <div id="conference-navigation" className="min-h-screen scroll-mt-6 bg-gradient-to-b from-gray-50 to-white py-10 sm:py-16">
         {/* Main Content */}
         <div className="container max-w-7xl mx-auto px-4 py-8 sm:pb-0">
           <h2 className="mb-8 font-playfair text-3xl font-bold text-mainBlue sm:text-4xl">
@@ -541,6 +536,9 @@ const Conferences = () => {
                     <CardContent className="p-6">
                       {(() => {
                         switch (activeSection) {
+                          case "about-conference": return <AboutConference2027 />;
+                          case "research-forum": return <PreConferenceResearchForum2027 />;
+                          case "conference-themes": return <ConferenceThemes2027 />;
                           case "highlights": return <ConferenceHighlights2027 />;
                           case "why-participate": return <WhyParticipate2027 />;
                           case "participants": return <WhoCanParticipate2027 />;
@@ -549,6 +547,7 @@ const Conferences = () => {
                           case "publishing-opportunities": return <PublishingOpportunities2027 />;
                           case "submission-guidelines": return <SubmissionGuidelines2027 />;
                           case "online-registration": return <OnlineRegistration2027 />;
+                          case "samaroh-overview": return <SamarohClosingBanner2027 onExploreThemes={() => setActiveSection("conference-themes")} />;
                           default:
                             return null;
                         }
@@ -563,7 +562,6 @@ const Conferences = () => {
         {/* <TeamSection /> */}
         {/* <Tourists /> */}
       </div>
-      <SamarohClosingBanner2027 />
     </>
   );
 };
