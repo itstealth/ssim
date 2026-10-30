@@ -38,6 +38,7 @@ import { ArrowDown, ArrowRight, CalendarDays, MapPin } from "lucide-react";
 const navigationSections = [
   { id: "about-conference", label: "ABOUT THE CONFERENCE", icon: Users },
   { id: "research-forum", label: "PRE-CONFERENCE RESEARCH FORUM", icon: BookOpen },
+  { id: "key-thematic-areas", label: "KEY THEMATIC AREAS", icon: ListTodo },
   { id: "conference-themes", label: "CONFERENCE THEMES", icon: ListTodo },
   { id: "highlights", label: "CONFERENCE HIGHLIGHTS", icon: Trophy },
   { id: "why-participate", label: "WHY PARTICIPATE?", icon: GraduationCap },
@@ -361,6 +362,33 @@ const ConferenceThemes2027 = () => {
   );
 };
 
+const KeyThematicAreas2027 = () => {
+  const themes = [
+    "AI",
+    "Innovation",
+    "Sustainability",
+    "Digital Transformation",
+    "Analytics",
+    "Entrepreneurship",
+    "Future of Work",
+    "Responsible Business",
+  ];
+
+  return (
+    <div id="key-thematic-areas" className="space-y-4">
+      <h3 className="font-bold text-mainBlue text-2xl">Key Thematic Areas</h3>
+      <p className="text-gray-700">The conference welcomes research and discussion across these connected themes:</p>
+      <div className="flex flex-wrap gap-3">
+        {themes.map((theme) => (
+          <span key={theme} className="rounded-full border border-purple-200 bg-purple-50 px-4 py-2 font-medium text-mainBlue">
+            {theme}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const SamarohClosingBanner2027 = ({ onExploreThemes }) => (
     <div className="relative overflow-hidden rounded-xl bg-[#4a1d6e] p-6 text-white shadow-xl shadow-purple-950/10 sm:p-8">
       <div aria-hidden="true" className="absolute -right-10 -top-24 h-64 w-64 rounded-full border border-white/10 sm:-right-4 sm:-top-32 sm:h-96 sm:w-96" />
@@ -538,6 +566,7 @@ const Conferences = () => {
                         switch (activeSection) {
                           case "about-conference": return <AboutConference2027 />;
                           case "research-forum": return <PreConferenceResearchForum2027 />;
+                          case "key-thematic-areas": return <KeyThematicAreas2027 />;
                           case "conference-themes": return <ConferenceThemes2027 />;
                           case "highlights": return <ConferenceHighlights2027 />;
                           case "why-participate": return <WhyParticipate2027 />;
