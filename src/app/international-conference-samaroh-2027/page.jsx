@@ -209,6 +209,7 @@ const ConferenceBanner2027 = () => (
             src="/campus.webp"
             alt="Siva Sivani Institute of Management campus in Secunderabad, Hyderabad"
             fill
+            unoptimized
             priority
             sizes="(max-width: 1023px) 100vw, 45vw"
             className="object-cover object-center"
@@ -466,7 +467,7 @@ const OnlineRegistration2027 = () => (
         <p className="text-gray-700">Conference website: <a className="font-semibold text-red-600" href="https://ssim.ac.in">ssim.ac.in</a></p>
       </div>
       <a href={registrationUrl} target="_blank" rel="noopener noreferrer" className="mx-auto block rounded-xl border bg-white p-3 shadow-sm" aria-label="Open conference registration form from QR code">
-        <Image src="/faculty-research/conferences/registration-qr.png" alt="Scan the QR code to open the conference registration form" width={260} height={260} className="h-auto w-56 md:w-64" priority />
+        <Image src="/faculty-research/conferences/registration-qr.png" alt="Scan the QR code to open the conference registration form" width={260} height={260} unoptimized className="h-auto w-56 md:w-64" priority />
       </a>
     </div>
     <p className="text-sm leading-7 text-gray-600"><strong>Conference information:</strong> Call for Papers | Paper Submission | Registration | Keynote Sessions | Research Presentations | Panel Discussions | Publication Opportunities | Networking</p>
