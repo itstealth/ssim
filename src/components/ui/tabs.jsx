@@ -16,13 +16,14 @@ const TabsList = React.forwardRef(({ className, ...props }, ref) => (
 ))
 TabsList.displayName = TabsPrimitive.List.displayName
 
-const TabsTrigger = React.forwardRef(({ className, ...props }, ref) => (
+const TabsTrigger = React.forwardRef(({ className, hashValue, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
       "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
       className
     )}
+    data-hash-value={hashValue}
     {...props} />
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
@@ -38,24 +39,27 @@ const TabsContent = React.forwardRef(({ className, ...props }, ref) => (
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
-function getTabValues(children) {
-  const values = [];
+function getTabOptions(children) {
+  const options = [];
 
   React.Children.forEach(children, (child) => {
     if (!React.isValidElement(child)) return;
     if (child.type === TabsContent) return;
 
     if (child.type === TabsTrigger) {
-      values.push(child.props.value);
+      options.push({
+        value: child.props.value,
+        hashValue: child.props.hashValue ?? child.props.value,
+      });
       return;
     }
 
     if (child.type === TabsList || child.type === React.Fragment) {
-      values.push(...getTabValues(child.props.children));
+      options.push(...getTabOptions(child.props.children));
     }
   });
 
-  return values;
+  return options;
 }
 
 const Tabs = React.forwardRef(
@@ -71,7 +75,7 @@ const Tabs = React.forwardRef(
     },
     ref
   ) => {
-    const tabValues = React.useMemo(() => getTabValues(children), [children]);
+    const tabOptions = React.useMemo(() => getTabOptions(children), [children]);
     const isControlled = value !== undefined;
     const [internalValue, setInternalValue] = React.useState(defaultValue);
     const activeValue = isControlled ? value : internalValue;
@@ -91,13 +95,22 @@ const Tabs = React.forwardRef(
 
         if (hashScope) {
           if (hashParts[0] !== hashScope) return;
-          requestedValue = hashParts[1] || defaultValue;
+          const requestedHash = hashParts[1];
+          requestedValue = requestedHash
+            ? tabOptions.find(
+                (option) => option.hashValue === requestedHash
+              )?.value
+            : defaultValue;
         } else {
           if (hashParts.length !== 1) return;
-          requestedValue = hashParts[0];
+          requestedValue = tabOptions.find(
+            (option) => option.hashValue === hashParts[0]
+          )?.value;
         }
 
-        if (!tabValues.includes(requestedValue)) return;
+        if (!tabOptions.some((option) => option.value === requestedValue)) {
+          return;
+        }
 
         if (isControlled) {
           if (requestedValue !== activeValue) onValueChange?.(requestedValue);
@@ -122,7 +135,7 @@ const Tabs = React.forwardRef(
       internalValue,
       isControlled,
       onValueChange,
-      tabValues,
+      tabOptions,
     ]);
 
     const handleValueChange = (nextValue) => {
@@ -130,7 +143,12 @@ const Tabs = React.forwardRef(
         if (!isControlled) setInternalValue(nextValue);
 
         const url = new URL(window.location.href);
-        url.hash = hashScope ? `${hashScope}/${nextValue}` : nextValue;
+        const hashValue =
+          tabOptions.find((option) => option.value === nextValue)?.hashValue ??
+          nextValue;
+        url.hash = hashScope
+          ? `${hashScope}/${hashValue}`
+          : hashValue;
         const oldUrl = window.location.href;
         if (url.href !== oldUrl) {
           lastWrittenHash.current = url.hash;
