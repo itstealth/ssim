@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 export const metadata = {
   title: "International Conference 2027 | SSIM Hyderabad",
   description: "Join the SSIM and AIMS international conference on reimagining business and management in the age of AI, with a focus on innovation, sustainability, and human-centric transformation.",
