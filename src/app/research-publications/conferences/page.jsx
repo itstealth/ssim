@@ -9,7 +9,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Heading from "@/components/wrappers/Heading";
 import Image from "next/image";
 
 import {
@@ -21,7 +20,6 @@ import {
   Menu,
   Trophy,
   Users,
-  ListTodo,
   FormInput,
 } from "lucide-react";
 import {
@@ -32,14 +30,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, CalendarDays, MapPin } from "lucide-react";
 // import SEO from "../Seo";
 
 // Navigation Data
 const navigationSections = [
-  { id: "about-conference", label: "ABOUT THE CONFERENCE", icon: Users },
-  { id: "research-forum", label: "PRE-CONFERENCE RESEARCH FORUM", icon: BookOpen },
-  { id: "conference-themes", label: "CONFERENCE THEMES", icon: ListTodo },
   { id: "highlights", label: "CONFERENCE HIGHLIGHTS", icon: Trophy },
   { id: "why-participate", label: "WHY PARTICIPATE?", icon: GraduationCap },
   { id: "participants", label: "WHO CAN PARTICIPATE?", icon: Users },
@@ -149,14 +144,133 @@ const NavContent = ({ activeSection, setActiveSection, sections }) => (
   </div>
 );
 
-// Conference content sections
+// Sections migrated from the Samaroh-2027 page.
+const ConferenceBanner2027 = () => (
+  <section className="relative isolate overflow-hidden bg-[#241039] text-white">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_22%,rgba(139,92,246,0.36),transparent_32%),radial-gradient(circle_at_76%_74%,rgba(196,181,253,0.2),transparent_28%)]"
+    />
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 -z-10 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.38)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.38)_1px,transparent_1px)] [background-size:52px_52px] [mask-image:linear-gradient(to_right,black,transparent_76%)]"
+    />
+
+    <div className="mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-5 pb-16 pt-16 sm:px-8 md:pb-20 md:pt-20 lg:grid-cols-[1.12fr_0.88fr] lg:px-12 lg:py-24">
+      <div className="relative z-10 motion-safe:animate-fade-up">
+        <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.13em] text-white/85 backdrop-blur-sm sm:text-xs">
+          <span className="h-2 w-2 rounded-full bg-violet-300 shadow-[0_0_14px_rgba(196,181,253,0.8)]" />
+          Siva Sivani Institute of Management
+        </div>
+
+        <p className="mt-6 max-w-xl text-sm leading-6 text-white/65 sm:text-base">
+          Secunderabad, Hyderabad
+          <span className="mx-2 text-violet-300" aria-hidden="true">/</span>
+          In collaboration with the Association of Indian Management Schools (AIMS)
+        </p>
+
+        <p className="mt-10 text-xs font-bold uppercase tracking-[0.26em] text-violet-300">
+          Presents · International Conference 2027
+        </p>
+        <h1 className="mt-3 font-playfair text-[clamp(3.25rem,9vw,7.5rem)] font-bold leading-[0.9] tracking-[-0.055em] text-white">
+          Samaroh<span className="text-violet-300">-2027</span>
+        </h1>
+        <p className="mt-8 max-w-3xl font-playfair text-xl leading-snug text-white/90 sm:text-2xl lg:text-[2rem]">
+          “{conferenceTitle}”
+        </p>
+
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/[0.07] px-4 py-3.5 backdrop-blur-sm">
+            <CalendarDays className="h-5 w-5 shrink-0 text-violet-300" aria-hidden="true" />
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/55">Conference dates</p>
+              <p className="mt-0.5 text-sm font-semibold text-white sm:text-base">11–12 February 2027</p>
+            </div>
+          </div>
+          <a
+            href="#about-conference"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-violet-300 px-5 py-3 text-sm font-bold text-[#241039] shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-violet-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#241039]"
+          >
+            Explore the conference
+            <ArrowDown className="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-[580px] motion-safe:animate-fade-up lg:ml-auto">
+        <div className="absolute -inset-4 rounded-[2rem] border border-violet-200/20" aria-hidden="true" />
+        <div className="relative min-h-[370px] overflow-hidden rounded-[1.5rem] border border-white/15 bg-[#35204a] shadow-2xl shadow-black/30 sm:min-h-[470px]">
+          <Image
+            src="/campus.webp"
+            alt="Siva Sivani Institute of Management campus in Secunderabad, Hyderabad"
+            fill
+            priority
+            sizes="(max-width: 1023px) 100vw, 45vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#241039] via-[#241039]/25 to-[#241039]/5" />
+          <div aria-hidden="true" className="absolute right-5 top-5 flex h-24 w-24 rotate-6 items-center justify-center rounded-full border border-white/25 bg-[#241039]/45 text-center font-playfair text-xl font-bold leading-none text-white backdrop-blur-md sm:right-8 sm:top-8 sm:h-28 sm:w-28 sm:text-2xl">
+            <span>2027<br /><span className="text-[0.55em] font-sans font-semibold uppercase tracking-[0.18em] text-violet-200">Samaroh</span></span>
+          </div>
+          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+            <div className="mb-4 h-px w-14 bg-violet-300" />
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-200">A meeting of ideas</p>
+            <p className="mt-2 max-w-sm font-playfair text-2xl font-semibold leading-tight text-white sm:text-3xl">Innovation with people at the centre.</p>
+            <p className="mt-3 inline-flex items-center gap-2 text-sm text-white/75">
+              <MapPin className="h-4 w-4 text-violet-300" aria-hidden="true" />
+              Secunderabad, Hyderabad
+            </p>
+          </div>
+        </div>
+        <div aria-hidden="true" className="absolute -bottom-5 -left-4 h-20 w-20 rounded-full border border-violet-300/35 sm:-left-8 sm:h-28 sm:w-28" />
+      </div>
+    </div>
+
+    <a href="#about-conference" aria-label="Continue to conference information" className="mx-auto mb-6 flex w-fit items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300">
+      Discover Samaroh
+      <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
+    </a>
+  </section>
+);
+
 const AboutConference2027 = () => (
-  <div className="space-y-5 text-gray-700">
-    <h3 className="font-bold text-mainBlue text-2xl">{conferenceTitle}</h3>
-    <p>Join researchers, academicians, practitioners, institutions, and policy leaders to explore how artificial intelligence is reshaping business and management. The conference focuses on innovation, sustainability, and human-centric transformation.</p>
-    <div className="rounded-lg border bg-purple-50 p-4"><p className="font-semibold text-mainBlue">International Conference</p><p>11–12 February 2027</p></div>
-    <p><strong>Organized by:</strong> Siva Sivani Institute of Management (SSIM), Secunderabad<br /><strong>In collaboration with:</strong> Association of Indian Management Schools (AIMS)</p>
-  </div>
+  <section id="about-conference" className="scroll-mt-24 bg-[#fbf9fe] px-5 py-16 text-[#26183b] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+    <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700">Welcome to Samaroh-2027</p>
+        <h2 className="mt-4 max-w-3xl font-playfair text-4xl font-bold leading-tight tracking-tight sm:text-5xl">About the conference</h2>
+        <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+          The International Conference brings together academicians, researchers, industry leaders, entrepreneurs, policymakers and emerging scholars to examine how Artificial Intelligence, emerging technologies, innovation and sustainability are transforming business, organizations and society.
+        </p>
+        <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+          The conference seeks to advance contemporary management thought, rigorous research and evidence-based practice by creating a platform for interdisciplinary dialogue, knowledge exchange and academic–industry collaboration.
+        </p>
+      </div>
+      <aside className="relative self-center rounded-2xl border border-[#e8e3da] bg-white p-6 shadow-[0_18px_55px_-38px_rgba(23,33,59,0.45)] sm:p-8">
+        <div aria-hidden="true" className="absolute right-0 top-0 h-24 w-24 rounded-bl-[5rem] bg-violet-50" />
+        <div className="relative">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-700">A platform for</p>
+          <ul className="mt-5 space-y-3">
+            {["Academicians and researchers", "Industry leaders and entrepreneurs", "Policymakers and emerging scholars"].map((audience, index) => (
+              <li key={audience} className="flex items-start gap-3 text-sm leading-6 text-slate-700 sm:text-base">
+                <span className="mt-0.5 font-playfair text-lg font-bold text-purple-600" aria-hidden="true">0{index + 1}</span>
+                <span>{audience}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-7 border-t border-slate-100 pt-5">
+            <div className="flex items-center gap-3">
+              <CalendarDays className="h-5 w-5 text-purple-700" aria-hidden="true" />
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">International Conference</p>
+                <p className="mt-0.5 text-sm font-semibold text-[#26183b] sm:text-base">11–12 February 2027</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
 );
 
 const PreConferenceResearchForum2027 = () => {
@@ -170,53 +284,88 @@ const PreConferenceResearchForum2027 = () => {
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="rounded-xl border border-purple-200 bg-purple-50 p-5 sm:p-7">
-        <p className="text-sm font-semibold uppercase tracking-wide text-red-600">11 February 2027</p>
-        <h3 className="mt-2 text-2xl font-bold leading-snug text-mainBlue">
-          “AI-Enabled Research Excellence: From Discovery to High-Impact Publication”
-        </h3>
-        <p className="mt-4 leading-7 text-gray-700">
-          A focused research forum on AI-enabled research discovery, research design, advanced research tools, scholarly writing, research integrity, and strategies for developing high-quality research for reputed academic publications.
-        </p>
-      </div>
-      <div>
-        <h4 className="mb-3 font-semibold text-mainBlue">Forum topics</h4>
-        <div className="flex flex-wrap gap-2">
-          {topics.map((topic) => (
-            <span key={topic} className="rounded-full border border-purple-200 bg-white px-3 py-2 text-sm text-gray-700">
-              {topic}
-            </span>
-          ))}
+    <section id="research-forum" className="relative scroll-mt-24 overflow-hidden bg-[#321052] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-12">
+      <div aria-hidden="true" className="absolute -right-20 -top-20 h-80 w-80 rounded-full border border-white/[0.07] sm:h-[30rem] sm:w-[30rem]" />
+      <div aria-hidden="true" className="absolute -right-4 -top-4 h-48 w-48 rounded-full border border-violet-300/25 sm:h-72 sm:w-72" />
+      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-20">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-300">Pre-conference research forum</p>
+          <div className="mt-6 flex items-end gap-4">
+            <span className="font-playfair text-7xl font-bold leading-none text-white sm:text-8xl" aria-hidden="true">01</span>
+            <div className="mb-1 border-l border-white/60 pl-4">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-white">11 February 2027</p>
+              <h2 className="mt-2 font-playfair text-3xl font-bold leading-tight sm:text-4xl">Research Forum</h2>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-3xl">
+          <p className="font-playfair text-2xl font-semibold leading-snug text-white sm:text-3xl">
+            “AI-Enabled Research Excellence: From Discovery to High-Impact Publication”
+          </p>
+          <p className="mt-6 text-base leading-8 text-slate-300 sm:text-lg sm:leading-9">
+            A focused research forum on AI-enabled research discovery, research design, advanced research tools, scholarly writing, research integrity, and strategies for developing high-quality research for reputed academic publications.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-2.5" aria-label="Research forum topics">
+            {topics.map((topic) => (
+              <span key={topic} className="rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/80 sm:text-sm">{topic}</span>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 const ConferenceThemes2027 = () => {
   return (
-    <div className="space-y-5">
-      <div>
-        <h3 className="font-bold text-mainBlue text-2xl">Conference Themes</h3>
-        <p className="mt-2 text-gray-700">Fourteen areas invite interdisciplinary perspectives on business, management, technology, and society.</p>
+    <section id="themes" className="scroll-mt-24 bg-[#fbf9fe] px-5 py-20 text-[#26183b] sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col gap-5 border-b border-slate-200 pb-8 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700">Explore the scope</p>
+            <h2 className="mt-4 font-playfair text-4xl font-bold leading-tight tracking-tight sm:text-5xl">Conference themes</h2>
+          </div>
+          <p className="max-w-md text-sm leading-6 text-slate-500 sm:text-base">Fourteen areas invite interdisciplinary perspectives on business, management, technology and society.</p>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {conferenceThemes.map((theme) => (
+            <article key={theme.number} className="group relative overflow-hidden rounded-2xl border border-purple-100 bg-white p-5 shadow-[0_12px_35px_-30px_rgba(49,16,82,0.18)] transition duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-[0_20px_45px_-28px_rgba(74,29,110,0.28)] focus-within:ring-2 focus-within:ring-purple-700 sm:p-6">
+              <div className="flex items-start justify-between gap-4">
+                <span className="font-playfair text-3xl font-bold leading-none text-purple-500 transition group-hover:text-purple-800">{theme.number}</span>
+                <span aria-hidden="true" className="mt-1 h-px w-10 bg-violet-300 transition-all group-hover:w-16 group-hover:bg-purple-500" />
+              </div>
+              <h3 className="mt-5 font-playfair text-xl font-bold leading-snug text-[#26183b] sm:text-[1.35rem]">{theme.title}</h3>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {theme.topics.map((topic) => (
+                  <li key={topic} className="rounded-full bg-[#f5f3f8] px-2.5 py-1.5 text-[11px] leading-tight text-slate-600 sm:text-xs">{topic}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {conferenceThemes.map((theme) => (
-          <article key={theme.number} className="rounded-xl border border-purple-100 bg-white p-5 shadow-sm">
-            <p className="font-semibold text-purple-700">{theme.number}</p>
-            <h4 className="mt-2 font-bold leading-snug text-mainBlue">{theme.title}</h4>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {theme.topics.map((topic) => (
-                <li key={topic} className="rounded-full bg-purple-50 px-2.5 py-1.5 text-xs text-gray-700">{topic}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
+
+const SamarohClosingBanner2027 = () => (
+  <section className="bg-[#fbf9fe] px-5 pb-20 text-white sm:px-8 sm:pb-24 lg:px-12">
+    <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] bg-[#4a1d6e] px-6 py-10 shadow-xl shadow-purple-950/10 sm:px-10 sm:py-12 lg:px-14">
+      <div aria-hidden="true" className="absolute -right-10 -top-24 h-64 w-64 rounded-full border border-white/10 sm:-right-4 sm:-top-32 sm:h-96 sm:w-96" />
+      <div aria-hidden="true" className="absolute -right-20 -top-12 h-52 w-52 rounded-full border border-violet-200/30 sm:right-12 sm:-top-16 sm:h-72 sm:w-72" />
+      <div className="relative flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-violet-200">Samaroh-2027 · 11–12 February 2027</p>
+          <h2 className="mt-4 max-w-2xl font-playfair text-3xl font-bold leading-tight sm:text-4xl">Reimagine business and management in the age of AI.</h2>
+        </div>
+        <a href="#themes" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-purple-900 transition hover:-translate-y-0.5 hover:bg-violet-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 focus-visible:ring-offset-2 focus-visible:ring-offset-purple-900">
+          Explore the themes
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </section>
+);
 
 const ConferenceHighlights2027 = () => {
   const highlights = [
@@ -287,17 +436,21 @@ const OnlineRegistration2027 = () => (
 );
 
 const Conferences = () => {
-  const [activeSection, setActiveSection] = useState("about-conference");
+  const [activeSection, setActiveSection] = useState("highlights");
 
   return (
     <>
+      <ConferenceBanner2027 />
+      <AboutConference2027 />
+      <PreConferenceResearchForum2027 />
+      <ConferenceThemes2027 />
+
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-10 sm:py-16">
         {/* Main Content */}
         <div className="container max-w-7xl mx-auto px-4 py-8 sm:pb-0">
-          <Heading
-            title={conferenceTitle}
-            className="text-red-600 sm:!text-4xl"
-          />
+          <h2 className="mb-8 font-playfair text-3xl font-bold text-mainBlue sm:text-4xl">
+            Conference information
+          </h2>
           <div className="lg:grid lg:grid-cols-[350px_1fr] gap-8">
             {/* Desktop Sidebar */}
             <aside className="hidden lg:block sticky top-8 h-fit">
@@ -375,9 +528,6 @@ const Conferences = () => {
                     <CardContent className="p-6">
                       {(() => {
                         switch (activeSection) {
-                          case "about-conference": return <AboutConference2027 />;
-                          case "research-forum": return <PreConferenceResearchForum2027 />;
-                          case "conference-themes": return <ConferenceThemes2027 />;
                           case "highlights": return <ConferenceHighlights2027 />;
                           case "why-participate": return <WhyParticipate2027 />;
                           case "participants": return <WhoCanParticipate2027 />;
@@ -400,6 +550,7 @@ const Conferences = () => {
         {/* <TeamSection /> */}
         {/* <Tourists /> */}
       </div>
+      <SamarohClosingBanner2027 />
     </>
   );
 };
