@@ -775,7 +775,7 @@ const Apply = () => (
 const PGDMBA = () => {
   const [activeSection, setActiveSection] = useHashNavigation(
     "overview",
-    navigationSections.map((section) => section.id)
+    navigationSections
   );
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
 

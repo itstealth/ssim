@@ -1,31 +1,79 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { toHashName } from "@/lib/hash-name";
 
-export function useHashNavigation(defaultValue, validValues = [], legacyQueryKey) {
+function decodeHashPart(value) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+export function useHashNavigation(defaultValue, items = [], legacyQueryKey) {
+  const pathname = usePathname();
   const [activeValue, setActiveValue] = useState(defaultValue);
-  const validValuesRef = useRef(validValues);
-  validValuesRef.current = validValues;
+  const itemsRef = useRef(items);
+  itemsRef.current = items.map((item) => {
+    if (typeof item === "string") {
+      return { value: item, hashValue: toHashName(item) };
+    }
+
+    const value = item.value ?? item.id;
+    const name = item.hashValue ?? item.label ?? item.name ?? value;
+    return { value, hashValue: toHashName(name) };
+  });
+
+  const getItemByValue = useCallback(
+    (value) => itemsRef.current.find((item) => item.value === value),
+    []
+  );
+
+  const getItemByHash = useCallback(
+    (hash) => {
+      const decodedHash = decodeHashPart(hash);
+      return (
+        itemsRef.current.find((item) => item.hashValue === decodedHash) ??
+        itemsRef.current.find((item) => item.hashValue === toHashName(decodedHash)) ??
+        itemsRef.current.find((item) => item.value === decodedHash)
+      );
+    },
+    []
+  );
 
   const readValueFromUrl = useCallback(() => {
     const url = new URL(window.location.href);
     const legacyValue = legacyQueryKey
       ? url.searchParams.get(legacyQueryKey)
       : null;
-    const fragmentValue = url.hash.slice(1).split("/")[0];
-    const requestedValue = fragmentValue || legacyValue || defaultValue;
+    const hashParts = url.hash.slice(1).split("/");
+    const fragmentValue = decodeHashPart(hashParts[0]);
+    const hashItem = fragmentValue ? getItemByHash(fragmentValue) : null;
+    const legacyItem = legacyValue
+      ? getItemByValue(legacyValue) ?? getItemByHash(legacyValue)
+      : null;
+    const requestedItem = hashItem ?? legacyItem;
+    const requestedValue = requestedItem?.value ?? defaultValue;
 
     if (legacyValue) {
       url.searchParams.delete(legacyQueryKey);
-      if (!url.hash) url.hash = legacyValue;
+    }
+
+    if (requestedItem) {
+      const canonicalParts = hashParts.map(decodeHashPart);
+      canonicalParts[0] = requestedItem.hashValue;
+      const canonicalHash = canonicalParts.join("/");
+      if (url.hash.slice(1) !== canonicalHash) url.hash = canonicalHash;
+    }
+
+    if (legacyValue || (requestedItem && url.href !== window.location.href)) {
       window.history.replaceState(window.history.state, "", url);
     }
 
-    const allowedValues = validValuesRef.current;
-    return allowedValues.length === 0 || allowedValues.includes(requestedValue)
-      ? requestedValue
-      : defaultValue;
-  }, [defaultValue, legacyQueryKey]);
+    return requestedValue;
+  }, [defaultValue, getItemByHash, getItemByValue, legacyQueryKey]);
 
   useEffect(() => {
     const syncFromUrl = () => setActiveValue(readValueFromUrl());
@@ -38,27 +86,27 @@ export function useHashNavigation(defaultValue, validValues = [], legacyQueryKey
       window.removeEventListener("hashchange", syncFromUrl);
       window.removeEventListener("popstate", syncFromUrl);
     };
-  }, [readValueFromUrl]);
+  }, [pathname, readValueFromUrl]);
 
   const navigateToValue = useCallback(
     (nextValue) => {
       const value =
         typeof nextValue === "function" ? nextValue(activeValue) : nextValue;
-      const allowedValues = validValuesRef.current;
-      if (allowedValues.length > 0 && !allowedValues.includes(value)) return;
+      const item = getItemByValue(value);
+      if (itemsRef.current.length > 0 && !item) return;
 
       setActiveValue(value);
 
       const url = new URL(window.location.href);
       if (legacyQueryKey) url.searchParams.delete(legacyQueryKey);
-      url.hash = value;
+      url.hash = item?.hashValue ?? toHashName(value);
 
       if (url.href !== window.location.href) {
         window.history.pushState(window.history.state, "", url);
         window.dispatchEvent(new Event("hashchange"));
       }
     },
-    [activeValue, legacyQueryKey]
+    [activeValue, getItemByValue, legacyQueryKey]
   );
 
   return [activeValue, navigateToValue];

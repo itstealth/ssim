@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { toHashName } from '@/lib/hash-name';
 
 const tourLocations = [
   // Academic Spaces
@@ -171,14 +172,6 @@ const tourLocations = [
   },
 ];
 
-const locationHashName = (name) =>
-  name
-    .toLowerCase()
-    .trim()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-
 const categoryInfo = {
   academic: {
     title: 'Academic Facilities',
@@ -332,7 +325,7 @@ function CategorySection({ category, categoryData, locations }) {
               <TabsTrigger
                 key={location.id}
                 value={location.id}
-                hashValue={locationHashName(location.name)}
+                hashValue={toHashName(location.name)}
                 className="flex items-center gap-2 data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all"
               >
                 <Icon className="w-4 h-4" />

@@ -18,6 +18,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { toHashName } from "@/lib/hash-name";
 
 /* ---------------------------------------------------------------- */
 /* Shared motion presets                                             */
@@ -80,7 +81,7 @@ function FacultyQuickNav({ items }) {
         {items.map((item) => (
           <a
             key={item.id}
-            href={`#${item.id}`}
+            href={`#${toHashName(item.label)}`}
             className="shrink-0 px-3.5 py-1.5 rounded-full text-[0.8rem] font-medium text-gray-500 hover:text-purple-600 hover:bg-purple-50 transition-colors"
           >
             {item.label}
@@ -508,7 +509,7 @@ export default function FacultyDetail({ params }) {
   }
 
   const navItems = [
-    { id: "dashboard", label: "Overview" },
+    { id: "overview", label: "Overview" },
     !isEmptyField(member.description) && { id: "biography", label: "Biography" },
     !isEmptyField(member.awards) && { id: "awards", label: "Awards" },
     !isEmptyField(member.memberships) && { id: "memberships", label: "Memberships" },
@@ -536,7 +537,7 @@ export default function FacultyDetail({ params }) {
       <FacultyQuickNav items={navItems} />
 
       <main className="max-w-6xl mx-auto px-6 lg:px-8 pt-10 pb-28">
-        <FacultyDashboard member={member} id="dashboard" />
+        <FacultyDashboard member={member} id="overview" />
 
         <div className="grid lg:grid-cols-[28%_72%] gap-12 lg:gap-16 items-start">
           <FacultySummarySidebar member={member} />

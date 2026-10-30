@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import "@/app/blog-content.css";
 import { useParams } from "next/navigation";
 import Link from "next/link";
@@ -26,6 +26,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 import { MidContentCTA } from "@/components/blog/MidContentCTA";
 import { AuthorBio } from "@/components/blog/AuthorBio";
 import { RecommendedPosts } from "@/components/blog/RecommendedPosts";
+import { toHashName } from "@/lib/hash-name";
 
 const fetchBlogPost = async (slug) => {
   const response = await fetch(`/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_embed`);
@@ -357,6 +358,87 @@ export default function BlogDetail() {
     }
     return { tocHtml: null, contentWithoutToc: html };
   }, [blog?.content]);
+
+  useEffect(() => {
+    if (!tocHtml) return;
+
+    const tocRoots = Array.from(
+      document.querySelectorAll(".sidebar-toc-only")
+    );
+    const contentRoot = document.querySelector(".main-content-no-toc");
+    if (!contentRoot || tocRoots.length === 0) return;
+
+    const anchors = tocRoots.flatMap((root) =>
+      Array.from(root.querySelectorAll('a[href^="#"]'))
+    );
+    const contentTargets = Array.from(contentRoot.querySelectorAll("[id]"));
+    const targetByLegacyHash = new Map();
+
+    anchors.forEach((anchor) => {
+      const rawHash = anchor.getAttribute("href")?.slice(1);
+      if (!rawHash || targetByLegacyHash.has(rawHash)) return;
+
+      let decodedHash = rawHash;
+      try {
+        decodedHash = decodeURIComponent(rawHash);
+      } catch {
+        // Keep the literal fragment if the CMS emitted malformed escaping.
+      }
+
+      const target = contentTargets.find((element) => element.id === decodedHash);
+      if (target) targetByLegacyHash.set(rawHash, { decodedHash, target, anchor });
+    });
+
+    const canonicalByLegacyHash = new Map();
+    const usedHashes = new Set();
+    targetByLegacyHash.forEach(({ decodedHash, target, anchor }, legacyHash) => {
+      const baseHash = toHashName(anchor.textContent) || toHashName(decodedHash);
+      let canonicalHash = baseHash;
+      let suffix = 2;
+
+      while (
+        usedHashes.has(canonicalHash) ||
+        contentTargets.some(
+          (element) => element.id === canonicalHash && element !== target
+        )
+      ) {
+        canonicalHash = `${baseHash}-${suffix++}`;
+      }
+
+      usedHashes.add(canonicalHash);
+      canonicalByLegacyHash.set(legacyHash, canonicalHash);
+
+      if (target.id !== canonicalHash) {
+        const legacyAlias = document.createElement("span");
+        legacyAlias.id = target.id;
+        legacyAlias.setAttribute("aria-hidden", "true");
+        legacyAlias.style.display = "block";
+        legacyAlias.style.height = "0";
+        legacyAlias.style.scrollMarginTop = "7rem";
+        target.before(legacyAlias);
+        target.id = canonicalHash;
+      }
+    });
+
+    anchors.forEach((anchor) => {
+      const rawHash = anchor.getAttribute("href")?.slice(1);
+      const canonicalHash = canonicalByLegacyHash.get(rawHash);
+      if (canonicalHash) anchor.setAttribute("href", `#${canonicalHash}`);
+    });
+
+    const currentHash = window.location.hash.slice(1);
+    const canonicalHash = canonicalByLegacyHash.get(currentHash) || currentHash;
+    if (currentHash && canonicalHash !== currentHash) {
+      const url = new URL(window.location.href);
+      url.hash = canonicalHash;
+      window.history.replaceState(window.history.state, "", url);
+    }
+    if (canonicalHash) {
+      window.requestAnimationFrame(() => {
+        document.getElementById(canonicalHash)?.scrollIntoView();
+      });
+    }
+  }, [contentWithoutToc, tocHtml]);
 
   const processedContent = useMemo(() => {
     if (!contentWithoutToc) return [];

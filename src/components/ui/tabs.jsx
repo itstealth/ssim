@@ -4,6 +4,7 @@ import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
+import { toHashName } from "@/lib/hash-name"
 
 const TabsList = React.forwardRef(({ className, ...props }, ref) => (
   <TabsPrimitive.List
@@ -47,9 +48,12 @@ function getTabOptions(children) {
     if (child.type === TabsContent) return;
 
     if (child.type === TabsTrigger) {
+      const labelHash =
+        toHashName(getTabLabel(child.props.children)) ||
+        toHashName(child.props.value);
       options.push({
         value: child.props.value,
-        hashValue: child.props.hashValue ?? child.props.value,
+        hashValue: toHashName(child.props.hashValue) || labelHash,
       });
       return;
     }
@@ -60,6 +64,30 @@ function getTabOptions(children) {
   });
 
   return options;
+}
+
+function decodeHashPart(value) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function getTabLabel(children) {
+  if (typeof children === "string" || typeof children === "number") {
+    return String(children);
+  }
+
+  if (Array.isArray(children)) {
+    return children.map(getTabLabel).filter(Boolean).join(" ");
+  }
+
+  if (!React.isValidElement(children) || children.props["aria-hidden"]) {
+    return "";
+  }
+
+  return getTabLabel(children.props.children);
 }
 
 const Tabs = React.forwardRef(
@@ -90,22 +118,38 @@ const Tabs = React.forwardRef(
           return;
         }
 
-        const hashParts = window.location.hash.slice(1).split("/");
+        const hashParts = window.location.hash
+          .slice(1)
+          .split("/")
+          .map(decodeHashPart);
         let requestedValue;
 
         if (hashScope) {
-          if (hashParts[0] !== hashScope) return;
+          if (toHashName(hashParts[0]) !== toHashName(hashScope)) return;
           const requestedHash = hashParts[1];
-          requestedValue = requestedHash
-            ? tabOptions.find(
-                (option) => option.hashValue === requestedHash
-              )?.value
-            : defaultValue;
+          const option = requestedHash
+            ? tabOptions.find((item) => item.hashValue === toHashName(requestedHash)) ??
+              tabOptions.find((item) => item.value === requestedHash)
+            : tabOptions.find((item) => item.value === defaultValue);
+          requestedValue = option?.value;
+
+          if (option && requestedHash && requestedHash !== option.hashValue) {
+            const url = new URL(window.location.href);
+            url.hash = `${hashScope}/${option.hashValue}`;
+            window.history.replaceState(window.history.state, "", url);
+          }
         } else {
           if (hashParts.length !== 1) return;
-          requestedValue = tabOptions.find(
-            (option) => option.hashValue === hashParts[0]
-          )?.value;
+          const option =
+            tabOptions.find((item) => item.hashValue === toHashName(hashParts[0])) ??
+            tabOptions.find((item) => item.value === hashParts[0]);
+          requestedValue = option?.value;
+
+          if (option && hashParts[0] !== option.hashValue) {
+            const url = new URL(window.location.href);
+            url.hash = option.hashValue;
+            window.history.replaceState(window.history.state, "", url);
+          }
         }
 
         if (!tabOptions.some((option) => option.value === requestedValue)) {

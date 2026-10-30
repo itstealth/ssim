@@ -478,7 +478,7 @@ const OnlineRegistration2027 = () => (
 const Conferences = () => {
   const [activeSection, setActiveSection] = useHashNavigation(
     "about-conference",
-    navigationSections.map((section) => section.id)
+    navigationSections
   );
 
   return (

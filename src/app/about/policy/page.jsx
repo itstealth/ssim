@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { FileText, Users, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useHashNavigation } from "@/hooks/useHashNavigation";
 
 const policies = [
   {
@@ -26,7 +26,7 @@ const policies = [
 ];
 
 export default function PolicyPage() {
-  const [activeTab, setActiveTab] = useState("employee");
+  const [activeTab, setActiveTab] = useHashNavigation("employee", policies);
 
   const activePolicy = policies.find((p) => p.id === activeTab);
 

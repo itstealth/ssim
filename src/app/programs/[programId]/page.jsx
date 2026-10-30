@@ -705,7 +705,7 @@ const Curriculum = ({ curriculum }) => {
               <div className="mx-auto relative z-10">
                 <Tabs
                   defaultValue="module1"
-                  hashScope="curriculum"
+                  hashScope="program-structure"
                   className="max-w-4xl mx-auto"
                 >
                   <TabsList className="grid grid-cols-6 mb-12 p-1 bg-slate-100 rounded-full">
@@ -1145,9 +1145,25 @@ const ProgramsOverview = ({ params }) => {
   const [activeProgram, setActiveProgram] = useState(
     () => urlToProgramId[programId] || programs[0].id
   );
+  const hashSections = sections.filter((section) => {
+    const program = programData[activeProgram];
+    if (section.id === "electives" && !program.electives) return false;
+    if (
+      ["programAdvantages", "industryConnect", "careerPathways"].includes(
+        section.id
+      ) && !program.additionalSections?.[section.id]
+    ) {
+      return false;
+    }
+    if (section.hidden?.includes(activeProgram)) return false;
+    if (section.showOnly && !section.showOnly.includes(activeProgram)) {
+      return false;
+    }
+    return true;
+  });
   const [activeSection, setActiveSection] = useHashNavigation(
     "about",
-    sections.map((section) => section.id),
+    hashSections,
     "section"
   );
   const [searchTerm, setSearchTerm] = useState("");

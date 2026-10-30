@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { CollectionPageSchema } from "@/components/Schema";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+import { useHashNavigation } from "@/hooks/useHashNavigation";
 
 const page = () => {
   return (
@@ -617,8 +618,6 @@ const TopCompanies = () => {
 };
 
 const Benefits = () => {
-  const [activeTab, setActiveTab] = useState("view");
-
   const tabs = [
     {
       id: "view",
@@ -692,6 +691,11 @@ const Benefits = () => {
       },
     },
   ];
+
+  const [activeTab, setActiveTab] = useHashNavigation(
+    "view",
+    tabs.map(({ id, label }) => ({ value: id, label }))
+  );
 
   const activeTabData = tabs.find((tab) => tab.id === activeTab);
 

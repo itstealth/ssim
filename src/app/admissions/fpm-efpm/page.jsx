@@ -642,7 +642,7 @@ const Apply = () => (
 export default function FPM_EFPM() {
   const [activeSection, setActiveSection] = useHashNavigation(
     "overview",
-    navigationSections.map((section) => section.id)
+    navigationSections
   );
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
 

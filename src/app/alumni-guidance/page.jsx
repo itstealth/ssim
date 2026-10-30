@@ -5,6 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import AlumniSpeak from "@/app/secondHome/components/AlumniSpeak";
+import { toHashName } from "@/lib/hash-name";
 
 const Page = () => {
   const isMobile = useIsMobile();
@@ -200,7 +201,7 @@ const AddingValues = () => {
           {valuesData.map((item) => (
             <a
               key={item.title}
-              href={`#${item.title}`}
+              href={`#${toHashName(item.title)}`}
               className="pb-2 text-sm md:text-base text-gray-500 hover:text-mainBlue transition-colors"
             >
               {item.title}
@@ -212,7 +213,7 @@ const AddingValues = () => {
       <div className="max-w-6xl mx-auto mt-16 space-y-20">
         {valuesData.map((item, index) => (
           <div
-            id={item.title}
+            id={toHashName(item.title)}
             key={item.title}
             className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-8 items-center"
           >

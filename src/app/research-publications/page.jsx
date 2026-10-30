@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { RESEARCH_TABS, RESEARCH_TAB_KEYS } from "@/data/researchTabs";
+import { RESEARCH_TABS } from "@/data/researchTabs";
+import { toHashName } from "@/lib/hash-name";
 
 /**
  * /research - the full Research listings.
@@ -34,15 +35,21 @@ export default function ResearchPage() {
     const applyFromUrl = () => {
       const url = new URL(window.location.href);
       const legacyTab = url.searchParams.get("tab");
-      const requested = url.hash.slice(1) || legacyTab;
+      const hashValue = url.hash.slice(1);
+      const hashTab = RESEARCH_TABS.find(
+        (item) =>
+          toHashName(item.label) === hashValue || item.key === hashValue
+      );
+      const legacyTabItem = RESEARCH_TABS.find(
+        (item) => item.key === legacyTab
+      );
+      const selectedTab = hashTab || legacyTabItem;
 
-      if (RESEARCH_TAB_KEYS.includes(requested)) setActive(requested);
+      if (selectedTab) setActive(selectedTab.key);
 
-      if (legacyTab) {
+      if (legacyTab || (hashTab && hashTab.key === hashValue)) {
         url.searchParams.delete("tab");
-        if (!url.hash && RESEARCH_TAB_KEYS.includes(legacyTab)) {
-          url.hash = legacyTab;
-        }
+        if (selectedTab) url.hash = toHashName(selectedTab.label);
         window.history.replaceState(window.history.state, "", url);
       }
     };
@@ -88,7 +95,8 @@ export default function ResearchPage() {
     // Keep the selection shareable without a router navigation.
     const url = new URL(window.location.href);
     url.searchParams.delete("tab");
-    url.hash = key;
+    const selectedTab = RESEARCH_TABS.find((item) => item.key === key);
+    url.hash = toHashName(selectedTab?.label ?? key);
     window.history.replaceState(window.history.state, "", url);
   }
 

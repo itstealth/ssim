@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { secondHomeTheme } from '../theme'
 import { RESEARCH_TABS } from '@/data/researchTabs'
+import { useHashNavigation } from '@/hooks/useHashNavigation'
+import { toHashName } from '@/lib/hash-name'
 
 type PreviewItem = {
   id: number | string
@@ -23,7 +25,11 @@ type Summary = Record<string, { total: number; items: PreviewItem[] }>
  * hundred rows, which belongs on a dedicated page rather than the home page.
  */
 export default function Research() {
-  const [active, setActive] = useState(RESEARCH_TABS[0].key)
+  const visibleTabs = RESEARCH_TABS.filter((t) => !['patents', 'awards', 'books'].includes(t.key))
+  const [active, setActive] = useHashNavigation(
+    RESEARCH_TABS[0].key,
+    visibleTabs.map(({ key, label }) => ({ value: key, label }))
+  )
   const [summary, setSummary] = useState<Summary | null>(null)
   const [failed, setFailed] = useState(false)
 
@@ -58,7 +64,7 @@ export default function Research() {
 
         {/* 'patents', 'awards', 'books' are hidden on the home page preview – they remain visible on /research */}
         <div className="mt-8 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Research categories">
-          {RESEARCH_TABS.filter((t) => !['patents', 'awards', 'books'].includes(t.key)).map((t) => {
+          {visibleTabs.map((t) => {
             const isActive = t.key === active
             const count = summary && !t.external ? summary[t.key]?.total : undefined
             return (
@@ -146,7 +152,7 @@ export default function Research() {
               {!!data?.total && (
                 <div className="mt-6 text-center">
                   <Link
-                    href={`/research-publications#${tab.key}`}
+                    href={`/research-publications#${toHashName(tab.label)}`}
                     className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white px-6 py-3 text-[14px] font-semibold text-purple-800 transition-transform hover:-translate-y-0.5 hover:border-purple-400"
                   >
                     View all {data.total} {tab.label.toLowerCase()} &rarr;
