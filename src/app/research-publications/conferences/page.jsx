@@ -235,40 +235,53 @@ const ConferenceBanner2027 = () => (
 
 const AboutConference2027 = () => (
   <section id="about-conference" className="scroll-mt-24 bg-[#fbf9fe] px-5 py-16 text-[#26183b] sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-    <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
-      <div>
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700">Welcome to Samaroh-2027</p>
-        <h2 className="mt-4 max-w-3xl font-playfair text-4xl font-bold leading-tight tracking-tight sm:text-5xl">About the conference</h2>
-        <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
-          The International Conference brings together academicians, researchers, industry leaders, entrepreneurs, policymakers and emerging scholars to examine how Artificial Intelligence, emerging technologies, innovation and sustainability are transforming business, organizations and society.
-        </p>
-        <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
-          The conference seeks to advance contemporary management thought, rigorous research and evidence-based practice by creating a platform for interdisciplinary dialogue, knowledge exchange and academic–industry collaboration.
-        </p>
-      </div>
-      <aside className="relative self-center rounded-2xl border border-[#e8e3da] bg-white p-6 shadow-[0_18px_55px_-38px_rgba(23,33,59,0.45)] sm:p-8">
-        <div aria-hidden="true" className="absolute right-0 top-0 h-24 w-24 rounded-bl-[5rem] bg-violet-50" />
-        <div className="relative">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-700">A platform for</p>
-          <ul className="mt-5 space-y-3">
-            {["Academicians and researchers", "Industry leaders and entrepreneurs", "Policymakers and emerging scholars"].map((audience, index) => (
-              <li key={audience} className="flex items-start gap-3 text-sm leading-6 text-slate-700 sm:text-base">
-                <span className="mt-0.5 font-playfair text-lg font-bold text-purple-600" aria-hidden="true">0{index + 1}</span>
-                <span>{audience}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-7 border-t border-slate-100 pt-5">
-            <div className="flex items-center gap-3">
-              <CalendarDays className="h-5 w-5 text-purple-700" aria-hidden="true" />
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">International Conference</p>
-                <p className="mt-0.5 text-sm font-semibold text-[#26183b] sm:text-base">11–12 February 2027</p>
+    <div className="mx-auto max-w-7xl">
+      <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-700">Welcome to Samaroh-2027</p>
+          <h2 className="mt-4 max-w-3xl font-playfair text-4xl font-bold leading-tight tracking-tight sm:text-5xl">About the conference</h2>
+          <p className="mt-7 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+            The International Conference brings together academicians, researchers, industry leaders, entrepreneurs, policymakers and emerging scholars to examine how Artificial Intelligence, emerging technologies, innovation and sustainability are transforming business, organizations and society.
+          </p>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+            The conference seeks to advance contemporary management thought, rigorous research and evidence-based practice by creating a platform for interdisciplinary dialogue, knowledge exchange and academic–industry collaboration.
+          </p>
+        </div>
+        <aside className="relative self-center rounded-2xl border border-[#e8e3da] bg-white p-6 shadow-[0_18px_55px_-38px_rgba(23,33,59,0.45)] sm:p-8">
+          <div aria-hidden="true" className="absolute right-0 top-0 h-24 w-24 rounded-bl-[5rem] bg-violet-50" />
+          <div className="relative">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-purple-700">A platform for</p>
+            <ul className="mt-5 space-y-3">
+              {["Academicians and researchers", "Industry leaders and entrepreneurs", "Policymakers and emerging scholars"].map((audience, index) => (
+                <li key={audience} className="flex items-start gap-3 text-sm leading-6 text-slate-700 sm:text-base">
+                  <span className="mt-0.5 font-playfair text-lg font-bold text-purple-600" aria-hidden="true">0{index + 1}</span>
+                  <span>{audience}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-7 border-t border-slate-100 pt-5">
+              <div className="flex items-center gap-3">
+                <CalendarDays className="h-5 w-5 text-purple-700" aria-hidden="true" />
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">International Conference</p>
+                  <p className="mt-0.5 text-sm font-semibold text-[#26183b] sm:text-base">11–12 February 2027</p>
+                </div>
               </div>
             </div>
           </div>
+        </aside>
+      </div>
+      <div className="mt-14">
+        <div className="mb-5 flex items-center gap-3">
+          <FormInput className="h-7 w-7 text-red-600" aria-hidden="true" />
+          <h3 className="font-playfair text-3xl font-bold uppercase tracking-wide text-[#26183b]">Online Registration</h3>
         </div>
-      </aside>
+        <Card className="border-slate-200 bg-white">
+          <CardContent className="p-6 sm:p-8">
+            <OnlineRegistration2027 />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   </section>
 );
