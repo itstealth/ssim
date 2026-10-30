@@ -70,7 +70,7 @@ const navItems = [
     dropdown: [
       { name: 'Faculty', path: '/faculty' },
       { name: 'Research & Publications', path: '/research-publications' },
-      { name: 'International Conference- Samaroh-2027', path: '/research-publications/conferences' },
+      { name: 'International Conference - Samaroh-2027', path: '/international-conference-samaroh-2027' },
     ],
   },
   {

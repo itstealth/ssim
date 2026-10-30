@@ -205,11 +205,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/research/conferences",
-        destination: "/research-publications/conferences",
-        permanent: true,
-      },
-      {
         // /faculty/areas is the real page (nav, canonical URLs, sitemap, and
         // all the legacy faculty-slug redirects below already point here).
         // /faculty itself was never a distinct page - it just used to serve

@@ -66,7 +66,7 @@ const ROUTE_METADATA_OVERRIDES = {
     changefreq: "weekly",
   },
 
-  "/research-publications/conferences": { priority: 0.6, changefreq: "monthly" },
+  "/international-conference-samaroh-2027": { priority: 0.6, changefreq: "monthly" },
   "/success-stories": { priority: 0.7, changefreq: "monthly" },
   "/students-life/life-at-ssim": { priority: 0.6, changefreq: "monthly" },
   "/students-life/news": { priority: 0.6, changefreq: "weekly" },

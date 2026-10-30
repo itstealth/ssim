@@ -50,7 +50,7 @@ const VALID_PATHS = [
   "/success-stories",
   "/faculty/areas",
   "/research-publications",
-  "/research-publications/conferences",
+  "/international-conference-samaroh-2027",
 
   "/international-relations",
   "/placement/records",
@@ -201,7 +201,6 @@ const REDIRECT_MAP = {
   "samaroh2011": "/",
   "samaroh-2021": "/",
   "samaroh-2022": "/",
-  "samaroh-2027": "/research-publications/conferences",
   "26samanvay": "/",
   "20thsamanvay": "/",
   "milestones": "/",
