@@ -95,7 +95,7 @@ export const navlinks = [
         path: "/research-publications",
       },
       {
-        name: "Conferences",
+        name: "International Conference- Samaroh-2027",
         path: "/research-publications/conferences",
       },
     ],
