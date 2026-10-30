@@ -49,9 +49,10 @@ import {
 } from "@/components/ui/card";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import { CheckCircle, ArrowRight, CalendarRange } from "lucide-react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { programData } from "@/data/programData";
+import { useHashNavigation } from "@/hooks/useHashNavigation";
 
 const programs = [
   {
@@ -702,7 +703,11 @@ const Curriculum = ({ curriculum }) => {
           {detailedCurriculumData && (
             <section className={`py-5`}>
               <div className="mx-auto relative z-10">
-                <Tabs defaultValue="module1" className="max-w-4xl mx-auto">
+                <Tabs
+                  defaultValue="module1"
+                  hashScope="curriculum"
+                  className="max-w-4xl mx-auto"
+                >
                   <TabsList className="grid grid-cols-6 mb-12 p-1 bg-slate-100 rounded-full">
                     {/* Static tabs for now */}
                     <TabsTrigger
@@ -1125,7 +1130,6 @@ const ProgramSection = ({ programId, activeSection }) => {
 
 const ProgramsOverview = ({ params }) => {
   const router = useRouter();
-  const pathname = usePathname();
   const { programId } = params;
 
   // Map URL segments to program IDs
@@ -1141,7 +1145,11 @@ const ProgramsOverview = ({ params }) => {
   const [activeProgram, setActiveProgram] = useState(
     () => urlToProgramId[programId] || programs[0].id
   );
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useHashNavigation(
+    "about",
+    sections.map((section) => section.id),
+    "section"
+  );
   const [searchTerm, setSearchTerm] = useState("");
   const [showComparison, setShowComparison] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -1153,32 +1161,6 @@ const ProgramsOverview = ({ params }) => {
       setActiveProgram(currentProgramId);
     }
   }, [programId, activeProgram]);
-
-  React.useEffect(() => {
-    const syncSectionFromUrl = () => {
-      const url = new URL(window.location.href);
-      const legacySection = url.searchParams.get("section");
-      const sectionFromUrl =
-        url.hash.slice(1) || legacySection || "about";
-
-      if (legacySection) {
-        url.searchParams.delete("section");
-        if (!url.hash) url.hash = legacySection;
-        window.history.replaceState(window.history.state, "", url);
-      }
-
-      const sectionExists = sections.some((section) => section.id === sectionFromUrl);
-      setActiveSection(sectionExists ? sectionFromUrl : "about");
-    };
-
-    syncSectionFromUrl();
-    window.addEventListener("hashchange", syncSectionFromUrl);
-    window.addEventListener("popstate", syncSectionFromUrl);
-    return () => {
-      window.removeEventListener("hashchange", syncSectionFromUrl);
-      window.removeEventListener("popstate", syncSectionFromUrl);
-    };
-  }, [pathname]);
 
   const handleProgramChange = (programId) => {
     const program = programs.find((p) => p.id === programId);
@@ -1202,17 +1184,13 @@ const ProgramsOverview = ({ params }) => {
 
       const admissionRoute = admissionRoutes[activeProgram];
       if (admissionRoute) {
-        router.push(admissionRoute);
+        router.push(`${admissionRoute}#overview`);
         return;
       }
     }
 
     // For other sections, proceed with normal behavior
     setActiveSection(sectionId);
-    const url = new URL(window.location.href);
-    url.searchParams.delete("section");
-    url.hash = sectionId;
-    window.history.pushState(window.history.state, "", url);
   };
 
   // Determine active category based on selected program
@@ -1361,6 +1339,7 @@ const ProgramsOverview = ({ params }) => {
           <Tabs
             value={activeProgram}
             onValueChange={handleProgramChange}
+            hashSync={false}
             className="w-full"
           >
             <AnimatePresence mode="wait">

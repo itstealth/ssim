@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import { useHashNavigation } from "@/hooks/useHashNavigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -475,7 +476,10 @@ const OnlineRegistration2027 = () => (
 );
 
 const Conferences = () => {
-  const [activeSection, setActiveSection] = useState("about-conference");
+  const [activeSection, setActiveSection] = useHashNavigation(
+    "about-conference",
+    navigationSections.map((section) => section.id)
+  );
 
   return (
     <>

@@ -71,7 +71,7 @@ const AdmissionProgramTabs = () => {
     if (!program || program.redirectTo) return;
 
     // Navigate immediately - use startTransition for better performance
-    router.push(program.path);
+    router.push(`${program.path}#overview`);
   };
 
   return (
@@ -79,6 +79,7 @@ const AdmissionProgramTabs = () => {
       <Tabs
         value={currentProgram || ""}
         onValueChange={handleProgramChange}
+        hashSync={false}
         className="w-full"
       >
         <AnimatePresence mode="wait">

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 // import SEO from "@/components/Seo";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Dialog,
   DialogContent,

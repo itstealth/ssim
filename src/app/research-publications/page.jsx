@@ -10,10 +10,10 @@ import { RESEARCH_TABS, RESEARCH_TAB_KEYS } from "@/data/researchTabs";
  * cached for the rest of the visit. Fetching all six up front would pull a few
  * hundred rows the visitor may never look at.
  *
- * The active tab is mirrored into ?tab= so the Home page previews can deep-link
+ * The active tab is mirrored into the URL hash so the Home page previews can deep-link
  * straight to a category and the URL stays shareable.
  *
- * The ?tab= value is read from window.location rather than useSearchParams on
+ * The hash value is read from window.location rather than useSearchParams on
  * purpose: useSearchParams opts the whole route out of prerendering, which left
  * the page's heading, tab bar and copy absent from the served HTML. Reading it
  * after mount keeps all of that server-rendered for crawlers, at the cost of
@@ -29,15 +29,30 @@ export default function ResearchPage() {
 
   const tab = RESEARCH_TABS.find((t) => t.key === active) ?? RESEARCH_TABS[0];
 
-  // Apply ?tab= on mount, and follow browser back/forward between tabs.
+  // Apply a hash tab on mount and convert old ?tab= links to hashes.
   useEffect(() => {
     const applyFromUrl = () => {
-      const requested = new URLSearchParams(window.location.search).get("tab");
+      const url = new URL(window.location.href);
+      const legacyTab = url.searchParams.get("tab");
+      const requested = url.hash.slice(1) || legacyTab;
+
       if (RESEARCH_TAB_KEYS.includes(requested)) setActive(requested);
+
+      if (legacyTab) {
+        url.searchParams.delete("tab");
+        if (!url.hash && RESEARCH_TAB_KEYS.includes(legacyTab)) {
+          url.hash = legacyTab;
+        }
+        window.history.replaceState(window.history.state, "", url);
+      }
     };
     applyFromUrl();
+    window.addEventListener("hashchange", applyFromUrl);
     window.addEventListener("popstate", applyFromUrl);
-    return () => window.removeEventListener("popstate", applyFromUrl);
+    return () => {
+      window.removeEventListener("hashchange", applyFromUrl);
+      window.removeEventListener("popstate", applyFromUrl);
+    };
   }, []);
 
   // Tracks which tabs have had a request started, so switching away and back
@@ -70,9 +85,11 @@ export default function ResearchPage() {
     setActive(key);
     setQuery("");
     setYear("All");
-    // replaceState rather than the router: this only needs to keep the URL
-    // shareable, and avoids a re-render round trip through the router.
-    window.history.replaceState(null, "", `/research-publications?tab=${key}`);
+    // Keep the selection shareable without a router navigation.
+    const url = new URL(window.location.href);
+    url.searchParams.delete("tab");
+    url.hash = key;
+    window.history.replaceState(window.history.state, "", url);
   }
 
   const rows = cache[tab.key] || [];

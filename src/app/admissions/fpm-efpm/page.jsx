@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useHashNavigation } from "@/hooks/useHashNavigation";
 // import IndustryExperts from "@/app/secondHome/components/IndustryExperts";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -639,7 +640,10 @@ const Apply = () => (
 
 // Main Component
 export default function FPM_EFPM() {
-  const [activeSection, setActiveSection] = useState("overview");
+  const [activeSection, setActiveSection] = useHashNavigation(
+    "overview",
+    navigationSections.map((section) => section.id)
+  );
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
 
   const renderSection = () => {
