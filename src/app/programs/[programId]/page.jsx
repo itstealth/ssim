@@ -49,7 +49,7 @@ import {
 } from "@/components/ui/card";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import { CheckCircle, ArrowRight, CalendarRange } from "lucide-react";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { programData } from "@/data/programData";
 
@@ -1125,7 +1125,6 @@ const ProgramSection = ({ programId, activeSection }) => {
 
 const ProgramsOverview = ({ params }) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const pathname = usePathname();
   const { programId } = params;
 
@@ -1142,9 +1141,7 @@ const ProgramsOverview = ({ params }) => {
   const [activeProgram, setActiveProgram] = useState(
     () => urlToProgramId[programId] || programs[0].id
   );
-  const [activeSection, setActiveSection] = useState(
-    () => searchParams.get("section") || "about"
-  );
+  const [activeSection, setActiveSection] = useState("about");
   const [searchTerm, setSearchTerm] = useState("");
   const [showComparison, setShowComparison] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -1155,16 +1152,38 @@ const ProgramsOverview = ({ params }) => {
     if (currentProgramId && currentProgramId !== activeProgram) {
       setActiveProgram(currentProgramId);
     }
-    const section = searchParams.get("section") || "about";
-    if (section !== activeSection) {
-      setActiveSection(section);
-    }
-  }, [programId, searchParams, activeProgram, activeSection]);
+  }, [programId, activeProgram]);
+
+  React.useEffect(() => {
+    const syncSectionFromUrl = () => {
+      const url = new URL(window.location.href);
+      const legacySection = url.searchParams.get("section");
+      const sectionFromUrl =
+        url.hash.slice(1) || legacySection || "about";
+
+      if (legacySection) {
+        url.searchParams.delete("section");
+        if (!url.hash) url.hash = legacySection;
+        window.history.replaceState(window.history.state, "", url);
+      }
+
+      const sectionExists = sections.some((section) => section.id === sectionFromUrl);
+      setActiveSection(sectionExists ? sectionFromUrl : "about");
+    };
+
+    syncSectionFromUrl();
+    window.addEventListener("hashchange", syncSectionFromUrl);
+    window.addEventListener("popstate", syncSectionFromUrl);
+    return () => {
+      window.removeEventListener("hashchange", syncSectionFromUrl);
+      window.removeEventListener("popstate", syncSectionFromUrl);
+    };
+  }, [pathname]);
 
   const handleProgramChange = (programId) => {
     const program = programs.find((p) => p.id === programId);
     if (program) {
-      router.push(`${program.link}?section=about`);
+      router.push(`${program.link}#about`);
     }
   };
 
@@ -1190,9 +1209,10 @@ const ProgramsOverview = ({ params }) => {
 
     // For other sections, proceed with normal behavior
     setActiveSection(sectionId);
-    const newParams = new URLSearchParams(searchParams);
-    newParams.set("section", sectionId);
-    router.push(`${pathname}?${newParams.toString()}`);
+    const url = new URL(window.location.href);
+    url.searchParams.delete("section");
+    url.hash = sectionId;
+    window.history.pushState(window.history.state, "", url);
   };
 
   // Determine active category based on selected program
