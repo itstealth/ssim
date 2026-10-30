@@ -48,7 +48,6 @@ const navigationSections = [
   { id: "publishing-opportunities", label: "PUBLICATION OPPORTUNITIES", icon: BookOpen },
   { id: "submission-guidelines", label: "SUBMISSION GUIDELINES", icon: FileText },
   { id: "online-registration", label: "ONLINE REGISTRATION", icon: FormInput },
-  { id: "samaroh-overview", label: "SAMAROH-2027", icon: ArrowRight },
 ];
 const conferenceTitle = "Reimagining Business and Management in the Age of AI: Innovation, Sustainability and Human-Centric Transformation";
 const registrationUrl = "https://forms.gle/8XdJyvfCbHW2yit69";
@@ -576,7 +575,6 @@ const Conferences = () => {
                           case "publishing-opportunities": return <PublishingOpportunities2027 />;
                           case "submission-guidelines": return <SubmissionGuidelines2027 />;
                           case "online-registration": return <OnlineRegistration2027 />;
-                          case "samaroh-overview": return <SamarohClosingBanner2027 onExploreThemes={() => setActiveSection("conference-themes")} />;
                           default:
                             return null;
                         }
@@ -590,6 +588,24 @@ const Conferences = () => {
         </div>
         {/* <TeamSection /> */}
         {/* <Tourists /> */}
+      </div>
+      <div className="bg-gradient-to-b from-gray-50 to-white py-10 sm:py-16">
+        <div className="container mx-auto max-w-7xl px-4 py-8">
+          <div className="mb-6 flex items-center gap-3">
+            <ArrowRight className="h-7 w-7 text-red-600" aria-hidden="true" />
+            <h2 className="font-playfair text-3xl font-bold text-mainBlue sm:text-4xl">SAMAROH-2027</h2>
+          </div>
+          <Card className="border">
+            <CardContent className="p-6">
+              <SamarohClosingBanner2027
+                onExploreThemes={() => {
+                  setActiveSection("conference-themes");
+                  document.getElementById("conference-navigation")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              />
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </>
   );
