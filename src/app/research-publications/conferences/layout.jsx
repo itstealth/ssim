@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "International Conference 2027 | SSIM Hyderabad",
     description: "Join the SSIM and AIMS international conference on reimagining business and management in the age of AI, with a focus on innovation, sustainability, and human-centric transformation.",
-    url: "https://www.ssim.ac.in/research/conferences",
+    url: "https://ssim.ac.in/research-publications/conferences",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/research/conferences",
+    canonical: "https://ssim.ac.in/research-publications/conferences",
   },
 };
 

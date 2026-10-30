@@ -201,6 +201,7 @@ const REDIRECT_MAP = {
   "samaroh2011": "/",
   "samaroh-2021": "/",
   "samaroh-2022": "/",
+  "samaroh-2027": "/research-publications/conferences",
   "26samanvay": "/",
   "20thsamanvay": "/",
   "milestones": "/",

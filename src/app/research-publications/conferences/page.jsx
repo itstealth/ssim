@@ -38,7 +38,8 @@ import { ArrowRight } from "lucide-react";
 // Navigation Data
 const navigationSections = [
   { id: "about-conference", label: "ABOUT THE CONFERENCE", icon: Users },
-  { id: "themes", label: "KEY THEMATIC AREAS", icon: ListTodo },
+  { id: "research-forum", label: "PRE-CONFERENCE RESEARCH FORUM", icon: BookOpen },
+  { id: "conference-themes", label: "CONFERENCE THEMES", icon: ListTodo },
   { id: "highlights", label: "CONFERENCE HIGHLIGHTS", icon: Trophy },
   { id: "why-participate", label: "WHY PARTICIPATE?", icon: GraduationCap },
   { id: "participants", label: "WHO CAN PARTICIPATE?", icon: Users },
@@ -50,6 +51,78 @@ const navigationSections = [
 ];
 const conferenceTitle = "Reimagining Business and Management in the Age of AI: Innovation, Sustainability and Human-Centric Transformation";
 const registrationUrl = "https://forms.gle/8XdJyvfCbHW2yit69";
+const conferenceThemes = [
+  {
+    number: "01",
+    title: "Artificial Intelligence, GenAI & Agentic AI",
+    topics: ["Generative AI", "Agentic AI", "Human–AI Collaboration", "Responsible AI", "AI-enabled Business Transformation"],
+  },
+  {
+    number: "02",
+    title: "Digital Transformation, Emerging Technologies & Industry 5.0",
+    topics: ["Digital Transformation", "IoT", "Digital Twins", "Robotics", "Metaverse", "Smart Organizations", "Industry 5.0"],
+  },
+  {
+    number: "03",
+    title: "Marketing, Consumer Behaviour & Customer Experience",
+    topics: ["AI Marketing", "Consumer Insights", "Branding", "Retail Innovation", "Omnichannel", "Customer Experience", "Digital Consumers"],
+  },
+  {
+    number: "04",
+    title: "Innovation, Entrepreneurship, Startups & Business Models",
+    topics: ["Entrepreneurial Innovation", "Startups", "Business Model Innovation", "Digital Entrepreneurship", "Social Innovation", "Startup Ecosystems"],
+  },
+  {
+    number: "05",
+    title: "Sustainability, Circular Economy, ESG & Responsible Business",
+    topics: ["Circular Economy", "ESG", "Sustainable Business Models", "Green Innovation", "Climate Action", "Responsible Business"],
+  },
+  {
+    number: "06",
+    title: "Finance, FinTech & Business Analytics",
+    topics: ["AI in Finance", "FinTech", "Digital Finance", "Financial Analytics", "Sustainable Finance", "Risk Analytics"],
+  },
+  {
+    number: "07",
+    title: "Human Capital, Leadership, Organizational Behaviour & Future of Work",
+    topics: ["AI-enabled HR", "Leadership", "People Analytics", "Employee Experience", "Future Skills", "Human–AI Collaboration"],
+  },
+  {
+    number: "08",
+    title: "Operations, Supply Chain, Logistics & Industry 5.0",
+    topics: ["Intelligent Supply Chains", "Smart Operations", "Logistics Innovation", "Supply Chain Resilience", "Automation", "Sustainable Operations"],
+  },
+  {
+    number: "09",
+    title: "Strategy, Global Business & Organizational Transformation",
+    topics: ["Strategic Transformation", "Global Business", "Competitive Advantage", "Organizational Agility", "Business Ecosystems", "Strategic Resilience"],
+  },
+  {
+    number: "10",
+    title: "Data Analytics, Business Intelligence & Decision Sciences",
+    topics: ["Predictive Analytics", "Machine Learning", "Business Intelligence", "Decision Analytics", "Data-driven Strategy", "AI-enabled Decision Making"],
+  },
+  {
+    number: "11",
+    title: "Corporate Governance, Business Ethics, Policy & Responsible Management",
+    topics: ["AI Governance", "Business Ethics", "Corporate Governance", "Data Privacy", "Responsible Innovation", "Policy & Regulation"],
+  },
+  {
+    number: "12",
+    title: "Management Education, Research & Future of Learning",
+    topics: ["AI in Management Education", "GenAI-enabled Learning", "Research Innovation", "Future Skills", "Experiential Learning", "Academic Integrity"],
+  },
+  {
+    number: "13",
+    title: "Emerging Markets, Inclusive Business & Social Transformation",
+    topics: ["Rural Markets", "Inclusive Innovation", "Social Entrepreneurship", "Digital Inclusion", "Emerging Economies", "Technology for Social Good"],
+  },
+  {
+    number: "14",
+    title: "Healthcare, Education, Tourism & Service Innovation",
+    topics: ["AI in Healthcare", "EdTech", "Service Innovation", "Digital Services", "Smart Tourism", "Customer Experience"],
+  },
+];
 // Navigation Component
 const NavContent = ({ activeSection, setActiveSection, sections }) => (
   <div className="space-y-2">
@@ -81,18 +154,68 @@ const AboutConference2027 = () => (
   <div className="space-y-5 text-gray-700">
     <h3 className="font-bold text-mainBlue text-2xl">{conferenceTitle}</h3>
     <p>Join researchers, academicians, practitioners, institutions, and policy leaders to explore how artificial intelligence is reshaping business and management. The conference focuses on innovation, sustainability, and human-centric transformation.</p>
-    <div className="grid gap-4 sm:grid-cols-2">
-      <div className="rounded-lg border bg-purple-50 p-4"><p className="font-semibold text-mainBlue">International Conference</p><p>11-12 February 2027</p></div>
-      <div className="rounded-lg border bg-purple-50 p-4"><p className="font-semibold text-mainBlue">Pre-conference Research Forum</p><p>11 February 2027</p></div>
-    </div>
-    <p>The pre-conference forum, <strong>"AI-Enabled Research Excellence: From Discovery to High-Impact Publication,"</strong> will focus on AI tools, research methodology, and developing high-impact research.</p>
+    <div className="rounded-lg border bg-purple-50 p-4"><p className="font-semibold text-mainBlue">International Conference</p><p>11–12 February 2027</p></div>
     <p><strong>Organized by:</strong> Siva Sivani Institute of Management (SSIM), Secunderabad<br /><strong>In collaboration with:</strong> Association of Indian Management Schools (AIMS)</p>
   </div>
 );
 
+const PreConferenceResearchForum2027 = () => {
+  const topics = [
+    "Research discovery",
+    "Research design",
+    "Advanced research tools",
+    "Scholarly writing",
+    "Research integrity",
+    "Academic publications",
+  ];
+
+  return (
+    <div className="space-y-6">
+      <div className="rounded-xl border border-purple-200 bg-purple-50 p-5 sm:p-7">
+        <p className="text-sm font-semibold uppercase tracking-wide text-red-600">11 February 2027</p>
+        <h3 className="mt-2 text-2xl font-bold leading-snug text-mainBlue">
+          “AI-Enabled Research Excellence: From Discovery to High-Impact Publication”
+        </h3>
+        <p className="mt-4 leading-7 text-gray-700">
+          A focused research forum on AI-enabled research discovery, research design, advanced research tools, scholarly writing, research integrity, and strategies for developing high-quality research for reputed academic publications.
+        </p>
+      </div>
+      <div>
+        <h4 className="mb-3 font-semibold text-mainBlue">Forum topics</h4>
+        <div className="flex flex-wrap gap-2">
+          {topics.map((topic) => (
+            <span key={topic} className="rounded-full border border-purple-200 bg-white px-3 py-2 text-sm text-gray-700">
+              {topic}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ConferenceThemes2027 = () => {
-  const themes = ["AI", "Innovation", "Sustainability", "Digital Transformation", "Analytics", "Entrepreneurship", "Future of Work", "Responsible Business"];
-  return <div className="space-y-4"><h3 className="font-bold text-mainBlue text-2xl">Key Thematic Areas</h3><p className="text-gray-700">The conference welcomes research and discussion across these connected themes:</p><div className="flex flex-wrap gap-3">{themes.map((theme) => <span key={theme} className="rounded-full border border-purple-200 bg-purple-50 px-4 py-2 font-medium text-mainBlue">{theme}</span>)}</div></div>;
+  return (
+    <div className="space-y-5">
+      <div>
+        <h3 className="font-bold text-mainBlue text-2xl">Conference Themes</h3>
+        <p className="mt-2 text-gray-700">Fourteen areas invite interdisciplinary perspectives on business, management, technology, and society.</p>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {conferenceThemes.map((theme) => (
+          <article key={theme.number} className="rounded-xl border border-purple-100 bg-white p-5 shadow-sm">
+            <p className="font-semibold text-purple-700">{theme.number}</p>
+            <h4 className="mt-2 font-bold leading-snug text-mainBlue">{theme.title}</h4>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {theme.topics.map((topic) => (
+                <li key={topic} className="rounded-full bg-purple-50 px-2.5 py-1.5 text-xs text-gray-700">{topic}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 const ConferenceHighlights2027 = () => {
@@ -253,7 +376,8 @@ const Conferences = () => {
                       {(() => {
                         switch (activeSection) {
                           case "about-conference": return <AboutConference2027 />;
-                          case "themes": return <ConferenceThemes2027 />;
+                          case "research-forum": return <PreConferenceResearchForum2027 />;
+                          case "conference-themes": return <ConferenceThemes2027 />;
                           case "highlights": return <ConferenceHighlights2027 />;
                           case "why-participate": return <WhyParticipate2027 />;
                           case "participants": return <WhoCanParticipate2027 />;

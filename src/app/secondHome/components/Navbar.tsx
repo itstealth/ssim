@@ -70,6 +70,7 @@ const navItems = [
     dropdown: [
       { name: 'Faculty', path: '/faculty' },
       { name: 'Research & Publications', path: '/research-publications' },
+      { name: 'Conferences', path: '/research-publications/conferences' },
     ],
   },
   {

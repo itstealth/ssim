@@ -94,6 +94,10 @@ export const navlinks = [
         name: "Research",
         path: "/research-publications",
       },
+      {
+        name: "Conferences",
+        path: "/research-publications/conferences",
+      },
     ],
   },
   {
