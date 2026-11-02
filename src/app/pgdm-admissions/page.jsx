@@ -295,7 +295,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-navy to-gold opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <div className="w-11 h-11 bg-navy rounded-xl flex items-center justify-center text-xl mb-4">💰</div>
         <h3 className="text-sm md:text-base font-bold text-navy mb-2">Merit Scholarships</h3>
-        <p className="text-xs md:text-sm text-gray-500 leading-relaxed pb-3">Generous merit-based scholarships to support deserving students — up to 100% fee waiver for top performers.</p>
+        <p className="text-xs md:text-sm text-gray-500 leading-relaxed pb-3">Merit scholarships for Batch 2027–29 offer awards up to ₹4,00,000, based on qualifying entrance exam scores or ranks.</p>
         <span className="absolute bottom-3 right-3 text-[10px] font-medium text-gray-500 bg-gray-100 border border-gray-200 px-1.5 py-0.5 rounded leading-none whitespace-nowrap">*T&amp;C apply</span>
       </div>
       <div className="reveal bg-white border border-gray-200 rounded-xl p-5 hover:shadow-lg hover:-translate-y-1 transition-all group relative overflow-hidden">
@@ -360,7 +360,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">🏅</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Accreditation</strong><span className="text-xs md:text-sm text-gray-500">AICTE Approved · NBA Accredited · NAAC Certified · AIU Member</span></div></li>
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">📅</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Batch Year</strong><span className="text-xs md:text-sm text-gray-500">2026–2028 Batch — Admissions Currently Open</span></div></li>
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">🌐</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Campus Location</strong><span className="text-xs md:text-sm text-gray-500">NH 44, Kompally, Secunderabad, Hyderabad – 500100</span></div></li>
-        <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">💳</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Scholarship Available</strong><span className="text-xs md:text-sm text-gray-500">Merit-based scholarships up to 100% fee waiver for eligible students</span></div></li>
+        <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">💳</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Scholarship Available</strong><span className="text-xs md:text-sm text-gray-500">Merit scholarships up to ₹4,00,000 for eligible students</span></div></li>
       </ul>
       <div className="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-6 md:p-7 text-white reveal">
         <h3 className="font-display text-lg md:text-xl font-extrabold text-gold-light mb-4">✨ PGDM Program Highlights</h3>
@@ -507,53 +507,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </section>
 
-{/*  SCHOLARSHIPS  */}
+{/* SCHOLARSHIPS */}
 <section className="py-12 md:py-16 px-4 md:px-10 bg-white">
   <div className="max-w-6xl mx-auto">
     <div className="mb-8 reveal">
-      <p className="text-xs font-bold uppercase tracking-widest text-gold mb-2">Financial Support</p>
+      <p className="text-xs font-bold uppercase tracking-widest text-gold mb-2">Financial Support · Batch 2027–29</p>
       <h2 className="font-display text-2xl md:text-4xl font-extrabold text-navy mb-3">Scholarship Opportunities at SSIM Hyderabad</h2>
-      <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-xl">SSIM believes talent should never be held back by finances. We offer generous merit-based and category-specific scholarships.</p>
+      <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-2xl">The brochure lists admission merit awards based on entrance exam scores or ranks, along with academic excellence awards for term ranks.</p>
     </div>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-      <div className="reveal">
-        <p className="text-gray-500 text-sm leading-relaxed mb-4">At SSIM, we are committed to making quality management education accessible to every deserving student. Our scholarship programs reward academic merit, entrance exam performance, and social diversity.</p>
-        <p className="text-gray-500 text-sm leading-relaxed mb-5">Scholarships are awarded at the time of admission and deducted directly from the program fee. Apply early to maximise your scholarship eligibility.</p>
-        <div className="flex items-start gap-3 bg-gold-pale border border-gold/30 border-l-4 border-l-gold rounded-lg p-4 mb-5">
-          <span className="text-2xl md:text-3xl">🎓</span>
-          <div>
-            <strong className="block text-navy text-sm font-bold mb-1">Apply Early — Scholarship Seats are Limited</strong>
-            <span className="text-xs md:text-sm text-gray-500">Contact our admissions team to know your scholarship eligibility before applying.</span>
-          </div>
-        </div>
-        <a href="#lead-form" className="inline-block bg-ssred hover:bg-ssred-dark text-white font-bold px-5 py-3 rounded-lg text-sm transition-colors">Check Your Scholarship →</a>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="overflow-x-auto rounded-xl border border-gray-200 reveal">
+        <h3 className="bg-navy px-4 py-3 text-sm font-bold text-white">Admission Merit Scholarships</h3>
+        <table className="w-full min-w-[640px] text-left text-xs">
+          <thead className="bg-gold-pale"><tr><th className="p-3">Tier</th><th className="p-3">CAT/XAT %ile</th><th className="p-3">CMAT rank</th><th className="p-3">MAT/ATMA score</th><th className="p-3">ICET rank</th><th className="p-3">Award</th></tr></thead>
+          <tbody>
+            <tr><td className="border-t p-3">Tier I</td><td className="border-t p-3">80+</td><td className="border-t p-3">1–1,000</td><td className="border-t p-3">775+</td><td className="border-t p-3">1–200</td><td className="border-t p-3 font-bold">₹4,00,000</td></tr>
+            <tr><td className="border-t p-3">Tier II</td><td className="border-t p-3">70–79</td><td className="border-t p-3">1,001–2,000</td><td className="border-t p-3">750–774</td><td className="border-t p-3">201–400</td><td className="border-t p-3 font-bold">₹3,00,000</td></tr>
+            <tr><td className="border-t p-3">Tier III</td><td className="border-t p-3">60–69</td><td className="border-t p-3">2,001–3,000</td><td className="border-t p-3">700–749</td><td className="border-t p-3">401–600</td><td className="border-t p-3 font-bold">₹2,00,000</td></tr>
+            <tr><td className="border-t p-3">Tier IV</td><td className="border-t p-3">50–59</td><td className="border-t p-3">3,001–4,000</td><td className="border-t p-3">650–699</td><td className="border-t p-3">601–800</td><td className="border-t p-3 font-bold">₹1,00,000</td></tr>
+            <tr><td className="border-t p-3">Tier V</td><td className="border-t p-3">45–49</td><td className="border-t p-3">4,001–5,000</td><td className="border-t p-3">600–649</td><td className="border-t p-3">801–1,000</td><td className="border-t p-3 font-bold">₹50,000</td></tr>
+          </tbody>
+        </table>
+        <p className="p-3 text-xs text-gray-500">CAT/XAT values are percentiles, MAT/ATMA values are scores, and CMAT/ICET values are ranks. Final eligibility is subject to scorecard verification and institute policy.</p>
       </div>
-      <div className="space-y-3 reveal">
-        <div className="scholar-accent bg-white border border-gray-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
-          <div className="min-w-[58px] h-14 bg-navy rounded-xl flex flex-col items-center justify-center shrink-0"><span className="text-gold-light font-display font-black text-[10px] leading-none">UP TO</span><span className="text-gold-light font-display font-black text-xl leading-none">100%</span><span className="text-gold-light/70 text-[8px] font-semibold">FEE WAIVER</span></div>
-          <div><h4 className="text-xs md:text-sm font-bold text-navy mb-1">Director's Merit Scholarship</h4><p className="text-xs text-gray-500 leading-relaxed">Awarded to top-ranking CAT/XAT scorers. Covers up to 100% of tuition fees.</p><span className="inline-flex items-center mt-2 bg-gold/10 border border-gold/25 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">🏆 Highest Academic Merit</span></div>
-        </div>
-        <div className="scholar-accent bg-white border border-gray-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
-          <div className="min-w-[58px] h-14 bg-navy rounded-xl flex flex-col items-center justify-center shrink-0"><span className="text-gold-light font-display font-black text-xl leading-none">50%</span><span className="text-gold-light/70 text-[8px] font-semibold">FEE WAIVER</span></div>
-          <div><h4 className="text-xs md:text-sm font-bold text-navy mb-1">CAT / MAT / XAT Score Scholarship</h4><p className="text-xs text-gray-500 leading-relaxed">Students with CAT 70%ile+ are eligible. Higher the score, higher the scholarship.</p><span className="inline-flex items-center mt-2 bg-gold/10 border border-gold/25 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">📊 Entrance Exam Based</span></div>
-        </div>
-        <div className="scholar-accent bg-white border border-gray-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
-          <div className="min-w-[58px] h-14 bg-navy rounded-xl flex flex-col items-center justify-center shrink-0"><span className="text-gold-light font-display font-black text-[10px] leading-none">UP TO</span><span className="text-gold-light font-display font-black text-xl leading-none">40%</span><span className="text-gold-light/70 text-[8px] font-semibold">FEE WAIVER</span></div>
-          <div><h4 className="text-xs md:text-sm font-bold text-navy mb-1">Academic Excellence Scholarship</h4><p className="text-xs text-gray-500 leading-relaxed">For graduates with 75%+ marks in undergraduate degree.</p><span className="inline-flex items-center mt-2 bg-gold/10 border border-gold/25 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">📚 Graduation Score Based</span></div>
-        </div>
-        <div className="scholar-accent bg-white border border-gray-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
-          <div className="min-w-[58px] h-14 bg-navy rounded-xl flex flex-col items-center justify-center shrink-0"><span className="text-gold-light font-display font-black text-[10px] leading-none">UP TO</span><span className="text-gold-light font-display font-black text-xl leading-none">30%</span><span className="text-gold-light/70 text-[8px] font-semibold">FEE WAIVER</span></div>
-          <div><h4 className="text-xs md:text-sm font-bold text-navy mb-1">Women Empowerment Scholarship</h4><p className="text-xs text-gray-500 leading-relaxed">Special scholarship for female candidates promoting gender diversity in management.</p><span className="inline-flex items-center mt-2 bg-gold/10 border border-gold/25 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">👩 Diversity &amp; Inclusion</span></div>
-        </div>
-        <div className="scholar-accent bg-white border border-gray-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
-          <div className="min-w-[58px] h-14 bg-navy rounded-xl flex flex-col items-center justify-center shrink-0"><span className="text-gold-light font-display font-black text-[10px] leading-none">UP TO</span><span className="text-gold-light font-display font-black text-xl leading-none">25%</span><span className="text-gold-light/70 text-[8px] font-semibold">FEE WAIVER</span></div>
-          <div><h4 className="text-xs md:text-sm font-bold text-navy mb-1">Defence / Govt Employee Ward Scholarship</h4><p className="text-xs text-gray-500 leading-relaxed">Special concession for children of defence personnel and government employees.</p><span className="inline-flex items-center mt-2 bg-gold/10 border border-gold/25 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">🇮🇳 Service Category</span></div>
-        </div>
+      <div className="overflow-x-auto rounded-xl border border-gray-200 reveal">
+        <h3 className="bg-navy px-4 py-3 text-sm font-bold text-white">Academic Excellence Scholarships</h3>
+        <table className="w-full text-left text-xs">
+          <thead className="bg-gold-pale"><tr><th className="p-3">Term rank</th><th className="p-3">Term 1</th><th className="p-3">Term 2</th><th className="p-3">Term 3</th></tr></thead>
+          <tbody>
+            <tr><td className="border-t p-3">Rank 1</td><td className="border-t p-3">₹30,000</td><td className="border-t p-3">₹30,000</td><td className="border-t p-3">₹30,000</td></tr>
+            <tr><td className="border-t p-3">Rank 2</td><td className="border-t p-3">₹20,000</td><td className="border-t p-3">₹20,000</td><td className="border-t p-3">₹20,000</td></tr>
+            <tr><td className="border-t p-3">Rank 3</td><td className="border-t p-3">₹10,000</td><td className="border-t p-3">₹10,000</td><td className="border-t p-3">₹10,000</td></tr>
+          </tbody>
+        </table>
+        <p className="p-3 text-xs text-gray-500">The brochure describes this as an illustrative, non-exhaustive list. Awards are subject to institute policy.</p>
       </div>
     </div>
+    <div className="mt-6"><a href="#lead-form" className="inline-block bg-ssred hover:bg-ssred-dark text-white font-bold px-5 py-3 rounded-lg text-sm transition-colors">Check your scholarship eligibility →</a></div>
   </div>
 </section>
-
 {/*  FAQ  */}
 <section className="py-12 md:py-16 px-4 md:px-10 bg-mist">
   <div className="max-w-6xl mx-auto">
@@ -642,13 +634,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
           <div className="faq-body px-4 md:px-5">
             <ul className="text-xs md:text-sm text-gray-500 list-disc ml-4 space-y-1 mb-2">
-              <li><strong>Director's Merit</strong> — Up to 100% for top CAT/XAT scorers</li>
-              <li><strong>Entrance Exam Scholarship</strong> — Based on CAT/MAT/XAT percentile (up to 50%)</li>
-              <li><strong>Academic Excellence</strong> — 75%+ graduation (up to 40%)</li>
-              <li><strong>Women Empowerment</strong> — Up to 30% for female candidates</li>
-              <li><strong>Defence/Govt Ward</strong> — Up to 25% concession</li>
+              <li><strong>Admission merit awards</strong> — ₹50,000–₹4,00,000 based on CAT/XAT percentile, CMAT rank, MAT/ATMA score, or ICET rank</li>
+              <li><strong>Academic excellence awards</strong> — ₹30,000, ₹20,000, or ₹10,000 for term ranks 1, 2, or 3 in Terms 1, 2, and 3</li>
             </ul>
-            <p className="text-xs md:text-sm text-gray-500">Scholarships are assessed at admission and deducted from the fee. Call <a href="tel:+919391114948" className="text-navy font-semibold">+91 93911 14948</a> to check eligibility.</p>
+            <p className="text-xs md:text-sm text-gray-500">Awards are subject to scorecard verification and institute policy. Call <a href="tel:+919391114948" className="text-navy font-semibold">+91 93911 14948</a> to check eligibility.</p>
           </div>
         </div>  */}
 

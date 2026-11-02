@@ -84,7 +84,7 @@ const faqData = [
   },
   {
     question: "Does SSIM offer scholarships for PGDM-BA students?",
-    answer: "Yes. SSIM offers merit-based scholarships to eligible PGDM-BA candidates. Scholarships are typically awarded based on entrance exam scores, academic performance in graduation, and other criteria defined by the institute's scholarship policy.",
+    answer: "Yes. For Batch 2027–29, the brochure lists admission merit scholarships from ₹50,000 to ₹4,00,000 based on CAT/XAT percentile, CMAT rank, MAT/ATMA score, or ICET rank. It also lists academic excellence awards for top term ranks: ₹30,000 for Rank 1, ₹20,000 for Rank 2, and ₹10,000 for Rank 3 in Terms 1, 2, and 3. Awards are subject to institute policy.",
   },
   {
     question: "Are education loans or EMI options available for PGDM-BA fees at SSIM?",

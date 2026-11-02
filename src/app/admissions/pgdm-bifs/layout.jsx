@@ -172,7 +172,7 @@ const faqSchema = {
       name: "What scholarships are available for PGDM-BIFS students at SSIM?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "SSIM offers merit scholarships based on entrance exam percentile (up to ₹90,000 for 90+ percentile in CAT/XAT/GMAT), academic performance in Class X, XII and Graduation (up to ₹45,000), and special categories including the President Scholarship (₹1,00,000) for children of Defence personnel.",
+        text: "For Batch 2027–29, SSIM lists admission merit scholarships from ₹50,000 to ₹4,00,000 based on CAT/XAT percentile, CMAT rank, MAT/ATMA score, or ICET rank. Academic excellence awards for top term ranks are ₹30,000 for Rank 1, ₹20,000 for Rank 2, and ₹10,000 for Rank 3 in Terms 1, 2, and 3. Awards are subject to institute policy.",
       },
     },
     {

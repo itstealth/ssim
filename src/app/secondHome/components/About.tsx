@@ -10,7 +10,7 @@ const stats = [
   { icon: '📅', value: '34+', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
   { icon: '🤝', value: '350+', label: 'Corporate', desc: 'Partners' },
   { icon: '🎓', value: '6,500+', label: 'Alumni', desc: 'Network' },
-  { icon: '💰', value: 'Up to ₹1L', label: 'Merit', desc: 'Scholarship' },
+  { icon: '💰', value: 'Up to ₹4L', label: 'Merit', desc: 'Scholarship' },
   { icon: '🧠', value: '50+', label: 'New-Age', desc: 'Specialisations' },
   { icon: '📚', value: '9', label: 'Value Added', desc: 'Certification Programs' },
 ]

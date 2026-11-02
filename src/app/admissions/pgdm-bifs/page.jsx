@@ -74,7 +74,7 @@ const faqData = [
   },
   {
     question: "Does SSIM Hyderabad offer scholarships for PGDM-BIFS students?",
-    answer: "Yes. SSIM offers merit scholarships based on entrance exam percentile (up to ₹90,000 for 90+ percentile in CAT/XAT/GMAT), academic scores in Class X, XII & Graduation (up to ₹45,000), and special categories including an additional ₹40,000 for Siva Sivani Degree College alumni and ₹1,00,000 President Scholarship for children of Defence personnel.",
+    answer: "Yes. For Batch 2027–29, the brochure lists admission merit scholarships from ₹50,000 to ₹4,00,000 based on CAT/XAT percentile, CMAT rank, MAT/ATMA score, or ICET rank. It also lists academic excellence awards for top term ranks: ₹30,000 for Rank 1, ₹20,000 for Rank 2, and ₹10,000 for Rank 3 in Terms 1, 2, and 3. Awards are subject to institute policy.",
   },
   {
     question: "Are additional charges applicable apart from tuition fees?",
