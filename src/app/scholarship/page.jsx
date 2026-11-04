@@ -199,7 +199,7 @@ export default function Scholarships() {
               </h1>
             </div>
             <Card className="border-none shadow-lg">
-              <CardHeader className="bg-[#002f87] text-yellow-400 rounded-t-lg">
+              <CardHeader className="bg-purple-600 text-yellow-400 rounded-t-lg">
                 <CardTitle className="text-xl font-bold">
                   Academic Excellence Scholarship Summary
                 </CardTitle>
@@ -244,7 +244,7 @@ export default function Scholarships() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-12"
           >
-            <Card className="bg-[#002f87] text-white border-none shadow-lg">
+            <Card className="bg-purple-600 text-white border-none shadow-lg">
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Shield className="w-8 h-8 text-yellow-400" />
