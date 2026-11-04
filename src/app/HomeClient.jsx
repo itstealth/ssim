@@ -45,7 +45,7 @@ function DeferredSection({ children, height }) {
           observer.disconnect();
         }
       },
-      { rootMargin: "700px 0px" }
+      { rootMargin: "200px 0px" }
     );
 
     observer.observe(sectionRef.current);
@@ -130,6 +130,39 @@ const HomeFAQ = dynamic(() => import("./secondHome/components/HomeFAQ"), {
   ssr: false,
 });
 
+// These static sections follow the interactive homepage sections. Loading
+// their markup only when it approaches the viewport keeps it out of the
+// initial HTML and leaves the visual order unchanged.
+const Programs = dynamic(() => import("./secondHome/components/Programs"), {
+  loading: () => <SectionLoader height="min-h-[500px]" />,
+  ssr: false,
+});
+
+const ProgramCompassCTA = dynamic(
+  () => import("./secondHome/components/ProgramCompassCTA"),
+  { loading: () => <SectionLoader height="min-h-[300px]" />, ssr: false }
+);
+
+const CampusLife = dynamic(() => import("./secondHome/components/CampusLife"), {
+  loading: () => <SectionLoader height="min-h-[400px]" />,
+  ssr: false,
+});
+
+const Scholarship = dynamic(() => import("./secondHome/components/Scholarship"), {
+  loading: () => <SectionLoader height="min-h-[300px]" />,
+  ssr: false,
+});
+
+const StatsBanner = dynamic(() => import("./secondHome/components/StatsBanner"), {
+  loading: () => <SectionLoader height="min-h-[150px]" />,
+  ssr: false,
+});
+
+const CTASection = dynamic(() => import("./secondHome/components/CTASection"), {
+  loading: () => <SectionLoader height="min-h-[250px]" />,
+  ssr: false,
+});
+
 export default function HomeClient() {
   return (
     <>
@@ -145,6 +178,12 @@ export default function HomeClient() {
       {/* <DeferredSection height="min-h-[300px]"><IndustryExperts /></DeferredSection> */}
       <DeferredSection height="min-h-[350px]"><AlumniSection /></DeferredSection>
       <DeferredSection height="min-h-[300px]"><HomeFAQ /></DeferredSection>
+      <DeferredSection height="min-h-[500px]"><Programs /></DeferredSection>
+      <DeferredSection height="min-h-[300px]"><ProgramCompassCTA /></DeferredSection>
+      <DeferredSection height="min-h-[400px]"><CampusLife /></DeferredSection>
+      <DeferredSection height="min-h-[300px]"><Scholarship /></DeferredSection>
+      <DeferredSection height="min-h-[150px]"><StatsBanner /></DeferredSection>
+      <DeferredSection height="min-h-[250px]"><CTASection /></DeferredSection>
     </>
   );
 }

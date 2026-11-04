@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
@@ -65,44 +64,12 @@ const examData = {
   },
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-}
-
 const ScholarshipCard = ({ tier, index }) => {
   const isTopTier = index === 0
 
   return (
-    <motion.div
-      variants={cardVariants}
-      whileHover={{
-        scale: 1.02,
-        transition: { duration: 0.2 },
-      }}
-      className="h-full"
+    <div
+      className="h-full transition-transform duration-200 hover:scale-[1.02]"
     >
       <Card
         className={`h-full relative overflow-hidden border-2 shadow-lg hover:shadow-xl transition-all duration-300 ${
@@ -139,7 +106,7 @@ const ScholarshipCard = ({ tier, index }) => {
           </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   )
 }
 
@@ -158,16 +125,13 @@ const ExamSection = ({ examKey, examInfo }) => {
         </div>
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+      <div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
       >
         {examInfo.tiers.map((tier, index) => (
           <ScholarshipCard key={index} tier={tier} index={index} />
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -177,10 +141,7 @@ export default function EntranceScholarships() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-4">
@@ -194,7 +155,7 @@ export default function EntranceScholarships() {
             <p className="text-lg text-slate-600 leading-relaxed">
               Scholarship tiers are based on the qualifying entrance exam score or rank shown for each exam.
             </p>
-        </motion.div>
+        </div>
 
         {/* Tabs Section */}
         <Tabs defaultValue="cat" className="w-full">
@@ -233,10 +194,7 @@ export default function EntranceScholarships() {
         </Tabs>
 
         {/* Footer Note */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
+        <div
           className="mt-12"
         >
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-slate-200 max-w-7xl mx-auto">
@@ -248,7 +206,7 @@ export default function EntranceScholarships() {
               Scholarship amounts are in INR. The list is illustrative and non-exhaustive. Scorecards are subject to verification, and awards are governed by institute policy. These scholarships apply to Batch 2027-29.
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   )

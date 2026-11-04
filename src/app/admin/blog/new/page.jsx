@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -230,6 +230,8 @@ export default function AddNewBlogPostPage() {
   }
 
   return (
+    <>
+    <Toaster />
     <div className="container mx-auto px-10 py-10 my-16 shadow-2xl rounded-lg max-w-2xl">
       <h1 className="text-3xl font-bold mb-8">Add New Blog Post</h1>
       <Form {...form}>
@@ -556,5 +558,6 @@ export default function AddNewBlogPostPage() {
         </form>
       </Form>
     </div>
+    </>
   );
 }

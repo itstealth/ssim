@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
   output: "standalone",
 
   // Disable automatic trailing-slash 308 redirect so WordPress REST API calls

@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { toast } from 'sonner';
+import { toast, Toaster } from 'sonner';
 
 export default function JobDetails() {
   const [isCopied, setIsCopied] = useState(false);
@@ -36,6 +36,8 @@ export default function JobDetails() {
   const contactEmail = "director@ssim.ac.in";
 
   return (
+    <>
+    <Toaster />
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-4 text-sm text-muted-foreground">
@@ -370,5 +372,6 @@ export default function JobDetails() {
         </div>
       </section>
     </div>
+    </>
   );
 }

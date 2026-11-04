@@ -15,7 +15,7 @@ import CTASection from '../secondHome/components/CTASection'
 
 export default function ThirdHome() {
   return (
-    <>
+    <div className="third-home">
       <HeroSection />
       <Recruiters />
       <About />
@@ -30,6 +30,6 @@ export default function ThirdHome() {
       <SSIMStories />
       <Testimonials />
       <CTASection />
-    </>
+    </div>
   )
 }

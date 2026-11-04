@@ -4,8 +4,6 @@
 import { secondHomeTheme } from '../theme'
 import ScrollToTopLink from '@/components/ScrollToTopLink'
 
-const AboutSSIM = "/Home/campus-image.webp"
-
 const stats = [
   { icon: '📅', value: '34+', label: 'Years of Excellence', desc: 'Academic excellence since 1992' },
   { icon: '🤝', value: '350+', label: 'Corporate', desc: 'Partners' },
@@ -18,14 +16,14 @@ const stats = [
 export default function About() {
   return (
     <section id="about" className={`px-4 lg:px-[60px] py-[64px] ${secondHomeTheme.shell}`}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      <div className="home-about-grid grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Left Column - Image */}
         <div className="lg:sticky lg:top-20 hidden lg:block h-fit">
           <div className="overflow-hidden shadow-[0_20px_50px_rgba(16,34,105,0.12)] rounded-[24px] border border-white/60">
             <div className="relative aspect-[4/3]">
               <img
                 alt="SSIM Campus Life"
-                src={AboutSSIM}
+                src="/Home/campus-image-960.webp"
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
                 loading="lazy"
                 decoding="async"
@@ -117,8 +115,8 @@ export default function About() {
           <div className="lg:hidden overflow-hidden shadow-2xl rounded-none mt-8">
             <div className="relative w-full aspect-[4/3]">
               <img
-                src={AboutSSIM}
                 alt="SSIM Campus Life"
+                src="/Home/campus-image-960.webp"
                 className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700"
                 loading="lazy"
                 decoding="async"

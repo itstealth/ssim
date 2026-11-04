@@ -1,0 +1,9 @@
+{
+  "name": "Siva Sivani Institute of Management",
+  "short_name": "SSIM",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6c3eaa"
+}

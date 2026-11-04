@@ -261,23 +261,20 @@ export default function HeadingStyleManager() {
 
     const observeHeading = (heading) => {
       headings.add(heading);
-
-      if (
-        observer &&
-        heading.dataset.wordPullUp !== "true" &&
-        heading.dataset.siteHeadingAnimated === "true"
-      ) {
-        observer.observe(heading);
-      } else {
-        heading.classList.add("site-heading-in-view");
-      }
+      observer.observe(heading);
     };
 
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("site-heading-in-view");
+            const heading = entry.target;
+
+            if (heading.dataset.siteHeadingStyled !== "true") {
+              styleHeading(heading, shouldUseWhiteText(heading));
+            }
+
+            heading.classList.add("site-heading-in-view");
             observer.unobserve(entry.target);
           }
         });
@@ -286,23 +283,14 @@ export default function HeadingStyleManager() {
     );
 
     const enhanceHeadings = (candidates) => {
-      // Read computed styles for all new headings before changing any DOM.
-      // This avoids a forced style/layout flush for each heading in the batch.
-      const unstyled = candidates
+      candidates
         .filter(
           (heading) =>
             heading instanceof HTMLElement &&
-            heading.dataset.siteHeadingStyled !== "true" &&
             !heading.closest(SKIP_SELECTOR) &&
             heading.dataset.headingStyle !== "off"
         )
-        .map((heading) => [heading, shouldUseWhiteText(heading)]);
-
-      unstyled.forEach(([heading, useWhiteText]) => {
-        styleHeading(heading, useWhiteText);
-      });
-
-      candidates.forEach(observeHeading);
+        .forEach(observeHeading);
     };
 
     // Deferred even for the initial pass: touching headings synchronously

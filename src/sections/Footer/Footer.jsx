@@ -11,9 +11,6 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
 const aicteapprovals = "/pdfs/footer/AICTE_Approval_1992_2026_All_Years.pdf";
 // import { Input } from "@/components/ui/input";
 
@@ -38,13 +35,6 @@ export default function Footer() {
       href: "mailto:admissions@ssim.ac.in",
     },
   ];
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
 
   const footerSections = [
     {
@@ -132,17 +122,15 @@ export default function Footer() {
           {/* Logo and Social Section */}
           <div className="lg:col-span-3 space-y-8">
             <div className="space-y-2">
-              <Link
-                href="/"
-                className="flex items-center gap-3 group"
-                onClick={scrollToTop}
-              >
+              <a href="/" className="flex items-center gap-3 group">
                 <img
                   src={logo || "/placeholder.svg"}
                   alt="SSIM Logo"
                   className="h-[56px] cursor-pointer w-auto transition-transform group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
-              </Link>
+              </a>
               <div className="flex gap-3">
                 {[
                   {
@@ -181,14 +169,14 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.label}
                   >
-                    <Button
-                      size="icon"
-                      className={`rounded-full transition-all hover:scale-110 text-white ${social.bgColor} hover:opacity-90`}
-                      aria-label={social.label}
+                    <span
+                      aria-hidden="true"
+                      className={`inline-flex h-10 w-10 items-center justify-center rounded-full transition-all hover:scale-110 text-white ${social.bgColor} hover:opacity-90`}
                     >
                       <social.icon className="h-5 w-5" />
-                    </Button>
+                    </span>
                   </a>
                 ))}
               </div>
@@ -248,13 +236,12 @@ export default function Footer() {
                           {item.name}
                         </a>
                       ) : (
-                        <Link
+                        <a
                           href={item.path}
-                          onClick={scrollToTop}
                           className="group inline-flex items-center gap-1 text-navy hover:text-primary transition-colors duration-200"
                         >
                           {item.name}
-                        </Link>
+                        </a>
                       )}
                     </li>
                   ))}
@@ -289,7 +276,7 @@ export default function Footer() {
           </div>
         </div> */}
 
-        <Separator className="my-12 bg-navy" />
+        <hr className="my-12 h-px border-0 bg-navy" />
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-base text-muted-foreground">
           <p className="text-mainBlue">

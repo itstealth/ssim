@@ -344,6 +344,78 @@ img {
   justify-content: space-between;
 }
 
+/* Theme the server-rendered navbar without hydrating its desktop links. */
+.second-home .nav-link-item:hover,
+.second-home .nav-link-trigger:hover,
+.second-home .nav-sub-trigger:hover,
+.second-home .dropdown a:hover {
+  color: #7e22ce;
+}
+
+.second-home .nav-link-item::after,
+.second-home .nav-group .dropdown {
+  background-color: #7e22ce;
+  border-top-color: #7e22ce;
+}
+
+.second-home .dropdown a:hover,
+.second-home .nav-sub-trigger:hover {
+  background-color: #faf5ff;
+}
+
+.third-home .nav-link-item:hover,
+.third-home .nav-link-trigger:hover,
+.third-home .nav-sub-trigger:hover,
+.third-home .dropdown a:hover {
+  color: #9333ea;
+}
+
+.third-home .nav-link-item::after,
+.third-home .nav-group .dropdown {
+  background-color: #9333ea;
+  border-top-color: #9333ea;
+}
+
+.third-home .dropdown a:hover,
+.third-home .nav-sub-trigger:hover {
+  background-color: #faf5ff;
+}
+
+/* Preserve the homepage footer's measured space while skipping offscreen layout. */
+.site-footer-deferred {
+  min-height: 900px;
+}
+
+.home-footer-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 589px;
+  min-height: 589px;
+}
+
+.home-about-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1908px;
+}
+
+@media (max-width: 639px) {
+  .home-footer-deferred {
+    contain-intrinsic-size: auto 1735px;
+    min-height: 1735px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer-deferred {
+    min-height: 589px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-about-grid {
+    contain-intrinsic-size: auto 1293px;
+  }
+}
+
 .submenu-flyout {
   overflow: hidden;
 }

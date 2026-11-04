@@ -21,6 +21,7 @@ export function DockButtons() {
       setIsVisible(shouldShow);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

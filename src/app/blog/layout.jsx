@@ -1,3 +1,5 @@
+import QueryProvider from "@/components/QueryProvider";
+
 export const metadata = {
     title: "SSIM Blog | Management Insights, MBA Tips & Industry Trends",
     description: "Explore SSIM's blog for expert insights on management, MBA career tips, business trends & leadership — written by faculty, students, and industry contributors.",
@@ -71,5 +73,5 @@ export const viewport = {
 };
 
 export default function BlogLayout({ children }) {
-    return <>{children}</>;
-}   
+    return <QueryProvider>{children}</QueryProvider>;
+}

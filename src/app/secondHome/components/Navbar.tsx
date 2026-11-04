@@ -1,194 +1,23 @@
-'use client'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { ChevronDown, ChevronRight, Menu, Phone } from 'lucide-react'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet'
-import { secondHomeTheme } from '../theme'
+import { navItems } from './navItems'
+import { ChevronDown, ChevronRight, Phone } from 'lucide-react'
+import MobileNavTrigger from './MobileNavTrigger'
 
-const navItems = [
-  {
-    name: 'About',
-    path: '/about',
-    dropdown: [
-
-      { name: 'Accreditations & Rankings', path: '/about/accreditations-rankings' },
-      { name: 'About SSGI', path: '/about-ssgi' },
-      { name: 'Board of Governors', path: '/about/board-of-governors' },
-      { name: 'Board of Studies', path: '/about/board-of-studies' },
-      { name: 'Message from Leaders', path: '/about/message-from-leaders' },
-      { name: 'Vision & Mission', path: '/about/vision-mission' },
-      { name: 'International Relations', path: '/international-relations' },
-      { name: 'Virtual Tour', path: '/virtual-tour' },
-    ],
-  },
-  {
-    name: 'Programs',
-    path: '/programs',
-    dropdown: [
-      {
-        name: 'PGDM',
-        subDropdown: [
-          { name: 'PGDM Triple Specialisation', path: '/programs/pgdm-triple-specialisation' },
-          { name: 'PGDM BIFS', path: '/programs/pgdm-bifs' },
-          { name: 'PGDM BA', path: '/programs/pgdm-ba' },
-        ],
-      },
-      { name: 'FPM/EFPM', path: '/programs/fpm-efpm' },
-    ],
-  },
-  {
-    name: 'Admissions',
-    path: '/admissions',
-    dropdown: [
-      { name: 'Program Compass — Free Assessment', path: '/program-compass' },
-      { name: 'PGDM Triple Specialisation', path: '/admissions/pgdm-triple-specialisation' },
-      { name: 'PGDM BIFS', path: '/admissions/pgdm-bifs' },
-      { name: 'PGDM BA', path: '/admissions/pgdm-ba' },
-      { name: 'FPM/EFPM', path: '/admissions/fpm-efpm' },
-    ],
-  },
-  {
-    name: 'Alumni',
-    path: '/alumni',
-    dropdown: [
-      { name: 'Alumni', path: '/alumni' },
-      { name: 'Alumni Guidance', path: '/alumni-guidance' },
-      { name: 'Success Stories', path: '/success-stories' },
-    ],
-  },
-  {
-    name: 'Faculty & Research',
-    path: '/faculty',
-    dropdown: [
-      { name: 'Faculty', path: '/faculty' },
-      { name: 'Research & Publications', path: '/research-publications' },
-      { name: 'International Conference - Samaroh-2027', path: '/international-conference-samaroh-2027' },
-    ],
-  },
-  {
-    name: 'Placements',
-    path: '/placement',
-    dropdown: [
-      { name: 'Placement', path: '/placement/records' },
-      { name: 'Placement Team', path: '/placement/team' },
-    ],
-  },
-  {
-    name: 'Corporate Connect',
-    path: '/placement',
-    dropdown: [
-      { name: 'Internships', path: '/placement/internships' },
-      { name: 'Guest lectures', path: '/placement/guest-lectures' },
-    ],
-  },
-  {
-    name: "Student's Life",
-    path: '/students-life',
-    dropdown: [
-      {
-        name: 'Buzz About Us',
-        subDropdown: [
-          { name: 'News', path: '/students-life/news' },
-          { name: "Student's Achievements", path: '/students-life/students-achievements' },
-        ],
-      },
-      { name: 'Life at SSIM', path: '/students-life/life-at-ssim' },
-    ],
-  },
-  {
-    name: 'IQAC',
-    path: '/iqac',
-  },
-  {
-    name: 'Contact Us',
-    path: '/contact-us',
-  },
-]
-
-const CollapsibleNavItem = ({ item, setMobileOpen }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const children = item.dropdown || item.subDropdown
-
-  return (
-    <div className="border-b border-slate-100">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-3 px-4 text-slate-700 hover:text-purple-700 transition-colors"
-      >
-        <span className="font-medium">{item.name}</span>
-        {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-      </button>
-      {isOpen && children && (
-        <div className="bg-slate-50">
-          {children.map((subItem, subIndex) => (
-            <div key={subIndex}>
-              {subItem.subDropdown ? (
-                <CollapsibleNavItem item={subItem} setMobileOpen={setMobileOpen} />
-              ) : (
-                <Link
-                  href={subItem.path}
-                  onClick={() => {
-                    if (setMobileOpen) setMobileOpen(false);
-                  }}
-                  className="block py-2 px-8 text-sm text-slate-600 hover:text-purple-700 transition-colors"
-                >
-                  {subItem.name}
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const pathname = usePathname()
-  const isSecondHome = pathname === '/secondHome'
-  const isThirdHome = pathname === '/thirdHome'
-  const linkColor = isSecondHome
-    ? 'text-slate-700 hover:text-purple-700'
-    : isThirdHome
-      ? 'text-slate-700 hover:text-purple-600'
-      : 'text-slate-700 hover:text-navy'
-  const dropdownHover = isSecondHome
-    ? 'hover:bg-purple-50 hover:text-purple-700'
-    : isThirdHome
-      ? 'hover:bg-purple-50 hover:text-purple-600'
-      : 'hover:bg-slate-50 hover:text-navy'
-  const accentButton = isSecondHome
-    ? 'bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(107,33,168,0.18)]'
-    : isThirdHome
-      ? 'bg-gradient-to-r from-purple-500 via-fuchsia-500 to-purple-300 text-white hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(168,85,247,0.18)]'
-      : 'bg-navy text-white hover:bg-navy-light hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,34,105,0.18)]'
-
   return (
     <nav className="sticky top-0 z-10 bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-4 md:px-10 flex items-center justify-between h-[76px]">
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-3 no-underline">
-        <Image
+      <a href="/" className="flex items-center gap-3 no-underline">
+        <img
           src="/logo-transparent.png"
           alt="SSIM Logo"
-          width={200}
-          height={40}
-          priority
+          width="200"
+          height="40"
+          fetchPriority="high"
+          decoding="async"
           className="h-10 w-auto"
         />
-        <div className={`w-[52px] h-[52px] rounded-xl grid place-items-center text-white font-playfair text-xl font-extrabold flex-shrink-0 ${isSecondHome ? 'bg-gradient-to-br from-purple-700 to-[#1B50EC]' : isThirdHome ? 'bg-gradient-to-br from-purple-500 to-fuchsia-500' : 'bg-navy'}`} style={{ display: 'none' }}>
-          S
-        </div>
-      </Link>
+      </a>
 
       {/* Desktop Nav Links */}
       <ul className="hidden sx:flex gap-1 list-none m-0 p-0">
@@ -196,7 +25,7 @@ export default function Navbar() {
           <li key={item.name} className="nav-group relative group">
             {item.dropdown ? (
               <>
-                <button className={`nav-link-item nav-link-trigger cursor-pointer whitespace-nowrap ${linkColor}`}>
+                <button className="nav-link-item nav-link-trigger cursor-pointer whitespace-nowrap text-slate-700 hover:text-navy">
                   {item.name}
                   <ChevronDown size={14} className="flex-shrink-0" />
                 </button>
@@ -208,7 +37,7 @@ export default function Navbar() {
                       {subItem.subDropdown ? (
                         <>
                           <div
-                            className={`nav-sub-trigger h-11 px-4 transition-colors text-sm flex items-center justify-between cursor-pointer ${linkColor} ${dropdownHover}`}
+                            className="nav-sub-trigger h-11 px-4 transition-colors text-sm flex items-center justify-between cursor-pointer text-slate-700 hover:bg-slate-50 hover:text-navy"
                           >
                             <span className="whitespace-nowrap">{subItem.name}</span>
                             <ChevronRight size={12} />
@@ -218,32 +47,32 @@ export default function Navbar() {
                               }`}
                           >
                             {subItem.subDropdown.map((sub) => (
-                              <Link
+                              <a
                                 key={sub.name}
                                 href={sub.path}
-                                className={`block px-4 py-2.5 transition-colors text-sm ${linkColor} ${dropdownHover}`}
+                                className="block px-4 py-2.5 transition-colors text-sm text-slate-700 hover:bg-slate-50 hover:text-navy"
                               >
                                 {sub.name}
-                              </Link>
+                              </a>
                             ))}
                           </div>
                         </>
                       ) : (
-                        <Link
+                        <a
                           href={subItem.path}
-                          className={`block px-4 py-2.5 transition-colors text-sm ${linkColor} ${dropdownHover}`}
+                          className="block px-4 py-2.5 transition-colors text-sm text-slate-700 hover:bg-slate-50 hover:text-navy"
                         >
                           {subItem.name}
-                        </Link>
+                        </a>
                       )}
                     </div>
                   ))}
                 </div>
               </>
             ) : (
-              <Link href={item.path} className={`nav-link-item ${linkColor}`}>
+              <a href={item.path} className="nav-link-item text-slate-700 hover:text-navy">
                 {item.name}
-              </Link>
+              </a>
             )}
           </li>
         ))}
@@ -254,44 +83,14 @@ export default function Navbar() {
         <a
           href="tel:+919391114948"
           rel="noreferrer"
-          className={`hidden md:block border-none px-5 py-2.5 rounded-lg font-bold text-[13px] no-underline transition-all whitespace-nowrap ${accentButton}`}
+          className="hidden md:block border-none px-5 py-2.5 rounded-lg font-bold text-[13px] no-underline transition-all whitespace-nowrap bg-navy text-white hover:bg-navy-light hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,34,105,0.18)]"
         >
           <Phone className="w-4 h-4 inline mr-1" />
           Call Us
         </a>
 
         {/* Mobile Menu */}
-        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-          <SheetTrigger className="sx:hidden flex items-center">
-            <Menu className={`w-6 h-6 ${isSecondHome || isThirdHome ? 'text-purple-700' : 'text-navy'}`} />
-          </SheetTrigger>
-          <SheetContent className="bg-white overflow-auto w-[300px]">
-            <SheetHeader className="text-left mb-4">
-              <SheetTitle className={`text-2xl font-bold text-left font-playfair ${isSecondHome || isThirdHome ? 'text-purple-700' : 'text-navy'}`}>
-                SSIM
-              </SheetTitle>
-            </SheetHeader>
-            <nav className="mt-4">
-              <ul className="space-y-0">
-                {navItems.map((item) => (
-                  <li key={item.name}>
-                    {item.dropdown ? (
-                      <CollapsibleNavItem item={item} setMobileOpen={setMobileOpen} />
-                    ) : (
-                      <Link
-                        href={item.path}
-                        onClick={() => setMobileOpen(false)}
-                        className={`block py-3 px-4 transition-colors font-medium border-b border-slate-100 ${linkColor}`}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </SheetContent>
-        </Sheet>
+        <MobileNavTrigger />
       </div>
     </nav>
   )

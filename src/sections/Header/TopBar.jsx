@@ -1,8 +1,5 @@
-"use client";
-
 /* eslint-disable react/no-unknown-property */
 import { Instagram, Facebook, Youtube, Twitter, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const TopBar = () => {
   const socialIcons = [
@@ -73,23 +70,17 @@ const TopBar = () => {
             href="https://apply.ssim.ac.in"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition-colors text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
           >
-            <Button
-              className="text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
-            >
-              Apply for PGDM
-            </Button>
+            Apply for PGDM
           </a>
           <a
             href="https://apply.ssim.ac.in/fellowship-program-application-form"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition-colors text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
           >
-            <Button
-              className="text-xs text-white bg-white/10 hover:bg-white/15 border border-white/15"
-            >
-              Apply for FPM
-            </Button>
+            Apply for FPM
           </a>
         </div>
       </div>

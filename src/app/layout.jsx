@@ -1,8 +1,6 @@
 import { Geist, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import QueryProvider from "@/components/QueryProvider";
-import { Toaster } from "sonner";
 import { HomepageSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
 import ConditionalLayout from "@/components/ConditionalLayout";
@@ -79,9 +77,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preload Mobile LCP Hero Banner Image for minimal resource load delay */}
-        <link rel="preload" as="image" href="/hero-sm.avif" media="(max-width: 767px)" type="image/avif" fetchPriority="high" />
-        <link rel="preload" as="image" href="/banner-home-v2.avif" media="(min-width: 768px)" type="image/avif" fetchPriority="high" />
         {/* Homepage @graph Schema — Organization + WebSite */}
         <HomepageSchema />
         {/* Dynamic Schema (Breadcrumbs, etc.) */}
@@ -144,12 +139,8 @@ export default function RootLayout({ children }) {
           strategy="lazyOnload"
         />
 
-        <QueryProvider>
-          <HeadingStyleManager />
-          <ConditionalLayout>{children}</ConditionalLayout>
-          <Toaster />
-        </QueryProvider>
-
+        <HeadingStyleManager />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

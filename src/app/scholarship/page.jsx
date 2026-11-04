@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // import { Badge } from "@/components/ui/badge";
 import {
@@ -27,33 +24,6 @@ const scholarshipData = [
   { range: "Term Rank 3", tier: "Rank 3", classX: 10000, classXII: 10000, graduation: 10000, total: 10000, color: "from-gray-400 to-gray-600", bgColor: "bg-gradient-to-br from-gray-50 to-gray-100", borderColor: "border-gray-200", icon: GraduationCap },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
-
 export default function Scholarships() {
   return (
     <>
@@ -64,10 +34,7 @@ export default function Scholarships() {
             Academic excellence awards are based on term ranks. The values shown apply to each of Terms 1, 2, and 3.
           </p>
           {/* Header Section */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
@@ -81,26 +48,18 @@ export default function Scholarships() {
             <p className="text-lg text-slate-600">
               Scholarship awards by term rank for Terms 1, 2, and 3.
             </p>
-          </motion.div>
+          </div>
 
           {/* Cards Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+          <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           >
             {scholarshipData.map((scholarship, index) => {
               const IconComponent = scholarship.icon;
               return (
-                <motion.div
+                <div
                   key={index}
-                  variants={cardVariants}
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.2 },
-                  }}
-                  className="h-full"
+                  className="h-full transition-transform duration-200 hover:scale-[1.02]"
                 >
                   <Card
                     className={`h-full ${scholarship.bgColor} ${scholarship.borderColor} border-2 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative`}
@@ -167,16 +126,13 @@ export default function Scholarships() {
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
 
           {/* Note Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+          <div
             className="mb-12"
           >
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-slate-200">
@@ -184,13 +140,10 @@ export default function Scholarships() {
                 <span className="font-semibold">Important Note:</span> Amounts are in INR. The brochure lists these awards as illustrative and non-exhaustive; awards are subject to institute policy.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Academic Excellence Scholarship Summary */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <div
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
@@ -235,13 +188,10 @@ export default function Scholarships() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
           {/* Important Scholarship Note */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+          <div
             className="mb-12"
           >
             <Card className="bg-purple-600 text-white border-none shadow-lg">
@@ -257,13 +207,10 @@ export default function Scholarships() {
                 </p>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
           {/* General Scholarship Notes */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+          <div
           >
             <Card className="border-none shadow-lg">
               <CardHeader>
@@ -279,7 +226,7 @@ export default function Scholarships() {
                 </ul>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </div>
     </>

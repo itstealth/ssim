@@ -24,38 +24,13 @@ const SectionLoader = ({ height = "min-h-[200px]" }) => (
   <div className={`w-full ${height}`} />
 );
 
-// Server-renderable sections — no browser APIs needed, HTML arrives with page
+// Keep the sections directly under the hero in server-rendered HTML.
 const Recruiters = dynamic(() => import("./secondHome/components/Recruiters"), {
   loading: () => <SectionLoader height="min-h-[120px]" />,
 });
 
 const About = dynamic(() => import("./secondHome/components/About"), {
   loading: () => <SectionLoader height="min-h-[400px]" />,
-});
-
-const Programs = dynamic(() => import("./secondHome/components/Programs"), {
-  loading: () => <SectionLoader height="min-h-[500px]" />,
-});
-
-const ProgramCompassCTA = dynamic(
-  () => import("./secondHome/components/ProgramCompassCTA"),
-  { loading: () => <SectionLoader height="min-h-[300px]" /> }
-);
-
-const CampusLife = dynamic(() => import("./secondHome/components/CampusLife"), {
-  loading: () => <SectionLoader height="min-h-[400px]" />,
-});
-
-const Scholarship = dynamic(() => import("./secondHome/components/Scholarship"), {
-  loading: () => <SectionLoader height="min-h-[300px]" />,
-});
-
-const StatsBanner = dynamic(() => import("./secondHome/components/StatsBanner"), {
-  loading: () => <SectionLoader height="min-h-[150px]" />,
-});
-
-const CTASection = dynamic(() => import("./secondHome/components/CTASection"), {
-  loading: () => <SectionLoader height="min-h-[250px]" />,
 });
 
 export default function SecondHome() {
@@ -74,13 +49,6 @@ export default function SecondHome() {
           because ssr:false is not allowed in Server Components. */}
       <HomeClient />
 
-      {/* Server sections that appear after client sections in the flow */}
-      <Programs />
-      <ProgramCompassCTA />
-      <CampusLife />
-      <Scholarship />
-      <StatsBanner />
-      <CTASection />
     </>
   );
 }
