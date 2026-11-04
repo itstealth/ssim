@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { navItems } from './navItems'
 import { ChevronDown, ChevronRight, Phone } from 'lucide-react'
 import MobileNavTrigger from './MobileNavTrigger'
@@ -7,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-10 bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-4 md:px-10 flex items-center justify-between h-[76px]">
       {/* Logo */}
-      <a href="/" className="flex items-center gap-3 no-underline">
+      <Link href="/" className="flex items-center gap-3 no-underline">
         <img
           src="/logo-transparent.png"
           alt="SSIM Logo"
@@ -17,7 +18,7 @@ export default function Navbar() {
           decoding="async"
           className="h-10 w-auto"
         />
-      </a>
+      </Link>
 
       {/* Desktop Nav Links */}
       <ul className="hidden sx:flex gap-1 list-none m-0 p-0">
