@@ -17,6 +17,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import EntranceScholarships from "./EntranceScholarships";
+import AICTEScholarshipTab from "@/components/AICTEScholarshipTab";
 
 const scholarshipData = [
   { range: "Term Rank 1", tier: "Rank 1", classX: 30000, classXII: 30000, graduation: 30000, total: 30000, color: "from-yellow-400 to-yellow-600", bgColor: "bg-gradient-to-br from-yellow-50 to-yellow-100", borderColor: "border-yellow-200", icon: Trophy },
@@ -28,6 +29,7 @@ export default function Scholarships() {
   return (
     <>
       <EntranceScholarships />
+      <AICTEScholarshipTab />
       <div className="min-h-screen bg-white">
         <div className="w-full max-w-7xl mx-auto px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
           <p className="text-lg text-slate-600 mb-4">
