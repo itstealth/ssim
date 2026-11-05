@@ -246,14 +246,27 @@ img {
 
 @media (min-width: 1024px) and (max-width: 1535px) {
   .nav-link-item {
-    padding-right: 3px;
-    padding-left: 3px;
-    font-size: 10px;
+    padding-right: 2px;
+    padding-left: 2px;
+    font-size: 11px;
   }
 
   .nav-link-item::after {
-    left: 3px;
-    right: 3px;
+    left: 2px;
+    right: 2px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1535px) {
+  .nav-link-item {
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 12px;
+  }
+
+  .nav-link-item::after {
+    left: 5px;
+    right: 5px;
   }
 }
 

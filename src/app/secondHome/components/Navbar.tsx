@@ -16,7 +16,7 @@ export default function Navbar() {
           height="40"
           fetchPriority="high"
           decoding="async"
-          className="h-8 w-auto max-w-[132px] object-contain sm:h-10 sm:max-w-none lg:h-8 lg:max-w-[132px] 2xl:h-10 2xl:max-w-none"
+          className="h-8 w-auto max-w-[132px] object-contain sm:h-10 sm:max-w-none lg:h-8 lg:max-w-[120px] xl:max-w-[132px] 2xl:h-10 2xl:max-w-none"
         />
       </Link>
 
