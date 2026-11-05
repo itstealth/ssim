@@ -5,6 +5,7 @@ import { HomepageSchema } from "@/components/Schema";
 import DynamicSchema from "@/components/DynamicSchema";
 import ConditionalLayout from "@/components/ConditionalLayout";
 import HeadingStyleManager from "@/components/HeadingStyleManager";
+import AICTEScholarshipTab from "@/components/AICTEScholarshipTab";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -141,6 +142,7 @@ export default function RootLayout({ children }) {
 
         <HeadingStyleManager />
         <ConditionalLayout>{children}</ConditionalLayout>
+        <AICTEScholarshipTab />
       </body>
     </html>
   );
