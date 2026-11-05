@@ -29,7 +29,7 @@ export default function MobileNavTrigger() {
           setLoaded(true)
           setOpen(true)
         }}
-        className="sx:hidden flex items-center"
+        className="lg:hidden flex items-center"
       >
         <Menu className={`w-6 h-6 ${isSecondHome || isThirdHome ? 'text-purple-700' : 'text-navy'}`} />
       </button>

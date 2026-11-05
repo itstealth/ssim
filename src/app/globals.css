@@ -244,6 +244,19 @@ img {
   white-space: nowrap;
 }
 
+@media (min-width: 1024px) and (max-width: 1535px) {
+  .nav-link-item {
+    padding-right: 3px;
+    padding-left: 3px;
+    font-size: 10px;
+  }
+
+  .nav-link-item::after {
+    left: 3px;
+    right: 3px;
+  }
+}
+
 .nav-link-item:hover {
   color: var(--blue);
 }

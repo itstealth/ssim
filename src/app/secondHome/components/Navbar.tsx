@@ -6,7 +6,7 @@ import MobileNavTrigger from './MobileNavTrigger'
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-10 bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-4 md:px-10 flex items-center justify-between h-[76px]">
+    <nav className="sticky top-0 z-10 bg-white shadow-[0_2px_20px_rgba(16,34,105,0.08)] px-3 md:px-5 2xl:px-10 flex items-center justify-between h-[76px]">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-3 no-underline">
         <img
@@ -16,12 +16,12 @@ export default function Navbar() {
           height="40"
           fetchPriority="high"
           decoding="async"
-          className="h-10 w-auto"
+          className="h-8 w-auto max-w-[132px] object-contain sm:h-10 sm:max-w-none lg:h-8 lg:max-w-[132px] 2xl:h-10 2xl:max-w-none"
         />
       </Link>
 
       {/* Desktop Nav Links */}
-      <ul className="hidden sx:flex gap-1 list-none m-0 p-0">
+      <ul className="hidden lg:flex gap-0 list-none m-0 p-0">
         {navItems.map((item) => (
           <li key={item.name} className="nav-group relative group">
             {item.dropdown ? (
@@ -80,13 +80,13 @@ export default function Navbar() {
       </ul>
 
       {/* CTA */}
-      <div className="flex items-center gap-4">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-4">
         <a
           href="tel:+919391114948"
           rel="noreferrer"
-          className="hidden md:block border-none px-5 py-2.5 rounded-lg font-bold text-[13px] no-underline transition-all whitespace-nowrap bg-navy text-white hover:bg-navy-light hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,34,105,0.18)]"
+          className="flex shrink-0 items-center border-none px-2 py-2 2xl:px-5 2xl:py-2.5 rounded-lg font-bold text-[11px] 2xl:text-[13px] no-underline transition-all whitespace-nowrap bg-navy text-white hover:bg-navy-light hover:-translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,34,105,0.18)]"
         >
-          <Phone className="w-4 h-4 inline mr-1" />
+          <Phone className="w-3 h-3 2xl:w-4 2xl:h-4 inline mr-1" />
           Call Us
         </a>
 
