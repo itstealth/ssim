@@ -29,7 +29,6 @@ export default function Scholarships() {
   return (
     <>
       <EntranceScholarships />
-      <AICTEScholarshipTab />
       <div className="min-h-screen bg-white">
         <div className="w-full max-w-7xl mx-auto px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
           <p className="text-lg text-slate-600 mb-4">
@@ -229,6 +228,7 @@ export default function Scholarships() {
               </CardContent>
             </Card>
           </div>
+          <AICTEScholarshipTab />
         </div>
       </div>
     </>

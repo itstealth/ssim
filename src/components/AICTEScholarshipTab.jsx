@@ -1,12 +1,12 @@
 export default function AICTEScholarshipTab() {
   return (
-    <div className="fixed bottom-24 left-3 right-3 z-[70] sm:bottom-6 sm:left-6 sm:right-auto">
+    <div className="mt-8 flex w-full justify-center pb-2">
       <a
         href="https://www.aicte.gov.in/schemes/students-development-schemes"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Click here for AICTE Scholarship/Fellowship Schemes"
-        className="flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-purple-800 px-4 py-3 text-center text-sm font-semibold leading-snug text-white shadow-lg transition-colors hover:bg-purple-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 sm:w-auto sm:max-w-[340px] sm:justify-start sm:text-left"
+        className="flex min-h-12 w-full max-w-fit items-center justify-center gap-2 rounded-md bg-purple-800 px-5 py-3 text-center text-sm font-semibold leading-snug text-white shadow-lg transition-colors hover:bg-purple-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 sm:text-left"
       >
         <span>Click here for AICTE Scholarship/Fellowship Schemes</span>
         <svg
