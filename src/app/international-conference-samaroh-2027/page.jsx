@@ -46,7 +46,7 @@ const navigationSections = [
   { id: "participants", label: "WHO CAN PARTICIPATE?", icon: Users },
   { id: "important-dates", label: "IMPORTANT DATES", icon: Calendar },
   { id: "registration-fees", label: "REGISTRATION FEES", icon: CreditCard },
-  { id: "publishing-opportunities", label: "PUBLICATION OPPORTUNITIES", icon: BookOpen },
+  { id: "publication-opportunities", label: "PUBLICATION OPPORTUNITIES", icon: BookOpen },
   { id: "submission-guidelines", label: "SUBMISSION GUIDELINES", icon: FileText },
   { id: "online-registration", label: "ONLINE REGISTRATION", icon: FormInput },
 ];
@@ -164,11 +164,15 @@ const ConferenceBanner2027 = () => (
 
     <div className="mx-auto grid min-h-[640px] max-w-7xl items-center gap-12 px-5 pb-16 pt-16 sm:px-8 md:pb-20 md:pt-20 lg:grid-cols-[1.12fr_0.88fr] lg:px-12 lg:py-24">
       <div className="relative z-10 motion-safe:animate-fade-up">
-        <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.13em] text-white/85 backdrop-blur-sm sm:text-xs">
-          <span className="h-2 w-2 rounded-full bg-violet-300 shadow-[0_0_14px_rgba(196,181,253,0.8)]" />
-          Siva Sivani Institute of Management
+        <div className="mb-6 inline-flex rounded-xl bg-white px-3 py-2 shadow-lg shadow-black/10">
+          <Image
+            src="/logo%20ssim.png"
+            alt="Siva Sivani Institute of Management (SSIM)"
+            width={180}
+            height={75}
+            className="h-14 w-auto object-contain sm:h-16"
+          />
         </div>
-
         <p className="mt-6 max-w-xl text-sm leading-6 text-white/65 sm:text-base">
           Secunderabad, Hyderabad
           <span className="mx-2 text-violet-300" aria-hidden="true">/</span>
@@ -205,6 +209,15 @@ const ConferenceBanner2027 = () => (
 
       <div className="relative mx-auto w-full max-w-[580px] motion-safe:animate-fade-up lg:ml-auto">
         <div className="absolute -inset-4 rounded-[2rem] border border-violet-200/20" aria-hidden="true" />
+        <div className="absolute -top-7 right-4 z-20 rounded-xl bg-white px-3 py-2 shadow-xl shadow-black/20 sm:right-8">
+          <Image
+            src="/conference/aims-logo.webp"
+            alt="Association of Indian Management Schools (AIMS)"
+            width={150}
+            height={67}
+            className="h-12 w-auto object-contain sm:h-14"
+          />
+        </div>
         <div className="relative min-h-[370px] overflow-hidden rounded-[1.5rem] border border-white/15 bg-[#35204a] shadow-2xl shadow-black/30 sm:min-h-[470px]">
           <Image
             src="/campus.webp"
@@ -447,6 +460,15 @@ const PublishingOpportunities2027 = () => (
     <p>Possible publication pathway:</p>
     <ol className="grid list-decimal gap-2 pl-6 sm:grid-cols-2"><li>Research submission</li><li>Peer review</li><li>Conference presentation</li><li>Paper development and revision</li><li>Journal consideration or submission</li></ol>
     <p>This publication pathway is consistent with practices at established management research conferences, where selected papers may be developed for journal publication or proceedings following peer review. Publication is subject to the respective journal's peer-review and editorial decision and is not guaranteed solely by conference participation.</p>
+    <div className="flex justify-center rounded-xl border border-gray-100 bg-white p-4 sm:justify-start sm:p-5">
+      <Image
+        src="/conference/iims-shillong-publication-partner.jpg"
+        alt="IIM Shillong Journal of Management Science Publication Partner"
+        width={402}
+        height={83}
+        className="h-auto w-full max-w-[402px] object-contain"
+      />
+    </div>
   </div>
 );
 
@@ -577,7 +599,7 @@ const Conferences = () => {
                           case "participants": return <WhoCanParticipate2027 />;
                           case "important-dates": return <ImportantDates2027 />;
                           case "registration-fees": return <RegistrationFees2027 />;
-                          case "publishing-opportunities": return <PublishingOpportunities2027 />;
+                          case "publication-opportunities": return <PublishingOpportunities2027 />;
                           case "submission-guidelines": return <SubmissionGuidelines2027 />;
                           case "online-registration": return <OnlineRegistration2027 />;
                           default:
