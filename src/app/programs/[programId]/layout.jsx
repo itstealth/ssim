@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
     },
     "pgdm-ba": {
       title: "PGDM Business Analytics course in Hyderabad  - SSIM",
-      description: "Explore the PGDM BA programme Hyderabad and learn PGDM Business Analytics fees in Hyderabad along with eligibility criteria for admission.",
+      description: "Explore the PGDM BA programme in Hyderabad: 120 credits, 2-year full-time on-campus. Learn PGDM Business Analytics fees and eligibility for admission.",
     },
     "pgdm-bifs": {
       title: "PGDM in Banking, Insurance & Financial Services | SSIM Hyderabad",
