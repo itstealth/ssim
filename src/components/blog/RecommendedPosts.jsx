@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Calendar } from "lucide-react";
 
 const fetchAllBlogs = async () => {
-  const res = await fetch("/wp-json/wp/v2/posts?per_page=100&_embed");
+  const res = await fetch("/api/blogs/listing");
   if (!res.ok) throw new Error("Failed to fetch blogs");
   const posts = await res.json();
   return posts.map(post => {
@@ -53,6 +53,8 @@ export function RecommendedPosts({ currentSlug }) {
               <img
                 src={post.imageUrl || "/placeholder.svg"}
                 alt={post.imageAlt || post.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>

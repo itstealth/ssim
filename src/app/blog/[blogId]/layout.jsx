@@ -1,24 +1,13 @@
-const WP_BACKEND = 'https://ssim-blog-b9egbrcnfccjbzee.centralindia-01.azurewebsites.net';
+import { getBlogPost } from "@/lib/wordpress-blog";
 
 export async function generateMetadata({ params }) {
   const { blogId } = await Promise.resolve(params);
 
   try {
-    const response = await fetch(
-      `${WP_BACKEND}/wp-json/wp/v2/posts?slug=${encodeURIComponent(blogId)}&_embed`,
-      { next: { revalidate: 3600 } }
-    );
-
-    if (!response.ok) {
+    const post = await getBlogPost(blogId);
+    if (!post) {
       return { title: "Blog Post Not Found - SSIM", description: "The requested blog post could not be found." };
     }
-
-    const posts = await response.json();
-    if (!posts.length) {
-      return { title: "Blog Post Not Found - SSIM", description: "The requested blog post could not be found." };
-    }
-
-    const post = posts[0];
     const meta = post.meta || {};
     const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
     const featuredMediaUrl = featuredMedia?.source_url || '';
