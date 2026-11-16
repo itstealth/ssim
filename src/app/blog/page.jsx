@@ -12,7 +12,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { ArticleSchema } from "@/components/Schema";
 
 const fetchBlogPosts = async () => {
-  const response = await fetch('/wp-json/wp/v2/posts?per_page=100&_embed');
+  const response = await fetch('/api/blogs/listing');
   if (!response.ok) throw new Error(`Failed to fetch blogs (Status: ${response.status})`);
   const posts = await response.json();
   if (!Array.isArray(posts)) throw new Error('Invalid response format from API');
@@ -74,7 +74,7 @@ function BlogContent() {
     queryKey: ['posts'],
     queryFn: fetchBlogPosts,
     staleTime: 5 * 60 * 1000,
-    cacheTime: 30 * 60 * 1000,
+    gcTime: 30 * 60 * 1000,
   });
 
   // Client-side pagination logic
@@ -142,18 +142,10 @@ function BlogContent() {
     visible: { opacity: 1, y: 0 },
   };
 
-  if (isError) {
-    return (
-      <div className="text-center py-20">
-        <p className="text-red-500">Error: {error.message}</p>
-      </div>
-    );
-  }
-
   // Generate Article schemas for current posts
   const articleSchemas = useMemo(() => {
     if (!currentPosts || currentPosts.length === 0) return null;
-    
+
     return currentPosts.map((post) => ({
       headline: post.title,
       image: post.imageUrl || post.image || "https://www.ssim.ac.in/ssimlogo.webp",
@@ -172,6 +164,14 @@ function BlogContent() {
       datePublished: post.publishDate,
     }));
   }, [currentPosts]);
+
+  if (isError) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-red-500">Error: {error.message}</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -233,6 +233,8 @@ function BlogContent() {
                             <img
                               src={post.image || "/placeholder.svg"}
                               alt={post.imageAlt}
+                              loading={index === 0 ? "eager" : "lazy"}
+                              decoding="async"
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                           </div>
@@ -240,12 +242,12 @@ function BlogContent() {
 
                         {/* Content container */}
                         <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
-                          <h3 
+                          <h3
                             className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-mainBlue transition-colors duration-300 line-clamp-2"
                             dangerouslySetInnerHTML={{ __html: post.title }}
                           />
 
-                          <p 
+                          <p
                             className="text-muted-foreground mb-6 leading-relaxed line-clamp-3"
                             dangerouslySetInnerHTML={{ __html: post.description }}
                           />
