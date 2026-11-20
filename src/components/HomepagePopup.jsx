@@ -21,8 +21,47 @@ export default function HomepagePopup() {
       return undefined;
     }
 
-    const timer = window.setTimeout(() => setIsOpen(true), 1800);
-    return () => window.clearTimeout(timer);
+    let isCancelled = false;
+    let delayElapsed = false;
+    let imageDecoded = false;
+
+    const revealWhenReady = () => {
+      if (!isCancelled && delayElapsed && imageDecoded) {
+        setIsOpen(true);
+      }
+    };
+
+    const announcementImage = new window.Image();
+    const handleImageReady = async () => {
+      try {
+        await announcementImage.decode();
+      } catch {
+        // The load event is still a safe fallback when decode is unavailable.
+      }
+
+      imageDecoded = true;
+      revealWhenReady();
+    };
+
+    announcementImage.addEventListener("load", handleImageReady, { once: true });
+    announcementImage.addEventListener("error", handleImageReady, { once: true });
+    announcementImage.src = "/vlr-moorthi-welcome.jpeg";
+
+    if (announcementImage.complete) {
+      handleImageReady();
+    }
+
+    const timer = window.setTimeout(() => {
+      delayElapsed = true;
+      revealWhenReady();
+    }, 800);
+
+    return () => {
+      isCancelled = true;
+      window.clearTimeout(timer);
+      announcementImage.removeEventListener("load", handleImageReady);
+      announcementImage.removeEventListener("error", handleImageReady);
+    };
   }, []);
 
   const handleOpenChange = (open) => {
@@ -61,6 +100,7 @@ export default function HomepagePopup() {
               height={1350}
               sizes="(max-width: 640px) 90vw, 544px"
               loading="eager"
+              unoptimized
               className="relative block h-auto w-full rounded-[1.15rem] sm:rounded-[1.45rem]"
             />
           </div>
