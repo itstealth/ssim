@@ -78,12 +78,6 @@ const faculty = [
     exp: "26 Years · Ph.D, MBA",
   },
   {
-    img: "/faculty-webp/17-Mr-T-Subash-Tej.webp",
-    name: "Mr. Subhash Tej Tumu",
-    area: "Data Science",
-    exp: "22 Years · MCA, MBA",
-  },
-  {
     img: "/faculty-webp/18-Mrs-Kiranmayi-Patel.webp",
     name: "Ms. Kiranmayi Patel",
     area: "Data Science",

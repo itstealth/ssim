@@ -491,7 +491,14 @@ const rawTeamMembers = [
   }
 ];
 
-export const teamMembers = rawTeamMembers.map((member) => ({
-  ...member,
-  slug: generateSlug(member.name),
-}));
+const formerFacultyNames = new Set([
+  "Dr. Ravi Dasari",
+  "Mr. T. Subash Tej",
+]);
+
+export const teamMembers = rawTeamMembers
+  .filter((member) => !formerFacultyNames.has(member.name))
+  .map((member) => ({
+    ...member,
+    slug: generateSlug(member.name),
+  }));

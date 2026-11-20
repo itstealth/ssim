@@ -37,34 +37,6 @@ const experts = [
       },
     ],
   },
-  {
-    name: "Dr. Ravi Dasari",
-    title: "Professor of Practice | SSIM",
-    image: "/industry-expert/ravi-desari.png",
-    bio: "Bringing over 30 years of distinguished experience in Human Resources, Leadership Development, and Talent Management, Dr. Ravi Dasari blends industry expertise with academic excellence to prepare future-ready leaders.",
-    sections: [
-      {
-        heading: "Academic Excellence",
-        icon: "cap",
-        items: [
-          { text: "Ph.D. in Human Resource Management" },
-          { text: "University Topper" },
-          { text: "MBA | Master's in HRM" },
-        ],
-      },
-      {
-        heading: "Certified Leadership Expert",
-        icon: "medal",
-        items: [
-          { text: "Marshall Goldsmith Executive Coach" },
-          { text: "ICF Certified Coach" },
-          { text: "IBM – Generative AI" },
-          { text: "Cornell University" },
-          { text: "University of Pennsylvania" },
-        ],
-      },
-    ],
-  },
 ];
 
 const stats = [
