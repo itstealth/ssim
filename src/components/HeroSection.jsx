@@ -5,15 +5,15 @@ import Image from "next/image";
 
 const heroSlides = [
   {
-    src: "/home-banners/prof-ylr-moorthi.jpeg",
+    src: "/home-banners/prof-ylr-moorthi.webp",
     alt: "Welcome Prof. YLR Moorthi, Mentor, to the SSIM family",
   },
   {
-    src: "/home-banners/cat-merit-scholarship.jpeg",
+    src: "/home-banners/cat-merit-scholarship.webp",
     alt: "SSIM CAT merit scholarship of up to four lakh rupees for candidates scoring 80 percentile or above",
   },
   {
-    src: "/home-banners/apple-macbook-learning.jpeg",
+    src: "/home-banners/apple-macbook-learning.webp",
     alt: "Every SSIM student receives an Apple MacBook as a learning tool; admissions open for 2027",
   },
 ];
@@ -21,6 +21,26 @@ const heroSlides = [
 const HeroSection = ({ className = "" }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [mountedSlides, setMountedSlides] = useState(() => new Set([0]));
+
+  const mountSlide = (slideIndex) => {
+    setMountedSlides((currentSlides) => {
+      if (currentSlides.has(slideIndex)) return currentSlides;
+
+      const nextSlides = new Set(currentSlides);
+      nextSlides.add(slideIndex);
+      return nextSlides;
+    });
+  };
+
+  const handleSlideReady = (slideIndex) => {
+    mountSlide((slideIndex + 1) % heroSlides.length);
+  };
+
+  const showSlide = (slideIndex) => {
+    mountSlide(slideIndex);
+    setActiveSlide(slideIndex);
+  };
 
   useEffect(() => {
     if (isPaused) return undefined;
@@ -43,7 +63,7 @@ const HeroSection = ({ className = "" }) => {
       onBlurCapture={() => setIsPaused(false)}
     >
       <div className="relative aspect-[32/15] w-full">
-        {heroSlides.map((slide, index) => (
+        {heroSlides.map((slide, index) => mountedSlides.has(index) && (
           <div
             key={slide.src}
             className={`absolute inset-0 transition-opacity duration-700 motion-reduce:transition-none ${
@@ -56,8 +76,13 @@ const HeroSection = ({ className = "" }) => {
               alt={index === activeSlide ? slide.alt : ""}
               fill
               priority={index === 0}
+              unoptimized
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "low"}
               sizes="100vw"
               className="object-contain"
+              onLoad={() => handleSlideReady(index)}
+              onError={() => handleSlideReady(index)}
             />
           </div>
         ))}
@@ -68,7 +93,7 @@ const HeroSection = ({ className = "" }) => {
           <button
             key={slide.src}
             type="button"
-            onClick={() => setActiveSlide(index)}
+            onClick={() => showSlide(index)}
             aria-label={`Show slide ${index + 1} of ${heroSlides.length}`}
             aria-current={index === activeSlide ? "true" : undefined}
             className={`h-2.5 rounded-full border border-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f4bc0b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2c0649] sm:h-3 ${

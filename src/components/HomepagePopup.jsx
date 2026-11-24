@@ -45,7 +45,7 @@ export default function HomepagePopup() {
 
     announcementImage.addEventListener("load", handleImageReady, { once: true });
     announcementImage.addEventListener("error", handleImageReady, { once: true });
-    announcementImage.src = "/homepage-popup-admissions-2027.jpeg";
+    announcementImage.src = "/homepage-popup-admissions-2027.webp";
 
     if (announcementImage.complete) {
       handleImageReady();
@@ -94,7 +94,7 @@ export default function HomepagePopup() {
               <X className="h-5 w-5" />
             </DialogClose>
             <Image
-              src="/homepage-popup-admissions-2027.jpeg"
+              src="/homepage-popup-admissions-2027.webp"
               alt="SSIM admissions open 2027: four lakh rupee CAT merit scholarship and an Apple MacBook for every student"
               width={1122}
               height={1402}
