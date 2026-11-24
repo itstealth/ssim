@@ -11,7 +11,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const POPUP_DISMISSED_KEY = "ssim-vlr-moorthi-welcome-dismissed";
+const POPUP_DISMISSED_KEY = "ssim-admissions-2027-popup-dismissed";
 
 export default function HomepagePopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +45,7 @@ export default function HomepagePopup() {
 
     announcementImage.addEventListener("load", handleImageReady, { once: true });
     announcementImage.addEventListener("error", handleImageReady, { once: true });
-    announcementImage.src = "/vlr-moorthi-welcome.jpeg";
+    announcementImage.src = "/homepage-popup-admissions-2027.jpeg";
 
     if (announcementImage.complete) {
       handleImageReady();
@@ -76,10 +76,10 @@ export default function HomepagePopup() {
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent className="w-[min(92vw,34rem,calc(88svh*0.8))] max-w-none overflow-visible border-0 bg-transparent p-0 shadow-none duration-500 [&>button:last-child]:hidden">
         <DialogTitle className="sr-only">
-          Welcome Professor VLR Moorthi to the SSIM family
+          SSIM admissions open for 2027
         </DialogTitle>
         <DialogDescription className="sr-only">
-          SSIM welcomes Professor VLR Moorthi as a mentor.
+          Learn about SSIM&apos;s CAT merit scholarship and Apple MacBook learning benefit.
         </DialogDescription>
 
         <div className="relative rounded-[1.65rem] bg-gradient-to-br from-[#f4bc0b] via-[#ffe58b] to-[#d79900] p-[3px] shadow-[0_30px_90px_rgba(0,19,74,0.62)] sm:rounded-[2rem]">
@@ -94,10 +94,10 @@ export default function HomepagePopup() {
               <X className="h-5 w-5" />
             </DialogClose>
             <Image
-              src="/vlr-moorthi-welcome.jpeg"
-              alt="Welcome Prof. VLR Moorthi to the SSIM family"
-              width={1080}
-              height={1350}
+              src="/homepage-popup-admissions-2027.jpeg"
+              alt="SSIM admissions open 2027: four lakh rupee CAT merit scholarship and an Apple MacBook for every student"
+              width={1122}
+              height={1402}
               sizes="(max-width: 640px) 90vw, 544px"
               loading="eager"
               unoptimized

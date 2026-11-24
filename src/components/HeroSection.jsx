@@ -1,40 +1,83 @@
-const HeroSection = ({
-  desktopImageSrc = "/banner-home-v2.avif",
-  mobileImageSrc = "/hero-sm.avif",
-  altText = "SSIM Hyderabad campus AICTE-approved PGDM ranked 2nd top B-school by Outlook India",
-  className = ""
-}) => {
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+
+const heroSlides = [
+  {
+    src: "/home-banners/prof-ylr-moorthi.jpeg",
+    alt: "Welcome Prof. YLR Moorthi, Mentor, to the SSIM family",
+  },
+  {
+    src: "/home-banners/cat-merit-scholarship.jpeg",
+    alt: "SSIM CAT merit scholarship of up to four lakh rupees for candidates scoring 80 percentile or above",
+  },
+  {
+    src: "/home-banners/apple-macbook-learning.jpeg",
+    alt: "Every SSIM student receives an Apple MacBook as a learning tool; admissions open for 2027",
+  },
+];
+
+const HeroSection = ({ className = "" }) => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return undefined;
+
+    const interval = window.setInterval(() => {
+      setActiveSlide((currentSlide) => (currentSlide + 1) % heroSlides.length);
+    }, 5500);
+
+    return () => window.clearInterval(interval);
+  }, [isPaused]);
+
   return (
-    <>
-      <link rel="preload" as="image" href={mobileImageSrc} media="(max-width: 767px)" type="image/avif" fetchPriority="high" />
-      <link rel="preload" as="image" href={desktopImageSrc} media="(min-width: 768px)" type="image/avif" fetchPriority="high" />
-      <section className={`relative w-full overflow-hidden flex flex-col ${className}`}>
-        <picture className="w-full">
-          <source
-            media="(min-width: 768px)"
-            srcSet={desktopImageSrc}
-            type="image/avif"
-            fetchPriority="high"
+    <section
+      className={`relative w-full overflow-hidden bg-[#2c0649] ${className}`}
+      aria-roledescription="carousel"
+      aria-label="SSIM homepage highlights"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={() => setIsPaused(false)}
+    >
+      <div className="relative aspect-[32/15] w-full">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide.src}
+            className={`absolute inset-0 transition-opacity duration-700 motion-reduce:transition-none ${
+              index === activeSlide ? "z-10 opacity-100" : "pointer-events-none opacity-0"
+            }`}
+            aria-hidden={index !== activeSlide}
+          >
+            <Image
+              src={slide.src}
+              alt={index === activeSlide ? slide.alt : ""}
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-contain"
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur-sm sm:bottom-4">
+        {heroSlides.map((slide, index) => (
+          <button
+            key={slide.src}
+            type="button"
+            onClick={() => setActiveSlide(index)}
+            aria-label={`Show slide ${index + 1} of ${heroSlides.length}`}
+            aria-current={index === activeSlide ? "true" : undefined}
+            className={`h-2.5 rounded-full border border-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f4bc0b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2c0649] sm:h-3 ${
+              index === activeSlide ? "w-7 bg-[#f4bc0b]" : "w-2.5 bg-white/75 hover:bg-white sm:w-3"
+            }`}
           />
-          <source
-            media="(max-width: 767px)"
-            srcSet={mobileImageSrc}
-            type="image/avif"
-            fetchPriority="high"
-          />
-          <img
-            src={mobileImageSrc}
-            alt={altText}
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            width={768}
-            height={1024}
-            className="w-full aspect-[768/1024] md:aspect-auto md:h-screen md:min-h-[600px] object-cover object-center"
-          />
-        </picture>
-      </section>
-    </>
+        ))}
+      </div>
+    </section>
   );
 };
 
