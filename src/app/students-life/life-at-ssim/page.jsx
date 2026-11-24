@@ -11,11 +11,20 @@ import {
 } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import WordPullUp from "@/components/ui/word-pull-up";
+import { industryData } from "@/data/industryData";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 // Categories array
 const categories = [
+  {
+    id: "64",
+    label: "31st Snatak (Convocation)",
+    icon: <Image />,
+    heading: "31st Snatak (Convocation)",
+    description:
+      "The 31st Snatak celebrated the graduating class of Siva Sivani Institute of Management, recognising academic achievement and marking the beginning of a new professional journey for SSIM's graduates.",
+  },
   {
     id: "57",
     label: "PGDM Programmes Inauguration 2026-28",
@@ -129,15 +138,16 @@ The conversation featured real experiences, fresh perspectives, and smart busine
 
   {
     id: "50",
-    label: "Student Club Tournament",
+    label: "Sports Club Cricket Tournament",
     icon: <Image />,
-    heading: "Student Club Tournament",
-    description: "Inter-college sports and cultural tournament organized by SSIM student clubs.",
+    heading: "Sports Club Cricket Tournament",
+    description:
+      "The SSIM Sports Club organised a cricket tournament that brought students together through teamwork, healthy competition and sporting spirit.",
   },
 
   {
     id: "48",
-    label: "Sagnature Day",
+    label: "Signature Day",
     icon: <Image />,
     heading: "Signature Day",
     description: "Celebration of signature day events at SSIM.",
@@ -145,53 +155,58 @@ The conversation featured real experiences, fresh perspectives, and smart busine
 
   {
     id: "46",
-    label: "Marketing Club Activity",
+    label: "Marketing Club Activity – Corporate Walk 2026",
     icon: <Image />,
-    heading: "Marketing Club Activity",
-    description: "Various marketing activities and events conducted by the Marketing Club.",
+    heading: "Marketing Club Activity – Corporate Walk 2026",
+    description:
+      "SRIJAN – Marketing Club of SSIM organized Corporate Walk 2026, celebrating confidence, professionalism, and vibrant student energy.",
   },
   {
     id: "45",
-    label: "Marketing Club 2025-26",
+    label: "Inauguration of Marketing Club",
     icon: <Image />,
-    heading: "Marketing Club 2025-26",
-    description: "Marketing Club activities and events for the academic year 2025-26.",
+    heading: "Inauguration of Marketing Club",
+    description:
+      "The inauguration of SRIJAN – Marketing Club of SSIM marked the beginning of a student-led platform for creative marketing activities, industry interaction and experiential learning.",
   },
 
   {
     id: "43",
-    label: "HR Club Inaguration",
+    label: "HR Club Inauguration – Samriddhi",
     icon: <Image />,
-    heading: "HR Club Inaguration",
-    description: "Inaguration ceremony of the HR Club at SSIM.",
+    heading: "HR Club Inauguration – Samriddhi",
+    description:
+      "Samriddhi, the HR Club of SSIM, was inaugurated as a platform for students to explore people management, workplace practices and emerging HR trends.",
   },
   {
     id: "41",
-    label: "Finance Club Inaguration",
+    label: "Finance Club Inauguration",
     icon: <Image />,
-    heading: "Finance Club Inaguration",
-    description: "Inaguration ceremony of the Finance Club at SSIM.",
+    heading: "Finance Club Inauguration",
+    description: "Inauguration ceremony of the Finance Club at SSIM.",
   },
   {
     id: "40",
-    label: "Farewell 2026",
+    label: "Smriti 2026 – Farewell Celebration",
     icon: <Image />,
-    heading: "Farewell 2026",
-    description: "Farewell party for batch 2024-26 at SSIM.",
+    heading: "Smriti 2026 – Farewell Celebration",
+    description:
+      "Smriti 2026 was SSIM's farewell celebration for the Batch 2024–26, bringing juniors and seniors together to celebrate friendships, memories and the graduating students' journey.",
   },
   {
     id: "39",
-    label: "ESG Club Inaguration",
+    label: "ESG Club Inauguration",
     icon: <Image />,
-    heading: "ESG Club Inaguration",
-    description: "Inaguration ceremony of the ESG Club at SSIM.",
+    heading: "ESG Club Inauguration",
+    description: "Inauguration ceremony of the ESG Club at SSIM.",
   },
   {
     id: "38",
-    label: "Data Science Club Inaguration",
+    label: "Business Analytics Club – Sukshmadarshi Inauguration",
     icon: <Image />,
-    heading: "Data Science Club Inaguration",
-    description: "Inaguration ceremony of the Data Science Club at SSIM.",
+    heading: "Business Analytics Club – Sukshmadarshi Inauguration",
+    description:
+      "Sukshmadarshi, the Business Analytics Club of SSIM, was inaugurated to encourage data-driven thinking, analytical problem-solving and collaborative learning.",
   },
 
   {
@@ -200,13 +215,6 @@ The conversation featured real experiences, fresh perspectives, and smart busine
     icon: <Image />,
     heading: "Analytics Club Quiz Session",
     description: "Quiz session organized by the Analytics Club.",
-  },
-  {
-    id: "34",
-    label: "30th Convocation",
-    icon: <Image />,
-    heading: "30th Convocation",
-    description: "30th Convocation ceremony of Siva Sivani Institute of Management.",
   },
   {
     id: "33",
@@ -421,50 +429,76 @@ SAMAROH 2026 recorded an Excellent NPS of +58.03 and a CSAT of 4.33/5, reflectin
   //   heading: "SNATAK - CONVOCATION",
   //   description: `Snatak – Convocation of every batch will be held on 22nd October on every year to conform the degrees of the passed students.`,
   // },
-  {
-    id: "23",
-    label: "Sanman",
-    icon: <Image />,
-    heading: "SANMAN - TEACHER'S DAY",
-    description: `Teachers' Day is celebrated every year on 5th September at SSIM. On this day SSIM facilitates a distinguished teacher every year with a citation highlighting the accomplishments and contributions made by the teacher. This is sending a strong message to students on our tradition of respecting the teachers which is part of our culture in our society.`,
-  },
-  {
-    id: "24",
-    label: "Satakshi",
-    icon: <Image />,
-    heading: "SATAKSHI - WOMAN'S DAY",
-    description: `SSIM conducts women's day in the name of SATHAKSHI and the event is being organized by the Women Empowerment Cell at the institute. The event thrust area is gender sensitization and makes the students and employees aware of women's rights in society. As a part of it, successful women invited to campus to share their accomplishments and challenges faced in the journey of success and did they overcome.`,
-  },
-  {
-    id: "25",
-    label: "Sanghibhav",
-    icon: <Image />,
-    heading: "SANGHIBHAV - ISR",
-    description: `SSIM, under its ISR initiative "SANGHIBHAV", is supporting a Government Primary School, Harijanawada, Macha Bollaram. The school students are from the under privileged sections of the society who are below the poverty line. The student and faculty regularly visit the school to give sweets and snacks, conduct games and sports. Their joy cannot be expressed in words.
+];
 
-Presence of institutes' representative gives them immense happiness; they look forward to our visits expecting kind words, candies and surprises. Institute students give them a moral support. This brings a smile on their faces, by just being with them, for some time, once a week or a month.`,
+const studentAchievementCategories = industryData.map((achievement) => ({
+  id: `achievement-${achievement.id}`,
+  label: achievement.title,
+  icon: <Image />,
+  heading: achievement.title,
+  description: achievement.description,
+  contentType: "achievement",
+}));
+
+const allCategories = [...categories, ...studentAchievementCategories];
+
+const lifeAtSsimTabs = [
+  {
+    id: "events",
+    label: "Events & Celebrations",
+    categoryIds: new Set([
+      "64", "63", "62", "60", "58", "48", "40", "31", "30",
+    ]),
   },
   {
-    id: "26",
-    label: "Samskriti",
-    icon: <Image />,
-    heading: "SAMSKRITI - TRADITIONAL DAY TO THE FRESHER'S",
-    description: `Samskriti is conducted after the completion of induction program. After the commencement of the classes the junior students (fresher's) are asked to come in traditional dresses to represent the culture of the state which they represent. This promotes integration among the students who come from different regions of the country. Various competitions are held and the organizers, the senior students award the titles – Mr. and Miss Samskriti to the winners amongst the junior students with the help of a panel of judges.`,
+    id: "induction",
+    label: "Induction Programmes & Classroom Activities",
+    categoryIds: new Set(["57", "55"]),
+  },
+  {
+    id: "talks",
+    label: "Guest Lectures / Industry Interaction / Industry Collaborations",
+    categoryIds: new Set(["59", "28", "29"]),
+  },
+  {
+    id: "alumni",
+    label: "Alumni Interactions / Alumni Workshops",
+    categoryIds: new Set(["61", "56", "54", "51"]),
+  },
+  {
+    id: "clubs",
+    label: "Student Club Activities",
+    categoryIds: new Set([
+      "7", "5", "33", "27", "35", "11", "50", "46", "45", "43",
+      "41", "38", "39", "12",
+    ]),
+  },
+  {
+    id: "achievements",
+    label: "Student Achievements",
+    categoryIds: new Set(
+      studentAchievementCategories.map((achievement) => achievement.id)
+    ),
+  },
+  {
+    id: "industrial-visits",
+    label: "Industrial Visit",
+    categoryIds: new Set(["52", "32"]),
   },
 ];
 
-// Image arrays for new categories (34-51)
-const convocation30thImages = [
-  "12.webp",
-  "23.webp",
-  "13.webp",
-  "9.webp",
-  "24.webp"
+// Image arrays for current Life at SSIM stories
+const snatak31stImages = [
+  "snatak-2025 (1).webp",
+  "snatak-2025 (10).webp",
+  "snatak-2025 (15).webp",
+  "snatak-2025 (20).webp",
+  "snatak-2025 (25).webp",
 ].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/30th-convocation/${filename}`,
-  category: "34",
-  alt: `30th convocation image ${i + 1}`,
+  src: `/studentslife/life-at-ssim/snatak-2025/${filename}`,
+  category: "64",
+  alt: `31st Snatak convocation image ${i + 1}`,
 }));
 
 const analyticsClubQuizImages = [
@@ -890,68 +924,6 @@ const sadhanaImages = [
   alt: `sadhana image ${i + 1}`,
 }));
 
-const snatakImages = [
-  "snatak (2).webp",
-  "snatak (16).webp",
-  "snatak (5).webp",
-  "snatak (8).webp",
-  "snatak (6).webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/snatak/${filename}`,
-  category: "22",
-  alt: `snatak image ${i + 1}`,
-}));
-
-const sanmanImages = [
-  "sanman (2).webp",
-  "sanman (1).webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/sanman/${filename}`,
-  category: "23",
-  alt: `sanman image ${i + 1}`,
-}));
-
-const satakshiImages = [
-  "satakshi (3).webp",
-  "satakshi (6).webp",
-  "satakshi (7).webp",
-  "satakshi (2).webp",
-  "satakshi (4).webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/satakshi/${filename}`,
-  category: "24",
-  alt: `satakshi image ${i + 1}`,
-}));
-
-const sanghibhavImages = [
-  "sanghibhav (2).webp",
-  "sanghibhav (8).webp",
-  "sanghibhav (9).webp",
-  "sanghibhav (10).webp",
-  "sanghibhav (7).webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/sanghibhav/${filename}`,
-  category: "25",
-  alt: `sanghibhav image ${i + 1}`,
-}));
-
-const samskritiImages = [
-  "samskriti (12).webp",
-  "samskriti (25).webp",
-  "samskriti (14).webp",
-  "samskriti (22).webp",
-  "samskriti (23).webp"
-].map((filename, i) => ({
-  id: i + 1,
-  src: `/studentslife/life-at-ssim/samskriti/${filename}`,
-  category: "26",
-  alt: `samskriti image ${i + 1}`,
-}));
-
 const medicalCampImages = [
   "DSC_9072.webp",
   "DSC_9013.webp",
@@ -1041,8 +1013,23 @@ const samaroh2026Images = [
   alt: `samaroh 2026 image ${i + 1}`,
 }));
 
+const studentAchievementImages = industryData.flatMap((achievement) => {
+  const images =
+    achievement.gallery && achievement.gallery.length > 0
+      ? achievement.gallery
+      : [achievement.image];
+
+  return images.filter(Boolean).map((src, index) => ({
+    id: index + 1,
+    src,
+    category: `achievement-${achievement.id}`,
+    alt: `${achievement.title} image ${index + 1}`,
+  }));
+});
+
 // Combined gallery items
 const galleryItems = [
+  ...snatak31stImages,
   ...studentClubTournamentImages,
   ...sagnatureDayImages,
   ...marketingClubActivityImages,
@@ -1053,7 +1040,6 @@ const galleryItems = [
   ...esgClubImages,
   ...dataScienceClubImages,
   ...analyticsClubQuizImages,
-  ...convocation30thImages,
   ...womensWeekImages,
   ...classroomImages,
   ...samaroh2026Images,
@@ -1085,12 +1071,8 @@ const galleryItems = [
   ...sameekshaImages,
   ...snehaImages,
   ...sadhanaImages,
-  ...snatakImages,
-  ...sanmanImages,
   ...visarjanImages,
-  ...satakshiImages,
-  ...sanghibhavImages,
-  ...samskritiImages,
+  ...studentAchievementImages,
 ];
 
 const ImageDialog = ({ isOpen, onOpenChange, currentCategory, currentImage, onPrevious, onNext, hasImages }) => {
@@ -1170,6 +1152,7 @@ const ImageDialog = ({ isOpen, onOpenChange, currentCategory, currentImage, onPr
 export default function LifeAtSsim() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [activeTab, setActiveTab] = useState(lifeAtSsimTabs[0].id);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -1178,8 +1161,17 @@ export default function LifeAtSsim() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Show all categories; images are optional (text-only events still display)
-  const validCategories = categories;
+  const selectedTab =
+    lifeAtSsimTabs.find((tab) => tab.id === activeTab) || lifeAtSsimTabs[0];
+  const validCategories = allCategories.filter((category) =>
+    selectedTab.categoryIds.has(category.id)
+  );
+  const cardTypeLabel =
+    activeTab === "achievements"
+      ? "Achievement"
+      : activeTab === "industrial-visits"
+        ? "Industrial Visit"
+        : "Event";
 
   const categoryImages = activeCategory ? galleryItems.filter(item => item.category === activeCategory.id) : [];
 
@@ -1232,8 +1224,46 @@ export default function LifeAtSsim() {
           </p>
         </motion.div>
 
-        <motion.div layout className="grid mx-auto max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-10">
-          <AnimatePresence mode="wait">
+        <div
+          className="mx-auto mt-10 flex max-w-7xl flex-wrap justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-3 shadow-sm"
+          role="tablist"
+          aria-label="Life at SSIM categories"
+        >
+          {lifeAtSsimTabs.map((tab) => {
+            const isActive = tab.id === activeTab;
+
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls="life-at-ssim-panel"
+                onClick={() => setActiveTab(tab.id)}
+                className={cn(
+                  "min-h-11 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#4239c4] focus:ring-offset-2",
+                  isActive
+                    ? "bg-[#171b5b] text-white shadow-md"
+                    : "bg-white text-slate-600 hover:bg-[#ecebff] hover:text-[#4239c4]"
+                )}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-5 text-center text-sm text-slate-500" aria-live="polite">
+          Showing {validCategories.length} {validCategories.length === 1 ? "story" : "stories"} in {selectedTab.label}
+        </div>
+
+        <motion.div
+          id="life-at-ssim-panel"
+          role="tabpanel"
+          layout
+          className="grid mx-auto max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-10"
+        >
+          <AnimatePresence>
             {isLoading
               ? Array.from({ length: 9 }, (_, i) => (
                   <motion.div key={`skeleton-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
@@ -1285,7 +1315,7 @@ export default function LifeAtSsim() {
                           </svg>
 
                           <div className="flex items-center text-[14px] font-medium text-gray-700 bg-white">
-                            <span className="tracking-wide">Event</span>
+                            <span className="tracking-wide">{cardTypeLabel}</span>
                             <span className="mx-4 w-[1px] h-3.5 bg-gray-300"></span>
                             <span className="tracking-wide">SSIM</span>
                           </div>

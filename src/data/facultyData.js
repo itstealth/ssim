@@ -32,6 +32,7 @@ export const Vallinayagam = "/faculty-research/faculty/Vallinayagam.webp";
 export const Ambuj = "/about/dr-ambuj.jpeg";
 export const ramana = "/faculty-research/faculty-photos/1-Ramana-Rao.png";
 export const RaviDasari = "/faculty-research/faculty/Ravi-Dasari.jpeg";
+export const VLRMoorthi = "/faculty-research/faculty/Prof-YLR-Moorthi.jpeg";
 
 const generateSlug = (name) => {
   return name
@@ -56,6 +57,25 @@ const rawTeamMembers = [
     awards: "",
     description: "Dr. S. V. Ramana Rao is a Director at Siva Sivani Institute of Management, Secunderabad . He is a Post Graduate in Management and stood 8th in Sri Krishnadevaraya University, Anantapur, Andhra Pradesh and subsequently completed M.Phil from Alagappa University, Karaikudi, Tamilnadu. Dr.Rao obtained his Ph.D. from Centre for Economic and Social Studies (CESS) in the area Financial Derivatives. He worked in various colleges and institutes over a period of 30 + years both India and Abroad.\nPrior to coming to academics he worked as a Marketing executive in few companies for a brief stint. Dr. Rao’s teaching career started with PB Siddhartha College, Vijayawada. Later moved to RVR and JC College of engineering, Guntur and from there landed in TAPai Management Institute, Manipal. In the year 2007, he moved to Hyderabad and started working for Siva Sivani Institute of management till date. During 2008-11 for a period of three years he moved to Oman on lien to work as a Faculty Member in Business studies department at Shinas College of Technology, Oman and rose to the level of Head of the Department. After working in a foreign land for 3 years he joined back with SSIM as a Professor and Head of the Department–Finance. His areas of interest include Corporate Finance, Capital Markets, Investment Management, International Finance and Financial Derivatives.\nHe is an active member in research and published around 30 articles both at National and International journals having Scopus indexed. He presented papers in various conferences organized by colleges and Institutions including India’s Premium Institutions like Indian School of Business(ISB), Indian Institute of Management, Lucknow and Indore (IIMs). In the year 2017 and 2018, his papers received Best Paper Award at ICBM’s 2nd and 3rd National Conference on Management Research – Contemporary Perspectives conducted by ICBM business school, Hyderabad. Dr.Rao had also written cases and presented at various case competitions organized by Institutions. He is also guiding the students for their Doctoral Degree and recently one of his students received a Ph.D. from Krishna University, Machilipatnam. Dr.Rao’s research articles have number of citations, h-Index and i10-index scores. He has conducted National and International seminars and given invited talks. He is invited by various institutions to deliver lecturers, talks including TV shows. He is one of the qualified GST trainers and acted as a resource person in various GST training programs. Dr. Rao also conducted a training program to executives and managers of corporations like NTPC, SCCL, Lloyds Technology center, Hetro Drugs etc. He is also a resource person to various FDP’s.\nAWARDS RECEIVED\n• Received AIMS-RCM Best B-School Director Award during 32 AIMS Annual Management Education Convention held during 26th to 28th August 2021\n• Recipient of AMP Academic Excellence Award in the year 2018.\nBOARD MEMBER IN ACADEMIC INSTITUTIONS\n • Member in Academic Board at St Joseph’s PGDM college, Hyderabad\n • Member in Board of Studies at Bhavan’s Vevekanda College, Hyderabad\n\nMAJOR CONTRIBUTIONS AS A DIRECTOR :\nAccreditations to SSIM : National - NBA, NAAC and International Accreditation SAQS and AIU Certifications.",
     linkedin: "https://www.linkedin.com/in/dr-s-v-ramana-rao-78a5a542/"
+  },
+  {
+    name: "Dr. Y. L. R. Moorthi",
+    area: "Marketing Management",
+    programs: ["PGDM"],
+    qualification: "Ph.D., M.Tech., PGDM, B.E.",
+    experience: "30+",
+    image: VLRMoorthi,
+    shortDescription:
+      "Mentor and former IIM Bangalore Professor bringing over three decades of distinguished academic, research and industry experience.",
+    designation: "Mentor",
+    department: "Marketing Management",
+    email: "ylrmoorthi@ssim.ac.in",
+    memberships: "",
+    awards:
+      "Brand Management – The Indian Context received the Escorts-DMA Award (1999–2000) and the NOCIL-ISTD Book Award (2000–2001).",
+    description:
+      "Dr. Y. L. R. Moorthi, our mentor, brings with him over three decades of distinguished academic, research and industry experience. Having retired as Professor of Marketing from the Indian Institute of Management Bangalore (IIMB) after 30 years of dedicated service, he now guides SSIM's faculty, students and the institution towards achieving excellence and distinction.\n\nProf. Moorthi holds a Ph.D. in Brand Management from Bharathidasan University, a Master of Technology from IIT Madras, a PGDM from IIM Bangalore and a Bachelor of Engineering in Mechanical Engineering from NIT Bhopal. His academic contributions include several international publications in reputed journals such as the Journal of Services Marketing, Business Horizons and the Journal of Business-to-Business Marketing.\n\nIn his academic career, Prof. Moorthi has taught at IIM Bangalore, Bharathidasan Institute of Management (BIM), Tiruchirappalli, and the National Institute of Technology (NIT), Tiruchirappalli. Before entering academia, he gained valuable industry experience working with reputed organisations such as ONGC, HAL and ITC. During his tenure at IIM Bangalore, he also served briefly as a Visiting Scholar at the Amos Tuck School of Business, Dartmouth College, USA.\n\nHe has extensive experience in consulting and executive training, having worked with professionals from more than 200 companies across diverse industries. His corporate exposure spans project planning, oil drilling, aviation electronics and software development, providing him with a broad understanding of business and management practices.\n\nProf. Moorthi is widely recognised as an accomplished and popular teacher, particularly for his courses in Brand Management, Creative Marketing and other marketing electives. He also made significant contributions to Executive Education Programmes (EEPs).\n\nHis acclaimed book, Brand Management – The Indian Context, received the Escorts-DMA Award in 1999–2000 and the NOCIL-ISTD Book Award in 2000–2001. In 2015, he authored another notable work, Marketing That Works in India, further enriching the field of marketing literature.",
+    linkedin: "",
   },
   {
     name: "Dr. S.F. Chandra Sekhar",

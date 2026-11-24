@@ -19,6 +19,7 @@ const ramana = "/about/director.jpeg";
 const ambuj = "/about/dr-ambuj.jpeg";
 const ArathySampathy = "/about/BoardOfGoverners/Smt_Arathy_Sampathy.jpg";
 const SaileshSampathy = "/about/BoardOfGoverners/Dr_Sailesh_Sampathy.jpg";
+const DeepikaSampathy = "/about/BoardOfGoverners/Smt_Deepika_Sampathy.jpg";
 const Ambuj = "/about/BoardOfGoverners/NRKS.jpeg";
 
 const leaders = [
@@ -68,6 +69,22 @@ const leaders = [
       "Arrangements for accomplished personalities both from the industry and academia in Europe and America, in addition to people with similar calibre in India, to handle courses in various programmes, thereby, enabling students of SSIM, to have ample global exposure at the campus itself have been made. Over the years, SSIM has earned numerous awards, recognitions, and prestigious accreditations. Some notable achievements include the IIRF Education Impact Award 2026 and the CSR Educational Excellence Award 2025. SSIM is NAAC and SAQS accredited and AIU recognized, while its PGDM Programme is NBA accredited. SSIM is also a member of AACSB, further strengthening its commitment to global standards in management education.",
       "Goals are achieved at a rapid pace if more and more like minded people come together. With many initiatives undertaken and hundreds of like minded people being added each year to the already vast Siva Sivani family, we have moved that much closer to achieving our goals.",
       "I invite you to become an integral part of this saga.",
+    ],
+  },
+  {
+    role: "Associate Vice President, SSGI.",
+    name: "Smt. Deepika Sampathy",
+    image: DeepikaSampathy,
+    quote:
+      "Learning beyond the classroom, thinking beyond the conventional, and leading beyond expectations",
+    quoteAuthor: "Smt. Deepika Sampathy's Vision",
+    content: [
+      "It gives me immense pleasure to welcome you to Siva Sivani Institute of Management, an institution committed to developing responsible, capable, and future-ready business leaders.",
+      "A PGDM journey is much more than acquiring knowledge of management theories and business practices. It is a transformative experience that challenges students to think critically, act responsibly, embrace change, and discover their own potential. At SSIM, we believe that management education must prepare students not only to succeed in their careers but also to create meaningful value for organisations and society.",
+      "The rapidly changing business environment demands professionals who combine analytical thinking with creativity, technology with human values, and ambition with integrity. Our endeavour is therefore to provide a learning environment where students gain strong academic foundations, meaningful industry exposure, practical business insights, and opportunities to develop leadership capabilities.",
+      "We encourage our students to question, explore, collaborate, innovate, and continuously learn. Through experiential learning, industry interactions, internships, corporate engagement, international exposure, and a vibrant campus environment, we strive to bridge the gap between classroom learning and the realities of the corporate world.",
+      "At SSIM, we also believe that true leadership begins with character. Discipline, empathy, integrity, resilience, and respect for others are as important as knowledge and professional competence. Our goal is to nurture graduates who are confident in their abilities, sensitive to the needs of society, and prepared to lead with purpose.",
+      "I invite every student to make the most of this transformative journey, embrace every opportunity to learn, and have the courage to dream beyond the conventional.",
     ],
   },
   {
