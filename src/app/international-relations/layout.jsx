@@ -9,9 +9,9 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/ssimlogo.webp",
-        width: 1200,
-        height: 630,
+        url: "/logo-transparent.png",
+        width: 400,
+        height: 89,
         alt: "SSIM International Relations",
       },
     ],
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "SSIM Hyderabad International Relations",
     description: "Explore SSIM Hyderabad's international relations initiatives, global collaborations, student exchange programs, and worldwide academic partnerships.",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   robots: {
     index: true,

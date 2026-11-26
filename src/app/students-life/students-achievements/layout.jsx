@@ -9,9 +9,9 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/ssimlogo.webp",
-        width: 1200,
-        height: 630,
+        url: "/logo-transparent.png",
+        width: 400,
+        height: 89,
         alt: "SSIM Student Achievements",
       },
     ],
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Student Achievements - SSIM Hyderabad",
     description: "Discover the remarkable achievements of SSIM Hyderabad students in academics, competitions, and leadership, showcasing excellence and talent across fields.",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   robots: {
     index: true,

@@ -11,9 +11,9 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/ssimlogo.webp",
-        width: 1200,
-        height: 630,
+        url: "/logo-transparent.png",
+        width: 400,
+        height: 89,
         alt: "SSIM News & Announcements",
       },
     ],
@@ -25,7 +25,7 @@ export const metadata = {
     title: "News & Announcements - SSIM Hyderabad",
     description:
       "Stay updated with the latest news, events, and announcements from SSIM Hyderabad, keeping you informed about campus activities and initiatives.",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   robots: {
     index: true,

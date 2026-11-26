@@ -9,9 +9,9 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/ssimlogo.webp",
-        width: 1200,
-        height: 630,
+        url: "/logo-transparent.png",
+        width: 400,
+        height: 89,
         alt: "SSIM PGDM Business Analytics",
       },
     ],
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "PGDM Business Analytics Admission 2027 | Fees & Admission Process – SSIM",
     description: "PGDM Business Analytics Admission 2027 Hyderabad open at SSIM. Explore fees, admission process, eligibility & placements for Business Analytics course.",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   robots: {
     index: true,

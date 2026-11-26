@@ -29,7 +29,9 @@ export const metadata = {
         follow: true,
     },
     icons: {
-        icon: "/ssim-favicon.png",
+        icon: [{ url: "/logo-transparent.png", type: "image/png" }],
+        shortcut: "/logo-transparent.png",
+        apple: "/logo-transparent.png",
     },
     manifest: "/manifest.json",
     category: "education",

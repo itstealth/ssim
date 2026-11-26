@@ -11,9 +11,9 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/ssimlogo.webp",
-        width: 1200,
-        height: 630,
+        url: "/logo-transparent.png",
+        width: 400,
+        height: 89,
         alt: "SSIM PGDM Triple Specialisation",
       },
     ],
@@ -25,7 +25,7 @@ export const metadata = {
     title: "PGDM Triple Specialisation Admission 2026 | Fees & Process – SSIM",
     description:
       "Join PGDM Triple Specialisation in Hyderabad at SSIM. Know fee structure, admission process & eligibility. Build multi-domain skills with strong placement support.",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   robots: {
     index: true,

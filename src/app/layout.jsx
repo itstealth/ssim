@@ -36,21 +36,23 @@ export const metadata = {
       "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
     url: "https://www.ssim.ac.in",
     siteName: "SSIM Hyderabad",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Top PGDM B-School in Hyderabad | SSIM Hyderabad",
     description:
       "SSIM Hyderabad offers AICTE-approved PGDM programs, strong placements, industry tie-ups, and modern infrastructure among top private B schools in Hyderabad. Apply Now!",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: "/ssim-favicon.png",
+    icon: [{ url: "/logo-transparent.png", type: "image/png" }],
+    shortcut: "/logo-transparent.png",
+    apple: "/logo-transparent.png",
   },
   manifest: "/manifest.json",
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://ssim.ac.in"),

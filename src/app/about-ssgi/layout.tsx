@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     description,
     url: "https://ssim.ac.in/about-ssgi",
     siteName: "Siva Sivani Group of Institutions",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
 };
 

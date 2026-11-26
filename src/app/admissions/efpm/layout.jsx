@@ -11,9 +11,9 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/ssimlogo.webp",
-        width: 1200,
-        height: 630,
+        url: "/logo-transparent.png",
+        width: 400,
+        height: 89,
         alt: "SSIM FPM/EFPM",
       },
     ],
@@ -25,7 +25,7 @@ export const metadata = {
     title: "FPM / EFPM Programs – SSIM Hyderabad | Call 9391114948",
     description:
       "Learn about the FPM/EFPM program at Siva Sivani Institute of Management (SSIM).",
-    images: ["/ssimlogo.webp"],
+    images: ["/logo-transparent.png"],
   },
   robots: {
     index: true,

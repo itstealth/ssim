@@ -47,7 +47,7 @@ const HeroSection = ({ className = "" }) => {
 
     const interval = window.setInterval(() => {
       setActiveSlide((currentSlide) => (currentSlide + 1) % heroSlides.length);
-    }, 5500);
+    }, 3000);
 
     return () => window.clearInterval(interval);
   }, [isPaused]);
