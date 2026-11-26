@@ -8,8 +8,8 @@
   "theme_color": "#6c3eaa",
   "icons": [
     {
-      "src": "/logo-transparent.png",
-      "sizes": "400x89",
+      "src": "/ssim-favicon.png",
+      "sizes": "28x28",
       "type": "image/png",
       "purpose": "any"
     }
