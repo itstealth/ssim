@@ -100,7 +100,7 @@ export default function Hero() {
                 rel="noreferrer"
                 className="bg-purple-700 text-white px-8 py-[14px] rounded-[10px] font-bold text-[15px] no-underline transition-all hover:bg-purple-600 hover:-translate-y-[2px] shadow-[0_6px_20px_rgba(107,33,168,0.4)]"
               >
-                Apply for 2026–28 →
+                Apply for 2027–29 →
               </Link>
               <Link
                 href="#programs"

@@ -31,7 +31,7 @@ export function BlogCTA() {
           className="text-[10px] font-bold tracking-widest px-3 py-1 rounded-full whitespace-nowrap"
           style={{ background: "#C49A2A", color: "#001f3f" }}
         >
-          2026–28 Batch
+          2027–29 Batch
         </span>
       </div>
 

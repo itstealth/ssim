@@ -1,10 +1,10 @@
 export const metadata = {
-  title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
+  title: "Doctoral FPM EFPM Hyderabad | Admission 2027, Fees & Apply Now",
   description:
     "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
   keywords: "FPM, EFPM, Fellow Program in Management, research programs, SSIM research",
   openGraph: {
-    title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
+    title: "Doctoral FPM EFPM Hyderabad | Admission 2027, Fees & Apply Now",
     description:
       "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
     url: "https://ssim.ac.in/admissions/fpm-efpm",
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
+    title: "Doctoral FPM EFPM Hyderabad | Admission 2027, Fees & Apply Now",
     description:
       "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
     images: ["/logo-transparent-35-years.png"],
@@ -75,7 +75,7 @@ const courseSchema = {
     price: "300000",
     priceCurrency: "INR",
     description: "Total program fee for FPM - ₹3,00,000 for complete duration",
-    validFrom: "2026-01-01",
+    validFrom: "2027-01-01",
     validThrough: "2029-12-31",
   },
   hasCourseInstance: [
@@ -83,7 +83,7 @@ const courseSchema = {
       "@type": "CourseInstance",
       name: "Fellow Program in Management (FPM)",
       courseMode: "Full-time",
-      startDate: "2026-07-01",
+      startDate: "2027-07-01",
       offers: {
         "@type": "Offer",
         price: "300000",
@@ -94,7 +94,7 @@ const courseSchema = {
       "@type": "CourseInstance",
       name: "Executive Fellow Program in Management (EFPM)",
       courseMode: "Part-time",
-      startDate: "2026-07-01",
+      startDate: "2027-07-01",
       offers: {
         "@type": "Offer",
         price: "450000",

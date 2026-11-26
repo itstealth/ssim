@@ -32,7 +32,7 @@ export const Vallinayagam = "/faculty-research/faculty/Vallinayagam.webp";
 export const Ambuj = "/about/dr-ambuj.jpeg";
 export const ramana = "/faculty-research/faculty-photos/1-Ramana-Rao.png";
 export const RaviDasari = "/faculty-research/faculty/Ravi-Dasari.jpeg";
-export const VLRMoorthi = "/faculty-research/faculty/Prof-YLR-Moorthi.jpeg";
+export const VLRMoorthi = "/faculty-research/faculty/Prof-YLR-Moorthi-profile.webp";
 
 const generateSlug = (name) => {
   return name

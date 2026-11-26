@@ -207,7 +207,7 @@ export default function ResultScreen({ profile, firstName, saveState }) {
         </h2>
         <p className="mx-auto mt-3 max-w-[520px] text-[15px] leading-7 text-white/85">
           Your result has been shared with our admissions team. Explore the
-          specialization in detail, or start your application for the 2026–28 batch.
+          specialization in detail, or start your application for the 2027–29 batch.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
           <a

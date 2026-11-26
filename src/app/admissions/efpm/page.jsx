@@ -197,7 +197,7 @@ const datesData = [
   {
     date: "July 9, 2025",
     event: "Inaugural Session",
-    description: "Official commencement of academic session for Batch 2026-28",
+    description: "Official commencement of academic session for Batch 2027-29",
   },
 ];
 // Navigation Component

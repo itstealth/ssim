@@ -76,14 +76,14 @@ const courseSchema = {
     priceCurrency: "INR",
     description:
       "Total program fee for EFPM - ₹4,50,000 (Four Lakh Fifty Thousand Only)",
-    validFrom: "2026-01-01",
+    validFrom: "2027-01-01",
     validThrough: "2029-12-31",
   },
   hasCourseInstance: {
     "@type": "CourseInstance",
     name: "Executive Fellow Program in Management (EFPM)",
     courseMode: "Part-time",
-    startDate: "2026-07-01",
+    startDate: "2027-07-01",
     offers: {
       "@type": "Offer",
       price: "450000",

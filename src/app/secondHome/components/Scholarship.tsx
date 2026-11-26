@@ -16,10 +16,10 @@ const academicAwards = [
 
 function Table({ headers, rows }) {
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-[620px] border-collapse text-left">
-        <thead><tr>{headers.map((header) => <th key={header} className="bg-purple-50 px-3 py-2 text-[11px] font-bold uppercase text-slate-700">{header}</th>)}</tr></thead>
-        <tbody>{rows.map((row) => <tr key={row[0]}>{row.map((cell, index) => <td key={`${row[0]}-${index}`} className={`border-b border-border px-3 py-2 text-xs text-dark ${index === row.length - 1 ? 'font-bold text-purple-700' : ''}`}>{cell}</td>)}</tr>)}</tbody>
+    <div className="w-full">
+      <table className="w-full table-fixed border-collapse text-left">
+        <thead><tr>{headers.map((header) => <th key={header} className="break-words bg-purple-50 px-2 py-3 text-[10px] font-bold uppercase leading-tight text-slate-700 sm:px-3 sm:text-[11px]">{header}</th>)}</tr></thead>
+        <tbody>{rows.map((row) => <tr key={row[0]}>{row.map((cell, index) => <td key={`${row[0]}-${index}`} className={`break-words border-b border-border px-2 py-3 text-[11px] leading-snug text-dark sm:px-3 sm:text-xs ${index === row.length - 1 ? 'font-bold text-purple-700' : ''}`}>{cell}</td>)}</tr>)}</tbody>
       </table>
     </div>
   )
@@ -38,7 +38,7 @@ export default function Scholarship() {
         </p>
       </div>
 
-      <div className="mx-auto mt-8 grid max-w-6xl gap-6 lg:grid-cols-2">
+      <div className="mx-auto mt-8 grid max-w-7xl gap-6 xl:grid-cols-[1.35fr_0.65fr]">
         <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
           <div className="bg-gradient-to-r from-purple-700 to-[#1B50EC] px-5 py-4 text-white">
             <h3 className="text-base font-bold">Admission Merit Scholarships</h3>

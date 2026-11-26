@@ -1,12 +1,12 @@
 export const metadata = {
-  title: "PGDM BIFS Hyderabad Admission 2026 | Fees, Process & Course",
+  title: "PGDM BIFS Hyderabad Admission 2027 | Fees, Process & Course",
   description:
-    "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2026 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
+    "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2027 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
   keywords: "PGDM BIFS, banking insurance financial services, PGDM admissions, SSIM BIFS",
   openGraph: {
-    title: "PGDM BIFS Hyderabad Admission 2026 | Fees, Process & Course",
+    title: "PGDM BIFS Hyderabad Admission 2027 | Fees, Process & Course",
     description:
-      "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2026 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
+      "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2027 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
     url: "https://ssim.ac.in/admissions/pgdm-bifs",
     siteName: "Siva Sivani Institute of Management",
     images: [
@@ -22,9 +22,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PGDM BIFS Hyderabad Admission 2026 | Fees, Process & Course",
+    title: "PGDM BIFS Hyderabad Admission 2027 | Fees, Process & Course",
     description:
-      "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2026 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
+      "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2027 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
     images: ["/logo-transparent-35-years.png"],
   },
   robots: {
@@ -82,14 +82,14 @@ const courseSchema = {
     "@type": "Offer",
     price: "840000",
     priceCurrency: "INR",
-    description: "Total program fee for Batch 2026-28",
-    validFrom: "2026-01-01",
-    validThrough: "2028-12-31",
+    description: "Total program fee for Batch 2027-29",
+    validFrom: "2027-01-01",
+    validThrough: "2029-12-31",
   },
   hasCourseInstance: {
     "@type": "CourseInstance",
     courseMode: "Full-time",
-    startDate: "2026-07-01",
+    startDate: "2027-07-01",
     endDate: "2028-06-30",
     offers: {
       "@type": "Offer",
@@ -145,10 +145,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is the total fee for PGDM-BIFS at SSIM Hyderabad for Batch 2026-28?",
+      name: "What is the total fee for PGDM-BIFS at SSIM Hyderabad for Batch 2027-29?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The total program fee for PGDM-BIFS Batch 2026-28 is ₹8,40,000 (Eight Lakhs Forty Thousand only) for the complete two-year duration, payable in installments as per the fee schedule communicated by the admissions department.",
+        text: "The total program fee for PGDM-BIFS Batch 2027-29 is ₹8,40,000 (Eight Lakhs Forty Thousand only) for the complete two-year duration, payable in installments as per the fee schedule communicated by the admissions department.",
       },
     },
     {

@@ -213,7 +213,7 @@ export default function Areas() {
                                 which is invalid inside a p and caused a React
                                 hydration error. */}
                             <div className="text-purple-600 font-medium inline-flex items-center gap-2">
-                              {member.area}
+                              {member.designation === "Mentor" ? member.designation : member.area}
                               <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
                               <Badge
                                 className="flex items-center gap-1 text-sm text-gray-600 hover:bg-purple-100 bg-white/90 

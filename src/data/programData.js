@@ -58,7 +58,7 @@ export const programData = {
         "@type": "CourseInstance",
         "courseMode": "OnCampus",
         "courseWorkload": "Full-time / Part-time (Executive)",
-        "startDate": "2026-06",
+        "startDate": "2027-06",
         "endDate": "2029-05",
         "location": {
           "@type": "Place",
@@ -312,7 +312,7 @@ export const programData = {
         "@type": "CourseInstance",
         "courseMode": "OnCampus",
         "courseWorkload": "Full-time / Part-time (Executive)",
-        "startDate": "2026-06",
+        "startDate": "2027-06",
         "endDate": "2029-05",
         "location": {
           "@type": "Place",
@@ -565,7 +565,7 @@ export const programData = {
         "@type": "CourseInstance",
         "courseMode": "OnCampus",
         "courseWorkload": "Full-time / Part-time (Executive)",
-        "startDate": "2026-06",
+        "startDate": "2027-06",
         "endDate": "2029-05",
         "location": {
           "@type": "Place",
@@ -822,7 +822,7 @@ export const programData = {
         "@type": "CourseInstance",
         "courseMode": "OnCampus",
         "courseWorkload": "Full-time",
-        "startDate": "2026-06",
+        "startDate": "2027-06",
         "endDate": "2028-05",
         "location": {
           "@type": "Place",
@@ -1481,7 +1481,7 @@ export const programData = {
         "@type": "CourseInstance",
         "courseMode": "OnCampus",
         "courseWorkload": "Full-time",
-        "startDate": "2026-06",
+        "startDate": "2027-06",
         "endDate": "2028-05",
         "location": {
           "@type": "Place",
@@ -1664,9 +1664,9 @@ export const programData = {
           "The curriculum aligns with banking, insurance, mutual fund, pension, risk, analytics, and customer-facing BFSI opportunities.",
       },
       {
-        title: "New Modules for 2026-28",
+        title: "New Modules for 2027-29",
         description:
-          "Additional modules have been integrated into the program for Batch 2026-28 as highlighted in the client deck.",
+          "Additional modules have been integrated into the program for Batch 2027-29 as highlighted in the client deck.",
       },
       {
         title: "NISM Immersion Program, Mumbai",
@@ -2020,7 +2020,7 @@ export const programData = {
       },
       {
         question: "What is the total fee and hostel facility available for PGDM-BIFS at SSIM Hyderabad?",
-        answer: "The total program fee for Batch 2026–28 is ₹8,40,000 for the complete two-year duration. Additionally, SSIM offers hostel accommodation with A/C and Non-A/C rooms in single and double occupancy options, inclusive of food facilities, at separate charges.",
+        answer: "The total program fee for Batch 2027–29 is ₹8,40,000 for the complete two-year duration. Additionally, SSIM offers hostel accommodation with A/C and Non-A/C rooms in single and double occupancy options, inclusive of food facilities, at separate charges.",
       },
       {
         question: "What scholarships are available for PGDM-BIFS at SSIM Hyderabad?",
@@ -2059,7 +2059,7 @@ export const programData = {
         "@type": "CourseInstance",
         "courseMode": "OnCampus",
         "courseWorkload": "Full-time",
-        "startDate": "2026-06",
+        "startDate": "2027-06",
         "endDate": "2028-05",
         "location": {
           "@type": "Place",
@@ -2879,7 +2879,7 @@ export const programData = {
         answer: "Minor specialisations are Finance, Marketing, Human Resource, Banking, Insurance, Business Analytics, Agri Business Management, Operations Management, and Technology Management. Sectoral options include Digital Marketing, Retail Management, Business Analytics, Entrepreneurship, Hospitality & Tourism Management, Pharmaceutical Management, Real Estate Management, Insurance Management, and Banking.",
       },
       {
-        question: "What is the eligibility for PGDM admissions 2026?",
+        question: "What is the eligibility for PGDM admissions 2027?",
         answer: "Candidates must have a minimum 3-year bachelor's degree with 50% marks and valid scores in exams like CAT, MAT, XAT, CMAT, or ATMA.",
       },
       {
@@ -2887,7 +2887,7 @@ export const programData = {
         answer: "CAT and XAT are the top choices, but MAT, CMAT, and ATMA are equally good options depending on your preparation level and target colleges. For preparation, focus on Quantitative Aptitude, Logical Reasoning, Data Interpretation, and Verbal Ability — backed by regular mock tests and strong time management practice.",
       },
       {
-        question: "What is the total fee structure for PGDM Triple Specialisation at SSIM Hyderabad for Batch 2026–28?",
+        question: "What is the total fee structure for PGDM Triple Specialisation at SSIM Hyderabad for Batch 2027–29?",
         answer: "The total program fee is ₹8,40,000 payable in installments — Admission Fee (₹50,000) and Alumni Association Fee (₹10,000) at the time of admission, followed by 5 installments ranging from ₹1,24,000 to ₹1,86,000 spread across the two-year duration. A refundable caution deposit of ₹25,000 is also payable with the 1st installment.",
       },
       {

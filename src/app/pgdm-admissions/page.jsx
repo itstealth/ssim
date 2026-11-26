@@ -60,8 +60,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ></iframe>
       </noscript>
 
-      <title>PGDM Admissions 2026–2028 | SSIM Hyderabad | Top B-School in Telangana</title>
-      <meta name="description" content="Apply for PGDM 2026-2028 at SSIM Hyderabad. NBA Accredited, AICTE Approved. Ranked 2nd in Telangana & 21st among Private B-Schools in India. 100% Placement Support." />
+      <title>PGDM Admissions 2027–2029 | SSIM Hyderabad | Top B-School in Telangana</title>
+      <meta name="description" content="Apply for PGDM 2027-2029 at SSIM Hyderabad. NBA Accredited, AICTE Approved. Ranked 2nd in Telangana & 21st among Private B-Schools in India. 100% Placement Support." />
       <style dangerouslySetInnerHTML={{ __html: `
   body { font-family:'DM Sans',sans-serif; overflow-x:hidden; }
   .font-display { font-family:'Playfair Display',serif; }
@@ -103,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <span className="hidden sm:inline">📞 <a href="tel:+919391114948" className="text-gold-light font-semibold">+91 93911 14948</a></span>
     <span className="hidden lg:inline">✉️ <a href="mailto:admissions@ssim.ac.in" className="text-gold-light">admissions@ssim.ac.in</a></span>
   </div>
-  <div className="text-center sm:text-right">🎓 <strong className="text-gold-light">Admissions Open 2026–2028</strong> · Apply Now!</div>
+  <div className="text-center sm:text-right">🎓 <strong className="text-gold-light">Admissions Open 2027–2029</strong> · Apply Now!</div>
 </div>  */}
 
 {/*  STICKY NAV  */}
@@ -169,7 +169,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         <em className="not-italic text-gold-light">Best MBA/PGDM College in Hyderabad</em>
       </h1>
-      <h2 className="text-gray-900 text-xl sm:text-2xl md:text-3xl bg-gold-light font-bold px-5 py-2.5 rounded-lg md:mb-5 w-fit shadow-lg transform -skew-x-3"><span className="block transform skew-x-3">Admissions Now Open | Batch 2026–2028</span></h2>
+      <h2 className="text-gray-900 text-xl sm:text-2xl md:text-3xl bg-gold-light font-bold px-5 py-2.5 rounded-lg md:mb-5 w-fit shadow-lg transform -skew-x-3"><span className="block transform skew-x-3">Admissions Now Open | Batch 2027–2029</span></h2>
       <p className="hidden md:block text-white/80 text-sm md:text-base leading-relaxed mb-7 max-w-xl">
         AICTE Approved · NBA Accredited · NAAC Certified<br/>
         Ranked <strong className="text-gold-light">2nd in Telangana</strong> &amp; 21st in India among Private B-Schools
@@ -358,7 +358,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">📋</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Eligibility</strong><span className="text-xs md:text-sm text-gray-500">Graduation (any stream) with min. 50% marks. Final year students may apply.</span></div></li>
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">📝</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Entrance Tests Accepted</strong><span className="text-xs md:text-sm text-gray-500">CAT / MAT / XAT / CMAT / ATMA / GMAT / SSIM Scholarship Test</span></div></li>
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">🏅</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Accreditation</strong><span className="text-xs md:text-sm text-gray-500">AICTE Approved · NBA Accredited · NAAC Certified · AIU Member</span></div></li>
-        <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">📅</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Batch Year</strong><span className="text-xs md:text-sm text-gray-500">2026–2028 Batch — Admissions Currently Open</span></div></li>
+        <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">📅</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Batch Year</strong><span className="text-xs md:text-sm text-gray-500">2027–2029 Batch — Admissions Currently Open</span></div></li>
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">🌐</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Campus Location</strong><span className="text-xs md:text-sm text-gray-500">NH 44, Kompally, Secunderabad, Hyderabad – 500100</span></div></li>
         <li className="flex gap-3 md:gap-4 py-4 items-start"><div className="w-9 h-9 md:w-10 md:h-10 bg-gold-pale rounded-lg flex items-center justify-center text-lg md:text-xl shrink-0">💳</div><div><strong className="block text-xs md:text-sm font-bold text-navy mb-0.5">Scholarship Available</strong><span className="text-xs md:text-sm text-gray-500">Merit scholarships up to ₹4,00,000 for eligible students</span></div></li>
       </ul>
@@ -658,7 +658,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div className="flex items-center justify-between gap-3 px-4 md:px-5 py-4 cursor-pointer select-none">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="w-7 h-7 bg-gold-pale border border-gold/30 rounded-full flex items-center justify-center text-xs font-bold text-gold shrink-0">6</div>
-              <span className="text-xs md:text-sm font-bold text-navy leading-snug">What is the admission process for the 2026–2028 batch?</span>
+              <span className="text-xs md:text-sm font-bold text-navy leading-snug">What is the admission process for the 2027–2029 batch?</span>
             </div>
             <div className="faq-icon w-7 h-7 bg-mist text-navy rounded-full flex items-center justify-center text-xl font-light shrink-0">+</div>
           </div>
@@ -670,7 +670,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <li><strong>Step 4:</strong> Merit list &amp; offer letter issued</li>
               <li><strong>Step 5:</strong> Fee payment &amp; seat confirmation</li>
             </ul>
-            <p className="text-xs md:text-sm text-gray-500"><strong>Admissions for 2026–2028 are currently open.</strong> Rolling admissions in progress — early applicants get priority. Apply now to secure your seat and scholarship.</p>
+            <p className="text-xs md:text-sm text-gray-500"><strong>Admissions for 2027–2029 are currently open.</strong> Rolling admissions in progress — early applicants get priority. Apply now to secure your seat and scholarship.</p>
           </div>
         </div>
 
@@ -687,14 +687,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div className="max-w-3xl mx-auto relative z-10">
     <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/35 text-gold-light text-xs font-semibold px-4 py-2 rounded-full mb-5">
       <span className="dot-live w-2 h-2 bg-green-400 rounded-full inline-block"></span>
-      Admissions Open for Batch 2026–2028
+      Admissions Open for Batch 2027–2029
     </div>
     <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
       Your Management Journey<br/>Starts at <em className="not-italic text-gold-light">SSIM Hyderabad</em>
     </h2>
     <p className="text-white/70 text-sm md:text-base mb-8 leading-relaxed">Limited seats available. Apply today and secure your spot in Telangana's #2 B-School.<br className="hidden md:block"/> Get a free counselling session and detailed brochure instantly.</p>
     <div className="flex flex-col sm:flex-row gap-3 justify-center">
-      <a href="#lead-form" className="bg-ssred hover:bg-ssred-dark text-white font-bold text-base md:text-lg px-7 py-4 rounded-xl transition-colors">🚀 Apply for PGDM 2026–28</a>
+      <a href="#lead-form" className="bg-ssred hover:bg-ssred-dark text-white font-bold text-base md:text-lg px-7 py-4 rounded-xl transition-colors">🚀 Apply for PGDM 2027–29</a>
       {/*  <a href="tel:+919391114948" className="border-2 border-white/40 hover:border-white text-white font-semibold text-base md:text-lg px-7 py-4 rounded-xl transition-colors">📞 Talk to Counsellor</a>  */}
     </div>
   </div>
@@ -712,7 +712,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
     {/*  Copyright  */}
-    <div><span className="text-black text-[12px] block">© 2026 SSIM Hyderabad. All Rights Reserved.</span><a href="https://ssim.ac.in" className="text-yellow-600 text-[12px]">ssim.ac.in</a></div>
+    <div><span className="text-black text-[12px] block">© 2027 SSIM Hyderabad. All Rights Reserved.</span><a href="https://ssim.ac.in" className="text-yellow-600 text-[12px]">ssim.ac.in</a></div>
   </div>
 </footer>
 

@@ -1,10 +1,10 @@
 export default function Ticker() {
   const items = [
-    '🎓 Admissions Open 2026–2028 — Apply Now for PGDM, PGDM-BIFS, PGDM-BA & FPM/EFPM',
+    '🎓 Admissions Open 2027–2029 — Apply Now for PGDM, PGDM-BIFS, PGDM-BA & FPM/EFPM',
     '🏆 Ranked 2nd B-School in Telangana — Outlook & CSR Rankings 2025',
     '⭐ A+++ B-School by Business India 2024',
     '💼 AICTE Approved | NAAC | NBA Accredited | AACSB Member',
-    '📅 Last Date: 30 June 2026 — Secure Your Seat Today!',
+    '📅 Last Date: 30 June 2027 — Secure Your Seat Today!',
   ]
 
   return (

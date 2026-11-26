@@ -26,6 +26,30 @@ const categories = [
       "The 31st Snatak celebrated the graduating class of Siva Sivani Institute of Management, recognising academic achievement and marking the beginning of a new professional journey for SSIM's graduates.",
   },
   {
+    id: "67",
+    label: "Session by Mr. Vishwanath Pillutla",
+    icon: <Image />,
+    heading: "Session by Mr. Vishwanath Pillutla, Founder-Director, T.I.M.E.",
+    description:
+      "SSIM organised a Guest Lecture on “Campus to Corporate” by Mr. Vishwanath Pillutla, Founder-Director of Triumphant Institute of Management Education Pvt. Ltd. (T.I.M.E.).",
+  },
+  {
+    id: "66",
+    label: "Badminton Tournament",
+    icon: <Image />,
+    heading: "Badminton Tournament",
+    description:
+      "SSIM Sports Club organised a badminton tournament with enthusiastic participation from students of both PGDM Batches 2025–27 and 2026–28. The tournament provided students with an opportunity to showcase their sporting talent, competitive spirit, and teamwork while promoting physical fitness, sportsmanship, and healthy interaction among the batches.",
+  },
+  {
+    id: "65",
+    label: "Bathukamma and Dandiya Celebrations",
+    icon: <Image />,
+    heading: "Bathukamma and Dandiya Celebrations",
+    description:
+      "SSIM Cultural Club organised vibrant Bathukamma and Dandiya celebrations on campus. Students from both PGDM Batches 2025–27 and 2026–28 actively participated, showcasing their cultural traditions through colourful festivities, music, and dance.",
+  },
+  {
     id: "57",
     label: "PGDM Programmes Inauguration 2026-28",
     icon: <Image />,
@@ -458,7 +482,7 @@ const lifeAtSsimTabs = [
   {
     id: "talks",
     label: "Guest Lectures / Industry Interaction / Industry Collaborations",
-    categoryIds: new Set(["59", "28", "29"]),
+    categoryIds: new Set(["67", "59", "28", "29"]),
   },
   {
     id: "alumni",
@@ -469,7 +493,7 @@ const lifeAtSsimTabs = [
     id: "clubs",
     label: "Student Club Activities",
     categoryIds: new Set([
-      "7", "5", "33", "27", "35", "11", "50", "46", "45", "43",
+      "66", "65", "7", "5", "33", "27", "35", "11", "50", "46", "45", "43",
       "41", "38", "39", "12",
     ]),
   },
@@ -489,16 +513,37 @@ const lifeAtSsimTabs = [
 
 // Image arrays for current Life at SSIM stories
 const snatak31stImages = [
-  "snatak-2025 (1).webp",
-  "snatak-2025 (10).webp",
-  "snatak-2025 (15).webp",
-  "snatak-2025 (20).webp",
-  "snatak-2025 (25).webp",
+  "1.webp",
+  "2.webp",
+  "3.webp",
+  "4.webp",
+  "5.webp",
 ].map((filename, i) => ({
   id: i + 1,
-  src: `/studentslife/life-at-ssim/snatak-2025/${filename}`,
+  src: `/studentslife/life-at-ssim/snatak-2026/${filename}`,
   category: "64",
   alt: `31st Snatak convocation image ${i + 1}`,
+}));
+
+const bathukammaDandiyaImages = ["1.webp", "2.webp"].map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/bathukamma-dandiya/${filename}`,
+  category: "65",
+  alt: `Bathukamma and Dandiya celebrations image ${i + 1}`,
+}));
+
+const badmintonTournamentImages = ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp"].map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/badminton-tournament/${filename}`,
+  category: "66",
+  alt: `Badminton tournament image ${i + 1}`,
+}));
+
+const campusToCorporateTimeImages = ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp"].map((filename, i) => ({
+  id: i + 1,
+  src: `/studentslife/life-at-ssim/campus-to-corporate-time/${filename}`,
+  category: "67",
+  alt: `Campus to Corporate guest lecture image ${i + 1}`,
 }));
 
 const analyticsClubQuizImages = [
@@ -1030,6 +1075,9 @@ const studentAchievementImages = industryData.flatMap((achievement) => {
 // Combined gallery items
 const galleryItems = [
   ...snatak31stImages,
+  ...bathukammaDandiyaImages,
+  ...badmintonTournamentImages,
+  ...campusToCorporateTimeImages,
   ...studentClubTournamentImages,
   ...sagnatureDayImages,
   ...marketingClubActivityImages,

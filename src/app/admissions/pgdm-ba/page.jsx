@@ -243,12 +243,12 @@ const feesData = {
   ],
   importantNotes: [
     "An amount of INR 25,000 should be deposited by all students along with the 1st Installment fees. This caution money is subject to deductions, if any, and will be refunded upon the student's exit from the institute",
-    "The PGDM fee structure for Batch 2026-2028 includes Admission fee, Course fee, and the regular Examination fee",
+    "The PGDM-BA fee structure for Batch 2027-2029 includes Admission fee, Course fee, and the regular Examination fee",
     "The institute mandatorily provides a Laptop, Business Suit, and Textbooks (As per Book Bank Policy) to every student",
     "Admission cancellation policy is As per AICTE Norms",
   ],
   totalFee: "₹8,40,000",
-  batch: "2026-28",
+  batch: "2027-29",
 };
 
 const datesData = [
@@ -260,7 +260,7 @@ const datesData = [
   {
     date: "July 9, 2025",
     event: "Inaugural Session",
-    description: "Official commencement of academic session for Batch 2026-28",
+    description: "Official commencement of academic session for Batch 2027-29",
   },
 ];
 // Navigation Component
@@ -534,7 +534,7 @@ const Fees = () => (
     <Card className="border-none shadow-none">
       <CardHeader>
         <CardTitle className="text-3xl text-[#002f87]">
-          Fee Structure (Batch 2026-28)
+          Fee Structure (Batch 2027-29)
         </CardTitle>
         <CardDescription className="text-lg text-red-600 font-semibold">
           Total Program Fee: ₹8,40,000 (Eight Lakhs Forty Thousand only)
@@ -556,9 +556,6 @@ const Fees = () => (
                   <TableHead className="bg-[#002f87] text-white text-lg">
                     Amount
                   </TableHead>
-                  <TableHead className="bg-[#002f87] text-white text-lg">
-                    Due Date
-                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -569,9 +566,6 @@ const Fees = () => (
                     </TableCell>
                     <TableCell className="text-red-600 font-semibold text-lg">
                       {fee.amount}
-                    </TableCell>
-                    <TableCell className="text-black text-lg">
-                      {fee.dueDate}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -665,7 +659,7 @@ const Fees = () => (
 
         {/* Important Notes */}
         <div className="bg-[#002f87]/5 p-4 rounded-lg space-y-2">
-          <h4 className="font-semibold text-[#002f87] text-lg">
+          <h4 className="font-semibold !text-black text-lg">
             Important Notes:
           </h4>
           <ul className="list-disc list-inside space-y-1 text-lg text-black">

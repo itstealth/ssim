@@ -10,7 +10,7 @@ export default function CTASection() {
           Your Transformative Journey Starts Here
         </h2>
         <p className="text-slate-600 text-[16px] mb-6">
-          Join 6,500+ alumni and become part of SSIM&apos;s legacy of excellence. Admissions open for 2026–2028 batch.
+          Join 6,500+ alumni and become part of SSIM&apos;s legacy of excellence. Admissions open for the 2027–2029 batch.
         </p>
         <div className="flex gap-4 justify-center flex-wrap mt-4">
           <a
@@ -19,7 +19,7 @@ export default function CTASection() {
             rel="noreferrer"
             className="bg-gradient-to-r from-purple-700 via-purple-600 to-[#1B50EC] text-white px-9 py-[14px] rounded-[12px] font-extrabold text-[15px] no-underline transition-all hover:-translate-y-[2px] shadow-[0_10px_28px_rgba(16,34,105,0.16)] hover:shadow-[0_14px_34px_rgba(16,34,105,0.22)]"
           >
-            Apply Now — 2026 Batch
+            Apply Now — 2027 Batch
           </a>
           <a
             href="/SSIM-Brochure-2026.pdf"

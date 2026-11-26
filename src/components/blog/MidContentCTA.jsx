@@ -13,7 +13,7 @@ export function MidContentCTA() {
               className="text-[10px] font-bold tracking-widest uppercase mb-1"
               style={{ color: "#C49A2A" }}
             >
-              PGDM 2026–28 &nbsp;·&nbsp; Admissions Open
+              PGDM 2027–29 &nbsp;·&nbsp; Admissions Open
             </p>
             <p className="font-semibold text-base leading-snug" style={{ color: "#ffffff" }}>
               Shape your management career at SSIM

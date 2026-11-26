@@ -73,14 +73,14 @@ const courseSchema = {
     "@type": "Offer",
     price: "840000",
     priceCurrency: "INR",
-    description: "Total program fee for Batch 2026-28",
-    validFrom: "2026-01-01",
-    validThrough: "2028-12-31",
+    description: "Total program fee for Batch 2027-29",
+    validFrom: "2027-01-01",
+    validThrough: "2029-12-31",
   },
   hasCourseInstance: {
     "@type": "CourseInstance",
     courseMode: "Full-time",
-    startDate: "2026-07-01",
+    startDate: "2027-07-01",
     endDate: "2028-06-30",
     offers: {
       "@type": "Offer",
@@ -128,10 +128,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is the total fee for PGDM-BA at SSIM Hyderabad for Batch 2026-28?",
+      name: "What is the total fee for PGDM-BA at SSIM Hyderabad for Batch 2027-29?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The total program fee for PGDM-BA Batch 2026-28 is ₹8,40,000 (Eight Lakhs Forty Thousand only) for the complete two-year duration, payable in installments as per the fee schedule communicated by the admissions department.",
+        text: "The total program fee for PGDM-BA Batch 2027-29 is ₹8,40,000 (Eight Lakhs Forty Thousand only) for the complete two-year duration, payable in installments as per the fee schedule communicated by the admissions department.",
       },
     },
     {

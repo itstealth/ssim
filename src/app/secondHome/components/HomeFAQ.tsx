@@ -77,7 +77,7 @@ const faqs = [
     tag: "Placements",
   },
   {
-    q: "What is the admission process for PGDM 2026 at SSIM Hyderabad?",
+    q: "What is the admission process for PGDM 2027 at SSIM Hyderabad?",
     a: (
       <div className="space-y-3">
         <p className="text-slate-600 text-[14px] leading-relaxed">
@@ -120,7 +120,7 @@ const faqs = [
           ))}
         </ol>
         <p className="text-[13px] text-purple-700 font-semibold">
-          🚀 Admissions for the 2026 batch are open. Apply early to secure your seat.
+          🚀 Admissions for the 2027 batch are open. Apply early to secure your seat.
         </p>
       </div>
     ),
