@@ -5,16 +5,16 @@ import Image from "next/image";
 
 const heroSlides = [
   {
-    src: "/home-banners/slider-3-lossless.webp",
-    alt: "Every SSIM student receives an Apple MacBook as a learning tool; admissions open for 2027",
+    src: "/home-banners/slider-1-lossless.webp?v=2",
+    alt: "Welcome Prof. YLR Moorthi, Mentor, to the SSIM family",
   },
   {
     src: "/home-banners/slider-2-lossless.webp",
     alt: "SSIM CAT merit scholarship of up to four lakh rupees for candidates scoring 80 percentile or above",
   },
   {
-    src: "/home-banners/slider-1-lossless.webp",
-    alt: "Welcome Prof. YLR Moorthi, Mentor, to the SSIM family",
+    src: "/home-banners/slider-3-lossless.webp",
+    alt: "Every SSIM student receives an Apple MacBook as a learning tool; admissions open for 2027",
   },
 ];
 
