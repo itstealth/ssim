@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Alumni Network",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "SSIM Alumni Network | Leaders, Achievers & Industry Professionals",
     description: "SSIM Hyderabad's alumni are leaders and achievers across industries worldwide. Explore our growing alumni network and reconnect with the SSIM community today.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

@@ -15,9 +15,9 @@ const homepageGraphSchema = {
       url: "https://ssim.ac.in/",
       logo: {
         "@type": "ImageObject",
-        url: "https://ssim.ac.in/logo-transparent.png",
+        url: "https://ssim.ac.in/logo-transparent-35-years.png",
       },
-      image: ["https://ssim.ac.in/banner.png", "https://ssim.ac.in/logo-transparent.png"],
+      image: ["https://ssim.ac.in/banner.png", "https://ssim.ac.in/logo-transparent-35-years.png"],
       description:
         "Siva Sivani Institute of Management (SSIM) is an AICTE-approved autonomous business school in Hyderabad offering PGDM, PGDM BA, PGDM BIFS, FPM and EFPM programs with strong industry integration, placements, and management education excellence.",
       telephone: "+91-9391114948",
@@ -170,7 +170,7 @@ export function CourseSchema({
   timeRequired = "P2Y",
   coursePrerequisites = "Bachelor's degree",
   url,
-  image = "https://ssim.ac.in/logo-transparent.png",
+  image = "https://ssim.ac.in/logo-transparent-35-years.png",
   aggregateRating,
   offers,
 }) {
@@ -216,7 +216,7 @@ export function BlogPostingSchema({
     name: "Siva Sivani Institute of Management",
     logo: {
       "@type": "ImageObject",
-      url: "https://ssim.ac.in/logo-transparent.png",
+      url: "https://ssim.ac.in/logo-transparent-35-years.png",
     },
   },
   url,
@@ -227,7 +227,7 @@ export function BlogPostingSchema({
     "@type": "BlogPosting",
     headline,
     description,
-    image: image || "https://ssim.ac.in/logo-transparent.png",
+    image: image || "https://ssim.ac.in/logo-transparent-35-years.png",
     datePublished,
     dateModified: dateModified || datePublished,
     author,
@@ -363,7 +363,7 @@ export function ArticleSchema({
     name: "Siva Sivani Institute of Management",
     logo: {
       "@type": "ImageObject",
-      url: "https://ssim.ac.in/logo-transparent.png",
+      url: "https://ssim.ac.in/logo-transparent-35-years.png",
     },
   },
   datePublished,
@@ -372,7 +372,7 @@ export function ArticleSchema({
     "@context": "https://schema.org",
     "@type": "Article",
     headline,
-    image: image || "https://ssim.ac.in/logo-transparent.png",
+    image: image || "https://ssim.ac.in/logo-transparent-35-years.png",
     author,
     publisher,
     datePublished,

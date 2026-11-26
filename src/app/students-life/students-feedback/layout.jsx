@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Student Feedback",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Student Feedback - SSIM Hyderabad",
     description: "Provide your feedback at SSIM Hyderabad. Help the institute improve academic quality, campus facilities, and overall student experience effectively.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

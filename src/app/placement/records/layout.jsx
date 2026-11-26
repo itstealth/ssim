@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Placement Records",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "SSIM Hyderabad Career Success Stories",
     description: "Explore SSIM Hyderabad's placement records showcasing student achievements, top recruiters, and career success across diverse industries and sectors.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

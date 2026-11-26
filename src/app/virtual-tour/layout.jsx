@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Virtual Campus Tour",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Virtual Campus Tour | Explore SSIM Hyderabad in 360°",
     description: "Explore SSIM Hyderabad's world-class campus in 360°. Tour 17 locations across 4 categories – academics, admin, facilities & residences. Visit virtually today!",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

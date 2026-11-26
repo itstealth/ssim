@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Guest Lectures",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Guest Lectures - SSIM Hyderabad",
     description: "Explore SSIM Hyderabad's guest lectures featuring industry leaders and academicians, providing students with practical insights and expert knowledge.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

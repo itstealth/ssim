@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
       siteName: "Siva Sivani Institute of Management",
       images: [
         {
-          url: "/logo-transparent.png",
+          url: "/logo-transparent-35-years.png",
           width: 400,
           height: 89,
           alt: metadata.title,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: metadata.title,
       description: metadata.description,
-      images: ["/logo-transparent.png"],
+      images: ["/logo-transparent-35-years.png"],
     },
     robots: {
       index: true,

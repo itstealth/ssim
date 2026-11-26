@@ -11,7 +11,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM PGDM BIFS",
@@ -25,7 +25,7 @@ export const metadata = {
     title: "PGDM BIFS Hyderabad Admission 2026 | Fees, Process & Course",
     description:
       "Apply for Post Graduate Diploma in Management – Banking, Insurance, and Financial Services (PGDM BIFS) Admission 2026 in Hyderabad at SSIM. Check fees, admission process, eligibility & placement support.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

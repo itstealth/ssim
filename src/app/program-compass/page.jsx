@@ -20,7 +20,7 @@ export const metadata = {
       "18 questions, 5 minutes. Discover which of SSIM's six PGDM specializations matches your interests and working style.",
     url: PAGE_URL,
     siteName: "SSIM Hyderabad",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
     type: "website",
   },
   twitter: {
@@ -28,7 +28,7 @@ export const metadata = {
     title: "Program Compass — Free PGDM Career Assessment | SSIM Hyderabad",
     description:
       "18 questions, 5 minutes. Discover which of SSIM's six PGDM specializations matches your interests and working style.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: { index: true, follow: true },
   keywords: [

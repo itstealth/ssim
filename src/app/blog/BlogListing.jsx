@@ -130,7 +130,7 @@ function BlogContent({ initialPosts }) {
 
     return currentPosts.map((post) => ({
       headline: post.title,
-      image: post.imageUrl || post.image || "https://ssim.ac.in/logo-transparent.png",
+      image: post.imageUrl || post.image || "https://ssim.ac.in/logo-transparent-35-years.png",
       author: {
         "@type": "Organization",
         name: post.authorName || "Siva Sivani Institute of Management",
@@ -140,7 +140,7 @@ function BlogContent({ initialPosts }) {
         name: "Siva Sivani Institute of Management",
         logo: {
           "@type": "ImageObject",
-          url: "https://ssim.ac.in/logo-transparent.png",
+          url: "https://ssim.ac.in/logo-transparent-35-years.png",
         },
       },
       datePublished: post.publishDate,

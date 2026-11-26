@@ -39,7 +39,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Academic Advisory Board",
@@ -52,7 +52,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Academic Advisory Board - SSIM",
     description: "Meet the esteemed members of the Academic Advisory Board at Siva Sivani Institute of Management (SSIM).",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Internships",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Launch Your Career with SSIM Internships",
     description: "SSIM Hyderabad offers internships that bridge classroom learning and real-world experience. Contact +91-9391114948 for details.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

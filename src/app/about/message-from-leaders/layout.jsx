@@ -11,7 +11,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Leadership",
@@ -25,7 +25,7 @@ export const metadata = {
     title: "Message from Leaders - SSIM Hyderabad",
     description:
       "Discover the leadership team at SSIM Hyderabad — visionary academicians and industry experts guiding one of the best PGDM colleges in Hyderabad.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

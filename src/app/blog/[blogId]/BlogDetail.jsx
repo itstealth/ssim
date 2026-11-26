@@ -493,7 +493,7 @@ export default function BlogDetail({ initialPost }) {
         blog.featuredImage ||
         blog.image ||
         blog.imageUrl ||
-        "https://ssim.ac.in/logo-transparent.png",
+        "https://ssim.ac.in/logo-transparent-35-years.png",
       author: {
         "@type": "Organization",
         name: blog.authorName || "Siva Sivani Institute of Management",
@@ -503,7 +503,7 @@ export default function BlogDetail({ initialPost }) {
         name: "Siva Sivani Institute of Management",
         logo: {
           "@type": "ImageObject",
-          url: "https://ssim.ac.in/logo-transparent.png",
+          url: "https://ssim.ac.in/logo-transparent-35-years.png",
         },
       },
       datePublished: blog.publishDate,

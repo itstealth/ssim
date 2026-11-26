@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Faculty Expertise",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Faculty Expertise - SSIM Hyderabad",
     description: "Discover SSIM Hyderabad's faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

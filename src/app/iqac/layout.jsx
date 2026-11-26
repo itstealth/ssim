@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM IQAC",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "IQAC - SSIM",
     description: "Learn about SSIM Hyderabad's IQAC, promoting quality in PGDM education, institutional best practices, and continuous academic improvement.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

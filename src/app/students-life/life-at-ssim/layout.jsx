@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "Life at SSIM",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Life at SSIM Hyderabad | Campus Culture, Events & Student Activities",
     description: "Life at SSIM goes beyond textbooks – explore cultural fests, leadership talks, outbound training, clubs & community initiatives that build future-ready managers.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

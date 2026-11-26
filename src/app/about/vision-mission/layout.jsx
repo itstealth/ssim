@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Vision and Mission",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Vision & Mission | SSIM – Premier Management Institute in Hyderabad",
     description: "Explore SSIM Hyderabad's Vision & Mission — nurturing responsible management graduates through ethics-based education, innovation, and research-driven learning.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

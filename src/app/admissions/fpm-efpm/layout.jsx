@@ -11,7 +11,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM FPM EFPM Programs",
@@ -25,7 +25,7 @@ export const metadata = {
     title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
     description:
       "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

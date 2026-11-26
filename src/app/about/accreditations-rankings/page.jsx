@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Accreditations and Rankings",
@@ -43,7 +43,7 @@ export const metadata = {
     title: "Accreditations & Rankings - SSIM",
     description:
       "View the accreditations and rankings of Siva Sivani Institute of Management (SSIM).",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

@@ -11,6 +11,7 @@ const EXCLUDED_PATHS = [
   "/sitemap.xml",
   "/manifest.json",
   "/logo-transparent.png",
+  "/logo-transparent-35-years.png",
   "/public",
   "/Employee_Hand_Book.pdf",
   "/Student_Hand_Book_Batch_2025_27.pdf",
@@ -444,6 +445,15 @@ function handlePatternRedirect(path) {
 // MIDDLEWARE HANDLER
 // ============================================================================
 
+function nextWithFreshMetadata() {
+  const response = NextResponse.next();
+  response.headers.set(
+    "Cache-Control",
+    "no-store, no-cache, max-age=0, must-revalidate"
+  );
+  return response;
+}
+
 export function middleware(request) {
   const { pathname, search, hostname } = request.nextUrl;
 
@@ -465,7 +475,7 @@ export function middleware(request) {
 
   // 2. Skip known valid Next.js routes — never redirect these
   if (VALID_PATHS.includes(pathname)) {
-    return NextResponse.next();
+    return nextWithFreshMetadata();
   }
 
   // 2. Skip Next.js internals
@@ -479,7 +489,7 @@ export function middleware(request) {
 
   // 3. Check if this looks like a legacy URL
   if (!isLegacyUrl(pathname + search)) {
-    return NextResponse.next();
+    return nextWithFreshMetadata();
   }
 
   // 4. Try exact match first
@@ -499,7 +509,7 @@ export function middleware(request) {
   }
 
   // 6. No redirect found - let Next.js handle it (will 404 if not found)
-  return NextResponse.next();
+  return nextWithFreshMetadata();
 }
 
 export const config = {

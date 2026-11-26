@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Placement Team",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Placement Team | Corporate Relations & Careers – SSIM Hyderabad",
     description: "Meet SSIM Hyderabad's dedicated placement team with 25+ years of experience in corporate relations. Connecting PGDM graduates with top industry opportunities. Contact us today!",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,

@@ -9,7 +9,7 @@ export const metadata = {
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
-        url: "/logo-transparent.png",
+        url: "/logo-transparent-35-years.png",
         width: 400,
         height: 89,
         alt: "SSIM Contact Us",
@@ -22,7 +22,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Get in Touch with SSIM Hyderabad",
     description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at +91-9391114948 for any queries, support, or campus-related information.",
-    images: ["/logo-transparent.png"],
+    images: ["/logo-transparent-35-years.png"],
   },
   robots: {
     index: true,
