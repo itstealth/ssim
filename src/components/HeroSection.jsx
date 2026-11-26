@@ -5,16 +5,16 @@ import Image from "next/image";
 
 const heroSlides = [
   {
-    src: "/home-banners/prof-ylr-moorthi.webp",
-    alt: "Welcome Prof. YLR Moorthi, Mentor, to the SSIM family",
+    src: "/home-banners/slider-3-lossless.webp",
+    alt: "Every SSIM student receives an Apple MacBook as a learning tool; admissions open for 2027",
   },
   {
-    src: "/home-banners/cat-merit-scholarship.webp",
+    src: "/home-banners/slider-2-lossless.webp",
     alt: "SSIM CAT merit scholarship of up to four lakh rupees for candidates scoring 80 percentile or above",
   },
   {
-    src: "/home-banners/apple-macbook-learning.webp",
-    alt: "Every SSIM student receives an Apple MacBook as a learning tool; admissions open for 2027",
+    src: "/home-banners/slider-1-lossless.webp",
+    alt: "Welcome Prof. YLR Moorthi, Mentor, to the SSIM family",
   },
 ];
 
@@ -62,7 +62,7 @@ const HeroSection = ({ className = "" }) => {
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      <div className="relative aspect-[32/15] w-full">
+      <div className="relative aspect-[1920/901] w-full">
         {heroSlides.map((slide, index) => mountedSlides.has(index) && (
           <div
             key={slide.src}
