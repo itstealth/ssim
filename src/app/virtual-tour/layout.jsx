@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Virtual Campus Tour | Explore SSIM Hyderabad in 360°",
     description: "Explore SSIM Hyderabad's world-class campus in 360°. Tour 17 locations across 4 categories – academics, admin, facilities & residences. Visit virtually today!",
-    url: "https://www.ssim.ac.in/virtual-tour",
+    url: "https://ssim.ac.in/virtual-tour",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

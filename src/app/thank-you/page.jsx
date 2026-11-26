@@ -114,7 +114,7 @@ export default function ThankYouPage() {
               <div className="grid md:grid-cols-2 gap-6 mt-10">
                 {/* Check Our Website Card */}
                 <a
-                  href="https://www.ssim.ac.in"
+                  href="https://ssim.ac.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-black/5 backdrop-blur-md rounded-2xl p-6 text-black transform hover:scale-105 transition-transform"

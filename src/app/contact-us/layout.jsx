@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Get in Touch with SSIM Hyderabad | +91-9391114948",
     description: "Reach Siva Sivani Institute of Management (SSIM) Hyderabad at +91-9391114948 for any queries, support, or campus-related information.",
-    url: "https://www.ssim.ac.in/contact-us",
+    url: "https://ssim.ac.in/contact-us",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

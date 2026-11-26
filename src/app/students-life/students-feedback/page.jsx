@@ -204,7 +204,7 @@ export default function FeedbackForm() {
         title="Student Feedback"
         description="Share your feedback with Siva Sivani Institute of Management (SSIM). We value your input to help us improve our programs and student experience."
         keywords="SSIM student feedback, student suggestions, college feedback, program feedback"
-        canonicalUrl="https://www.ssim.ac.in/students-life/students-feedback"
+        canonicalUrl="https://ssim.ac.in/students-life/students-feedback"
       /> */}
       <section className="py-16 px-5 sm:px-0 sm:py-20">
         <Card className="w-full max-w-2xl mx-auto shadow-lg border-t-4 border-t-mainBlue">

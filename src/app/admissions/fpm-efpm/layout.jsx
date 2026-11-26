@@ -7,7 +7,7 @@ export const metadata = {
     title: "Doctoral FPM EFPM Hyderabad | Admission 2026, Fees & Apply Now",
     description:
       "Join Doctoral FPM & EFPM in Hyderabad at SSIM. Know fees, admission process & eligibility. Build a career in research, academia & consulting. Apply today.",
-    url: "https://www.ssim.ac.in/admissions/fpm-efpm",
+    url: "https://ssim.ac.in/admissions/fpm-efpm",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

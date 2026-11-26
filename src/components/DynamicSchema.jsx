@@ -275,14 +275,14 @@ const routeConfig = {
  * 
  * 2. Breadcrumb schema:
  *    <DynamicSchema type="breadcrumb" breadcrumbs={[
- *      { name: "Home", item: "https://www.ssim.ac.in/" },
- *      { name: "About", item: "https://www.ssim.ac.in/about" }
+ *      { name: "Home", item: "https://ssim.ac.in/" },
+ *      { name: "About", item: "https://ssim.ac.in/about" }
  *    ]} />
  * 
  * 3. Article schema (for blog pages):
  *    <DynamicSchema type="article" article={{
  *      headline: "Article Title",
- *      image: "https://www.ssim.ac.in/image.jpg",
+ *      image: "https://ssim.ac.in/image.jpg",
  *      author: { "@type": "Organization", name: "SSIM" },
  *      publisher: { "@type": "Organization", name: "SSIM", logo: { "@type": "ImageObject", url: "..." } },
  *      datePublished: "2024-01-01"
@@ -307,7 +307,7 @@ export default function DynamicSchema({
   faq,
 }) {
   const pathname = usePathname();
-  const baseUrl = "https://www.ssim.ac.in";
+  const baseUrl = "https://ssim.ac.in";
 
   // Auto-detect schema type if not specified
   if (type === "auto") {

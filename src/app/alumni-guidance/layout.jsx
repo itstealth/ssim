@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "SSIM Alumni Network – Mentorship, Networking & Career Growth",
     description: "Join SSIM's thriving Alumni Community for networking, mentorship, career talks, webinars & exclusive benefits. Connect, give back, and grow with fellow alumni.",
-    url: "https://www.ssim.ac.in/alumni-guidance",
+    url: "https://ssim.ac.in/alumni-guidance",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

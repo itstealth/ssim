@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "PGDM Business Analytics Admission 2027 | Fees & Admission Process – SSIM",
     description: "PGDM Business Analytics Admission 2027 Hyderabad open at SSIM. Explore fees, admission process, eligibility & placements for Business Analytics course.",
-    url: "https://www.ssim.ac.in/admissions/pgdm-ba",
+    url: "https://ssim.ac.in/admissions/pgdm-ba",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

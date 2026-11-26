@@ -1,7 +1,7 @@
 const title = "Faculty Initiatives on Teaching and Learning | SSIM Hyderabad";
 const description =
   "SSIM faculty drive a student-centric, outcome-based teaching-learning approach — ICT-enabled classrooms, experiential learning, Mock UN, outbound training, community engagement and NPTEL resources.";
-const url = "https://www.ssim.ac.in/faculty-initiatives";
+const url = "https://ssim.ac.in/faculty-initiatives";
 const image = "/faculty-initiatives/ict-classroom-1.webp";
 
 export const metadata = {

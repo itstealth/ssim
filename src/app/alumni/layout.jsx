@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "SSIM Alumni Network | Leaders, Achievers & Industry Professionals",
     description: "SSIM Hyderabad's alumni are leaders and achievers across industries worldwide. Explore our growing alumni network and reconnect with the SSIM community today.",
-    url: "https://www.ssim.ac.in/alumni",
+    url: "https://ssim.ac.in/alumni",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

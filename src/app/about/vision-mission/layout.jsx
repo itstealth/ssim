@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Vision & Mission | SSIM – Premier Management Institute in Hyderabad",
     description: "Explore SSIM Hyderabad's Vision & Mission — nurturing responsible management graduates through ethics-based education, innovation, and research-driven learning.",
-    url: "https://www.ssim.ac.in/about/vision-mission",
+    url: "https://ssim.ac.in/about/vision-mission",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

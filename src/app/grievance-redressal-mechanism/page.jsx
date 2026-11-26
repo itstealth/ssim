@@ -95,7 +95,7 @@ import {
           title="Grievance Redressal Mechanism"
           description="Learn about the grievance redressal mechanism at Siva Sivani Institute of Management (SSIM). Get information on how to submit grievances, the process overview, and the responsibilities of the committee."
           keywords="SSIM grievance redressal, grievance mechanism, student grievances, complaint process, SSIM committee"
-          canonicalUrl="https://www.ssim.ac.in/grievance-redressal-mechanism"
+          canonicalUrl="https://ssim.ac.in/grievance-redressal-mechanism"
         /> */}
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-8">

@@ -7,7 +7,7 @@ export const metadata = {
     title: "FPM / EFPM Programs – SSIM Hyderabad | Call 9391114948",
     description:
       "Join SSIM Hyderabad's FPM/EFPM programs for advanced research in management. Call 9391114948 to learn about admissions, curriculum, and research opportunities.",
-    url: "https://www.ssim.ac.in/admissions/efpm",
+    url: "https://ssim.ac.in/admissions/efpm",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

@@ -163,7 +163,7 @@ export function CourseSchema({
   description,
   provider = {
     name: "Siva Sivani Institute of Management",
-    url: "https://www.ssim.ac.in",
+    url: "https://ssim.ac.in",
   },
   courseCode,
   educationalCredentialAwarded = "Post Graduate Diploma in Management",
@@ -327,8 +327,8 @@ export function OfferSchema({
 // WebSite Schema - for the whole website
 export function WebSiteSchema({
   name = "Siva Sivani Institute of Management",
-  url = "https://www.ssim.ac.in",
-  searchActionTarget = "https://www.ssim.ac.in/search?q={search_term_string}",
+  url = "https://ssim.ac.in",
+  searchActionTarget = "https://ssim.ac.in/search?q={search_term_string}",
 }) {
   const schema = {
     "@context": "https://schema.org/",

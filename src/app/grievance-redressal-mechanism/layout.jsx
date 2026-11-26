@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Grievance Redressal Mechanism - SSIM Hydrabad",
     description: "Learn about SSIM Hyderabad's grievance redressal mechanism, including submission process, committee responsibilities, and step-by-step resolution overview.",
-    url: "https://www.ssim.ac.in/grievance-redressal-mechanism",
+    url: "https://ssim.ac.in/grievance-redressal-mechanism",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/grievance-redressal-mechanism",
+    canonical: "https://ssim.ac.in/grievance-redressal-mechanism",
   },
 };
 

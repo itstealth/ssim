@@ -166,7 +166,7 @@ Human Resources`,
         title="International Relations"
         description="Explore SSIM's international relations, collaborations, and global initiatives. Discover how we provide a global perspective to our students."
         keywords="SSIM international relations, global collaboration, international business school, student exchange programs"
-        canonicalUrl="https://www.ssim.ac.in/international-relations"
+        canonicalUrl="https://ssim.ac.in/international-relations"
       /> */}
       {testimonials.length === 0 ? (
         <section className="w-full py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">

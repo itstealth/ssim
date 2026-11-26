@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Board of Studies - SSIM | Leading PGDM College in Hyderabad",
     description: "Explore the Board of Studies at SSIM Hyderabad, a top PGDM college in Hyderabad, driving academic excellence and industry-relevant curriculum.",
-    url: "https://www.ssim.ac.in/about/board-of-studies",
+    url: "https://ssim.ac.in/about/board-of-studies",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

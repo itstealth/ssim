@@ -7,7 +7,7 @@ export const metadata = {
     title: "PGDM Triple Specialisation Admission 2026 | Fees & Process – SSIM",
     description:
       "Join PGDM Triple Specialisation in Hyderabad at SSIM. Know fee structure, admission process & eligibility. Build multi-domain skills with strong placement support.",
-    url: "https://www.ssim.ac.in/admissions/pgdm-triple-specialisation",
+    url: "https://ssim.ac.in/admissions/pgdm-triple-specialisation",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

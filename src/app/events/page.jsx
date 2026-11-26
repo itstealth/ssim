@@ -21,7 +21,7 @@ export const metadata = {
     title: "Events at SSIM Hyderabad | Convocations, Seminars & Alumni Meets",
     description:
       "Stay updated with SSIM Hyderabad's latest events – convocations, alumni meets, seminars & more. Explore upcoming & past events and subscribe for announcements.",
-    url: "https://www.ssim.ac.in/events",
+    url: "https://ssim.ac.in/events",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

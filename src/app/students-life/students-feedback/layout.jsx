@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Student Feedback - SSIM Hyderabad | Share Your Insights",
     description: "Provide your feedback at SSIM Hyderabad. Help the institute improve academic quality, campus facilities, and overall student experience effectively.",
-    url: "https://www.ssim.ac.in/students-life/students-feedback",
+    url: "https://ssim.ac.in/students-life/students-feedback",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
@@ -29,7 +29,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.ssim.ac.in/students-life/students-feedback",
+    canonical: "https://ssim.ac.in/students-life/students-feedback",
   },
 };
 

@@ -22,7 +22,7 @@ export const metadata = {
     title: "30th Convocation Ceremony - SSIM",
     description:
       "Join us for the 30th Snatak (Convocation) ceremony of Siva Sivani Institute of Management.",
-    url: "https://www.ssim.ac.in/events/convocation-2024",
+    url: "https://ssim.ac.in/events/convocation-2024",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

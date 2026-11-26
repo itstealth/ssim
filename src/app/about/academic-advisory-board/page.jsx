@@ -35,7 +35,7 @@ export const metadata = {
   openGraph: {
     title: "Academic Advisory Board - SSIM",
     description: "Meet the esteemed members of the Academic Advisory Board at Siva Sivani Institute of Management (SSIM). Our board comprises distinguished leaders from academia and industry.",
-    url: "https://www.ssim.ac.in/about/academic-advisory-board",
+    url: "https://ssim.ac.in/about/academic-advisory-board",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {

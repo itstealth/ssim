@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: "Faculty Expertise - SSIM Hyderabad | Academic Excellence",
     description: "Discover SSIM Hyderabad's faculty expertise across diverse management domains, blending academic knowledge with real-world industry experience.",
-    url: "https://www.ssim.ac.in/faculty/areas",
+    url: "https://ssim.ac.in/faculty/areas",
     siteName: "Siva Sivani Institute of Management",
     images: [
       {
