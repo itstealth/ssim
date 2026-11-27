@@ -16,6 +16,10 @@ const heroSlides = [
     src: "/home-banners/slider-3-lossless.webp",
     alt: "Every SSIM student receives an Apple MacBook as a learning tool; admissions open for 2027",
   },
+  {
+    src: "/home-banners/slider-4-placement-trinamix.webp",
+    alt: "Placed before placement season starts: M Satish Kumar, PGDM-BA 2025-27 batch, placed at Trinamix as Associate Business Analyst with the highest package of 16 lakh",
+  },
 ];
 
 const HeroSection = ({ className = "" }) => {
