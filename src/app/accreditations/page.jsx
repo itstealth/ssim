@@ -82,7 +82,7 @@ export default function Accreditations() {
     {
       title: "Accreditation by NBA",
       description:
-        "Siva Sivani Institute of Management (SSIM) received the prestigious accreditation from the National Board of Accreditation (NBA), in the year 2020, for its flagship PGDM program. NBA accreditation highlights the true standard of achievements in Postgraduate in business education. This accreditation is considered to be the best standard in the country for all PGDM program.",
+        "Siva Sivani Institute of Management (SSIM) has received prestigious accreditation from the National Board of Accreditation (NBA) for the third consecutive cycle for its flagship PGDM programme. This accreditation recognises SSIM's commitment to maintaining high standards of postgraduate management education and reflects its continued excellence in delivering quality business education. This accreditation is considered to be the best standard in the country for all PGDM program.",
       image: nba,
     },
     {
